@@ -1,12 +1,15 @@
 /**
  * GameScreen - ゲームのメイン画面
  *
- * 全コンポーネントを統合し、SceneManagerの状態に基づいて描画する。
- * クリックイベントをSceneManagerに伝播する。
+ * VN標準レイアウト:
+ * - 背景 (z:0) → ダークオーバーレイ (z:2) → 立ち絵 (z:5) → テキストウィンドウ (z:20)
+ * - テキストウィンドウがキャラの下半身を覆う（VN定番）
+ * - 発言中キャラは明るく、非発言キャラは暗く
  */
 
-import { useCallback, useEffect, useRef } from 'preact/hooks'
+import { useCallback, useEffect, useRef, useMemo } from 'preact/hooks'
 import type { ScriptData, GameState, GameEvent } from '../engine/types'
+import { getCurrentStep } from '../engine/SceneManager'
 import { audioManager } from '../engine/AudioManager'
 import { Background } from './Background'
 import { SpriteLayer } from './SpriteLayer'
@@ -23,6 +26,17 @@ interface Props {
 
 export function GameScreen({ script, state, onEvent }: Props) {
   const prevBgmRef = useRef<string | null>(null)
+
+  // 現在発言中のキャラクターを特定
+  const speakingCharacter = useMemo(() => {
+    if (state.textDisplay.characterName) {
+      // characterNameからcharacter IDを逆引き
+      for (const [id, def] of Object.entries(script.characters)) {
+        if (def.name === state.textDisplay.characterName) return id
+      }
+    }
+    return null
+  }, [state.textDisplay.characterName, script.characters])
 
   // BGM変更の監視
   useEffect(() => {
@@ -42,7 +56,6 @@ export function GameScreen({ script, state, onEvent }: Props) {
       for (const sound of state.pendingSounds) {
         audioManager.playSe(sound)
       }
-      // キューをクリア
       onEvent({ type: 'sounds_played' })
     }
   }, [state.pendingSounds])
@@ -51,10 +64,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
     onEvent({ type: 'click' })
   }, [onEvent])
 
-  const handleTypingComplete = useCallback(() => {
-    // タイプライター完了時は状態を「クリック待ち」にする
-    // （SceneManager側で textDisplay.isTyping = false にする）
-  }, [])
+  const handleTypingComplete = useCallback(() => {}, [])
 
   const handleChoiceSelect = useCallback(
     (choiceId: string, value: string) => {
@@ -72,28 +82,26 @@ export function GameScreen({ script, state, onEvent }: Props) {
     onEvent({ type: 'title_card_done' })
   }, [onEvent])
 
+  const hasSprites = state.visibleSprites.length > 0
+
   return (
     <div class="game-screen" onClick={handleClick}>
       {/* 背景 */}
       <Background image={state.currentBg} />
 
-      {/* 背景ダークオーバーレイ（キャラがいる時に背景を暗くして人物を際立たせる） */}
-      {state.visibleSprites.length > 0 && (
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'rgba(0, 0, 0, 0.3)',
-            zIndex: 2,
-            transition: 'opacity 0.5s ease',
-          }}
-        />
-      )}
+      {/* 背景ダークオーバーレイ（キャラがいる時に背景を暗くする） */}
+      <div
+        class="bg-overlay"
+        style={{
+          opacity: hasSprites ? 1 : 0,
+        }}
+      />
 
-      {/* 立ち絵 */}
+      {/* 立ち絵（テキストウィンドウの下に入る。z-index:5） */}
       <SpriteLayer
         sprites={state.visibleSprites}
         characters={script.characters}
+        speakingCharacter={speakingCharacter}
       />
 
       {/* エフェクト */}
@@ -119,7 +127,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
         />
       )}
 
-      {/* テキストウィンドウ（選択肢・タイトルカード表示中は非表示） */}
+      {/* テキストウィンドウ（z-index:20 でキャラの上に乗る） */}
       {!state.activeChoice && !state.activeTitleCard && state.textDisplay.text && (
         <TextWindow
           display={state.textDisplay}

@@ -1,10 +1,11 @@
 /**
  * SpriteLayer - キャラクター立ち絵の表示レイヤー
  *
- * VNの定番レイアウト:
- * - キャラの足元はテキストウィンドウの上端に揃える
- * - キャラは画面の60-70%の高さを占める
- * - 複数キャラは重ならないよう均等配置
+ * VN標準のレイアウト:
+ * - キャラは画面の80-90%の高さを占める
+ * - 足元は画面下端より下（画面外にはみ出す）
+ * - テキストウィンドウがキャラの腰〜足を覆う（z-indexで上に乗る）
+ * - 発言中のキャラは明るく、それ以外は暗く
  */
 
 import type { SpriteState, CharacterDef } from '../engine/types'
@@ -12,44 +13,42 @@ import type { SpriteState, CharacterDef } from '../engine/types'
 interface Props {
   sprites: SpriteState[]
   characters: Record<string, CharacterDef>
+  speakingCharacter?: string | null
 }
 
-// テキストウィンドウの高さ（CSSと合わせる）
-const TEXT_WINDOW_HEIGHT = 150
-
-// キャラ数に応じた水平位置（%）
+// キャラ数に応じた水平位置（Ren'Py標準に準拠）
 function getPositions(total: number): string[] {
   switch (total) {
     case 1: return ['50%']
-    case 2: return ['32%', '68%']
-    case 3: return ['22%', '50%', '78%']
-    case 4: return ['18%', '39%', '61%', '82%']
-    case 5: return ['14%', '32%', '50%', '68%', '86%']
+    case 2: return ['25%', '75%']
+    case 3: return ['20%', '50%', '80%']
+    case 4: return ['15%', '38%', '62%', '85%']
+    case 5: return ['12%', '30%', '50%', '70%', '88%']
     default: return ['50%']
   }
 }
 
-// キャラ数に応じたスプライトの高さ
+// キャラ数に応じたスプライト高さ（画面の大部分を占める）
 function getSpriteHeight(total: number): string {
   switch (total) {
-    case 1: return 'calc(100vh - 200px)'
-    case 2: return 'calc(85vh - 180px)'
-    case 3: return 'calc(75vh - 170px)'
-    case 4: return 'calc(65vh - 160px)'
-    case 5: return 'calc(58vh - 150px)'
-    default: return 'calc(58vh - 150px)'
+    case 1: return '92vh'
+    case 2: return '85vh'
+    case 3: return '80vh'
+    case 4: return '72vh'
+    case 5: return '65vh'
+    default: return '70vh'
   }
 }
 
 const NAMED_POSITIONS: Record<string, string> = {
-  left: '28%',
+  left: '25%',
   center: '50%',
-  right: '72%',
+  right: '75%',
 }
 
-export function SpriteLayer({ sprites, characters }: Props) {
-  const positions = getPositions(sprites.length)
+export function SpriteLayer({ sprites, characters, speakingCharacter }: Props) {
   const spriteHeight = getSpriteHeight(sprites.length)
+  const positions = getPositions(sprites.length)
 
   return (
     <div
@@ -58,13 +57,10 @@ export function SpriteLayer({ sprites, characters }: Props) {
         position: 'absolute',
         left: 0,
         right: 0,
-        bottom: `${TEXT_WINDOW_HEIGHT}px`,
+        bottom: 0,
         top: 0,
         zIndex: 5,
         pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
       }}
     >
       {sprites.map((sprite, i) => {
@@ -76,19 +72,22 @@ export function SpriteLayer({ sprites, characters }: Props) {
           ? NAMED_POSITIONS[sprite.position] ?? '50%'
           : positions[i] ?? '50%'
 
+        // 発言中かどうかで明るさを変える
+        const isSpeaking = !speakingCharacter || speakingCharacter === sprite.characterId
+        const brightnessFilter = isSpeaking
+          ? 'brightness(1)'
+          : 'brightness(0.6)'
+
         return (
           <div
             key={sprite.characterId}
-            class="sprite"
             style={{
               position: 'absolute',
-              bottom: 0,
+              bottom: '-5vh', // 足元を画面外にはみ出させる（VN標準）
               left: leftPos,
               transform: 'translateX(-50%)',
-              transition: 'all 0.5s ease',
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'center',
+              transition: 'all 0.4s ease',
+              filter: `${brightnessFilter} drop-shadow(0 2px 12px rgba(0,0,0,0.5))`,
             }}
           >
             {spriteFile ? (
@@ -97,10 +96,9 @@ export function SpriteLayer({ sprites, characters }: Props) {
                 alt={charDef.name}
                 style={{
                   height: spriteHeight,
-                  maxWidth: sprites.length >= 5 ? '18vw' : sprites.length >= 4 ? '24vw' : '32vw',
+                  maxWidth: sprites.length >= 5 ? '22vw' : sprites.length >= 4 ? '26vw' : '35vw',
                   objectFit: 'contain',
-                  objectPosition: 'bottom center',
-                  filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.4))',
+                  objectPosition: 'top center',
                 }}
               />
             ) : (
