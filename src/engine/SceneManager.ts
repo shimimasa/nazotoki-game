@@ -34,6 +34,7 @@ export function createInitialState(): GameState {
     activeChoice: null,
     activeEffect: null,
     activeTitleCard: null,
+    pendingSounds: [],
     waitingForClick: false,
   }
 }
@@ -74,6 +75,9 @@ export function processEvent(
 
     case 'effect_done':
       return { ...state, activeEffect: null }
+
+    case 'sounds_played':
+      return { ...state, pendingSounds: [] }
 
     case 'wait_done':
       return state
@@ -212,8 +216,11 @@ export function executeStep(
       return applyBgm(state, step)
 
     case 'se':
-      // SE再生はコンポーネント側で処理。状態は次へ進む
-      return advanceStep(script, state)
+      // SEをキューに追加してから次のステップへ進む
+      return advanceStep(script, {
+        ...state,
+        pendingSounds: [...state.pendingSounds, step.sound],
+      })
 
     case 'effect':
       return { ...state, activeEffect: step }

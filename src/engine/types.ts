@@ -134,6 +134,7 @@ export interface GameState {
   activeChoice: ChoiceStep | null
   activeEffect: EffectStep | null
   activeTitleCard: TitleCardStep | null
+  pendingSounds: string[] // SE再生キュー
   waitingForClick: boolean
 }
 
@@ -156,6 +157,7 @@ export interface TextDisplayState {
 export type GameEvent =
   | { type: 'click' }
   | { type: 'choice_selected'; choiceId: string; value: string }
+  | { type: 'sounds_played' }
   | { type: 'effect_done' }
   | { type: 'wait_done' }
   | { type: 'start_game' }

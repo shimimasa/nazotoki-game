@@ -6,7 +6,7 @@
  */
 
 import { useCallback, useEffect, useRef } from 'preact/hooks'
-import type { ScriptData, GameState, GameEvent, Step } from '../engine/types'
+import type { ScriptData, GameState, GameEvent } from '../engine/types'
 import { audioManager } from '../engine/AudioManager'
 import { Background } from './Background'
 import { SpriteLayer } from './SpriteLayer'
@@ -23,7 +23,6 @@ interface Props {
 
 export function GameScreen({ script, state, onEvent }: Props) {
   const prevBgmRef = useRef<string | null>(null)
-  const prevStepRef = useRef<string>('')
 
   // BGM変更の監視
   useEffect(() => {
@@ -37,19 +36,16 @@ export function GameScreen({ script, state, onEvent }: Props) {
     }
   }, [state.currentBgm])
 
-  // SE再生の監視（ステップが変わったときに確認）
-  const stepKey = `${state.currentSceneIndex}-${state.currentStepIndex}`
+  // SE再生（pendingSoundsキューを消化）
   useEffect(() => {
-    if (stepKey === prevStepRef.current) return
-    prevStepRef.current = stepKey
-
-    const scene = script.scenes[state.currentSceneIndex]
-    if (!scene) return
-    const step: Step | undefined = scene.steps[state.currentStepIndex]
-    if (step?.type === 'se') {
-      audioManager.playSe(step.sound)
+    if (state.pendingSounds.length > 0) {
+      for (const sound of state.pendingSounds) {
+        audioManager.playSe(sound)
+      }
+      // キューをクリア
+      onEvent({ type: 'sounds_played' })
     }
-  }, [stepKey])
+  }, [state.pendingSounds])
 
   const handleClick = useCallback(() => {
     onEvent({ type: 'click' })
