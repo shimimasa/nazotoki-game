@@ -1,0 +1,133 @@
+/**
+ * GameScreen - ゲームのメイン画面
+ *
+ * 全コンポーネントを統合し、SceneManagerの状態に基づいて描画する。
+ * クリックイベントをSceneManagerに伝播する。
+ */
+
+import { useCallback, useEffect, useRef } from 'preact/hooks'
+import type { ScriptData, GameState, GameEvent, Step } from '../engine/types'
+import { audioManager } from '../engine/AudioManager'
+import { Background } from './Background'
+import { SpriteLayer } from './SpriteLayer'
+import { TextWindow } from './TextWindow'
+import { ChoicePanel } from './ChoicePanel'
+import { EffectLayer } from './EffectLayer'
+import { TitleCard } from './TitleCard'
+
+interface Props {
+  script: ScriptData
+  state: GameState
+  onEvent: (event: GameEvent) => void
+}
+
+export function GameScreen({ script, state, onEvent }: Props) {
+  const prevBgmRef = useRef<string | null>(null)
+  const prevStepRef = useRef<string>('')
+
+  // BGM変更の監視
+  useEffect(() => {
+    if (state.currentBgm !== prevBgmRef.current) {
+      if (state.currentBgm) {
+        audioManager.playBgm(state.currentBgm)
+      } else {
+        audioManager.fadeOutBgm()
+      }
+      prevBgmRef.current = state.currentBgm
+    }
+  }, [state.currentBgm])
+
+  // SE再生の監視（ステップが変わったときに確認）
+  const stepKey = `${state.currentSceneIndex}-${state.currentStepIndex}`
+  useEffect(() => {
+    if (stepKey === prevStepRef.current) return
+    prevStepRef.current = stepKey
+
+    const scene = script.scenes[state.currentSceneIndex]
+    if (!scene) return
+    const step: Step | undefined = scene.steps[state.currentStepIndex]
+    if (step?.type === 'se') {
+      audioManager.playSe(step.sound)
+    }
+  }, [stepKey])
+
+  const handleClick = useCallback(() => {
+    onEvent({ type: 'click' })
+  }, [onEvent])
+
+  const handleTypingComplete = useCallback(() => {
+    // タイプライター完了時は状態を「クリック待ち」にする
+    // （SceneManager側で textDisplay.isTyping = false にする）
+  }, [])
+
+  const handleChoiceSelect = useCallback(
+    (choiceId: string, value: string) => {
+      audioManager.playSe('click')
+      onEvent({ type: 'choice_selected', choiceId, value })
+    },
+    [onEvent]
+  )
+
+  const handleEffectDone = useCallback(() => {
+    onEvent({ type: 'effect_done' })
+  }, [onEvent])
+
+  const handleTitleCardDone = useCallback(() => {
+    onEvent({ type: 'title_card_done' })
+  }, [onEvent])
+
+  return (
+    <div class="game-screen" onClick={handleClick}>
+      {/* 背景 */}
+      <Background image={state.currentBg} />
+
+      {/* 立ち絵 */}
+      <SpriteLayer
+        sprites={state.visibleSprites}
+        characters={script.characters}
+      />
+
+      {/* エフェクト */}
+      <EffectLayer
+        effect={state.activeEffect}
+        onEffectDone={handleEffectDone}
+      />
+
+      {/* タイトルカード */}
+      {state.activeTitleCard && (
+        <TitleCard
+          text={state.activeTitleCard.text}
+          subtitle={state.activeTitleCard.subtitle}
+          onClick={handleTitleCardDone}
+        />
+      )}
+
+      {/* 選択肢 */}
+      {state.activeChoice && (
+        <ChoicePanel
+          choice={state.activeChoice}
+          onSelect={handleChoiceSelect}
+        />
+      )}
+
+      {/* テキストウィンドウ（選択肢・タイトルカード表示中は非表示） */}
+      {!state.activeChoice && !state.activeTitleCard && state.textDisplay.text && (
+        <TextWindow
+          display={state.textDisplay}
+          onTypingComplete={handleTypingComplete}
+        />
+      )}
+
+      {/* ミュートボタン */}
+      <button
+        class="mute-button"
+        onClick={(e) => {
+          e.stopPropagation()
+          audioManager.toggleMute()
+        }}
+      >
+        {audioManager.isMuted ? '🔇' : '🔊'}
+      </button>
+    </div>
+  )
+}

@@ -1,0 +1,614 @@
+meta:
+  id: moral-01
+  title: われた花びんとだまった4人
+  series: 答えのない法廷
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  hayato:
+    name: ハヤト
+    color: "#FF6B35"
+    sprites:
+      normal: hayato-normal.webp
+      anxious: hayato-anxious.webp
+      crying: hayato-crying.webp
+  miruku:
+    name: ミルク
+    color: "#7B68EE"
+    sprites:
+      normal: miruku-normal.webp
+      scared: miruku-scared.webp
+      determined: miruku-determined.webp
+  mamoru:
+    name: マモル
+    color: "#2E8B57"
+    sprites:
+      normal: mamoru-normal.webp
+      troubled: mamoru-troubled.webp
+      sincere: mamoru-sincere.webp
+  kotoha:
+    name: コトハ
+    color: "#CD853F"
+    sprites:
+      normal: kotoha-normal.webp
+      calm: kotoha-calm.webp
+      regretful: kotoha-regretful.webp
+  nozomi:
+    name: ノゾミ先生
+    color: "#4169E1"
+    sprites:
+      worried: nozomi-worried.webp
+      kind: nozomi-kind.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "放課後の学校。いつもと変わらない、静かな時間——"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 500
+
+      - type: bgm
+        action: stop
+
+      - type: narration
+        text: "廊下に飾られていた「夢の花びん」が、割れた。"
+
+      - type: bg
+        image: broken-vase-closeup
+
+      - type: narration
+        text: "去年の6年生が卒業記念に作った、大切なもの。"
+        speed: slow
+
+      - type: narration
+        text: "クラスのみんなで土をこねて、色を塗って、窯で焼いた。\n花びんの表面には「夢」という文字と、みんなの手形が入っている。"
+
+      - type: bg
+        image: hallway-sunset
+
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: dialog
+        character: nozomi
+        text: "花びんが割れている。誰か知っている人はいますか？"
+
+      - type: sprite_group
+        characters:
+          - { id: hayato, expression: anxious }
+          - { id: miruku, expression: scared }
+          - { id: mamoru, expression: troubled }
+          - { id: kotoha, expression: calm }
+
+      - type: narration
+        text: "4人とも、だまっている。"
+
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: nozomi
+        text: "犯人探しをしたいわけじゃないの。\nでも、このまま誰も何も言わないのは、もっと悲しい。"
+
+      - type: dialog
+        character: nozomi
+        text: "みんなで話し合って、これからどうするかを考えよう。"
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: われた花びんとだまった4人
+        subtitle: 答えのない法廷 Vol.1
+
+  # ========================================
+  # Act 1: 調査 — 証拠カード①
+  # ========================================
+  - id: evidence-1
+    bg: broken-vase-closeup
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "4人の事情を調べよう"
+
+      - type: narration
+        text: "割れた花びんを調べてみよう。"
+
+      - type: narration
+        text: "花びんは3つの大きな破片と、いくつかの小さなかけらに割れている。"
+
+      - type: narration
+        text: "破片は台の右側に散らばっている。\nつまり——左側から力が加わった。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "そして——台の脚を調べたところ、左前の脚が1本、他の3本より約5mm短い。"
+
+      - type: narration
+        text: "そのせいで台がわずかにグラグラしていた。\n花びんは元々【不安定】な状態だった。小さな衝撃でも落ちる可能性があった。"
+
+  # ========================================
+  # Act 1: 調査 — 証拠カード②
+  # ========================================
+  - id: evidence-2
+    bg: hallway-sunset
+    steps:
+      - type: narration
+        text: "ノゾミ先生が他の生徒にも聞き取りをした。放課後の時間を整理すると——"
+
+      - type: narration
+        text: "15:22　コトハが廊下を通過。飼育小屋へ向かう。"
+
+      - type: narration
+        text: "15:24　マモルが見回り当番を開始。"
+
+      - type: narration
+        text: "15:25　マモルが廊下から姿を消す。"
+
+      - type: narration
+        text: "15:28　ハヤトが校庭方向から全速力で走ってくる。"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 300
+
+      - type: narration
+        text: "15:30ごろ——「ガシャーン！」という大きな音。複数の生徒が聞いた。"
+
+      - type: narration
+        text: "15:30すぎ　ミルクが図書室に到着。いつもより少し遅かった。"
+
+      - type: narration
+        text: "15:35　マモルが廊下に戻り、割れた花びんを発見。"
+
+  # ========================================
+  # Act 1: 調査 — 証拠カード③（4人の証言）
+  # ========================================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: narration
+        text: "ノゾミ先生が1人ずつ話を聞いた。\n4人とも花びんのことは言わなかったが、放課後に何をしていたかは話した。"
+
+      - type: sprite
+        character: hayato
+        expression: anxious
+        position: center
+
+      - type: dialog
+        character: hayato
+        text: "友だちのユウキが校庭で転んで、ひざを擦りむいたって聞いた。\nばんそうこうを取りに保健室に走ったんだ。"
+
+      - type: narration
+        text: "【確認済み】ユウキは実際に校庭で転んでいた。保健室でばんそうこうをもらったのも事実。"
+
+      - type: sprite
+        character: hayato
+        expression: anxious
+        action: hide
+
+      - type: sprite
+        character: miruku
+        expression: scared
+        position: center
+
+      - type: dialog
+        character: miruku
+        text: "図書室に行く途中でした。いつもの道です。"
+
+      - type: narration
+        text: "【確認済み】ミルクが図書室に向かう道は、花びんの前を通る廊下を通る。"
+
+      - type: sprite
+        character: miruku
+        expression: scared
+        action: hide
+
+      - type: sprite
+        character: mamoru
+        expression: troubled
+        position: center
+
+      - type: dialog
+        character: mamoru
+        text: "見回り当番だったけど、1年生のリコちゃんが泣いていて……。\n教室まで送っていったんだ。"
+
+      - type: narration
+        text: "【確認済み】1年生担任が確認。リコちゃんは迷子になっていた。"
+
+      - type: sprite
+        character: mamoru
+        expression: troubled
+        action: hide
+
+      - type: sprite
+        character: kotoha
+        expression: calm
+        position: center
+
+      - type: dialog
+        character: kotoha
+        text: "飼育委員会の仕事です。ウサギのエサやりと掃除。"
+
+      - type: narration
+        text: "【確認済み】15:22に飼育小屋方向へ向かった。花びんの音は聞こえない距離。"
+
+      - type: sprite
+        character: kotoha
+        expression: calm
+        action: hide
+
+      - type: narration
+        text: "4人とも、ウソはついていない。\nでも——何かを言っていない気がする。"
+
+  # ========================================
+  # Act 2: 深掘り — 証拠カード④（卒業生の手紙）
+  # ========================================
+  - id: letter
+    bg: broken-vase-closeup
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: narration
+        text: "花びんの台の裏に、手紙が貼ってあった。\n去年の6年生が残したものだ。"
+
+      - type: narration
+        text: "「この花びんは『失敗しても、やり直せる』の証（あかし）です。」"
+        speed: slow
+
+      - type: narration
+        text: "「作っている途中、何度もヒビが入りました。\n　でも、みんなで粘土を足して、もう一度焼きました。」"
+        speed: slow
+
+      - type: narration
+        text: "「完璧じゃないけど、みんなの気持ちが詰まってる。」"
+        speed: slow
+
+      - type: narration
+        text: "「花びんに込めた気持ちは、壊れないよ。」"
+        speed: slow
+
+      - type: wait
+        duration: 2000
+
+  # ========================================
+  # Act 2: 深掘り — 証拠カード⑤（問いかけ）
+  # ========================================
+  - id: questions
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: nozomi
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: nozomi
+        text: "みんなに、考えてほしいことがあるの。"
+
+      - type: sprite
+        character: nozomi
+        expression: kind
+        action: hide
+
+      - type: choice
+        id: q1
+        question: "友だちを助けに行く途中だったら、走ったことは「悪いこと」？"
+        options:
+          - text: "悪くない。友だちを助けるためだから"
+            value: not-bad
+          - text: "悪い。ルールはルールだから"
+            value: bad
+          - text: "分からない。どっちの気持ちも分かる"
+            value: unsure
+
+      - type: narration
+        text: "正解はないよ。大事なのは「なぜそう思ったか」を考えること。"
+
+      - type: choice
+        id: q2
+        question: "本当のことを知っているのに黙っているのは、「やさしさ」？ それとも「ずるさ」？"
+        options:
+          - text: "やさしさ。言ったら誰かが傷つくから"
+            value: kind
+          - text: "ずるさ。本当のことを言うべきだから"
+            value: coward
+          - text: "どちらでもない。黙る理由による"
+            value: depends
+
+      - type: narration
+        text: "「黙る」にも、いろんな理由がある。怖いから。優しいから。迷っているから。"
+
+      - type: choice
+        id: q3
+        question: "やるべきことがあったのに、別の大事なことをしていた。これは「サボり」？"
+        options:
+          - text: "サボりじゃない。もっと大事なことがあった"
+            value: not-slacking
+          - text: "サボり。当番は当番だから"
+            value: slacking
+          - text: "場合による。何を優先したかで変わる"
+            value: depends
+
+      - type: narration
+        text: "「正しいこと」がふたつあって、両方はできないとき——どっちを選ぶかは、その人の心が決める。"
+
+      - type: choice
+        id: q4
+        question: "危険に気づいていたのに「誰かがやるだろう」と放置した。これは「関係ない」って言える？"
+        options:
+          - text: "関係ない。自分の仕事じゃないから"
+            value: not-related
+          - text: "関係ある。気づいた人には責任がある"
+            value: responsible
+          - text: "難しい。忙しかったら仕方ない"
+            value: hard
+
+      - type: narration
+        text: "「気づいた」ということは、もう「関係ない」とは言いにくい。でも、全部背負う必要もない。"
+
+      - type: choice
+        id: q5
+        question: "4人の中で、一番先に口を開くべきなのは誰？"
+        options:
+          - text: "ハヤト（花びんにぶつかった本人）"
+            value: hayato
+          - text: "ミルク（全部見ていた目撃者）"
+            value: miruku
+          - text: "マモル（見回り当番だった責任者）"
+            value: mamoru
+          - text: "コトハ（台の危険に気づいていた人）"
+            value: kotoha
+          - text: "誰が先でもいい。大事なのは全員が話すこと"
+            value: everyone
+
+      - type: narration
+        text: "この問いに、先生も答えを持っていない。\nだから「答えのない法廷」——自分の頭で考えよう。"
+
+  # ========================================
+  # Act 3: 真実 — ハヤト
+  # ========================================
+  - id: truth-hayato
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: "真実"
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: hayato
+        expression: anxious
+        position: center
+
+      - type: dialog
+        character: hayato
+        text: "……オレが走って、花びんにぶつかった。"
+
+      - type: sprite
+        character: hayato
+        expression: crying
+        position: center
+
+      - type: dialog
+        character: hayato
+        text: "でも——ユウキが転んで血が出てるって聞いて、ばんそうこうを取りに行かなきゃって……。"
+
+      - type: dialog
+        character: hayato
+        text: "走ったのは悪い。でも、友だちを助けたかったんだ。"
+
+      - type: narration
+        text: "友だちを助けたい気持ちと、ルール。\nハヤトの中で、2つの「正しいこと」がぶつかっていた。"
+
+  # ========================================
+  # Act 3: 真実 — ミルク
+  # ========================================
+  - id: truth-miruku
+    steps:
+      - type: sprite
+        character: hayato
+        expression: crying
+        action: hide
+
+      - type: sprite
+        character: miruku
+        expression: scared
+        position: center
+
+      - type: dialog
+        character: miruku
+        text: "……私、全部見てた。\nハヤトくんが花びんにぶつかるところ。"
+
+      - type: dialog
+        character: miruku
+        text: "目が合ったの。でも、ハヤトくんはそのまま走っていった。"
+
+      - type: sprite
+        character: miruku
+        expression: determined
+        position: center
+
+      - type: dialog
+        character: miruku
+        text: "去年、友だちのリナちゃんのことを先生に言ったら、みんなから「チクリ魔」って呼ばれた。"
+
+      - type: dialog
+        character: miruku
+        text: "……また嫌われるのが怖くて、言えなかった。"
+
+      - type: narration
+        text: "本当のことを言う「勇気」と、傷つきたくない「防衛」。\nミルクは、過去の痛みに縛られていた。"
+
+  # ========================================
+  # Act 3: 真実 — マモル
+  # ========================================
+  - id: truth-mamoru
+    steps:
+      - type: sprite
+        character: miruku
+        expression: determined
+        action: hide
+
+      - type: sprite
+        character: mamoru
+        expression: troubled
+        position: center
+
+      - type: dialog
+        character: mamoru
+        text: "見回り当番だったのに、持ち場を離れてた。"
+
+      - type: dialog
+        character: mamoru
+        text: "1年生のリコちゃんが泣いてて……教室まで送ったんだ。往復10分。\nその間に花びんが割れた。"
+
+      - type: sprite
+        character: mamoru
+        expression: sincere
+        position: center
+
+      - type: dialog
+        character: mamoru
+        text: "当番を離れたのは事実だから——\n「お前がいれば防げた」って言われたら、何も言い返せない。"
+
+      - type: narration
+        text: "目の前で泣いている子を助けることと、当番の責任。\nマモルは「2つの正しいこと」の間で引き裂かれていた。"
+
+  # ========================================
+  # Act 3: 真実 — コトハ
+  # ========================================
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: mamoru
+        expression: sincere
+        action: hide
+
+      - type: sprite
+        character: kotoha
+        expression: calm
+        position: center
+
+      - type: dialog
+        character: kotoha
+        text: "……先週の金曜日、飼育小屋に行く途中で気づいてた。"
+
+      - type: dialog
+        character: kotoha
+        text: "花びんの台の脚が1本短くて、グラグラしてるって。"
+
+      - type: sprite
+        character: kotoha
+        expression: regretful
+        position: center
+
+      - type: dialog
+        character: kotoha
+        text: "でも——「誰かが直すだろう」って思って、そのまま飼育小屋に行った。"
+
+      - type: dialog
+        character: kotoha
+        text: "……もし私があの時、先生に言ってたら——\n花びんは割れなかったかもしれない。"
+
+      - type: wait
+        duration: 2000
+
+      - type: bgm
+        track: hope
+
+      - type: narration
+        text: "これを「傍観者効果（バイスタンダー・エフェクト）」という。\n「誰かがやるだろう」——みんながそう思うと、誰もやらない。"
+
+      - type: narration
+        text: "コトハは悪い人じゃない。\nでも、「気づいた人には、特別な責任がある」——\nそれを、この出来事が教えてくれた。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: regretful
+        action: hide
+
+      - type: sprite
+        character: nozomi
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: nozomi
+        text: "ありがとう。みんなが話してくれて、先生はうれしい。"
+
+      - type: dialog
+        character: nozomi
+        text: "花びんは割れてしまった。\nでも、日本には「金継ぎ（きんつぎ）」という技術があるの。"
+
+      - type: narration
+        text: "壊れたものを金で繋いで、前よりもっと美しくする。\n割れた跡が、新しい模様になる。"
+
+      - type: dialog
+        character: nozomi
+        text: "花びんに込められた気持ちは、壊れない。"
+
+      - type: dialog
+        character: nozomi
+        text: "みんなで正直に話せたこと——\nそれが、この花びんの新しい「金色の線」だよ。"
+
+      - type: sprite
+        character: nozomi
+        expression: kind
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500
