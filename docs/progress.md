@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-22 22:06
+- Major sprite layout overhaul based on VN industry standards
+
 ## 2026-03-22 21:51
 - Improve character visibility and fix sprite transparency
 

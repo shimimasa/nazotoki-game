@@ -75,6 +75,7 @@ scenes:
       - type: narration
         text: "クラスのみんなで土をこねて、色を塗って、窯で焼いた。\n花びんの表面には「夢」という文字と、みんなの手形が入っている。"
 
+      # ノゾミ先生 登場（1人だけ）
       - type: bg
         image: hallway-sunset
 
@@ -90,6 +91,12 @@ scenes:
         character: nozomi
         text: "花びんが割れている。誰か知っている人はいますか？"
 
+      # ノゾミ先生を消してから4人を表示
+      - type: sprite
+        character: nozomi
+        expression: worried
+        action: hide
+
       - type: sprite_group
         characters:
           - { id: hayato, expression: anxious }
@@ -99,6 +106,20 @@ scenes:
 
       - type: narration
         text: "4人とも、だまっている。"
+
+      # 4人を消してからノゾミ先生を再表示
+      - type: sprite
+        character: hayato
+        action: hide
+      - type: sprite
+        character: miruku
+        action: hide
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
 
       - type: sprite
         character: nozomi
@@ -112,6 +133,10 @@ scenes:
       - type: dialog
         character: nozomi
         text: "みんなで話し合って、これからどうするかを考えよう。"
+
+      - type: sprite
+        character: nozomi
+        action: hide
 
       - type: effect
         name: fade-out
@@ -193,6 +218,7 @@ scenes:
 
   # ========================================
   # Act 1: 調査 — 証拠カード③（4人の証言）
+  # 各キャラを left/right 交互に配置
   # ========================================
   - id: evidence-3
     bg: classroom
@@ -200,10 +226,11 @@ scenes:
       - type: narration
         text: "ノゾミ先生が1人ずつ話を聞いた。\n4人とも花びんのことは言わなかったが、放課後に何をしていたかは話した。"
 
+      # ハヤト: 左
       - type: sprite
         character: hayato
         expression: anxious
-        position: center
+        position: left
 
       - type: dialog
         character: hayato
@@ -214,13 +241,13 @@ scenes:
 
       - type: sprite
         character: hayato
-        expression: anxious
         action: hide
 
+      # ミルク: 右
       - type: sprite
         character: miruku
         expression: scared
-        position: center
+        position: right
 
       - type: dialog
         character: miruku
@@ -231,13 +258,13 @@ scenes:
 
       - type: sprite
         character: miruku
-        expression: scared
         action: hide
 
+      # マモル: 左
       - type: sprite
         character: mamoru
         expression: troubled
-        position: center
+        position: left
 
       - type: dialog
         character: mamoru
@@ -248,13 +275,13 @@ scenes:
 
       - type: sprite
         character: mamoru
-        expression: troubled
         action: hide
 
+      # コトハ: 右
       - type: sprite
         character: kotoha
         expression: calm
-        position: center
+        position: right
 
       - type: dialog
         character: kotoha
@@ -265,7 +292,6 @@ scenes:
 
       - type: sprite
         character: kotoha
-        expression: calm
         action: hide
 
       - type: narration
@@ -326,7 +352,6 @@ scenes:
 
       - type: sprite
         character: nozomi
-        expression: kind
         action: hide
 
       - type: choice
@@ -404,7 +429,7 @@ scenes:
         text: "この問いに、先生も答えを持っていない。\nだから「答えのない法廷」——自分の頭で考えよう。"
 
   # ========================================
-  # Act 3: 真実 — ハヤト
+  # Act 3: 真実 — ハヤト（左に配置）
   # ========================================
   - id: truth-hayato
     bg: classroom
@@ -424,7 +449,7 @@ scenes:
       - type: sprite
         character: hayato
         expression: anxious
-        position: center
+        position: left
 
       - type: dialog
         character: hayato
@@ -433,7 +458,7 @@ scenes:
       - type: sprite
         character: hayato
         expression: crying
-        position: center
+        position: left
 
       - type: dialog
         character: hayato
@@ -443,23 +468,22 @@ scenes:
         character: hayato
         text: "走ったのは悪い。でも、友だちを助けたかったんだ。"
 
+      - type: sprite
+        character: hayato
+        action: hide
+
       - type: narration
         text: "友だちを助けたい気持ちと、ルール。\nハヤトの中で、2つの「正しいこと」がぶつかっていた。"
 
   # ========================================
-  # Act 3: 真実 — ミルク
+  # Act 3: 真実 — ミルク（右に配置）
   # ========================================
   - id: truth-miruku
     steps:
       - type: sprite
-        character: hayato
-        expression: crying
-        action: hide
-
-      - type: sprite
         character: miruku
         expression: scared
-        position: center
+        position: right
 
       - type: dialog
         character: miruku
@@ -472,7 +496,7 @@ scenes:
       - type: sprite
         character: miruku
         expression: determined
-        position: center
+        position: right
 
       - type: dialog
         character: miruku
@@ -482,23 +506,22 @@ scenes:
         character: miruku
         text: "……また嫌われるのが怖くて、言えなかった。"
 
+      - type: sprite
+        character: miruku
+        action: hide
+
       - type: narration
         text: "本当のことを言う「勇気」と、傷つきたくない「防衛」。\nミルクは、過去の痛みに縛られていた。"
 
   # ========================================
-  # Act 3: 真実 — マモル
+  # Act 3: 真実 — マモル（左に配置）
   # ========================================
   - id: truth-mamoru
     steps:
       - type: sprite
-        character: miruku
-        expression: determined
-        action: hide
-
-      - type: sprite
         character: mamoru
         expression: troubled
-        position: center
+        position: left
 
       - type: dialog
         character: mamoru
@@ -511,29 +534,28 @@ scenes:
       - type: sprite
         character: mamoru
         expression: sincere
-        position: center
+        position: left
 
       - type: dialog
         character: mamoru
         text: "当番を離れたのは事実だから——\n「お前がいれば防げた」って言われたら、何も言い返せない。"
 
+      - type: sprite
+        character: mamoru
+        action: hide
+
       - type: narration
         text: "目の前で泣いている子を助けることと、当番の責任。\nマモルは「2つの正しいこと」の間で引き裂かれていた。"
 
   # ========================================
-  # Act 3: 真実 — コトハ
+  # Act 3: 真実 — コトハ（右に配置）
   # ========================================
   - id: truth-kotoha
     steps:
       - type: sprite
-        character: mamoru
-        expression: sincere
-        action: hide
-
-      - type: sprite
         character: kotoha
         expression: calm
-        position: center
+        position: right
 
       - type: dialog
         character: kotoha
@@ -546,7 +568,7 @@ scenes:
       - type: sprite
         character: kotoha
         expression: regretful
-        position: center
+        position: right
 
       - type: dialog
         character: kotoha
@@ -555,6 +577,10 @@ scenes:
       - type: dialog
         character: kotoha
         text: "……もし私があの時、先生に言ってたら——\n花びんは割れなかったかもしれない。"
+
+      - type: sprite
+        character: kotoha
+        action: hide
 
       - type: wait
         duration: 2000
@@ -569,17 +595,12 @@ scenes:
         text: "コトハは悪い人じゃない。\nでも、「気づいた人には、特別な責任がある」——\nそれを、この出来事が教えてくれた。"
 
   # ========================================
-  # エピローグ
+  # エピローグ（ノゾミ先生: center）
   # ========================================
   - id: epilogue
     bg: classroom
     bgm: hope
     steps:
-      - type: sprite
-        character: kotoha
-        expression: regretful
-        action: hide
-
       - type: sprite
         character: nozomi
         expression: kind
@@ -593,8 +614,17 @@ scenes:
         character: nozomi
         text: "花びんは割れてしまった。\nでも、日本には「金継ぎ（きんつぎ）」という技術があるの。"
 
+      - type: sprite
+        character: nozomi
+        action: hide
+
       - type: narration
         text: "壊れたものを金で繋いで、前よりもっと美しくする。\n割れた跡が、新しい模様になる。"
+
+      - type: sprite
+        character: nozomi
+        expression: kind
+        position: center
 
       - type: dialog
         character: nozomi
@@ -606,7 +636,6 @@ scenes:
 
       - type: sprite
         character: nozomi
-        expression: kind
         action: hide
 
       - type: effect
