@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-22 21:43
+- Improve sprite layout and text window design
+
 ## 2026-03-22 21:37
 - Fix background images and sprite layout
 

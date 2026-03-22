@@ -24,6 +24,7 @@ function getPositions(total: number): string[] {
     case 2: return ['32%', '68%']
     case 3: return ['22%', '50%', '78%']
     case 4: return ['18%', '39%', '61%', '82%']
+    case 5: return ['14%', '32%', '50%', '68%', '86%']
     default: return ['50%']
   }
 }
@@ -35,7 +36,8 @@ function getSpriteHeight(total: number): string {
     case 2: return 'calc(85vh - 180px)'
     case 3: return 'calc(75vh - 170px)'
     case 4: return 'calc(65vh - 160px)'
-    default: return 'calc(70vh - 170px)'
+    case 5: return 'calc(58vh - 150px)'
+    default: return 'calc(58vh - 150px)'
   }
 }
 
@@ -95,7 +97,7 @@ export function SpriteLayer({ sprites, characters }: Props) {
                 alt={charDef.name}
                 style={{
                   height: spriteHeight,
-                  maxWidth: sprites.length >= 4 ? '24vw' : '32vw',
+                  maxWidth: sprites.length >= 5 ? '18vw' : sprites.length >= 4 ? '24vw' : '32vw',
                   objectFit: 'contain',
                   objectPosition: 'bottom center',
                   filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.4))',

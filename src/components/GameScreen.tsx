@@ -77,6 +77,19 @@ export function GameScreen({ script, state, onEvent }: Props) {
       {/* 背景 */}
       <Background image={state.currentBg} />
 
+      {/* 背景ダークオーバーレイ（キャラがいる時に背景を暗くして人物を際立たせる） */}
+      {state.visibleSprites.length > 0 && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.3)',
+            zIndex: 2,
+            transition: 'opacity 0.5s ease',
+          }}
+        />
+      )}
+
       {/* 立ち絵 */}
       <SpriteLayer
         sprites={state.visibleSprites}
