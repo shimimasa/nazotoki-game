@@ -5,11 +5,12 @@
 :root {
   --vn-primary: #4a90d9;
   --vn-text: #f0f0f0;
-  --vn-window-bg: rgba(10, 10, 30, 0.85);
-  --vn-window-border: rgba(100, 150, 255, 0.3);
+  --vn-window-bg: rgba(10, 10, 30, 0.92);
+  --vn-window-border: rgba(100, 150, 255, 0.4);
   --vn-choice-bg: rgba(20, 20, 50, 0.9);
   --vn-choice-hover: rgba(74, 144, 217, 0.4);
   --vn-choice-selected: rgba(74, 144, 217, 0.8);
+  --vn-text-window-height: 150px;
 }
 
 /* --- 共通レイアウト --- */
@@ -30,12 +31,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px 24px 24px;
+  height: var(--vn-text-window-height);
+  padding: 16px 32px 20px;
   background: var(--vn-window-bg);
-  border-top: 1px solid var(--vn-window-border);
+  border-top: 2px solid var(--vn-window-border);
   z-index: 20;
-  min-height: 140px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
 .name-plate {
@@ -77,19 +78,8 @@
 
 /* --- 立ち絵レイヤー --- */
 
-.sprite-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.sprite {
-  pointer-events: none;
-}
-
 .sprite img {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease, height 0.5s ease;
 }
 
 .sprite-placeholder {
@@ -443,16 +433,16 @@
 /* --- レスポンシブ（Chromebook対応） --- */
 
 @media (max-width: 1024px) {
+  :root { --vn-text-window-height: 130px; }
   .typewriter-text { font-size: 16px; }
   .title-name { font-size: 28px; }
   .choice-option { padding: 14px 16px; font-size: 15px; }
-  .text-window { min-height: 120px; padding: 12px 16px 20px; }
 }
 
 @media (max-width: 600px) {
+  :root { --vn-text-window-height: 110px; }
   .typewriter-text { font-size: 14px; }
   .title-name { font-size: 22px; }
   .choice-option { padding: 12px 14px; font-size: 14px; }
-  .text-window { min-height: 100px; }
   .sprite-placeholder-icon { font-size: 32px; }
 }

@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-22 21:37
+- Fix background images and sprite layout
+
 ## 2026-03-22 21:25
 - Fix SE playback + transparent sprite backgrounds
 

@@ -1,9 +1,10 @@
 /**
  * SpriteLayer - キャラクター立ち絵の表示レイヤー
  *
- * 複数キャラを position（left/center/right）に配置し、
- * テキストウィンドウと被らないよう bottom にマージンを取る。
- * キャラ数に応じてサイズと位置を自動調整する。
+ * VNの定番レイアウト:
+ * - キャラの足元はテキストウィンドウの上端に揃える
+ * - キャラは画面の60-70%の高さを占める
+ * - 複数キャラは重ならないよう均等配置
  */
 
 import type { SpriteState, CharacterDef } from '../engine/types'
@@ -13,32 +14,57 @@ interface Props {
   characters: Record<string, CharacterDef>
 }
 
-// キャラ数に応じたレイアウト設定
-function getLayout(total: number) {
+// テキストウィンドウの高さ（CSSと合わせる）
+const TEXT_WINDOW_HEIGHT = 150
+
+// キャラ数に応じた水平位置（%）
+function getPositions(total: number): string[] {
   switch (total) {
-    case 1:
-      return { positions: ['50%'], maxHeight: '55vh', maxWidth: '40vw' }
-    case 2:
-      return { positions: ['28%', '72%'], maxHeight: '50vh', maxWidth: '35vw' }
-    case 3:
-      return { positions: ['20%', '50%', '80%'], maxHeight: '45vh', maxWidth: '28vw' }
-    case 4:
-    default:
-      return { positions: ['15%', '38%', '62%', '85%'], maxHeight: '40vh', maxWidth: '22vw' }
+    case 1: return ['50%']
+    case 2: return ['32%', '68%']
+    case 3: return ['22%', '50%', '78%']
+    case 4: return ['18%', '39%', '61%', '82%']
+    default: return ['50%']
+  }
+}
+
+// キャラ数に応じたスプライトの高さ
+function getSpriteHeight(total: number): string {
+  switch (total) {
+    case 1: return 'calc(100vh - 200px)'
+    case 2: return 'calc(85vh - 180px)'
+    case 3: return 'calc(75vh - 170px)'
+    case 4: return 'calc(65vh - 160px)'
+    default: return 'calc(70vh - 170px)'
   }
 }
 
 const NAMED_POSITIONS: Record<string, string> = {
-  left: '25%',
+  left: '28%',
   center: '50%',
-  right: '75%',
+  right: '72%',
 }
 
 export function SpriteLayer({ sprites, characters }: Props) {
-  const layout = getLayout(sprites.length)
+  const positions = getPositions(sprites.length)
+  const spriteHeight = getSpriteHeight(sprites.length)
 
   return (
-    <div class="sprite-layer">
+    <div
+      class="sprite-layer"
+      style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: `${TEXT_WINDOW_HEIGHT}px`,
+        top: 0,
+        zIndex: 5,
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+      }}
+    >
       {sprites.map((sprite, i) => {
         const charDef = characters[sprite.characterId]
         if (!charDef) return null
@@ -46,7 +72,7 @@ export function SpriteLayer({ sprites, characters }: Props) {
         const spriteFile = charDef.sprites[sprite.expression]
         const leftPos = sprite.position
           ? NAMED_POSITIONS[sprite.position] ?? '50%'
-          : layout.positions[i] ?? '50%'
+          : positions[i] ?? '50%'
 
         return (
           <div
@@ -54,10 +80,13 @@ export function SpriteLayer({ sprites, characters }: Props) {
             class="sprite"
             style={{
               position: 'absolute',
-              bottom: '160px', // テキストウィンドウの上に配置
+              bottom: 0,
               left: leftPos,
               transform: 'translateX(-50%)',
               transition: 'all 0.5s ease',
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'center',
             }}
           >
             {spriteFile ? (
@@ -65,10 +94,11 @@ export function SpriteLayer({ sprites, characters }: Props) {
                 src={`/images/sprites/${spriteFile}`}
                 alt={charDef.name}
                 style={{
-                  maxHeight: layout.maxHeight,
-                  maxWidth: layout.maxWidth,
+                  height: spriteHeight,
+                  maxWidth: sprites.length >= 4 ? '24vw' : '32vw',
                   objectFit: 'contain',
-                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+                  objectPosition: 'bottom center',
+                  filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.4))',
                 }}
               />
             ) : (
