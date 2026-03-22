@@ -141,7 +141,7 @@ export interface GameState {
 export interface SpriteState {
   characterId: string
   expression: string
-  position: 'left' | 'center' | 'right'
+  position?: 'left' | 'center' | 'right'
 }
 
 export interface TextDisplayState {

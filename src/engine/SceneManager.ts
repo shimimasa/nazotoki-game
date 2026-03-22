@@ -204,19 +204,18 @@ export function executeStep(
       return applyDialog(script, state, step)
 
     case 'sprite':
-      return applySprite(state, step)
+      return advanceStep(script, applySprite(state, step))
 
     case 'sprite_group':
-      return applySpriteGroup(state, step)
+      return advanceStep(script, applySpriteGroup(state, step))
 
     case 'bg':
-      return applyBg(state, step)
+      return advanceStep(script, applyBg(state, step))
 
     case 'bgm':
-      return applyBgm(state, step)
+      return advanceStep(script, applyBgm(state, step))
 
     case 'se':
-      // SEをキューに追加してから次のステップへ進む
       return advanceStep(script, {
         ...state,
         pendingSounds: [...state.pendingSounds, step.sound],
@@ -324,11 +323,10 @@ function applySpriteGroup(
   state: GameState,
   step: { type: 'sprite_group'; characters: Array<{ id: string; expression: string }> }
 ): GameState {
-  const positions: Array<SpriteState['position']> = ['left', 'center', 'right', 'center']
-  const newSprites: SpriteState[] = step.characters.map((c, i) => ({
+  // positionは設定しない → SpriteLayerがインデックスベースで均等配置する
+  const newSprites: SpriteState[] = step.characters.map((c) => ({
     characterId: c.id,
     expression: c.expression,
-    position: positions[i] ?? 'center',
   }))
   return { ...state, visibleSprites: newSprites }
 }

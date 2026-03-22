@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-22 22:16
+- Character card frames + script position rebalance
+
 ## 2026-03-22 22:06
 - Major sprite layout overhaul based on VN industry standards
 
