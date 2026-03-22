@@ -2,7 +2,8 @@
  * SpriteLayer - キャラクター立ち絵の表示レイヤー
  *
  * 複数キャラを position（left/center/right）に配置し、
- * 表情切り替え時にフェードで遷移する。
+ * テキストウィンドウと被らないよう bottom にマージンを取る。
+ * キャラ数に応じてサイズと位置を自動調整する。
  */
 
 import type { SpriteState, CharacterDef } from '../engine/types'
@@ -12,26 +13,30 @@ interface Props {
   characters: Record<string, CharacterDef>
 }
 
-const POSITION_STYLE: Record<string, { left: string; transform: string }> = {
-  left: { left: '15%', transform: 'translateX(-50%)' },
-  center: { left: '50%', transform: 'translateX(-50%)' },
-  right: { left: '85%', transform: 'translateX(-50%)' },
+// キャラ数に応じたレイアウト設定
+function getLayout(total: number) {
+  switch (total) {
+    case 1:
+      return { positions: ['50%'], maxHeight: '55vh', maxWidth: '40vw' }
+    case 2:
+      return { positions: ['28%', '72%'], maxHeight: '50vh', maxWidth: '35vw' }
+    case 3:
+      return { positions: ['20%', '50%', '80%'], maxHeight: '45vh', maxWidth: '28vw' }
+    case 4:
+    default:
+      return { positions: ['15%', '38%', '62%', '85%'], maxHeight: '40vh', maxWidth: '22vw' }
+  }
 }
 
-// 4人表示時のポジション
-function getPositionForIndex(index: number, total: number): { left: string; transform: string } {
-  if (total === 1) return POSITION_STYLE.center
-  if (total === 2) return index === 0 ? POSITION_STYLE.left : POSITION_STYLE.right
-  if (total === 3) {
-    const positions = [POSITION_STYLE.left, POSITION_STYLE.center, POSITION_STYLE.right]
-    return positions[index] ?? POSITION_STYLE.center
-  }
-  // 4人
-  const pcts = ['15%', '38%', '62%', '85%']
-  return { left: pcts[index] ?? '50%', transform: 'translateX(-50%)' }
+const NAMED_POSITIONS: Record<string, string> = {
+  left: '25%',
+  center: '50%',
+  right: '75%',
 }
 
 export function SpriteLayer({ sprites, characters }: Props) {
+  const layout = getLayout(sprites.length)
+
   return (
     <div class="sprite-layer">
       {sprites.map((sprite, i) => {
@@ -39,9 +44,9 @@ export function SpriteLayer({ sprites, characters }: Props) {
         if (!charDef) return null
 
         const spriteFile = charDef.sprites[sprite.expression]
-        const pos = sprite.position
-          ? POSITION_STYLE[sprite.position] ?? POSITION_STYLE.center
-          : getPositionForIndex(i, sprites.length)
+        const leftPos = sprite.position
+          ? NAMED_POSITIONS[sprite.position] ?? '50%'
+          : layout.positions[i] ?? '50%'
 
         return (
           <div
@@ -49,9 +54,9 @@ export function SpriteLayer({ sprites, characters }: Props) {
             class="sprite"
             style={{
               position: 'absolute',
-              bottom: '0',
-              left: pos.left,
-              transform: pos.transform,
+              bottom: '160px', // テキストウィンドウの上に配置
+              left: leftPos,
+              transform: 'translateX(-50%)',
               transition: 'all 0.5s ease',
             }}
           >
@@ -60,13 +65,13 @@ export function SpriteLayer({ sprites, characters }: Props) {
                 src={`/images/sprites/${spriteFile}`}
                 alt={charDef.name}
                 style={{
-                  maxHeight: '70vh',
+                  maxHeight: layout.maxHeight,
+                  maxWidth: layout.maxWidth,
                   objectFit: 'contain',
                   filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
                 }}
               />
             ) : (
-              // プレースホルダー: 画像がない場合はキャラ名を表示
               <div class="sprite-placeholder" style={{ color: charDef.color }}>
                 <div class="sprite-placeholder-icon">👤</div>
                 <div class="sprite-placeholder-name">{charDef.name}</div>

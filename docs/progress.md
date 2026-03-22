@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-22 21:25
+- Fix SE playback + transparent sprite backgrounds
+
 ## 2026-03-22 21:13
 - Add all game assets: BGM 5 tracks, SE 3 sounds, sprites 14, backgrounds 4
 
