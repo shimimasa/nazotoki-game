@@ -2,9 +2,11 @@
  * App - ルートコンポーネント
  *
  * シナリオ選択 → タイトル → ゲーム → 結果 の流れを管理
+ * URLパラメータ ?script=xxx でシナリオ直接指定可能
+ * localStorageでプレイ進行を自動保存・再開
  */
 
-import { useState, useCallback } from 'preact/hooks'
+import { useState, useEffect, useCallback } from 'preact/hooks'
 import type { ScriptData, GameState, GameEvent } from './engine/types'
 import {
   createInitialState,
@@ -13,24 +15,49 @@ import {
   executeStep,
 } from './engine/SceneManager'
 import { loadScript } from './engine/ScriptLoader'
+import { saveProgress, loadProgress, clearProgress } from './engine/SaveManager'
 import { ScenarioSelect } from './components/ScenarioSelect'
 import { TitleScreen } from './components/TitleScreen'
 import { GameScreen } from './components/GameScreen'
 import { ResultScreen } from './components/ResultScreen'
 
+function getScriptIdFromUrl(): string | null {
+  const params = new URLSearchParams(window.location.search)
+  return params.get('script')
+}
+
+function updateUrl(scriptId: string | null) {
+  const url = scriptId ? `?script=${scriptId}` : window.location.pathname
+  history.replaceState(null, '', url)
+}
+
 export function App() {
   const [script, setScript] = useState<ScriptData | null>(null)
+  const [scriptId, setScriptId] = useState<string | null>(null)
   const [state, setState] = useState<GameState>(createInitialState())
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const [hasSavedProgress, setHasSavedProgress] = useState(false)
+
+  // 起動時: URLパラメータからシナリオを自動読み込み
+  useEffect(() => {
+    const urlScript = getScriptIdFromUrl()
+    if (urlScript) {
+      handleSelectScenario(urlScript)
+    }
+  }, [])
 
   // シナリオ選択
-  const handleSelectScenario = useCallback((scriptId: string) => {
+  const handleSelectScenario = useCallback((id: string) => {
     setLoading(true)
     setError(null)
-    loadScript(`/scripts/${scriptId}.yaml`)
+    setScriptId(id)
+    updateUrl(id)
+    loadScript(`/scripts/${id}.yaml`)
       .then((data) => {
         setScript(data)
+        const saved = loadProgress(id)
+        setHasSavedProgress(!!saved)
         setState({ ...createInitialState(), phase: 'title' })
         setLoading(false)
       })
@@ -43,51 +70,70 @@ export function App() {
   // イベント処理
   const handleEvent = useCallback(
     (event: GameEvent) => {
-      if (!script) return
+      if (!script || !scriptId) return
 
       setState((prev) => {
         let next = processEvent(script, prev, event)
 
-        // choice_selected の後: フィードバックがなければ次へ進む
         if (event.type === 'choice_selected' && !next.showingFeedback) {
           next = advanceStep(script, next)
         }
-
-        // effect_done の後は次のステップに進む
         if (event.type === 'effect_done') {
           next = advanceStep(script, next)
         }
-
-        // title_card_done の後は次のステップに進む
         if (event.type === 'title_card_done') {
           next = advanceStep(script, next)
         }
-
-        // start_game の後は最初のステップを実行
         if (event.type === 'start_game') {
           next = executeStep(script, next)
+        }
+
+        // プレイ中は進行を自動保存
+        if (next.phase === 'playing') {
+          saveProgress(scriptId, next)
+        }
+        // 結果画面に到達したらセーブをクリア
+        if (next.phase === 'result') {
+          clearProgress(scriptId)
         }
 
         return next
       })
     },
-    [script]
+    [script, scriptId]
   )
 
-  // ゲーム開始
+  // 新規スタート
   const handleStart = useCallback(() => {
+    if (scriptId) clearProgress(scriptId)
+    setHasSavedProgress(false)
     handleEvent({ type: 'start_game' })
-  }, [handleEvent])
+  }, [handleEvent, scriptId])
 
-  // 同じシナリオをリスタート
+  // セーブデータから再開
+  const handleContinue = useCallback(() => {
+    if (!scriptId) return
+    const saved = loadProgress(scriptId)
+    if (saved) {
+      setState(saved)
+      setHasSavedProgress(false)
+    }
+  }, [scriptId])
+
+  // リスタート
   const handleRestart = useCallback(() => {
+    if (scriptId) clearProgress(scriptId)
+    setHasSavedProgress(false)
     setState({ ...createInitialState(), phase: 'title' })
-  }, [])
+  }, [scriptId])
 
   // シナリオ選択に戻る
   const handleBackToSelect = useCallback(() => {
     setScript(null)
+    setScriptId(null)
+    updateUrl(null)
     setState(createInitialState())
+    setHasSavedProgress(false)
   }, [])
 
   if (loading) {
@@ -115,16 +161,19 @@ export function App() {
 
     case 'title':
       if (!script) return null
-      return <TitleScreen meta={script.meta} onStart={handleStart} />
+      return (
+        <TitleScreen
+          meta={script.meta}
+          onStart={handleStart}
+          hasSavedProgress={hasSavedProgress}
+          onContinue={handleContinue}
+        />
+      )
 
     case 'playing':
       if (!script) return null
       return (
-        <GameScreen
-          script={script}
-          state={state}
-          onEvent={handleEvent}
-        />
+        <GameScreen script={script} state={state} onEvent={handleEvent} />
       )
 
     case 'result':
