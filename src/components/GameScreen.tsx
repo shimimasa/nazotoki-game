@@ -3,11 +3,10 @@
  *
  * VN標準レイアウト:
  * - 背景 (z:0) → ダークオーバーレイ (z:2) → 立ち絵 (z:5) → テキストウィンドウ (z:20)
- * - テキストウィンドウがキャラの下半身を覆う（VN定番）
- * - 発言中キャラは明るく、非発言キャラは暗く
+ * - バックログ・オートモード・ミュートのコントロールパネル
  */
 
-import { useCallback, useEffect, useRef, useMemo } from 'preact/hooks'
+import { useCallback, useEffect, useRef, useMemo, useState } from 'preact/hooks'
 import type { ScriptData, GameState, GameEvent } from '../engine/types'
 import { getCurrentStep } from '../engine/SceneManager'
 import { audioManager } from '../engine/AudioManager'
@@ -17,6 +16,7 @@ import { TextWindow } from './TextWindow'
 import { ChoicePanel } from './ChoicePanel'
 import { EffectLayer } from './EffectLayer'
 import { TitleCard } from './TitleCard'
+import { BacklogPanel } from './BacklogPanel'
 
 interface Props {
   script: ScriptData
@@ -26,11 +26,13 @@ interface Props {
 
 export function GameScreen({ script, state, onEvent }: Props) {
   const prevBgmRef = useRef<string | null>(null)
+  const [showBacklog, setShowBacklog] = useState(false)
+  const [autoMode, setAutoMode] = useState(false)
+  const autoTimerRef = useRef<number | null>(null)
 
   // 現在発言中のキャラクターを特定
   const speakingCharacter = useMemo(() => {
     if (state.textDisplay.characterName) {
-      // characterNameからcharacter IDを逆引き
       for (const [id, def] of Object.entries(script.characters)) {
         if (def.name === state.textDisplay.characterName) return id
       }
@@ -50,7 +52,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
     }
   }, [state.currentBgm])
 
-  // SE再生（pendingSoundsキューを消化）
+  // SE再生
   useEffect(() => {
     if (state.pendingSounds.length > 0) {
       for (const sound of state.pendingSounds) {
@@ -60,9 +62,45 @@ export function GameScreen({ script, state, onEvent }: Props) {
     }
   }, [state.pendingSounds])
 
+  // オートモード: タイピング完了後に自動進行
+  useEffect(() => {
+    if (autoTimerRef.current) {
+      clearTimeout(autoTimerRef.current)
+      autoTimerRef.current = null
+    }
+
+    if (
+      autoMode &&
+      !state.textDisplay.isTyping &&
+      state.textDisplay.text &&
+      !state.activeChoice &&
+      !state.activeEffect &&
+      !state.activeTitleCard &&
+      !state.showingFeedback
+    ) {
+      // テキスト長に応じた待機時間（最低1.5秒、文字数×50ms）
+      const delay = Math.max(1500, state.textDisplay.text.length * 50)
+      autoTimerRef.current = window.setTimeout(() => {
+        onEvent({ type: 'click' })
+      }, delay)
+    }
+
+    return () => {
+      if (autoTimerRef.current) clearTimeout(autoTimerRef.current)
+    }
+  }, [autoMode, state.textDisplay.isTyping, state.textDisplay.text, state.activeChoice, state.activeEffect, state.activeTitleCard, state.showingFeedback])
+
+  // 選択肢表示時はオートモードを一時停止
+  useEffect(() => {
+    if (state.activeChoice && autoMode) {
+      // 選択肢が出たらオートは止めない（選択後に再開される）
+    }
+  }, [state.activeChoice])
+
   const handleClick = useCallback(() => {
+    if (showBacklog) return // バックログ表示中はクリック無視
     onEvent({ type: 'click' })
-  }, [onEvent])
+  }, [onEvent, showBacklog])
 
   const handleTypingComplete = useCallback(() => {}, [])
 
@@ -86,31 +124,24 @@ export function GameScreen({ script, state, onEvent }: Props) {
 
   return (
     <div class="game-screen" onClick={handleClick}>
-      {/* 背景 */}
       <Background image={state.currentBg} />
 
-      {/* 背景ダークオーバーレイ（キャラがいる時に背景を暗くする） */}
       <div
         class="bg-overlay"
-        style={{
-          opacity: hasSprites ? 1 : 0,
-        }}
+        style={{ opacity: hasSprites ? 1 : 0 }}
       />
 
-      {/* 立ち絵（テキストウィンドウの下に入る。z-index:5） */}
       <SpriteLayer
         sprites={state.visibleSprites}
         characters={script.characters}
         speakingCharacter={speakingCharacter}
       />
 
-      {/* エフェクト */}
       <EffectLayer
         effect={state.activeEffect}
         onEffectDone={handleEffectDone}
       />
 
-      {/* タイトルカード */}
       {state.activeTitleCard && (
         <TitleCard
           text={state.activeTitleCard.text}
@@ -119,7 +150,6 @@ export function GameScreen({ script, state, onEvent }: Props) {
         />
       )}
 
-      {/* 選択肢 */}
       {state.activeChoice && (
         <ChoicePanel
           choice={state.activeChoice}
@@ -127,7 +157,6 @@ export function GameScreen({ script, state, onEvent }: Props) {
         />
       )}
 
-      {/* テキストウィンドウ（z-index:20 でキャラの上に乗る） */}
       {!state.activeChoice && !state.activeTitleCard && state.textDisplay.text && (
         <TextWindow
           display={state.textDisplay}
@@ -135,16 +164,47 @@ export function GameScreen({ script, state, onEvent }: Props) {
         />
       )}
 
-      {/* ミュートボタン */}
-      <button
-        class="mute-button"
-        onClick={(e) => {
-          e.stopPropagation()
-          audioManager.toggleMute()
-        }}
-      >
-        {audioManager.isMuted ? '🔇' : '🔊'}
-      </button>
+      {/* コントロールパネル */}
+      <div class="game-controls">
+        <button
+          class="game-ctrl-btn"
+          title="テキスト履歴"
+          onClick={(e) => {
+            e.stopPropagation()
+            setShowBacklog(true)
+          }}
+        >
+          LOG
+        </button>
+        <button
+          class={`game-ctrl-btn ${autoMode ? 'active' : ''}`}
+          title="オートモード"
+          onClick={(e) => {
+            e.stopPropagation()
+            setAutoMode(!autoMode)
+          }}
+        >
+          AUTO
+        </button>
+        <button
+          class="game-ctrl-btn"
+          title="ミュート"
+          onClick={(e) => {
+            e.stopPropagation()
+            audioManager.toggleMute()
+          }}
+        >
+          {audioManager.isMuted ? '🔇' : '🔊'}
+        </button>
+      </div>
+
+      {/* バックログパネル */}
+      {showBacklog && (
+        <BacklogPanel
+          entries={state.backlog}
+          onClose={() => setShowBacklog(false)}
+        />
+      )}
     </div>
   )
 }

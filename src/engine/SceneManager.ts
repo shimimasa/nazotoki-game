@@ -37,6 +37,8 @@ export function createInitialState(): GameState {
     pendingSounds: [],
     waitingForClick: false,
     showingFeedback: false,
+    backlog: [],
+    autoMode: false,
   }
 }
 
@@ -274,6 +276,7 @@ function applyNarration(state: GameState, step: NarrationStep): GameState {
       isTyping: true,
       visibleChars: 0,
     },
+    backlog: [...state.backlog, { text: step.text, characterName: null, characterColor: null }],
     waitingForClick: false,
   }
 }
@@ -295,16 +298,20 @@ function applyDialog(
     )
   }
 
+  const name = charDef?.name ?? step.character
+  const color = charDef?.color ?? '#ffffff'
+
   return {
     ...state,
     visibleSprites: newSprites,
     textDisplay: {
       text: step.text,
-      characterName: charDef?.name ?? step.character,
-      characterColor: charDef?.color ?? '#ffffff',
+      characterName: name,
+      characterColor: color,
       isTyping: true,
       visibleChars: 0,
     },
+    backlog: [...state.backlog, { text: step.text, characterName: name, characterColor: color }],
     waitingForClick: false,
   }
 }

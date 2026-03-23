@@ -139,6 +139,14 @@ export interface GameState {
   pendingSounds: string[] // SE再生キュー
   waitingForClick: boolean
   showingFeedback: boolean // 選択肢フィードバック表示中
+  backlog: BacklogEntry[] // テキスト履歴
+  autoMode: boolean // オートモード（テキスト完了後に自動進行）
+}
+
+export interface BacklogEntry {
+  text: string
+  characterName: string | null
+  characterColor: string | null
 }
 
 export interface SpriteState {
