@@ -1,9 +1,9 @@
 /**
  * ResultScreen - ゲーム終了後の結果画面
- * プレイヤーが選んだ回答を一覧表示する
+ * 全選択肢を表示し、プレイヤーの選択をハイライトする
  */
 
-import type { ScriptData } from '../engine/types'
+import type { ScriptData, ChoiceStep } from '../engine/types'
 
 interface Props {
   script: ScriptData
@@ -12,55 +12,81 @@ interface Props {
   onBackToSelect: () => void
 }
 
-// 選択肢IDから質問文と選択テキストを逆引き
-function getChoiceInfo(script: ScriptData, choiceId: string, value: string) {
+// 全choiceステップを抽出
+function getAllChoices(script: ScriptData): ChoiceStep[] {
+  const result: ChoiceStep[] = []
   for (const scene of script.scenes) {
     for (const step of scene.steps) {
-      if (step.type === 'choice' && step.id === choiceId) {
-        const option = step.options.find(o => o.value === value)
-        return {
-          question: step.question ?? '',
-          answer: option?.text ?? value,
-        }
+      if (step.type === 'choice') {
+        result.push(step)
       }
     }
   }
-  return { question: choiceId, answer: value }
+  return result
 }
 
 export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Props) {
-  const entries = Object.entries(choices)
+  const allChoices = getAllChoices(script)
+  const answeredCount = Object.keys(choices).length
 
   return (
     <div class="result-screen">
       <div class="result-content">
-        <h2 class="result-title">あなたの選択</h2>
+        <h2 class="result-title">あなたの推理</h2>
         <div class="result-series">
-          {script.meta.series} Vol.{script.meta.volume}「{script.meta.title}」
+          {script.meta.series} Vol.{script.meta.volume}
+        </div>
+        <div class="result-scenario-title">
+          「{script.meta.title}」
+        </div>
+
+        <div class="result-stats">
+          <span class="result-stat">回答数 {answeredCount}/{allChoices.length}</span>
+          <span class="result-stat">推定プレイ {script.meta.estimatedMinutes}分</span>
         </div>
 
         <div class="result-choices">
-          {entries.map(([id, value], i) => {
-            const info = getChoiceInfo(script, id, value)
+          {allChoices.map((choice, i) => {
+            const selectedValue = choices[choice.id]
+            const selectedOption = choice.options.find(o => o.value === selectedValue)
+            const feedback = selectedOption?.feedback || choice.feedback_default
+
             return (
-              <div key={id} class="result-choice-item">
+              <div key={choice.id} class="result-choice-item">
                 <div class="result-question">
-                  Q{i + 1}. {info.question}
+                  Q{i + 1}. {choice.question}
                 </div>
-                <div class="result-answer">
-                  → {info.answer}
+                <div class="result-options">
+                  {choice.options.map((opt) => {
+                    const isSelected = opt.value === selectedValue
+                    return (
+                      <div
+                        key={opt.value}
+                        class={`result-option ${isSelected ? 'selected' : 'dimmed'}`}
+                      >
+                        <span class="result-option-marker">
+                          {isSelected ? '●' : '○'}
+                        </span>
+                        <span class="result-option-text">{opt.text}</span>
+                      </div>
+                    )
+                  })}
                 </div>
+                {feedback && (
+                  <div class="result-feedback">
+                    {feedback}
+                  </div>
+                )}
+                {!selectedValue && (
+                  <div class="result-skipped">未回答</div>
+                )}
               </div>
             )
           })}
         </div>
 
-        {entries.length === 0 && (
-          <p class="result-no-choices">選択肢はありませんでした。</p>
-        )}
-
         <div class="result-message">
-          正解はありません。大事なのは「なぜそう思ったか」を考えること。
+          大事なのは「なぜそう思ったか」を考えること。
         </div>
 
         <div class="result-buttons">
