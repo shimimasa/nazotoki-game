@@ -1,0 +1,684 @@
+meta:
+  id: programming-01
+  title: バグだらけのロボットと書きかえられた命令カード
+  series: バグ探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  yuuki:
+    name: ユウキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mei:
+    name: メイ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotone:
+    name: コトネ
+    color: "#C0392B"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: あおば小学校の文化祭。3年2組が作った「お手伝いロボット」のデモンストレーションが始まる。
+      - type: narration
+        text: ロボットは「命令カード」に書かれた通りに動く。カードを1枚ずつ順番に読んで、その通りに実行するのだ。
+      - type: sprite_group
+        characters:
+          - { id: yuuki, expression: happy }
+          - { id: mei, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotone, expression: happy }
+      - type: narration
+        text: 今日の任務——職員室の前の棚にある「がんばったで賞トロフィー」を、校長室まで届けること。
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: mei
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: narration
+        text: ロボット、スタート！
+      - type: narration
+        text: カード①「まっすぐ2つ進む」——ロボットが廊下を進んでいく。順調だ。
+      - type: narration
+        text: 分かれ道に到着。ここで右に曲がればトロフィーの棚だ。
+      - type: narration
+        text: カード②を読み込む——
+      - type: bgm
+        action: stop
+      - type: narration
+        speed: slow
+        text: ロボットが……左に曲がった！
+      - type: se
+        sound: programming-01/error
+      - type: effect
+        name: shake
+        duration: 500
+      - type: se
+        sound: common/crash
+      - type: narration
+        text: ガシャーン！ ロボットがメイの展示台の近くにあった花瓶を倒してしまった！
+      - type: sprite_group
+        characters:
+          - { id: yuuki, expression: surprised }
+          - { id: mei, expression: surprised }
+          - { id: takumi, expression: surprised }
+          - { id: kotone, expression: surprised }
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: mei
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: bgm
+        track: programming-01/investigation
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 大変！ ロボットは命令カードの通りにしか動かないはず。
+      - type: dialog
+        character: sensei
+        text: つまり——だれかが命令カードを書きかえたのよ。命令のまちがい、これを「バグ」と呼びます。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: バグ探偵団、出動！ 命令カードをたどって、バグを見つけ出そう！
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.1
+        subtitle: バグだらけのロボットと書きかえられた命令カード
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: ロボットを作った4人のメンバーを確認しよう。
+      - type: sprite
+        character: yuuki
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuuki
+        text: ぼくはユウキ。ロボットの道順を設計して、命令カード5枚を書きました。
+      - type: dialog
+        character: yuuki
+        text: 水曜日のテストでは正しく動いたのに……なぜ本番でバグが？
+        expression: thinking
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: mei
+        expression: normal
+        position: right
+      - type: dialog
+        character: mei
+        text: わたしはメイ。絵を描くのが得意で、文化祭のポスターも描きました。
+      - type: dialog
+        character: mei
+        text: 廊下の左側に自分の絵を展示してるの……ロボットのことはすごいなって思ってた。
+        expression: thinking
+      - type: sprite
+        character: mei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: happy
+        position: left
+      - type: dialog
+        character: takumi
+        text: ぼくはタクミ！ ロボットの体——箱と車輪とつかむアームを作ったんだ！
+      - type: dialog
+        character: takumi
+        text: 命令カードは書いてないよ。字を書くのは苦手で、ユウキに任せたんだ。
+        expression: normal
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotone
+        text: わたしはコトネ。水曜日にロボットのテストを担当しました。
+      - type: dialog
+        character: kotone
+        text: テストでは正しく動いたの……右に曲がってトロフィーの前に行けた。なのに本番では左に……？
+        expression: thinking
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ===== 証拠カード1: 命令カード =====
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 命令カードをたどれ！
+      - type: narration
+        text: ロボットに入っていた命令カード5枚。ロボットはこれを①→②→③→④→⑤の順番に読んで動く。
+      - type: narration
+        text: カード①「まっすぐ2つ進む」
+      - type: narration
+        text: カード②「左に曲がる」
+      - type: narration
+        text: カード③「つかむ」
+      - type: narration
+        text: カード④「まっすぐ1つ進む」
+      - type: narration
+        text: カード⑤「おく」
+      - type: narration
+        text: この命令の通りにロボットを動かすと……分かれ道で「左」に曲がってしまう。メイの展示の方へ！
+
+  # ===== 証拠カード2: 設計ノート =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: ユウキの設計ノート
+      - type: sprite
+        character: yuuki
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuuki
+        text: これがぼくの設計ノートです。正しい命令を書いてあります。
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: narration
+        text: ユウキの設計ノートの正しい命令——
+      - type: narration
+        text: ①まっすぐ2つ進む → 分かれ道に着く
+      - type: narration
+        text: ②「右」に曲がる → トロフィーの棚の方向
+      - type: narration
+        text: ③つかむ → トロフィーをつかむ
+      - type: narration
+        text: ④まっすぐ1つ進む → 校長室に着く
+      - type: narration
+        text: ⑤おく → トロフィーを置く
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 設計ノートではカード②は「右に曲がる」。でも今のカード②は「左に曲がる」に変わっている！
+      - type: narration
+        text: これがバグだ！ だれかがカード②を書きかえた！
+
+  # ===== 証拠カード3: 命令トレース =====
+  - id: evidence-3
+    bg: hallway
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ろうかマップで命令をたどろう
+      - type: narration
+        text: ロボットの動きを、ろうかマップの上でたどってみよう。
+      - type: narration
+        text: 廊下は一本道。スタート地点から分かれ道まで進む。
+      - type: narration
+        text: 分かれ道の左には……メイの絵の展示。花瓶もある。
+      - type: narration
+        text: 分かれ道の右には……トロフィーの棚。その先に校長室。
+      - type: narration
+        text: では、命令カードを1枚ずつ実行しよう。
+      - type: narration
+        text: 【実行】カード①「まっすぐ2つ進む」→ ロボットが分かれ道に到着。
+      - type: narration
+        text: 【実行】カード②「左に曲がる」→ ロボットが左へ！ メイの展示の方へ進む！
+      - type: se
+        sound: programming-01/error
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: 花瓶にぶつかった！ ——ここが「バグ」の影響だ。
+      - type: narration
+        text: もしカード②が正しく「右に曲がる」だったら——
+      - type: narration
+        text: 【正しい実行】カード②「右に曲がる」→ トロフィーの棚へ → つかむ → 校長室へ → 置く。完璧！
+      - type: narration
+        speed: slow
+        text: たった1枚のカードの「右」が「左」に変わっただけで、結果がまったく変わってしまった。これがバグの怖さだ。
+
+  # ===== 証拠カード4: 行動記録 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: だれがカードに触れた？
+      - type: narration
+        text: 木曜日の朝、命令カードは教室の机の上にあった。だれがカードに触れたか、行動記録を確認しよう。
+      - type: sprite
+        character: yuuki
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuuki
+        text: ぼくは8:00に登校して、8:00～8:30はずっと体育館で飾りつけをしていました。担任の先生が証人です。
+      - type: narration
+        text: ユウキ→ 8:00～8:30 体育館（先生が証人）。教室には行けなかった。
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: right
+      - type: dialog
+        character: takumi
+        text: ぼくは8:15に登校して、理科室でロボットの車輪に油をさしてたよ。理科の先生が証人！
+      - type: narration
+        text: タクミ→ 8:15～8:40 理科室（先生が証人）。教室には行けなかった。
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotone
+        text: わたしは8:20に登校して、飼育委員の仕事でウサギ小屋にいました。友達が証人です。
+      - type: narration
+        text: コトネ→ 8:20～8:45 ウサギ小屋（友達が証人）。教室には行けなかった。
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: sprite
+        character: mei
+        expression: normal
+        position: right
+      - type: dialog
+        character: mei
+        text: わたしは7:50に登校しました。絵の展示をきれいにしたくて、早く来たの。
+      - type: dialog
+        character: mei
+        text: 8:10ごろ教室にも行きました。
+        expression: thinking
+      - type: sprite
+        character: mei
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: ユウキ、タクミ、コトネには証人がいる。教室に行けた時間がない。
+      - type: narration
+        speed: slow
+        text: メイだけが7:50に登校し、他のみんなが来る前に1人で教室に行けた。証人はいない。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 命令カードのバグを入れたのは誰だと思う？ 証拠をもとに考えてみて。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 命令カードを書きかえた犯人は誰だと思う？
+        options:
+          - text: ユウキ（命令カードを設計した人）
+            value: yuuki
+          - text: メイ（絵の展示を担当した人）
+            value: mei
+          - text: タクミ（ロボットの体を作った人）
+            value: takumi
+          - text: コトネ（テストを担当した人）
+            value: kotone
+      - type: narration
+        text: カードに触れる機会があったのは誰？ カードを「左」に変えると得をするのは誰？
+
+  # ===== 証拠カード5: メイのスケッチブック =====
+  - id: evidence-5
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: メイのスケッチブック
+      - type: sprite
+        character: kotone
+        expression: determined
+        position: center
+      - type: dialog
+        character: kotone
+        text: ……先生、見つけました。メイの机の中に、スケッチブックがありました。
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: narration
+        text: スケッチブックの最後のページに、ろうかマップの絵が描いてあった。
+      - type: narration
+        text: マップにはロボットの道順が書き込んである。分かれ道で「左」に進む矢印が描かれていた。
+      - type: narration
+        text: その先にはメイの絵の展示。
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 矢印の横にメイの字で小さなメモ——「ロボットが先に私の絵に来てくれたら、校長先生が気づいてくれるかも…」
+      - type: narration
+        text: メイは「左に曲がると自分の絵のところに行く」と知っていた。命令カードの意味を理解していた証拠だ。
+      - type: narration
+        text: カード②を「右→左」に書きかえると得をするのは——メイだけ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: みんなの秘密
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ユウキの秘密
+  - id: truth-yuuki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: yuuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuuki
+        text: ぼくも正直に言います。
+      - type: dialog
+        character: yuuki
+        text: 水曜日のテストのあと、命令カードを机の上に置きっぱなしにしてしまったんです。
+        expression: worried
+      - type: dialog
+        character: yuuki
+        text: 本当は鍵つきの引き出しにしまうはずだったのに、テストがうまくいって嬉しくて忘れた。
+      - type: dialog
+        character: yuuki
+        text: ぼくがちゃんとしまっていれば、誰もカードに触れなかった。ぼくにも責任があります。
+        expression: determined
+      - type: sprite
+        character: yuuki
+        action: hide
+
+  # タクミの秘密
+  - id: truth-takumi
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: takumi
+        text: ぼくも隠してたことがある。
+      - type: dialog
+        character: takumi
+        text: 水曜日のテストのとき、ロボットのアームの調子がちょっと悪かったんだ。つかむときに「ガクッ」って揺れた。
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: でもトロフィーは落ちなかったから「大丈夫」って言っちゃった。花瓶を倒したのは、アームの不調も原因の1つかもしれない。
+      - type: dialog
+        character: takumi
+        text: 「ぼくのロボットは完璧」って言いたかったけど……正直に言うべきだった。
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # コトネの秘密
+  - id: truth-kotone
+    steps:
+      - type: sprite
+        character: kotone
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotone
+        text: わたしも言わなきゃいけないことがあります。
+      - type: dialog
+        character: kotone
+        text: 水曜日のテストのあと、ユウキがカードを机に置きっぱなしにしてるのを見たの。
+        expression: worried
+      - type: dialog
+        character: kotone
+        text: 「しまわなくていいの？」って聞こうとしたけど、ユウキが喜んでて……言い出せなかった。
+      - type: dialog
+        character: kotone
+        text: それと、木曜日の朝、メイが教室から慌てて出てくるのを見ました。何か隠してる様子だった。
+        expression: determined
+      - type: dialog
+        character: kotone
+        text: 気づいてたのに言えなかった。テスト担当として、もっとしっかりすべきだった。
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # メイの真実（クライマックス）
+  - id: truth-mei
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: mei
+        expression: worried
+        position: center
+      - type: dialog
+        character: mei
+        text: ……わたしがやりました。カード②の「右」を消して「左」に書きかえたのは、わたしです。
+      - type: narration
+        speed: slow
+        text: メイがゆっくりと話し始めた。
+      - type: dialog
+        character: mei
+        text: 木曜日の朝、早く登校して教室に行ったら、命令カードが机の上にあったの。
+        expression: worried
+      - type: dialog
+        character: mei
+        text: わたしの絵は廊下の左側に展示してある。「ロボットが先に自分の絵のところに来てくれたら、校長先生が気づいてくれるかも」って思って……
+      - type: dialog
+        character: mei
+        text: スケッチブックにマップを描いて確認して、カード②の「右」を消しゴムで消して「左」に書きかえた。
+        expression: worried
+      - type: dialog
+        character: mei
+        text: 本番の前に元に戻すつもりだったのに、ドキドキして忘れちゃったの。
+      - type: dialog
+        character: mei
+        text: 花瓶を壊すつもりなんてなかった。ただ……自分の絵を見てほしかっただけなのに……。
+        expression: determined
+      - type: sprite
+        character: mei
+        action: hide
+      - type: narration
+        speed: slow
+        text: メイは花瓶を壊したかったわけじゃない。ただ、自分の絵を校長先生に見てもらいたかっただけ——。
+      - type: narration
+        text: でも、たった1枚のカードの「右」を「左」に変えただけで、ロボットの行き先がまったく変わってしまった。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: メイの気持ちは分かるよ。自分の作品を見てほしいって、大切な気持ちだよね。
+      - type: dialog
+        character: sensei
+        text: でも今回みんなが学んだのは、とても大事なことです。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: 命令を順番にたどると、結果が予測できる。これが「プログラミング的思考」。
+      - type: dialog
+        character: sensei
+        text: そして、1つの命令を変えるだけで結果が大きく変わる。だからテストが大切なの。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: でもね、テストは「その時点で正しい」ことしか保証しない。テスト後に変更されたら、またバグが入る。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: yuuki
+        expression: determined
+        position: left
+      - type: dialog
+        character: yuuki
+        text: ぼくがカードをちゃんとしまっていれば……。次からは必ず鍵つきの引き出しに入れます。
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: mei
+        expression: determined
+        position: right
+      - type: dialog
+        character: mei
+        text: ごめんなさい。今度からは、やりたいことがあったらちゃんとみんなに相談します。
+      - type: sprite
+        character: mei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yuuki, expression: happy }
+          - { id: mei, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotone, expression: happy }
+      - type: narration
+        text: 花瓶は新しいものに取り替えられた。そしてメイの絵は——
+      - type: narration
+        speed: slow
+        text: 校長先生がちゃんと見に来てくれた。「すてきな絵だね」と言って。
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: mei
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: 命令のまちがいは「バグ」。バグを見つけるのは「デバッグ」。きみたちは今日、立派なデバッガーになったよ！
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: バグ探偵団——デバッグ完了！
+      - type: effect
+        name: fade-out
+        duration: 1500

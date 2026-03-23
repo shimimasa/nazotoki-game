@@ -1,0 +1,544 @@
+meta:
+  id: esd-01
+  title: 川の汚れの謎
+  series: ESD探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: park
+    bgm: esd-01/opening
+    steps:
+      - type: narration
+        text: あおば小学校の「川の環境調査プロジェクト」。4人のチームがあおば川の水質を調べている。
+      - type: narration
+        text: 先週までは3地点ともきれいな川だった。ところが——
+      - type: bgm
+        action: stop
+      - type: se
+        sound: esd-01/river
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: ibuki
+        text: 大変！ 下流の地点Cの水がすごく濁ってる！ 白っぽくて、肥料みたいな臭いもする！
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kana
+        text: 月曜・火曜は正常だったのに、水曜の午後から急に変わった。メダカもオタマジャクシも見当たらない……。
+      - type: sprite
+        character: kana
+        action: hide
+      - type: bgm
+        track: esd-01/investigation
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 先週まで正常だった川が急に汚れた。どの地点から汚れが入ったか突き止めよう。
+      - type: dialog
+        character: sensei
+        text: 覚えておいて——水は必ず上流から下流に流れる。汚れは発生地点より下流だけに広がる。
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: ESD探偵団 Vol.1
+        subtitle: 川の汚れの謎
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: park
+    bgm: esd-01/investigation
+    steps:
+      - type: narration
+        text: あおば川の3地点を担当した4人に報告を聞こう。
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: ぼくはハルキ。地点A（上流）を担当。pH 7.2、にごり度2。上流は正常だった。
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: souta
+        expression: normal
+        position: right
+      - type: dialog
+        character: souta
+        text: おれはソウタ。地点B（中流）担当。pH 6.3、にごり度8。……ちょっと悪かったかも。川沿いに野菜畑があるよ。
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: ibuki
+        text: わたしはイブキ。地点C（下流）担当。pH 5.8、にごり度12。すごく汚れてて、生き物がいなくなってた……。
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        expression: normal
+        position: right
+      - type: dialog
+        character: kana
+        text: わたしはカナ。イブキと一緒に地点Cの記録を担当。月曜・火曜は正常だったのに水曜午後から急変した。
+      - type: sprite
+        character: kana
+        action: hide
+
+  # ===== 証拠カード1: 水質データ =====
+  - id: evidence-1
+    bg: park
+    bgm: esd-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 3地点の水質データ
+      - type: narration
+        text: あおば川の木曜測定データ——正常範囲はpH 6.5～8.5、にごり度0～5。
+      - type: narration
+        text: 地点A（上流・ハルキ）：pH 7.2、にごり度2 → 正常
+      - type: narration
+        text: 地点B（中流・ソウタ）：pH 6.3、にごり度8 → 異常！
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: 地点C（下流・イブキ/カナ）：pH 5.8、にごり度12 → 深刻な汚染！
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: 地点Aは正常。地点Bで悪化が始まり、地点Cで深刻化。汚染源は地点A～Bの間にある！
+
+  # ===== 証拠カード2: 川周辺マップ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 地点A～B間の施設
+      - type: narration
+        text: 地点A～Bの間にある3つの施設——
+      - type: narration
+        text: ❶公園の水洗トイレ（川から50m）→ 下水道に接続済み。川には直接流れない
+      - type: narration
+        text: ❷農家の野菜畑（川から5m！）→ フェンスで仕切り。大雨で浸水あり
+      - type: narration
+        text: ❸小さな工場（川から30m）→ 排水は処理施設を通している。検査合格済み
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: pHが下がって肥料のにおいがする——トイレや工場では説明できない。
+      - type: narration
+        speed: slow
+        text: 川からわずか5mの畑。大雨で浸水することがある。ここが最も怪しい。
+
+  # ===== 証拠カード3: 気象・現地記録 =====
+  - id: evidence-3
+    bgm: esd-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 大雨と水質悪化の時系列
+      - type: narration
+        text: 今週の記録——
+      - type: narration
+        text: 月曜：全地点で水質正常
+      - type: narration
+        text: 火曜午後：ソウタが地点B・畑周辺を調査。「雨が降りそうだった」
+      - type: narration
+        text: 水曜 9:00～11:00：記録的な大雨！ 2時間で68mm。川の水位が+20cm上昇
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: 水曜14:30：地点Cで白い濁りと肥料臭を確認
+      - type: narration
+        text: 木曜：全地点を再測定 → 地点B・Cに異常
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: 水曜朝の大雨の後に水質が悪化した。「大雨 → 何かが川に流れ込んだ → 水質悪化」の順番。
+
+  # ===== 証拠カード4: 行動記録 =====
+  - id: evidence-4
+    bgm: esd-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 火曜に畑にいたのは誰？
+      - type: narration
+        text: 4人の火曜～水曜の行動——
+      - type: narration
+        text: ハルキ：火曜は地点Aで測定後、塾へ。水曜は大雨で家にいた。
+      - type: narration
+        text: イブキ：火曜は地点Cで生き物観察。水曜午後に地点Cで異変を発見。
+      - type: narration
+        text: カナ：火曜はイブキと地点Cで記録。水曜午後に「上流から泡が来てた」と報告。
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: ソウタ：火曜午後に地点B・畑周辺を調査。水曜は「大雨で外出しなかった」。
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ibuki
+        text: 水曜14:30ごろ、地点Cで急に白っぽい濁りが上流方向から流れてきた。肥料みたいな臭いがしたの。
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        expression: determined
+        position: right
+      - type: dialog
+        character: kana
+        text: 泡の発生源は地点B方向（北）からだった。わたしの記録ノートにも書いてある。
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: 大雨の前日に地点B（畑周辺）にいたのはソウタだけ。ソウタは畑で何をしていた？
+
+  # ===== 投票 =====
+  - id: questions
+    bg: park
+    bgm: esd-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: データと行動記録を整理しよう。汚染源はどこ？ 誰が関わっている？
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 川の汚れの原因はどの施設から？
+        options:
+          - text: 公園のトイレ（下水道に接続済み）
+            value: toilet
+          - text: 農家の畑（川から5m・肥料あり）
+            value: farm
+          - text: 小さな工場（排水処理済み）
+            value: factory
+          - text: 原因は分からない
+            value: unknown
+      - type: choice
+        id: q2
+        question: 汚染に関わっているのは誰？
+        options:
+          - text: ハルキ（上流担当・データ正常）
+            value: haruki
+          - text: イブキ（下流担当・異変を発見）
+            value: ibuki
+          - text: ソウタ（中流担当・火曜に畑にいた）
+            value: souta
+          - text: カナ（下流担当・記録係）
+            value: kana
+
+  # ===== 証拠カード5: 農業委員の証言 =====
+  - id: evidence-5
+    bgm: esd-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 農業委員さんの証言
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 農業委員の田中さんに確認しました。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 田中さんの証言——
+      - type: narration
+        text: 「木曜の朝、山田さんの畑に行ったら川のフェンスが傾いて、化成肥料の袋が1袋なくなっていた」
+      - type: narration
+        text: 「フェンスの外（川側）に肥料袋の破れたかけらが残っていた」
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: 「20kgの化成肥料が川に落ちたら、pHが下がるし水が白く濁ることもある」
+      - type: narration
+        speed: slow
+        text: 「月曜には袋は3袋あった。火曜に誰かが1袋をフェンスの近くに移動させた痕跡がある」
+      - type: narration
+        text: 火曜に畑にいて、肥料袋を動かせたのは——ソウタだけ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: park
+    bgm: esd-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 「守ろうとした」のに川を汚した
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルキの秘密
+  - id: truth-haruki
+    bg: park
+    steps:
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruki
+        text: ぼくはデータを見てすぐ「地点A～Bの間に原因がある」と分かった。
+      - type: dialog
+        character: haruki
+        text: でもそれをもっと早くみんなに共有すべきだった。データは持っているだけじゃ意味がない。
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # イブキの秘密
+  - id: truth-ibuki
+    steps:
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: right
+      - type: dialog
+        character: ibuki
+        text: 水曜に川が濁り始めたとき、すぐに先生に報告すべきだった。
+      - type: dialog
+        character: ibuki
+        text: メダカもオタマジャクシもいなくなってた。生き物が住めなくなる前に気づけていれば……。
+        expression: determined
+      - type: sprite
+        character: ibuki
+        action: hide
+
+  # カナの秘密
+  - id: truth-kana
+    steps:
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kana
+        text: わたしの記録には「泡が北（地点B方向）から来ている」と書いてあった。
+      - type: dialog
+        character: kana
+        text: もっと早くこの記録を共有していれば、原因の特定が速かったはず。
+        expression: determined
+      - type: sprite
+        character: kana
+        action: hide
+
+  # ソウタの真実（クライマックス）
+  - id: truth-souta
+    bgm: esd-01/truth
+    steps:
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: え……おれが原因？ 肥料袋を動かしたのが？
+      - type: narration
+        speed: slow
+        text: ソウタは本当に気づいていなかった。
+      - type: dialog
+        character: souta
+        text: 火曜の調査中に、雨が降りそうだったから肥料袋が濡れないよう川沿いのフェンスに寄せたんだ。石を重しに置いた。
+        expression: worried
+      - type: dialog
+        character: souta
+        text: 「ちゃんとおさえたから大丈夫」って思ってた。まさか翌朝の大雨で袋が川に落ちるなんて……。
+      - type: dialog
+        character: souta
+        text: 守ろうとしたつもりだったのに、川を汚してしまった。
+        expression: worried
+      - type: dialog
+        character: souta
+        text: ……ごめん。悪気はなかった。でも結果は変えられない。おれがやったことが原因だ。
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        speed: slow
+        text: ソウタには悪意がなかった。肥料を「守ろうとした」行動が、結果的に川を汚した。これが「うっかり型」の環境問題だ。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: park
+    bgm: esd-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 今回の事件で大切なことが分かりましたね。
+      - type: dialog
+        character: sensei
+        text: 水は上流から下流に流れる。だからどこかで汚れが入ると、その下流すべてが影響を受ける。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: 化学物質（肥料や農薬）が川に入ると、pHが変わり、水が濁り、生き物が住めなくなる。これを「富栄養化」と言います。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: そしてソウタくん——悪意がなくても、行動が環境に影響を与えることがある。だから「報告する」「相談する」が大切なんです。
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: 次からは、畑のものを動かすときは農家のおじいさんに相談する。自分で判断しないで、詳しい人に聞く。
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: kana, expression: happy }
+      - type: narration
+        text: その後、4人は山田さんの畑に肥料の安全な保管場所を一緒に作った。フェンスも補強された。
+      - type: narration
+        speed: slow
+        text: 1か月後——あおば川の水質は正常に戻り、メダカが再び泳ぎ始めた。
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: ESD探偵団——川の汚れの謎、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

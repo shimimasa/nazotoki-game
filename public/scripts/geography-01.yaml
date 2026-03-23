@@ -1,0 +1,545 @@
+meta:
+  id: geography-01
+  title: 書きかえられた安全マップと4つの通学路
+  series: 地図探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  sora:
+    name: ソラ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hinata:
+    name: ヒナタ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  riku:
+    name: リク
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aoi:
+    name: アオイ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-01/opening
+    steps:
+      - type: narration
+        text: あおば小学校3年1組。先週の社会科「町たんけん」で、みんなで学校のまわりの安全マップを作った。
+      - type: narration
+        text: 危ない場所には赤いシール。子ども110番の家には青いシール。安全な道には緑の矢印。
+      - type: narration
+        text: 発表会は明日。教室の壁にはった安全マップをソラが確認すると——
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sora
+        text: あれ？ マップが変わってる！ 赤い「危ない場所」のシールが3つも消えてて、代わりに緑の「安全」マークがついてる！
+      - type: sprite
+        character: sora
+        action: hide
+      - type: bgm
+        track: geography-01/investigation
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 危ない場所が「安全」になっていたら、みんなが危ない道を通ってしまうかもしれない。
+      - type: dialog
+        character: sensei
+        text: 地図探偵団、誰がなぜマップを書きかえたのか調べよう！
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.1
+        subtitle: 書きかえられた安全マップと4つの通学路
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-01/investigation
+    steps:
+      - type: narration
+        text: 安全マップを作った4人の地図探偵に話を聞こう。
+      - type: sprite
+        character: sora
+        expression: normal
+        position: left
+      - type: dialog
+        character: sora
+        text: ぼくはソラ。マップ作りのリーダーだよ。通学路は北ルート（大通り沿い）。15分くらいかかるけど、歩道があって安全だよ。
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: normal
+        position: right
+      - type: dialog
+        character: hinata
+        text: わたしはヒナタ。通学路は東ルート（公園前の道）。10分で着くの。
+        expression: thinking
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: riku
+        expression: happy
+        position: left
+      - type: dialog
+        character: riku
+        text: おれはリク！ 通学路は東ルート（公園前の道）。ヒナタと同じだよ。明るくて見通しのいい道！
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: aoi
+        expression: normal
+        position: right
+      - type: dialog
+        character: aoi
+        text: わたしはアオイ。通学路は南ルート（商店街）。お店がたくさんあって、人通りが多い道だよ。
+      - type: sprite
+        character: aoi
+        action: hide
+
+  # ===== 証拠カード1: 書きかえられた場所 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 書きかえられた3か所
+      - type: narration
+        text: 安全マップの変わった場所を調べた——
+      - type: narration
+        text: ①暗い路地 → 「危ない」が「安全」に変わっている → 西エリア
+      - type: narration
+        text: ②見通しの悪い曲がり角 → 「危ない」が「安全」に変わっている → 西エリア
+      - type: narration
+        text: ③交通量の多い交差点 → 「危ない」が「安全」に変わっている → 西エリア
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 3つとも西エリア！ 偶然じゃない。犯人は西エリアに関係がある人だ。
+
+  # ===== 証拠カード2: 4人の通学路 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4人の通学路マップ
+      - type: narration
+        text: 4人の通学路——
+      - type: narration
+        text: ソラ：北ルート（大通り沿い）→ 北エリア
+      - type: narration
+        text: ヒナタ：東ルート（公園前の道）→ 東エリア
+      - type: narration
+        text: リク：東ルート（公園前の道）→ 東エリア
+      - type: narration
+        text: アオイ：南ルート（商店街）→ 南エリア
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 書きかえられたのは西エリアだけ。でも——
+      - type: narration
+        speed: slow
+        text: 西ルートを通学路にしている人は誰もいない。なぜ西エリアだけ変えた？
+
+  # ===== 証拠カード3: 子ども110番の家 =====
+  - id: evidence-3
+    bgm: geography-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 子ども110番の家リスト
+      - type: narration
+        text: 町の「子ども110番の家」を確認——
+      - type: narration
+        text: 北エリア：大通りのパン屋さん → マップ表示正しい
+      - type: narration
+        text: 東エリア：公園前の花屋さん → マップ表示正しい
+      - type: narration
+        text: 南エリア：商店街の本屋さん → マップ表示正しい
+      - type: narration
+        text: 西エリア：住宅街の田中さんの家 → マップ表示正しい
+      - type: narration
+        text: 子ども110番の家は全て正しいまま。犯人が変えたのは「危ない場所」のマークだけ。
+      - type: narration
+        speed: slow
+        text: 「危ない場所」だけ消したかった理由は？ その場所が「危ない」と知られると困る人がいる？
+
+  # ===== 証拠カード4: 放課後の行動 =====
+  - id: evidence-4
+    bgm: geography-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 木曜放課後の行動
+      - type: narration
+        text: マップが書きかえられたのは木曜の放課後。4人はどこにいた？
+      - type: narration
+        text: リク：15:00～16:00 校庭でサッカー（体育の先生が証人）→ 教室に戻れない → 除外！
+      - type: narration
+        text: アオイ：15:00～15:15 保健室（保健の先生が証人）、15:20 下校 → 除外！
+      - type: narration
+        text: ソラ：15:00～15:15 教室（日直）。15:15に教室を出た。15:30から図書室（図書の先生が証人）
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: ソラに15:15～15:30の15分間、証人がいない空白がある
+      - type: narration
+        speed: slow
+        text: ヒナタ：15:00に「すぐ帰った」と言っているが、誰も確認していない。証人なし！
+      - type: narration
+        text: 容疑者は2人——ソラとヒナタ。どちらかを決定的証拠で絞り込もう。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 消された3か所は全て西エリア。犯人は西に関係がある人。証拠を整理して推理しよう。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 安全マップを書きかえたのは誰？
+        options:
+          - text: ソラ（マップのリーダー・北ルート）
+            value: sora
+          - text: ヒナタ（東ルートと主張・証人なし）
+            value: hinata
+          - text: リク（東ルート・校庭にいた）
+            value: riku
+          - text: アオイ（南ルート・保健室にいた）
+            value: aoi
+      - type: choice
+        id: q2
+        question: なぜ西エリアの「危ない場所」だけ消した？
+        options:
+          - text: 西エリアを毎日通っていることを隠したかったから
+            value: hide-route
+          - text: 西エリアが本当は安全だと思ったから
+            value: safe
+          - text: マップの見た目をきれいにしたかったから
+            value: clean
+          - text: いたずらがしたかったから
+            value: prank
+
+  # ===== 証拠カード5: ご近所さんの証言 =====
+  - id: evidence-5
+    bgm: geography-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 西エリアの田中さんの証言
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 町たんけんのときに話を聞いた、西エリアの田中さん（子ども110番の家）から情報が来ました。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 田中さんの証言——
+      - type: narration
+        text: 「毎朝7時50分ごろ、あおば小学校の制服を着た子が、西の暗い路地を通って学校のほうに歩いていくのを見ますよ」
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 「1人で歩いているから心配していたんです。ランドセルは黄色いカバーがついていました」
+      - type: narration
+        text: あおば小学校で黄色いランドセルカバーは3年生。4人とも3年生で全員黄色。カバーの色だけでは特定できない。
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: でも——「西の暗い路地を毎朝通っている3年生がいる」ということは確定した。
+      - type: narration
+        text: 4人の通学路は北・東・東・南。西ルートを使っている人は——いないはず。
+      - type: sprite
+        character: riku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: riku
+        text: 待って。おれはヒナタと同じ東ルートのはずなのに、朝ヒナタに会ったことがないんだよね。
+      - type: sprite
+        character: riku
+        action: hide
+      - type: narration
+        speed: slow
+        text: ヒナタは「東ルート」と言っているが、本当は西ルートを使っている？ 西の危ない場所を「安全」に変えたかった理由——それは自分の通学路だったから。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 近道と安全のはざまで
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソラの秘密
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: ぼくも言わなきゃいけないことがある。15:15に教室を出たとき、ゴミ箱に赤いシールの剥がしカスを見つけたんだ。
+      - type: dialog
+        character: sora
+        text: 「誰かがシールを剥がした？」と思ったけど、図書室に行く時間だったから確認しなかった。
+        expression: determined
+      - type: sprite
+        character: sora
+        action: hide
+
+  # リクの秘密
+  - id: truth-riku
+    steps:
+      - type: sprite
+        character: riku
+        expression: thinking
+        position: right
+      - type: dialog
+        character: riku
+        text: おれも気になってたことがある。町たんけんのとき、西の路地であおば小学校の上靴が落ちてるのを見たんだ。
+      - type: dialog
+        character: riku
+        text: 「誰かがここを通ってるんだな」って思ったけど、その時は気にしなかった。
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # アオイの秘密
+  - id: truth-aoi
+    steps:
+      - type: sprite
+        character: aoi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: aoi
+        text: わたし、15:15に教室の前を通ったとき、シールを剥がす「ペリペリ」っていう音が聞こえたの。
+      - type: dialog
+        character: aoi
+        text: 「誰かいるのかな？」と思ったけど、急いで下校したから確認しなかった。
+        expression: determined
+      - type: sprite
+        character: aoi
+        action: hide
+
+  # ヒナタの真実（クライマックス）
+  - id: truth-hinata
+    bgm: geography-01/truth
+    steps:
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: center
+      - type: dialog
+        character: hinata
+        text: ……わたしがやりました。安全マップを書きかえたのは、わたしです。
+      - type: narration
+        speed: slow
+        text: ヒナタがゆっくりと話し始めた。
+      - type: dialog
+        character: hinata
+        text: 本当は、東ルートじゃなくて西ルートの近道を通ってるの。お母さんは朝6時半に仕事に出ちゃうから、わたし1人で支度して学校に行くの。
+        expression: worried
+      - type: dialog
+        character: hinata
+        text: 西ルートは東ルートより5分早い。少しでも余裕を持って学校に着きたくて……。
+      - type: dialog
+        character: hinata
+        text: でも町たんけんで西ルートに「暗い路地」「見通しの悪い曲がり角」「交通量の多い交差点」って赤いシールが貼られた。
+        expression: worried
+      - type: dialog
+        character: hinata
+        text: 発表会でマップが教室にはり出されたら、わたしが毎日危ない道を通ってることがバレちゃう。お母さんに怒られる……。
+      - type: dialog
+        character: hinata
+        text: だから木曜の放課後にこっそり戻って、3つの赤いシールを剥がして緑のマークに変えたの。
+        expression: worried
+      - type: dialog
+        character: hinata
+        text: ……ごめんなさい。マップを壊すつもりはなかった。ただ、バレたくなかっただけ。
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: narration
+        speed: slow
+        text: ヒナタに悪気はなかった。朝1人で学校に行く不安と、少しでも早く着きたい気持ち。でも「危ない場所」を「安全」に変えてしまったら、他の子も危ない道を通ってしまうかもしれない。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: ヒナタさん、気持ちは分かるよ。でも安全マップの役割を考えてみよう。
+      - type: dialog
+        character: sensei
+        text: 危ない場所を「なくす」のではなく「知る」ことが、安全の第一歩なんだ。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: マップに赤いシールが貼ってあるからこそ、「ここは気をつけよう」「別の道を通ろう」って考えられる。消してしまったら、誰も危険に気づけなくなる。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: そしてヒナタさん——1人で朝の支度をして学校に来ているのは、とても頑張ってるよ。でも困っているときは先生やお母さんに相談してね。
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: determined
+        position: left
+      - type: dialog
+        character: hinata
+        text: ……うん。お母さんに相談してみる。それと、マップは元に戻します。
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: riku
+        expression: happy
+        position: right
+      - type: dialog
+        character: riku
+        text: ヒナタ、おれと一緒に東ルートで行こうよ！ 朝待ってるからさ。
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: happy }
+          - { id: hinata, expression: happy }
+          - { id: riku, expression: happy }
+          - { id: aoi, expression: happy }
+      - type: narration
+        text: 安全マップは元に戻された。3つの赤いシールが、ちゃんと西エリアに貼り直された。
+      - type: narration
+        speed: slow
+        text: そして次の朝——ヒナタは東ルートの公園前で、リクと一緒に学校に向かっていた。少し遠回りだけど、安全な道を2人で。
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: aoi
+        action: hide
+      - type: narration
+        text: 地図探偵団——書きかえられた安全マップの謎、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

@@ -1,0 +1,508 @@
+meta:
+  id: career-01
+  title: まちがえた注文
+  series: キャリア探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tencho:
+    name: 店長
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: street
+    bgm: career-01/opening
+    steps:
+      - type: narration
+        text: 商店街のパン屋さん「あさひベーカリー」。毎朝おいしいパンを焼いて、みんなに届けている。
+      - type: narration
+        text: ところが今日、こまったことが起きた。
+      - type: bgm
+        action: stop
+      - type: se
+        sound: career-01/phone
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: tencho
+        expression: normal
+        position: center
+      - type: dialog
+        character: tencho
+        text: え？ さとうさんから「注文したパンと違うものが届いた」ってクレームの電話だ！
+        expression: thinking
+      - type: bgm
+        track: career-01/investigation
+      - type: dialog
+        character: tencho
+        text: さとうさんが注文したのはクリームパン6個。でも届いたのはクロワッサン6個。
+      - type: dialog
+        character: tencho
+        text: 注文→製造→配達、どこかで間違いが起きた。キャリア探偵団、調べてくれ！
+        expression: normal
+      - type: sprite
+        character: tencho
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.1
+        subtitle: まちがえた注文
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: street
+    bgm: career-01/investigation
+    steps:
+      - type: narration
+        text: パン屋の仕事の流れ——注文を受ける→パンを作る→届ける。各工程の担当者に話を聞こう。
+      - type: sprite
+        character: mina
+        expression: normal
+        position: left
+      - type: dialog
+        character: mina
+        text: わたしはミナ。注文の電話を受けて、注文票に書く担当だよ。さとうさんから「クリームパン6個」って聞いて、ちゃんと書いたよ。
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: right
+      - type: dialog
+        character: haruto
+        text: ぼくはハルト。製造台帳に注文を記録して、パンを焼く担当。注文票を見て、ちゃんとクリームパン6個って書いた。
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: おれはケイ。配達担当！ 今日は4件の配達があってバタバタだったけど、ちゃんと届けたよ。
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: わたしはサキ。配達ルートの記録係。数字の間違いに気づくのが得意。
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 注文票 =====
+  - id: evidence-1
+    bg: street
+    bgm: career-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: お客さんの注文票
+      - type: narration
+        text: 注文票（ミナが9:00に記入）——
+      - type: narration
+        text: お客様名：さとうさん
+      - type: narration
+        text: 注文内容：クリームパン × 6個
+      - type: narration
+        text: 配達希望：11:30まで
+      - type: narration
+        text: 注文票は正確。「クリームパン6個」と書いてある。問題はここではない。
+
+  # ===== 証拠カード2: 製造台帳 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 製造台帳
+      - type: narration
+        text: 製造台帳（ハルトが9:15に記録）——
+      - type: narration
+        text: ①クリームパン × 6　配達先：さとうさん宅
+      - type: narration
+        text: ②クロワッサン × 4　店頭販売用
+      - type: narration
+        text: ③あんぱん × 8　　　店頭販売用
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 台帳も正確。注文票と一致。でも——注目！
+      - type: narration
+        speed: slow
+        text: 「クリームパン」と「クロワッサン」。両方とも「ク」から始まる商品名が並んで書いてある。
+
+  # ===== 証拠カード3: 配達伝票 =====
+  - id: evidence-3
+    bgm: career-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ケイの配達伝票
+      - type: narration
+        text: 配達伝票（製造台帳から転記）——
+      - type: narration
+        text: 1. たなかさん宅：あんぱん×2
+      - type: narration
+        text: 2. やまもとさん宅：クリームパン×3
+      - type: narration
+        text: 3. さとうさん宅：クリームパン×6
+      - type: narration
+        text: 4. きむらさん宅：あんぱん×4
+      - type: narration
+        text: 伝票にはちゃんと「クリームパン×6」と書いてある。転記も正確。
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: でも待って——きむらさんの注文票を確認すると「あんぱん×3」のはず。伝票には×4と書いてある。数量の書き間違いがある！
+      - type: narration
+        text: でもさとうさんの問題は「数量」じゃなくて「商品そのもの」が違う。伝票は正しいのに届いたのはクロワッサン——
+      - type: narration
+        speed: slow
+        text: 問題は伝票じゃなく、「商品を選ぶとき」に起きた？
+
+  # ===== 証拠カード4: スタッフメモ =====
+  - id: evidence-4
+    bgm: career-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ケイの出発前の様子
+      - type: narration
+        text: スタッフメモ——
+      - type: narration
+        text: 「今日は配達が4件でいつもより多め」
+      - type: narration
+        text: 「ケイが『急いで出ないと遅くなる！』と言いながら出発した」
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 「出発時に製造台帳をパッと見てバッグに商品を入れていたのが印象的だった」
+      - type: narration
+        speed: slow
+        text: 「配達伝票を最後まで確認したかどうかは不明」
+      - type: narration
+        text: 注文票→製造台帳→配達伝票、全部正しく書いてある。でもケイは「伝票を見ずに台帳をパッと見ただけ」で出発した。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: street
+    bgm: career-01/tension
+    steps:
+      - type: sprite
+        character: tencho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tencho
+        text: 注文→製造→配達、どの工程でミスが起きた？ 誰の担当だった？
+      - type: sprite
+        character: tencho
+        action: hide
+      - type: choice
+        id: q1
+        question: ミスが起きたのはどの工程？
+        options:
+          - text: 注文の受付（ミナが注文票に書き間違えた）
+            value: order
+          - text: 製造の記録（ハルトが台帳に書き間違えた）
+            value: production
+          - text: 配達の実行（ケイが商品を取り違えた）
+            value: delivery
+          - text: 転記のミス（伝票の書き写しで間違えた）
+            value: copy
+      - type: choice
+        id: q2
+        question: なぜクリームパンとクロワッサンが入れ替わった？
+        options:
+          - text: 「ク」から始まる商品名が似ていて、急いで見間違えた
+            value: similar-name
+          - text: クロワッサンの方がおいしいと思って入れ替えた
+            value: intentional
+          - text: 製造台帳が間違っていた
+            value: ledger-error
+          - text: お客さんが注文を変更した
+            value: changed
+
+  # ===== 証拠カード5: 配達ルート記録 =====
+  - id: evidence-5
+    bgm: career-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: さとうさん宅での行動
+      - type: sprite
+        character: saki
+        expression: determined
+        position: center
+      - type: dialog
+        character: saki
+        text: わたし、ケイの配達ルートを記録してたの。気になることがある。
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: 配達時間記録——
+      - type: narration
+        text: 10:55 たなかさん宅 配達完了
+      - type: narration
+        text: 11:05 やまもとさん宅 配達完了
+      - type: narration
+        text: 11:15 さとうさん宅 到着
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: さとうさん宅で「商品確認せずに置いた」——サキのメモより。
+      - type: narration
+        text: 通常、玄関先で商品と伝票を照合してからお客さんに渡す決まりがある。ケイはこの確認をスキップした。
+      - type: narration
+        text: 伝票には「クリームパン×6」と正しく書いてある。でも急いでいたケイは伝票を確認せず、台帳の記憶だけで商品を選んだ。「ク」から始まる商品名を見間違えたまま。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: street
+    bgm: career-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 急いでいたから確認しなかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: street
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruto
+        text: ぼくも気づいてた。製造台帳に「クリームパン」と「クロワッサン」が並んで書いてあること。
+      - type: dialog
+        character: haruto
+        text: 「ク」から始まる名前が隣り合ってるのは紛らわしいって思ったけど、ケイに言わなかった。
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ミナの秘密
+  - id: truth-mina
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: right
+      - type: dialog
+        character: mina
+        text: 実は、さとうさんの注文は子どもの誕生日パーティー用だったの。
+      - type: dialog
+        character: mina
+        text: クリームパンが届かなくて、パーティーが台無しに……。お客さんの気持ちを考えると悲しい。
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # サキの秘密
+  - id: truth-saki
+    steps:
+      - type: sprite
+        character: saki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: saki
+        text: わたし、ケイが出発前に急いでるのを見てた。「伝票ちゃんと見た？」って聞こうとしたけど、言えなかった。
+      - type: dialog
+        character: saki
+        text: さとうさん宅で商品確認しなかったのも見てた。もっと早く声をかけていれば。
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ケイの真実（クライマックス）
+  - id: truth-kei
+    bgm: career-01/truth
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: center
+      - type: dialog
+        character: kei
+        text: ……おれのミスだ。さとうさんにクロワッサンを届けちゃったのは、おれが伝票を確認しなかったから。
+      - type: narration
+        speed: slow
+        text: ケイがゆっくりと話し始めた。
+      - type: dialog
+        character: kei
+        text: 今日は配達が4件もあって、急いでた。出発するとき製造台帳をパッと見ただけで商品をバッグに入れた。
+        expression: worried
+      - type: dialog
+        character: kei
+        text: 台帳に「クリームパン」と「クロワッサン」が並んでて、「ク……クロワッサン6個がさとうさんか」って記憶しちゃった。
+      - type: dialog
+        character: kei
+        text: 配達伝票にはちゃんと「クリームパン」って書いてあったのに、見なかった。見てれば気づけたのに。
+        expression: worried
+      - type: dialog
+        character: kei
+        text: さとうさんの玄関でも確認しなかった。急いで次の配達に行きたくて。
+      - type: dialog
+        character: kei
+        text: 悪気はなかった。でも……確認しなかったのはおれの責任だ。さとうさんにちゃんと謝ります。
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        speed: slow
+        text: ケイに悪意はなかった。急いでいたから確認を省いた——これは仕事のミスとしてとてもよくあるパターンだ。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: street
+    bgm: career-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: tencho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tencho
+        text: 今回の事件で分かったことがあるね。
+      - type: dialog
+        character: tencho
+        text: パン屋の仕事には「注文→製造→配達」の流れがある。各工程に記録がある。注文票、製造台帳、配達伝票。
+        expression: normal
+      - type: dialog
+        character: tencho
+        text: この記録は「確認するため」にある。記録があるから、どこでミスが起きたか発見できた。
+        expression: thinking
+      - type: dialog
+        character: tencho
+        text: そして大事なこと——急いでいるときほど確認が必要。「急いでいたから」は理由にはなるけど、お客さんは困る。
+        expression: normal
+      - type: sprite
+        character: tencho
+        action: hide
+      - type: sprite
+        character: kei
+        expression: determined
+        position: left
+      - type: dialog
+        character: kei
+        text: 次からは出発前に伝票を声に出して読む。「さとうさん、クリームパン6個」って。そうすれば見間違えない。
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: さとうさんにはすぐにクリームパン6個が届けられた。子どもの誕生日パーティーに、ちゃんと間に合った。
+      - type: narration
+        speed: slow
+        text: 仕事の記録は「確認のためのツール」。書いてあっても見なければ意味がない。見て、確認して、初めて記録が力を発揮する。
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: キャリア探偵団——まちがえた注文の謎、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

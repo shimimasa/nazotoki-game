@@ -17,7 +17,7 @@ import type {
 
 export function createInitialState(): GameState {
   return {
-    phase: 'title',
+    phase: 'select',
     currentSceneIndex: 0,
     currentStepIndex: 0,
     choices: {},
@@ -36,6 +36,7 @@ export function createInitialState(): GameState {
     activeTitleCard: null,
     pendingSounds: [],
     waitingForClick: false,
+    showingFeedback: false,
   }
 }
 
@@ -66,12 +67,34 @@ export function processEvent(
     case 'click':
       return processClick(script, state)
 
-    case 'choice_selected':
-      return {
+    case 'choice_selected': {
+      const choice = state.activeChoice
+      const selectedOption = choice?.options.find((o) => o.value === event.value)
+      const feedback =
+        selectedOption?.feedback || choice?.feedback_default || null
+
+      const newState: GameState = {
         ...state,
         choices: { ...state.choices, [event.choiceId]: event.value },
         activeChoice: null,
       }
+
+      if (feedback) {
+        return {
+          ...newState,
+          showingFeedback: true,
+          textDisplay: {
+            text: feedback,
+            characterName: null,
+            characterColor: null,
+            isTyping: true,
+            visibleChars: 0,
+          },
+        }
+      }
+
+      return newState
+    }
 
     case 'effect_done':
       return { ...state, activeEffect: null }
@@ -119,6 +142,11 @@ function processClick(script: ScriptData, state: GameState): GameState {
         visibleChars: state.textDisplay.text.length,
       },
     }
+  }
+
+  // フィードバック表示中 → クリックでフィードバックを閉じて次へ
+  if (state.showingFeedback) {
+    return advanceStep(script, { ...state, showingFeedback: false })
   }
 
   // 選択肢表示中はクリックを無視

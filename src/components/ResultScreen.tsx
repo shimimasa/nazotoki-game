@@ -9,6 +9,7 @@ interface Props {
   script: ScriptData
   choices: Record<string, string>
   onRestart: () => void
+  onBackToSelect: () => void
 }
 
 // 選択肢IDから質問文と選択テキストを逆引き
@@ -27,7 +28,7 @@ function getChoiceInfo(script: ScriptData, choiceId: string, value: string) {
   return { question: choiceId, answer: value }
 }
 
-export function ResultScreen({ script, choices, onRestart }: Props) {
+export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Props) {
   const entries = Object.entries(choices)
 
   return (
@@ -62,9 +63,14 @@ export function ResultScreen({ script, choices, onRestart }: Props) {
           正解はありません。大事なのは「なぜそう思ったか」を考えること。
         </div>
 
-        <button class="result-restart" onClick={onRestart}>
-          もう一度最初から
-        </button>
+        <div class="result-buttons">
+          <button class="result-restart" onClick={onRestart}>
+            もう一度最初から
+          </button>
+          <button class="result-back" onClick={onBackToSelect}>
+            別のシナリオを選ぶ
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,538 @@
+meta:
+  id: disaster-01
+  title: 避難記録のズレ
+  series: 防災探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: schoolyard
+    bgm: disaster-01/opening
+    steps:
+      - type: narration
+        text: X市立みどり小学校——今日は地震を想定した避難訓練。
+      - type: se
+        sound: disaster-01/siren
+      - type: narration
+        text: 緊急地震速報が鳴った。机の下に隠れ、揺れがおさまるのを待ち、先生の放送に従って校庭へ移動する。
+      - type: narration
+        text: 「おかしも」を守ること。押さない・かけない・しゃべらない・もどらない。
+      - type: narration
+        text: 訓練が終わり、4人が避難記録シートを先生に提出した。ところが——
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: bgm
+        track: disaster-01/investigation
+      - type: dialog
+        character: sensei
+        text: ケイくんの記録がおかしい。「経路A（階段）を通った」と書いてあるのに、出発時刻と到着時刻の差が合わないわ。
+      - type: dialog
+        character: sensei
+        text: 経路Aは通常3分。なのにケイくんは5分かかっている。防災探偵団、この矛盾を調べて！
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.1
+        subtitle: 避難記録のズレ
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: disaster-01/investigation
+    steps:
+      - type: narration
+        text: 訓練に参加した4人に話を聞こう。
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: ぼくはソウタ。記録の整理が得意。10:03に教室を出て10:06に校庭到着。所要時間3分、経路Aの通常通り。
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: わたしはナナ。10:03に出て10:07に到着。4分かかったの……ちょっと遅れちゃった。
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: おれはケイ。防災クラブのメンバーだよ。10:03に出て10:08に到着。経路Aを通った。
+      - type: dialog
+        character: kei
+        text: ……5分かかったのは、ちょっと混んでたから。
+        expression: thinking
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: わたしはアイ。気象観測係。10:04に出て10:07に到着。3分で、通常通り。
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: 避難記録シート =====
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 4人の避難記録を比べよう
+      - type: narration
+        text: 4人の避難記録シート——経路は全員「経路A（階段）」と記入。
+      - type: narration
+        text: ソウタ：10:03出発 → 10:06到着 → 所要時間3分 → 通常通り
+      - type: narration
+        text: アイ：10:04出発 → 10:07到着 → 所要時間3分 → 通常通り
+      - type: narration
+        text: ナナ：10:03出発 → 10:07到着 → 所要時間4分 → +1分遅い
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: ケイ：10:03出発 → 10:08到着 → 所要時間5分 → +2分遅い！
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: ソウタとアイは通常通り。でもナナ（+1分）とケイ（+2分）が遅い。2人の「遅れた理由」を調べよう！
+
+  # ===== 証拠カード2: 避難経路データ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 2つの避難経路
+      - type: narration
+        text: みどり小学校には2つの避難経路がある。
+      - type: narration
+        text: 経路A（階段経由）：教室 → 階段 → 1階廊下 → 校庭。通常所要時間は約3分。当日使用OK。
+      - type: narration
+        text: 経路B（スロープ経由）：教室 → スロープ → 中庭 → 校庭。通常は約2分。
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: ただし当日、経路Bは工事中のため使用禁止！ 朝のホームルームで先生が「全員経路Aを使うこと」と指示した。
+      - type: narration
+        text: もし誰かが経路B（工事中）を通ったら？ 工事資材があるため、通常2分のところが約5分かかる。
+      - type: narration
+        text: ケイの所要時間は5分。経路Aなら通常3分。でも経路B（工事中）なら5分。——ぴったり一致する。
+
+  # ===== 証拠カード3: 防災クラブの記録 =====
+  - id: evidence-3
+    bgm: disaster-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ケイの防災クラブメモ
+      - type: narration
+        text: ケイは防災クラブの活動で、先月2つの経路を実際に歩いて時間を計っていた。
+      - type: narration
+        text: 経路A（階段）：2分50秒（約3分）。「階段が混むと遅くなりそう」
+      - type: narration
+        text: 経路B（スロープ）：1分45秒（約2分）。「スロープは速い！ 階段より楽」
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: ケイは「スロープの方が速い」と知っていた。工事中で使用禁止と聞いても、「使えば速く到着できる」という考えが頭にあったかもしれない。
+
+  # ===== 証拠カード4: 目撃情報 =====
+  - id: evidence-4
+    bgm: disaster-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 目撃情報——2人の遅れの理由は？
+      - type: narration
+        text: まず、ナナの+1分を確認しよう。
+      - type: narration
+        text: 1年1組の担任の先生の証言——「階段の踊り場で1年生の子が転んで泣いていました。ナナさんが立ち止まって手を引いて一緒に降りてくれました」
+      - type: sprite
+        character: nana
+        expression: determined
+        position: left
+      - type: dialog
+        character: nana
+        text: 1年生の子が泣いてたから、一緒に降りてあげたの。それで1分遅くなった。
+      - type: sprite
+        character: nana
+        action: hide
+      - type: narration
+        text: ナナの+1分は「1年生を助けた」ため。先生が確認済み。ナナは経路Aを正しく通っている。——ナナは問題なし。
+      - type: narration
+        text: では、ケイの+2分は？
+      - type: sprite
+        character: ai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ai
+        text: 訓練中に経路Aを通ったとき、スロープの入り口の近くを通ったの。そこに黄色い柵と「工事中・通行禁止」の看板があった。
+      - type: dialog
+        character: ai
+        text: でも……柵の足元の砂が乱れていて、柵の支柱が少しずれていた。誰かが通り抜けたみたい。
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+      - type: sprite
+        character: nana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nana
+        text: わたし、校庭に着いたとき少し後からケイくんが来たの。でも——ケイくんは中庭側から校庭に入ってきた。
+      - type: dialog
+        character: nana
+        text: 経路Aの出口って階段側だよね？ 中庭側から来るのは経路Bを通った場合だと思う。
+        expression: determined
+      - type: sprite
+        character: nana
+        action: hide
+      - type: narration
+        text: 柵が乱れていた（誰かが通り抜けた）。ケイが中庭側から来た（経路Bの出口）。——経路Bを通ったのはケイ？
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: disaster-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 証拠を整理しましょう。記録と違う経路を通ったのは誰？
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 経路Aではなく経路B（工事中のスロープ）を通ったのは誰？
+        options:
+          - text: ソウタ（所要時間3分・通常通り）
+            value: souta
+          - text: ナナ（+1分だが、1年生を助けたため）
+            value: nana
+          - text: ケイ（+2分で、中庭側から到着した）
+            value: kei
+          - text: アイ（所要時間3分・通常通り）
+            value: ai
+      - type: choice
+        id: q2
+        question: ケイがなぜ経路Bを選んだと思う？
+        options:
+          - text: スロープの方が速いと知っていたから
+            value: faster
+          - text: 経路Aの階段が怖かったから
+            value: scared
+          - text: 友達に誘われたから
+            value: friend
+          - text: 先生の指示を聞いていなかったから
+            value: missed
+
+  # ===== 証拠カード5: 工事業者の証言 =====
+  - id: evidence-5
+    bgm: disaster-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 工事業者の目撃証言
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 工事業者の方に確認しました。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 工事業者の証言——
+      - type: narration
+        text: 「10:08ごろ、小学生が柵の横を通り抜けるのを目撃しました。体操服を着た男の子でした。一人でした」
+      - type: narration
+        text: 「工事中で砂利袋や材木が積んであったので、通りにくかったはずです。危険でした」
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: 当日の経路B——工事資材を避けながらで約5分。出口は中庭側。
+      - type: narration
+        speed: slow
+        text: ケイの所要時間5分。中庭側から到着。工事業者の目撃。——すべてが一致した。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: なぜケイは別の経路を選んだのか
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソウタの秘密
+  - id: truth-souta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souta
+        text: ぼくは記録を見てすぐに気づいた。ケイの5分は経路Aの3分と合わない。でも経路B（工事中5分）とは合う。
+      - type: dialog
+        character: souta
+        text: データは嘘をつかない。でもケイに直接聞くのは……迷ってた。
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+
+  # アイの秘密
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ai
+        text: わたしはスロープの柵が乱れていたのを見て、「誰かが通り抜けた」と分かった。
+      - type: dialog
+        character: ai
+        text: でも証拠を集めてからみんなに話した方がいいと思って、しばらく黙ってた。
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ナナの秘密
+  - id: truth-nana
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: left
+      - type: dialog
+        character: nana
+        text: わたしは自分の遅れが疑われるのが少し怖かった。でも1年生を助けたことは正しかったと思う。
+      - type: dialog
+        character: nana
+        text: ケイくんの気持ちも分かるけど……避難訓練で経路を変えるのは危ないよ。
+        expression: determined
+      - type: sprite
+        character: nana
+        action: hide
+
+  # ケイの真実（クライマックス）
+  - id: truth-kei
+    bgm: disaster-01/truth
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: center
+      - type: dialog
+        character: kei
+        text: ……ごめん。おれ、経路Bを通った。記録には「経路A」って嘘を書いた。
+      - type: narration
+        speed: slow
+        text: ケイがゆっくりと話し始めた。
+      - type: dialog
+        character: kei
+        text: 防災クラブで先月歩いたとき、スロープは2分で階段より速かった。「地震のとき、スロープが使えれば一番速く逃げられる」って思ってた。
+        expression: worried
+      - type: dialog
+        character: kei
+        text: 今日「経路Bは工事中で禁止」って聞いたけど、「通れるかもしれない、スロープの方が速いし」って先走りで入っちゃったんだ。
+      - type: dialog
+        character: kei
+        text: でも実際は砂利袋や材木があって全然進めなくて……結局5分もかかった。全部裏目に出た。
+        expression: worried
+      - type: dialog
+        character: kei
+        text: 防災クラブなのに訓練のルールを破っちゃった。恥ずかしくて記録に「経路A」って書いた。
+      - type: dialog
+        character: kei
+        text: ……ごめん。「速いから良い」じゃなかった。決められた経路には理由があったんだ。
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        speed: slow
+        text: ケイは悪い子じゃない。「速く逃げたい」という気持ちは正しかった。でも——当日の状況は、先月の下見とは違っていた。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: schoolyard
+    bgm: disaster-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: ケイくん、「速く逃げたい」という気持ちは間違ってない。でも大事なことがあるわ。
+      - type: dialog
+        character: sensei
+        text: 避難経路が指定されるのには理由がある。建物の安全確認済みルートが選ばれていて、当日の状況——工事や障害物——を考慮して変更される。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: 「自分が知っているルート」でも、当日の状況が変わっていることがある。「速いから良い」ではなく「確認されたルートを使う」が正解なの。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: そしてナナさん——1年生を助けるために1分遅れた。これは避難訓練の精神そのものよ。助け合いは「遅れ」じゃない。
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kei
+        expression: determined
+        position: left
+      - type: dialog
+        character: kei
+        text: 次の訓練では、ちゃんと指定経路を通る。おれは防災クラブだから——みんなの見本にならなきゃいけないんだ。
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: happy }
+          - { id: nana, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: ai, expression: happy }
+      - type: narration
+        text: ケイの避難記録は修正された。「経路B（スロープ・工事中）」——正直な記録が、次の訓練をより安全にする。
+      - type: narration
+        speed: slow
+        text: 訓練は「失敗しても安全に学べる場所」。本番の地震ではやり直しができない。だから訓練で正直に振り返ることが、命を守る。
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: 防災探偵団——避難記録のズレ、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

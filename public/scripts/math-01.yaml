@@ -1,0 +1,642 @@
+meta:
+  id: math-01
+  title: 消えたゴールドスターと4つのアリバイ
+  series: 数字の迷宮
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  hayaashi:
+    name: ハヤアシ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  nonbiri:
+    name: ノンビリおばちゃん
+    color: "#9C27B0"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-thinking.webp
+      surprised: teacher-f-normal.webp
+      determined: teacher-f-happy.webp
+  kakedashi:
+    name: カケダシ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  mamoru:
+    name: マモル
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  wonder:
+    name: ワンダー園長
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: amusement-park
+    bgm: math-01/opening
+    steps:
+      - type: narration
+        text: ワクワク遊園地——「探偵フェスティバル」開催中！
+      - type: narration
+        text: ジェットコースター、観覧車、お化け屋敷……今日は園内が大にぎわいだ。
+      - type: narration
+        text: そして遊園地のシンボル、金色に輝く「ゴールドスター・トロフィー」が事務所に飾られている。
+      - type: narration
+        text: ワンダーじいちゃんが30年前に手作りした、遊園地の宝物——
+      - type: bgm
+        action: stop
+      - type: se
+        sound: math-01/alarm
+      - type: effect
+        name: shake
+        duration: 500
+      - type: narration
+        text: 突然、園内放送が流れた。
+      - type: sprite
+        character: wonder
+        expression: normal
+        position: center
+      - type: bgm
+        track: math-01/investigation
+      - type: dialog
+        character: wonder
+        text: 大変だ～！ ゴールドスター・トロフィーが事務所から消えた！
+      - type: dialog
+        character: wonder
+        text: 最後に確認したのは13時50分。事務所の窓は全部しまっていた。出入口から入った人の犯行だ。
+        expression: thinking
+      - type: dialog
+        character: wonder
+        text: 探偵フェスティバルのみなさん、これは本物の事件です！ 犯人を見つけてください！
+        expression: normal
+      - type: sprite
+        character: wonder
+        action: hide
+      - type: narration
+        text: トロフィーが消えたのは13:50～14:20の間。犯行時間は約30分——。
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数字の迷宮 Vol.1
+        subtitle: 消えたゴールドスターと4つのアリバイ
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: amusement-park
+    bgm: math-01/investigation
+    steps:
+      - type: narration
+        text: 事件の時間に遊園地で働いていた4人のスタッフ。全員が「自分は事務所にいなかった」と言っている。
+      - type: sprite
+        character: hayaashi
+        expression: normal
+        position: left
+      - type: dialog
+        character: hayaashi
+        text: 私はパークガイドのハヤアシ。ジェットコースター担当です。
+      - type: dialog
+        character: hayaashi
+        text: 14:00ごろはジェットコースターのそばにいました。歩く速さは100m/分です。
+        expression: thinking
+      - type: sprite
+        character: hayaashi
+        action: hide
+      - type: sprite
+        character: nonbiri
+        expression: normal
+        position: right
+      - type: dialog
+        character: nonbiri
+        text: あたしは観覧車のチケット売り場のノンビリだよ～。
+      - type: dialog
+        character: nonbiri
+        text: ずっと座ってチケット売ってたさ。歩くの遅いよ～、50m/分くらいかねぇ。
+        expression: happy
+      - type: sprite
+        character: nonbiri
+        action: hide
+      - type: sprite
+        character: kakedashi
+        expression: happy
+        position: left
+      - type: dialog
+        character: kakedashi
+        text: おれはアルバイトのカケダシ！ お化け屋敷担当です。
+      - type: dialog
+        character: kakedashi
+        text: 14:00ごろはお化け屋敷にいたはず。歩く速さは100m/分です。
+        expression: normal
+      - type: sprite
+        character: kakedashi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: normal
+        position: right
+      - type: dialog
+        character: mamoru
+        text: 私は警備員のマモルです。フードコート巡回担当。
+      - type: dialog
+        character: mamoru
+        text: 時間には正確です。歩く速さは100m/分。毎日計測していますので間違いありません。
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+
+  # ===== 証拠カード1: 遊園地の地図 =====
+  - id: evidence-1
+    bg: amusement-park
+    bgm: math-01/experiment
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 計算で犯人を見つけろ！
+      - type: sprite
+        character: wonder
+        expression: normal
+        position: center
+      - type: dialog
+        character: wonder
+        text: まずは遊園地の地図を確認しよう。道は十字の形——どこに行くにも事務所を通る！
+      - type: sprite
+        character: wonder
+        action: hide
+      - type: narration
+        text: 遊園地の地図——事務所を中心に、4つの施設が十字に配置されている。
+      - type: narration
+        text: 北：ジェットコースター（ハヤアシ）……事務所から300m
+      - type: narration
+        text: 西：観覧車（ノンビリおばちゃん）……事務所から200m
+      - type: narration
+        text: 南：お化け屋敷（カケダシ）……事務所から500m
+      - type: narration
+        text: 東：フードコート（マモル）……事務所から400m
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: この距離と歩く速さを使えば、誰が事務所を往復できたか計算できる！
+
+  # ===== 証拠カード2: 歩く速さデータ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 歩く速さデータ
+      - type: narration
+        text: 遊園地では、スタッフ全員の歩く速さを計測している。園内は走行禁止！
+      - type: narration
+        text: ハヤアシ……100m/分（パークガイド。歩き慣れている）
+      - type: narration
+        text: ノンビリおばちゃん……50m/分（他の人の半分の速さ！）
+      - type: narration
+        text: カケダシ……100m/分（元気で足が速い。でも園内は走行禁止）
+      - type: narration
+        text: マモル……100m/分（毎日計測。正確な数値）
+      - type: narration
+        text: 使う公式はこれだ——「時間 ＝ 距離 ÷ 速さ」
+
+  # ===== 証拠カード3: 目撃情報 =====
+  - id: evidence-3
+    bgm: math-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 目撃情報——全員に「空白時間」がある！
+      - type: narration
+        text: お客さんやスタッフの目撃証言をまとめた。全員に「いなかった時間」がある——
+      - type: sprite
+        character: hayaashi
+        expression: normal
+        position: left
+      - type: dialog
+        character: hayaashi
+        text: 私は14:00にジェットコースター前にいて、14:10にまた確認されています。
+      - type: narration
+        text: ハヤアシの空白時間：14:05～14:10の5分間、姿が見えなかった。
+      - type: sprite
+        character: hayaashi
+        action: hide
+      - type: sprite
+        character: nonbiri
+        expression: normal
+        position: right
+      - type: dialog
+        character: nonbiri
+        text: あたしは14:00にチケット売り場にいて、14:08にまた確認されてるよ～。
+      - type: narration
+        text: ノンビリおばちゃんの空白時間：14:02～14:08の6分間、姿が見えなかった。
+      - type: sprite
+        character: nonbiri
+        action: hide
+      - type: sprite
+        character: kakedashi
+        expression: normal
+        position: left
+      - type: dialog
+        character: kakedashi
+        text: おれは13:50にお化け屋敷にいて、14:15にまた確認されてます。
+      - type: narration
+        text: カケダシの空白時間：13:55～14:15の20分間、姿が見えなかった。
+      - type: sprite
+        character: kakedashi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: normal
+        position: right
+      - type: dialog
+        character: mamoru
+        text: 私は14:08にフードコートにいて、14:17にまた確認されています。
+      - type: narration
+        text: マモルの空白時間：14:10～14:17の7分間、姿が見えなかった。
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 全員に空白がある……全員あやしい！ でも計算すれば、真実が分かる。
+
+  # ===== 証拠カード4: 計算で検証 =====
+  - id: evidence-4
+    bgm: math-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: アリバイを計算で崩せ！
+      - type: narration
+        text: 犯人は空白時間の間に、持ち場→事務所→持ち場を往復したはず。本当にそれが可能だったか？
+      - type: narration
+        text: 計算の手順——
+      - type: narration
+        text: ①往復の距離を出す：事務所までの距離 × 2
+      - type: narration
+        text: ②往復にかかる時間を出す：往復の距離 ÷ 歩く速さ
+      - type: narration
+        text: ③比べる：かかる時間 ＞ 空白時間 → 間に合わない（シロ！）
+      - type: narration
+        text: かかる時間 ＜ 空白時間 → 間に合う（クロ！？）
+      - type: narration
+        text: さあ、4人全員を計算してみよう！
+      - type: narration
+        text: ハヤアシ：300m × 2 ＝ 600m。600 ÷ 100 ＝ 6分。空白は5分。
+      - type: effect
+        name: flash
+        duration: 200
+      - type: narration
+        text: 6分 ＞ 5分——間に合わない！ シロ！
+      - type: narration
+        text: ノンビリおばちゃん：200m × 2 ＝ 400m。400 ÷ 50 ＝ 8分。空白は6分。
+      - type: effect
+        name: flash
+        duration: 200
+      - type: narration
+        text: 8分 ＞ 6分——間に合わない！ シロ！
+      - type: narration
+        text: マモル：400m × 2 ＝ 800m。800 ÷ 100 ＝ 8分。空白は7分。
+      - type: effect
+        name: flash
+        duration: 200
+      - type: narration
+        text: 8分 ＞ 7分——間に合わない！ シロ！
+      - type: narration
+        text: カケダシ：500m × 2 ＝ 1000m。1000 ÷ 100 ＝ 10分。空白は20分。
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 10分 ＜ 20分——間に合う！！ 余り10分でトロフィーを持ち出す時間もある！
+      - type: narration
+        text: 計算で犯行が可能だったのは——カケダシだけ！
+
+  # ===== 投票 =====
+  - id: questions
+    bg: amusement-park
+    bgm: math-01/tension
+    steps:
+      - type: sprite
+        character: wonder
+        expression: thinking
+        position: center
+      - type: dialog
+        character: wonder
+        text: さあ探偵団、計算結果が出たね。きみの推理を聞かせてくれ！
+      - type: sprite
+        character: wonder
+        action: hide
+      - type: choice
+        id: q1
+        question: ゴールドスターを持ち出した犯人は誰？
+        options:
+          - text: ハヤアシ（ジェットコースター担当・空白5分）
+            value: hayaashi
+          - text: ノンビリおばちゃん（観覧車担当・空白6分）
+            value: nonbiri
+          - text: カケダシ（お化け屋敷担当・空白20分）
+            value: kakedashi
+          - text: マモル（フードコート担当・空白7分）
+            value: mamoru
+      - type: narration
+        text: 往復にかかる時間より空白時間が長いのは……誰だった？
+      - type: choice
+        id: q2
+        question: 犯人だと思う根拠は？
+        options:
+          - text: 空白時間が一番長いから
+            value: longest-gap
+          - text: 往復10分 ＜ 空白20分で、唯一犯行が可能だから
+            value: calculation
+          - text: 事務所から一番遠い場所にいたから
+            value: distance
+          - text: 歩く速さが速いから
+            value: speed
+
+  # ===== 証拠カード5: 決定的証拠 =====
+  - id: evidence-5
+    bgm: math-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 歩数計のデータが語る真実
+      - type: sprite
+        character: wonder
+        expression: normal
+        position: center
+      - type: dialog
+        character: wonder
+        text: もう1つ証拠がある。スタッフ全員につけている歩数計のデータだ！
+      - type: sprite
+        character: wonder
+        action: hide
+      - type: narration
+        text: 13:55～14:15の歩数データ——
+      - type: narration
+        text: ハヤアシ：400歩 × 0.7m ＝ 280m
+      - type: narration
+        text: ノンビリおばちゃん：320歩 × 0.5m ＝ 160m
+      - type: narration
+        text: マモル：500歩 × 0.8m ＝ 400m
+      - type: narration
+        text: カケダシ：1600歩 × 0.7m ＝ ……
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 1120m！
+      - type: narration
+        text: お化け屋敷に「ずっといた」なら、20分間で1120mも歩くはずがない。
+      - type: narration
+        text: お化け屋敷と事務所の往復は500m × 2 ＝ 1000m。1120mとほぼ一致！
+      - type: narration
+        text: 残りの120mは事務所の中を歩き回った分……。
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: さらに——お化け屋敷のステージ裏にある秘密の倉庫から、タオルに包まれたゴールドスター・トロフィーが見つかった！
+      - type: narration
+        text: この倉庫の場所を知っているのは、お化け屋敷担当のカケダシだけ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: amusement-park
+    bgm: math-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: みんなの秘密、そしてカケダシの想い
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハヤアシの秘密
+  - id: truth-hayaashi
+    bg: amusement-park
+    steps:
+      - type: sprite
+        character: hayaashi
+        expression: worried
+        position: left
+      - type: dialog
+        character: hayaashi
+        text: ……正直に言います。5分間、ジェットコースターの裏でスマホを見てました。
+      - type: dialog
+        character: hayaashi
+        text: ちょっとSNSをチェックしてたんです。サボりがバレたら園長に怒られるから黙ってました。
+        expression: worried
+      - type: dialog
+        character: hayaashi
+        text: でも計算してもらえれば分かります。300mの往復に6分かかるのに、空白は5分。物理的にムリです！
+        expression: determined
+      - type: sprite
+        character: hayaashi
+        action: hide
+
+  # ノンビリおばちゃんの秘密
+  - id: truth-nonbiri
+    steps:
+      - type: sprite
+        character: nonbiri
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nonbiri
+        text: いや～ごめんねぇ。あたし、6分間チケット売り場を離れてたんだよ。
+      - type: dialog
+        character: nonbiri
+        text: 裏の自動販売機でジュース買って飲んでたのさ。勤務中のおやつはナイショだよ～。
+        expression: happy
+      - type: dialog
+        character: nonbiri
+        text: でもあたしの足じゃ事務所まで往復8分かかるからねぇ。6分じゃムリムリ～。
+        expression: thinking
+      - type: sprite
+        character: nonbiri
+        action: hide
+
+  # マモルの秘密
+  - id: truth-mamoru
+    steps:
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: left
+      - type: dialog
+        character: mamoru
+        text: 実は……7分間、フードコートを離れていました。
+      - type: dialog
+        character: mamoru
+        text: 急にお腹が痛くなって、近くのトイレに走ったんです。
+        expression: worried
+      - type: dialog
+        character: mamoru
+        text: 警備員が「お腹痛くてトイレ」なんて……カッコ悪くて言えませんでした。
+      - type: dialog
+        character: mamoru
+        text: 往復に8分かかるのに空白は7分。数字は嘘をつきません。私ではありません。
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+
+  # カケダシの真実（クライマックス）
+  - id: truth-kakedashi
+    bgm: math-01/truth
+    steps:
+      - type: sprite
+        character: kakedashi
+        expression: worried
+        position: center
+      - type: dialog
+        character: kakedashi
+        text: ……おれがやりました。ゴールドスターを持ち出したのは、おれです。
+      - type: narration
+        speed: slow
+        text: カケダシがゆっくりと語り始めた。
+      - type: dialog
+        character: kakedashi
+        text: 先週、園長が言ってたんです。「ゴールドスターも古くなったから、来月新しいのに交換するよ。古い方は処分かな」って。
+        expression: worried
+      - type: dialog
+        character: kakedashi
+        text: ……処分？ あのトロフィーを捨てるって？
+        expression: determined
+      - type: dialog
+        character: kakedashi
+        text: おれは子どものころ、ワンダーじいちゃんに毎日かわいがってもらってた。
+      - type: dialog
+        character: kakedashi
+        text: じいちゃんが言ってくれたんだ。「このゴールドスターはな、遊園地を楽しんでくれる人みんなの星なんだよ」って。
+        expression: worried
+      - type: narration
+        speed: slow
+        text: カケダシの目が光った。
+      - type: dialog
+        character: kakedashi
+        text: そんな大切なものを、捨てるなんて絶対にダメだ。おれはトロフィーを「盗んだ」んじゃない。
+        expression: determined
+      - type: dialog
+        character: kakedashi
+        text: 守ったんだ。じいちゃんの思い出を、おれが守ったんだ。
+      - type: sprite
+        character: kakedashi
+        action: hide
+      - type: narration
+        speed: slow
+        text: カケダシはトロフィーを盗んだのではなかった。大切な人の思い出を、守ろうとしたのだ。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: amusement-park
+    bgm: math-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: wonder
+        expression: thinking
+        position: center
+      - type: dialog
+        character: wonder
+        text: カケダシ……おまえがそんなことを考えていたとはな。
+      - type: dialog
+        character: wonder
+        text: 親父が作ったゴールドスター。確かに古くなったが……処分するなんて、間違ってたよ。
+        expression: thinking
+      - type: dialog
+        character: wonder
+        text: ありがとう、カケダシ。おまえが気づかせてくれた。これからも大切にするよ。
+        expression: happy
+      - type: sprite
+        character: wonder
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: hayaashi, expression: happy }
+          - { id: nonbiri, expression: happy }
+          - { id: kakedashi, expression: happy }
+          - { id: mamoru, expression: happy }
+      - type: narration
+        text: ゴールドスターは事務所に戻された。今度は「絶対に処分しない」という約束と一緒に。
+      - type: sprite
+        character: hayaashi
+        action: hide
+      - type: sprite
+        character: nonbiri
+        action: hide
+      - type: sprite
+        character: kakedashi
+        action: hide
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: wonder
+        expression: happy
+        position: center
+      - type: dialog
+        character: wonder
+        text: 探偵団のみんな、今日きみたちは「計算で事実を証明する」ことを体験した。
+      - type: dialog
+        character: wonder
+        text: 距離÷速さ＝時間。この公式で「本当にそこにいられたのか」を検証できる。
+        expression: thinking
+      - type: dialog
+        character: wonder
+        text: 算数は問題を解くだけのものじゃない。事実を証明するための武器なんだ！
+        expression: happy
+      - type: sprite
+        character: wonder
+        action: hide
+      - type: narration
+        text: ナゾトキ探偵団 数字の迷宮——アリバイ検証、完了！
+      - type: effect
+        name: fade-out
+        duration: 1500

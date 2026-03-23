@@ -1,0 +1,655 @@
+meta:
+  id: digital-01
+  title: 消えたメッセージ
+  series: 情報モラル探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-01/opening
+    steps:
+      - type: narration
+        text: あおば小学校4年1組。クラスのタブレット連絡アプリ「あおばトーク」で、来月のお楽しみ会の出し物を決める投票が行われた。
+      - type: sprite
+        character: mio
+        expression: happy
+        position: left
+      - type: dialog
+        character: mio
+        text: みんな投票ありがとう！ 月曜の朝に結果をアプリに投稿したよ。
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        expression: happy
+        position: right
+      - type: dialog
+        character: sora
+        text: ドッジボール大会、絶対1位だよな！ みんな好きだもんな！
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: ところが——火曜日の朝。
+      - type: bgm
+        action: stop
+      - type: se
+        sound: digital-01/notification
+      - type: sprite
+        character: mio
+        expression: surprised
+        position: center
+      - type: dialog
+        character: mio
+        text: え……投票結果のメッセージが消えてる！
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: mio
+        text: わたしが投稿した大事なメッセージが、誰かに削除されてる！
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: bgm
+        track: digital-01/investigation
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: アプリのログを確認しました。メッセージが削除されたのは月曜日の12時15分です。
+      - type: dialog
+        character: sensei
+        text: 人のメッセージを勝手に消してはいけない——これはクラスのルールです。誰がなぜ消したのか、調べましょう。
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 情報モラル探偵団 Vol.1
+        subtitle: 消えたメッセージ
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: digital-01/investigation
+    steps:
+      - type: narration
+        text: 4年1組の4人に話を聞こう。月曜の昼休み、みんなどこにいた？
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: ぼくはIT係のハルト。昼休みは12:00から12:40まで図書室で本を読んでいました。
+      - type: dialog
+        character: haruto
+        text: 図書室はタブレット持ち込み禁止なので、アプリは使ってません。
+        expression: thinking
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: わたしは実行委員のミオ。昼休みの前半は教室にいて、12:20から職員室でお楽しみ会の相談をしていました。
+      - type: dialog
+        character: mio
+        text: 教室にいたとき、タブレットで確認したけどメッセージはまだあったよ。
+        expression: thinking
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        expression: happy
+        position: left
+      - type: dialog
+        character: sora
+        text: おれはソラ。昼休みの前半は教室にいて、12:20から校庭でドッジボールしてた！
+      - type: dialog
+        character: sora
+        text: 校庭にタブレットは持ち出せないからね。
+        expression: normal
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        expression: normal
+        position: right
+      - type: dialog
+        character: riko
+        text: わたしはリコ。昼休みは12:00から12:40までずっと音楽室で合唱練習をしていました。
+      - type: dialog
+        character: riko
+        text: 音楽室はタブレット持ち込み禁止だよ。
+        expression: thinking
+      - type: sprite
+        character: riko
+        action: hide
+
+  # ===== 証拠カード1: アプリのログ =====
+  - id: evidence-1
+    bg: classroom
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: アプリの操作ログ
+      - type: narration
+        text: 「あおばトーク」のログを確認しよう。アプリには「いつ・何が起きたか」が記録されている。
+      - type: se
+        sound: digital-01/notification
+      - type: narration
+        text: ログ記録——
+      - type: narration
+        text: 8:15　ミオがメッセージを投稿
+      - type: narration
+        text: 8:30　ハルトが既読
+      - type: narration
+        text: 8:35　リコが既読
+      - type: narration
+        text: 8:40　ソラが既読
+      - type: narration
+        text: ————
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: 12:15　メッセージが削除されました
+      - type: narration
+        text: ログには「いつ削除されたか」は記録されるが、「誰が削除したか」は記録されない。
+      - type: narration
+        text: ただし「誰がいつ読んだか（既読）」は記録されている——これがヒントだ。
+
+  # ===== 証拠カード2: 行動表 =====
+  - id: evidence-2
+    bgm: digital-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 昼休みの行動表
+      - type: narration
+        text: 月曜日の昼休み（12:00～12:40）、4人はどこにいた？ タブレットが使えたのは教室だけ。
+      - type: narration
+        text: ハルト：12:00～12:40 図書室（タブレット持ち込み禁止）
+      - type: narration
+        text: ミオ：12:00～12:20 教室 → 12:20～12:40 職員室
+      - type: narration
+        text: ソラ：12:00～12:20 教室 → 12:20～12:40 校庭
+      - type: narration
+        text: リコ：12:00～12:40 音楽室（タブレット持ち込み禁止）
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: メッセージが削除されたのは12:15。この時刻にタブレットを使えたのは——
+      - type: narration
+        text: ハルト → 図書室（使えない）→ 除外！
+      - type: narration
+        text: リコ → 音楽室（使えない）→ 除外！
+      - type: narration
+        text: ミオ → 教室（使える！）→ 容疑あり
+      - type: narration
+        text: ソラ → 教室（使える！）→ 容疑あり
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: 12:15に教室にいたのはミオとソラの2人。消去法で4人→2人に絞れた！ でも、どちらが消した？
+
+  # ===== 証拠カード3: 投票結果 =====
+  - id: evidence-3
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 消された投票結果の内容
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: center
+      - type: dialog
+        character: haruto
+        text: ぼくは消される前に投票結果を読んでた。内容を覚えてるよ。
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: narration
+        text: お楽しみ会 出し物 投票結果——
+      - type: narration
+        text: 1位：宝さがしゲーム……8票
+      - type: narration
+        text: 2位：クイズ大会……7票
+      - type: narration
+        text: 3位：お笑い発表会……6票
+      - type: narration
+        text: 4位：えいが鑑賞……4票
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: 5位：ドッジボール大会……3票（最下位）
+      - type: narration
+        text: ソラが提案した「ドッジボール大会」が最下位。ソラは朝の会で「絶対1位だよな！」と言っていた。
+      - type: sprite
+        character: riko
+        expression: determined
+        position: right
+      - type: dialog
+        character: riko
+        text: そういえば……朝の会のあと、ソラがタブレットで投票結果を見て顔をしかめてたよ。「うそだろ…」って小さくつぶやいてた。
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: 投票結果を見て一番ショックを受けたのは——ソラ。メッセージを消す動機がある。
+
+  # ===== 証拠カード4: アプリの仕組み =====
+  - id: evidence-4
+    bgm: digital-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: アプリの仕組みと目撃証言
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruto
+        text: 実は……「あおばトーク」の設定を調べたら、投稿した本人だけじゃなくて、クラスの全員がメッセージを消せる設定になってたんだ。
+      - type: dialog
+        character: haruto
+        text: 前から気になってたけど、先生に報告してなかった……。
+        expression: worried
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: 実は、わたしも言ってなかったことがあるの。
+      - type: dialog
+        character: mio
+        text: 月曜の昼休み、12:10ごろ教室でタブレットを開いたとき、ソラもタブレットを開いてた。画面を見て「えっ…」って小さく声を出してたの。
+        expression: worried
+      - type: dialog
+        character: mio
+        text: 気になったけど、職員室に行く時間だったから声をかけなかった。
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: ソラは朝に投票結果を見てショックを受け、昼休みにも教室でタブレットを開いていた——。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: ここまでの証拠を整理しよう。犯人は誰だと思う？
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: メッセージを消す動機があったのは誰？
+        options:
+          - text: ハルト（IT係で設定に詳しかった）
+            value: haruto
+          - text: ミオ（メッセージを投稿した本人）
+            value: mio
+          - text: ソラ（ドッジボールが最下位でショック）
+            value: sora
+          - text: リコ（投票結果に不満があった）
+            value: riko
+      - type: choice
+        id: q2
+        question: メッセージを削除した犯人は誰だと思う？
+        options:
+          - text: ハルト（IT係だからアプリの操作に詳しい）
+            value: haruto
+          - text: ミオ（教室にいてタブレットを使えた）
+            value: mio
+          - text: ソラ（教室にいて、投票結果に不満があった）
+            value: sora
+          - text: リコ（記憶力がよく、情報を握っている）
+            value: riko
+
+  # ===== 証拠カード5: 既読ログ =====
+  - id: evidence-5
+    bgm: digital-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 既読ログが語る真実
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 先生がアプリの既読ログをさらに詳しく調べました。重要な発見があります。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 月曜日の既読ログ（投票結果メッセージ）——
+      - type: narration
+        text: 8:30　ハルト → 既読
+      - type: narration
+        text: 8:35　リコ → 既読
+      - type: narration
+        text: 8:40　ソラ → 既読
+      - type: narration
+        text: 12:10　ミオ → 再読（昼休みに確認）
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: 12:14　ソラ → 再読
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 12:15　メッセージ削除
+      - type: narration
+        text: ソラが12:14にメッセージをもう一度読んでいる。その1分後に削除。
+      - type: narration
+        text: 「読んでから1分で削除」——じっくり考えて消したのではない。衝動的に消した。
+      - type: narration
+        text: 朝にドッジボール最下位を知ってショック → 昼休みにもう一度確認 → やっぱり最下位 → 衝動的に削除。
+      - type: narration
+        speed: slow
+        text: 操作ログは「誰が消したか」を記録しない。でも「誰がいつ読んだか」は記録する——この仕組みが犯人を指している。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: digital-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: みんなの「言えなかったこと」
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruto
+        text: ぼくも正直に言わなきゃいけないことがあります。
+      - type: dialog
+        character: haruto
+        text: アプリの削除権限がクラス全員にあることに、前から気づいてたんです。「これは問題じゃないかな」と思ってたのに、先生に報告しなかった。
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: ぼくが報告していれば、設定を変えてもらえて、こんなことは起きなかったかもしれない。
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ミオの秘密
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: わたしも……ソラがタブレットを見て「えっ…」って声を出してたのを見たのに、声をかけなかった。
+      - type: dialog
+        character: mio
+        text: あのとき「どうしたの？」って聞いていれば、ソラの気持ちに気づけたかもしれない。
+        expression: worried
+      - type: dialog
+        character: mio
+        text: 職員室に行く時間だったからって、友達を放っておいた。それが後悔です。
+        expression: determined
+      - type: sprite
+        character: mio
+        action: hide
+
+  # リコの秘密
+  - id: truth-riko
+    steps:
+      - type: sprite
+        character: riko
+        expression: worried
+        position: left
+      - type: dialog
+        character: riko
+        text: わたしも言わなきゃいけないことがあります。
+      - type: dialog
+        character: riko
+        text: 朝の会のあと、ソラが投票結果を見て「うそだろ…」ってつぶやいてるのを見てた。ソラがショックを受けてるのは分かったのに、何もしなかった。
+        expression: worried
+      - type: dialog
+        character: riko
+        text: 見ていたのに声をかけなかった。それは少し、後ろめたいです。
+        expression: determined
+      - type: sprite
+        character: riko
+        action: hide
+
+  # ソラの真実（クライマックス）
+  - id: truth-sora
+    bgm: digital-01/truth
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+      - type: dialog
+        character: sora
+        text: ……おれがやりました。投票結果のメッセージを消したのは、おれです。
+      - type: narration
+        speed: slow
+        text: ソラがゆっくりと話し始めた。
+      - type: dialog
+        character: sora
+        text: 月曜の朝、投票結果を見て……ドッジボール大会が最下位だった。3票しかなかった。
+        expression: worried
+      - type: dialog
+        character: sora
+        text: 絶対1位だと思ってたのに。みんなドッジボール好きだと思ってたのに。
+      - type: dialog
+        character: sora
+        text: 昼休みにもう一度見た。やっぱり最下位。「消したらもう1回投票できるかも」って思って……深く考えずに、消しちゃった。
+        expression: worried
+      - type: dialog
+        character: sora
+        text: 消した直後に「やっぱまずかったかな」って思ったけど、もう戻せなかった。
+      - type: dialog
+        character: sora
+        text: ミオが一生懸命まとめてくれたのに……ごめん。
+        expression: determined
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        speed: slow
+        text: ソラはメッセージを「盗んだ」のではない。自分の提案が認められなかったショックで、衝動的に消してしまった。
+      - type: narration
+        text: でもソラが知らなかったことがある——アプリにはすべての操作がログとして記録されていた。ネット上の行動は、消しても消えないのだ。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: みんな、今回の事件で大切なことを学びましたね。
+      - type: dialog
+        character: sensei
+        text: 1つ目。タブレットやアプリでやったことは「操作ログ」として記録される。消したつもりでも記録は消えない。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: 2つ目。「誰がいつ読んだか」もアプリは記録している。ネット上の行動には足あとが残る。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: 3つ目。人のメッセージを勝手に消すのはルール違反。たとえ技術的にできても、ルールを守ることが大事。
+      - type: dialog
+        character: sensei
+        text: そして4つ目——困ったときは相談すること。消すんじゃなくて、話すこと。
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q3
+        question: もし自分の提案が投票で最下位だったら、きみならどうする？
+        options:
+          - text: 悔しいけど結果を受け入れる
+            value: accept
+          - text: 先生やクラスに「もう一度話し合いたい」と相談する
+            value: discuss
+          - text: 自分の提案と1位を組み合わせた新しいアイデアを出す
+            value: combine
+          - text: 正直に悔しい気持ちを友達に話す
+            value: share
+      - type: narration
+        text: どの答えも間違いじゃない。大切なのは、「消す」のではなく「話す」こと。
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mio, expression: happy }
+          - { id: sora, expression: happy }
+          - { id: riko, expression: happy }
+      - type: narration
+        text: ミオの投票結果はもう一度投稿された。そしてクラスの話し合いで、お楽しみ会には宝探しとドッジボールの両方をやることに決まった。
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: ネット上の行動は記録に残る。でも、「正直に話す勇気」も——きっと、みんなの記憶に残るよ。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 情報モラル探偵団——事件解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

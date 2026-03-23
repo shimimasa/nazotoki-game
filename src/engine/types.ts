@@ -101,11 +101,13 @@ export interface ChoiceStep {
   id: string
   question?: string
   options: ChoiceOption[]
+  feedback_default?: string
 }
 
 export interface ChoiceOption {
   text: string
   value: string
+  feedback?: string
 }
 
 export interface WaitStep {
@@ -122,7 +124,7 @@ export interface TitleCardStep {
 // --- エンジンの状態 ---
 
 export interface GameState {
-  phase: 'title' | 'playing' | 'result'
+  phase: 'select' | 'title' | 'playing' | 'result'
   currentSceneIndex: number
   currentStepIndex: number
   choices: Record<string, string> // choiceId -> selected value
@@ -136,6 +138,7 @@ export interface GameState {
   activeTitleCard: TitleCardStep | null
   pendingSounds: string[] // SE再生キュー
   waitingForClick: boolean
+  showingFeedback: boolean // 選択肢フィードバック表示中
 }
 
 export interface SpriteState {

@@ -1,0 +1,562 @@
+meta:
+  id: health-01
+  title: けがの記録の謎
+  series: 保健探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: gym
+    bgm: health-01/opening
+    steps:
+      - type: narration
+        text: あおば小学校3年1組、体育の授業。今日はバスケットボール。
+      - type: narration
+        text: みんなが体育館でシュート練習をしている——
+      - type: se
+        sound: health-01/whistle
+      - type: narration
+        text: 「いたっ！」
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: ケンタがけがをした。先生に付き添われて保健室へ。
+      - type: bgm
+        action: stop
+      - type: narration
+        text: 保健室のけがの記録シートには「ねんざ（足首）」と記録された。
+      - type: narration
+        text: 授業が終わった後、クラスにこんな話が広まった——
+      - type: bgm
+        track: health-01/investigation
+      - type: narration
+        text: 「ケンタ、廊下を走って転んだらしいよ」
+      - type: narration
+        speed: slow
+        text: でも——廊下を走って転んだだけで、「ねんざ」になる？
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: けがの記録と目撃情報が合わない。ケンタは本当にどこでけがをしたのか？
+      - type: dialog
+        character: sensei
+        text: 保健探偵団、けがの種類から真実を突き止めよう！
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 保健探偵団 Vol.1
+        subtitle: けがの記録の謎
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: health-01/investigation
+    steps:
+      - type: narration
+        text: 4人のクラスメートに話を聞こう。
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: ぼくはハルキ。毎日の体調や気温を記録するのが習慣。保健室のけがの記録シートも少し見たよ。
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: わたしはミオ。ケンタが「いたっ」って声をあげた瞬間、5メートルくらいのところにいたの。
+      - type: dialog
+        character: mio
+        text: ケンタのこと心配……。
+        expression: normal
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: おれはケンタ。体を動かすのが大好き。来週バスケの大事な試合があるんだ。
+      - type: dialog
+        character: kenta
+        text: 足首をねんざしちゃったけど……廊下で転んだんだよ、うん。
+        expression: thinking
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        expression: normal
+        position: right
+      - type: dialog
+        character: sayaka
+        text: わたしはサヤカ。今日は体調が悪くて体育はベンチで見学してた。体育館全体がよく見えたよ。
+      - type: sprite
+        character: sayaka
+        action: hide
+
+  # ===== 証拠カード1: けがの種類ルール =====
+  - id: evidence-1
+    bg: classroom
+    bgm: health-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: けがの種類と発生状況のルール
+      - type: narration
+        text: 保健室のポスターを確認しよう。けがの種類によって、よく起きる状況が決まっている。
+      - type: narration
+        text: すり傷 → 廊下や地面で転んで、床に滑ったとき
+      - type: narration
+        text: 打撲（打ち身）→ 机や壁にぶつかったとき
+      - type: narration
+        text: ねんざ → ジャンプして着地したとき・段差を踏み外したとき
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: 「廊下を走って転んだ」なら、すり傷や打撲が多い。ねんざになるには、関節に異常な力がかかるジャンプ着地や段差が必要——
+      - type: narration
+        text: ケンタのけがは「ねんざ（足首）」。廊下を走って転んだだけでねんざになる？
+
+  # ===== 証拠カード2: 2人の記録シート比較 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 2人のけがの記録を比べよう
+      - type: narration
+        text: 今日、保健室に来たのは2人。
+      - type: narration
+        text: サヤカのけが——打撲（肩）。1F廊下で柱にぶつかった。担任が確認済み。
+      - type: narration
+        text: ケンタのけが——ねんざ（足首）。廊下で転んだ。本人申告のみ。
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: 2つの記録を比べると——
+      - type: narration
+        text: サヤカの「打撲」は廊下で説明がつく。柱にぶつかった→打撲。ルール通り。
+      - type: narration
+        speed: slow
+        text: でもケンタの「ねんざ」は廊下で説明がつかない。ねんざはジャンプ着地や段差で起きるけが。
+      - type: narration
+        text: そしてもう1つ——サヤカのけがは「担任が確認」。ケンタのけがは「本人申告のみ」。誰も確認していない。
+
+  # ===== 証拠カード3: 体育授業の記録 =====
+  - id: evidence-3
+    bgm: health-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 体育の時間割と校内ルール
+      - type: narration
+        text: 3時間目の体育記録——
+      - type: narration
+        text: 10:00～10:15 準備体操・ランニング（体育館）
+      - type: narration
+        text: 10:15～10:30 バスケットボール シュート練習（体育館）
+      - type: narration
+        text: 10:30にケンタがけが → 練習中断
+      - type: narration
+        text: ケンタがけがをした10:30は、バスケのシュート練習中の時間帯。
+      - type: narration
+        text: 体育館から廊下に出るには渡り廊下を通る必要がある——体育中に廊下でけがをする状況は？
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 校内ルール——「体育中のけが」は保護者に電話連絡。「廊下でのけが」は本人申告で済む。
+      - type: narration
+        speed: slow
+        text: もしケンタが「保護者に連絡されたくない」理由があったなら……わざと「廊下」と申告した可能性がある。
+
+  # ===== 証拠カード4: 目撃証言 =====
+  - id: evidence-4
+    bgm: health-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 3人の目撃証言
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruki
+        text: 授業の前、ケンタが「今日の試合、絶対出たい。けがしたら終わりだ」って言ってた。
+      - type: dialog
+        character: haruki
+        text: それと……保健室のシートに「ジャンプ着地時」って書いてあった気がする。
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: sayaka
+        expression: determined
+        position: right
+      - type: dialog
+        character: sayaka
+        text: わたしはベンチから全体を見てた。10:30ごろ、ケンタはゴール下でシュート練習してたよ。
+      - type: dialog
+        character: sayaka
+        text: 廊下の方向には向かってなかった。ジャンプして着地したとき、急に転んで足首を押さえてた。
+        expression: thinking
+      - type: sprite
+        character: sayaka
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+      - type: dialog
+        character: mio
+        text: わたし、ケンタのそばにいたの。シュートを打ったあとの着地で転んだのを見た。
+      - type: dialog
+        character: mio
+        text: 保健室に行くとき、ケンタに小声で言われたの……「先生には廊下で転んだって言って」って。
+        expression: determined
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: 3人の証言が一致している。ケンタは10:30に体育館のゴール下でジャンプ着地時にねんざした。廊下ではない。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: health-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: けがの種類と証言を合わせると、真実が見えてくるね。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ケンタが本当にけがをした場所はどこ？
+        options:
+          - text: 廊下（ケンタの申告通り）
+            value: hallway
+          - text: 体育館（バスケのシュート練習中）
+            value: gym
+          - text: 校庭
+            value: schoolyard
+          - text: 教室
+            value: classroom
+      - type: choice
+        id: q2
+        question: ケンタが「廊下で転んだ」と嘘をついた理由は？
+        options:
+          - text: 恥ずかしかったから
+            value: embarrassed
+          - text: 来週の試合に出場できなくなるのが怖かったから
+            value: match
+          - text: 体育の授業が嫌いだったから
+            value: dislike-pe
+          - text: 特に理由はなく、とっさに言ってしまった
+            value: impulse
+
+  # ===== 証拠カード5: 映像記録 =====
+  - id: evidence-5
+    bgm: health-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 体育館の記録映像
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 体育館の安全カメラの記録映像を確認しました。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 映像記録——
+      - type: narration
+        text: 10:28 ケンタがゴール下でシュート練習を開始
+      - type: narration
+        text: 10:30 ケンタがジャンプシュートを打つ
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 着地時に右足首をひねってバランスを崩し転倒。
+      - type: narration
+        text: 10:30～10:32 ケンタが足首を押さえて座り込む。ミオが声をかける。
+      - type: narration
+        text: 10:32 担任の先生がケンタを保健室へ。
+      - type: narration
+        speed: slow
+        text: けがが起きた場所は体育館のゴール下。廊下ではない。——映像が全てを証明した。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: health-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: なぜケンタは嘘をついたのか
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルキの秘密
+  - id: truth-haruki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: ぼくも正直に言います。保健室のシートに「ジャンプ着地時に足首をひねった」って書いてあるのを読んでた。
+      - type: dialog
+        character: haruki
+        text: ケンタが「廊下で転んだ」と言ってたから、「記録の書き方が違うのかな？」と思って黙ってた。矛盾に気づいてたのに。
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ミオの秘密
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: わたし、全部見てた。ケンタは体育館でジャンプ着地のときに足首をひねったの。
+      - type: dialog
+        character: mio
+        text: 保健室に行くとき、ケンタに「廊下で転んだって言って」って頼まれて……友達だから断れなかった。
+        expression: worried
+      - type: dialog
+        character: mio
+        text: でも嘘をつかせるのはやっぱり嫌だった。正直に話してよかった。
+        expression: determined
+      - type: sprite
+        character: mio
+        action: hide
+
+  # サヤカの秘密
+  - id: truth-sayaka
+    steps:
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sayaka
+        text: わたしはベンチから全部見えてた。ケンタがゴール下でジャンプして、着地のときにバランス崩して転んだのを。
+      - type: dialog
+        character: sayaka
+        text: 「廊下で転んだ」って聞いたとき「おかしい」と思ったけど、なぜ嘘をついてるのか分からなくて黙ってた。
+        expression: worried
+      - type: sprite
+        character: sayaka
+        action: hide
+
+  # ケンタの真実（クライマックス）
+  - id: truth-kenta
+    bgm: health-01/truth
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: center
+      - type: dialog
+        character: kenta
+        text: ……ごめん。本当は体育館でけがしたんだ。廊下じゃない。
+      - type: narration
+        speed: slow
+        text: ケンタがゆっくりと話し始めた。
+      - type: dialog
+        character: kenta
+        text: バスケのシュート練習でジャンプしたとき、着地で足首をひねっちゃったんだ。
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: でも「体育中のけが」って報告したら、お母さんに電話が行くだろ？ そうしたら来週の試合に「休みなさい」って言われちゃうかもしれない。
+      - type: dialog
+        character: kenta
+        text: 「廊下で転んだ」って言えば、本人申告で済む。保護者に連絡されない。だからとっさに……。
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: 試合に出たかったんだ。おれ、ずっと練習してきたんだよ。ここで休んだら終わりだと思った。
+        expression: determined
+      - type: dialog
+        character: kenta
+        text: でも……嘘をついたのは間違ってた。ごめん。
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        speed: slow
+        text: ケンタは悪い子じゃない。試合への思いが強すぎて、焦ってとっさに嘘をついてしまった。でも——けがの種類が真実を語っていた。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: health-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: ケンタ、試合に出たい気持ちは分かるよ。でも今日、大事なことが分かったね。
+      - type: dialog
+        character: sensei
+        text: けがの種類は原因を語る。すり傷は「こすれた」サイン。打撲は「ぶつかった」サイン。ねんざは「関節に異常な力がかかった」サイン。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: 種類を見れば、どこで何が起きたか推理できる。だから記録が正確であることが大事なんだ。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: そしてね、けがの記録は個人の治療だけじゃなくて、学校全体の安全改善につながるんだよ。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: determined
+        position: left
+      - type: dialog
+        character: kenta
+        text: 次からはちゃんと正直に言う。試合のことはお母さんに相談する。けがを隠しても、治りは速くならないもんな。
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: mio, expression: happy }
+          - { id: kenta, expression: happy }
+          - { id: sayaka, expression: happy }
+      - type: narration
+        text: ケンタのけがの記録は修正された。「発生場所：体育館（シュート練習中のジャンプ着地）」
+      - type: narration
+        speed: slow
+        text: 正確な記録が、次のけがを防ぐ。体育館のゴール下にクッションマットが追加されたのは、その翌週のことだった。
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+      - type: narration
+        text: 保健探偵団——けがの記録の謎、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

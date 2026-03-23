@@ -1,0 +1,731 @@
+meta:
+  id: science-01
+  title: 消えた虹色の結晶と謎の白い粉
+  series: サイエンス捜査班
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  shiori:
+    name: シオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ame:
+    name: アメちゃん
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  awako:
+    name: アワコ
+    color: "#FF6B35"
+    sprites:
+      normal: girl-d-normal.webp
+      happy: girl-d-happy.webp
+      thinking: girl-d-thinking.webp
+      worried: girl-d-worried.webp
+      surprised: girl-d-surprised.webp
+      determined: girl-d-determined.webp
+  toromi:
+    name: トロミ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  hakase:
+    name: ハカセ先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: science-lab
+    bgm: science-01/festival
+    steps:
+      - type: narration
+        text: 今日は待ちに待った理科フェスティバル！
+      - type: narration
+        text: 理科室には4つの実験ブースが並び、真ん中には特別展示の「虹色の結晶」がキラキラ輝いている。
+      - type: sprite_group
+        characters:
+          - { id: shiori, expression: normal }
+          - { id: ame, expression: happy }
+          - { id: awako, expression: happy }
+          - { id: toromi, expression: happy }
+      - type: narration
+        text: 4人の生徒がそれぞれの実験を発表していた。みんな楽しそうだ。
+      - type: sprite_group
+        characters:
+          - { id: shiori, expression: normal }
+          - { id: ame, expression: normal }
+          - { id: awako, expression: normal }
+          - { id: toromi, expression: normal }
+      - type: narration
+        text: ところが、休憩時間が終わって理科室に戻ると——
+      - type: bgm
+        action: stop
+      - type: se
+        sound: science-01/alarm
+      - type: effect
+        name: shake
+        duration: 500
+      - type: narration
+        text: 虹色の結晶が消えていた！
+      - type: narration
+        text: そして展示台の上には……白い粉が残されていた。
+      - type: sprite_group
+        characters:
+          - { id: shiori, expression: surprised }
+          - { id: ame, expression: surprised }
+          - { id: awako, expression: surprised }
+          - { id: toromi, expression: surprised }
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: ame
+        action: hide
+      - type: sprite
+        character: awako
+        action: hide
+      - type: sprite
+        character: toromi
+        action: hide
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+      - type: bgm
+        track: science-01/investigation
+      - type: dialog
+        character: hakase
+        text: 大変だ！ 虹色の結晶が消えた！
+        expression: normal
+      - type: dialog
+        character: hakase
+        text: 展示台の上に白い粉が残されている。これが犯人の手がかりだ。
+        expression: thinking
+      - type: dialog
+        character: hakase
+        text: 4人とも白い粉を使う実験をしているから、見た目では区別できない。
+      - type: dialog
+        character: hakase
+        text: だから——実験で調べる。サイエンス捜査班、科学の力で犯人を見つけてくれ！
+        expression: normal
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: サイエンス捜査班 Vol.1
+        subtitle: 消えた虹色の結晶と謎の白い粉
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: science-lab
+    bgm: science-01/investigation
+    steps:
+      - type: narration
+        text: まずは容疑者の4人を確認しよう。全員が白い粉を使った実験をしていた。
+      - type: sprite
+        character: shiori
+        expression: normal
+        position: left
+      - type: dialog
+        character: shiori
+        text: わたしは食塩水の蒸発実験をしています。キレイな四角い結晶ができるんです。
+      - type: dialog
+        character: shiori
+        text: 休憩時間は……廊下のベンチで本を読んでいました。
+        expression: thinking
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: ame
+        expression: happy
+        position: right
+      - type: dialog
+        character: ame
+        text: わたしは砂糖のカラメル実験！ おいしそうでしょ？
+      - type: dialog
+        character: ame
+        text: 休憩時間は友だちとおしゃべりしてたよ～。
+        expression: normal
+      - type: sprite
+        character: ame
+        action: hide
+      - type: sprite
+        character: awako
+        expression: happy
+        position: left
+      - type: dialog
+        character: awako
+        text: わたしは重曹の発泡実験！ シュワシュワ楽しいよ！
+      - type: dialog
+        character: awako
+        text: 虹色の結晶、すっっっごくキレイだった！ あんな結晶、自分でも作ってみたいなぁ。
+      - type: dialog
+        character: awako
+        text: 休憩時間は……えっと、トイレに行ってました。
+        expression: normal
+      - type: sprite
+        character: awako
+        action: hide
+      - type: sprite
+        character: toromi
+        expression: happy
+        position: right
+      - type: dialog
+        character: toromi
+        text: ぼくは片栗粉のとろみ実験！ 触ると面白いよ！
+      - type: dialog
+        character: toromi
+        text: 休憩時間は家庭科室で料理部の友だちとおしゃべりしてたよ。
+        expression: normal
+      - type: sprite
+        character: toromi
+        action: hide
+      - type: narration
+        text: 4人とも手や服に白い粉がついている。見た目だけでは犯人は分からない。
+
+  # ===== 証拠カード1: 現場調査 =====
+  - id: evidence-1
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 科学捜査開始！
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+      - type: dialog
+        character: hakase
+        text: まずは現場の状況を報告する。
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: narration
+        text: 展示台の状態——虹色の結晶があった場所はからっぽ。
+      - type: narration
+        text: 台の上に白い粉が少量残されている。指でさわるとサラサラだ。
+      - type: narration
+        text: 窓は全部しまっていた。外からの侵入はない。ドアは休憩時間、カギをかけていなかった。
+      - type: narration
+        text: 結晶は小さいので、ポケットやカバンに入れて持ち出せるサイズ。
+      - type: sprite
+        character: hakase
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hakase
+        text: この白い粉が犯人の手がかりだ。でも見た目では区別がつかない。
+      - type: dialog
+        character: hakase
+        text: だから——実験で調べる！ 結果を証拠カードにまとめたぞ。
+        expression: normal
+      - type: sprite
+        character: hakase
+        action: hide
+
+  # ===== 証拠カード2: 実験①水に溶かす =====
+  - id: evidence-2
+    bg: science-lab
+    bgm: science-01/experiment
+    steps:
+      - type: title_card
+        text: 実験①
+        subtitle: 水に溶かす
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+      - type: dialog
+        character: hakase
+        text: 謎の白い粉を水に入れてかき混ぜてみた。
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: se
+        sound: science-01/water
+      - type: narration
+        text: 結果——謎の白い粉は水に溶けた！ 透明になった。
+      - type: narration
+        text: 4つの物質を同じ方法で調べると……
+      - type: narration
+        text: 食塩 → 溶ける（透明）
+      - type: narration
+        text: 砂糖 → 溶ける（透明）
+      - type: narration
+        text: 重曹 → 溶ける（透明）
+      - type: narration
+        text: 片栗粉 → 溶けない！ 白く濁る！
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 謎の白い粉は水に溶けた。つまり——片栗粉ではない！
+      - type: sprite
+        character: toromi
+        expression: happy
+        position: center
+      - type: dialog
+        character: toromi
+        text: ぼくの片栗粉は水に溶けないから……ぼくじゃないってこと？
+        expression: surprised
+      - type: sprite
+        character: toromi
+        action: hide
+      - type: narration
+        text: トロミの容疑が晴れた。残りは3人——シオリ、アメちゃん、アワコ。
+
+  # ===== 証拠カード3: 実験②リトマス紙 =====
+  - id: evidence-3
+    steps:
+      - type: title_card
+        text: 実験②
+        subtitle: リトマス紙テスト
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+      - type: dialog
+        character: hakase
+        text: 次は、謎の白い粉を水に溶かした液体にリトマス紙をつけてみた。
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: narration
+        text: 赤いリトマス紙を液体につけると——
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 青に変わった！
+      - type: narration
+        text: 青いリトマス紙は変化なし。
+      - type: narration
+        text: つまり——謎の白い粉の水溶液はアルカリ性だ！
+      - type: narration
+        text: 4つの物質はどうだろう？
+      - type: narration
+        text: 食塩水 → 中性（リトマス紙は変化しない）
+      - type: narration
+        text: 砂糖水 → 中性（リトマス紙は変化しない）
+      - type: narration
+        text: 重曹水 → アルカリ性！ 赤リトマスが青に変わる！
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: 食塩も砂糖も中性。アルカリ性の粉は——重曹だけ！
+      - type: sprite
+        character: shiori
+        expression: surprised
+        position: left
+      - type: dialog
+        character: shiori
+        text: わたしの食塩は中性……わたしじゃないってこと、ですよね？
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: ame
+        expression: surprised
+        position: right
+      - type: dialog
+        character: ame
+        text: わたしの砂糖も中性！ わたしも関係ないってことだよね！？
+      - type: sprite
+        character: ame
+        action: hide
+      - type: narration
+        text: シオリとアメちゃんの容疑も晴れた。残るは——アワコだけ。
+
+  # ===== 証拠カード4: 実験③加熱 =====
+  - id: evidence-4
+    bgm: science-01/tension
+    steps:
+      - type: title_card
+        text: 実験③
+        subtitle: 加熱する
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+      - type: dialog
+        character: hakase
+        text: 最後の確認だ。謎の白い粉を蒸発皿に入れて、ガスバーナーで加熱した。
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: narration
+        text: 加熱すると——
+      - type: se
+        sound: science-01/bubbles
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: 泡が出た！ シュワシュワと気体が発生した！
+      - type: narration
+        text: 焦げたり、色が変わったりはしなかった。
+      - type: narration
+        text: 4つの物質を加熱するとどうなる？
+      - type: narration
+        text: 食塩 → 変化なし（融点が高すぎて普通のバーナーでは変わらない）
+      - type: narration
+        text: 砂糖 → 焦げる！（茶色→黒に変わる。カラメル化）
+      - type: narration
+        text: 重曹 → 泡が出る！（二酸化炭素CO₂が発生する）
+      - type: narration
+        text: 片栗粉 → 焦げる！（デンプンが炭化する）
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: 加熱して泡が出るのは——重曹だけ！
+      - type: narration
+        speed: slow
+        text: 謎の白い粉は重曹。重曹を使った実験をしていたのは——アワコ！
+
+  # ===== 投票 =====
+  - id: questions
+    bg: science-lab
+    bgm: science-01/tension
+    steps:
+      - type: sprite
+        character: hakase
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hakase
+        text: 3つの実験の結果が出そろった。さあ、きみの推理を聞かせてくれ。
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: choice
+        id: q1
+        question: 謎の白い粉の正体は何だと思う？
+        options:
+          - text: 食塩（シオリの実験で使っていた）
+            value: salt
+            feedback: 食塩は「中性」だったよね。でも謎の白い粉はアルカリ性——食塩ではなさそうだ。
+          - text: 砂糖（アメちゃんの実験で使っていた）
+            value: sugar
+            feedback: 砂糖も「中性」。加熱すると焦げるけど、謎の白い粉は泡が出た——砂糖ではなさそうだ。
+          - text: 重曹（アワコの実験で使っていた）
+            value: baking-soda
+            feedback: 正解！ 水に溶ける・アルカリ性・加熱で泡が出る——3つの実験が全て重曹を指している！
+          - text: 片栗粉（トロミの実験で使っていた）
+            value: starch
+            feedback: 片栗粉は水に溶けないよね。実験①で最初に除外されたはず——もう一度データを見てみよう。
+      - type: narration
+        text: 実験の結果を振り返ろう。水に溶ける、アルカリ性、加熱で泡が出る——これに当てはまるのは？
+      - type: choice
+        id: q2
+        question: 虹色の結晶を持ち出した犯人は誰だと思う？
+        options:
+          - text: シオリ（食塩の実験をしていた）
+            value: shiori
+            feedback: シオリの食塩は中性。謎の白い粉はアルカリ性だったから、シオリの可能性は低いよ。
+          - text: アメちゃん（砂糖の実験をしていた）
+            value: ame
+            feedback: アメちゃんの砂糖も中性。リトマス紙の結果を思い出して——アルカリ性の物質を使っていたのは？
+          - text: アワコ（重曹の実験をしていた）
+            value: awako
+            feedback: 鋭い推理！ 重曹を使っていたのはアワコだけ。3つの実験が全てアワコを指している！
+          - text: トロミ（片栗粉の実験をしていた）
+            value: toromi
+            feedback: トロミの片栗粉は実験①で「水に溶けない」と判明して除外されたよね。犯人は別にいる。
+
+  # ===== 証拠カード5: 決定的証拠 =====
+  - id: evidence-5
+    bgm: science-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: さらなる手がかりが見つかった！
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+      - type: dialog
+        character: hakase
+        text: 追加の調査結果が出たぞ！
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: narration
+        text: ハカセ先生がアワコの実験用白衣を調べたところ——
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: ポケットの中に、展示台と同じ白い粉が大量に入っていた。
+      - type: narration
+        text: リトマス紙テストの結果——アルカリ性。展示台の粉と完全に一致。
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: さらに調査を進めたところ——
+      - type: narration
+        speed: slow
+        text: アワコのロッカーの中から、タオルに包まれた虹色の結晶が見つかった！
+      - type: narration
+        text: 結晶は無傷。割れたり欠けたりしていない。タオルで丁寧に包まれていた。
+      - type: sprite
+        character: shiori
+        expression: determined
+        position: center
+      - type: dialog
+        character: shiori
+        text: 実は……休憩直後に忘れ物を取りに理科室に戻ったんです。
+      - type: dialog
+        character: shiori
+        text: そのとき、理科室の中から小さな物音がしました。怖くてすぐ廊下に戻ったんですが……
+        expression: worried
+      - type: dialog
+        character: shiori
+        text: あれは10時31分ごろでした。
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: narration
+        text: 犯人は休憩開始直後に理科室にいた。その時間にトイレに行っていたと言っていたのは——アワコ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: science-lab
+    bgm: science-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: それぞれの秘密
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # シオリの秘密
+  - id: truth-shiori
+    bg: science-lab
+    steps:
+      - type: sprite
+        character: shiori
+        expression: worried
+        position: left
+      - type: dialog
+        character: shiori
+        text: ずっと黙っていてごめんなさい。
+      - type: dialog
+        character: shiori
+        text: 休憩中、忘れ物を取りに理科室に戻ったとき、物音が聞こえたんです。
+        expression: worried
+      - type: dialog
+        character: shiori
+        text: でも「わたしが理科室に戻った」って言ったら、自分が疑われると思って……怖くて言えませんでした。
+      - type: dialog
+        character: shiori
+        text: 勇気を出して話してよかった。黙ったままだったら、もっとつらかったと思います。
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+
+  # アメちゃんの秘密
+  - id: truth-ame
+    steps:
+      - type: sprite
+        character: ame
+        expression: worried
+        position: right
+      - type: dialog
+        character: ame
+        text: あのね、わたしも隠してたことがあるの。
+      - type: dialog
+        character: ame
+        text: 休憩の直前に、カラメル実験でミスしちゃって……砂糖を加熱しすぎて真っ黒に焦がしちゃったの。
+        expression: worried
+      - type: dialog
+        character: ame
+        text: モクモク煙が出て、あわてて新聞紙にくるんでゴミ箱に捨てちゃった。
+      - type: dialog
+        character: ame
+        text: ハカセ先生に怒られると思って……ごめんなさい。
+        expression: determined
+      - type: sprite
+        character: ame
+        action: hide
+
+  # トロミの秘密
+  - id: truth-toromi
+    steps:
+      - type: sprite
+        character: toromi
+        expression: worried
+        position: left
+      - type: dialog
+        character: toromi
+        text: ぼくも言ってなかったことがある。
+      - type: dialog
+        character: toromi
+        text: 家庭科室で「おしゃべり」って言ったけど……実は片栗粉でわらび餅を作って味見してたんだ。
+        expression: worried
+      - type: dialog
+        character: toromi
+        text: 実験用の片栗粉でおやつ作っちゃったのは……先生に言えなくて。
+      - type: dialog
+        character: toromi
+        text: でも料理部の友だちが証人だから、ぼくがその時間に理科室にいなかったのは確かだよ。
+        expression: happy
+      - type: sprite
+        character: toromi
+        action: hide
+
+  # アワコの真実（クライマックス）
+  - id: truth-awako
+    bgm: science-01/truth
+    steps:
+      - type: sprite
+        character: awako
+        expression: worried
+        position: center
+      - type: dialog
+        character: awako
+        text: ……ごめんなさい。結晶を持ち出したのは、わたしです。
+      - type: narration
+        speed: slow
+        text: アワコがゆっくりと話し始めた。
+      - type: dialog
+        character: awako
+        text: わたし、自由研究で「結晶の成長」を調べてるの。でも自分で作った結晶は全然うまくいかなくて。
+        expression: worried
+      - type: dialog
+        character: awako
+        text: 虹色の結晶を見たとき……心が震えた。こんなにキレイな結晶があるんだって。
+        expression: determined
+      - type: dialog
+        character: awako
+        text: この結晶をじっくり観察して、顕微鏡で見て、成長の仕組みを調べたい。そうすれば、きっと自分の研究も進むって思ったの。
+      - type: dialog
+        character: awako
+        text: フェスティバルが終わったら結晶は返されちゃう。もう二度と見られないかもしれない。
+        expression: worried
+      - type: dialog
+        character: awako
+        text: だから……一晩だけ借りて、明日の朝ちゃんと返すつもりだった。
+      - type: dialog
+        character: awako
+        text: 盗みたかったんじゃない。もっと知りたかったの。もっと調べたかったんだ。
+        expression: determined
+      - type: sprite
+        character: awako
+        action: hide
+      - type: narration
+        speed: slow
+        text: アワコの動機は「科学への好奇心」だった。悪意はゼロ。ただ、もっと知りたかっただけ——。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: science-lab
+    bgm: science-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+      - type: dialog
+        character: hakase
+        text: みんな、科学捜査おつかれさま！
+      - type: dialog
+        character: hakase
+        text: 今回きみたちは、3つの実験で4人の容疑者を1人に絞り込んだ。
+        expression: thinking
+      - type: dialog
+        character: hakase
+        text: 観察して、仮説を立てて、実験して、結論を出す——これは科学者が研究するときと全く同じプロセスだ。
+      - type: dialog
+        character: hakase
+        text: きみたちは今日、立派な科学捜査官だったよ。
+        expression: happy
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shiori, expression: happy }
+          - { id: ame, expression: happy }
+          - { id: awako, expression: happy }
+          - { id: toromi, expression: happy }
+      - type: narration
+        text: そしてアワコの結晶は無事に返された。
+      - type: narration
+        speed: slow
+        text: 「もっと知りたい」という気持ちは、科学の一番大切なエンジンだ。
+      - type: narration
+        text: ただし、方法は正しく選ぼう。知りたいなら——まず、聞いてみよう。
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: ame
+        action: hide
+      - type: sprite
+        character: awako
+        action: hide
+      - type: sprite
+        character: toromi
+        action: hide
+      - type: sprite
+        character: hakase
+        expression: happy
+        position: center
+      - type: dialog
+        character: hakase
+        text: さあ、次はきみの番だ。身の回りの「白い粉」を実験で見分けてみよう！
+      - type: sprite
+        character: hakase
+        action: hide
+      - type: narration
+        text: ナゾトキ探偵団 サイエンス捜査班——科学捜査、完了！
+      - type: effect
+        name: fade-out
+        duration: 1500

@@ -1,0 +1,616 @@
+meta:
+  id: money-01
+  title: 消えたお小遣い
+  series: お金の探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  yuta:
+    name: ユウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sakura:
+    name: サクラ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kaito:
+    name: カイト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  nanoha:
+    name: ナノハ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: money-01/opening
+    steps:
+      - type: narration
+        text: あおば小学校4年1組の「お小遣い管理プロジェクト」。4人がそれぞれ500円のお小遣いをもらい、1週間の使い方をお小遣い帳に記録する。
+      - type: narration
+        text: 月曜日から木曜日まで、みんなは文房具やおやつを買って、お小遣い帳に記録した。
+      - type: narration
+        text: そして金曜日——発表の時間。
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: では、お小遣い帳の残金と財布の中身を確認しましょう。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yuta, expression: normal }
+          - { id: sakura, expression: happy }
+          - { id: kaito, expression: normal }
+          - { id: nanoha, expression: normal }
+      - type: narration
+        text: サクラのお小遣い帳は完璧。ユウタとナノハにはちょっとしたズレ。ところが——
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: カイトくん、お小遣い帳には残金230円と書いてあるのに、財布には110円しかないよ。
+      - type: dialog
+        character: sensei
+        text: 120円はどこに消えたの？
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: bgm
+        track: money-01/investigation
+      - type: sprite
+        character: kaito
+        expression: surprised
+        position: center
+      - type: dialog
+        character: kaito
+        text: え……おかしいなぁ。ちゃんと記録したはずなんだけど……。
+        expression: worried
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: お金の探偵団 Vol.1
+        subtitle: 消えたお小遣い
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: money-01/investigation
+    steps:
+      - type: narration
+        text: 4人のお小遣い帳を確認しよう。全員500円からスタート。
+      - type: sprite
+        character: yuta
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuta
+        text: ぼくは計算が得意。お小遣い帳は正確につけたつもりだよ。
+      - type: dialog
+        character: yuta
+        text: 月曜にノート180円、木曜に鉛筆セット……えっと、110円を買いました。
+        expression: thinking
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        expression: happy
+        position: right
+      - type: dialog
+        character: sakura
+        text: わたしはお買い物が大好き！ でも今週はがまんして、文房具だけにしたよ。
+      - type: dialog
+        character: sakura
+        text: 火曜にかわいいメモ帳200円、水曜にシール80円。帳簿と財布はぴったり！
+        expression: normal
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        expression: normal
+        position: left
+      - type: dialog
+        character: kaito
+        text: おれは月曜にノート150円、火曜に消しゴム70円、木曜に鉛筆50円を買ったよ。
+      - type: dialog
+        character: kaito
+        text: 合計270円だから、残りは230円のはずなのに……財布には110円しかない。なんで？
+        expression: worried
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: nanoha
+        text: わたしは倹約家だから、水曜に消しゴム40円だけ。残りは460円のはず……
+      - type: dialog
+        character: nanoha
+        text: あれ、財布は450円。10円だけ合わないや。
+        expression: thinking
+      - type: sprite
+        character: nanoha
+        action: hide
+
+  # ===== 証拠カード1: お小遣い帳サマリー =====
+  - id: evidence-1
+    bg: classroom
+    bgm: money-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 4人のお小遣い帳を比べよう
+      - type: narration
+        text: 4人の帳簿残金と実際の残金を比べてみよう。
+      - type: narration
+        text: ユウタ：帳簿210円 vs 財布200円 → 10円のズレ
+      - type: narration
+        text: サクラ：帳簿220円 vs 財布220円 → ぴったり一致！
+      - type: narration
+        text: ナノハ：帳簿460円 vs 財布450円 → 10円のズレ
+      - type: narration
+        text: そして——
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: カイト：帳簿230円 vs 財布110円 → 120円のズレ！
+      - type: narration
+        text: ユウタとナノハの10円は「ちょっとした書き間違い」で説明できるかもしれない。
+      - type: narration
+        text: でもカイトの120円は——1回分の買い物がまるごと消えている金額だ。
+
+  # ===== 証拠カード2: レシート照合 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: レシートと帳簿を照合しよう
+      - type: narration
+        text: レシートとお小遣い帳を比べて、ズレの原因を調べよう。
+      - type: narration
+        text: ユウタ：レシートでは鉛筆セット120円。でも帳簿には110円と記録。→ 値段の書き間違い（10円）
+      - type: narration
+        text: ナノハ：レシートでは消しゴム50円。でも帳簿には40円と記録。→ 値段の書き間違い（10円）
+      - type: narration
+        text: サクラ：全レシートあり。帳簿と完全一致。→ 問題なし
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: カイト：月曜・火曜・木曜のレシートはある。でも水曜のレシートがない。帳簿にも水曜の記録がない。
+      - type: narration
+        text: ユウタとナノハは「値段の書き間違い」。レシートがあるからすぐ直せる。
+      - type: narration
+        text: でもカイトは「レシートそのものがない」——支出がまるごと記録されていない。これは「書き間違い」じゃない。
+
+  # ===== 証拠カード3: 駄菓子屋の価格表 =====
+  - id: evidence-3
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 120円で買えるもの
+      - type: narration
+        text: 学校の近くにあるお店を確認しよう。
+      - type: narration
+        text: 「あおば文具」——ノート、鉛筆、消しゴム等。50円～300円。
+      - type: narration
+        text: 「にこにこ堂」（駄菓子屋）——お菓子いろいろ。10円～200円。
+      - type: narration
+        text: 120円の組み合わせ——
+      - type: narration
+        text: ガムシロップ飴30円×2 + チョコバー60円 = 120円
+      - type: narration
+        text: グミ40円×3 = 120円
+      - type: narration
+        text: チョコバー60円×2 = 120円
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 120円分の買い物ができるお店は駄菓子屋かコンビニ。カイトはどこで何を買った？
+
+  # ===== 証拠カード4: 水曜放課後の行動 =====
+  - id: evidence-4
+    bgm: money-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 水曜日の放課後、何があった？
+      - type: narration
+        text: 4人の水曜日の放課後の行動——
+      - type: narration
+        text: ユウタ：塾に直行。買い物なし。
+      - type: narration
+        text: サクラとナノハ：一緒にあおば文具へ。帰り道で駄菓子屋の前を通った。
+      - type: narration
+        text: カイト：「友達と遊んだ」と言っている。それ以上は話さない。
+      - type: sprite
+        character: sakura
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sakura
+        text: 水曜の放課後、文房具店に行く途中で……カイトくんが駄菓子屋に入っていくのを見たよ。
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: determined
+        position: right
+      - type: dialog
+        character: nanoha
+        text: わたしも見ました。文房具店の帰りに駄菓子屋の前を通ったら、カイトくんが店から出てきた。
+      - type: dialog
+        character: nanoha
+        text: ポケットにお菓子の袋を入れてて、わたしを見て驚いた顔してた。
+        expression: thinking
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: narration
+        text: サクラとナノハの2人が、水曜にカイトが駄菓子屋にいたのを目撃している。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: money-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: さて、120円の行方が見えてきたね。きみの推理を聞かせて。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 記録されていない120円の支出をしたのは誰？
+        options:
+          - text: ユウタ（帳簿に10円のズレがある）
+            value: yuta
+          - text: サクラ（帳簿は完璧だった）
+            value: sakura
+          - text: カイト（帳簿に120円のズレがある）
+            value: kaito
+          - text: ナノハ（帳簿に10円のズレがある）
+            value: nanoha
+      - type: choice
+        id: q2
+        question: なぜ記録しなかったと思う？
+        options:
+          - text: 忘れただけ（うっかり）
+            value: forgot
+          - text: 禁止されている買い物をしたから隠したかった
+            value: hide-rule
+          - text: レシートをもらわなかったから
+            value: no-receipt
+          - text: 金額が小さいから記録しなくてもいいと思った
+            value: small-amount
+
+  # ===== 証拠カード5: 店長の証言 =====
+  - id: evidence-5
+    bgm: money-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 駄菓子屋の店長の証言
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 先生が駄菓子屋「にこにこ堂」の店長に確認しました。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 店長の証言——
+      - type: narration
+        text: 「水曜の16時ごろ、カイトくんが来たよ。友達のケンタくんと一緒だった」
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: 「カイトくんはガムシロップ飴2個（60円）とチョコバー1個（60円）で合計120円を買っていったよ」
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: 「カイトくんは"お母さんには内緒ね"って言ってたけど……大丈夫かな？」
+      - type: narration
+        text: これで確定——
+      - type: narration
+        text: 帳簿残金230円 − 記録していない120円 = 実際の残金110円。計算ぴったり。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: money-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 120円の行方
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ユウタの秘密
+  - id: truth-yuta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: yuta
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuta
+        text: ぼくも言わなきゃいけないことがある。
+      - type: dialog
+        character: yuta
+        text: 金曜の朝、発表の前にカイトのお小遣い帳をチラッと見ちゃったんだ。計算したら120円合わないって気づいてた。
+        expression: worried
+      - type: dialog
+        character: yuta
+        text: でもカイトに直接聞くのは気が引けて……覗き見したことも恥ずかしかった。
+        expression: determined
+      - type: sprite
+        character: yuta
+        action: hide
+
+  # サクラの秘密
+  - id: truth-sakura
+    steps:
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: right
+      - type: dialog
+        character: sakura
+        text: わたしも……水曜にカイトくんが駄菓子屋に入るの見たのに、そのとき何も言わなかった。
+      - type: dialog
+        character: sakura
+        text: 「言ったらチクリみたいで嫌だな」って思っちゃって。
+        expression: worried
+      - type: dialog
+        character: sakura
+        text: でも、あのとき「記録した方がいいよ」って言ってあげればよかった。
+        expression: determined
+      - type: sprite
+        character: sakura
+        action: hide
+
+  # ナノハの秘密
+  - id: truth-nanoha
+    steps:
+      - type: sprite
+        character: nanoha
+        expression: worried
+        position: left
+      - type: dialog
+        character: nanoha
+        text: わたしはカイトくんが駄菓子屋から出てくるのを見て、お菓子を買ったんだなって分かった。
+      - type: dialog
+        character: nanoha
+        text: カイトくんの家でお菓子が禁止なのも知ってたから、内緒にしてあげようと思ったの。
+        expression: worried
+      - type: dialog
+        character: nanoha
+        text: でもお小遣い帳が合わない原因がこれだったとしたら、黙ってるのは正しかったのかな……。
+        expression: determined
+      - type: sprite
+        character: nanoha
+        action: hide
+
+  # カイトの真実（クライマックス）
+  - id: truth-kaito
+    bgm: money-01/truth
+    steps:
+      - type: sprite
+        character: kaito
+        expression: worried
+        position: center
+      - type: dialog
+        character: kaito
+        text: ……おれが記録してなかった。120円分、お菓子を買ったのを隠してた。
+      - type: narration
+        speed: slow
+        text: カイトがゆっくりと話し始めた。
+      - type: dialog
+        character: kaito
+        text: 水曜の放課後、ケンタに「駄菓子屋行こうぜ」って誘われて、つい行っちゃったんだ。
+        expression: worried
+      - type: dialog
+        character: kaito
+        text: ガムシロップ飴2個とチョコバー1個で120円。おいしかったけど……
+      - type: dialog
+        character: kaito
+        text: うちではお小遣いでお菓子買うの禁止なんだよ。記録したらお母さんにバレちゃう。
+        expression: worried
+      - type: dialog
+        character: kaito
+        text: だからお小遣い帳に書かなかった。「120円くらいバレないだろう」って思ってた。
+      - type: dialog
+        character: kaito
+        text: でもバレた。記録しなくても、お金はちゃんとなくなるんだな……。
+        expression: determined
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: narration
+        speed: slow
+        text: カイトは悪い子じゃない。友達に誘われて「つい」買ってしまっただけ。でも記録しなかったことで、120円の行方が分からなくなった。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: money-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: みんな、今日の事件で大事なことが分かったね。
+      - type: dialog
+        character: sensei
+        text: お小遣い帳は全ての支出を記録しないと意味がない。記録しないと、お金がどこに消えたか分からなくなる。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: 今回3人に帳簿のズレがあったけど、ズレの「質」が全然違ったよね。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: ユウタとナノハの10円は「値段の書き間違い」。レシートと比べればすぐ直せる。
+      - type: dialog
+        character: sensei
+        text: でもカイトの120円は「支出をまるごと記録しなかった」。レシートもないから確認のしようがない。
+      - type: dialog
+        character: sensei
+        text: 「小さなミス」と「意図的な隠し」は全然違う。でもカイトくん、大事なのは「つい買ったこと」じゃなくて——
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kaito
+        expression: determined
+        position: center
+      - type: dialog
+        character: kaito
+        text: ……記録しなかったこと、だよね。次からは、全部正直に書く。お母さんにもちゃんと話すよ。
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yuta, expression: happy }
+          - { id: sakura, expression: happy }
+          - { id: kaito, expression: happy }
+          - { id: nanoha, expression: happy }
+      - type: narration
+        text: 4人のお小遣い帳は全員が修正した。ユウタは鉛筆セットを120円に、ナノハは消しゴムを50円に直した。
+      - type: narration
+        speed: slow
+        text: そしてカイトのお小遣い帳には新しい1行——「水曜：にこにこ堂 お菓子 120円」
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: 正直に記録すれば、お金は「消えない」。お金の探偵団、今日の事件解決！
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: お金の探偵団——120円の謎、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

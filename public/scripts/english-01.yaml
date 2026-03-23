@@ -1,0 +1,585 @@
+meta:
+  id: english-01
+  title: 消えたアルファベット
+  series: 英語探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-01/opening
+    steps:
+      - type: narration
+        text: あおば小学校4年1組の教室。壁にはアルファベット磁石ボードがある。AからZまで26文字がきれいに並んでいて、ALTのブラウン先生と英語の授業で使っている。
+      - type: narration
+        text: 火曜日の朝——
+      - type: sprite
+        character: emma
+        expression: normal
+        position: center
+      - type: dialog
+        character: emma
+        text: 今日の3時間目はブラウン先生の英語だ！ 楽しみ～！
+      - type: dialog
+        character: emma
+        text: あれ……？ ボードの文字が……
+        expression: surprised
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: emma
+        text: アルファベットが足りない！ 6文字もなくなってる！
+        expression: worried
+      - type: sprite
+        character: emma
+        action: hide
+      - type: bgm
+        track: english-01/investigation
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 大変ね。ブラウン先生の授業までにボードを直さないと。まずは消えた文字を特定しましょう。
+      - type: dialog
+        character: sensei
+        text: 月曜の放課後から火曜の朝までの間に、誰かが文字を外した。英語探偵団、出動よ！
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 英語探偵団 Vol.1
+        subtitle: 消えたアルファベット
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: english-01/investigation
+    steps:
+      - type: narration
+        text: 4人のメンバーに話を聞こう。
+      - type: sprite
+        character: ren
+        expression: normal
+        position: left
+      - type: dialog
+        character: ren
+        text: ぼくはレン。アルファベット26文字は全部覚えてる。ボードを見て、すぐにどの文字が消えたか分かったよ。
+      - type: dialog
+        character: ren
+        text: 月曜の放課後は図書室にいた。教室には戻ってないよ。
+        expression: thinking
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        expression: worried
+        position: right
+      - type: dialog
+        character: emma
+        text: わたしはエマ。ブラウン先生の授業が大好きなの。ボードが壊れてたら先生が困っちゃう！
+      - type: dialog
+        character: emma
+        text: 月曜の放課後は合唱練習。教室には戻ってないよ。
+        expression: normal
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: ぼくはタクミ。元気だけど……英語はちょっと苦手なんだ。ローマ字もまだよく分からなくて。
+      - type: dialog
+        character: takumi
+        text: 月曜の放課後は教室で宿題をやってたよ。
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: わたしはヒナ。記憶力がいいの。月曜の放課後は委員会活動で、16:30に教室の前を通ったよ。
+      - type: sprite
+        character: hina
+        action: hide
+
+  # ===== 証拠カード1: ボードの状態 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: english-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 消えた文字を見つけよう！
+      - type: narration
+        text: ABCの歌を思い出して、26文字の中で「ない文字」を探そう。
+      - type: narration
+        text: A → ない！
+      - type: narration
+        text: B C D E F G H → ある
+      - type: narration
+        text: I → ない！
+      - type: narration
+        text: J → ある
+      - type: narration
+        text: K → ない！
+      - type: narration
+        text: L → ある
+      - type: narration
+        text: M → ない！
+      - type: narration
+        text: N O P Q R S → ある
+      - type: narration
+        text: T → ない！
+      - type: narration
+        text: U → ない！
+      - type: narration
+        text: V W X Y Z → ある
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 消えた6文字——A、I、K、M、T、U
+      - type: narration
+        text: この6文字を並べ替えると……何かの言葉になる？ ローマ字で読める？
+
+  # ===== 証拠カード2: ローマ字の名前と照合 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 消えた文字は誰の名前？
+      - type: narration
+        text: 4人の名前をローマ字で書くと——
+      - type: narration
+        text: レン → REN（R, E, N の3文字）
+      - type: narration
+        text: エマ → EMA（E, M, A の3文字）
+      - type: narration
+        text: タクミ → TAKUMI（T, A, K, U, M, I の6文字）
+      - type: narration
+        text: ヒナ → HINA（H, I, N, A の4文字）
+      - type: narration
+        text: 消えた6文字（A, I, K, M, T, U）と比べてみよう。
+      - type: narration
+        text: レン（REN）→ Rが消えていない。完全一致しない。
+      - type: narration
+        text: ヒナ（HINA）→ HとNが消えていない。完全一致しない。
+      - type: narration
+        text: エマ（EMA）→ MとAは消えている。でもEはボードに残っている！
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ren
+        text: ちょっと待って。エマの名前にMとAが入ってるから、エマが怪しいと思う人がいるかも。
+      - type: dialog
+        character: ren
+        text: でもエマの名前にはEも必要。Eはボードに残ってる。エマが自分の名前のために外したなら、Eも消えるはず！
+        expression: determined
+      - type: sprite
+        character: ren
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 消えた6文字が「全部」誰かの名前になるのは——TAKUMI。タクミだけ完全一致！
+      - type: narration
+        text: 「一部だけ一致」と「完全一致」は意味が違う。6文字全部が名前の文字 = その人が外した証拠。
+
+  # ===== 証拠カード3: 宿題と行動 =====
+  - id: evidence-3
+    bgm: english-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ローマ字の宿題
+      - type: narration
+        text: ブラウン先生の宿題——「自分の名前をローマ字で書いてきてね」
+      - type: narration
+        text: レン → 自分で書けた（RENは簡単）
+      - type: narration
+        text: エマ → お母さんに教えてもらった
+      - type: narration
+        text: ヒナ → 自分で書けた
+      - type: narration
+        text: タクミ → 「自分で調べた」と言っている。でもローマ字が苦手なのに、どうやって？
+      - type: narration
+        text: 月曜放課後の行動——
+      - type: narration
+        text: レン：図書室。教室に戻っていない。
+      - type: narration
+        text: エマ：合唱練習。教室に戻っていない。
+      - type: narration
+        text: ヒナ：委員会活動。16:30に教室の前を通った。
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: タクミ：教室に残って宿題をやっていた。——タクミだけが放課後に教室にいた！
+
+  # ===== 証拠カード4: 目撃情報 =====
+  - id: evidence-4
+    bgm: english-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ボードの前で何をしていた？
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: emma
+        text: 月曜の帰り際、教室の前を通ったとき、タクミが教室にいたよ。アルファベットボードの前で何かをしてた。
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        expression: determined
+        position: right
+      - type: dialog
+        character: hina
+        text: わたしも見ました。タクミがボードの磁石を外して、自分の机に並べていたの。
+      - type: dialog
+        character: hina
+        text: 「宿題を頑張ってるんだな」と思って声をかけなかった……。
+        expression: worried
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: タクミはボードから磁石を外して机に並べていた。6文字外した。その6文字は T-A-K-U-M-I。
+      - type: narration
+        text: ローマ字の宿題のために、自分の名前の文字を確認していた？
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: english-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 消えた6文字と、4人の名前。証拠をまとめて、犯人を推理しましょう。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: アルファベットの磁石を外したのは誰？
+        options:
+          - text: レン（アルファベットに詳しい）
+            value: ren
+          - text: エマ（名前にMとAが含まれる）
+            value: emma
+          - text: タクミ（消えた6文字が名前と完全一致）
+            value: takumi
+          - text: ヒナ（教室の前を通った）
+            value: hina
+
+  # ===== 証拠カード5: 机の引き出し =====
+  - id: evidence-5
+    bgm: english-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タクミの机の引き出し
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: タクミくんの机の引き出しを確認させてもらいました。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 6個のアルファベット磁石が見つかった——T、A、K、U、M、I。
+      - type: narration
+        text: タクミの宿題ノートも確認。「ぼくの名前：TAKUMI」——正しく書けている。
+      - type: narration
+        text: タクミはローマ字の宿題のために自分の名前の文字を外し、机に並べて確認した。ノートに書き写した後、磁石をボードに戻すのを忘れてそのまま帰ってしまった。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: english-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: T-A-K-U-M-I
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # レンの秘密
+  - id: truth-ren
+    bg: classroom
+    steps:
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ren
+        text: 実は……消えた6文字を見て、すぐに気づいたんだ。A, I, K, M, T, U。並べ替えるとTAKUMI。
+      - type: dialog
+        character: ren
+        text: でもタクミを名指しで「犯人」って言うのは気が引けて……もう少し証拠を集めてからにしようと思ってた。
+        expression: worried
+      - type: sprite
+        character: ren
+        action: hide
+
+  # エマの秘密
+  - id: truth-emma
+    steps:
+      - type: sprite
+        character: emma
+        expression: worried
+        position: right
+      - type: dialog
+        character: emma
+        text: わたし、月曜にタクミがボードの前にいるのを見たのに、声をかけなかった。
+      - type: dialog
+        character: emma
+        text: 「あのとき聞いていれば、戻し忘れは防げたのに」って……後悔してる。
+        expression: determined
+      - type: sprite
+        character: emma
+        action: hide
+
+  # ヒナの秘密
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: left
+      - type: dialog
+        character: hina
+        text: わたしはタクミが磁石を外して机に並べてるのを見てた。「頑張ってるんだな」って思ったけど、声をかけなかった。
+      - type: dialog
+        character: hina
+        text: 「戻した？」って一言聞いていれば……。
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # タクミの真実（クライマックス）
+  - id: truth-takumi
+    bgm: english-01/truth
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: ……ぼくがやりました。アルファベットの磁石を外したのは、ぼくです。
+      - type: narration
+        speed: slow
+        text: タクミがゆっくりと話し始めた。
+      - type: dialog
+        character: takumi
+        text: ローマ字の宿題で「自分の名前を書く」のが出たんだけど、全然分からなくて。
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: アルファベットボードを見て、自分の名前の文字を1つずつ探したんだ。T……あった！ A……これだ！ K……ここ！
+      - type: dialog
+        character: takumi
+        text: 6文字を外して机に並べて、「T-A-K-U-M-I、これがぼくの名前か！」って。すごく嬉しかった。
+        expression: happy
+      - type: dialog
+        character: takumi
+        text: ノートに書き写した後、磁石を戻すの忘れてそのまま帰っちゃった。
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: 次の日、6文字がなくなってるって聞いて……「やばい、戻すの忘れた！」って。でも英語が苦手なのがバレるのが恥ずかしくて言えなかった。
+      - type: dialog
+        character: takumi
+        text: ごめん。ボードを壊すつもりなんてなかった。ただ、自分の名前が書きたかっただけなんだ。
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: narration
+        speed: slow
+        text: タクミは悪意でボードを壊したのではない。英語を頑張ろうとしたのだ。ただ、「借りたものは返す」を忘れてしまっただけ。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: タクミくん、英語を頑張ろうとしたことは素敵よ。分からないときにボードを使ったのは、いい方法だった。
+      - type: dialog
+        character: sensei
+        text: ただ「借りたら返す」を忘れないでね。お金でも、文房具でも、アルファベットの磁石でも、同じこと。
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: takumi
+        text: 次からはちゃんと戻す！ それと……ローマ字が分からないときは、誰かに聞くよ。恥ずかしがらずに。
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        expression: happy
+        position: right
+      - type: dialog
+        character: ren
+        text: タクミ、ぼくが教えてあげるよ！ アルファベットの歌から一緒にやろう。A, B, C, D, E, F, G……
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: 6個の磁石はボードに戻された。T-A-K-U-M-I。タクミの名前が、26文字の中にきちんと収まった。
+      - type: narration
+        speed: slow
+        text: アルファベットの順番を覚えていれば、「何が足りないか」はすぐ分かる。それは英語だけじゃなく、推理の基本でもある。
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: 英語探偵団——アルファベット事件、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

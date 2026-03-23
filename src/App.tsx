@@ -1,10 +1,10 @@
 /**
  * App - ルートコンポーネント
  *
- * スクリプト読み込み → タイトル → ゲーム → 結果 の流れを管理
+ * シナリオ選択 → タイトル → ゲーム → 結果 の流れを管理
  */
 
-import { useState, useEffect, useCallback } from 'preact/hooks'
+import { useState, useCallback } from 'preact/hooks'
 import type { ScriptData, GameState, GameEvent } from './engine/types'
 import {
   createInitialState,
@@ -13,6 +13,7 @@ import {
   executeStep,
 } from './engine/SceneManager'
 import { loadScript } from './engine/ScriptLoader'
+import { ScenarioSelect } from './components/ScenarioSelect'
 import { TitleScreen } from './components/TitleScreen'
 import { GameScreen } from './components/GameScreen'
 import { ResultScreen } from './components/ResultScreen'
@@ -21,13 +22,16 @@ export function App() {
   const [script, setScript] = useState<ScriptData | null>(null)
   const [state, setState] = useState<GameState>(createInitialState())
   const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
-  // スクリプト読み込み
-  useEffect(() => {
-    loadScript('/scripts/moral-01.yaml')
+  // シナリオ選択
+  const handleSelectScenario = useCallback((scriptId: string) => {
+    setLoading(true)
+    setError(null)
+    loadScript(`/scripts/${scriptId}.yaml`)
       .then((data) => {
         setScript(data)
+        setState({ ...createInitialState(), phase: 'title' })
         setLoading(false)
       })
       .catch((err) => {
@@ -44,8 +48,8 @@ export function App() {
       setState((prev) => {
         let next = processEvent(script, prev, event)
 
-        // choice_selected の後は次のステップに進む
-        if (event.type === 'choice_selected') {
+        // choice_selected の後: フィードバックがなければ次へ進む
+        if (event.type === 'choice_selected' && !next.showingFeedback) {
           next = advanceStep(script, next)
         }
 
@@ -75,8 +79,14 @@ export function App() {
     handleEvent({ type: 'start_game' })
   }, [handleEvent])
 
-  // リスタート
+  // 同じシナリオをリスタート
   const handleRestart = useCallback(() => {
+    setState({ ...createInitialState(), phase: 'title' })
+  }, [])
+
+  // シナリオ選択に戻る
+  const handleBackToSelect = useCallback(() => {
+    setScript(null)
     setState(createInitialState())
   }, [])
 
@@ -92,17 +102,23 @@ export function App() {
     return (
       <div class="error-screen">
         <div class="error-text">エラー: {error}</div>
+        <button class="error-back" onClick={handleBackToSelect}>
+          シナリオ選択に戻る
+        </button>
       </div>
     )
   }
 
-  if (!script) return null
-
   switch (state.phase) {
+    case 'select':
+      return <ScenarioSelect onSelect={handleSelectScenario} />
+
     case 'title':
+      if (!script) return null
       return <TitleScreen meta={script.meta} onStart={handleStart} />
 
     case 'playing':
+      if (!script) return null
       return (
         <GameScreen
           script={script}
@@ -112,11 +128,13 @@ export function App() {
       )
 
     case 'result':
+      if (!script) return null
       return (
         <ResultScreen
           script={script}
           choices={state.choices}
           onRestart={handleRestart}
+          onBackToSelect={handleBackToSelect}
         />
       )
   }

@@ -1,0 +1,547 @@
+meta:
+  id: math2-01
+  title: 約数のカギ
+  series: 数学深化探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: library
+    bgm: math2-01/opening
+    steps:
+      - type: narration
+        text: あおば市立ひまわり小学校の図書室に、新しい備品ロッカーが設置された。暗証番号つきだ。
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: 暗証番号は「12の約数だけで作れる3桁の数字」にしよう。班のメンバーなら約数が分かるからね。
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: happy
+        position: right
+      - type: dialog
+        character: takumi
+        text: 設定係、おれがやるよ！ 放課後に設定しておく！
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: narration
+        text: 翌日の朝——
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: riku
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: riku
+        text: あれ？ タクミから聞いた「1-4-8」を入力しても……開かない！
+      - type: sprite
+        character: riku
+        action: hide
+      - type: bgm
+        track: math2-01/investigation
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 誰かが約数のルールに合わない番号を設定した可能性があるわ。数学深化探偵団、約数を確認して真相を突き止めて！
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.1
+        subtitle: 約数のカギ
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: library
+    bgm: math2-01/investigation
+    steps:
+      - type: narration
+        text: 図書委員「すうじたんてい団」の4人に話を聞こう。
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: ぼくはリク。「12の約数で暗証番号を作ろう」って提案した。タクミが設定して「1-4-8」って教えてくれたから全員に伝えた。
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: わたしはヒナ。リクから「1-4-8」って聞いたよ。でも……8って12の約数だっけ？ ちょっと気になったんだけど。
+        expression: thinking
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: おれはタクミ。設定係を引き受けて放課後に番号を決めたよ。ちゃんと約数から選んだはず……。
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: わたしはコトハ。数字の間違いに気づくのが得意。「1-4-8」の数字、全部本当に12の約数なのかな？
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: ロッカーの説明 =====
+  - id: evidence-1
+    bg: library
+    bgm: math2-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 暗証番号のルール
+      - type: narration
+        text: ロッカーの暗証番号ルール——
+      - type: narration
+        text: 「3桁の数字を使用すること」
+      - type: narration
+        text: 「各桁（百の位・十の位・一の位）の数字は全て12の約数にすること」
+      - type: narration
+        text: 設定担当：タクミ
+      - type: narration
+        text: タクミが伝えた番号：「1-4-8」
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: まず確認しよう——「1」「4」「8」はそれぞれ12の約数？
+
+  # ===== 証拠カード2: 約数の確認 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 12の約数を全部書き出そう！
+      - type: narration
+        text: 12の約数を1から順番に確認する。12をその数で割り切れるか？
+      - type: narration
+        text: 12÷1＝12 → 割り切れる → 1は約数
+      - type: narration
+        text: 12÷2＝6 → 割り切れる → 2は約数
+      - type: narration
+        text: 12÷3＝4 → 割り切れる → 3は約数
+      - type: narration
+        text: 12÷4＝3 → 割り切れる → 4は約数
+      - type: narration
+        text: 12÷5＝2余り2 → 割り切れない → 5は約数ではない
+      - type: narration
+        text: 12÷6＝2 → 割り切れる → 6は約数
+      - type: narration
+        text: 12÷7＝1余り5 → 割り切れない → 7は約数ではない
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 12÷8＝1余り4 → 割り切れない → 8は約数ではない！
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 12の約数は：1、2、3、4、6、12 の6個。
+      - type: narration
+        text: 12は2桁なので各桁には使えない。使える数字は：1、2、3、4、6 の5種類。
+      - type: narration
+        speed: slow
+        text: 「8」は12の約数ではない。——タクミが伝えた番号「1-4-8」の「8」がルール違反！
+
+  # ===== 証拠カード3: タクミの行動記録 =====
+  - id: evidence-3
+    bgm: math2-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 昨日の放課後
+      - type: narration
+        text: リクのメモ——
+      - type: narration
+        text: 15:45 打ち合わせ終了。タクミが「設定係やる！」と言って1人で図書室に残った
+      - type: narration
+        text: 16:10 タクミからメッセージ「番号設定したよ。1-4-8ね」
+      - type: narration
+        text: リクは「タクミが確認したはず」と思い、そのまま全員に転送した
+      - type: narration
+        text: 今朝8:22 リクが「1-4-8」を入力 → 開かない
+      - type: narration
+        text: 8:25 タクミを呼ぶ → タクミが入力すると開いた
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: タクミは「1-4-8」と伝えたが、実際に入力した番号は違う？ タクミだけがロッカーを開けられた——。
+
+  # ===== 証拠カード4: タクミのメモ帳 =====
+  - id: evidence-4
+    bgm: math2-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: タクミのメモ帳
+      - type: narration
+        text: タクミが昨日の放課後に図書室で書いたメモ——
+      - type: narration
+        text: 「12の約数で3桁の番号を作る」
+      - type: narration
+        text: 「12の約数→むずかしいな」
+      - type: narration
+        text: 「あ！ 12の2倍は24だから、24の約数を使えばOKだ！」
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: 「24の約数：1、2、3、4、6、8、12、24」
+      - type: narration
+        text: 「ここから3つ選ぶ → 1、4、8 にしよう！」
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: タクミは「12の約数」ではなく「24の約数」から番号を選んでいた！ 「8」は24の約数だが12の約数ではない——ここで間違いが起きた。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: library
+    bgm: math2-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 12の約数を確認できたわね。12の約数のルールに違反した番号を設定したのは誰？
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 約数のルールに違反した番号を設定したのは誰？
+        options:
+          - text: リク（番号を全員に伝えた人）
+            value: riku
+          - text: ヒナ（番号を受け取った人）
+            value: hina
+          - text: タクミ（番号を設定した人）
+            value: takumi
+          - text: コトハ（番号を受け取った人）
+            value: kotoha
+      - type: choice
+        id: q2
+        question: なぜ「8」を12の約数だと思ってしまった？
+        options:
+          - text: 12の約数と24の約数を混同したから
+            value: confusion
+          - text: 計算を間違えたから
+            value: miscalculation
+          - text: 約数の意味を知らなかったから
+            value: ignorance
+          - text: わざと違う番号にしたから
+            value: intentional
+
+  # ===== 証拠カード5: 比較表 =====
+  - id: evidence-5
+    bgm: math2-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 12の約数と24の約数の比較
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: 12の約数と24の約数を並べて比べてみましょう。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 12の約数：1、2、3、4、6、12（6個）
+      - type: narration
+        text: 24の約数：1、2、3、4、6、8、12、24（8個）
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 同じ数字：1、2、3、4、6、12 → 12の約数は全て24の約数でもある
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 24だけにある数字：8、24 → この2つは12の約数ではない！
+      - type: narration
+        text: タクミは「24の約数なら12の約数も全て含む」と思った。半分正しい。でも「24の約数＝12の約数」ではない。
+      - type: narration
+        text: 12÷8＝1余り4。割り切れない。8は12の約数ではない。タクミのメモが全てを物語っている。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: library
+    bgm: math2-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 約数と倍数を混同した
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの秘密
+  - id: truth-riku
+    bg: library
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: ぼくも反省しなきゃ。「12の約数で作ろう」って提案したのに、タクミの番号を確認しなかった。
+      - type: dialog
+        character: riku
+        text: 「8って12の約数だっけ？」って一瞬思ったのに、「タクミが確認したはず」で済ませた。
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # ヒナの秘密
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: わたしも「8」に違和感があったの。でも計算して確認しなかった。
+      - type: dialog
+        character: hina
+        text: タクミが「24の約数から選んだ」って言ってたのも聞いてた。あのとき「それ違うよ」って言えてれば……。
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # コトハの秘密
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoha
+        text: わたし、ノートに12の約数を書き出しかけたの。でも途中でやめちゃった。
+      - type: dialog
+        character: kotoha
+        text: 「全員で番号を確認しよう」ってメッセージも書きかけたけど、「余計なことかも」ってやめた。
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # タクミの真実（クライマックス）
+  - id: truth-takumi
+    bgm: math2-01/truth
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: ……おれのミスだ。「12の約数」を全部書き出さないで、近道しようとした。
+      - type: narration
+        speed: slow
+        text: タクミがゆっくりと話し始めた。
+      - type: dialog
+        character: takumi
+        text: 「12の約数って何だっけ？ むずかしいな」って思って、「12の2倍は24だから24の約数を使えばいいや」って考えた。
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: 24の約数を書き出したら8が入ってた。「1、4、8——これでいいや」って。
+      - type: dialog
+        character: takumi
+        text: でも12÷8は1余り4で割り切れない。8は12の約数じゃなかった。
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: 「1から順番に全部確認する」っていう一番大事なステップを飛ばしちゃったんだ。面倒くさがって近道したら、全部間違えた。
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: narration
+        speed: slow
+        text: タクミに悪意はなかった。「面倒だから近道しよう」と思っただけ。でも数学は近道すると間違える。全部書き出して確認する——それが約数の正しい求め方だ。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: library
+    bgm: math2-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 今回の事件で大切なことが分かったわね。
+      - type: dialog
+        character: sensei
+        text: 約数を求めるときは「1から順番に全て確認して書き出す」こと。思い込みで省略しないこと。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: そして「約数」と「倍数の約数」は違うもの。12の約数は24の約数に含まれるけど、24の約数が全て12の約数とは限らない。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: みんなにも「おかしいな？」と感じた瞬間があった。その感覚を大切にして、次は確認してみてね。
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: takumi
+        text: 次からは絶対に近道しない。1から順番に全部書き出す。12の約数は——1、2、3、4、6、12！
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: ロッカーの暗証番号は全員で確認して「1-2-4」に変更された。全ての桁が12の約数——今度こそ完璧だ。
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: 数学は近道すると間違える。全部書き出して、全部確認する。それが一番の近道だ。
+      - type: narration
+        text: 数学深化探偵団——約数のカギ、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

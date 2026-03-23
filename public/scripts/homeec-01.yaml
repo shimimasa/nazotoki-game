@@ -1,0 +1,557 @@
+meta:
+  id: homeec-01
+  title: 消えた料理
+  series: 家庭科探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: cooking-room
+    bgm: homeec-01/opening
+    steps:
+      - type: narration
+        text: さくら小学校5年1組、調理実習の日。今日のメニューは「ゆでたまごとほうれん草のサラダ」！
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: normal }
+      - type: narration
+        text: 4人のグループが役割分担して、楽しく料理を作った。
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: ところが実習が終わって片付けをしていると——
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+      - type: dialog
+        character: sensei
+        text: このグループのゆでたまご、4個作ったはずなのに2個しかないわ。残りの2個はどこに消えたの？
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: bgm
+        track: homeec-01/investigation
+      - type: narration
+        text: ゆでたまご4個のうち、2個が消えた。誰が、いつ、どうして？
+      - type: narration
+        text: 家庭科探偵団、調理手順を追跡して真相を突き止めろ！
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 家庭科探偵団 Vol.1
+        subtitle: 消えた料理
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: cooking-room
+    bgm: homeec-01/investigation
+    steps:
+      - type: narration
+        text: 4人の役割分担を確認しよう。
+      - type: sprite
+        character: yui
+        expression: normal
+        position: left
+      - type: dialog
+        character: yui
+        text: わたしはユイ。計量とタイマー管理を担当したよ。分量と時間は正確に計った。
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        expression: normal
+        position: right
+      - type: dialog
+        character: hana
+        text: わたしはハナ。ほうれん草を洗って、最後に盛り付けを担当したの。丁寧に仕上げたかったんだ。
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: happy
+        position: left
+      - type: dialog
+        character: souta
+        text: おれはソウタ！ ゆでたまご担当。ゆでる・冷ます・むくを全部やったよ。料理大好きなんだ！
+      - type: dialog
+        character: souta
+        text: ……でも4個中2個しか持ってこなかったのは、えーと……。
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        expression: normal
+        position: right
+      - type: dialog
+        character: aki
+        text: わたしはアキ。片付け記録係。食材の残量をチェックするのが仕事。
+      - type: sprite
+        character: aki
+        action: hide
+
+  # ===== 証拠カード1: 役割分担表 =====
+  - id: evidence-1
+    bg: cooking-room
+    bgm: homeec-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 役割分担表
+      - type: narration
+        text: グループの役割分担——
+      - type: narration
+        text: ユイ：計量・タイマー管理
+      - type: narration
+        text: ハナ：野菜洗い・盛り付け
+      - type: narration
+        text: ソウタ：ゆでたまご担当（ゆでる・冷ます・むく）
+      - type: narration
+        text: アキ：片付け記録係
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: ゆでたまご（ゆでる→冷ます→むく）は——ソウタ1人が担当！
+
+  # ===== 証拠カード2: タイムシート =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 調理タイムシート
+      - type: narration
+        text: ユイが記録した時刻メモ——
+      - type: narration
+        text: 13:05 コンロ点火、タイマーセット（ソウタがたまご4個を鍋に）
+      - type: narration
+        text: 13:19 タイマーが鳴る。ゆで10分完了。ソウタが流し台へ
+      - type: narration
+        text: 13:26 ソウタが2個のたまごをきれいにむく（7分経過）
+      - type: narration
+        text: 13:28 ユイが「たまごまだ？ 盛り付け始めるよ！」と声をかける
+      - type: narration
+        text: 13:28～ ソウタが残り2個を急いでむこうとする
+      - type: narration
+        text: 13:30 ソウタが皿にたまご2個「だけ」を持ってくる
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: 最初の2個は7分冷やしてきれいにむけた。でも残りの2個は2分以下で挑戦した。
+      - type: narration
+        speed: slow
+        text: 成功した2個と失敗した2個——何が違った？ 調理手順カードを確認しよう。
+
+  # ===== 証拠カード3: 調理手順カード =====
+  - id: evidence-3
+    bgm: homeec-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ゆでたまごの正しい手順
+      - type: narration
+        text: 先生が渡した「ゆでたまごの作り方」——
+      - type: narration
+        text: ①ゆでる：水から入れて沸騰後10分ゆでる
+      - type: narration
+        text: ②冷ます（スキップ禁止！）：冷水に5分以上さらす。殻がむきやすくなる
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: ★熱いままむこうとすると、殻が白身にくっついてたまごが崩れやすい！
+      - type: narration
+        text: ③むく：完全に冷めたら、丁寧に殻をむく
+      - type: narration
+        text: ④盛る：半分に切って皿に盛る
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: ソウタは残り2個を冷ます時間を2分以下で切り上げた。手順カードには「5分以上」と書いてあるのに——。
+
+  # ===== 証拠カード4: 片付け記録と目撃 =====
+  - id: evidence-4
+    bgm: homeec-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ゴミ箱に何がある？
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: aki
+        text: ゴミ箱の中を確認したら、キッチンペーパーが2枚たたまれて捨てられてた。なんか重かった。
+      - type: dialog
+        character: aki
+        text: ソウタが後で「ごめん…」って顔してたのが気になった。
+        expression: determined
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: hana
+        expression: worried
+        position: right
+      - type: dialog
+        character: hana
+        text: 13:28ごろ、ソウタが流し台のそばで何かをキッチンペーパーに包んで、急いでゴミ箱に入れるのを見たの。
+      - type: dialog
+        character: hana
+        text: 「何を捨てたの？」って聞こうとしたけど、ソウタが「もう準備できるよ」って言ったから……。
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: narration
+        text: キッチンペーパーに何かを包んで捨てた。重さがあった。ハナがソウタを目撃——。
+
+  # ===== 投票 =====
+  - id: questions
+    bg: cooking-room
+    bgm: homeec-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 消えたゆでたまご2個の行方。証拠を整理して推理しましょう。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ゆでたまご2個を捨てたのは誰？
+        options:
+          - text: ユイ（タイマー管理担当）
+            value: yui
+          - text: ハナ（盛り付け担当）
+            value: hana
+          - text: ソウタ（ゆでたまご担当）
+            value: souta
+          - text: アキ（片付け記録係）
+            value: aki
+      - type: choice
+        id: q2
+        question: なぜたまごが崩れたと思う？
+        options:
+          - text: 冷ます時間が足りなかったから（手順を省いた）
+            value: skip-cooling
+          - text: ゆで時間が長すぎたから
+            value: overcooked
+          - text: 殻にヒビが入っていたから
+            value: cracked
+          - text: むき方が乱暴だったから
+            value: rough
+
+  # ===== 証拠カード5: ゴミ箱の中身 =====
+  - id: evidence-5
+    bgm: homeec-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ゴミ箱の中身
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: ゴミ箱のキッチンペーパーを広げてみました。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 崩れたゆでたまご2個分の白身と黄身が、キッチンペーパーに包まれていた。
+      - type: narration
+        text: 殻をむこうとした痕跡があるが、白身が殻にくっついたまま崩れている。
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: これは「熱いままむこうとした」ときの典型的な失敗。冷ます時間を十分に取らないと、こうなるんです。
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: 成功した2個：7分冷やした → きれいにむけた
+      - type: narration
+        text: 失敗した2個：2分以下 → 白身が崩れた
+      - type: narration
+        speed: slow
+        text: 違いは「冷やした時間」だけ。同じ人が同じ方法でゆでたたまごなのに。手順には理由がある。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: cooking-room
+    bgm: homeec-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: なぜ「冷ます」を省いたのか
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ユイの秘密
+  - id: truth-yui
+    bg: cooking-room
+    steps:
+      - type: sprite
+        character: yui
+        expression: worried
+        position: left
+      - type: dialog
+        character: yui
+        text: わたしも反省しなきゃ。13:28に「たまごまだ？」ってソウタを急かしちゃった。
+      - type: dialog
+        character: yui
+        text: タイマーは正確に計ったけど、ソウタの作業ペースまで考えてなかった。急かさなければ、ソウタはちゃんと冷ませたかもしれない。
+        expression: determined
+      - type: sprite
+        character: yui
+        action: hide
+
+  # ハナの秘密
+  - id: truth-hana
+    steps:
+      - type: sprite
+        character: hana
+        expression: worried
+        position: right
+      - type: dialog
+        character: hana
+        text: わたし、ソウタが何かをゴミ箱に捨てるのを見てたのに、聞かなかった。
+      - type: dialog
+        character: hana
+        text: 「何を捨てたの？」って聞いていたら、すぐに先生に相談できたかもしれない。
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+
+  # アキの秘密
+  - id: truth-aki
+    steps:
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: aki
+        text: わたしは片付け記録係なのに、実習中の食材の動きをリアルタイムでチェックしてなかった。
+      - type: dialog
+        character: aki
+        text: 「4個のうち2個しか皿に来ない」って、その時点で気づけたはず。
+        expression: determined
+      - type: sprite
+        character: aki
+        action: hide
+
+  # ソウタの真実（クライマックス）
+  - id: truth-souta
+    bgm: homeec-01/truth
+    steps:
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: ……おれがやっちゃった。ゆでたまご2個、崩れちゃって捨てちゃったんだ。
+      - type: narration
+        speed: slow
+        text: ソウタがゆっくりと話し始めた。
+      - type: dialog
+        character: souta
+        text: 最初の2個はちゃんと冷ましてうまくいった。でもユイに「まだ？」って言われて焦っちゃって。
+        expression: worried
+      - type: dialog
+        character: souta
+        text: 残り2個を冷まさずにむこうとしたら……殻が白身にくっついて、ぐちゃぐちゃに崩れた。
+      - type: dialog
+        character: souta
+        text: 「やってみればわかる」がおれの口ぐせなんだけど、今回は「手順通りにやらないとダメ」って分かった。
+        expression: worried
+      - type: dialog
+        character: souta
+        text: 失敗が恥ずかしくて、キッチンペーパーに包んでゴミ箱に捨てちゃった。ごめん……。
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        speed: slow
+        text: ソウタは料理が大好きだった。だからこそ、失敗が恥ずかしかった。でも——手順を省いたのはソウタだけの責任だろうか？
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: cooking-room
+    bgm: homeec-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 今日の調理実習で大事なことが分かったわね。
+      - type: dialog
+        character: sensei
+        text: 調理手順には順序の理由がある。「冷ます」は「殻をむきやすくする」ための大切な工程。省くと失敗する。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: そしてもう1つ——失敗したとき、隠さずに言えることが大事。隠しても、証拠はちゃんと残っているから。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: ソウタくんを急かしてしまったユイさん、気づいてたのに聞かなかったハナさん、チェックが遅れたアキさん——全員に学びがあるわ。
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: 次からは手順カードを最後まで守る。急いでも省かない。それと……失敗したら正直に言う。
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: 翌週の調理実習、ソウタは「冷ます」工程をしっかり5分取った。4個とも、つるっときれいにむけた。
+      - type: narration
+        speed: slow
+        text: 手順を守れば、料理は応えてくれる。急がば回れ——家庭科でも、推理でも。
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: 家庭科探偵団——消えた料理の謎、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500

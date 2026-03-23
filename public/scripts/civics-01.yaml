@@ -1,0 +1,555 @@
+meta:
+  id: civics-01
+  title: 消えた賛成票
+  series: 公民探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: gym
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: みどり市立さくら小学校「第2回児童議会」。体育館のステージで、クラス代表11人が集まっている。
+      - type: narration
+        text: 議題は「校庭に花壇を作ること」。賛成か反対か、投票用紙に書いて投票箱に入れる。
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: center
+      - type: dialog
+        character: haruki
+        text: 集計結果を発表します。賛成7票、反対3票、白票1票。提案は可決されました！
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sora
+        expression: determined
+        position: center
+      - type: dialog
+        character: sora
+        text: ちょっと待ってください。
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sora
+        text: 今日の出席者は11人。議長は投票に参加できないルールがあります。だから投票できるのは10人のはず。
+        expression: thinking
+      - type: dialog
+        character: sora
+        text: でも 7 + 3 + 1 = 11票。……1票多いのはなぜですか？
+        expression: determined
+      - type: sprite
+        character: sora
+        action: hide
+      - type: bgm
+        track: civics-01/investigation
+      - type: narration
+        text: 会場がざわめく。
+      - type: narration
+        speed: slow
+        text: 誰かが投票用紙を2枚入れた。——公民探偵団、正しい手続きを守るために事実を調べろ！
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.1
+        subtitle: 消えた賛成票
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: gym
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: 4人の代表委員に話を聞こう。
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: ぼくは議長のハルキ。議事録と数字の管理を担当してた。議長は投票に参加できないから、ぼくは用紙を持っていない。
+      - type: dialog
+        character: haruki
+        text: 11票……なぜだ？ ぼくの集計ミスじゃない。本当に11枚あるんだ。
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: わたしはミオ。正直に言うと……花壇じゃなくて休憩スペースがいいなと思ってた。投票用紙は1枚だけもらって、投票箱にすっと入れたよ。
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: happy
+        position: left
+      - type: dialog
+        character: kenta
+        text: おれはケンタ。花壇プロジェクトの提案者で、投票用紙の配布係もやった。絶対に可決させたかった！
+      - type: dialog
+        character: kenta
+        text: 配った枚数？ えーと……ちゃんと10枚配ったはず、だよ。
+        expression: thinking
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: determined
+        position: right
+      - type: dialog
+        character: sora
+        text: おれはソラ。ルールや手続きの矛盾が許せないタイプ。11票はおかしい。絶対に原因を突き止める。
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 証拠カード1: 児童議会規約 =====
+  - id: evidence-1
+    bg: gym
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 児童議会規約と投票結果
+      - type: narration
+        text: さくら小学校 児童議会規約（抜粋）——
+      - type: narration
+        text: 「投票用紙は議長の確認のもと、配布係が出席者（議長を除く）に1枚ずつ配布する」
+      - type: narration
+        text: 「投票は一人1票とする」
+      - type: narration
+        text: 「議長は採決に参加しない（議長不投票の原則）」
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 出席者11人 − 議長1人 = 投票できるのは10人。
+      - type: narration
+        text: 投票結果：賛成7 + 反対3 + 白票1 = 合計11票。
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 10人しか投票できないのに11票——誰かが2枚入れた！
+      - type: narration
+        text: ちなみに白票（何も書いていない用紙）も正当な投票の1つ。白票を引いても7+3=10。でも白票を含めると11枚。まだ1枚多い。
+
+  # ===== 証拠カード2: 行動記録 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 投票当日の行動記録
+      - type: narration
+        text: 投票の手順——
+      - type: narration
+        text: 13:25 ハルキが「これより投票を行います」と宣言
+      - type: narration
+        text: 13:25～13:28 ケンタが投票用紙を配布
+      - type: narration
+        text: 投票箱への投入順：①ソラ → ②ミオ → ③ケンタ → ④～⑩他の代表委員
+      - type: narration
+        text: 13:35 ハルキが集計・発表
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: 配布係はケンタ。2枚目の用紙を入手できたのは？
+      - type: narration
+        text: ハルキ → 議長で用紙を持っていない → 除外
+      - type: narration
+        text: ミオ → 配布された1枚のみ → 2枚目の入手方法がない
+      - type: narration
+        text: ソラ → 配布された1枚のみ → 2枚目の入手方法がない
+      - type: narration
+        speed: slow
+        text: ケンタ → 配布係として用紙を手元に1枚多く確保できた可能性がある！
+
+  # ===== 証拠カード3: 投票用紙調査 =====
+  - id: evidence-3
+    bgm: civics-01/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 投票用紙の調査
+      - type: narration
+        text: 11枚の投票用紙を並べて調査した。賛成票7枚の書き方——
+      - type: narration
+        text: 用紙A：「さんせい」（ひらがな・小さい文字）
+      - type: narration
+        text: 用紙B：「賛成○」（○印つき）
+      - type: narration
+        text: 用紙C：「賛成○」（○印つき）——用紙Bとよく似た書き方！
+      - type: narration
+        text: 用紙D～G：それぞれ異なる書き方
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 用紙Bと用紙C——「賛成○」というまったく同じ書き方。文字の大きさもほぼ同じ。同じ人が2枚書いた？
+
+  # ===== 証拠カード4: 目撃証言 =====
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 投票箱周辺の目撃証言
+      - type: narration
+        text: 代表委員の証言——
+      - type: narration
+        text: 「ケンタが投票箱に用紙を入れるとき、少し時間がかかっていた。紙をたたむのに手間取ってるのかと思った」
+      - type: narration
+        text: 別の委員——「ソラが入れた後、ミオが入れた。ミオは1枚をすっと入れてた。その次のケンタは、手を箱に突っ込んでいたような気がした」
+      - type: sprite
+        character: mio
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mio
+        text: わたしの後ろがケンタだった。ケンタが投票箱に用紙を入れるとき、少し時間がかかってたのは覚えてる。
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: 1枚を普通に入れるより時間がかかった——2枚同時に入れようとしたから？
+
+  # ===== 投票 =====
+  - id: questions
+    bg: gym
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 証拠を整理しよう。投票用紙を2枚入れたのは誰だと思う？
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 投票用紙を2枚入れたのは誰？
+        options:
+          - text: ハルキ（議長で用紙を持っていなかった）
+            value: haruki
+          - text: ミオ（1枚配られて、すっと入れた）
+            value: mio
+          - text: ケンタ（配布係で、投票箱で時間がかかっていた）
+            value: kenta
+          - text: ソラ（1枚配られて、最初に入れた）
+            value: sora
+      - type: choice
+        id: q2
+        question: ケンタが2枚入れたとしたら、その理由は？
+        options:
+          - text: 花壇プロジェクトを絶対に成功させたかったから
+            value: passion
+          - text: 誰かに頼まれたから
+            value: asked
+          - text: ルールを知らなかったから
+            value: ignorance
+          - text: いたずらがしたかったから
+            value: prank
+
+  # ===== 証拠カード5: 筆跡再調査 =====
+  - id: evidence-5
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 筆跡の再調査
+      - type: sprite
+        character: sora
+        expression: determined
+        position: center
+      - type: dialog
+        character: sora
+        text: 投票用紙をもっと詳しく調べた。用紙Bと用紙Cを比較する。
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: 用紙Bと用紙Cの詳細比較——
+      - type: narration
+        text: 「賛成」の「成」の最後のはらい：2枚とも右にはらう独特な書き方。
+      - type: narration
+        text: 「○」の書き始めが両方とも右上から。
+      - type: narration
+        text: 用紙の折り方も同じ（左から1/3折り）。
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: 同一人物が書いた可能性が極めて高い。
+      - type: narration
+        text: さらに——配布係のケンタが配布後に「予備の紙がある」と言っていたという証言が複数ある。
+      - type: narration
+        text: ケンタが配布時に1枚多く手元に残し、賛成票として2枚投入した。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: gym
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 良い目的でも、手続きは守る
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルキの秘密
+  - id: truth-haruki
+    bg: gym
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: ぼくも反省しなきゃいけない。議長として、投票前に配布枚数を確認する義務があった。
+      - type: dialog
+        character: haruki
+        text: ケンタが「予備を持っておく」って言ってたのも聞いてた。でも見逃した。
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ミオの秘密
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: 実は、わたし……投票用紙に何も書かなかったの。白票を入れた。
+      - type: dialog
+        character: mio
+        text: 花壇にも休憩スペースにも決めきれなくて。白票は正当な投票だから、ルール違反じゃないよ。
+        expression: thinking
+      - type: dialog
+        character: mio
+        text: でも、ケンタが「用紙が1枚多く手元にある」ってつぶやいてたのを聞いてたのに、気にしなかった。
+        expression: determined
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ソラの秘密
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: おれも言わなきゃいけないことがある。配布係の人数確認を任されてたのに、忘れてた。
+      - type: dialog
+        character: sora
+        text: ケンタが投票箱に入れるとき「2枚一緒に入った気がした」感覚もあった。でも確認しなかった。
+        expression: worried
+      - type: dialog
+        character: sora
+        text: 気づいたのに行動しなかった。ルールを守れと言うなら、まず自分の役割を果たすべきだった。
+        expression: determined
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ケンタの真実（クライマックス）
+  - id: truth-kenta
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: center
+      - type: dialog
+        character: kenta
+        text: ……おれがやりました。投票用紙を2枚入れたのは、おれです。
+      - type: narration
+        speed: slow
+        text: ケンタがゆっくりと話し始めた。
+      - type: dialog
+        character: kenta
+        text: 花壇プロジェクトを絶対に成功させたかった。みんなのためだと思ってた。
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: 投票用紙を配るとき、「もし用紙が足りなかったら」って言い訳して1枚多く手元に残した。
+      - type: dialog
+        character: kenta
+        text: そして投票のとき、「1票差で否決されたら悔しすぎる」って思いが止められなくて……予備の用紙に「賛成」って書いて、自分の票と一緒に2枚入れちゃった。
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: 入れた瞬間、「これはルール違反だ」って分かった。でももう取り出せなかった。
+      - type: dialog
+        character: kenta
+        text: 「みんなのため」って思ってたけど……手続きを壊したら、投票自体の意味がなくなるんだ。
+        expression: determined
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        speed: slow
+        text: ケンタの「花壇を作りたい」という気持ちは本物だった。でも——良い目的のためでも、手続きを破ることは民主主義の信頼を壊すことになる。
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: gym
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: 今日の事件で、大切なことを学びましたね。
+      - type: dialog
+        character: sensei
+        text: 多数決が正しく成立するには3つのステップが必要です。出席者数の確認、議長不投票の確認、配布枚数の確認。
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: そしてケンタくん——花壇への熱意は素晴らしい。でも正しい手続きを守ることが、みんなの1票を守ること。
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: 全員に「見落とし」があった。ハルキは枚数確認を省略し、ミオは異常に気づかず、ソラは確認を忘れた。1人を責めるだけでなく「なぜ誰も気づけなかったか」を考えることが大切です。
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: 投票はやり直しになった。今度は全員がルールを確認し、配布枚数を声に出して数えた。
+      - type: narration
+        speed: slow
+        text: 結果——賛成6票、反対3票、白票1票。花壇プロジェクトは「正しい手続き」で可決された。
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: happy
+        position: center
+      - type: dialog
+        character: kenta
+        text: 今度の賛成6票は、全部本物の票だ。おれの花壇は、正しい手続きで認められたんだ。
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        text: 公民探偵団——消えた賛成票の謎、解決！
+      - type: effect
+        name: fade-out
+        duration: 1500
