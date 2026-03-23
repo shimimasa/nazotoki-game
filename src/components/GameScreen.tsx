@@ -109,7 +109,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
   }, [state.activeChoice])
 
   const handleClick = useCallback(() => {
-    if (showBacklog) return // バックログ表示中はクリック無視
+    if (showBacklog) return
     onEvent({ type: 'click' })
   }, [onEvent, showBacklog])
 
@@ -123,6 +123,48 @@ export function GameScreen({ script, state, onEvent }: Props) {
     [onEvent]
   )
 
+  // キーボード操作（handleChoiceSelectの後に定義）
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (showBacklog) {
+        if (e.key === 'Escape') setShowBacklog(false)
+        return
+      }
+      switch (e.key) {
+        case ' ':
+        case 'Enter':
+          e.preventDefault()
+          onEvent({ type: 'click' })
+          break
+        case 'Escape':
+          setShowBacklog((prev) => !prev)
+          break
+        case 'a': case 'A': case '1':
+          if (state.activeChoice?.options[0])
+            handleChoiceSelect(state.activeChoice.id, state.activeChoice.options[0].value)
+          break
+        case 'b': case 'B': case '2':
+          if (state.activeChoice?.options[1])
+            handleChoiceSelect(state.activeChoice.id, state.activeChoice.options[1].value)
+          break
+        case 'c': case 'C': case '3':
+          if (state.activeChoice?.options[2])
+            handleChoiceSelect(state.activeChoice.id, state.activeChoice.options[2].value)
+          break
+        case 'd': case 'D': case '4':
+          if (state.activeChoice?.options[3])
+            handleChoiceSelect(state.activeChoice.id, state.activeChoice.options[3].value)
+          break
+        case 'e': case 'E': case '5':
+          if (state.activeChoice?.options[4])
+            handleChoiceSelect(state.activeChoice.id, state.activeChoice.options[4].value)
+          break
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [showBacklog, state.activeChoice, onEvent, handleChoiceSelect])
+
   const handleEffectDone = useCallback(() => {
     onEvent({ type: 'effect_done' })
   }, [onEvent])
@@ -133,8 +175,15 @@ export function GameScreen({ script, state, onEvent }: Props) {
 
   const hasSprites = state.visibleSprites.length > 0
 
+  const progressPercent = script.scenes.length > 0
+    ? ((state.currentSceneIndex + 1) / script.scenes.length) * 100
+    : 0
+
   return (
     <div class="game-screen" onClick={handleClick}>
+      {/* プログレスバー */}
+      <div class="progress-bar" style={{ width: `${progressPercent}%` }} />
+
       <Background image={state.currentBg} />
 
       <div

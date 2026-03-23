@@ -3,7 +3,9 @@
  * 全選択肢を表示し、プレイヤーの選択をハイライトする
  */
 
+import { useState, useCallback } from 'preact/hooks'
 import type { ScriptData, ChoiceStep } from '../engine/types'
+import { stripRuby } from '../engine/RubyParser'
 
 interface Props {
   script: ScriptData
@@ -28,6 +30,26 @@ function getAllChoices(script: ScriptData): ChoiceStep[] {
 export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Props) {
   const allChoices = getAllChoices(script)
   const answeredCount = Object.keys(choices).length
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = useCallback(() => {
+    const lines: string[] = [
+      `${script.meta.series} Vol.${script.meta.volume}「${script.meta.title}」`,
+      `回答数: ${answeredCount}/${allChoices.length}`,
+      '',
+    ]
+    allChoices.forEach((choice, i) => {
+      const val = choices[choice.id]
+      const opt = choice.options.find((o) => o.value === val)
+      lines.push(`Q${i + 1}. ${stripRuby(choice.question || '')}`)
+      lines.push(`→ ${opt ? stripRuby(opt.text) : '未回答'}`)
+      lines.push('')
+    })
+    navigator.clipboard.writeText(lines.join('\n')).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }).catch(() => {})
+  }, [script, choices, allChoices, answeredCount])
 
   return (
     <div class="result-screen">
@@ -90,6 +112,9 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
         </div>
 
         <div class="result-buttons">
+          <button class="result-copy" onClick={handleCopy}>
+            {copied ? 'コピーしました！' : '結果をコピー'}
+          </button>
           <button class="result-restart" onClick={onRestart}>
             もう一度最初から
           </button>
