@@ -1,53 +1,29 @@
 /**
  * TextWindow - テキストウィンドウ + ネームプレート
  *
- * タイプライター効果でテキストを表示し、
- * キャラ名がある場合はネームプレートを上部に表示する。
+ * タイプライター効果でテキストを表示。
+ * {漢字|ふりがな} 記法に対応し、ふりがなON/OFFを切替可能。
  */
 
-import { useEffect, useRef } from 'preact/hooks'
+import { useEffect, useRef, useMemo } from 'preact/hooks'
 import type { TextDisplayState } from '../engine/types'
+import { parseRubyText, countVisualUnits, renderSegmentsToHtml } from '../engine/RubyParser'
 
 interface Props {
   display: TextDisplayState
   onTypingComplete: () => void
-  typingSpeed?: number // ms per char
+  typingSpeed?: number
+  furiganaEnabled?: boolean
 }
 
-export function TextWindow({ display, onTypingComplete, typingSpeed = 30 }: Props) {
-  const timerRef = useRef<number | null>(null)
-  const charsRef = useRef(0)
-
-  // タイプライター効果
-  useEffect(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current)
-      timerRef.current = null
-    }
-
-    if (!display.isTyping || !display.text) return
-
-    charsRef.current = 0
-
-    timerRef.current = window.setInterval(() => {
-      charsRef.current++
-      if (charsRef.current >= display.text.length) {
-        if (timerRef.current) clearInterval(timerRef.current)
-        timerRef.current = null
-        onTypingComplete()
-      }
-    }, typingSpeed)
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current)
-    }
-  }, [display.text, display.isTyping])
-
-  if (!display.text) return null
-
-  const visibleText = display.isTyping
-    ? display.text
-    : display.text
+export function TextWindow({
+  display,
+  onTypingComplete,
+  typingSpeed = 30,
+  furiganaEnabled = false,
+}: Props) {
+  const segments = useMemo(() => parseRubyText(display.text), [display.text])
+  const totalUnits = useMemo(() => countVisualUnits(segments), [segments])
 
   return (
     <div class="text-window">
@@ -62,10 +38,13 @@ export function TextWindow({ display, onTypingComplete, typingSpeed = 30 }: Prop
         </div>
       )}
       <div class="text-content">
-        <TypewriterText
-          text={visibleText}
+        <TypewriterRubyText
+          segments={segments}
+          totalUnits={totalUnits}
           isTyping={display.isTyping}
           speed={typingSpeed}
+          furigana={furiganaEnabled}
+          onComplete={onTypingComplete}
         />
       </div>
       {!display.isTyping && (
@@ -75,36 +54,45 @@ export function TextWindow({ display, onTypingComplete, typingSpeed = 30 }: Prop
   )
 }
 
-/** 実際にタイプライター表示を行う内部コンポーネント */
-function TypewriterText({
-  text,
+function TypewriterRubyText({
+  segments,
+  totalUnits,
   isTyping,
   speed,
+  furigana,
+  onComplete,
 }: {
-  text: string
+  segments: ReturnType<typeof parseRubyText>
+  totalUnits: number
   isTyping: boolean
   speed: number
+  furigana: boolean
+  onComplete: () => void
 }) {
   const ref = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     if (!ref.current) return
+
     if (!isTyping) {
-      ref.current.textContent = text
+      ref.current.innerHTML = renderSegmentsToHtml(segments, totalUnits, furigana)
       return
     }
 
-    ref.current.textContent = ''
+    ref.current.innerHTML = ''
     let i = 0
     const timer = setInterval(() => {
       if (!ref.current) return
       i++
-      ref.current.textContent = text.slice(0, i)
-      if (i >= text.length) clearInterval(timer)
+      ref.current.innerHTML = renderSegmentsToHtml(segments, i, furigana)
+      if (i >= totalUnits) {
+        clearInterval(timer)
+        onComplete()
+      }
     }, speed)
 
     return () => clearInterval(timer)
-  }, [text, isTyping, speed])
+  }, [segments, totalUnits, isTyping, speed, furigana])
 
   return <p ref={ref} class="typewriter-text" />
 }

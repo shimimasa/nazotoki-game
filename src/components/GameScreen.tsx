@@ -28,7 +28,18 @@ export function GameScreen({ script, state, onEvent }: Props) {
   const prevBgmRef = useRef<string | null>(null)
   const [showBacklog, setShowBacklog] = useState(false)
   const [autoMode, setAutoMode] = useState(false)
+  const [furigana, setFurigana] = useState(() => {
+    try { return localStorage.getItem('nazotoki-furigana') === 'on' } catch { return false }
+  })
   const autoTimerRef = useRef<number | null>(null)
+
+  const toggleFurigana = useCallback(() => {
+    setFurigana((prev) => {
+      const next = !prev
+      try { localStorage.setItem('nazotoki-furigana', next ? 'on' : 'off') } catch {}
+      return next
+    })
+  }, [])
 
   // 現在発言中のキャラクターを特定
   const speakingCharacter = useMemo(() => {
@@ -161,6 +172,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
         <TextWindow
           display={state.textDisplay}
           onTypingComplete={handleTypingComplete}
+          furiganaEnabled={furigana}
         />
       )}
 
@@ -175,6 +187,16 @@ export function GameScreen({ script, state, onEvent }: Props) {
           }}
         >
           LOG
+        </button>
+        <button
+          class={`game-ctrl-btn ${furigana ? 'active' : ''}`}
+          title="ふりがな"
+          onClick={(e) => {
+            e.stopPropagation()
+            toggleFurigana()
+          }}
+        >
+          かな
         </button>
         <button
           class={`game-ctrl-btn ${autoMode ? 'active' : ''}`}
