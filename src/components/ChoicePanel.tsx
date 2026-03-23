@@ -7,6 +7,7 @@
 
 import { useState } from 'preact/hooks'
 import type { ChoiceStep } from '../engine/types'
+import { stripRuby } from '../engine/RubyParser'
 
 interface Props {
   choice: ChoiceStep
@@ -28,7 +29,7 @@ export function ChoicePanel({ choice, onSelect }: Props) {
     <div class="choice-overlay">
       <div class="choice-panel">
         {choice.question && (
-          <div class="choice-question">{choice.question}</div>
+          <div class="choice-question">{stripRuby(choice.question)}</div>
         )}
         <div class="choice-options">
           {choice.options.map((option, i) => (
@@ -41,7 +42,7 @@ export function ChoicePanel({ choice, onSelect }: Props) {
               <span class="choice-label">
                 {String.fromCharCode(65 + i)}.
               </span>
-              <span class="choice-text">{option.text}</span>
+              <span class="choice-text">{stripRuby(option.text)}</span>
             </button>
           ))}
         </div>

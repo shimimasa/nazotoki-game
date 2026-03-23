@@ -76,7 +76,7 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
             return (
               <div key={choice.id} class="result-choice-item">
                 <div class="result-question">
-                  Q{i + 1}. {choice.question}
+                  Q{i + 1}. {stripRuby(choice.question || '')}
                 </div>
                 <div class="result-options">
                   {choice.options.map((opt) => {
@@ -89,14 +89,14 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
                         <span class="result-option-marker">
                           {isSelected ? '●' : '○'}
                         </span>
-                        <span class="result-option-text">{opt.text}</span>
+                        <span class="result-option-text">{stripRuby(opt.text)}</span>
                       </div>
                     )
                   })}
                 </div>
                 {feedback && (
                   <div class="result-feedback">
-                    {feedback}
+                    {stripRuby(feedback)}
                   </div>
                 )}
                 {!selectedValue && (

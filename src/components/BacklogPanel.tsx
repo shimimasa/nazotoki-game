@@ -5,6 +5,7 @@
 
 import { useEffect, useRef } from 'preact/hooks'
 import type { BacklogEntry } from '../engine/types'
+import { stripRuby } from '../engine/RubyParser'
 
 interface Props {
   entries: BacklogEntry[]
@@ -40,7 +41,7 @@ export function BacklogPanel({ entries, onClose }: Props) {
                   {entry.characterName}
                 </span>
               )}
-              <span class="backlog-text">{entry.text}</span>
+              <span class="backlog-text">{stripRuby(entry.text)}</span>
             </div>
           ))}
           <div ref={bottomRef} />
