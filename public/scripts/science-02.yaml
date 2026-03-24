@@ -1,0 +1,552 @@
+meta:
+  id: science-02
+  title: 大停電の科学館と4つのなぞ
+  series: サイエンス捜査班
+  volume: 2
+  estimatedMinutes: 22
+
+characters:
+  rin:
+    name: リン
+    color: "#4A90D9"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  hikari:
+    name: ヒカリ
+    color: "#FF8C00"
+    sprites:
+      normal: girl-d-normal.webp
+      happy: girl-d-happy.webp
+      thinking: girl-d-thinking.webp
+      worried: girl-d-worried.webp
+      surprised: girl-d-surprised.webp
+      determined: girl-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kanade:
+    name: カナデ
+    color: "#7B68EE"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hakase:
+    name: ハカセさん
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: science-02/opening
+    steps:
+      - type: narration
+        text: "{町|まち}の{科学館|かがくかん}「サイエンスワンダーランド」。{明日|あした}は{年|ねん}に{一度|いちど}の「ワクワクサイエンスデー」。4{人|にん}は{昨日|きのう}、4つの{展示|てんじ}の{準備|じゅんび}を{完成|かんせい}させた。"
+
+      - type: narration
+        text: "リンの「{氷|こおり}のアート」。ヒカリの「{虹|にじ}の{部屋|へや}」。ソラの「ふくらむ{風船|ふうせん}」。カナデの「ピカピカ{回路|かいろ}」。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "ところが{昨夜|さくや}、{大雪|おおゆき}で{送電線|そうでんせん}が{傷|いた}つき、{科学館|かがくかん}が6{時間|じかん}も{停電|ていでん}！ {今朝|けさ}{来|き}てみると——4つの{展示|てんじ}が{全部|ぜんぶ}おかしくなっている！"
+
+      - type: bgm
+        track: science-02/investigation
+
+      - type: narration
+        text: "{冷凍|れいとう}ケースが{止|と}まったのに{氷|こおり}が{溶|と}けていない？ プリズムで{虹|にじ}ができない？ {風船|ふうせん}がしぼんだ？ {豆電球|まめでんきゅう}がつかない？"
+
+      - type: sprite
+        character: hakase
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: hakase
+        text: "{明日|あした}のワクワクサイエンスデーまでに{直|なお}さないと、イベントが{中止|ちゅうし}になってしまう！ 4{人|にん}で{協力|きょうりょく}して、{科学|かがく}の{力|ちから}で{原因|げんいん}を{突|つ}き{止|と}めてくれ！"
+
+      - type: sprite
+        character: hakase
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: rin, expression: worried }
+          - { id: hikari, expression: surprised }
+          - { id: sora, expression: determined }
+          - { id: kanade, expression: thinking }
+
+      - type: narration
+        text: "リン、ヒカリ、ソラ、カナデ——サイエンス{捜査班|そうさはん}、{出動|しゅつどう}！"
+
+      - type: sprite
+        character: rin
+        action: hide
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 大停電の科学館と4つのなぞ
+        subtitle: サイエンス捜査班 Vol.2
+
+  # ========================================
+  # 証拠カード1: 停電の記録
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: science-02/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 停電で何が起きた？
+
+      - type: narration
+        text: "{停電|ていでん}{報告書|ほうこくしょ}——{原因|げんいん}：{大雪|おおゆき}で{送電線|そうでんせん}が{損傷|そんしょう}。{停電|ていでん}{開始|かいし}：{昨夜|さくや}22:00。{電力|でんりょく}{復旧|ふっきゅう}：{今朝|けさ}4:00。6{時間|じかん}の{停電|ていでん}。"
+
+      - type: narration
+        text: "{影響|えいきょう}——{暖房|だんぼう}{停止|ていし}、{照明|しょうめい}{消灯|しょうとう}、{冷凍庫|れいとうこ}{停止|ていし}。{暖房|だんぼう}は{停電|ていでん}{後|ご}、{自動|じどう}では{再起動|さいきどう}しない。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "{重要|じゅうよう}——{昨日|きのう}19:00に{全員|ぜんいん}{帰宅|きたく}。{停電|ていでん}は22:00。{停電|ていでん}のとき、{科学館|かがくかん}には{誰|だれ}もいなかった。4つの{異変|いへん}が{起|お}きた{時間帯|じかんたい}に、{人間|にんげん}は1{人|り}もいなかったんだ。"
+
+  # ========================================
+  # 証拠カード2: 気象データ
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 昨夜の温度データ
+
+      - type: narration
+        text: "{外|そと}の{気温|きおん}——19:00に10℃。22:00（{停電|ていでん}）に5℃。{深夜|しんや}1:00に-2℃。3:00に-3℃。{朝|あさ}7:00に0℃。"
+
+      - type: narration
+        text: "{科学館|かがくかん}の{中|なか}——19:00に20℃（{暖房|だんぼう}ON）。22:00に18℃（{暖房|だんぼう}{停止|ていし}）。{深夜|しんや}1:00に10℃。4:00に5℃。8:00（{今朝|けさ}）に3℃。"
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "{外|そと}は-3℃まで{下|さ}がった。{科学館|かがくかん}の{中|なか}も3℃まで{冷|ひ}えた。{水|みず}が{凍|こお}る{温度|おんど}は0℃。この{温度|おんど}{変化|へんか}が4つの{異変|いへん}に{関係|かんけい}している？"
+
+  # ========================================
+  # 証拠カード3: 4つの展示の詳しい調査
+  # ========================================
+  - id: evidence-3
+    bgm: science-02/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 4つの展示の調査結果
+
+      - type: narration
+        text: "【{氷|こおり}のアート】{冷凍|れいとう}ケースの{電源|でんげん}：{消|き}えている。ケース{内|ない}の{温度|おんど}：-5℃。{氷|こおり}は{完全|かんぜん}な{固体|こたい}。{溶|と}けていない。"
+
+      - type: narration
+        text: "【{虹|にじ}の{部屋|へや}】{光源|こうげん}はON（{停電|ていでん}{復旧|ふっきゅう}で{自動|じどう}{点灯|てんとう}）。{光|ひかり}の{色|いろ}は{赤|あか}だけ。パネル{表示|ひょうじ}：「モード：{単色|たんしょく}（{赤|あか}）」。プリズムに{当|あ}てても——{虹|にじ}にならない。"
+
+      - type: narration
+        text: "【ふくらむ{風船|ふうせん}】{昨日|きのう}より{明|あき}らかに{小|ちい}さい。{穴|あな}は{開|あ}いていない。{結|むす}び{目|め}もしっかり。{空気|くうき}が{漏|も}れる{音|おと}もしない。"
+
+      - type: narration
+        text: "【ピカピカ{回路|かいろ}】{豆電球|まめでんきゅう}がつかない。{回路|かいろ}のつなぎ{方|かた}は{正|ただ}しい。{電池|でんち}の{向|む}きも{正|ただ}しい。でも{電圧|でんあつ}を{測|はか}ると0.8V（{新品|しんぴん}は1.5V）。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "4つの{異変|いへん}に{共通|きょうつう}することはないか？ {昨夜|さくや}、{科学館|かがくかん}で{大|おお}きく{変|か}わったのは——{温度|おんど}だ！"
+
+  # ========================================
+  # 証拠カード4: 昨日の行動記録
+  # ========================================
+  - id: evidence-4
+    bgm: science-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 昨日の行動記録
+
+      - type: sprite
+        character: rin
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: rin
+        text: "……{実|じつ}はわたし、{冷凍|れいとう}ケースの{温度|おんど}{設定|せってい}を-18℃から-10℃に{変|か}えちゃったの。それで{氷|こおり}が{溶|と}けたのかも……。"
+
+      - type: sprite
+        character: rin
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "{光源|こうげん}パネルのボタンが{気|き}になって{色々|いろいろ}{押|お}しちゃった……。それで{設定|せってい}が{変|か}わったのかも。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "{風船|ふうせん}を{運|はこ}ぶとき、{爪|つめ}が{当|あ}たったかもしれない……。{穴|あな}を{開|あ}けちゃったかも。"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kanade
+        text: "{電池|でんち}を{入|い}れ{替|か}えたとき、{向|む}きを{間違|まちが}えたかもしれない……。"
+
+      - type: sprite
+        character: kanade
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "4{人|にん}{全員|ぜんいん}が「{自分|じぶん}のせいかも」と{思|おも}っている。でも{本当|ほんとう}にそうだろうか？ {停電|ていでん}のとき{科学館|かがくかん}には{誰|だれ}もいなかった——{人|ひと}の{ミス|みす}じゃない{可能性|かのうせい}は？"
+
+  # ========================================
+  # 投票（原因特定）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: science-02/tension
+    steps:
+      - type: sprite
+        character: hakase
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: hakase
+        text: "4つの{異変|いへん}に{共通|きょうつう}する{原因|げんいん}は{何|なに}だ？ {証拠|しょうこ}カード2の{温度|おんど}データをもう{一度|いちど}{見|み}てみよう！"
+
+      - type: sprite
+        character: hakase
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 4つの異変の共通原因は何？
+        options:
+          - text: "{停電|ていでん}による{温度低下|おんどていか}"
+            value: temperature
+            feedback: "{正解|せいかい}！ {停電|ていでん}で{暖房|だんぼう}が{止|と}まり、{室温|しつおん}が20℃→3℃に{低下|ていか}。{温度|おんど}の{変化|へんか}が4つの{異変|いへん}すべてを{引|ひ}き{起|お}こした。"
+          - text: "4{人|にん}の{誰|だれ}かの{ミス|みす}"
+            value: human-error
+            feedback: "{停電|ていでん}は22:00に{起|お}きたけど、{全員|ぜんいん}は19:00に{帰宅|きたく}している。{異変|いへん}が{起|お}きた{時間|じかん}に{人間|にんげん}は{誰|だれ}もいなかった。{自然|しぜん}{現象|げんしょう}が{原因|げんいん}では？"
+          - text: "{大雪|おおゆき}で{科学館|かがくかん}が{壊|こわ}れた"
+            value: snow-damage
+            feedback: "{大雪|おおゆき}で{送電線|そうでんせん}が{損傷|そんしょう}して{停電|ていでん}した。{科学館|かがくかん}{自体|じたい}は{壊|こわ}れていない。{停電|ていでん}の{結果|けっか}、{何|なに}が{変|か}わった？ {温度|おんど}データを{見|み}てみよう。"
+          - text: "{展示|てんじ}の{機械|きかい}が{古|ふる}かった"
+            value: old-equipment
+            feedback: "{昨日|きのう}は4つとも{正常|せいじょう}に{動|うご}いていた。{一晩|ひとばん}で4つ{同時|どうじ}に{壊|こわ}れるのは{考|かんが}えにくい。4つに{共通|きょうつう}する{変化|へんか}は{何|なに}？"
+
+      - type: narration
+        text: "{温度|おんど}が{下|さ}がると——{氷|こおり}は{溶|と}けない。{空気|くうき}は{縮|ちぢ}む。{電池|でんち}は{弱|よわ}まる。そして{停電|ていでん}で{光源|こうげん}の{設定|せってい}がリセットされた。"
+
+      - type: choice
+        id: q2
+        question: 冷凍庫が止まったのに氷が溶けなかったのはなぜ？
+        options:
+          - text: "{室温|しつおん}が0℃{以下|いか}だったから"
+            value: below-zero
+            feedback: "{正解|せいかい}！ {冷凍|れいとう}ケース{内|ない}は-5℃。{水|みず}が{凍|こお}る{温度|おんど}（{融点|ゆうてん}）は0℃。0℃より{低|ひく}ければ、{冷凍庫|れいとうこ}がなくても{氷|こおり}は{溶|と}けない。"
+          - text: "リンが{温度|おんど}{設定|せってい}を{変|か}えたから"
+            value: rin-setting
+            feedback: "リンは{設定|せってい}を-18℃から-10℃に{変|か}えたけど、{停電|ていでん}{中|ちゅう}は{電源|でんげん}が{切|き}れているから{設定|せってい}は{関係|かんけい}ない。{室温|しつおん}が0℃{以下|いか}だったことが{本当|ほんとう}の{理由|りゆう}だよ。"
+          - text: "{冷凍|れいとう}ケースの{断熱材|だんねつざい}がすごいから"
+            value: insulation
+            feedback: "{断熱|だんねつ}{効果|こうか}はあるけど、6{時間|じかん}{停電|ていでん}すれば{内部|ないぶ}{温度|おんど}は{上|あ}がる。{決|き}め{手|て}は「{室温|しつおん}が0℃{以下|いか}だった」こと。{断熱|だんねつ}＋{低|ひく}い{室温|しつおん}の{両方|りょうほう}が{理由|りゆう}だよ。"
+          - text: "{氷|こおり}が{大|おお}きかったから"
+            value: big-ice
+            feedback: "{大|おお}きい{氷|こおり}は{溶|と}けるのが{遅|おそ}いけど、6{時間|じかん}もあれば{溶|と}け{始|はじ}めるはず。{本当|ほんとう}の{理由|りゆう}は{室温|しつおん}が0℃{以下|いか}だったこと。{温度|おんど}データを{見|み}てみよう。"
+
+  # ========================================
+  # 証拠カード5: 再現実験の結果
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: science-02/experiment
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: hakase
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: hakase
+        text: "{原因|げんいん}を{突|つ}き{止|と}めるために、{再現実験|さいげんじっけん}をしてみよう！ {仮説|かせつ}が{正|ただ}しいか{検証|けんしょう}だ！"
+
+      - type: sprite
+        character: hakase
+        action: hide
+
+      - type: narration
+        text: "【{実験|じっけん}A】{氷|こおり}を{暖|あたた}かい{部屋|へや}（8℃）に{置|お}いたら30{分|ぷん}で{溶|と}け{始|はじ}めた。{外|そと}（0℃）に{置|お}いたら{溶|と}けなかった。——{氷|こおり}が{溶|と}けるかは{温度|おんど}で{決|き}まる！"
+
+      - type: narration
+        text: "【{実験|じっけん}B】{光源|こうげん}を「{白色|はくしょく}」に{切|き}り{替|か}えたら——{虹|にじ}が{出|で}た！ 「{単色|たんしょく}（{赤|あか}）」に{戻|もど}すと{虹|にじ}は{消|き}えた。——{白色光|はくしょくこう}は7{色|しょく}の{集|あつ}まり。{単色光|たんしょくこう}は{分|わ}けられない！"
+
+      - type: narration
+        text: "【{実験|じっけん}C】しぼんだ{風船|ふうせん}を{暖|あたた}かい{部屋|へや}に{置|お}いたら——ふくらみ{始|はじ}めた！ 20{分|ぷん}で{元|もと}の{大|おお}きさに{戻|もど}った！——{空気|くうき}は{温|あたた}めると{膨|ふく}らみ、{冷|ひ}やすと{縮|ちぢ}む！"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        text: "【{実験|じっけん}D】{冷|つめ}たい{電池|でんち}をポケットで5{分|ふん}{温|あたた}めたら——{電圧|でんあつ}が0.8V→1.3Vに！ {豆電球|まめでんきゅう}につないだら——ついた！！——{電池|でんち}は{冷|ひ}えると{化学反応|かがくはんのう}が{遅|おそ}くなる！"
+
+      - type: narration
+        speed: slow
+        text: "4つの{異変|いへん}の{共通|きょうつう}{原因|げんいん}＝{停電|ていでん}による{温度低下|おんどていか}。{誰|だれ}かの{ミス|みす}ではなく、{自然|しぜん}{現象|げんしょう}だった！"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 真実 — リン
+  # ========================================
+  - id: truth-rin
+    bg: classroom
+    bgm: science-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: rin
+        expression: surprised
+        position: left
+
+      - type: dialog
+        character: rin
+        text: "わたしが{温度|おんど}{設定|せってい}を{変|か}えたせいだと{思|おも}ってた。でも{停電|ていでん}{中|ちゅう}は{電源|でんげん}が{切|き}れてるから、{設定|せってい}は{関係|かんけい}なかったんだ。"
+
+      - type: dialog
+        character: rin
+        expression: happy
+        text: "{氷|こおり}が{溶|と}けなかったのは、{室温|しつおん}が0℃{以下|いか}だったから。{水|みず}の{融点|ゆうてん}は0℃——{冷凍庫|れいとうこ}がなくても0℃{以下|いか}なら{氷|こおり}は{溶|と}けない！"
+
+      - type: sprite
+        character: rin
+        action: hide
+
+      - type: narration
+        text: "リンの{ミス|みす}は{無関係|むかんけい}。{状態変化|じょうたいへんか}の{知識|ちしき}で{解決|かいけつ}——{物質|ぶっしつ}が{固体|こたい}か{液体|えきたい}かは{温度|おんど}で{決|き}まる。"
+
+  # ========================================
+  # 真実 — ヒカリ
+  # ========================================
+  - id: truth-hikari
+    steps:
+      - type: sprite
+        character: hikari
+        expression: surprised
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "ボタンを{色々|いろいろ}{押|お}しちゃったせいだと{思|おも}ってた。でも{停電|ていでん}で{設定|せってい}が{全部|ぜんぶ}リセットされたんだ。わたしが{何|なに}を{押|お}しても{結果|けっか}は{同|おな}じだった！"
+
+      - type: dialog
+        character: hikari
+        expression: happy
+        text: "{白色光|はくしょくこう}は7つの{色|いろ}の{集|あつ}まり。プリズムで{分|わ}けられる。でも{単色光|たんしょくこう}は1つの{色|いろ}だけだから{分|わ}けられない。だから{虹|にじ}ができなかったんだ！"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: narration
+        text: "ヒカリの{ミス|みす}も{無関係|むかんけい}。{光|ひかり}の{分散|ぶんさん}の{知識|ちしき}で{解決|かいけつ}——{白色光|はくしょくこう}＝7{色|しょく}の{集|あつ}まり。{単色光|たんしょくこう}＝{分|わ}けられない。"
+
+  # ========================================
+  # 真実 — ソラ
+  # ========================================
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "{爪|つめ}で{穴|あな}を{開|あ}けちゃったかと{思|おも}った。でも{穴|あな}は{開|あ}いてなかった！ {温|あたた}めたら{元|もと}に{戻|もど}ったんだ！"
+
+      - type: dialog
+        character: sora
+        expression: happy
+        text: "{空気|くうき}は{冷|ひ}えると{縮|ちぢ}み、{温|あたた}めると{膨|ふく}らむ。{室温|しつおん}が20℃→3℃に{下|さ}がったから{風船|ふうせん}が{小|ちい}さくなっただけ！ {科学|かがく}で{解|と}けない{謎|なぞ}はない！"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: narration
+        text: "ソラの{ミス|みす}も{無関係|むかんけい}。{温度|おんど}と{気体|きたい}の{体積|たいせき}の{知識|ちしき}で{解決|かいけつ}——{気体|きたい}は{冷|ひ}えると{縮|ちぢ}み、{温|あたた}まると{膨|ふく}らむ。"
+
+  # ========================================
+  # 真実 — カナデ
+  # ========================================
+  - id: truth-kanade
+    steps:
+      - type: sprite
+        character: kanade
+        expression: surprised
+        position: right
+
+      - type: dialog
+        character: kanade
+        text: "{電池|でんち}の{向|む}きを{間違|まちが}えたと{思|おも}ってた。でも{向|む}きは{正|ただ}しかった。{温|あたた}めたら{電圧|でんあつ}が{戻|もど}って{豆電球|まめでんきゅう}がついた！"
+
+      - type: dialog
+        character: kanade
+        expression: happy
+        text: "{電池|でんち}は{化学反応|かがくはんのう}で{電気|でんき}を{作|つく}る。{寒|さむ}いと{化学反応|かがくはんのう}が{遅|おそ}くなって{電圧|でんあつ}が{下|さ}がる。{壊|こわ}れたんじゃなくて{冷|ひ}えてただけ！ {回路|かいろ}は{友達|ともだち}！"
+
+      - type: sprite
+        character: kanade
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: science-02/resolution
+
+      - type: narration
+        speed: slow
+        text: "4{人|にん}{全員|ぜんいん}が「{自分|じぶん}のせいかも」と{思|おも}っていた。でも{全員|ぜんいん}{無実|むじつ}。4つの{異変|いへん}はすべて「{温度|おんど}」が{原因|げんいん}の{自然|しぜん}{現象|げんしょう}だった。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: science-02/resolution
+    steps:
+      - type: sprite
+        character: hakase
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: hakase
+        text: "{素晴|すば}らしい！ 4つの{なぞ|なぞ}を{全部|ぜんぶ}{科学|かがく}で{解明|かいめい}した！ {直|なお}し{方|かた}も{分|わ}かった！"
+
+      - type: dialog
+        character: hakase
+        text: "{氷|こおり}は{冷凍|れいとう}ケースを{入|い}れ{直|なお}すだけ。{虹|にじ}は{光源|こうげん}を「{白色|はくしょく}」モードに。{風船|ふうせん}は{温|あたた}かい{部屋|へや}に{移|うつ}す。{電池|でんち}は{温|あたた}める。"
+
+      - type: dialog
+        character: hakase
+        text: "{誰|だれ}の{ミス|みす}でもなかった。「{思|おも}い{込|こ}み」を「{科学|かがく}の{実験|じっけん}」で{否定|ひてい}する——これが{科学的|かがくてき}{方法|ほうほう}だ！"
+
+      - type: sprite
+        character: hakase
+        action: hide
+
+      - type: narration
+        text: "{今日|きょう}{学|まな}んだ4つの{科学|かがく}——{状態変化|じょうたいへんか}（{融点|ゆうてん}）、{光|ひかり}の{分散|ぶんさん}、{温度|おんど}と{気体|きたい}の{体積|たいせき}、{電池|でんち}と{温度|おんど}。"
+
+      - type: narration
+        speed: slow
+        text: "そして{一番|いちばん}{大事|だいじ}なこと——「{自分|じぶん}のせいかも」と{思|おも}い{込|こ}む{前|まえ}に、{実験|じっけん}で{確|たし}かめよう。{科学|かがく}の{力|ちから}は、{思|おも}い{込|こ}みを{事実|じじつ}に{変|か}える。"
+
+      - type: narration
+        text: "{明日|あした}のワクワクサイエンスデー、{大成功|だいせいこう}{間違|まちが}いなし！ サイエンス{捜査班|そうさはん}——{大停電|だいていでん}の{科学館|かがくかん}の{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
