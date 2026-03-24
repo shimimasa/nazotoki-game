@@ -1,0 +1,606 @@
+meta:
+  id: moral-06
+  title: 消えた学級メダルと4つの言わけ
+  series: 答えのない法廷
+  volume: 6
+  estimatedMinutes: 22
+
+characters:
+  akira:
+    name: アキラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  mai:
+    name: マイ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  hikari:
+    name: ヒカリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: moral-06/opening
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}は、{学校|がっこう}の「{教室|きょうしつ}コンクール」で{優秀|ゆうしゅう}{学級賞|がっきゅうしょう}の{金|きん}メダルをもらった！ クラスみんなで{勝|か}ち{取|と}った、ピカピカのメダル。"
+
+      - type: narration
+        text: "メダルは{教室|きょうしつ}の{後|うし}ろの{棚|たな}に{飾|かざ}った。そしてクラスで3つのルールを{決|き}めた。"
+
+      - type: narration
+        text: "①{休日|きゅうじつ}に{許可|きょか}なく{教室|きょうしつ}に{入|はい}らない。②合い{鍵|かぎ}は{学級委員|がっきゅういいん}が{管理|かんり}。{他|ほか}の{人|ひと}に{教|おし}えない。③{問題|もんだい}を{見|み}つけたら{先生|せんせい}に{報告|ほうこく}する。"
+
+      - type: narration
+        text: "{金曜日|きんようび}の{午後|ごご}、メダルは{棚|たな}の{上|うえ}でキラキラ{光|ひか}っていた。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "そして{月曜日|げつようび}の{朝|あさ}——{棚|たな}の{上|うえ}にメダルがない。{消|き}えている。"
+
+      - type: bgm
+        track: moral-06/tension
+
+      - type: narration
+        text: "{金土日|きんどにち}の3{日間|にちかん}、{誰|だれ}かが{教室|きょうしつ}に{入|はい}ったのか？ 4{人|にん}とも「{教室|きょうしつ}に{行|い}っていない」と{言|い}う。"
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "メダルが{消|き}えた。{金|きん}・{土|ど}・{日|にち}の{間|あいだ}に{何|なに}が{起|お}きたのか、{整理|せいり}してみよう。お{互|たが}いに{質問|しつもん}し{合|あ}うことが{大事|だいじ}だよ。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: akira, expression: worried }
+          - { id: mai, expression: thinking }
+          - { id: hikari, expression: thinking }
+          - { id: ren, expression: worried }
+
+      - type: narration
+        text: "アキラ、マイ、ヒカリ、レン——4{人|にん}の{調査|ちょうさ}が{始|はじ}まる。"
+
+      - type: sprite
+        character: akira
+        action: hide
+      - type: sprite
+        character: mai
+        action: hide
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 消えた学級メダルと4つの言わけ
+        subtitle: 答えのない法廷 Vol.6
+
+  # ========================================
+  # 証拠カード1: 教室の見取り図
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: moral-06/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: メダルの手がかりを探そう
+
+      - type: narration
+        text: "{教室|きょうしつ}の{後|うし}ろの{棚|たな}。メダルはここに{飾|かざ}ってあった。{棚|たな}と{壁|かべ}の{間|あいだ}には5cmくらいの{隙間|すきま}がある。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "もし{何|なに}かが{落|お}ちたら、{裏側|うらがわ}に{入|はい}り{込|こ}んでしまうかもしれない。{棚|たな}の{上|うえ}に{置|お}いたメダルは、{本当|ほんとう}に{安全|あんぜん}だった？"
+
+  # ========================================
+  # 証拠カード2: 土日の行動記録
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4人の土日の行動
+
+      - type: narration
+        text: "4{人|にん}の{証言|しょうげん}——"
+
+      - type: sprite
+        character: akira
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: akira
+        text: "{土曜|どよう}はサッカーの{練習|れんしゅう}。{日曜|にちよう}は{家|いえ}にいた。{教室|きょうしつ}には{行|い}ってない。"
+
+      - type: sprite
+        character: akira
+        action: hide
+
+      - type: sprite
+        character: mai
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: mai
+        text: "{土曜|どよう}は{家|いえ}で{勉強|べんきょう}。{日曜|にちよう}は{家族|かぞく}で{買|か}い{物|もの}。{教室|きょうしつ}には{行|い}ってない。"
+
+      - type: sprite
+        character: mai
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: hikari
+        text: "{土曜|どよう}は{学校|がっこう}に{来|き}た。{廊下|ろうか}の{掃除|そうじ}{当番|とうばん}。でも{教室|きょうしつ}には{入|はい}ってない。{日曜|にちよう}は{家|いえ}にいた。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: ren
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: ren
+        text: "{土曜|どよう}は{家|いえ}にいた。{日曜|にちよう}は{日直|にっちょく}で{学校|がっこう}に{来|き}た。{教室|きょうしつ}で{植物|しょくぶつ}の{水|みず}やりだけした。メダルのことは{覚|おぼ}えてない。"
+
+      - type: sprite
+        character: ren
+        action: hide
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "{月曜日|げつようび}の{朝|あさ}、{棚|たな}が{微妙|びみょう}にずれていたとマイが{気|き}づいた。{誰|だれ}かが{棚|たな}にぶつかった？ {全員|ぜんいん}の{証言|しょうげん}は{本当|ほんとう}？ {質問|しつもん}してみよう。"
+
+  # ========================================
+  # 証拠カード3: 棚の写真（月曜朝）
+  # ========================================
+  - id: evidence-3
+    bgm: moral-06/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 棚の写真（月曜日の朝）
+
+      - type: narration
+        text: "{棚|たな}の{上|うえ}——{花|はな}びんと{教科書|きょうかしょ}スタンドはある。{金|きん}メダルだけがない。"
+
+      - type: narration
+        text: "{棚|たな}の{横|よこ}に{小|ちい}さな{擦|す}り{傷|きず}がある。{新|あたら}しい{傷|きず}だ。そして{棚|たな}が{壁|かべ}から{少|すこ}し{離|はな}れている——{金曜日|きんようび}はピッタリだった。"
+
+      - type: narration
+        text: "{棚|たな}の{裏|うら}は{暗|くら}くて{見|み}えない。のぞき{込|こ}んでも{奥|おく}まで{見|み}えなかった。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "{誰|だれ}かが{棚|たな}にぶつかった？ メダルが{棚|たな}の{裏|うら}に{落|お}ちた{可能性|かのうせい}は？ でも{裏|うら}は{暗|くら}くて{確認|かくにん}できない……。"
+
+  # ========================================
+  # 証拠カード4: 合い鍵の情報
+  # ========================================
+  - id: evidence-4
+    bgm: moral-06/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 合い鍵の情報
+
+      - type: narration
+        text: "{教室|きょうしつ}の{鍵|かぎ}は2{本|ほん}ある。メインの{鍵|かぎ}はマイが{管理|かんり}。合い{鍵|かぎ}は{教室|きょうしつ}の{中|なか}の{特定|とくてい}の{場所|ばしょ}に{隠|かく}してある。{隠|かく}し{場所|ばしょ}を{知|し}っているのはマイだけ——のはず。"
+
+      - type: narration
+        text: "{休日|きゅうじつ}に{教室|きょうしつ}を{使|つか}うには、{先生|せんせい}の{許可|きょか}が{必要|ひつよう}。{日直|にっちょく}の{場合|ばあい}は{先生|せんせい}から{専用|せんよう}の{鍵|かぎ}を{借|か}りる。"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "{先生|せんせい}に{確認|かくにん}——{土日|どにち}に{教室|きょうしつ}の{使用|しよう}{許可|きょか}を{出|だ}した{生徒|せいと}はいない（{日直|にっちょく}のレン{以外|いがい}）。{許可|きょか}なしで{入|はい}った{人|ひと}がいるなら、どうやって{入|はい}った？ マイに{聞|き}いてみよう。"
+
+  # ========================================
+  # 投票（誰が一番悪い？）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: moral-06/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{棚|たな}がずれていた、{擦|す}り{傷|きず}がある、合い{鍵|かぎ}の{秘密|ひみつ}——お{互|たが}いに{質問|しつもん}し{合|あ}って。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 4人の中で、一番責任が重いのは誰？
+        feedback_default: "この{問|と}いに{正解|せいかい}はない。4{人|にん}{全員|ぜんいん}がルールを{破|やぶ}っている。{大事|だいじ}なのは「なぜそう{思|おも}ったか」を{考|かんが}えること。"
+        options:
+          - text: "アキラ（{許可|きょか}なく{教室|きょうしつ}に{入|はい}った）"
+            value: akira
+          - text: "マイ（合い{鍵|かぎ}の{場所|ばしょ}をアキラに{教|おし}えた）"
+            value: mai
+          - text: "ヒカリ（アキラを{見|み}たのに{報告|ほうこく}しなかった）"
+            value: hikari
+          - text: "レン（メダルがないことを{知|し}っていたのに{黙|だま}った）"
+            value: ren
+          - text: "{全員|ぜんいん}{同|おな}じくらい"
+            value: everyone
+
+      - type: narration
+        text: "4{人|にん}の「{言|い}わけ」を{聞|き}いてみよう。{全員|ぜんいん}にそれぞれの{理由|りゆう}がある。でも——{理由|りゆう}があればルールを{破|やぶ}っていい？"
+
+  # ========================================
+  # 証拠カード5: 棚の裏の発見
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: moral-06/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{先生|せんせい}が{懐中電灯|かいちゅうでんとう}で{棚|たな}の{裏|うら}を{照|て}らしてみました。すると——"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 600
+
+      - type: narration
+        speed: slow
+        text: "{金|きん}メダルが{見|み}つかった！ {棚|たな}の{裏|うら}、{壁|かべ}との{隙間|すきま}に{挟|はさ}まっていた。{傷|きず}はない。{棚|たな}にぶつかった{衝撃|しょうげき}で、{裏|うら}に{滑|すべ}り{落|お}ちていたのだ。"
+
+      - type: narration
+        text: "メダルは「{盗|ぬす}まれた」のではなかった。{棚|たな}の{上|うえ}から{裏|うら}に{落|お}ちただけ。"
+
+      - type: narration
+        text: "メダルと{一緒|いっしょ}に、{集合写真|しゅうごうしゃしん}が{挟|はさ}まっていた。{裏|うら}に{担任|たんにん}の{先生|せんせい}の{手書|てが}きメッセージ——"
+
+      - type: narration
+        speed: slow
+        text: "「みんなで{勝|か}ち{取|と}ったメダルです。1{人|り}じゃないよ。」"
+
+      - type: wait
+        duration: 1500
+
+      - type: narration
+        text: "じゃあ、{誰|だれ}が{棚|たな}にぶつかった？ いつ？ もう{一度|いちど}、{土日|どにち}の{行動|こうどう}を{整理|せいり}してみよう。"
+
+  # ========================================
+  # 真実 — アキラ
+  # ========================================
+  - id: truth-akira
+    bg: classroom
+    bgm: moral-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: akira
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: akira
+        text: "……{土曜日|どようび}の{朝|あさ}、{教室|きょうしつ}に{入|はい}った。おばあちゃんからの{大切|たいせつ}な{手紙|てがみ}を{机|つくえ}に{忘|わす}れて。{月曜日|げつようび}まで{待|ま}てなくて。"
+
+      - type: dialog
+        character: akira
+        text: "マイに{電話|でんわ}して、合い{鍵|かぎ}の{場所|ばしょ}を{教|おし}えてもらった。{手紙|てがみ}を{取|と}るとき、{棚|たな}の{横|よこ}を{通|とお}って……{体|からだ}をぶつけてしまった。"
+
+      - type: dialog
+        character: akira
+        expression: determined
+        text: "メダルが{落|お}ちた{音|おと}は{聞|き}こえなかった。{全然|ぜんぜん}{気|き}づかなかった。……ぼくが{棚|たな}にぶつかったせいだったんだ。ごめん。"
+
+      - type: sprite
+        character: akira
+        action: hide
+
+      - type: narration
+        text: "アキラはルール①「{休日|きゅうじつ}に{許可|きょか}なく{教室|きょうしつ}に{入|はい}らない」を{破|やぶ}った。{理由|りゆう}は「おばあちゃんの{大切|たいせつ}な{手紙|てがみ}」。でもルールを{破|やぶ}った{結果|けっか}、メダルが{消|き}えた。"
+
+  # ========================================
+  # 真実 — マイ
+  # ========================================
+  - id: truth-mai
+    steps:
+      - type: sprite
+        character: mai
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mai
+        text: "……アキラから{電話|でんわ}があって。「おばあちゃんの{手紙|てがみ}を{取|と}りたい」って。{泣|な}きそうな{声|こえ}で{頼|たの}まれて……。"
+
+      - type: dialog
+        character: mai
+        text: "ルール②「合い{鍵|かぎ}の{場所|ばしょ}を{教|おし}えない」って{分|わ}かってた。でもアキラが{本当|ほんとう}に{困|こま}ってて……{教|おし}えちゃった。"
+
+      - type: dialog
+        character: mai
+        expression: determined
+        text: "{月曜日|げつようび}の{朝|あさ}、{棚|たな}がずれてるのに{気|き}づいた。でも「{気|き}のせいかも」って……。{学級委員|がっきゅういいん}なのに、{自分|じぶん}でルールを{破|やぶ}った。"
+
+      - type: sprite
+        character: mai
+        action: hide
+
+      - type: narration
+        text: "マイはルール②「合い{鍵|かぎ}の{場所|ばしょ}を{他|ほか}の{人|ひと}に{教|おし}えない」を{破|やぶ}った。「{友達|ともだち}が{困|こま}っていたから」。でも{管理者|かんりしゃ}としての{信頼|しんらい}を{裏切|うらぎ}ったことになる。"
+
+  # ========================================
+  # 真実 — ヒカリ
+  # ========================================
+  - id: truth-hikari
+    steps:
+      - type: sprite
+        character: hikari
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: hikari
+        text: "……{土曜日|どようび}の{掃除|そうじ}{中|ちゅう}、アキラが{校舎|こうしゃ}に{入|はい}ってくるのを{見|み}た。{教室|きょうしつ}の{方|ほう}に{歩|ある}いていった。"
+
+      - type: dialog
+        character: hikari
+        text: "「あれ？」と{思|おも}ったけど、{声|こえ}をかけなかった。{先生|せんせい}にも{報告|ほうこく}しなかった。"
+
+      - type: dialog
+        character: hikari
+        expression: determined
+        text: "{去年|きょねん}、{友達|ともだち}のルール{違反|いはん}を{先生|せんせい}に{言|い}ったら「{裏切|うらぎ}り{者|もの}」って{言|い}われた。あの{経験|けいけん}があって……また「チクリ{魔|ま}」って{呼|よ}ばれるのが{怖|こわ}かった。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: narration
+        text: "ヒカリはルール③「{問題|もんだい}を{見|み}つけたら{先生|せんせい}に{報告|ほうこく}する」を{破|やぶ}った。{理由|りゆう}は「{友達|ともだち}をチクりたくない」。でも{報告|ほうこく}していれば、メダルの{消失|しょうしつ}はすぐに{解決|かいけつ}できた。"
+
+  # ========================================
+  # 真実 — レン
+  # ========================================
+  - id: truth-ren
+    steps:
+      - type: sprite
+        character: ren
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: ren
+        text: "……{日曜日|にちようび}に{日直|にっちょく}で{教室|きょうしつ}に{入|はい}ったとき、{棚|たな}を{見|み}たら——メダルがなかった。"
+
+      - type: dialog
+        character: ren
+        text: "パニックになった。「ぼくが{犯人|はんにん}だと{思|おも}われる」って。{日直|にっちょく}で{入|はい}る{正当|せいとう}な{理由|りゆう}はあったのに……{怖|こわ}くて{先生|せんせい}に{報告|ほうこく}できなかった。"
+
+      - type: dialog
+        character: ren
+        expression: determined
+        text: "もし{日曜日|にちようび}のうちに「メダルがない」って{言|い}っていたら、すぐに{棚|たな}の{裏|うら}を{調|しら}べて{見|み}つかったかもしれない。{黙|だま}ったせいで、みんなを{心配|しんぱい}させてしまった。"
+
+      - type: sprite
+        character: ren
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: moral-06/resolution
+
+      - type: narration
+        text: "レンもルール③「{問題|もんだい}を{見|み}つけたら{先生|せんせい}に{報告|ほうこく}する」を{破|やぶ}った。「{疑|うたが}われたくなかった」から。でも{報告|ほうこく}していれば、{月曜日|げつようび}の{騒|さわ}ぎは{起|お}きなかった。"
+
+      - type: narration
+        speed: slow
+        text: "4{人|にん}{全員|ぜんいん}がルールを{破|やぶ}った。{全員|ぜんいん}に「{言|い}わけ」があった。でも1{人|り}ひとりの「{仕方|しかた}ない」が{重|かさ}なって、みんなの{大切|たいせつ}なメダルが{消|き}えた。"
+
+  # ========================================
+  # 判定投票
+  # ========================================
+  - id: judgment
+    bg: classroom
+    bgm: moral-06/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "4{人|にん}とも、それぞれの{理由|りゆう}でルールを{破|やぶ}った。{最後|さいご}に{考|かんが}えてみよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q2
+        question: ルールを破ってもいい理由はある？
+        feedback_default: "どの{答|こた}えにも{理由|りゆう}がある。{大事|だいじ}なのは「ルールを{変|か}えたいなら{正|ただ}しい{方法|ほうほう}がある」ということ。{黙|だま}って{破|やぶ}るのではなく、みんなで{話|はな}し{合|あ}って{変|か}える。"
+        options:
+          - text: "{大切|たいせつ}な{理由|りゆう}があれば{破|やぶ}ってもいい"
+            value: yes-reason
+          - text: "どんな{理由|りゆう}があってもルールは{守|まも}るべき"
+            value: no-always
+          - text: "ルールを{変|か}えたいなら、まず{相談|そうだん}すべき"
+            value: change-properly
+
+      - type: narration
+        text: "ルールには{理由|りゆう}がある。みんなの{大切|たいせつ}なものを{守|まも}るために。「{良|よ}い{言|い}わけ」でも{破|やぶ}れば{問題|もんだい}が{起|お}きる。{変|か}えたいなら、{正|ただ}しい{方法|ほうほう}で{変|か}えよう。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: moral-06/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "メダルは{見|み}つかった。でも{大事|だいじ}なのはメダルじゃない。"
+
+      - type: dialog
+        character: sensei
+        text: "アキラは「おばあちゃんの{手紙|てがみ}」。マイは「{友達|ともだち}を{助|たす}けたい」。ヒカリは「{友達|ともだち}を{売|う}りたくない」。レンは「{疑|うたが}われたくない」。"
+
+      - type: dialog
+        character: sensei
+        text: "{全部|ぜんぶ}{分|わ}かる{気持|きも}ちだよ。でも、1{人|り}の「{仕方|しかた}ない」が4つ{重|かさ}なって、みんなの{大切|たいせつ}なものが{消|き}えた。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{先生|せんせい}のメッセージを{思|おも}い{出|だ}そう——「みんなで{勝|か}ち{取|と}ったメダルです。1{人|り}じゃないよ。」"
+
+      - type: narration
+        speed: slow
+        text: "ルールは「{縛|しば}り」じゃない。「みんなの{大切|たいせつ}なものを{守|まも}る{約束|やくそく}」だ。{破|やぶ}りたくなったら、{黙|だま}って{破|やぶ}るのではなく——{声|こえ}に{出|だ}して{相談|そうだん}しよう。それが、ルールを{尊重|そんちょう}するということ。"
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "さあ、メダルを{棚|たな}に{戻|もど}そう。{今度|こんど}は{壁|かべ}にしっかり{固定|こてい}してね。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500
