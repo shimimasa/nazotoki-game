@@ -1,0 +1,514 @@
+meta:
+  id: digital-10
+  title: デジタル・アイデンティティ
+  series: 情報モラル探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-10/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の{卒業|そつぎょう}{制作|せいさく}——「タイムカプセル・ページ」。4{人|にん}がそれぞれ「10{年後|ねんご}の{自分|じぶん}へのメッセージ」を{書|か}いて、「あおばトーク」の{特別|とくべつ}フォルダに{保存|ほぞん}した。"
+      - type: narration
+        text: "ハルトは「プログラミングを{続|つづ}けたい」。ミオは「{絵本|えほん}{作家|さっか}になりたい」。ソラは「サッカーを{続|つづ}けたい」。リコは「{本|ほん}をたくさん{読|よ}んでいたい」。"
+      - type: narration
+        text: "ところが{翌日|よくじつ}の{朝|あさ}——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: center
+      - type: dialog
+        character: sora
+        text: "オレのメッセージが{変|か}わってる！ 「サッカーを{続|つづ}けたい」って{書|か}いたのに、「ゲームばかりしていたい」になってる！"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "{誰|だれ}がオレの「{未来|みらい}の{自分|じぶん}」を{勝手|かって}に{変|か}えたんだ！"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: bgm
+        file: digital-10/tension
+      - type: dialog
+        character: sensei
+        text: "これは{情報|じょうほう}モラル{探偵団|たんていだん}の{最後|さいご}の{事件|じけん}です。{解|と}くべき{謎|なぞ}は2つ。"
+      - type: dialog
+        character: sensei
+        text: "1つ目——メッセージを{書|か}き{換|か}えたのは{誰|だれ}か。2つ目——ネット{上|じょう}の「{自分|じぶん}」は{本当|ほんとう}の{自分|じぶん}なのか。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: haruto
+            expression: thinking
+          - character: mio
+            expression: worried
+          - character: sora
+            expression: determined
+          - character: riko
+            expression: normal
+      - type: narration
+        text: "{情報|じょうほう}モラル{探偵団|たんていだん}、{最後|さいご}の{調査|ちょうさ}が{始|はじ}まる。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "情報モラル探偵団 Vol.10"
+        subtitle: "デジタル・アイデンティティ"
+
+  # ===== 証拠カード1: タイムカプセルの内容 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: digital-10/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "4{人|にん}の「10{年後|ねんご}の{自分|じぶん}へのメッセージ」を{確認|かくにん}しよう。"
+      - type: narration
+        text: "ハルト——「10{年後|ねんご}もプログラミングを{続|つづ}けて、みんなの{役|やく}に{立|た}つものを{作|つく}りたい」✅ {無事|ぶじ}"
+      - type: narration
+        text: "ミオ——「10{年後|ねんご}は{絵本|えほん}{作家|さっか}になって、{子|こ}どもたちに{夢|ゆめ}を{届|とど}けたい」✅ {無事|ぶじ}"
+      - type: narration
+        text: "ソラ——「10{年後|ねんご}もサッカーを{続|つづ}けたい」→「10{年後|ねんご}はゲームばかりしていたい」に{変更|へんこう} ❌ {書|か}き{換|か}え！"
+      - type: narration
+        text: "リコ——「10{年後|ねんご}も{本|ほん}をたくさん{読|よ}んで、{物語|ものがたり}の{世界|せかい}を{旅|たび}していたい」✅ {無事|ぶじ}"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{書|か}き{換|か}えられたのはソラのメッセージだけ。ソラに{対|たい}して{特別|とくべつ}な{感情|かんじょう}を{持|も}っている{人|ひと}がいる？"
+
+  # ===== 証拠カード2: アクセスログと行動 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: digital-10/investigation
+    steps:
+      - type: narration
+        text: "タイムカプセル・ページのアクセスログと、4{人|にん}の{水曜|すいよう}20:45の{行動|こうどう}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "ログ——{水曜|すいよう}20:45にソラのメッセージが{編集|へんしゅう}された。{家庭|かてい}のネット{回線|かいせん}からアクセス。「{誰|だれ}が」は{記録|きろく}されていない（パスワード{共通|きょうつう}）。"
+      - type: narration
+        text: "ハルト——{自宅|じたく}でオンライン{学習|がくしゅう}（20:00〜21:00、ログあり）。タブレットは{学習|がくしゅう}サイトに{接続中|せつぞくちゅう}。"
+      - type: narration
+        text: "ミオ——{自宅|じたく}。20:30に{就寝|しゅうしん}。タブレットは使っていない。"
+      - type: narration
+        text: "ソラ——{公園|こうえん}でサッカー{自主練|じしゅれん}（20:00〜21:00）。{外出中|がいしゅつちゅう}でタブレットなし。"
+      - type: narration
+        text: "リコ——{自宅|じたく}で{読書中|どくしょちゅう}。タブレットは{使|つか}える{状態|じょうたい}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "20:45にタブレットを使えたのはリコだけ。そしてソラのメッセージを{書|か}き{換|か}える{動機|どうき}がある{人|ひと}は——？"
+
+  # ===== 証拠カード3: 端末情報と火曜の出来事 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: digital-10/experiment
+    steps:
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{端末|たんまつ}{情報|じょうほう}を{確認|かくにん}しました。{水曜|すいよう}20:45の{編集|へんしゅう}は、リコの{家|いえ}のタブレットからです。{端末|たんまつ}IDが{一致|いっち}しています。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+      - type: dialog
+        character: sora
+        text: "{火曜|かよう}の{放課後|ほうかご}、リコと『{将来|しょうらい}の{夢|ゆめ}』の{話|はなし}をした。オレは『サッカー{選手|せんしゅ}になる！』って{言|い}った。リコは『{本|ほん}をたくさん{読|よ}みたい』って。"
+      - type: sprite
+        character: sora
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "そのとき、オレ……『{読書|どくしょ}なんて{将来|しょうらい}なんの{役|やく}にも{立|た}たないぜ』って{言|い}っちゃったんだ。リコは{黙|だま}って{教室|きょうしつ}を{出|で}ていった。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "ソラがリコの{大切|たいせつ}なものを{否定|ひてい}した。リコはそれに{対|たい}して、ソラの{大切|たいせつ}なものを「{書|か}き{換|か}える」ことで{仕返|しかえ}しした——？"
+
+  # ===== 証拠カード4: リコとソラの関係詳細 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: digital-10/experiment
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+      - type: dialog
+        character: mio
+        text: "{火曜|かよう}の{放課後|ほうかご}、リコとソラの{会話|かいわ}を{聞|き}いてしまったの。ソラが『{読書|どくしょ}なんて{役|やく}に{立|た}たない』って{言|い}ったとき、リコの{顔|かお}が{凍|こお}りついた。"
+      - type: dialog
+        character: mio
+        text: "リコにとって{読書|どくしょ}は{人生|じんせい}で{一番|いちばん}{大切|たいせつ}なもの。それを{全否定|ぜんひてい}されて……リコは{何|なに}も{言|い}わずに{教室|きょうしつ}を{出|で}ていった。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "リコの{行動|こうどう}の{変化|へんか}——{火曜|かよう}の{昼|ひる}はソラと{楽|たの}しそうにメッセージを{読|よ}み{合|あ}っていた。{放課後|ほうかご}にソラの{発言|はつげん}。{水曜|すいよう}は1{日中|にちじゅう}ソラと{目|め}を{合|あ}わせなかった。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{火曜|かよう}に{深|ふか}く{傷|きず}つき、{水曜|すいよう}にソラを{避|さ}け、{水曜|すいよう}の{夜|よる}にメッセージが{書|か}き{換|か}えられた。{時系列|じけいれつ}と{感情|かんじょう}の{流|なが}れがつながる。"
+
+  # ===== 証拠カード5: ソラの本当の気持ち =====
+  - id: card-5
+    bg: classroom
+    bgm: digital-10/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}がソラと{個別|こべつ}に{話|はな}した{結果|けっか}。"
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+      - type: dialog
+        character: sora
+        text: "{実|じつ}は……オレ、{本当|ほんとう}は{読書|どくしょ}も{好|す}きなんだ。{冒険|ぼうけん}{小説|しょうせつ}をよく{読|よ}んでる。"
+      - type: dialog
+        character: sora
+        text: "でもサッカー{部|ぶ}の{友達|ともだち}に『{本|ほん}なんか{読|よ}むの？』って{言|い}われたことがあって……それから{読書|どくしょ}が{好|す}きだって{言|い}えなくなった。"
+      - type: dialog
+        character: sora
+        text: "タイムカプセルにも「サッカーだけ」の{自分|じぶん}を{書|か}いた。『{本|ほん}も{読|よ}んでいたい』って{書|か}きたかったけど、{恥|は}ずかしくてできなかった。"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "リコに『{読書|どくしょ}は{役|やく}に{立|た}たない』って{言|い}ったのは、{自分|じぶん}が{読書|どくしょ}{好|ず}きだとバレるのが{恥|は}ずかしかったから。リコの{読書|どくしょ}を{否定|ひてい}したんじゃなくて……{自分|じぶん}の{中|なか}の{読書|どくしょ}{好|ず}きを{否定|ひてい}したかったんだ。"
+      - type: dialog
+        character: sora
+        text: "ごめん、リコ。{読書|どくしょ}は{素晴|すば}らしいよ。オレも{本当|ほんとう}は{知|し}ってる。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        speed: slow
+        text: "ソラ{自身|じしん}も「{本当|ほんとう}の{自分|じぶん}」を{書|か}いていなかった。「サッカーだけ」の{自分|じぶん}をタイムカプセルに{書|か}き、{読書|どくしょ}{好|ず}きを{隠|かく}していた。"
+      - type: narration
+        text: "ミオも「{絵本|えほん}{作家|さっか}になりたい」と{書|か}いたが、{本当|ほんとう}の{夢|ゆめ}は「{友達|ともだち}とずっと{一緒|いっしょ}にいたい」。ハルトもゲーム{好|ず}きを{書|か}かなかった。"
+      - type: narration
+        text: "ネット{上|じょう}の「{自分|じぶん}」は、{全員|ぜんいん}が「見せたい{部分|ぶぶん}だけ」を{選|えら}んだもの——これが「デジタル・アイデンティティ」の{問題|もんだい}。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-10/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{最後|さいご}の{事件|じけん}です。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "ソラのメッセージを書き換えたのは誰？"
+        options:
+          - text: "ハルト（IT係で技術的に可能）"
+            feedback: "ハルトはオンライン{学習中|がくしゅうちゅう}でログが{残|のこ}っている。{端末|たんまつ}IDもリコの{家|いえ}のもの。ハルトではないよ。"
+          - text: "ミオ（ソラの夢を否定したかった？）"
+            feedback: "ミオは20:30に{就寝|しゅうしん}。それに、ミオはソラの{夢|ゆめ}を{否定|ひてい}する{理由|りゆう}がない。むしろ{心配|しんぱい}している{側|がわ}。"
+          - text: "リコ（読書を否定されて仕返しした）"
+            feedback: "リコの{家|いえ}のタブレットから{編集|へんしゅう}。ソラに{読書|どくしょ}を{否定|ひてい}されて{傷|きず}つき、ソラの{夢|ゆめ}を{書|か}き{換|か}えた。{時系列|じけいれつ}・{端末|たんまつ}・{動機|どうき}が{全|すべ}て{一致|いっち}。"
+          - text: "ソラ（自分で書き換えた自作自演？）"
+            feedback: "ソラは{公園|こうえん}でサッカー{自主練|じしゅれん}{中|ちゅう}。タブレットもなかった。{自作自演|じさくじえん}は{不可能|ふかのう}。"
+      - type: choice
+        id: q2
+        text: "リコの仕返しとソラの否定、どちらが悪い？"
+        options:
+          - text: "リコの方が悪い（勝手に書き換えるのは最低）"
+            feedback: "{他人|たにん}のメッセージを{書|か}き{換|か}えるのは、その{人|ひと}の「{自分|じぶん}」を{壊|こわ}す{行為|こうい}。{許|ゆる}されない。"
+          - text: "ソラの方が悪い（読書を全否定した）"
+            feedback: "リコの{人生|じんせい}で{一番|いちばん}{大切|たいせつ}なものを{否定|ひてい}した。しかも{本心|ほんしん}ではなかった。{自分|じぶん}を{守|まも}るために{他人|たにん}を{傷|きず}つけた。"
+          - text: "どちらも同じ（人の大切なものを否定した）"
+            feedback: "リコは「ソラの{夢|ゆめ}」を{書|か}き{換|か}えた。ソラは「リコの{読書|どくしょ}」を{否定|ひてい}した。どちらも「{人|ひと}の{大切|たいせつ}なものを{否定|ひてい}する{行為|こうい}」。{形|かたち}は{違|ちが}うけど{本質|ほんしつ}は{同|おな}じ。"
+          - text: "本当の問題は別にある（二人とも本当の自分を隠していた）"
+            feedback: "ソラは{読書|どくしょ}{好|ず}きを{隠|かく}した。リコは{傷|きず}ついた{気持|きも}ちを{言葉|ことば}にできなかった。{本当|ほんとう}の{自分|じぶん}を{出|だ}せなかったことが、すべての{始|はじ}まり。"
+      - type: choice
+        id: q3
+        text: "ネット上の「自分」は本当の自分？"
+        options:
+          - text: "全部本物。自分が書いたものだから"
+            feedback: "でもソラは「サッカーだけ」の{自分|じぶん}を{書|か}いた。{読書|どくしょ}{好|ず}きを{隠|かく}していた。{自分|じぶん}で{書|か}いても、「{全部|ぜんぶ}」ではないかもしれない。"
+          - text: "一部だけ本物。見せたい部分を選んでいる"
+            feedback: "{全員|ぜんいん}がタイムカプセルに「見せたい{自分|じぶん}」だけ{書|か}いていた。ネットのプロフィールも{同|おな}じ。{本物|ほんもの}の{一部|いちぶ}だけど、{全部|ぜんぶ}ではない。"
+          - text: "見せたい自分を演じているだけ"
+            feedback: "「{演|えん}じている」は{言|い}い{過|す}ぎかもしれないけど、{選|えら}んで見せているのは{確|たし}か。{大事|だいじ}なのは「{隠|かく}した{部分|ぶぶん}」が{誰|だれ}かを{傷|きず}つけないか{考|かんが}えること。"
+          - text: "分からない。考えたこともなかった"
+            feedback: "それが「メタ{認知|にんち}」の{始|はじ}まり。「{自分|じぶん}のことを{考|かんが}える」こと{自体|じたい}が{大事|だいじ}な{力|ちから}。{今日|きょう}{気|き}づけたことが{大|おお}きな{一歩|いっぽ}。"
+
+  # ===== 真実: ハルト =====
+  - id: truth-haruto
+    bg: classroom
+    bgm: digital-10/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{端末|たんまつ}IDでリコの{家|いえ}のタブレットだと{分|わ}かった。でも{僕|ぼく}が{気|き}づいたのはそれだけじゃない。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "4{人|にん}のメッセージを{読|よ}み{返|かえ}して{思|おも}ったんだ。{全員|ぜんいん}が「見せたい{自分|じぶん}」だけ{書|か}いてる。{僕|ぼく}もゲームが{好|す}きなのに{書|か}かなかった。ネット{上|じょう}の「{自分|じぶん}」って、{本当|ほんとう}の{自分|じぶん}の{一部|いちぶ}だけなんだな。"
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ===== 真実: ミオ =====
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたし、リコとソラの{会話|かいわ}を{聞|き}いてた。ソラが『{読書|どくしょ}は{役|やく}に{立|た}たない』って{言|い}ったとき、{止|と}めればよかった。"
+      - type: sprite
+        character: mio
+        expression: thinking
+      - type: dialog
+        character: mio
+        text: "それに……わたしも{本当|ほんとう}の{夢|ゆめ}を{書|か}けなかった。「{絵本|えほん}{作家|さっか}になりたい」って{書|か}いたけど、{一番|いちばん}の{夢|ゆめ}は「{友達|ともだち}とずっと{一緒|いっしょ}にいたい」。{恥|は}ずかしくて{書|か}けなかった。"
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ===== 真実: ソラ =====
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "リコ、ごめん。『{読書|どくしょ}は{役|やく}に{立|た}たない』は{本心|ほんしん}じゃなかった。オレ、{本当|ほんとう}は{読書|どくしょ}も{好|す}きなんだ。{冒険|ぼうけん}{小説|しょうせつ}をよく{読|よ}んでる。"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "でも「サッカー{選手|せんしゅ}が{本|ほん}なんか{読|よ}む？」って{言|い}われるのが{怖|こわ}くて。{自分|じぶん}の{弱|よわ}いところを{隠|かく}すために、リコの{大切|たいせつ}なものを{否定|ひてい}してしまった。"
+      - type: dialog
+        character: sora
+        text: "タイムカプセルにも「サッカーだけ」の{自分|じぶん}を{書|か}いた。{本当|ほんとう}の{自分|じぶん}を{書|か}く{勇気|ゆうき}がなかった。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 真実: リコ（犯人） =====
+  - id: truth-riko
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riko
+        expression: worried
+        position: center
+      - type: dialog
+        character: riko
+        text: "……{認|みと}めます。ソラのメッセージを{書|か}き{換|か}えたのは、わたしです。"
+      - type: narration
+        speed: slow
+        text: "リコの{声|こえ}が{震|ふる}える。"
+      - type: sprite
+        character: riko
+        expression: normal
+      - type: dialog
+        character: riko
+        text: "ソラに『{読書|どくしょ}は{役|やく}に{立|た}たない』って{言|い}われて、すごく{傷|きず}ついた。{読書|どくしょ}はわたしの{人生|じんせい}で{一番|いちばん}{大切|たいせつ}なもの。それを{全否定|ぜんひてい}された。"
+      - type: sprite
+        character: riko
+        expression: worried
+      - type: dialog
+        character: riko
+        text: "{水曜|すいよう}の{夜|よる}、{悔|くや}しくてたまらなくなって。『ソラの{夢|ゆめ}を{壊|こわ}してやる』って、メッセージを{書|か}き{換|か}えた。"
+      - type: dialog
+        character: riko
+        text: "でも{書|か}き{換|か}えた{直後|ちょくご}に{気|き}づいた。わたしがやっていることはソラと{同|おな}じだって。{人|ひと}の{大切|たいせつ}なものを{否定|ひてい}すること。"
+      - type: sprite
+        character: riko
+        expression: determined
+      - type: dialog
+        character: riko
+        text: "ソラ、ごめんなさい。{書|か}き{換|か}えたのは{間違|まちが}いだった。でも……{読書|どくしょ}を{否定|ひてい}しないでほしい。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "リコの{書|か}き{換|か}えは{許|ゆる}されない。でもソラの{否定|ひてい}も、{自分|じぶん}を{守|まも}るために{他人|たにん}を{傷|きず}つけた{行為|こうい}だった。そしてその{根|ね}っこには——{全員|ぜんいん}が「{本当|ほんとう}の{自分|じぶん}」を{出|だ}せなかった、という{問題|もんだい}がある。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-10/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これが{情報|じょうほう}モラル{探偵団|たんていだん}、{最後|さいご}の{事件|じけん}の{真相|しんそう}です。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{他人|たにん}のメッセージを{勝手|かって}に{書|か}き{換|か}えてはいけない。それはその{人|ひと}の「デジタルの{自分|じぶん}」を{壊|こわ}す{行為|こうい}です。"
+      - type: dialog
+        character: sensei
+        text: "でも{今日|きょう}{一番|いちばん}の{学|まな}びは、その{先|さき}にあります。{全員|ぜんいん}がタイムカプセルに「見せたい{自分|じぶん}」だけを{書|か}いていた。{隠|かく}した{部分|ぶぶん}が、{誰|だれ}かを{傷|きず}つけることがある。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "ネット{上|じょう}の「{自分|じぶん}」は、{自分|じぶん}が{作|つく}るもの。{見|み}せたい{部分|ぶぶん}を{選|えら}ぶのは{悪|わる}いことではない。でも{大切|たいせつ}なのは、{自分|じぶん}に{正直|しょうじき}であること。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sora
+        expression: happy
+        position: left
+      - type: sprite
+        character: riko
+        expression: happy
+        position: right
+      - type: dialog
+        character: sora
+        text: "リコ、{本当|ほんとう}にごめん。{読書|どくしょ}は{素晴|すば}らしいよ。オレ、タイムカプセルに{書|か}き{足|た}す。「{読書|どくしょ}も{続|つづ}けたい」って。{本当|ほんとう}の{自分|じぶん}を{書|か}くぜ。"
+      - type: dialog
+        character: riko
+        text: "ソラ、ごめんなさい。{書|か}き{換|か}えは{最低|さいてい}だった。{次|つぎ}からは{傷|きず}ついたら{直接|ちょくせつ}{言|い}う。{仕返|しかえ}しじゃなくて。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "Vol.1からVol.10まで、みなさんは{情報|じょうほう}を{正|ただ}しく{読|よ}み{解|と}く{力|ちから}を{身|み}につけました。{消去法|しょうきょほう}、{情報|じょうほう}{整理|せいり}、{因果|いんが}{連鎖|れんさ}、タイムライン、{仮説|かせつ}{検証|けんしょう}、{全探索|ぜんたんさく}、{情報|じょうほう}{欠落|けつらく}、{認知|にんち}バイアス、{帰納法|きのうほう}——そして{今回|こんかい}の{複合|ふくごう}{推理|すいり}とメタ{認知|にんち}。"
+      - type: dialog
+        character: sensei
+        text: "でも{最後|さいご}に{一番|いちばん}{大切|たいせつ}なのは——{自分|じぶん}{自身|じしん}に{正直|しょうじき}であること。ネットでもリアルでも、「{本当|ほんとう}の{自分|じぶん}」を{大切|たいせつ}にしてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{情報|じょうほう}モラル{探偵団|たんていだん}——10{本|ぽん}の{事件|じけん}を{通|とお}じて、4{人|にん}は{成長|せいちょう}した。ネット{上|じょう}の{情報|じょうほう}を{正|ただ}しく{読|よ}み{解|と}き、{自分|じぶん}の{行動|こうどう}を{振|ふ}り{返|かえ}り、{本当|ほんとう}の{自分|じぶん}を{大切|たいせつ}にする{力|ちから}。それが{情報|じょうほう}モラルの{本質|ほんしつ}だ。"
+      - type: effect
+        name: fade-out
