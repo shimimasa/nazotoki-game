@@ -59,3 +59,27 @@
 | `disaster-02/truth.mp3` | ナナの告白 | 魔王魂ピアノ19 | BGM→ピアノ→ピアノ19 |
 | `disaster-02/resolution.mp3` | 防災の学び | DOVA-SYNDROME | 「Recollections」検索 |
 | `disaster-02/wind.mp3` | 台風の風雨音 | 効果音ラボ | 自然・環境→風/雨 |
+
+## disaster-03（防災探偵団 Vol.3）
+
+**変換日**: 2026-03-24 / シーン15 / キャラ5 / 選択肢2問 / souta→boy-b, nana→girl-c, kei→boy-d, ai→girl-b, sensei→teacher-f
+
+### 気づき
+- **「遅咲き型」感情アークの初実装**: ソウタが前半では穏やかに「報告書は正しい」と主張→フィールドノートの「あれ？」が公開されると静かに崩れる構成。ダイナミックな感情変化ではなく「静かな告白」がVNで効果的。長い沈黙の表現にslow narrationを活用。
+- **犯人が情報型（ソウタ）の初回**: Vol.1はケイ（行動型）、Vol.2はナナ（感情型）と犯人が回ってきた。Vol.3でソウタ。シリーズを通じて「全員がいつか犯人になる」構造が見えてくる。
+- **計算パートのVN化**: 「2m + 3m = 5m」という算数的な推理をナレーションのテンポ（flash + slow）で演出。証拠カード②で計算結果を段階的に開示し、プレイヤーが自分でも計算できる間を作った。
+- **全シーンclassroom**: 防災委員会活動の会議室として教室を使用。Vol.1=schoolyard、Vol.2=gym、Vol.3=classroomと背景を使い分けている。
+
+### 課題
+- **ハザードマップの背景画像**: 理想的には橙色/黄色の色分けが視覚的に表示されたハザードマップ画像があると没入感が大幅に向上する。
+
+### BGM/SEソーシング推薦
+
+| ファイル | 用途 | 推薦ソース | 検索キーワード |
+|---|---|---|---|
+| `disaster-03/opening.mp3` | 調査チームの日常 | 魔王魂ピアノ18 | BGM→ピアノ→ピアノ18 |
+| `disaster-03/investigation.mp3` | 報告書の確認 | DOVA-SYNDROME | 「探索」「ミステリー」 |
+| `disaster-03/experiment.mp3` | 計算・分析 | 魔王魂ピアノ44 | BGM→ピアノ→ピアノ44 |
+| `disaster-03/tension.mp3` | 緊迫・投票 | 魔王魂ピアノ36 | BGM→ピアノ→ピアノ36 |
+| `disaster-03/truth.mp3` | ソウタの告白 | 魔王魂ピアノ19 | BGM→ピアノ→ピアノ19 |
+| `disaster-03/resolution.mp3` | チームワークの学び | DOVA-SYNDROME | 「Recollections」検索 |

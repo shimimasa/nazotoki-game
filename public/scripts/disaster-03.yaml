@@ -1,0 +1,596 @@
+meta:
+  id: disaster-03
+  title: ハザードマップの読み間違い
+  series: 防災探偵団
+  volume: 3
+  estimatedMinutes: 22
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: disaster-03/opening
+    steps:
+      - type: narration
+        text: "X市の{防災|ぼうさい}{委員会|いいんかい}——今年、{地域|ちいき}の{避難|ひなん}{場所|ばしょ}が{本当|ほんとう}に{安全|あんぜん}かを{確認|かくにん}する活動が始まった。"
+      - type: narration
+        text: "4人の{探偵|たんてい}が「{防災|ぼうさい}{調査|ちょうさ}チーム」に{選|えら}ばれ、2か所を{調|しら}べることになった。"
+      - type: narration
+        text: "A{地点|ちてん}：さくら{公民館|こうみんかん}。B{地点|ちてん}：みどりヶ{丘|おか}{集会所|しゅうかいじょ}。"
+      - type: narration
+        text: "チームリーダーのソウタがハザードマップと{標高|ひょうこう}データを{調|しら}べ、{報告書|ほうこくしょ}にまとめた。「A{地点|ちてん}もB{地点|ちてん}も{安全|あんぜん}」と。"
+      - type: narration
+        text: "ところが{数日後|すうじつご}——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: ai
+        expression: surprised
+        position: center
+      - type: bgm
+        track: disaster-03/investigation
+      - type: dialog
+        character: ai
+        text: "待って。A{地点|ちてん}の{報告|ほうこく}……{計算|けいさん}が合わない気がする。"
+      - type: sprite
+        character: ai
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハザードマップと{標高|ひょうこう}データを正しく読み合わせると、A{地点|ちてん}は{洪水|こうずい}のとき{水没|すいぼつ}するかもしれない——そう{示|しめ}しているのです。"
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}かがハザードマップを読み{間違|まちが}えた。それとも{知|し}っていて「{安全|あんぜん}」と{書|か}いたのか？ {調|しら}べてください。"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: normal }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: thinking }
+          - { id: ai, expression: determined }
+      - type: narration
+        text: "ソウタは{静|しず}かな{表情|ひょうじょう}のまま{黙|だま}っている。ナナがソウタの{様子|ようす}をそっと{見|み}つめた。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.3
+        subtitle: ハザードマップの読み間違い
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: disaster-03/investigation
+    steps:
+      - type: narration
+        text: "{調査|ちょうさ}チームの4人に話を聞こう。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくがハザードマップと{標高|ひょうこう}データの{分析|ぶんせき}を{担当|たんとう}した。A{地点|ちてん}もB{地点|ちてん}も「{安全|あんぜん}」と{報告|ほうこく}したよ。"
+      - type: dialog
+        character: souta
+        text: "{報告書|ほうこくしょ}は正しいはずだ。ちゃんと{調|しら}べた。"
+        expression: normal
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしは{住民|じゅうみん}アンケートの{集計|しゅうけい}を{担当|たんとう}したの。ハザードマップの{分析|ぶんせき}はソウタに{任|まか}せた。"
+      - type: dialog
+        character: nana
+        text: "{調査|ちょうさ}{期間中|きかんちゅう}、ソウタがいつもより{元気|げんき}がない気がしたんだけど……"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはA{地点|ちてん}とB{地点|ちてん}の{現地|げんち}{確認|かくにん}を{担当|たんとう}した。でも{調査|ちょうさ}の日、{防災|ぼうさい}クラブの{用事|ようじ}があって{遅|おく}れたんだ。"
+      - type: dialog
+        character: kei
+        text: "A{地点|ちてん}で気になるものを{見|み}つけたぞ。"
+        expression: thinking
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしはハザードマップの色分け整理を{担当|たんとう}。ソウタの{報告書|ほうこくしょ}を{受|う}け取ったあと、A{地点|ちてん}の{判断|はんだん}がおかしいと気づいた。"
+      - type: dialog
+        character: ai
+        text: "{標高|ひょうこう}データと{比|くら}べると、{計算|けいさん}が合わないの。"
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: ハザードマップと報告書 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: ハザードマップとソウタの報告書
+      - type: narration
+        text: "X市{洪水|こうずい}ハザードマップ（{抜粋|ばっすい}）——"
+      - type: narration
+        text: "A{地点|ちてん}（さくら{公民館|こうみんかん}）：{橙色|だいだいいろ}エリア。{浸水|しんすい}{想定|そうてい}{深|ふか}さ 0.5〜3m。"
+      - type: narration
+        text: "B{地点|ちてん}（みどりヶ{丘|おか}{集会所|しゅうかいじょ}）：{黄色|きいろ}エリア。{浸水|しんすい}{想定|そうてい}{深|ふか}さ 0.5m{未満|みまん}。"
+      - type: narration
+        text: "ハザードマップの色の{意味|いみ}——{黄色|きいろ}：{膝|ひざ}くらい。{橙色|だいだいいろ}：1{階|かい}が{水没|すいぼつ}することも。{赤|あか}：2{階|かい}まで。"
+      - type: narration
+        text: "そしてソウタの{報告書|ほうこくしょ}——"
+      - type: narration
+        text: "「A{地点|ちてん}：{安全|あんぜん}。ハザードマップ{橙色|だいだいいろ}（{浸水|しんすい}0.5〜3m）。{浸水|しんすい}3m{未満|みまん}のため{問題|もんだい}なし」"
+      - type: narration
+        text: "「B{地点|ちてん}：{安全|あんぜん}。ハザードマップ{黄色|きいろ}（{浸水|しんすい}0.5m{未満|みまん}）。{浸水|しんすい}が{少|すく}ないため{安全|あんぜん}」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "A{地点|ちてん}の{報告書|ほうこくしょ}には「{標高|ひょうこう}」の{情報|じょうほう}がない。ハザードマップの色だけで「{安全|あんぜん}」と{判断|はんだん}していいのだろうか？"
+
+  # ===== 証拠カード2: 標高データ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 2か所の標高データ
+      - type: narration
+        text: "X市の{標高|ひょうこう}データを{確認|かくにん}しよう。"
+      - type: narration
+        text: "A{地点|ちてん}（さくら{公民館|こうみんかん}）：{標高|ひょうこう}2m。さくら{川|かわ}から約200m。{平地|へいち}。"
+      - type: narration
+        text: "B{地点|ちてん}（みどりヶ{丘|おか}{集会所|しゅうかいじょ}）：{標高|ひょうこう}5m。{丘|おか}の上。{高台|たかだい}。"
+      - type: narration
+        text: "「{安全|あんぜん}な{避難|ひなん}{場所|ばしょ}」の{条件|じょうけん}——{想定|そうてい}される{浸水|しんすい}{位|い}より{高|たか}い{場所|ばしょ}でなければならない。"
+      - type: narration
+        text: "{計算|けいさん}の{考|かんが}え方：{水面|すいめん}の{高|たか}さ ＝ {地面|じめん}の{標高|ひょうこう} ＋ {浸水|しんすい}{想定|そうてい}{深|ふか}さ"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "A{地点|ちてん}：{標高|ひょうこう}2m ＋ {浸水|しんすい}{最大|さいだい}3m ＝ {水面|すいめん}5m。A{地点|ちてん}（2m）は{水面|すいめん}（5m）の下になる——{危険|きけん}！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ソウタの{報告書|ほうこくしょ}は「{浸水|しんすい}3m{未満|みまん}のため{問題|もんだい}なし」。でも{標高|ひょうこう}と{合|あ}わせると{結論|けつろん}が{逆|ぎゃく}になる。なぜソウタは{標高|ひょうこう}を{比較|ひかく}しなかった？"
+
+  # ===== 証拠カード3: アイの気づきメモ =====
+  - id: evidence-3
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: アイの気づきメモ
+      - type: sprite
+        character: ai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ai
+        text: "ソウタの{報告書|ほうこくしょ}を読んで、おかしいと思ったことをメモにまとめたの。"
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "アイのメモ——「ハザードマップだけ見ても『{安全|あんぜん}か{危険|きけん}か』は分からない。{標高|ひょうこう}と{比|くら}べないと」"
+      - type: narration
+        text: "「A{地点|ちてん}の{標高|ひょうこう}は2m。{浸水|しんすい}が{最大|さいだい}3m来たら、{水面|すいめん}は2＋3＝5m。A{地点|ちてん}（2m）は{水面|すいめん}（5m）の下になる」"
+      - type: narration
+        speed: slow
+        text: "「→ A{地点|ちてん}は{危険|きけん}では？ なぜソウタは{標高|ひょうこう}データを{比較|ひかく}しなかったのかな……」"
+      - type: narration
+        text: "さらに——さくら{川|かわ}の{周辺|しゅうへん}は{広|ひろ}い{範囲|はんい}で{橙色|だいだいいろ}。A{地点|ちてん}の{橙色|だいだいいろ}は{川沿|かわぞ}いのエリアと{繋|つな}がっている。"
+
+  # ===== 証拠カード4: ケイの現地調査レポート =====
+  - id: evidence-4
+    bgm: disaster-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ケイの現地調査レポート
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれがA{地点|ちてん}とB{地点|ちてん}を{実際|じっさい}に{歩|ある}いて{確|たし}かめた{記録|きろく}だ。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        text: "A{地点|ちてん}（さくら{公民館|こうみんかん}）——さくら{川|かわ}から{徒歩|とほ}約3分。ほぼ{平地|へいち}。{川|かわ}に向かってわずかに{低|ひく}くなっている。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "気になった{点|てん}——{公民館|こうみんかん}の{外壁|がいへき}に「{茶色|ちゃいろ}い{線|せん}」がある。{地面|じめん}から約80cmの{高|たか}さに{薄|うす}い{水|みず}の{跡|あと}（{浸水|しんすい}{痕跡|こんせき}）のようなもの。"
+      - type: narration
+        text: "{管理|かんり}の人に聞いたら「{数年前|すうねんまえ}の{台風|たいふう}のとき、{少|すこ}し{水|みず}が来たことがある」と{言|い}っていた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "B{地点|ちてん}（みどりヶ{丘|おか}{集会所|しゅうかいじょ}）——{丘|おか}の{頂上|ちょうじょう}。{周囲|しゅうい}より{明|あき}らかに{高|たか}い。{洪水|こうずい}の{痕跡|こんせき}は見当たらなかった。"
+      - type: narration
+        text: "A{地点|ちてん}には{過去|かこ}に{水|みず}が来た{証拠|しょうこ}がある。ハザードマップの{橙色|だいだいいろ}と、この{浸水|しんすい}{痕跡|こんせき}——2つの{事実|じじつ}が{重|かさ}なっている。"
+
+  # ===== 証拠カード5: ソウタのフィールドノート（反転） =====
+  - id: evidence-5
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "新しい{情報|じょうほう}が入りました。ソウタが{持|も}ち{帰|かえ}るのを{忘|わす}れた{調査|ちょうさ}ファイルの中に、フィールドノートが{挟|はさ}まっていました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——ソウタのフィールドノート——"
+      - type: narration
+        text: "「A{地点|ちてん}。ハザードマップ：{橙色|だいだいいろ}（0.5〜3m）。{標高|ひょうこう}データ：2m」"
+      - type: narration
+        text: "「{浸水|しんすい}{想定|そうてい}の{最大値|さいだいち}：3m。{標高|ひょうこう}：2m」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「あれ？」"
+      - type: narration
+        text: "「{浸水|しんすい}3m ＋ {標高|ひょうこう}2m ＝ 5m……」"
+      - type: narration
+        text: "「A{地点|ちてん}（2m）は{水面|すいめん}（5m）より{低|ひく}い……？」"
+      - type: narration
+        text: "「→ でも{橙色|だいだいいろ}エリアの中でも『より{低|てい}リスクな{位置|いち}』かもしれない」"
+      - type: narration
+        text: "「→ でも{調査|ちょうさ}の{締|し}め切りは{明後日|あさって}……」"
+      - type: narration
+        speed: slow
+        text: "「→ とにかく{報告書|ほうこくしょ}は『{安全|あんぜん}』で出す。{浸水|しんすい}0.5〜3mというのは"{最悪|さいあく}の{場合|ばあい}"だから」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ソウタは{計算|けいさん}の{矛盾|むじゅん}に——気づいていた。気づいていたのに、「{安全|あんぜん}」と{報告書|ほうこくしょ}に{書|か}いた。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{報告書|ほうこくしょ}に{間違|まちが}った「{安全|あんぜん}」を{書|か}いたのは{誰|だれ}でしょう？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ハザードマップの読み間違いで「A地点：安全」と報告したのは誰？
+        options:
+          - text: ソウタ（報告書を書いた本人。フィールドノートに「あれ？」と走り書きがある）
+            value: souta
+            feedback: 正解！ ソウタは標高と浸水深の計算で矛盾に気づいていたのに、締め切りやプレッシャーから「安全」と報告してしまった。
+          - text: ナナ（アンケート担当。ソウタの様子がおかしいと感じていた）
+            value: nana
+            feedback: ナナはハザードマップの分析は担当していない。ただ、ソウタの異変に気づいていたのに深く聞かなかったことは後悔しているよ。
+          - text: ケイ（現地調査に遅刻してソウタを一人にした）
+            value: kei
+            feedback: ケイは現地調査に遅れたけど、報告書を書いたのはソウタ。ただ、ケイが最初から一緒にいれば結果は違ったかもしれない。
+          - text: アイ（ハザードマップの読み方を知っていたのに教えなかった）
+            value: ai
+            feedback: アイは矛盾を指摘した側。ただし調査前に読み方を教えるタイミングを逃したことは後悔しているよ。
+      - type: choice
+        id: q2
+        question: ソウタがなぜ間違いを報告書にそのまま出してしまったと思う？
+        options:
+          - text: 責任を一人で抱え込み、間違いを認められなかった
+            value: pressure
+            feedback: そう。「ハザードマップの専門家」として信頼されていたから、間違いを認めることへの恐怖があった。締め切りのプレッシャーもあった。
+          - text: ハザードマップの読み方を本当に知らなかった
+            value: no-knowledge
+            feedback: フィールドノートの「あれ？」を見ると、ソウタは計算の矛盾に気づいていた。「知らなかった」のではなく「認められなかった」が正確だよ。
+          - text: A地点が危険でも問題ないと思った
+            value: no-problem
+            feedback: ソウタは「最悪の場合だから」と言い訳をしたけど、ルール上A地点は「要注意」か「危険」にすべきだった。問題ないとは思っていなかったはず。
+          - text: 誰かにだまされた
+            value: tricked
+            feedback: 誰もソウタをだましていない。ソウタ自身が計算の矛盾に気づきながら、プレッシャーから報告書をそのまま出してしまったんだ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: なぜ「安全」と書いてしまったのか
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ナナの秘密
+  - id: truth-nana
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: left
+      - type: dialog
+        character: nana
+        text: "わたし、{調査|ちょうさ}{期間中|きかんちゅう}にソウタに「大丈夫？ 何かあった？」って聞いたの。ソウタは「大丈夫」って{言|い}った。"
+      - type: dialog
+        character: nana
+        text: "でも……{目|め}が合わなかった。いつものソウタじゃなかった。もっと深く聞けばよかった。"
+        expression: determined
+      - type: sprite
+        character: nana
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "おれ、{調査|ちょうさ}の日に{防災|ぼうさい}クラブの{別|べつ}の{用事|ようじ}を{優先|ゆうせん}して{遅刻|ちこく}した。ソウタに「{一人|ひとり}で先に始めてる」って{言|い}われたのに、{軽|かる}く{考|かんが}えてた。"
+      - type: dialog
+        character: kei
+        text: "もし{最初|さいしょ}から{一緒|いっしょ}にいたら、ソウタが「あれ？」って思ったとき、{二人|ふたり}で{相談|そうだん}できたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # アイの秘密
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたし、{調査|ちょうさ}が始まる{前日|ぜんじつ}に「ハザードマップと{標高|ひょうこう}データの合わせ方」を{勉強|べんきょう}してたの。"
+      - type: dialog
+        character: ai
+        text: "ソウタに「こうやって読むといいよ」って教えていれば……。でも「ソウタは{得意|とくい}そうだから大丈夫」って思って、{声|こえ}をかけなかった。"
+        expression: worried
+      - type: dialog
+        character: ai
+        text: "知っていたのに教えなかった。それがわたしの{後|うし}ろめたさ。"
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ソウタの真実（クライマックス）
+  - id: truth-souta
+    bgm: disaster-03/truth
+    steps:
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ソウタは{長|なが}い{間|あいだ}、{黙|だま}っていた。"
+      - type: dialog
+        character: souta
+        text: "……気づいていた。"
+        expression: worried
+      - type: narration
+        speed: slow
+        text: "ソウタが{静|しず}かに話し始めた。"
+      - type: dialog
+        character: souta
+        text: "{調査|ちょうさ}のとき、{計算|けいさん}したんだ。{標高|ひょうこう}2m ＋ {浸水|しんすい}3m ＝ {水面|すいめん}5m。A{地点|ちてん}は{水|みず}の下になるって。"
+      - type: dialog
+        character: souta
+        text: "でも……{認|みと}められなかった。ぼくが「ハザードマップの{専門家|せんもんか}」として{調査|ちょうさ}を引き{受|う}けたのに、{間違|まちが}えたなんて。"
+        expression: worried
+      - type: dialog
+        character: souta
+        text: "{締|し}め切りも{近|ちか}かった。ケイも来られなかった。{一人|ひとり}で{全部|ぜんぶ}やろうとしてた。「{最悪|さいあく}の{場合|ばあい}だから」って{言|い}い{訳|わけ}をして……"
+      - type: dialog
+        character: souta
+        text: "「{安全|あんぜん}」って{書|か}いた。{本当|ほんとう}は「{要注意|ようちゅうい}」か「{危険|きけん}」にすべきだって分かってたのに。"
+        expression: determined
+      - type: dialog
+        character: souta
+        text: "……ごめん。{間違|まちが}いに気づいていたのに、{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ソウタは{悪意|あくい}で{嘘|うそ}をついたのではなかった。{責任感|せきにんかん}の{重|おも}さに{押|お}しつぶされて、{間違|まちが}いを{認|みと}めることができなかった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: disaster-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ソウタ、{正直|しょうじき}に話してくれてありがとう。{間違|まちが}いを{認|みと}めるのはとても{勇気|ゆうき}がいること。"
+      - type: dialog
+        character: sensei
+        text: "ハザードマップは「{浸水|しんすい}の色」だけで読まない。「自分がいる{場所|ばしょ}の{標高|ひょうこう}」と{組|く}み合わせて、{水面|すいめん}の{高|たか}さを{計算|けいさん}する{必要|ひつよう}があります。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そしてもう一つ——分からないときは{一人|ひとり}で{抱|かか}え{込|こ}まず、チームで{確認|かくにん}すること。それも{防災|ぼうさい}のチームワークです。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "ナナもケイもアイも、それぞれ「もっとこうすれば」と思うことがあったはず。{次|つぎ}からはお{互|たが}いに{声|こえ}をかけ合いましょう。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: happy }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: happy }
+      - type: narration
+        text: "ソウタは{報告書|ほうこくしょ}を{修正|しゅうせい}した。「A{地点|ちてん}：{要注意|ようちゅうい}。{洪水|こうずい}時に{水没|すいぼつ}の{可能性|かのうせい}あり」——正しい{記録|きろく}が、{地域|ちいき}の{安全|あんぜん}を守る。"
+      - type: narration
+        speed: slow
+        text: "{間違|まちが}いは{誰|だれ}にでもある。大事なのは、{間違|まちが}いに気づいたとき「{言|い}えるチーム」であること。それが{本当|ほんとう}の{防災|ぼうさい}。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団——ハザードマップの読み{間違|まちが}い、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
