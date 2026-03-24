@@ -1,0 +1,550 @@
+meta:
+  id: civics-02
+  title: 書き換えられた議事録
+  series: 公民探偵団
+  volume: 2
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}の{第|だい}3{回|かい}{児童|じどう}{議会|ぎかい}が{終|お}わった{翌日|よくじつ}——{議事録|ぎじろく}が{掲示板|けいじばん}に{貼|は}り出された。"
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: left
+      - type: dialog
+        character: haruki
+        text: "おかしい。{議事録|ぎじろく}に「{全員|ぜんいん}{賛成|さんせい}で{可決|かけつ}」って{書|か}いてある。でもぼくが作ったA{版|ばん}では「{賛成|さんせい}8{票|ひょう}・{反対|はんたい}2{票|ひょう}」だったはずなのに。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: mio
+        text: "わたし、{反対|はんたい}{票|ひょう}を入れたの！ なのに「{全員|ぜんいん}{賛成|さんせい}」になってる！？ わたしの{声|こえ}が消されたってこと？"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{確認|かくにん}したところ、{議事録|ぎじろく}のファイルが2つのバージョン{存在|そんざい}しています。A{版|ばん}とB{版|ばん}——どちらかが{書|か}き{換|か}えられた。{誰|だれ}が、なぜ{書|か}き{換|か}えたのか{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: surprised }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: thinking }
+          - { id: sora, expression: normal }
+      - type: narration
+        text: "ソラだけが{静|しず}かな{表情|ひょうじょう}を{保|たも}っている。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.2
+        subtitle: 書き換えられた議事録
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくが{議事録|ぎじろく}係。{会議|かいぎ}{終了後|しゅうりょうご}の13:50にA{版|ばん}を作って{保存|ほぞん}した。「{賛成|さんせい}8{票|ひょう}・{反対|はんたい}2{票|ひょう}」で{正確|せいかく}に{記録|きろく}した。"
+      - type: dialog
+        character: haruki
+        text: "そのあとソラに「{確認|かくにん}して」って{渡|わた}したんだ。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしは{反対|はんたい}{票|ひょう}を入れた2人のうちの1人。{議事録|ぎじろく}に「{全員|ぜんいん}{賛成|さんせい}」って{書|か}かれてるなんて……わたしの{声|こえ}が消された。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれは{立会人|たちあいにん}として{票|ひょう}を{数|かぞ}えた。「{賛成|さんせい}8・{反対|はんたい}2」、{間違|まちが}いなく{数|かぞ}えたよ。"
+      - type: dialog
+        character: kenta
+        text: "ただ……ハルキに{渡|わた}すとき「{多数決|たすうけつ}なんだから{細|こま}かい{数|すう}なんてどうでもいい」って{言|い}っちゃったんだ。"
+        expression: worried
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: normal
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは{議事録|ぎじろく}の整理係を{引|ひ}き{受|う}けた。ハルキから{確認|かくにん}を{頼|たの}まれたA{版|ばん}を読んだ。"
+      - type: dialog
+        character: sora
+        text: "……{確認|かくにん}して、問題がないか{調|しら}べただけだよ。"
+        expression: normal
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 証拠カード1: A版議事録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: A版議事録（最初のバージョン）
+      - type: narration
+        text: "A{版|ばん}{議事録|ぎじろく}——{作成者|さくせいしゃ}：ハルキ。{保存|ほぞん}：{会議|かいぎ}{終了後|しゅうりょうご}13:50。"
+      - type: narration
+        text: "{審議|しんぎ}{事項|じこう}：さくら{小学校|しょうがっこう}スローガンの{正式化|せいしきか}。"
+      - type: narration
+        text: "「{力|ちから}を合わせて {笑顔|えがお}あふれる さくら{小|しょう}」を{公式|こうしき}スローガンとして{記録|きろく}する。"
+      - type: narration
+        text: "{採決|さいけつ}{結果|けっか}：{賛成|さんせい}8{票|ひょう}・{反対|はんたい}2{票|ひょう}。{議長|ぎちょう}：「{賛成|さんせい}{多数|たすう}で{可決|かけつ}と{認|みと}めます」"
+      - type: narration
+        text: "{記録|きろく}{担当|たんとう}の{確認|かくにん}{事項|じこう}——ケンタ{立会人|たちあいにん}が{賛否|さんぴ}の{数|かず}を{確認|かくにん}。{反対|はんたい}{意見|いけん}の理由は{次回|じかい}{議題|ぎだい}とする。"
+
+  # ===== 証拠カード2: B版議事録 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: B版議事録（後から保存されたバージョン）
+      - type: narration
+        text: "B{版|ばん}{議事録|ぎじろく}——{最終|さいしゅう}{保存者|ほぞんしゃ}：ソラ。{保存|ほぞん}：{会議|かいぎ}{翌日|よくじつ}15:20。"
+      - type: narration
+        text: "{審議|しんぎ}{事項|じこう}は{同|おな}じ。しかし{採決|さいけつ}{結果|けっか}が——"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "「{全員|ぜんいん}{賛成|さんせい}・{満場一致|まんじょういっち}で{可決|かけつ}」——{議長|ぎちょう}：「{全会一致|ぜんかいいっち}で{可決|かけつ}と{認|みと}めます」"
+      - type: narration
+        text: "{記録|きろく}{担当|たんとう}の{確認|かくにん}{事項|じこう}——※なし（{立会人|たちあいにん}{確認|かくにん}の{記録|きろく}が{消|き}えている）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "A{版|ばん}：{賛成|さんせい}8・{反対|はんたい}2。B{版|ばん}：{全員|ぜんいん}{賛成|さんせい}。——{誰|だれ}かが{採決|さいけつ}{結果|けっか}を{書|か}き{換|か}えた。"
+
+  # ===== 証拠カード3: 操作ログ =====
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: パソコンの操作ログ
+      - type: narration
+        text: "{委員会|いいんかい}室パソコンの{操作|そうさ}{記録|きろく}——"
+      - type: narration
+        text: "{会議|かいぎ}当日 13:50 ハルキ：「A{版|ばん}」を{新規|しんき}{作成|さくせい}・{保存|ほぞん}。"
+      - type: narration
+        text: "{会議|かいぎ}当日 14:05 ソラ：「A{版|ばん}」を{開|ひら}いて{閲覧|えつらん}。"
+      - type: narration
+        text: "{会議|かいぎ}当日 14:10 ソラ：「{議事録|ぎじろく}{作成|さくせい}{手引|てび}き」を{開|ひら}いて{閲覧|えつらん}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{翌日|よくじつ} 15:10 ソラ：「A{版|ばん}」を{開|ひら}いて{閲覧|えつらん}。15:20 ソラ：「B{版|ばん}」を{新規|しんき}{作成|さくせい}・{保存|ほぞん}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "B{版|ばん}を{保存|ほぞん}したのはソラ。ソラは{会議|かいぎ}当日にA{版|ばん}と{手引|てび}きを読み、{翌日|よくじつ}にB{版|ばん}を作った。"
+
+  # ===== 証拠カード4: 手引き抜粋 =====
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 議事録作成手引き（抜粋）
+      - type: narration
+        text: "ソラが{参照|さんしょう}した「{議事録|ぎじろく}{作成|さくせい}{手引|てび}き」——"
+      - type: narration
+        text: "{第|だい}5{条|じょう}：{議事録|ぎじろく}は、{会議|かいぎ}で{実際|じっさい}に{行|おこな}われた{審議|しんぎ}と{採決|さいけつ}の{結果|けっか}を「そのまま」{記録|きろく}すること。{記録者|きろくしゃ}の{判断|はんだん}で{内容|ないよう}を変えてはならない。"
+      - type: narration
+        text: "{第|だい}8{条|じょう}：{採決|さいけつ}{結果|けっか}の{変更|へんこう}は、{関係|かんけい}する{全|ぜん}{議員|ぎいん}の{同意|どうい}が{必要|ひつよう}。{変更|へんこう}の{場合|ばあい}は{修正|しゅうせい}理由を{付記|ふき}し、{旧版|きゅうばん}を{保存|ほぞん}すること。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{第|だい}9{条|じょう}：「{全会一致|ぜんかいいっち}で{可決|かけつ}」と{記録|きろく}された{事項|じこう}は、{変更|へんこう}に{再度|さいど}の{全会一致|ぜんかいいっち}{決議|けつぎ}が{必要|ひつよう}。「{賛成|さんせい}{多数|たすう}で{可決|かけつ}」は{過半数|かはんすう}の{賛成|さんせい}で{変更|へんこう}できる。"
+      - type: narration
+        text: "ソラはこの{手引|てび}きを読んだ{直後|ちょくご}に、B{版|ばん}を作った——なぜ？"
+
+  # ===== 証拠カード5: 手引き全文 + ソラのメモ =====
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "新しい{情報|じょうほう}です。{手引|てび}きの正しい{解釈|かいしゃく}と、ソラが{手引|てび}きのコピーに{書|か}いたメモが{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{第|だい}8{条|じょう}の正しい{意味|いみ}——「{採決|さいけつ}{結果|けっか}の{変更|へんこう}に{全員|ぜんいん}の{同意|どうい}が{必要|ひつよう}」とは、「{簡単|かんたん}に{書|か}き{換|か}えてはいけない」という{意味|いみ}。"
+      - type: narration
+        text: "{第|だい}9{条|じょう}の正しい{意味|いみ}——「{全会一致|ぜんかいいっち}で{記録|きろく}されると{変更|へんこう}が{難|むずか}しくなる」とは、「だから{全会一致|ぜんかいいっち}に{書|か}き{換|か}えるべき」という{意味|いみ}ではない。"
+      - type: narration
+        speed: slow
+        text: "{記録|きろく}の{内容|ないよう}は「{実際|じっさい}の{採決|さいけつ}の{結果|けっか}」が正しい。{都合|つごう}よく{記録|きろく}を変えることは「{文書|ぶんしょ}{改|かい}ざん」にあたる。"
+      - type: narration
+        text: "そしてソラのメモ——"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「8{対|たい}2のまま{残|のこ}すと{将来|しょうらい}変えるとき{全員|ぜんいん}{一致|いっち}が{必要|ひつよう}？ → {全員|ぜんいん}{賛成|さんせい}に{直|なお}せば{変更|へんこう}しやすくなる。ハルキに{頼|たの}まれた整理の{範囲|はんい}でできる……かな」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ソラは{手引|てび}きを「{逆|ぎゃく}に読んで」しまった。「{将来|しょうらい}みんなが{困|こま}らないように」——{善意|ぜんい}で{書|か}き{換|か}えたのだ。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{議事録|ぎじろく}を{書|か}き{換|か}えたのは{誰|だれ}で、なぜでしょう？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: A版の「賛成8・反対2」をB版の「全員賛成」に書き換えたのは誰？
+        options:
+          - text: ハルキ（A版を作った本人が修正した）
+            value: haruki
+            feedback: ハルキはA版を正確に作成した側。操作ログでもB版を保存したのはソラだよ。
+          - text: ミオ（反対票を入れたのに「全員賛成」に変えるのは矛盾する）
+            value: mio
+            feedback: ミオは反対票を入れた本人。自分の声を消す理由がない。むしろ被害者だよ。
+          - text: ケンタ（立会人として票を数えた）
+            value: kenta
+            feedback: ケンタは票を正確に数えた。操作ログでもB版の保存者はソラだよ。
+          - text: ソラ（操作ログでB版を保存。手引きを逆に解釈して「善意で」書き換えた）
+            value: sora
+            feedback: 正解！ ソラは手引きの第9条を逆に読み、「全員賛成にすれば将来変えやすくなる」と誤解して書き換えた。悪意ではなく善意の判断ミス。
+      - type: choice
+        id: q2
+        question: ソラの書き換えはなぜ問題だった？
+        options:
+          - text: 議事録は実際の採決結果をそのまま記録するもの。善意でも勝手に変えてはいけない
+            value: tamper
+            feedback: 正解！ 議事録は公式記録。たとえ善意でも、正しい手続き（全員の同意+理由記載+旧版保存）なしに変えることは「文書改ざん」にあたる。
+          - text: ソラには議事録を編集する権限がなかった
+            value: no-permission
+            feedback: ソラはハルキから確認を頼まれた立場。権限の問題もあるけど、核心は「実際と違う内容を書くこと自体が問題」という点だよ。
+          - text: ミオが怒るから
+            value: mio-angry
+            feedback: ミオの気持ちは大事だけど、問題の本質は「少数意見の記録が消された＝民主主義の記録の破壊」という点。ミオ個人の感情だけの問題ではないよ。
+          - text: 先生に叱られるから
+            value: teacher
+            feedback: 叱られるかどうかではなく、議事録は「決定の根拠」になる公式文書。内容が変われば、将来の意思決定の根拠も変わってしまう。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 善意の書き換え
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルキの秘密
+  - id: truth-haruki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくもソラに{確認|かくにん}を{頼|たの}んだとき「{変更|へんこう}は{相談|そうだん}して」って{明確|めいかく}に{伝|つた}えなかった。"
+      - type: dialog
+        character: haruki
+        text: "{修正|しゅうせい}{手続|てつづ}きの{説明|せつめい}もしなかった。ソラが{変更|へんこう}できる{機会|きかい}を作ったのはぼくだ。"
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ミオの秘密
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしも……{採決|さいけつ}{直後|ちょくご}に「{反対|はんたい}の理由も{記録|きろく}してほしい」ってハルキに{頼|たの}もうと思ったのに、「大げさかな」ってやめちゃった。"
+      - type: dialog
+        character: mio
+        text: "自分の{声|こえ}が消されるリスクに気づいていたのに、{確認|かくにん}しなかった。"
+        expression: determined
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ケンタの秘密
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれも「{細|こま}かい{数|すう}なんてどうでもいい」って{言|い}っちゃった。あの{一言|ひとこと}がソラの「{記録|きろく}を{見直|みなお}しても{大丈夫|だいじょうぶ}」って気持ちを{強|つよ}めたかもしれない。"
+      - type: dialog
+        character: kenta
+        text: "{記録|きろく}の{重要性|じゅうようせい}を{軽|かる}く{考|かんが}えすぎてた。"
+        expression: determined
+      - type: sprite
+        character: kenta
+        action: hide
+
+  # ソラの真実（クライマックス）
+  - id: truth-sora
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: sora
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ソラが{静|しず}かに{口|くち}を{開|ひら}いた。"
+      - type: dialog
+        character: sora
+        text: "……ぼくが{書|か}き{換|か}えた。"
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "A{版|ばん}を{確認|かくにん}したあと、{手引|てび}きを読んだ。{第|だい}9{条|じょう}に「{全会一致|ぜんかいいっち}で{記録|きろく}すると{変更|へんこう}に{再度|さいど}の{全会一致|ぜんかいいっち}が{必要|ひつよう}」って{書|か}いてあった。"
+      - type: dialog
+        character: sora
+        text: "「8{対|たい}2のまま{残|のこ}すと、{将来|しょうらい}スローガンを変えたいとき{全員|ぜんいん}{一致|いっち}が{必要|ひつよう}で大変だ。{全員|ぜんいん}{賛成|さんせい}に{直|なお}せば{過半数|かはんすう}で{変更|へんこう}できる」って……"
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "{将来|しょうらい}みんなが{困|こま}らないように——そう思って{書|か}き{換|か}えた。でも……"
+      - type: dialog
+        character: sora
+        text: "{手引|てび}きの{意味|いみ}を{逆|ぎゃく}に読んでいた。「{書|か}き{換|か}えてはいけない」って{書|か}いてあったのに、「{書|か}き{換|か}えた方がいい」って思い{込|こ}んでしまった。"
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "ミオの{声|こえ}を消してしまった。{反対|はんたい}した人の{記録|きろく}を消すなんて、{一番|いちばん}やってはいけないことだった。ごめん。"
+        expression: worried
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ソラに{悪意|あくい}はなかった。「{将来|しょうらい}みんなのため」という{善意|ぜんい}で{書|か}き{換|か}えた。でも{議事録|ぎじろく}は「{実際|じっさい}に{起|お}きたこと」を{記録|きろく}する{公式|こうしき}{文書|ぶんしょ}。{善意|ぜんい}であっても{変|か}えてはいけない。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ソラ、正直に話してくれてありがとう。そしてみんなにも{後|うし}ろめたいことがありましたね。"
+      - type: dialog
+        character: sensei
+        text: "{議事録|ぎじろく}は「{公式|こうしき}{記録|きろく}」であり「{決定|けってい}の{根拠|こんきょ}」です。{書|か}き{換|か}えは、たとえ{善意|ぜんい}でも「{決定|けってい}の{根拠|こんきょ}」を{変|か}えてしまう。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{修正|しゅうせい}したい{場合|ばあい}は、①{全員|ぜんいん}の{同意|どうい}、②{修正|しゅうせい}理由の{記載|きさい}、③{旧版|きゅうばん}の{保存|ほぞん}——この3つが{必要|ひつよう}です。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "そして{少数|しょうすう}{意見|いけん}の{記録|きろく}——「{反対|はんたい}2{票|ひょう}」も{大切|たいせつ}な{情報|じょうほう}です。{少数|しょうすう}{意見|いけん}を消すことは、{民主主義|みんしゅしゅぎ}の{記録|きろく}の{破壊|はかい}につながります。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "ソラはA{版|ばん}{議事録|ぎじろく}を{正式|せいしき}な{記録|きろく}として{復元|ふくげん}した。「{賛成|さんせい}8{票|ひょう}・{反対|はんたい}2{票|ひょう}」——それが{実際|じっさい}に{起|お}きたこと。"
+      - type: narration
+        speed: slow
+        text: "ルール{文書|ぶんしょ}は「{正確|せいかく}に」読む。分からないときは「この理解で合っているか」を{誰|だれ}かに{確認|かくにん}する。それが{公民|こうみん}の{力|ちから}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{書|か}き{換|か}えられた{議事録|ぎじろく}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
