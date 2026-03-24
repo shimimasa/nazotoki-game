@@ -1,0 +1,491 @@
+meta:
+  id: programming-06
+  title: 消えた宝物と組み合わせのカギ
+  series: バグ探偵団
+  volume: 6
+  estimatedMinutes: 22
+
+characters:
+  kazuya:
+    name: カズヤ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#C0392B"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  taiga:
+    name: タイガ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  nanami:
+    name: ナナミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}6年1組——お{別|わか}れ{会|かい}の{宝箱|たからばこ}に4{桁|けた}の{暗証|あんしょう}{番号|ばんごう}ロックをかけた。4人がそれぞれ1{桁|けた}ずつ{担当|たんとう}して{管理|かんり}。"
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}——{宝箱|たからばこ}が開けられていた。{景品|けいひん}の{特別|とくべつ}カードが3{枚|まい}なくなっている！"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: nanami
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: nanami
+        text: "{特別|とくべつ}カードが3{枚|まい}消えてる！ しかも3{桁|けた}目が変わってる——ロックし{直|なお}されてる！ {暗証|あんしょう}{番号|ばんごう}を知ってる人がやった！"
+      - type: sprite
+        character: nanami
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{暗証|あんしょう}{番号|ばんごう}は4人しか知らないはず。でも{全|ぜん}{桁|けた}を知っている人はいない。どうやって開けた？ 「{場合|ばあい}の{数|かず}」で{考|かんが}えてみて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: kazuya, expression: thinking }
+          - { id: mio, expression: worried }
+          - { id: taiga, expression: surprised }
+          - { id: nanami, expression: thinking }
+      - type: narration
+        text: "ミオが{目|め}をそらした。"
+      - type: sprite
+        character: kazuya
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: taiga
+        action: hide
+      - type: sprite
+        character: nanami
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.6
+        subtitle: 消えた宝物と組み合わせのカギ
+
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人に話を聞こう。"
+      - type: sprite
+        character: kazuya
+        expression: normal
+        position: left
+      - type: dialog
+        character: kazuya
+        text: "ぼくが{暗証|あんしょう}{番号|ばんごう}のしくみを{設計|せっけい}した。4{桁|けた}で10,000通り。{全|ぜん}{桁|けた}知らない人が{突破|とっぱ}するのは{不可能|ふかのう}のはず。ぼくの{担当|たんとう}は1{桁|けた}目。"
+      - type: sprite
+        character: kazuya
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしの{担当|たんとう}は2{桁|けた}目。{景品|けいひん}を{集|あつ}める{係|かかり}もやったよ。{特別|とくべつ}カード、すっごくかわいかったよね。"
+        expression: normal
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: taiga
+        expression: normal
+        position: left
+      - type: dialog
+        character: taiga
+        text: "おれの{担当|たんとう}は3{桁|けた}目。ぜったい変えてない！ {金曜|きんよう}の{放課後|ほうかご}はずっと{体育館|たいいくかん}でバスケ。先生が{証人|しょうにん}だ。"
+      - type: dialog
+        character: taiga
+        text: "でも{金曜|きんよう}14:50に{教室|きょうしつ}の{前|まえ}を{通|とお}ったとき、ドアが少し{開|あ}いてて、中に{誰|だれ}かがいた。{宝箱|たからばこ}のそばに{立|た}ってた。"
+        expression: thinking
+      - type: sprite
+        character: taiga
+        action: hide
+      - type: sprite
+        character: nanami
+        expression: normal
+        position: right
+      - type: dialog
+        character: nanami
+        text: "わたしの{担当|たんとう}は4{桁|けた}目。{放課後|ほうかご}は{音楽室|おんがくしつ}にいた。先生が{証人|しょうにん}。なくなったのは{特別|とくべつ}カードだけ3{枚|まい}。ステッカーやえんぴつには{手|て}をつけてない。"
+        expression: thinking
+      - type: sprite
+        character: nanami
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 宝箱の状態レポート
+      - type: narration
+        text: "{宝箱|たからばこ}の{状態|じょうたい}——ロックはかかっている。{犯人|はんにん}は{暗証|あんしょう}{番号|ばんごう}で開けた{後|あと}、{番号|ばんごう}を変えてロックし{直|なお}した。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "3{桁|けた}目だけが変わっている！ 1{桁|けた}目・2{桁|けた}目・4{桁|けた}目はそのまま。"
+      - type: narration
+        text: "タイガ：「3{桁|けた}目はぼくの{担当|たんとう}。ぼくは変えてない！」"
+      - type: narration
+        text: "{犯人|はんにん}は3{桁|けた}目を{操作|そうさ}した。{犯行|はんこう}を{隠|かく}すために別の{番号|ばんごう}に変えた？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 暗証番号のしくみ
+      - type: narration
+        text: "カズヤが{設計|せっけい}した{暗証|あんしょう}{番号|ばんごう}のしくみ——4{桁|けた}（0〜9を4つ{並|なら}べる）。4人が1{桁|けた}ずつ{担当|たんとう}。自分の{桁|けた}だけを知っている。"
+      - type: narration
+        text: "{場合|ばあい}の{数|かず}：1{桁|けた}＝10通り。4{桁|けた}{全部|ぜんぶ}＝10,000通り。"
+      - type: narration
+        text: "4{桁|けた}{全部|ぜんぶ}知らない人が{突破|とっぱ}するには10,000{回|かい}。{不可能|ふかのう}に{近|ちか}い。"
+      - type: narration
+        speed: slow
+        text: "でも……もし3{桁|けた}を知っている人がいたら？ 残り1{桁|けた}＝たった10通り！"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 景品の記録
+      - type: narration
+        text: "ナナミの{景品|けいひん}{記録|きろく}——"
+      - type: narration
+        text: "{特別|とくべつ}カード：10{枚|まい}→7{枚|まい}（−3{枚|まい}❓）。ステッカー：20{枚|まい}→20{枚|まい}。えんぴつ：30{本|ほん}→30{本|ほん}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "なくなっているのは「{特別|とくべつ}カード」だけ3{枚|まい}。{枚|まい}数{限定|げんてい}で、みんなで1{枚|まい}ずつ分ける{予定|よてい}だった。{犯人|はんにん}は{特別|とくべつ}カードだけが{欲|ほ}しかった？"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 金曜放課後の行動記録
+      - type: narration
+        text: "{金曜|きんよう}の{放課後|ほうかご}——4人はどこにいた？"
+      - type: narration
+        text: "カズヤ：15:00〜16:00 {図書室|としょしつ}（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "タイガ：15:00〜16:00 {体育館|たいいくかん}バスケ（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "ナナミ：15:00〜16:00 {音楽室|おんがくしつ}リコーダー（先生が{証人|しょうにん}）"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ミオ：「{委員会|いいんかい}活動で{会議室|かいぎしつ}」——{証人|しょうにん}なし！"
+      - type: narration
+        text: "タイガの{証言|しょうげん}：14:50に{教室|きょうしつ}の{前|まえ}を{通|とお}ったとき、中に{誰|だれ}かがいた。{宝箱|たからばこ}のそばに{立|た}っていた。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "カズヤが{暗証|あんしょう}{番号|ばんごう}の「弱点」を{説明|せつめい}します。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kazuya
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kazuya
+        text: "もし3{桁|けた}を知っている人がいたら——知らないのは1{桁|けた}だけ。1{桁|けた}は0〜9の10通り。10{回|かい}{試|ため}せば、かならず当たる！"
+      - type: sprite
+        character: kazuya
+        action: hide
+      - type: narration
+        text: "知っている{桁|けた}が{増|ふ}えるほど、{試|ため}す{回数|かいすう}は{劇的|げきてき}に{減|へ}る——0{桁|けた}：10,000{回|かい}。1{桁|けた}：1,000{回|かい}。2{桁|けた}：100{回|かい}。3{桁|けた}：10{回|かい}！"
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "ナナミの{証言|しょうげん}——「{景品|けいひん}を{集|あつ}めるときに、ミオが{特別|とくべつ}カードのことを『{何枚|なんまい}でも{欲|ほ}しい！ すごくかわいい！』と{言|い}っていた」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "ミオは{景品|けいひん}を{集|あつ}める{係|かかり}——{暗証|あんしょう}{番号|ばんごう}を{設定|せってい}する{場面|ばめん}に{立|た}ち{会|あ}っていた。カズヤの1{桁|けた}目とナナミの4{桁|けた}目を{見|み}てしまった？ 自分の2{桁|けた}目と合わせて3{桁|けた}——残り1{桁|けた}は10通りで{突破|とっぱ}できる！"
+      - type: se
+        sound: common/discover
+
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{宝箱|たからばこ}を開けて{景品|けいひん}を{盗|と}んだのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 3桁を知り、残り1桁を全探索で突破して宝箱を開けたのは誰？
+        options:
+          - text: カズヤ（設計者。暗証番号の弱点に気づいていた）
+            value: kazuya
+            feedback: カズヤは弱点に気づいていたけど、図書室にいて証人がいる。そもそも自分が設計したロックを壊す理由がないよ。
+          - text: ミオ（景品集め係。設定場面に立ち会い。証人なし。特別カードを欲しがっていた）
+            value: mio
+            feedback: 正解！ ミオは景品集め係として設定場面に立ち会い、カズヤとナナミの桁を見てしまった。自分の桁と合わせて3桁。残り1桁を10通り試して突破した。
+          - text: タイガ（3桁目担当。教室に誰かがいるのを目撃）
+            value: taiga
+            feedback: タイガは体育館にいて証人がいる。教室に誰かがいるのを「目撃した」側だよ。
+          - text: ナナミ（4桁目担当。景品の記録をしていた）
+            value: nanami
+            feedback: ナナミは音楽室にいて証人がいる。景品が減っていることを「発見した」側だよ。
+      - type: choice
+        id: q2
+        question: 「全探索」で突破できたのはなぜ？
+        options:
+          - text: 3桁知っていたから残り1桁は10通りだけ。10回試せば必ず当たる
+            value: brute-force
+            feedback: 正解！ 1桁=10通りなら放課後に十分試せる。「場合の数」を理解していれば、セキュリティの弱点が見えてくる。
+          - text: ロックが壊れていたから
+            value: broken
+            feedback: ロックは壊れていない。暗証番号を正しく入力して開けた。全探索という方法で突破したんだ。
+          - text: 暗証番号がメモに書いてあったから
+            value: memo
+            feedback: メモではなく、設定場面で見た3桁+全探索で残り1桁を当てた。
+          - text: 偶然当たったから
+            value: luck
+            feedback: 10通りなら偶然でも当たりうるけど、ミオは0から順に試した「全探索」を使った。偶然ではなく方法論。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 10通りで突破された
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-kazuya
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kazuya
+        expression: worried
+        position: left
+      - type: dialog
+        character: kazuya
+        text: "ぼくも{反省|はんせい}がある。{暗証|あんしょう}{番号|ばんごう}の弱点——3{桁|けた}知っていれば10{回|かい}で{突破|とっぱ}できること——に気づいていた。でも「まさか{試|ため}す人はいない」って{思|おも}ってた。"
+      - type: sprite
+        character: kazuya
+        action: hide
+
+  - id: truth-taiga
+    steps:
+      - type: sprite
+        character: taiga
+        expression: worried
+        position: right
+      - type: dialog
+        character: taiga
+        text: "おれ、14:50に{教室|きょうしつ}に{誰|だれ}かいるのを見たのに、「何か{用|よう}があるんだろう」って{素通|すどお}りした。{声|こえ}をかけていれば{止|と}められたかもしれない。"
+      - type: sprite
+        character: taiga
+        action: hide
+
+  - id: truth-nanami
+    steps:
+      - type: sprite
+        character: nanami
+        expression: worried
+        position: left
+      - type: dialog
+        character: nanami
+        text: "わたしは{暗証|あんしょう}{番号|ばんごう}を{設定|せってい}するとき、{周|まわ}りに人がいないか{確認|かくにん}しなかった。ミオが{近|ちか}くにいたのに気づかなかった。"
+      - type: sprite
+        character: nanami
+        action: hide
+
+  - id: truth-mio
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+      - type: dialog
+        character: mio
+        text: "……わたしが開けた。"
+      - type: narration
+        speed: slow
+        text: "ミオが{小|ちい}さな{声|こえ}で話し始めた。"
+      - type: dialog
+        character: mio
+        text: "{特別|とくべつ}カードがどうしても{欲|ほ}しかったの。みんなで分けると1{枚|まい}しかもらえない。大{親友|しんゆう}のハルカとリコにもあげたかった。"
+      - type: dialog
+        character: mio
+        text: "{景品|けいひん}を{集|あつ}める{係|かかり}だったから、カズヤが1{桁|けた}目を{設定|せってい}するところと、ナナミが4{桁|けた}目を{設定|せってい}するところを見てしまった。自分の2{桁|けた}目と合わせて3{桁|けた}。"
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "知らないのは3{桁|けた}目だけ。0から{順番|じゅんばん}に{試|ため}したら——3{回|かい}目で{開|あ}いた。"
+      - type: dialog
+        character: mio
+        text: "{特別|とくべつ}カードを3{枚|まい}取って、3{桁|けた}目を「5」に変えてロックし{直|なお}した。タイガが{番号|ばんごう}を{間違|まちが}えたと{思|おも}われるように。"
+        expression: determined
+      - type: dialog
+        character: mio
+        text: "でも……みんなのお{別|わか}れ{会|かい}の{宝物|たからもの}を{盗|と}んだんだ。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ミオに{悪意|あくい}はなかった。{友|とも}だちにカードをあげたい{優|やさ}しさがあった。でもみんなの{宝物|たからもの}を{盗|と}むのは{間違|まちが}った方法だった。「{全部|ぜんぶ}{試|ため}す」{力|ちから}は、正しく使えば{問題|もんだい}を{解|と}く{道具|どうぐ}。{間違|まちが}った使い方をすれば{信頼|しんらい}を壊す。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ミオ、{友|とも}だちへの気持ちは{本物|ほんもの}。でも{欲|ほ}しいものは正しい方法で手に入れよう。"
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}の学び——「{場合|ばあい}の{数|かず}」と「{全探索|ぜんたんさく}」。知っている{桁|けた}が{増|ふ}えるほど、{試|ため}す{回数|かいすう}は{劇的|げきてき}に{減|へ}る。10,000通りが10通りに。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして「{全部|ぜんぶ}{試|ため}す」を{防|ふせ}ぐ方法もある。{間違|まちが}えたらロックされるしくみ、{暗証|あんしょう}{番号|ばんごう}の{桁|けた}数を{増|ふ}やすしくみ。{知識|ちしき}は{攻|せ}めにも{守|まも}りにも使えるんだよ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: kazuya, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: taiga, expression: happy }
+          - { id: nanami, expression: happy }
+      - type: narration
+        text: "{特別|とくべつ}カードは{返|かえ}された。{暗証|あんしょう}{番号|ばんごう}は6{桁|けた}に{変更|へんこう}。{設定|せってい}は一人ずつ{個室|こしつ}で。「{全探索|ぜんたんさく}」を{防|ふせ}ぐ{改善|かいぜん}が{加|くわ}えられた。"
+      - type: narration
+        speed: slow
+        text: "「{場合|ばあい}の{数|かず}」の{力|ちから}——{問題|もんだい}の大きさを知り、{全部|ぜんぶ}{試|ため}す方法と{防|ふせ}ぐ方法の{両方|りょうほう}を{理解|りかい}する。それがバグ{探偵|たんてい}のスキル。"
+      - type: sprite
+        character: kazuya
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: taiga
+        action: hide
+      - type: sprite
+        character: nanami
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——消えた{宝物|たからもの}と{組|く}み合わせのカギ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
