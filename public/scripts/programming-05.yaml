@@ -1,0 +1,483 @@
+meta:
+  id: programming-05
+  title: すりかえられた正五角形とくり返しのワナ
+  series: バグ探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  masato:
+    name: マサト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rui:
+    name: ルイ
+    color: "#C0392B"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  anna:
+    name: アンナ
+    color: "#E67E22"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#9B59B6"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5年2組で「{図形|ずけい}スタンプラリー」が{開催|かいさい}された。{正三角形|せいさんかくけい}→{正方形|せいほうけい}→{正五角形|せいごかくけい}→{正六角形|せいろっかくけい}のスタンプを{順番|じゅんばん}に集めるゲーム。"
+      - type: narration
+        text: "{辺|へん}の{数|かず}が3→4→5→6と「1ずつ{増|ふ}える」くり返し（ループ）。ところが——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: tsubasa
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: tsubasa
+        text: "ステーション③のスタンプ、{辺|へん}が4{本|ほん}しかない！ {正五角形|せいごかくけい}じゃなくて{正方形|せいほうけい}だ！ すり{替|か}えられてる！"
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "くり返しパターンが{壊|こわ}れています。3→4→4→6——「5」が消えた。{誰|だれ}がスタンプをすり{替|か}えたのか、{正|せい}{多角形|たかくけい}の{知識|ちしき}で{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: masato, expression: thinking }
+          - { id: rui, expression: worried }
+          - { id: anna, expression: surprised }
+          - { id: tsubasa, expression: thinking }
+      - type: narration
+        text: "ルイが{顔|かお}を{伏|ふ}せた。"
+      - type: sprite
+        character: masato
+        action: hide
+      - type: sprite
+        character: rui
+        action: hide
+      - type: sprite
+        character: anna
+        action: hide
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.5
+        subtitle: すりかえられた正五角形とくり返しのワナ
+
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人に話を聞こう。"
+      - type: sprite
+        character: masato
+        expression: normal
+        position: left
+      - type: dialog
+        character: masato
+        text: "ぼくがスタンプラリーを{設計|せっけい}した。ステーション③は{正五角形|せいごかくけい}（{辺|へん}5{本|ほん}）にしたはず。{水曜|すいよう}のテスト{走|ば}りでは4つとも正しかった。"
+      - type: sprite
+        character: masato
+        action: hide
+      - type: sprite
+        character: rui
+        expression: normal
+        position: right
+      - type: dialog
+        character: rui
+        text: "わたしはステーション③{担当|たんとう}。スタンプはちゃんと{置|お}いたよ。……{何|なに}もしてないよ。"
+        expression: normal
+      - type: sprite
+        character: rui
+        action: hide
+      - type: sprite
+        character: anna
+        expression: normal
+        position: left
+      - type: dialog
+        character: anna
+        text: "あたしはステーション②{担当|たんとう}でテスト{走|ば}りもした。{水曜|すいよう}の{時点|じてん}では{全部|ぜんぶ}正しかった。{放課後|ほうかご}はずっと校庭でサッカー。先生が{証人|しょうにん}。"
+      - type: sprite
+        character: anna
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "ぼくはステーション④{担当|たんとう}。ステーション③のスタンプの{角|かく}が90°だと気づいた。{正五角形|せいごかくけい}なら108°のはずなのに。"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: スタンプラリーの結果表
+      - type: narration
+        text: "スタンプラリーの{結果|けっか}——{辺|へん}の{数|かず}を{順番|じゅんばん}に{確認|かくにん}。"
+      - type: narration
+        text: "ステーション①：{正三角形|せいさんかくけい} → {辺|へん}3{本|ほん} ✅"
+      - type: narration
+        text: "ステーション②：{正方形|せいほうけい} → {辺|へん}4{本|ほん} ✅"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ステーション③：{正五角形|せいごかくけい}のはずが → {辺|へん}4{本|ほん} ❌"
+      - type: narration
+        text: "ステーション④：{正六角形|せいろっかくけい} → {辺|へん}6{本|ほん} ✅"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ループチェック：3→4→4→6。ルール「1ずつ{増|ふ}える」なら3→4→5→6のはず。ステーション③だけ「5」が「4」に！ ループが{壊|こわ}れている！"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: マサトの設計ノート
+      - type: narration
+        text: "マサトの{設計|せっけい}ノート——ルール：{辺|へん}の{数|かず}が「1ずつ{増|ふ}える」くり返し。"
+      - type: narration
+        text: "ステーション①：{正三角形|せいさんかくけい}（3）→ ②：{正方形|せいほうけい}（4）→ ③：{正五角形|せいごかくけい}（5）→ ④：{正六角形|せいろっかくけい}（6）"
+      - type: narration
+        text: "{水曜|すいよう}のテスト{走|ば}り：アンナが4つ{全部|ぜんぶ}正しく{押|お}せた ✅。"
+      - type: narration
+        text: "すり{替|か}えは{水曜|すいよう}の{後|あと}——{木曜|もくよう}の{放課後|ほうかご}に{起|お}きた。"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 正多角形の特徴表
+      - type: narration
+        text: "{正|せい}{多角形|たかくけい}の{辺|へん}の{数|かず}と{内角|ないかく}——"
+      - type: narration
+        text: "{正三角形|せいさんかくけい}：{辺|へん}3{本|ほん}・{内角|ないかく}60°。{正方形|せいほうけい}：{辺|へん}4{本|ほん}・{内角|ないかく}90°。"
+      - type: narration
+        text: "{正五角形|せいごかくけい}：{辺|へん}5{本|ほん}・{内角|ないかく}108°。{正六角形|せいろっかくけい}：{辺|へん}6{本|ほん}・{内角|ないかく}120°。"
+      - type: narration
+        speed: slow
+        text: "ステーション③のスタンプの{内角|ないかく}は90°——{正五角形|せいごかくけい}（108°）ではなく{正方形|せいほうけい}（90°）だ！"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 木曜放課後の行動記録
+      - type: narration
+        text: "{木曜|もくよう}の{放課後|ほうかご}——4人はどこにいた？"
+      - type: narration
+        text: "マサト：15:00〜16:00 {図書室|としょしつ}（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "アンナ：15:00〜16:00 校庭サッカー（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "ツバサ：15:00〜15:30 {図書室|としょしつ}（先生が{証人|しょうにん}）→ {下校|げこう}"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ルイ：「すぐ{帰|かえ}った」——{証人|しょうにん}なし！"
+      - type: narration
+        text: "すり{替|か}えの{時間|じかん}（{木曜|もくよう}{放課後|ほうかご}）にステーション③に行けたのは——ルイだけ。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "2つの{手|て}がかりが{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{手|て}がかり1——{先週|せんしゅう}の{算数|さんすう}テスト（{正|せい}{多角形|たかくけい}の{問題|もんだい}）の{結果|けっか}。マサト：{満点|まんてん}。アンナ：{満点|まんてん}。ツバサ：{満点|まんてん}。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "ルイ：{正五角形|せいごかくけい}の{問題|もんだい}だけ ✕。ルイの{答|こた}え：「{正五角形|せいごかくけい}の{辺|へん}は4{本|ほん}」（正しくは5{本|ほん}）！"
+      - type: narration
+        text: "{手|て}がかり2——アンナの{証言|しょうげん}：「{水曜|すいよう}のテスト{走|ば}りのとき、ステーション②の{引|ひ}き{出|だ}しに{正方形|せいほうけい}スタンプの{予備|よび}があった。でも{金曜|きんよう}にはなくなっていた」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{正五角形|せいごかくけい}と{正方形|せいほうけい}の{区別|くべつ}ができなかった人——ルイ。「{辺|へん}が4{本|ほん}も5{本|ほん}も{同|おな}じだろう」と{思|おも}ってすり{替|か}えても「バレない」と{思|おも}った。でもループが{壊|こわ}れてバレた。"
+
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{正五角形|せいごかくけい}スタンプを{正方形|せいほうけい}にすり{替|か}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ステーション③の正五角形スタンプを正方形にすり替えたのは誰？
+        options:
+          - text: マサト（設計者。算数テスト満点）
+            value: masato
+            feedback: マサトは正五角形を正しく理解している。図書室にいて証人もいる。すり替える理由がないよ。
+          - text: ルイ（ステーション③担当。テストで正五角形を間違えた。証人なし）
+            value: rui
+            feedback: 正解！ ルイだけが正五角形の辺の数を間違えていた。「4本も5本も同じ」と思ってすり替えたが、ループパターン3→4→4→6で異常が検出された。
+          - text: アンナ（テスト走り担当。ステーション②の予備が消えた）
+            value: anna
+            feedback: アンナは校庭にいて証人がいる。予備の正方形スタンプがなくなったことに気づいた側だよ。
+          - text: ツバサ（内角90°を発見した）
+            value: tsubasa
+            feedback: ツバサはスタンプの異常を発見した側。図書室にいて証人もいる。
+      - type: choice
+        id: q2
+        question: ルイのすり替えがバレたのはなぜ？
+        options:
+          - text: ループパターン3→4→4→6で「5が消えている」異常が検出されたから
+            value: loop
+            feedback: 正解！ 「1ずつ増える」ルールで辺の数を並べると、同じ数「4」が2回出ている。ループの異常検出で正五角形がないことがすぐ分かった。
+          - text: 正方形スタンプの形が汚かったから
+            value: dirty
+            feedback: スタンプの見た目ではなく、辺の数と内角の違いで判明した。ループパターンの異常が核心だよ。
+          - text: ルイが自分で告白したから
+            value: confess
+            feedback: ルイは最初「何もしてない」と言っていた。証拠から犯人が特定されたんだ。
+          - text: 防犯カメラに映っていたから
+            value: camera
+            feedback: カメラではなく、ループパターンの異常検出+算数テストの結果+アリバイ消去法で特定された。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 間違えるのが恥ずかしかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-masato
+    bg: classroom
+    steps:
+      - type: sprite
+        character: masato
+        expression: worried
+        position: left
+      - type: dialog
+        character: masato
+        text: "ぼくも{木曜|もくよう}にルイがステーション③の{近|ちか}くにいるのを{図書室|としょしつ}の{窓|まど}から見たのに、{声|こえ}をかけなかった。"
+      - type: sprite
+        character: masato
+        action: hide
+
+  - id: truth-anna
+    steps:
+      - type: sprite
+        character: anna
+        expression: worried
+        position: right
+      - type: dialog
+        character: anna
+        text: "あたしも{予備|よび}のスタンプがなくなってるのに気づいたのに、「{誰|だれ}かが{片|かた}づけたのかな」って{流|なが}しちゃった。"
+      - type: sprite
+        character: anna
+        action: hide
+
+  - id: truth-tsubasa
+    steps:
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "ぼくは{木曜|もくよう}の15:25にルイが校{舎|しゃ}から出てくるのを見た。でも「{帰|かえ}るところかな」って{思|おも}って{確認|かくにん}しなかった。"
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  - id: truth-rui
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: rui
+        expression: worried
+        position: center
+      - type: dialog
+        character: rui
+        text: "……わたしがすり{替|か}えた。"
+      - type: narration
+        speed: slow
+        text: "ルイが{小|ちい}さな{声|こえ}で話し始めた。"
+      - type: dialog
+        character: rui
+        text: "{先週|せんしゅう}の{算数|さんすう}テストで{正五角形|せいごかくけい}の{問題|もんだい}を{間違|まちが}えた。「{辺|へん}は4{本|ほん}」って{書|か}いちゃった。みんなは{満点|まんてん}だったのに、わたしだけ{間違|まちが}えた。"
+      - type: dialog
+        character: rui
+        text: "スタンプラリーでステーション③（{正五角形|せいごかくけい}）を{担当|たんとう}することになって……「わたしが{正五角形|せいごかくけい}を{分|わ}かってないのがバレる」って{怖|こわ}くなった。"
+        expression: worried
+      - type: dialog
+        character: rui
+        text: "「{辺|へん}が4{本|ほん}も5{本|ほん}も{似|に}たようなもの。{正方形|せいほうけい}にすり{替|か}えてもバレない」って{思|おも}った。ステーション②の{予備|よび}を{持|も}ち出してすり{替|か}えた。"
+      - type: dialog
+        character: rui
+        text: "でも……3→4→4→6で{異常|いじょう}が{検出|けんしゅつ}された。{知識|ちしき}が{間違|まちが}ってたから、「バレない」って{思|おも}い{込|こ}んでた。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: rui
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ルイに{悪意|あくい}はなかった。{間違|まちが}えたことが{恥|は}ずかしくて{逃|に}げてしまった。でも{間違|まちが}いは{恥|は}ずかしいことではなく、もう{一度|いちど}{勉強|べんきょう}するチャンスだ。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ルイ、{間違|まちが}えるのは{恥|は}ずかしいことじゃないよ。{正五角形|せいごかくけい}の{辺|へん}が5{本|ほん}だと分かったでしょ？ それが学びだよ。"
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}の{大切|たいせつ}な学び——くり返し（ループ）の中の「1つだけ{違|ちが}うもの」を見つける{力|ちから}。3→4→4→6の{異常|いじょう}は、ルールを知っていれば一{瞬|しゅん}で分かる。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして{正|せい}{多角形|たかくけい}の{性質|せいしつ}——{辺|へん}の{数|かず}と{内角|ないかく}の{関係|かんけい}。{知識|ちしき}があれば{図形|ずけい}を正しく{判別|はんべつ}できる。{知識|ちしき}は{力|ちから}だよ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: masato, expression: happy }
+          - { id: rui, expression: determined }
+          - { id: anna, expression: happy }
+          - { id: tsubasa, expression: happy }
+      - type: narration
+        text: "スタンプラリーはやり{直|なお}し。ステーション③には{本物|ほんもの}の{正五角形|せいごかくけい}スタンプ——{辺|へん}5{本|ほん}、{内角|ないかく}108°。ルイが{自分|じぶん}で{押|お}した。"
+      - type: narration
+        speed: slow
+        text: "くり返しの中の{異常|いじょう}を見つける{力|ちから}——それは{間違|まちが}いを{発見|はっけん}する{力|ちから}。バグ{探偵|たんてい}のスキルがまた一つ{増|ふ}えた。"
+      - type: sprite
+        character: masato
+        action: hide
+      - type: sprite
+        character: rui
+        action: hide
+      - type: sprite
+        character: anna
+        action: hide
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——すりかえられた{正五角形|せいごかくけい}とくり返しのワナ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
