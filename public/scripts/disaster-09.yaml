@@ -1,0 +1,555 @@
+meta:
+  id: disaster-09
+  title: 地域防災マップの謎
+  series: 防災探偵団
+  volume: 9
+  estimatedMinutes: 22
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: schoolyard
+    bgm: disaster-03/opening
+    steps:
+      - type: narration
+        text: "{学校|がっこう}{公開日|こうかいび}。{防災|ぼうさい}クラブが{作成|さくせい}した「{地域|ちいき}{防災|ぼうさい}マップ」が{体育館|たいいくかん}に{掲示|けいじ}された。"
+      - type: narration
+        text: "{危険|きけん}{箇所|かしょ}を{赤|あか}・{黄|き}・{緑|みどり}の3{色|しょく}で{色分|いろわ}けした{立派|りっぱ}なマップ。4人の{調査|ちょうさ}の{成果|せいか}だった。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: bgm
+        track: disaster-03/investigation
+      - type: dialog
+        character: sensei
+        text: "{発表|はっぴょう}のあと、{地域|ちいき}の{防災|ぼうさい}{委員|いいん}から{指摘|してき}がありました。「さくら{町|まち}3{丁目|ちょうめ}の{危険度|きけんど}{評価|ひょうか}がおかしい」と。"
+      - type: dialog
+        character: sensei
+        text: "{過去|かこ}10{年間|ねんかん}の{水害|すいがい}{記録|きろく}では、さくら{町|まち}3{丁目|ちょうめ}は4{件|けん}中3{件|けん}で{浸水|しんすい}しています。なのにマップでは{危険度|きけんど}「{低|ひく}（{緑|みどり}）」。{誰|だれ}が、なぜ{間違|まちが}えたのか——{調|しら}べてください。"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: worried }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: surprised }
+          - { id: ai, expression: thinking }
+      - type: narration
+        text: "ケイだけが{驚|おどろ}いた{表情|ひょうじょう}を{浮|う}かべた。「え……あそこ、きれいな{町|まち}だったのに」"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.9
+        subtitle: 地域防災マップの謎
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: disaster-03/investigation
+    steps:
+      - type: narration
+        text: "4人がそれぞれの{調査|ちょうさ}について{説明|せつめい}した。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは{過去|かこ}の{水害|すいがい}{記録|きろく}を{市|し}の{防災|ぼうさい}ページから{集|あつ}めた。{量|りょう}が{多|おお}くて{全部|ぜんぶ}は{整理|せいり}しきれなかったけど……。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしは{住民|じゅうみん}インタビューを{担当|たんとう}したの。いろんな人に話を聞いたよ。"
+        expression: happy
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはさくら{町|まち}3{丁目|ちょうめ}とみどり{町|まち}1{丁目|ちょうめ}を{現地|げんち}{調査|ちょうさ}した。{実際|じっさい}に{歩|ある}いて{自分|じぶん}の{目|め}で{確|たし}かめたから、{間違|まちが}いないと{思|おも}う。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしは{地形|ちけい}データと{地図|ちず}を{分析|ぶんせき}したの。{標高|ひょうこう}とか{河川|かせん}の{位置|いち}を{調|しら}べた。"
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: 過去の水害記録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 過去10年間の水害記録
+      - type: narration
+        text: "X{市|し}{防災|ぼうさい}{情報|じょうほう}ページから{集|あつ}めた、{過去|かこ}10{年間|ねんかん}の{水害|すいがい}{記録|きろく}4{件|けん}。"
+      - type: narration
+        text: "2017{年|ねん}（45mm/時）——さくら{町|まち}1{丁目|ちょうめ}：{床上|ゆかうえ}{浸水|しんすい}12{件|けん}。2{丁目|ちょうめ}：{床下|ゆかした}5{件|けん}。3{丁目|ちょうめ}：{床上|ゆかうえ}{浸水|しんすい}5{件|けん}。"
+      - type: narration
+        text: "2019{年|ねん}（38mm/時）——1{丁目|ちょうめ}：{床上|ゆかうえ}8{件|けん}。2{丁目|ちょうめ}：{床下|ゆかした}3{件|けん}。3{丁目|ちょうめ}：{床下|ゆかした}{浸水|しんすい}4{件|けん}。"
+      - type: narration
+        text: "2022{年|ねん}（25mm/時）——1{丁目|ちょうめ}：{床下|ゆかした}2{件|けん}。2{丁目|ちょうめ}：なし。3{丁目|ちょうめ}：なし。"
+      - type: narration
+        text: "2025{年|ねん}（52mm/時）——1{丁目|ちょうめ}：{床上|ゆかうえ}15{件|けん}。2{丁目|ちょうめ}：{床上|ゆかうえ}7{件|けん}。3{丁目|ちょうめ}：{床上|ゆかうえ}{浸水|しんすい}8{件|けん}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "さくら{町|まち}3{丁目|ちょうめ}は4{件|けん}中3{件|けん}で{浸水|しんすい}。なのにマップでは「{低|ひく}（{緑|みどり}）」——{評価|ひょうか}がおかしい！"
+
+  # ===== 証拠カード2: 地形データ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 地形データ（標高マップ）
+      - type: narration
+        text: "{国土|こくど}{交通省|こうつうしょう}ハザードマップポータルサイトの{学校用|がっこうよう}{簡易|かんい}データ。"
+      - type: narration
+        text: "さくら{町|まち}1{丁目|ちょうめ}：{標高|ひょうこう}2.8m。{川|かわ}のすぐ{横|よこ}。{最|もっと}も{低|ひく}い。"
+      - type: narration
+        text: "さくら{町|まち}2{丁目|ちょうめ}：{標高|ひょうこう}4.0m。さくら{川|がわ}・みどり{川|がわ}{合流点|ごうりゅうてん}の{近|ちか}く。"
+      - type: narration
+        text: "さくら{町|まち}3{丁目|ちょうめ}：{標高|ひょうこう}3.2m。{合流点|ごうりゅうてん}の{下流|かりゅう}200m。{周辺|しゅうへん}{平均|へいきん}より1.5m{低|ひく}い{窪地|くぼち}。"
+      - type: narration
+        text: "みどり{町|まち}1{丁目|ちょうめ}：{標高|ひょうこう}5.1m。みどり{町|まち}2{丁目|ちょうめ}：{標高|ひょうこう}8.3m（{丘|おか}の上）。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{水|みず}は{高|たか}いところから{低|ひく}いところへ{流|なが}れる。2つの{川|かわ}が{合流|ごうりゅう}した{後|あと}、{水|みず}はどこに{集|あつ}まりやすい？"
+
+  # ===== 証拠カード3: 住民インタビュー =====
+  - id: evidence-3
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 住民インタビュー記録
+      - type: sprite
+        character: nana
+        expression: normal
+        position: left
+      - type: dialog
+        character: nana
+        text: "{住民|じゅうみん}に話を聞いてきたの。まとめるね。"
+      - type: sprite
+        character: nana
+        action: hide
+      - type: narration
+        text: "さくら{町|まち}1{丁目|ちょうめ}・ヤマダさん（60{代|だい}）：「うちは{毎回|まいかい}{浸水|しんすい}するよ。{川|かわ}が{近|ちか}いから」"
+      - type: narration
+        text: "さくら{町|まち}2{丁目|ちょうめ}・スズキさん（40{代|だい}）：「{合流点|ごうりゅうてん}の{近|ちか}くだからヒヤヒヤするけど、ギリギリ{浸水|しんすい}しなかった{年|とし}もある」"
+      - type: narration
+        text: "さくら{町|まち}3{丁目|ちょうめ}・タナカさん（30{代|だい}）：「ここは{新|あたら}しい{家|いえ}が{多|おお}いし、{道|みち}もきれいだから{安心|あんしん}ですよ。{水害|すいがい}なんて聞いたことないです」"
+      - type: narration
+        text: "さくら{町|まち}3{丁目|ちょうめ}・タカギさん（80{代|だい}）：「この{辺|へん}はね、{昔|むかし}はよく{水|みず}が出たんだよ。"{最近|さいきん}は大丈夫"って{言|い}う人もいるけどねえ」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "タナカさんとタカギさんの話が{違|ちが}う。{最近|さいきん}{引|ひ}っ{越|こ}してきたタナカさんは{過去|かこ}の{水害|すいがい}を{知|し}らない？"
+
+  # ===== 証拠カード4: 建物・インフラ情報 =====
+  - id: evidence-4
+    bgm: disaster-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 建物・インフラ情報
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれが{現地|げんち}で見てきたメモだ。さくら{町|まち}3{丁目|ちょうめ}——{新|あたら}しいコンビニ、きれいな{道路|どうろ}、{広|ひろ}い{公園|こうえん}。{安全|あんぜん}そうだった。"
+      - type: dialog
+        character: kei
+        text: "あ、でも1つだけ{気|き}になったことがある。マンホールの{蓋|ふた}がやけに{多|おお}かったんだよな。なんでだろう？"
+        expression: thinking
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ai
+        text: "{地図|ちず}データを{調|しら}べたの。さくら{町|まち}3{丁目|ちょうめ}の{中央|ちゅうおう}{通|どお}りの{地下|ちか}に「{暗渠|あんきょ}」——つまり{地下|ちか}{水路|すいろ}があるわ。"
+      - type: dialog
+        character: ai
+        text: "{旧|きゅう}・さくら{用水路|ようすいろ}を1985{年|ねん}に{地下化|ちかか}したもの。{排水|はいすい}{能力|のうりょく}は{時間|じかん}{雨量|うりょう}30mmまで{対応|たいおう}。"
+        expression: normal
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{暗渠|あんきょ}の{排水|はいすい}{能力|のうりょく}は30mmまで。{過去|かこ}4{件|けん}の{水害|すいがい}の{雨量|うりょう}は？——45mm、38mm、25mm、52mm。30mmを{超|こ}えた3{回|かい}で{浸水|しんすい}している！"
+
+  # ===== 証拠カード5: 防災マップ作成会議の議事録 =====
+  - id: evidence-5
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "11月1日の{作成|さくせい}{会議|かいぎ}の{議事録|ぎじろく}が出てきました。{重要|じゅうよう}な{記録|きろく}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "さくら{町|まち}3{丁目|ちょうめ}の{危険度|きけんど}について——"
+      - type: narration
+        text: "ケイ：「さくら{町|まち}3{丁目|ちょうめ}は{問題|もんだい}なし！ きれいな{町|まち}だった。{危険度|きけんど}は"{低|ひく}（{緑|みどり}）"でいいと思う」"
+      - type: narration
+        text: "ソウタ：「……」（{発言|はつげん}なし。ノートを見ている）"
+      - type: narration
+        text: "アイ：「{標高|ひょうこう}データだと、ここは{周辺|しゅうへん}より{低|ひく}いけど……」→ ケイ：「でも{現地|げんち}を{歩|ある}いたら{全然|ぜんぜん}大丈夫だったよ」→ アイ：「……うん、ケイが{現地|げんち}を見たならそうなのかな」"
+      - type: narration
+        text: "ナナ：「{住民|じゅうみん}の人も{安心|あんしん}だって{言|い}ってたし、"{低|ひく}"でいいんじゃない？」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "→ {結果|けっか}：さくら{町|まち}3{丁目|ちょうめ}の{危険度|きけんど}は「{低|ひく}（{緑|みどり}）」に{決定|けってい}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ケイの{調査|ちょうさ}ノート{裏面|うらめん}に{小|ちい}さな字で——「さくら{町|まち}3{丁目|ちょうめ}：30分で見てきた。みどり{町|まち}1{丁目|ちょうめ}に{急|いそ}がないと{間|ま}に{合|あ}わない！」"
+      - type: narration
+        speed: slow
+        text: "そしてさらに{下|した}——「みんなのために、ぜったい{締|し}め{切|き}りに{間|ま}に{合|あ}わせる！」"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。さくら{町|まち}3{丁目|ちょうめ}の{危険度|きけんど}を{間違|まちが}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: さくら町3丁目の危険度を「低（緑）」と誤って評価したのは誰？
+        options:
+          - text: ソウタ（水害記録を集めたが全部は整理しきれなかった）
+            value: souta
+            feedback: ソウタは水害記録を集めたけど整理が追いつかず、会議で発言できなかった。でも危険度を「低」と評価したのはソウタではないよ。
+          - text: ナナ（住民インタビューでタカギさんの話をメモしなかった）
+            value: nana
+            feedback: ナナはタカギさんから大事な情報を聞いたのにメモしなかった。でも危険度の評価を直接決めたのは別の人だよ。
+          - text: ケイ（現地を30分で調査し、見た目で「安全」と判断した）
+            value: kei
+            feedback: 正解！ ケイは締め切りに間に合わせるため30分で調査を切り上げ、「きれいな町＝安全」と見た目で判断した。地形データも過去の記録も確認しなかった。
+          - text: アイ（標高データの異常に気づいたがダブルチェックしなかった）
+            value: ai
+            feedback: アイは標高データで窪地に気づいていたけど、ケイの現地報告を信じて追及しなかった。でも「低」と評価したのはアイではないよ。
+      - type: choice
+        id: q2
+        question: ケイが危険度を間違えた一番の原因は何だと思う？
+        options:
+          - text: 見た目がきれいな町だったから「安全」だと思い込んだ
+            value: appearance
+            feedback: 正解！ 新しいコンビニ、きれいな道路、広い公園——見た目は安全に「見える」。でも地形データや過去の記録を見ないと本当のリスクは分からない。防災マップは「目」ではなく「データ」で作る。
+          - text: 調査を手抜きしたかった
+            value: lazy
+            feedback: ケイは手抜きしたかったのではない。「みんなのために締め切りに間に合わせたい」という善意で急いだ。善意が見落としにつながった。
+          - text: 地形データの読み方を知らなかった
+            value: no-skill
+            feedback: それも一因だけど、もっと根本的な原因がある。ケイは「見た目がきれい＝安全」と思い込んでいた。データを見なくても大丈夫だと考えてしまった。
+          - text: 他の3人が何も言わなかったから
+            value: others
+            feedback: 確かにソウタもアイも指摘できなかった。でもケイ自身が「見た目で判断した」ことが一番の原因。全員にも責任はあるけれど、まずは評価した本人の判断を考えよう。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 見た目で判断した防災マップ
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソウタの秘密
+  - id: truth-souta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souta
+        expression: worried
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは{過去|かこ}の{水害|すいがい}{記録|きろく}でさくら{町|まち}3{丁目|ちょうめ}が4{件|けん}中3{件|けん}で{浸水|しんすい}していることに気づいていた。"
+      - type: dialog
+        character: souta
+        text: "でもデータの{整理|せいり}が{追|お}いつかなくて、{会議|かいぎ}で何も{言|い}えなかった。もっとちゃんと{準備|じゅんび}していれば……"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ナナの秘密
+  - id: truth-nana
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしもタカギさんから「この{辺|へん}は{昔|むかし}はよく{水|みず}が出たんだよ」って聞いていた。"
+      - type: dialog
+        character: nana
+        text: "でも「{昔|むかし}の話だし」って思って、メモに{残|のこ}さなかった。タカギさんの{経験|けいけん}は大事なデータだったのに……"
+        expression: determined
+      - type: sprite
+        character: nana
+        action: hide
+
+  # アイの秘密
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたしは{標高|ひょうこう}データでさくら{町|まち}3{丁目|ちょうめ}が{周辺|しゅうへん}より1.5m{低|ひく}い{窪地|くぼち}だと気づいていた。"
+      - type: dialog
+        character: ai
+        text: "でもケイが{現地|げんち}を見たなら大丈夫だろう、ってダブルチェックしなかった。{声|こえ}を上げるべきだった。"
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ケイの真実（クライマックス）
+  - id: truth-kei
+    bgm: disaster-03/truth
+    steps:
+      - type: sprite
+        character: kei
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ケイが{静|しず}かに{口|くち}を{開|ひら}いた。"
+      - type: dialog
+        character: kei
+        text: "……{間違|まちが}えたのは、おれだ。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "{締|し}め{切|き}りまで{残|のこ}り2日で、まだ2{地区|ちく}{残|のこ}っていた。さくら{町|まち}3{丁目|ちょうめ}に{着|つ}いたとき、{新|あたら}しいコンビニ、きれいな{道路|どうろ}、{広|ひろ}い{公園|こうえん}——「ここは{安全|あんぜん}だ」って思った。"
+      - type: dialog
+        character: kei
+        text: "30分で{切|き}り上げた。みどり{町|まち}1{丁目|ちょうめ}も{回|まわ}らないと{間|ま}に{合|あ}わないから。みんなのために、{締|し}め{切|き}りに{間|ま}に{合|あ}わせたかったんだ。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "でも{地形|ちけい}データも{見|み}なかった。{過去|かこ}の{記録|きろく}も{確認|かくにん}しなかった。「{見|み}た{目|め}がきれい」っていうだけで「{安全|あんぜん}」って{決|き}めてしまった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ケイに{悪意|あくい}はなかった。みんなのために{急|いそ}いだ{善意|ぜんい}が、{危険|きけん}{箇所|かしょ}の{見落|みお}としにつながった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: schoolyard
+    bgm: disaster-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ケイ、{正直|しょうじき}に話してくれてありがとう。でもこれはケイだけの{問題|もんだい}ではないわね。"
+      - type: dialog
+        character: sensei
+        text: "ソウタは{過去|かこ}の{記録|きろく}に気づいていた。アイは{地形|ちけい}データに気づいていた。ナナはタカギさんの{証言|しょうげん}を聞いていた。でも——{誰|だれ}も{声|こえ}を上げなかった。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{防災|ぼうさい}マップは「{目|め}」ではなく「データ」で作る。{地形|ちけい}・{過去|かこ}の{記録|きろく}・{建物|たてもの}の3つが{揃|そろ}わないと、正しい{危険度|きけんど}{評価|ひょうか}はできません。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{見|み}た{目|め}がきれいでも、{地形|ちけい}や{過去|かこ}の{記録|きろく}が「ここは{危|あぶ}ない」と{教|おし}えてくれる。{目|め}に見えない{情報|じょうほう}が{命|いのち}を守るのです。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: determined }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: determined }
+      - type: dialog
+        character: kei
+        text: "おれ、{防災|ぼうさい}マップを作り{直|なお}す。{今度|こんど}は{地形|ちけい}データも{過去|かこ}の{記録|きろく}も{全部|ぜんぶ}{確認|かくにん}する。"
+      - type: dialog
+        character: nana
+        text: "タカギさんにもう{一度|いちど}話を聞きに行こう。「{昔|むかし}の話」じゃなくて、{大事|だいじ}なデータだったんだね。"
+      - type: narration
+        speed: slow
+        text: "「{見|み}た{目|め}がきれい＝{安全|あんぜん}」じゃない。データが{教|おし}えてくれる{真実|しんじつ}を読み{取|と}る{力|ちから}——それが{今日|きょう}の{帰納法|きのうほう}の学び。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団——{地域|ちいき}{防災|ぼうさい}マップの{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

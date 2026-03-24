@@ -1,0 +1,617 @@
+meta:
+  id: disaster-10
+  title: 「つながる」こと
+  series: 防災探偵団
+  volume: 10
+  estimatedMinutes: 25
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: schoolyard
+    bgm: disaster-03/opening
+    steps:
+      - type: narration
+        text: "X{市立|しりつ}みどり{小学校|しょうがっこう}の{防災|ぼうさい}クラブが「{複合|ふくごう}{災害|さいがい}{避難|ひなん}シミュレーション」を{実施|じっし}した。{地震|じしん}が{発生|はっせい}し、その{直後|ちょくご}に{火災|かさい}が{起|お}きる——という{想定|そうてい}。"
+      - type: narration
+        text: "4人はそれぞれの{受付|うけつけ}ポイントで{避難|ひなん}{誘導|ゆうどう}を{担当|たんとう}した。シミュレーションは{無事|ぶじ}に{終了|しゅうりょう}……したはずだった。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: bgm
+        track: disaster-03/investigation
+      - type: dialog
+        character: sensei
+        text: "{翌日|よくじつ}、{記録|きろく}を{確認|かくにん}したところ——「{避難|ひなん}{完了|かんりょう}」の{記録|きろく}と{実際|じっさい}の{到着|とうちゃく}{時刻|じこく}・{人数|にんずう}が{合|あ}いません。"
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}かが{避難|ひなん}{完了|かんりょう}の{記録|きろく}を{書|か}き{換|か}えた——？ {防災|ぼうさい}{探偵|たんてい}団、{最後|さいご}の{事件|じけん}です。{調|しら}べてください。"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: thinking }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: normal }
+          - { id: ai, expression: thinking }
+      - type: narration
+        text: "ナナだけが{目|め}をふせている。{他|ほか}の3人は「まさか{記録|きろく}が{書|か}き{換|か}えられていたなんて」と{驚|おどろ}いた。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.10（最終巻）
+        subtitle: 「つながる」こと
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: disaster-03/investigation
+    steps:
+      - type: narration
+        text: "シミュレーション{当日|とうじつ}の{担当|たんとう}と、4人の{証言|しょうげん}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくはA{受付|うけつけ}（{学校|がっこう}{西門|にしもん}）の{担当|たんとう}。14:20に{確認|かくにん}{完了|かんりょう}して、D{受付|うけつけ}の{体育館|たいいくかん}には14:30に{到着|とうちゃく}した。{記録|きろく}どおりだよ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしはA{受付|うけつけ}からB{受付|うけつけ}、C{受付|うけつけ}を{回|まわ}って{巡回|じゅんかい}{確認|かくにん}する{担当|たんとう}だった。B{受付|うけつけ}の{確認|かくにん}は14:30。……それからD{受付|うけつけ}に{向|む}かったけど……"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはC{受付|うけつけ}（みどり{町|ちょう}1{丁目|ちょうめ}{公園|こうえん}）の{確認|かくにん}{担当|たんとう}。14:36に{確認|かくにん}、D{受付|うけつけ}には14:40に{到着|とうちゃく}した。み{通|どお}りが{火災|かさい}で{通|とお}れないから{迂回|うかい}ルートを{報告|ほうこく}したぜ。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしはD{受付|うけつけ}（{体育館|たいいくかん}{入口|いりぐち}）で{集計|しゅうけい}{管理|かんり}{担当|たんとう}。{全員|ぜんいん}の{到着|とうちゃく}を{記録|きろく}していたわ。"
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: 避難シミュレーション記録シート =====
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 避難シミュレーション記録シート
+      - type: narration
+        text: "{避難|ひなん}シミュレーション{記録|きろく}シート——14:00 {地震|じしん}{発生|はっせい}（{震度|しんど}5{強|きょう}）。14:05 「み{通|どお}り（{道路|どうろ}A）」で{火災|かさい}{発生|はっせい}、{通行|つうこう}{禁止|きんし}。"
+      - type: narration
+        text: "A{受付|うけつけ}（{西門|にしもん}）：ソウタ{担当|たんとう}。{確認|かくにん}{完了|かんりょう}14:20。"
+      - type: narration
+        text: "B{受付|うけつけ}（さくら{町|ちょう}1{丁目|ちょうめ}{公民館|こうみんかん}）：ナナが{巡回|じゅんかい}{確認|かくにん}。{確認|かくにん}{時刻|じこく}14:30。"
+      - type: narration
+        text: "C{受付|うけつけ}（みどり{町|ちょう}1{丁目|ちょうめ}{公園|こうえん}）：ケイが{確認|かくにん}。{到着|とうちゃく}{時刻|じこく}14:36。"
+      - type: narration
+        text: "D{受付|うけつけ}（{体育館|たいいくかん}{入口|いりぐち}）：アイが{集計|しゅうけい}。ソウタ{到着|とうちゃく}14:30、ケイ{到着|とうちゃく}14:40。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ナナ{到着|とうちゃく}：{記録|きろく}シートには「14:37」——しかしインクで{書|か}き{直|なお}した{跡|あと}がある。"
+
+  # ===== 証拠カード2: 地図と移動時間 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 地図と移動時間の計算
+      - type: narration
+        text: "{受付|うけつけ}ポイント{間|かん}の{距離|きょり}と{移動|いどう}{時間|じかん}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "B{受付|うけつけ}→C{受付|うけつけ}（{道路|どうろ}A・み{通|どお}り・{直通|ちょくつう}）：350m、{徒歩|とほ}{約|やく}5{分|ふん}。——ただし14:05に{火災|かさい}{発生|はっせい}で{通行|つうこう}{禁止|きんし}！"
+      - type: narration
+        text: "B{受付|うけつけ}→C{受付|うけつけ}（{道路|どうろ}B・さくら{通|どお}り・{迂回|うかい}）：550m、{徒歩|とほ}{約|やく}8{分|ふん}。"
+      - type: narration
+        text: "C{受付|うけつけ}→D{受付|うけつけ}（{体育館|たいいくかん}{入口|いりぐち}）：150m、{徒歩|とほ}{約|やく}2{分|ふん}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{歩行|ほこう}{速度|そくど}——{小学生|しょうがくせい}（{通常|つうじょう}）：{約|やく}70m/{分|ふん}。{高齢者|こうれいしゃ}（{足|あし}が{不自由|ふじゆう}）：{約|やく}30m/{分|ふん}。"
+      - type: narration
+        text: "ナナがB{受付|うけつけ}を14:30に出て、{迂回|うかい}ルートを{通|とお}れば——C{受付|うけつけ}に14:38、D{受付|うけつけ}に14:40が{最短|さいたん}のはず。{記録|きろく}の「14:37」は{可能|かのう}な{時刻|じこく}？"
+
+  # ===== 証拠カード3: ケイの経路確認 + ソウタの名簿メモ =====
+  - id: evidence-3
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ケイの経路確認とソウタの名簿メモ
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれは14:28ごろ「み{通|どお}り」の{状態|じょうたい}を{確認|かくにん}した。{火災|かさい}{発生中|はっせいちゅう}で{通行|つうこう}{不可|ふか}。{代替|だいたい}ルートは{道路|どうろ}B（さくら{通|どお}り）。ウエノ{先生|せんせい}に{報告|ほうこく}{済|ず}みだ。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souta
+        text: "ぼくはシミュレーション{前日|ぜんじつ}にX{市|し}の{要支援者|ようしえんしゃ}{名簿|めいぼ}を{確認|かくにん}した。{登録|とうろく}{人数|にんずう}13{名|めい}、{全員|ぜんいん}の{住所|じゅうしょ}と{連絡先|れんらくさき}を{地図|ちず}に{記入|きにゅう}した。ただ……{名簿|めいぼ}{以外|いがい}の{要支援者|ようしえんしゃ}については{確認|かくにん}しなかった。"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ケイの{報告|ほうこく}——{火災|かさい}で{道路|どうろ}Aは{通行|つうこう}{不可|ふか}。ナナがB{受付|うけつけ}を{出|で}たのは{火災|かさい}{発生|はっせい}{後|ご}。{必|かなら}ず{迂回|うかい}ルートを{通|とお}るしかない。"
+
+  # ===== 証拠カード4: アイの到着記録メモ + 地図距離データ =====
+  - id: evidence-4
+    bgm: disaster-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: アイの到着記録メモ
+      - type: sprite
+        character: ai
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたしのD{受付|うけつけ}{記録|きろく}メモ——ソウタ{到着|とうちゃく}14:30。ケイ{到着|とうちゃく}14:40。そしてナナ{到着|とうちゃく}は——"
+      - type: dialog
+        character: ai
+        text: "わたしの{時計|とけい}では{確実|かくじつ}に「14:47」だった。{記録|きろく}シートには「14:37」って{書|か}いてあるけど、10{分|ぷん}ズレてる。"
+        expression: surprised
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "{地図|ちず}{距離|きょり}{詳細|しょうさい}——B{受付|うけつけ}→タカギさん{宅|たく}：{約|やく}50m（B{受付|うけつけ}の{近|ちか}く）。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "ナナは14:30にB{受付|うけつけ}を出て、{迂回|うかい}ルート（550m、{約|やく}8{分|ふん}）を{通|とお}ればD{受付|うけつけ}着は14:40のはず。でも{実際|じっさい}は14:47——7{分|ふん}も{余計|よけい}にかかっている。なぜ？"
+
+  # ===== 投票1: 犯人特定 =====
+  - id: questions
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しましょう。{記録|きろく}シートのナナの{到着|とうちゃく}{時刻|じこく}を「14:47」から「14:37」に{書|か}き{換|か}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 避難完了の記録を書き換えたのは誰？
+        options:
+          - text: ソウタ（A受付担当。D受付に14:30到着）
+            value: souta
+            feedback: ソウタはA受付担当で、D受付に14:30に到着した。記録シートと一致していて矛盾はない。書き換えの動機もないよ。
+          - text: ナナ（巡回担当。記録の到着時刻にズレがある）
+            value: nana
+            feedback: 正解！ アイの記録「14:47」と記録シートの「14:37」に10分のズレ。ナナは自分の到着が遅れたことを隠すために書き換えた。でも——なぜ遅れたのだろう？
+          - text: ケイ（C受付担当。火災で迂回ルートを報告）
+            value: kei
+            feedback: ケイはC受付に14:36到着、D受付に14:40到着。記録どおりで矛盾はない。書き換える理由もないよ。
+          - text: アイ（D受付の集計管理。到着時刻を記録する立場）
+            value: ai
+            feedback: アイは自分のメモに「14:47」と正確に記録している。書き換えたのはアイではなく、記録シートを後から修正した人物だよ。
+
+  # ===== 証拠カード5: パラダイムシフト =====
+  - id: evidence-5
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここで、もう1つの{証拠|しょうこ}——ナナのメモと、タカギさんの{避難|ひなん}{記録|きろく}を{見|み}てください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "ナナのメモ（11{月|がつ}20{日|にち}{夜|よる}、ナナのノートより）——"
+      - type: narration
+        speed: slow
+        text: "「タカギさんは{一人|ひとり}では{動|うご}けないのに、{誰|だれ}の{名前|なまえ}も{書|か}いてなかった。わたしが{一緒|いっしょ}に{行|い}かなかったら、この{人|ひと}は{間|ま}に{合|あ}わなかった」"
+      - type: narration
+        text: "「でも{先生|せんせい}に{正直|しょうじき}に{言|い}えなかった。{本当|ほんとう}は{話|はな}せばよかった。ごめんなさい」"
+      - type: wait
+        duration: 1500
+      - type: narration
+        text: "タカギさんの{避難|ひなん}{記録|きろく}——タカギさん（83{歳|さい}・さくら{町|ちょう}1{丁目|ちょうめ}）。B{地点|ちてん}（{公民館|こうみんかん}{付近|ふきん}）からナナと{一緒|いっしょ}に{体育館|たいいくかん}に{到着|とうちゃく}。{到着|とうちゃく}{時刻|じこく}14:47ごろ。{足|あし}が{不自由|ふじゆう}だが{無事|ぶじ}に{到着|とうちゃく}。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "X{市|し} {地域|ちいき}{防災|ぼうさい}マップ {要支援者|ようしえんしゃ}{登録|とうろく}{欄|らん}——さくら{町|ちょう}1{丁目|ちょうめ} タカギさん（83{歳|さい}）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{要支援者|ようしえんしゃ}{登録|とうろく}：【{未登録|みとうろく}】——{登録|とうろく}{申請書|しんせいしょ}の{提出|ていしゅつ}がなかったため{未登録|みとうろく}。{本人|ほんにん}は{制度|せいど}を{知|し}らなかった{可能性|かのうせい}あり。"
+      - type: narration
+        text: "ナナは{記録|きろく}を{書|か}き{換|か}えた。でもその{理由|りゆう}は——{一人|ひとり}では{逃|に}げられないタカギさんを{見捨|みす}てられなかったから。"
+
+  # ===== 投票2: 防災の本質 =====
+  - id: judgment
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナナの{行為|こうい}は{規則|きそく}{違反|いはん}。でもナナが{問|と}いかけたことを、みんなで{考|かんが}えてみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q2
+        question: 防災で一番大事なのは何だろう？
+        feedback_default: "この{問|と}いに{正解|せいかい}はない。{大事|だいじ}なのは「{自分|じぶん}がどう{考|かんが}えるか」を{持|も}つこと。{備|そな}えも{知識|ちしき}もつながりも——{全部|ぜんぶ}が{防災|ぼうさい}の{柱|はしら}。"
+        options:
+          - text: "{備蓄|びちく}・{避難|ひなん}{経路|けいろ}を{完璧|かんぺき}に{準備|じゅんび}すること"
+            value: prepare
+          - text: "{地域|ちいき}の{人|ひと}とのつながりを{作|つく}ること"
+            value: community
+          - text: "{正確|せいかく}な{防災|ぼうさい}{知識|ちしき}を{身|み}につけること"
+            value: knowledge
+          - text: "{答|こた}えは{一|ひと}つじゃない（{全部|ぜんぶ}{大事|だいじ}）"
+            value: all
+      - type: narration
+        speed: slow
+        text: "{防災|ぼうさい}の3{本柱|ほんばしら}——{自助|じじょ}（{個人|こじん}の{備|そな}え）、{公助|こうじょ}（{行政|ぎょうせい}の{支援|しえん}）、{共助|きょじょ}（{地域|ちいき}{住民|じゅうみん}どうしの{助|たす}け{合|あ}い）。3つが{揃|そろ}ってはじめて{命|いのち}を{守|まも}れる。"
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 「つながり」がなかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソウタの後ろめたさ
+  - id: truth-souta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souta
+        expression: worried
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは{事前|じぜん}に{要支援者|ようしえんしゃ}{名簿|めいぼ}を{確認|かくにん}した。13{名|めい}{全員|ぜんいん}の{場所|ばしょ}を{地図|ちず}に{入|い}れた。でも「{名簿|めいぼ}に{書|か}いてない{人|ひと}はいないのかな」って{疑問|ぎもん}を{持|も}たなかった。"
+      - type: dialog
+        character: souta
+        text: "タカギさんのことを{知|し}る{機会|きかい}はあったかもしれない。「{名簿|めいぼ}に{載|の}ってないから大丈夫」って{思|おも}い{込|こ}んでしまった。"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ケイの後ろめたさ
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "おれはシミュレーション{前日|ぜんじつ}、{地域|ちいき}を{歩|ある}いてルートを{確認|かくにん}した。タカギさんの{家|いえ}の{前|まえ}を{通|とお}ったとき、「{足|あし}が{悪|わる}そうなおじいさんがいるな」って思った。"
+      - type: dialog
+        character: kei
+        text: "でも{報告|ほうこく}しなかった。「{名簿|めいぼ}にいない{人|ひと}は{関係|かんけい}ないだろう」って。おれが{声|こえ}をかけていれば……"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # アイの後ろめたさ
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたしは{準備|じゅんび}{段階|だんかい}で「{要支援者|ようしえんしゃ}の{確認|かくにん}は{別|べつ}の{担当者|たんとうしゃ}がやっているはず」と{思|おも}って、{自分|じぶん}では{確認|かくにん}しなかった。"
+      - type: dialog
+        character: ai
+        text: "データを{記録|きろく}する{側|がわ}にいたのに、{数字|すうじ}だけを見て「{人|ひと}」を見ていなかった。{名簿|めいぼ}の{向|む}こう{側|がわ}にいる{人|ひと}のことを{想像|そうぞう}できていなかった。"
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ナナの真実（クライマックス）
+  - id: truth-nana
+    bgm: disaster-03/truth
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: center
+      - type: narration
+        speed: slow
+        text: "ナナが{静|しず}かに{口|くち}を{開|ひら}いた。"
+      - type: dialog
+        character: nana
+        text: "……わたしが{記録|きろく}を{書|か}き{換|か}えた。"
+      - type: dialog
+        character: nana
+        text: "B{受付|うけつけ}で{確認|かくにん}を{終|お}えて{出発|しゅっぱつ}しようとしたとき、{公民館|こうみんかん}の{近|ちか}くにおじいさんが{立|た}っていた。「どこへ{行|い}けばいいか{分|わ}からない」って。"
+      - type: dialog
+        character: nana
+        text: "タカギさんっていう{方|かた}だった。83{歳|さい}で{足|あし}が{不自由|ふじゆう}。{一人|ひとり}で{歩|ある}くのがやっとだった。{要支援者|ようしえんしゃ}{名簿|めいぼ}にも{載|の}っていなかった。"
+        expression: worried
+      - type: dialog
+        character: nana
+        text: "み{通|どお}りは{火災|かさい}で{通|とお}れない。{迂回|うかい}ルートの550mを、タカギさんと{一緒|いっしょ}にゆっくり{歩|ある}いた。{途中|とちゅう}でボランティアさんに{引|ひ}き{継|つ}いで、{体育館|たいいくかん}には14:47に{着|つ}いた。"
+      - type: dialog
+        character: nana
+        text: "みんなは14:40までに{着|つ}いてた。わたしだけ7{分|ふん}も{遅|おく}れた。「チームに{迷惑|めいわく}をかけた」って{思|おも}って……{記録|きろく}を「14:37」に{書|か}き{直|なお}した。"
+        expression: worried
+      - type: wait
+        duration: 1500
+      - type: dialog
+        character: nana
+        text: "……{正直|しょうじき}に{話|はな}せばよかった。でもあのとき、タカギさんを{一人|ひとり}にはできなかった。"
+        expression: determined
+      - type: sprite
+        character: nana
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ナナに{悪意|あくい}はなかった。「{目|め}の{前|まえ}の{人|ひと}を{見捨|みす}てられなかった」{善意|ぜんい}が、{規則|きそく}{違反|いはん}を{生|う}んだ。しかし{本当|ほんとう}の{問題|もんだい}は——タカギさんが{要支援者|ようしえんしゃ}{名簿|めいぼ}に{載|の}っていなかったこと。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: schoolyard
+    bgm: disaster-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナナ、{話|はな}してくれてありがとう。{記録|きろく}を{書|か}き{換|か}えたことは{間違|まちが}い。でも——ナナだけの{問題|もんだい}ではない。"
+      - type: dialog
+        character: sensei
+        text: "ソウタは{名簿|めいぼ}を{確認|かくにん}したけど「{名簿|めいぼ}にいない{人|ひと}」を{想像|そうぞう}しなかった。ケイはタカギさんを見かけたけど{報告|ほうこく}しなかった。アイは「{別|べつ}の{担当|たんとう}がやっているはず」と{思|おも}った。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{全員|ぜんいん}に{小|ちい}さな「つながりの{不足|ふそく}」があった。タカギさんが{名簿|めいぼ}に{載|の}っていれば——{地域|ちいき}のつながりがあれば——ナナが{一人|ひとり}で{判断|はんだん}する{状況|じょうきょう}にはならなかった。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: determined }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: determined }
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "Vol.1からVol.10まで、10{回|かい}の{旅|たび}をしてきました。"
+      - type: dialog
+        character: sensei
+        text: "Vol.1——{地震|じしん}のとき、{正|ただ}しい{経路|けいろ}で{逃|に}げること。Vol.2——{警報|けいほう}レベルの{意味|いみ}を{知|し}ること。Vol.3——ハザードマップを{正確|せいかく}に{読|よ}むこと。Vol.4——{津波|つなみ}の{速|はや}さを{計算|けいさん}して{早|はや}く{逃|に}げること。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "Vol.5——{煙|けむり}の{動|うご}きを{知|し}って{正|ただ}しい{経路|けいろ}を{選|えら}ぶこと。Vol.6——{土砂|どしゃ}{災害|さいがい}の{前兆|ぜんちょう}を{知|し}ること。Vol.7——{気象|きしょう}データの{空白|くうはく}に{気|き}づくこと。"
+      - type: dialog
+        character: sensei
+        text: "Vol.8——デマに{騙|だま}されず{正|ただ}しい{情報|じょうほう}を{選|えら}ぶこと。Vol.9——{地域|ちいき}のデータを{分析|ぶんせき}して{危険|きけん}な{場所|ばしょ}を{知|し}ること。"
+      - type: dialog
+        character: sensei
+        text: "そして{今日|きょう}——"
+        expression: thinking
+      - type: wait
+        duration: 1500
+      - type: dialog
+        character: sensei
+        text: "{全部|ぜんぶ}できていても。{備蓄|びちく}があっても。{知識|ちしき}があっても。——タカギさんのことを{知|し}らなければ。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{防災|ぼうさい}は「{備|そな}えること」だけではありません。{近|ちか}くにいる{人|ひと}を{知|し}ること。{声|こえ}をかけること。つながりを{作|つく}ること——それが{防災|ぼうさい}の{本質|ほんしつ}のひとつです。"
+        expression: happy
+      - type: wait
+        duration: 1500
+      - type: dialog
+        character: sensei
+        text: "みなさん、10{回|かい}{旅|たび}してくれてありがとう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: happy }
+          - { id: nana, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: ai, expression: happy }
+      - type: narration
+        text: "4人は{顔|かお}を{見合|みあ}わせた。{避難|ひなん}{記録|きろく}のズレから{始|はじ}まった{最後|さいご}の{事件|じけん}は、「{防災|ぼうさい}とは何か」という{問|と}いにたどり{着|つ}いた。"
+      - type: narration
+        speed: slow
+        text: "{備|そな}えること。{知|し}ること。そして——つながること。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{防災|ぼうさい}{探偵|たんてい}団——Vol.1からVol.10、{全|ぜん}10{巻|かん}の{旅|たび}、{完結|かんけつ}。"
+      - type: effect
+        name: fade-out
+        duration: 2000
