@@ -1,0 +1,502 @@
+meta:
+  id: programming-10
+  title: プログラムが止まった日
+  series: バグ探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  issei:
+    name: イッセイ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kouhei:
+    name: コウヘイ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  suzuka:
+    name: スズカ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  chinatsu:
+    name: チナツ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "{参観日|さんかんび}の{発表会|はっぴょうかい}——プログラミングクラブが作った「お{掃除|そうじ}ロボットシミュレーション」を{保護者|ほごしゃ}の{前|まえ}で{実演|じつえん}。テストではうまく{動|うご}いたのに——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: chinatsu
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: chinatsu
+        text: "ロボットが{教室|きょうしつ}の{真|ま}ん中で{止|と}まった！ {動|うご}かない！ {保護者|ほごしゃ}の{前|まえ}で……！"
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "テストでは{動|うご}いたのに{本番|ほんばん}で{止|と}まった。なぜ？ 4人の{命令|めいれい}を{調|しら}べて、{原因|げんいん}を{突|つ}き{止|と}めよう。でも——{本当|ほんとう}の{問題|もんだい}は「{誰|だれ}のバグ」だけじゃないかもしれないよ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: issei, expression: thinking }
+          - { id: kouhei, expression: worried }
+          - { id: suzuka, expression: thinking }
+          - { id: chinatsu, expression: worried }
+      - type: narration
+        text: "4人{全員|ぜんいん}が{困惑|こんわく}している。テストでは{完璧|かんぺき}だったのに。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.10
+        subtitle: プログラムが止まった日
+
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{担当|たんとう}{命令|めいれい}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: issei
+        expression: normal
+        position: left
+      - type: dialog
+        character: issei
+        text: "ぼくは{前進|ぜんしん}・{後退|こうたい}{担当|たんとう}。ログを{確認|かくにん}したけど、ぼくの{命令|めいれい}は{正常|せいじょう}に{動|うご}いてた。{停止|ていし}{直前|ちょくぜん}のログが気になる。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        expression: normal
+        position: right
+      - type: dialog
+        character: kouhei
+        text: "おれは{方向|ほうこう}{転換|てんかん}{担当|たんとう}。テストのときは{机|つくえ}を{端|はし}に{寄|よ}せてたから{広|ひろ}かった。でも{今日|きょう}は{保護者|ほごしゃ}の{椅子|いす}があって{机|つくえ}が{寄|よ}ってる。"
+      - type: dialog
+        character: kouhei
+        text: "……テストし{直|なお}すべきだったかも。"
+        expression: worried
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        expression: normal
+        position: left
+      - type: dialog
+        character: suzuka
+        text: "あたしは{障害物|しょうがいぶつ}{検知|けんち}{担当|たんとう}。{椅子|いす}を{検知|けんち}したら「{方向|ほうこう}{転換|てんかん}せよ」と{命令|めいれい}を出す。ロボットが{止|と}まった{場所|ばしょ}で、あたしの{命令|めいれい}も出てたと{思|おも}う。"
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        expression: normal
+        position: right
+      - type: dialog
+        character: chinatsu
+        text: "わたしは{停止|ていし}{条件|じょうけん}{担当|たんとう}。{安全|あんぜん}のために「{机|つくえ}と{机|つくえ}の{間隔|かんかく}が30cm{以下|いか}なら{停止|ていし}」って{設定|せってい}した。{今日|きょう}の{机|つくえ}の{間隔|かんかく}は25cm……{条件|じょうけん}が{発動|はつどう}したかもしれない。"
+        expression: worried
+      - type: sprite
+        character: chinatsu
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 事件の記録
+      - type: narration
+        text: "ロボットの{動|うご}き——①スタートから{前進|ぜんしん}→{正常|せいじょう}。②{障害物|しょうがいぶつ}（{椅子|いす}）{検知|けんち}→{方向|ほうこう}{転換|てんかん}→{正常|せいじょう}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "③{教室|きょうしつ}の{真|ま}ん中、{机|つくえ}Aと{机|つくえ}Bの{間|あいだ}で——{突然|とつぜん}{停止|ていし}！ {動|うご}かなくなった。"
+      - type: narration
+        text: "バッテリーは{十分|じゅうぶん}。プログラムはフリーズしていない。ロボットは「{停止|ていし}{状態|じょうたい}」で{固|かた}まっている。"
+      - type: narration
+        text: "{先週|せんしゅう}のテストでは{動|うご}いた。{今日|きょう}の{本番|ほんばん}で{止|と}まった。テストと{本番|ほんばん}で何が変わった？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 教室の配置図
+      - type: narration
+        text: "テスト{時|じ}の{配置|はいち}——{机|つくえ}を{全部|ぜんぶ}{端|はし}に{寄|よ}せた。{机|つくえ}の{間隔|かんかく}：1m{以上|いじょう}。{広|ひろ}い{空間|くうかん}でロボットが{自由|じゆう}に{動|うご}ける。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{発表会|はっぴょうかい}の{配置|はいち}——{保護者|ほごしゃ}の{椅子|いす}を入れるため{机|つくえ}を{寄|よ}せた。{机|つくえ}Aと{机|つくえ}Bの{間隔|かんかく}：25cm！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "チナツの{停止|ていし}{条件|じょうけん}は「30cm{以下|いか}で{停止|ていし}」。テスト{時|じ}は{間隔|かんかく}1m{以上|いじょう}→{条件|じょうけん}は{発動|はつどう}しない。{発表会|はっぴょうかい}は{間隔|かんかく}25cm→{条件|じょうけん}{発動|はつどう}！"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ロボットの動作ログ
+      - type: sprite
+        character: issei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: issei
+        text: "{停止|ていし}{直前|ちょくぜん}5{秒間|びょうかん}のログを見てくれ。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: narration
+        text: "10:23:12——{障害物|しょうがいぶつ}{検知|けんち}「{前方|ぜんぽう}50cmに{椅子|いす}」→ {方向|ほうこう}{転換|てんかん}を{要求|ようきゅう}。"
+      - type: narration
+        text: "10:23:13——{方向|ほうこう}{転換|てんかん}「{右|みぎ}に90{度|ど}{回転|かいてん}」→ {実行|じっこう}{開始|かいし}。"
+      - type: narration
+        text: "10:23:13——{障害物|しょうがいぶつ}{検知|けんち}「{左方|さほう}25cmに{机|つくえ}A」→ {停止|ていし}を{要求|ようきゅう}。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "10:23:13——{停止|ていし}{条件|じょうけん}B「{間隔|かんかく}25cm ≤ 30cm」→ {停止|ていし}を{実行|じっこう}！ {方向|ほうこう}{転換|てんかん}と{競合|きょうごう}！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "10:23:13に3つの{命令|めいれい}が{同時|どうじ}に出た！ {方向|ほうこう}{転換|てんかん}（コウヘイ）・{障害物|しょうがいぶつ}→{停止|ていし}{要求|ようきゅう}（スズカ）・{停止|ていし}{条件|じょうけん}B{発動|はつどう}（チナツ）。ロボットは「{止|と}まるべきか{回|まわ}るべきか」{判断|はんだん}できず{停止|ていし}した。"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 命令の競合情報
+      - type: sprite
+        character: suzuka
+        expression: thinking
+        position: right
+      - type: dialog
+        character: suzuka
+        text: "あたしの{障害物|しょうがいぶつ}{検知|けんち}が「{方向|ほうこう}{転換|てんかん}せよ」と出した。{同時|どうじ}にチナツの{停止|ていし}{条件|じょうけん}も「{停止|ていし}せよ」と出した。ロボットは「{回|まわ}るべきか{止|と}まるべきか」が{分|わ}からなくなった。"
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        expression: worried
+        position: left
+      - type: dialog
+        character: chinatsu
+        text: "{停止|ていし}{条件|じょうけん}は{安全|あんぜん}のために{設定|せってい}した。{狭|せま}い{隙間|すきま}に{挟|はさ}まらないように。{設計|せっけい}としては正しいと{思|おも}う。{問題|もんだい}は{本番|ほんばん}の{配置|はいち}でテストしなかったことじゃない？"
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "先生に{確認|かくにん}——4人はそれぞれの{命令|めいれい}を{独立|どくりつ}に作った。「{複数|ふくすう}の{命令|めいれい}が{同時|どうじ}に来たらどれを{優先|ゆうせん}するか」は{決|き}めていなかった！"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "プログラム{全体|ぜんたい}を{分析|ぶんせき}しました。{驚|おどろ}く{結果|けっか}があります。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "先生の{分析|ぶんせき}——「もし{停止|ていし}{条件|じょうけん}Bがなかったとしても、ロボットは正しく{動|うご}けませんでした」"
+      - type: narration
+        text: "「スズカの{障害物|しょうがいぶつ}{検知|けんち}が{方向|ほうこう}{転換|てんかん}を出し、コウヘイの{命令|めいれい}で{右|みぎ}に{回転|かいてん}。でも{右|みぎ}にも{机|つくえ}があるので、また{障害物|しょうがいぶつ}{検知|けんち}が{発動|はつどう}。{永遠|えいえん}に{回転|かいてん}し{続|つづ}ける——ループになります」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「{本当|ほんとう}の{問題|もんだい}は2つ。①テスト{環境|かんきょう}と{本番|ほんばん}{環境|かんきょう}が{違|ちが}った。②{命令|めいれい}の{優先|ゆうせん}{順位|じゅんい}を{決|き}めていなかった」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「これはチナツだけのバグではありません。4人{全員|ぜんいん}の{設計|せっけい}の{問題|もんだい}です」"
+      - type: narration
+        text: "——「{誰|だれ}のバグ？」と{考|かんが}えていた{推理|すいり}の{枠組|わくぐ}みが変わった。{本当|ほんとう}の{問題|もんだい}は「{全体|ぜんたい}{設計|せっけい}」にあった。これがパラダイムシフト。"
+
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "2つの{質問|しつもん}に{答|こた}えてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ロボットを直接止めた「表面の原因」は誰の命令？
+        options:
+          - text: チナツ（停止条件B「30cm以下で停止」が発動した）
+            value: chinatsu
+            feedback: 正解！ チナツの停止条件Bが直接の原因。机の間隔25cm≤30cmで発動した。でも本当の問題はこれだけじゃない——次の質問へ。
+          - text: スズカ（障害物検知が停止を要求した）
+            value: suzuka
+            feedback: スズカの障害物検知は「方向転換せよ」と出した。「停止せよ」と出したのはチナツの条件B。直接止めたのはチナツの命令だよ。
+          - text: コウヘイ（方向転換が競合した）
+            value: kouhei
+            feedback: コウヘイの方向転換は「右に90度回転」を出した。停止命令と競合したけど、直接「止めた」のはチナツの条件Bだよ。
+          - text: イッセイ（前進命令が出なかった）
+            value: issei
+            feedback: イッセイの前進は正常に動いていた。停止したのは前進の問題ではなく、停止条件Bの発動だよ。
+      - type: choice
+        id: q2
+        question: では「本当の問題」は何だった？
+        options:
+          - text: 命令の優先順位を決めていなかった＋テスト環境と本番環境が違った（全員の設計問題）
+            value: integration
+            feedback: 正解！ 個別の命令は正しくても、組み合わせると問題が起きる。優先順位を決めず、本番環境でテストもしなかった。これは4人全員の設計の問題。
+          - text: チナツの停止条件が厳しすぎた
+            value: too-strict
+            feedback: 停止条件は安全のために必要。問題は条件の厳しさではなく「複数の命令が同時に来たときのルール」がなかったこと。
+          - text: テストが不十分だった
+            value: test-only
+            feedback: テスト不足も問題の一つだけど、本質は「命令の優先順位を決めていなかった」という設計の不備。テストだけ増やしても優先順位がないと同じ問題が起きる。
+          - text: 保護者が机の配置を変えたのが悪い
+            value: parents
+            feedback: 環境が変わることは想定すべき。「テストと本番が同じとは限らない」ことを前提に設計するのがプログラマーの責任だよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 個別に正しくても、組み合わせると——
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-issei
+    bg: classroom
+    steps:
+      - type: sprite
+        character: issei
+        expression: worried
+        position: left
+      - type: dialog
+        character: issei
+        text: "ぼくはログを{分析|ぶんせき}して3{命令|めいれい}の{同時|どうじ}{発動|はつどう}に気づいてた。でも「{自分|じぶん}のパートは{正常|せいじょう}」って{安心|あんしん}して、{全体|ぜんたい}を見なかった。"
+      - type: sprite
+        character: issei
+        action: hide
+
+  - id: truth-kouhei
+    steps:
+      - type: sprite
+        character: kouhei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kouhei
+        text: "おれはテストと{本番|ほんばん}の{机|つくえ}{配置|はいち}が{違|ちが}うことに気づいてた。「まあ大丈夫だろう」って{思|おも}ってテストし{直|なお}さなかった。これが一番{大|おお}きな{反省|はんせい}。"
+      - type: sprite
+        character: kouhei
+        action: hide
+
+  - id: truth-suzuka
+    steps:
+      - type: sprite
+        character: suzuka
+        expression: worried
+        position: left
+      - type: dialog
+        character: suzuka
+        text: "あたしは{頭|あたま}の中で{命令|めいれい}の{競合|きょうごう}をシミュレーションして「{全体|ぜんたい}{設計|せっけい}の{問題|もんだい}だ」と気づいてた。でもみんなに{言|い}い出せなかった。「{自分|じぶん}のパートは{正|ただ}しいから」って。"
+      - type: sprite
+        character: suzuka
+        action: hide
+
+  - id: truth-chinatsu
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: chinatsu
+        expression: worried
+        position: center
+      - type: dialog
+        character: chinatsu
+        text: "わたしの{停止|ていし}{条件|じょうけん}が{直接|ちょくせつ}の{原因|げんいん}。{安全|あんぜん}のために{設定|せってい}したけど、{本番|ほんばん}の{環境|かんきょう}で{確認|かくにん}しなかった。"
+      - type: dialog
+        character: chinatsu
+        text: "でも先生の{分析|ぶんせき}で分かった。わたしの{条件|じょうけん}がなくても、{命令|めいれい}の{競合|きょうごう}でループになっていた。{本当|ほんとう}の{問題|もんだい}はわたし一人のバグじゃない。"
+        expression: worried
+      - type: dialog
+        character: chinatsu
+        text: "4人がそれぞれ{独立|どくりつ}に作ったけど、「{組|く}み合わせたらどうなるか」を{誰|だれ}も{確認|かくにん}しなかった。{優先|ゆうせん}{順位|じゅんい}も{決|き}めなかった。——{全員|ぜんいん}の{責任|せきにん}だ。"
+        expression: determined
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{個別|こべつ}に正しい{命令|めいれい}でも、{組|く}み合わせると{予想外|よそうがい}の{動|うご}きをする。「テストで{動|うご}いた＝正しい」は{思|おも}い{込|こ}みだった。{本当|ほんとう}の{問題|もんだい}は「{全体|ぜんたい}{設計|せっけい}の{不備|ふび}」——4人{全員|ぜんいん}の{責任|せきにん}。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{今日|きょう}の{事件|じけん}は「{誰|だれ}が{悪|わる}い」ではなかった。{全員|ぜんいん}の{設計|せっけい}の{問題|もんだい}だった。"
+      - type: dialog
+        character: sensei
+        text: "3つの学び——①{命令|めいれい}の{優先|ゆうせん}{順位|じゅんい}を{決|き}める。②テスト{環境|かんきょう}と{本番|ほんばん}{環境|かんきょう}を{合|あ}わせる。③{個別|こべつ}テストだけでなく{統合|とうごう}テストをする。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そしてVol.1からVol.10を{振|ふ}り{返|かえ}ろう。{消去法|しょうきょほう}、パターン{認識|にんしき}、{条件|じょうけん}{分岐|ぶんき}、{変数|へんすう}の{制御|せいぎょ}、ループ{検出|けんしゅつ}、{全探索|ぜんたんさく}、{演繹法|えんえきほう}、アルゴリズム的{思考|しこう}、{帰納法|きのうほう}——そして{今日|きょう}の{複合|ふくごう}{推理|すいり}とメタ{認知|にんち}。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "「プログラムのバグを{見|み}つける{力|ちから}」は、「{情報|じょうほう}を整理し、パターンを{見|み}つけ、{仮説|かせつ}を{立|た}て、{検証|けんしょう}し、{自分|じぶん}の{思|おも}い{込|こ}みを{疑|うたが}う{力|ちから}」。これはプログラミングだけでなく、すべての学びに使える{推理力|すいりりょく}です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: issei, expression: determined }
+          - { id: kouhei, expression: determined }
+          - { id: suzuka, expression: determined }
+          - { id: chinatsu, expression: determined }
+      - type: narration
+        text: "ロボットは{修正|しゅうせい}された。{命令|めいれい}の{優先|ゆうせん}{順位|じゅんい}が{設定|せってい}され、{本番|ほんばん}{環境|かんきょう}で{統合|とうごう}テスト。——{今度|こんど}こそ{完璧|かんぺき}に{動|うご}いた。"
+      - type: narration
+        speed: slow
+        text: "バグ{探偵|たんてい}団——Vol.1からVol.10まで、10{個|こ}の{推理|すいり}スキルを{身|み}につけた。「バグを{見|み}つける{力|ちから}」は「{世界|せかい}を{正|ただ}しく{理解|りかい}する{力|ちから}」。その{力|ちから}は、{一生|いっしょう}の{宝物|たからもの}だ。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——プログラムが{止|と}まった日、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
