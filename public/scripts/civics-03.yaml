@@ -1,0 +1,488 @@
+meta:
+  id: civics-03
+  title: 予算のすり替え
+  series: 公民探偵団
+  volume: 3
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}の{文化祭|ぶんかさい}{実行|じっこう}{委員会|いいんかい}が「{予算|よさん}{報告書|ほうこくしょ}」を{提出|ていしゅつ}した。"
+      - type: narration
+        text: "{承認|しょうにん}された{総|そう}{予算|よさん}は2{万|まん}円。ところが{報告書|ほうこくしょ}の{合計|ごうけい}は——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: sora
+        text: "2{万|まん}2{千|せん}円！？ {承認|しょうにん}{額|がく}は2{万|まん}円のはずなのに、2{千|せん}円{多|おお}い！ どこかに「{隠|かく}れた{支出|ししゅつ}」が{紛|まぎ}れ{込|こ}んでる。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{予算|よさん}の{組|く}み立て方を知らないと{矛盾|むじゅん}に気づけません。{誰|だれ}が、なぜ{予算|よさん}を{超過|ちょうか}したのか——{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: normal }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: thinking }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "ハルキが{計算|けいさん}する{手|て}を{止|と}めた。{一瞬|いっしゅん}だけ{目|め}が{泳|およ}いだ。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.3
+        subtitle: 予算のすり替え
+
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくが{会計|かいけい}{担当|たんとう}。{予算案|よさんあん}の{承認|しょうにん}から{報告書|ほうこくしょ}の{作成|さくせい}まで{全部|ぜんぶ}やった。{計算|けいさん}ミスかもしれない、もう{一度|いちど}{確認|かくにん}しよう。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: "{文化祭|ぶんかさい}の{飾|かざ}りがすごくきれいだったよね！ {当初|とうしょ}の{計画|けいかく}より{豪華|ごうか}だった気がする。{誰|だれ}があんなに{頑張|がんば}ったの？"
+        expression: happy
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれは{物資|ぶっし}{管理|かんり}{担当|たんとう}。{倉庫|そうこ}の{在庫|ざいこ}を{数|かぞ}えたんだけど、{飾|かざ}り物の{数|かず}が{計画|けいかく}より{多|おお}かった。13{個|こ}も{多|おお}い。"
+        expression: thinking
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: normal
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは{予算|よさん}{規則|きそく}を{確認|かくにん}した。{承認|しょうにん}された{費目|ひもく}{以外|いがい}の{支出|ししゅつ}は「{追加|ついか}{申請|しんせい}」が{必要|ひつよう}。でも{報告書|ほうこくしょ}の「{雑費|ざっぴ}」って{費目|ひもく}、{予算案|よさんあん}にはなかったぞ。"
+        expression: determined
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 承認済み予算案
+      - type: narration
+        text: "{承認|しょうにん}{済|ず}み{予算案|よさんあん}——{文化祭|ぶんかさい}{実行|じっこう}{委員会|いいんかい}。"
+      - type: narration
+        text: "{飾|かざ}り物：8,000円。{印刷費|いんさつひ}：3,000円。{材料費|ざいりょうひ}：5,000円。{音響|おんきょう}{機材|きざい}レンタル：4,000円。"
+      - type: narration
+        text: "{合計|ごうけい}：20,000円。{備考|びこう}：「{承認|しょうにん}された{費目|ひもく}{以外|いがい}の{支出|ししゅつ}は{追加|ついか}{申請|しんせい}が{必要|ひつよう}」"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 実際の支出報告書
+      - type: narration
+        text: "{支出|ししゅつ}{報告書|ほうこくしょ}——{作成者|さくせいしゃ}：ハルキ（{会計|かいけい}{担当|たんとう}）。"
+      - type: narration
+        text: "{飾|かざ}り物：10,000円（{領収書|りょうしゅうしょ}あり）。{印刷費|いんさつひ}：3,000円。{材料費|ざいりょうひ}：5,000円。{音響|おんきょう}{機材|きざい}：4,000円。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{雑費|ざっぴ}：2,000円（{領収書|りょうしゅうしょ}❌なし）。{合計|ごうけい}：22,000円！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{予算案|よさんあん}には「{雑費|ざっぴ}」という{費目|ひもく}がない。{承認|しょうにん}されていない2,000円が{紛|まぎ}れ{込|こ}んでいる。しかも{領収書|りょうしゅうしょ}がない。"
+
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 倉庫の飾り物在庫記録
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれが{倉庫|そうこ}の{在庫|ざいこ}を{数|かぞ}えた{記録|きろく}だ。"
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        text: "{計画|けいかく}{数量|すうりょう}：40{個|こ}。{実際|じっさい}に使った{数|かず}＋{倉庫|そうこ}{残|のこ}り：53{個|こ}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{差|さ}：13{個|こ}{多|おお}い！ 13{個|こ} × {平均|へいきん}150円 ≒ 約2,000円。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{差額|さがく}の2,000円は{飾|かざ}り物の{追加|ついか}{購入|こうにゅう}{分|ぶん}。{誰|だれ}が{買|か}い{足|た}した？"
+
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: お店の購入記録
+      - type: narration
+        text: "「はなの{雑貨|ざっか}店」の{購入|こうにゅう}{記録|きろく}——"
+      - type: narration
+        text: "{文化祭|ぶんかさい}{前日|ぜんじつ}の16:00〜17:00。{客|きゃく}：{小学生|しょうがくせい}の{男|おとこ}の子（1人）。{購入|こうにゅう}品：{風船|ふうせん}5{袋|ふくろ}、ペーパーフラワー3{袋|ふくろ}、ガーランド2{袋|ふくろ}。"
+      - type: narration
+        text: "{合計|ごうけい}：2,000円（{税|ぜい}{込|こ}み）。{現金|げんきん}{払|ばら}い。「{学校|がっこう}の{文化祭|ぶんかさい}に使います」と{言|い}っていた。さくら{小|しょう}の{制服|せいふく}を着ていた。"
+      - type: narration
+        text: "{文化祭|ぶんかさい}{前日|ぜんじつ}に、さくら{小|しょう}の{男|おとこ}の子が2,000円{分|ぶん}の{飾|かざ}りを{買|か}った——{誰|だれ}だ？"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルキの{机|つくえ}から2{枚|まい}のレシートとメモが{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "レシート1{枚|まい}目——{文具|ぶんぐ}店ぶんぐや。{飾|かざ}り物8,000円。これが{当初|とうしょ}{購入|こうにゅう}{分|ぶん}の{領収書|りょうしゅうしょ}。"
+      - type: narration
+        text: "レシート2{枚|まい}目——はなの{雑貨|ざっか}店。{風船|ふうせん}・ペーパーフラワー・ガーランド。2,000円。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "そしてハルキのノートのメモ——「もっと{豪華|ごうか}にしたかった。みんなに{喜|よろこ}んでほしかった。2,000円、どう{報告|ほうこく}しよう…… {雑費|ざっぴ}って{書|か}けばバレないかな」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ハルキが{承認|しょうにん}なしで2,000円{分|ぶん}の{飾|かざ}りを{追加|ついか}{購入|こうにゅう}し、「{雑費|ざっぴ}」として{隠|かく}していた。"
+
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{承認|しょうにん}なしで{予算|よさん}を{超過|ちょうか}し、{雑費|ざっぴ}で{隠|かく}したのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 承認なしで2,000円を超過支出し、「雑費」として隠したのは誰？
+        options:
+          - text: ハルキ（会計担当。はなの雑貨店のレシートとメモが机から発見）
+            value: haruki
+            feedback: 正解！ ハルキは「みんなに喜んでほしかった」善意で追加購入したが、承認なしの超過支出を「雑費」で隠した。
+          - text: ミオ（飾りが豪華だったことを褒めていた）
+            value: mio
+            feedback: ミオは飾りを褒めただけ。購入記録の「男の子」とも一致しない。会計担当でもないよ。
+          - text: ケンタ（倉庫で飾りの数が多いことに気づいた）
+            value: kenta
+            feedback: ケンタは在庫を数えた側。追加購入したのではなく、差額を発見する証拠を持ってきた人だよ。
+          - text: ソラ（予算規則に詳しい）
+            value: sora
+            feedback: ソラは「雑費は正式な費目ではない」と指摘した側。予算超過を隠す理由がないよ。
+      - type: choice
+        id: q2
+        question: ハルキの行動のどこが問題だった？
+        options:
+          - text: 承認なしで予算を超過し、架空の費目で隠したこと
+            value: transparency
+            feedback: 正解！ 予算は「承認された範囲で使う」が原則。善意でも承認なしの超過支出は透明性の原則に反する。さらに「雑費」で隠したことが問題を大きくした。
+          - text: 飾り物を買いすぎたこと
+            value: too-much
+            feedback: 買いすぎ自体も問題だけど、本質は「承認なしに使い、隠したこと」。追加申請という正しい手続きがあったのに使わなかった点が核心だよ。
+          - text: 計算を間違えたこと
+            value: math-error
+            feedback: ハルキは計算ミスではなく、意図的に「雑費2,000円」を追加した。メモにも「雑費って書けばバレないかな」と書いてある。
+          - text: 自分のお小遣いを使ったこと
+            value: own-money
+            feedback: 自分のお金でも、公的な予算に混ぜて報告すると「公のお金」として扱われる。問題は「承認の手続き」を踏まなかったこと。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: みんなに喜んでほしかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+      - type: dialog
+        character: mio
+        text: "わたしも「{飾|かざ}りがきれい！ すごい！」って{褒|ほ}めちゃった。{間接的|かんせつてき}にハルキの{追加|ついか}{購入|こうにゅう}を{肯定|こうてい}してたかもしれない。"
+      - type: sprite
+        character: mio
+        action: hide
+
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+      - type: dialog
+        character: kenta
+        text: "おれ、ハルキが{倉庫|そうこ}に{大|おお}きな{袋|ふくろ}を{持|も}ち{込|こ}んでるのを見たのに、{声|こえ}をかけなかった。「何か{用|よう}があるんだろう」って{流|なが}した。"
+      - type: sprite
+        character: kenta
+        action: hide
+
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "ぼくは{予算|よさん}{規則|きそく}の{存在|そんざい}を知っていたけど、「{文化祭|ぶんかさい}が{成功|せいこう}することが大事」って思って{確認|かくにん}を{怠|おこた}ってた。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: truth-haruki
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ハルキがゆっくりと{口|くち}を{開|ひら}いた。"
+      - type: dialog
+        character: haruki
+        text: "……ぼくが{追加|ついか}で{買|か}った。"
+        expression: worried
+      - type: dialog
+        character: haruki
+        text: "{予算|よさん}の8,000円で{飾|かざ}りを{買|か}ったあと、「もっと{豪華|ごうか}にしたい」って思ったんだ。みんなが「すごい！」って{喜|よろこ}ぶ{顔|かお}が見たかった。"
+      - type: dialog
+        character: haruki
+        text: "だから{放課後|ほうかご}にはなの{雑貨|ざっか}店で2,000円{分|ぶん}、{追加|ついか}で{買|か}った。{自分|じぶん}のお{小遣|こづか}いで。"
+        expression: worried
+      - type: dialog
+        character: haruki
+        text: "でも{承認|しょうにん}なしで{使|つか}ったことがバレるのが{怖|こわ}くて……「{雑費|ざっぴ}」って{費目|ひもく}を作って{報告書|ほうこくしょ}に{入|い}れた。{領収書|りょうしゅうしょ}は出さなかった。"
+      - type: dialog
+        character: haruki
+        text: "みんなに{喜|よろこ}んでほしかった。でも……{隠|かく}したことで、もっと大きな{問題|もんだい}になってしまった。ごめん。"
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ハルキに{悪意|あくい}はなかった。「みんなのために」という{善意|ぜんい}だった。でも{承認|しょうにん}なしの{超過|ちょうか}{支出|ししゅつ}は、{予算|よさん}の{透明性|とうめいせい}を{損|そこ}なう{行為|こうい}だった。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルキ、正直に話してくれてありがとう。「みんなに{喜|よろこ}んでほしかった」気持ちは{尊|とうと}いわ。"
+      - type: dialog
+        character: sensei
+        text: "でも{予算|よさん}は「{計上|けいじょう}→{承認|しょうにん}→{執行|しっこう}→{報告|ほうこく}」の四{段階|だんかい}で{管理|かんり}されます。{承認|しょうにん}された{範囲|はんい}でしか使えないのは、お{金|かね}の使い{道|みち}をみんなが{確認|かくにん}できる「{透明性|とうめいせい}」を守るため。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "もし{予算|よさん}が{足|た}りないと思ったら、「{追加|ついか}{申請|しんせい}」という正しい{方法|ほうほう}がある。{手続|てつづ}きは{面倒|めんどう}でも、「みんなが{確認|かくにん}できる」{透明性|とうめいせい}を守るために{必要|ひつよう}です。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{善意|ぜんい}でも{手続|てつづ}きを守る。それが「{信頼|しんらい}される{組織|そしき}」の{基本|きほん}です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "ハルキは{追加|ついか}{購入|こうにゅう}の2,000円を{正式|せいしき}に{申請|しんせい}し{直|なお}した。{報告書|ほうこくしょ}も{修正|しゅうせい}——「{雑費|ざっぴ}」は{消|き}え、「{飾|かざ}り物（{追加|ついか}{購入|こうにゅう}・{事後|じご}{申請|しんせい}）：2,000円」に。"
+      - type: narration
+        speed: slow
+        text: "{善意|ぜんい}を正しく{実現|じつげん}するための{道|みち}——それが「{手続|てつづ}き」。{公民|こうみん}{探偵|たんてい}団の{新|あたら}しい学び。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{予算|よさん}のすり{替|か}え、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
