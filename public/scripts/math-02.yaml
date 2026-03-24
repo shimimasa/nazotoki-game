@@ -1,0 +1,501 @@
+meta:
+  id: math-02
+  title: 書きかえられた暗証番号と3つの暗号
+  series: 数字の迷宮
+  volume: 2
+  estimatedMinutes: 22
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  misaki:
+    name: ミサキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  takumi:
+    name: タクミ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  ayano:
+    name: アヤノ
+    color: "#FF8C00"
+    sprites:
+      normal: girl-d-normal.webp
+      happy: girl-d-happy.webp
+      thinking: girl-d-thinking.webp
+      worried: girl-d-worried.webp
+      surprised: girl-d-surprised.webp
+      determined: girl-d-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: math-02/opening
+    steps:
+      - type: narration
+        text: "{町|まち}の{公民館|こうみんかん}で「すうじフェスティバル」が{開|ひら}かれる。{目玉|めだま}は、{昨年|さくねん}{亡|な}くなった{伝説|でんせつ}の{数学者|すうがくしゃ}ナンバー{博士|はかせ}が{残|のこ}した{金庫|きんこ}。{中|なか}には{博士|はかせ}の「{秘密|ひみつ}の{問題集|もんだいしゅう}ノート」が{入|はい}っている。"
+
+      - type: narration
+        text: "3{桁|けた}の{暗証番号|あんしょうばんごう}を{入力|にゅうりょく}すれば{開|あ}く。{博士|はかせ}の{孫|まご}ミサキだけが{元|もと}の{番号|ばんごう}「314」（{円周率|えんしゅうりつ}の{最初|さいしょ}の3{桁|けた}）を{知|し}っている。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "フェスティバル{当日|とうじつ}の{朝|あさ}。ミサキが314を{入力|にゅうりょく}した。……{開|あ}かない。{誰|だれ}かが{昨夜|さくや}、{暗証番号|あんしょうばんごう}を{書|か}きかえてしまったのだ！"
+
+      - type: bgm
+        track: math-02/tension
+
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{犯人|はんにん}は{誰|だれ}だ？ そして{新|あたら}しい{暗証番号|あんしょうばんごう}は{何|なに}だ？ 2つの{謎|なぞ}を{同時|どうじ}に{解|と}け！"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikaru, expression: thinking }
+          - { id: misaki, expression: worried }
+          - { id: takumi, expression: normal }
+          - { id: ayano, expression: surprised }
+
+      - type: narration
+        text: "ヒカル、ミサキ、タクミ、アヤノ——{昨夜|さくや}{準備|じゅんび}にいた4{人|にん}が{容疑者|ようぎしゃ}だ。"
+
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: misaki
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ayano
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 書きかえられた暗証番号と3つの暗号
+        subtitle: 数字の迷宮 Vol.2
+
+  # ========================================
+  # 証拠カード1: 金庫の調査報告
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: math-02/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 金庫と暗号の手がかりを集めよう
+
+      - type: narration
+        text: "{金庫|きんこ}は3{桁|けた}のダイヤル{式|しき}。{暗証番号|あんしょうばんごう}を{変|か}えるには、まず{元|もと}の{番号|ばんごう}で{金庫|きんこ}を{開|あ}ける{必要|ひつよう}がある。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        text: "つまり{犯人|はんにん}は{元|もと}の{番号|ばんごう}「314」を{知|し}っていた。{金庫|きんこ}の{裏|うら}に{博士|はかせ}が{書|か}いたメモがあった——{展示台|てんじだい}を{作|つく}っていた{人|ひと}なら{見|み}つけられる{位置|いち}。"
+
+      - type: narration
+        speed: slow
+        text: "{金庫|きんこ}の{中身|なかみ}は「{秘密|ひみつ}の{問題集|もんだいしゅう}ノート」と「{大切|たいせつ}な{友人|ゆうじん}からもらった{万年筆|まんねんひつ}」。"
+
+  # ========================================
+  # 証拠カード2: 昨夜のタイムライン
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 昨夜のタイムライン
+
+      - type: narration
+        text: "18:00——4{人|にん}が{公民館|こうみんかん}に{集合|しゅうごう}。ヒカルはホールで{飾|かざ}り{付|つ}け。ミサキは{資料室|しりょうしつ}で{写真|しゃしん}パネル。タクミは{展示室|てんじしつ}で{展示台|てんじだい}{制作|せいさく}。アヤノはホールでポスター。"
+
+      - type: narration
+        text: "19:00にアヤノ{帰宅|きたく}。19:30にミサキ{帰宅|きたく}。19:45にヒカル{帰宅|きたく}。20:00にタクミ{帰宅|きたく}（{最後|さいご}）。"
+
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: hikaru
+        text: "19:15に{展示室|てんじしつ}に{行|い}ったらドアが{閉|し}まってた。ノックしたけど{返事|へんじ}がなかった。19:30にもう{一度|いちど}{行|い}ったらドアが{開|あ}いてて、タクミが{展示台|てんじだい}を{仕上|しあ}げてたよ。"
+
+      - type: sprite
+        character: hikaru
+        action: hide
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "タクミは「ドアを{開|あ}けて{作業|さぎょう}していた」と{言|い}っている。なのに19:15にドアが{閉|し}まっていたのはなぜ？ {金庫|きんこ}をいじっている{最中|さいちゅう}、{見|み}られたくなくてドアを{閉|し}めた？"
+
+  # ========================================
+  # 証拠カード3: 暗号メモ
+  # ========================================
+  - id: evidence-3
+    bgm: math-02/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 暗号メモ（3つの算数問題）
+
+      - type: narration
+        text: "{展示室|てんじしつ}の{床|ゆか}に{落|お}ちていた{紙|かみ}。3つの{算数|さんすう}の{問題|もんだい}が{書|か}かれている。ただし{一部|いちぶ}が{破|やぶ}れて{読|よ}めない！"
+
+      - type: narration
+        text: "【{暗号|あんごう}{第|だい}1{問|もん}】たて3cmの{長方形|ちょうほうけい}がある。{面積|めんせき}は（？？）cm²。この{長方形|ちょうほうけい}の{横|よこ}の{長|なが}さが、{暗証番号|あんしょうばんごう}の1{番目|ばんめ}の{数字|すうじ}。——{面積|めんせき}の{数字|すうじ}が{破|やぶ}れている！"
+
+      - type: narration
+        text: "【{暗号|あんごう}{第|だい}2{問|もん}】（？？）このアメがある。これを5{人|にん}に{等|ひと}しく{分|わ}ける。あまりの{数|かず}が、{暗証番号|あんしょうばんごう}の2{番目|ばんめ}の{数字|すうじ}。——アメの{数|かず}が{破|やぶ}れている！"
+
+      - type: narration
+        text: "【{暗号|あんごう}{第|だい}3{問|もん}】つぎの{数|かず}のならびの「？」に{入|はい}る{数|かず}は？\n1, 1, 2, 3, 5, ?, 13\n——？に{入|はい}る{数|かず}が{暗証番号|あんしょうばんごう}の3{番目|ばんめ}の{数字|すうじ}。"
+
+      - type: narration
+        speed: slow
+        text: "{第|だい}1{問|もん}と{第|だい}2{問|もん}は{数字|すうじ}が{欠|か}けていて{解|と}けない。この「{欠|か}けた{数字|すうじ}」は{別|べつ}の{証拠|しょうこ}カードにあるかも！"
+
+  # ========================================
+  # 証拠カード4: 容疑者の持ち物
+  # ========================================
+  - id: evidence-4
+    bgm: math-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 容疑者の持ち物調査
+
+      - type: narration
+        text: "ヒカルの{持|も}ち{物|もの}：{電卓|でんたく}、{装飾|そうしょく}テープ、ファンクラブのバッジ。ミサキの{持|も}ち{物|もの}：{博士|はかせ}の{写真|しゃしん}アルバム、{色鉛筆|いろえんぴつ}。アヤノの{持|も}ち{物|もの}：パズル{雑誌|ざっし}、{筆箱|ふでばこ}。"
+
+      - type: narration
+        text: "タクミの{持|も}ち{物|もの}：{工具箱|こうぐばこ}、{木材|もくざい}、そして——"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "{小|ちい}さなメモ{紙|がみ}！ {表|おもて}に「21」「17」と{数字|すうじ}が{書|か}かれている。{裏|うら}には「7/28 じいちゃんの{誕生日|たんじょうび}」。"
+
+      - type: narration
+        text: "カード③の{暗号|あんごう}メモには{数字|すうじ}が{欠|か}けていた（{面積|めんせき}＝？？、アメ＝？？）。タクミのメモの「21」と「17」——もしかして……？"
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: math-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}カード③と④を{見比|みくら}べてみよう。{欠|か}けた{数字|すうじ}が{見|み}つかったら、{暗号|あんごう}を{計算|けいさん}して{暗証番号|あんしょうばんごう}を{解読|かいどく}だ！"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 暗証番号を書きかえたのは誰？
+        options:
+          - text: "ヒカル（{暗算|あんざん}の{天才|てんさい}。{博士|はかせ}のファン）"
+            value: hikaru
+            feedback: "ヒカルはホールで{作業|さぎょう}していた。{展示室|てんじしつ}に{行|い}ったのは{確認|かくにん}のため。{元|もと}の{番号|ばんごう}314を{知|し}る{手段|しゅだん}がなかったよ。"
+          - text: "ミサキ（{博士|はかせ}の{孫|まご}。314を{知|し}っている）"
+            value: misaki
+            feedback: "ミサキは314を{知|し}っているけど、{金庫|きんこ}を{開|あ}けるのを{一番|いちばん}{楽|たの}しみにしていた。{番号|ばんごう}を{変|か}える{動機|どうき}がないよ。"
+          - text: "タクミ（{展示台|てんじだい}を{作|つく}った。{最後|さいご}まで{展示室|てんじしつ}にいた）"
+            value: takumi
+            feedback: "{鋭|するど}い！ タクミは{展示台|てんじだい}{制作|せいさく}で{金庫|きんこ}のそばにいて、{裏|うら}のメモから314を{発見|はっけん}。19:15にドアを{閉|し}めて{犯行|はんこう}。メモの「21」「17」は{暗号|あんごう}の{欠|か}けた{数字|すうじ}。「7/28」は{祖父|そふ}の{誕生日|たんじょうび}＝{新|あたら}しい{暗証番号|あんしょうばんごう}！"
+          - text: "アヤノ（19:30に{忘|わす}れ{物|もの}で{戻|もど}った）"
+            value: ayano
+            feedback: "アヤノは{忘|わす}れ{物|もの}の{筆箱|ふでばこ}を{取|と}りに{戻|もど}っただけ。{展示室|てんじしつ}には{入|はい}っていない。{元|もと}の{番号|ばんごう}314を{知|し}る{方法|ほうほう}もなかったよ。"
+
+      - type: choice
+        id: q2
+        question: 新しい暗証番号は何？（暗号を計算して答えよう）
+        options:
+          - text: "728（{面積|めんせき}21÷3＝7、17÷5＝3あまり2、3+5＝8）"
+            value: "728"
+            feedback: "{正解|せいかい}！ {面積|めんせき}21cm²÷たて3cm＝{横|よこ}7cm→「7」。17こ÷5{人|にん}＝3あまり2→「2」。{数列|すうれつ}1,1,2,3,5,?,13→3+5＝8→「8」。{合|あ}わせて728！ そして7/28＝タクミのおじいちゃんの{誕生日|たんじょうび}！"
+          - text: "317（{面積|めんせき}の{計算|けいさん}だけ{使|つか}った）"
+            value: "317"
+            feedback: "{暗号|あんごう}は3つとも{解|と}く{必要|ひつよう}があるよ。{第|だい}1{問|もん}：21÷3＝7、{第|だい}2{問|もん}：17÷5＝3あまり2、{第|だい}3{問|もん}：3+5＝8。{答|こた}えは728！"
+          - text: "721（{数列|すうれつ}の{計算|けいさん}を{間違|まちが}えた）"
+            value: "721"
+            feedback: "3{番目|ばんめ}の{数字|すうじ}をもう{一度|いちど}{計算|けいさん}してみよう。{数列|すうれつ}1,1,2,3,5,?,13——{前|まえ}の2つを{足|た}すパターン。3+5＝8だよ。{答|こた}えは728！"
+          - text: "{分|わ}からない"
+            value: unknown
+            feedback: "ヒント！ カード③の{欠|か}けた{数字|すうじ}はカード④のタクミのメモにある。{面積|めんせき}＝21、アメ＝17。あとは{計算|けいさん}するだけ！ 21÷3＝？、17÷5＝？あまり？、3+5＝？"
+
+  # ========================================
+  # 証拠カード5: 追加の発見
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: math-02/experiment
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: narration
+        text: "{金庫|きんこ}の{裏|うら}でもう1{枚|まい}の{紙片|しへん}が{見|み}つかった——「314」に×{印|じるし}がつけられ、{横|よこ}に{矢印|やじるし}で「？？？」と{書|か}かれている。"
+
+      - type: narration
+        text: "{元|もと}の{番号|ばんごう}「314」を{知|し}っていて、{別|べつ}の{番号|ばんごう}に{変|か}えた{人|ひと}がいる。"
+
+      - type: sprite
+        character: ayano
+        expression: surprised
+        position: right
+
+      - type: dialog
+        character: ayano
+        text: "あ、{思|おも}い{出|だ}した！ 19:45ごろ{忘|わす}れ{物|もの}を{取|と}りに{戻|もど}ったとき、{展示室|てんじしつ}の{前|まえ}を{通|とお}ったの。{中|なか}から「カチ……カチ……カチ……」って{小|ちい}さな{音|おと}が{聞|き}こえた。{金庫|きんこ}のダイヤルを{回|まわ}すような{音|おと}だった……。"
+
+      - type: sprite
+        character: ayano
+        action: hide
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "19:45に{展示室|てんじしつ}でダイヤルの{音|おと}——その{時間|じかん}に{展示室|てんじしつ}にいたのはタクミだけ。"
+
+  # ========================================
+  # 真実 — タクミ（犯人）
+  # ========================================
+  - id: truth-takumi
+    bg: classroom
+    bgm: math-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: takumi
+        text: "……ぼくがやりました。{展示台|てんじだい}を{作|つく}っているとき、{金庫|きんこ}の{裏|うら}に{博士|はかせ}が{書|か}いたメモを{見|み}つけた。「{暗証番号|あんしょうばんごう}：314」って。"
+
+      - type: dialog
+        character: takumi
+        text: "ぼくのおじいちゃんはナンバー{博士|はかせ}の{親友|しんゆう}だった。{博士|はかせ}の{金庫|きんこ}の{中|なか}に、おじいちゃんが{博士|はかせ}に{贈|おく}った{万年筆|まんねんひつ}が{入|はい}っているって{聞|き}いてた。"
+
+      - type: dialog
+        character: takumi
+        expression: determined
+        text: "あの{万年筆|まんねんひつ}は、{亡|な}くなったおじいちゃんの{形見|かたみ}。フェスティバルで{公開|こうかい}されたら{取|と}り{戻|もど}せなくなる。だから{番号|ばんごう}を{変|か}えて、あとで{自分|じぶん}だけ{金庫|きんこ}を{開|あ}けて{万年筆|まんねんひつ}を{取|と}り{出|だ}すつもりだった。"
+
+      - type: dialog
+        character: takumi
+        text: "{新|あたら}しい{番号|ばんごう}は728。7{月|がつ}28{日|にち}——おじいちゃんの{誕生日|たんじょうび}。{忘|わす}れないように{暗号|あんごう}メモも{作|つく}ったけど、{一部|いちぶ}{落|お}としちゃった……。"
+
+      - type: sprite
+        character: takumi
+        action: hide
+
+      - type: narration
+        text: "タクミに{悪意|あくい}はなかった。おじいちゃんの{形見|かたみ}の{万年筆|まんねんひつ}を{取|と}り{戻|もど}したかった。でも{方法|ほうほう}が{間違|まちが}っていた。"
+
+  # ========================================
+  # 真実 — ヒカル
+  # ========================================
+  - id: truth-hikaru
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: hikaru
+        text: "19:15にドアが{閉|し}まってたのが{気|き}になってたんだ。タクミは「{開|あ}けて{作業|さぎょう}してた」って{言|い}ってたのに。あの{時間|じかん}、タクミは{金庫|きんこ}のダイヤルを{回|まわ}してたんだね。"
+
+      - type: dialog
+        character: hikaru
+        expression: determined
+        text: "ぼくは{博士|はかせ}のファンだから、{秘密|ひみつ}のノートを{見|み}たくてたまらなかった。でも{暗証番号|あんしょうばんごう}を{変|か}えるなんて{考|かんが}えもしなかったよ。{答|こた}えは{計算|けいさん}すれば{必|かなら}ず{出|で}る——タクミの{暗号|あんごう}もね！"
+
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ========================================
+  # 真実 — ミサキ
+  # ========================================
+  - id: truth-misaki
+    steps:
+      - type: sprite
+        character: misaki
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: misaki
+        text: "おじいちゃんの{金庫|きんこ}を{開|あ}けられなくて{悲|かな}しかった。でも……タクミの{気持|きも}ちも{分|わ}かる。おじいちゃんの{親友|しんゆう}のお{孫|まご}さんだもん。"
+
+      - type: dialog
+        character: misaki
+        expression: determined
+        text: "おじいちゃんなら「{万年筆|まんねんひつ}はタクミくんに{返|かえ}してあげなさい」って{言|い}うと{思|おも}う。おじいちゃんの{算数|さんすう}は、みんなを{笑顔|えがお}にする{算数|さんすう}だから。"
+
+      - type: sprite
+        character: misaki
+        action: hide
+
+  # ========================================
+  # 真実 — アヤノ
+  # ========================================
+  - id: truth-ayano
+    steps:
+      - type: sprite
+        character: ayano
+        expression: happy
+        position: right
+
+      - type: dialog
+        character: ayano
+        text: "{暗号|あんごう}の{第|だい}3{問|もん}、わたしが{解|と}いたよ！ 1, 1, 2, 3, 5, ?, 13——{前|まえ}の2つを{足|た}すパターン！ 3+5＝8！"
+
+      - type: dialog
+        character: ayano
+        expression: determined
+        text: "パターンを{見|み}つけたときの{気持|きも}ちよさは{最高|さいこう}！ でもカード③だけじゃ{第|だい}1{問|もん}と{第|だい}2{問|もん}は{解|と}けなかった。カード④のタクミのメモと{組|く}み{合|あ}わせて{初|はじ}めて{全部|ぜんぶ}{解|と}けたんだ！"
+
+      - type: sprite
+        character: ayano
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: math-02/resolution
+
+      - type: narration
+        text: "3つの{暗号|あんごう}——{面積|めんせき}の{逆算|ぎゃくさん}、あまりのある{割|わ}り{算|ざん}、{数列|すうれつ}の{規則性|きそくせい}。{算数|さんすう}の{知識|ちしき}が{推理|すいり}のカギだった。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: math-02/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{暗証番号|あんしょうばんごう}728で{金庫|きんこ}を{開|あ}けよう！ ナンバー{博士|はかせ}の{秘密|ひみつ}のノートが、ついに{日|ひ}の{目|め}を{見|み}る！"
+
+      - type: dialog
+        character: sensei
+        text: "タクミの{気持|きも}ちは{分|わ}かる。おじいちゃんの{形見|かたみ}を{取|と}り{戻|もど}したかった。でも、{正直|しょうじき}に{相談|そうだん}すれば{別|べつ}の{方法|ほうほう}があったはず。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{今日|きょう}{使|つか}った{算数|さんすう}——{面積|めんせき}の{逆算|ぎゃくさん}（{面積|めんせき}÷たて＝{横|よこ}）、あまりのある{割|わ}り{算|ざん}（17÷5＝3あまり2）、{数列|すうれつ}の{規則性|きそくせい}（フィボナッチ{数列|すうれつ}：{前|まえ}の2つを{足|た}す）。"
+
+      - type: narration
+        speed: slow
+        text: "{数字|すうじ}には{物語|ものがたり}がある。728はただの{番号|ばんごう}じゃない——タクミとおじいちゃんの{絆|きずな}の{数字|すうじ}。{数字|すうじ}の{迷宮|めいきゅう}——{書|か}きかえられた{暗証番号|あんしょうばんごう}の{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
