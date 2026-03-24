@@ -1,0 +1,480 @@
+meta:
+  id: money-04
+  title: 貯金箱の矛盾
+  series: お金の探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  yuta:
+    name: ユウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sakura:
+    name: サクラ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kaito:
+    name: カイト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  nanoha:
+    name: ナノハ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: money-04/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の「{貯金|ちょきん}チャレンジ」。4{人|にん}がそれぞれ2{週間|しゅうかん}で500{円|えん}を{貯金箱|ちょきんばこ}に{貯|た}める{目標|もくひょう}を{立|た}てた。"
+      - type: narration
+        text: "2{週間後|しゅうかんご}の{金曜日|きんようび}。{先生|せんせい}の{前|まえ}で{貯金箱|ちょきんばこ}を{開|あ}けて{発表|はっぴょう}する。"
+      - type: narration
+        text: "ユウタ510{円|えん}、カイト500{円|えん}、ナノハ530{円|えん}——みんな{目標|もくひょう}{達成|たっせい}！"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sakura
+        expression: surprised
+        position: center
+      - type: dialog
+        character: sakura
+        text: "おかしい……わたし、ちゃんと500{円|えん}{入|い}れたはずなのに……350{円|えん}しかない。150{円|えん}はどこに{消|き}えたの？"
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        expression: determined
+        position: right
+      - type: bgm
+        file: money-04/tension
+      - type: dialog
+        character: kaito
+        text: "150{円|えん}{足|た}りない？ {誰|だれ}かが{貯金箱|ちょきんばこ}から{盗|ぬす}んだんじゃないか！"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "サクラさんの{入金|にゅうきん}{記録|きろく}では500{円|えん}{入|い}れたはず。でも{実際|じっさい}は350{円|えん}。150{円|えん}はいつ{消|き}えたのか——お{金|かね}の{探偵|たんてい}のみなさん、{調査|ちょうさ}してください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: yuta
+            expression: thinking
+          - character: sakura
+            expression: worried
+          - character: kaito
+            expression: determined
+          - character: nanoha
+            expression: normal
+      - type: narration
+        text: "{入金|にゅうきん}{記録|きろく}のタイムラインを{再構成|さいこうせい}し、「いつ150{円|えん}が{減|へ}ったか」を{特定|とくてい}する{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "お金の探偵団 Vol.4"
+        subtitle: "貯金箱の矛盾"
+
+  # ===== 証拠カード1: 貯金結果 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: money-04/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "4{人|にん}の{貯金|ちょきん}チャレンジの{結果|けっか}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "ユウタ——{記録|きろく}：{入金|にゅうきん}510{円|えん}、{出金|しゅっきん}0{円|えん}。{実際|じっさい}：510{円|えん}。✅"
+      - type: narration
+        text: "カイト——{記録|きろく}：{入金|にゅうきん}500{円|えん}、{出金|しゅっきん}0{円|えん}。{実際|じっさい}：500{円|えん}。✅"
+      - type: narration
+        text: "ナノハ——{記録|きろく}：{入金|にゅうきん}530{円|えん}、{出金|しゅっきん}0{円|えん}。{実際|じっさい}：530{円|えん}。✅"
+      - type: narration
+        text: "サクラ——{記録|きろく}：{入金|にゅうきん}500{円|えん}、{出金|しゅっきん}0{円|えん}。{実際|じっさい}：350{円|えん}。❌ 150{円|えん}の{差|さ}！"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "サクラの{記録|きろく}では{出金|しゅっきん}ゼロ。でも{実際|じっさい}は150{円|えん}{足|た}りない。{記録|きろく}されていない{出金|しゅっきん}があるはずだ。"
+
+  # ===== 証拠カード2: サクラの入金記録 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: money-04/investigation
+    steps:
+      - type: narration
+        text: "サクラの{貯金|ちょきん}{記録|きろく}ノートを{日|ひ}ごとに{確認|かくにん}しよう。{毎日|まいにち}50{円|えん}ずつ、10{日間|にちかん}で{合計|ごうけい}500{円|えん}。"
+      - type: narration
+        text: "{第|だい}1{週|しゅう}——{月|げつ}〜{金|きん}、{毎日|まいにち}50{円|えん}。{累計|るいけい}250{円|えん}。"
+      - type: narration
+        text: "{第|だい}2{週|しゅう}{月曜|げつよう}：50{円|えん}→{累計|るいけい}300{円|えん}。{火曜|かよう}：50{円|えん}→350{円|えん}。{水曜|すいよう}：50{円|えん}→400{円|えん}。"
+      - type: narration
+        text: "{木曜|もくよう}：50{円|えん}→450{円|えん}。{金曜|きんよう}（{発表|はっぴょう}{日|び}）：50{円|えん}→500{円|えん}。"
+      - type: narration
+        text: "{入金|にゅうきん}{合計|ごうけい}500{円|えん}は{正|ただ}しい。でも{実際|じっさい}は350{円|えん}。{第|だい}2{週|しゅう}のどこかで150{円|えん}が{消|き}えた。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "タイムラインで{考|かんが}えると——{水曜|すいよう}の{入金|にゅうきん}{後|ご}は400{円|えん}になるはず。{金曜|きんよう}に350{円|えん}。{水曜|すいよう}から{金曜|きんよう}の{間|あいだ}で{何|なに}かが{起|お}きた。"
+
+  # ===== 証拠カード3: ユウタの観察 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: money-04/experiment
+    steps:
+      - type: sprite
+        character: yuta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yuta
+        text: "サクラの{貯金箱|ちょきんばこ}を{振|ふ}ったときの{音|おと}が{変|か}わった{気|き}がする。{第|だい}2{週|しゅう}{火曜|かよう}の{朝|あさ}は「ジャラジャラ」——{硬貨|こうか}がたくさん{入|はい}ってる{音|おと}。"
+      - type: sprite
+        character: yuta
+        expression: surprised
+      - type: dialog
+        character: yuta
+        text: "でも{木曜|もくよう}の{朝|あさ}は「カラカラ」——{硬貨|こうか}が{少|すく}ない{音|おと}。{火曜|かよう}から{木曜|もくよう}の{間|あいだ}で{中身|なかみ}が{減|へ}ったんだ。つまり{水曜|すいよう}のどこかで——。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: narration
+        text: "ユウタが{作|つく}ったタイムライングラフ——{入金|にゅうきん}{記録|きろく}どおりなら{月|げつ}300→{火|か}350→{水|すい}400→{木|もく}450→{金|きん}500と{上|あ}がるはず。でも{実際|じっさい}は{金曜|きんよう}に350{円|えん}。{水曜|すいよう}から{線|せん}が{折|お}れている。"
+
+  # ===== 証拠カード4: 目撃情報 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: money-04/experiment
+    steps:
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kaito
+        text: "{水曜|すいよう}の{昼休|ひるやす}み、サクラが{自分|じぶん}のロッカーの{前|まえ}でごそごそしてたぜ。{貯金箱|ちょきんばこ}を{開|あ}けて{何|なに}かを{取|と}り{出|だ}して、すぐ{教室|きょうしつ}を{出|で}ていった。{焦|あせ}ってる{顔|かお}だった。"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: normal
+        position: left
+      - type: dialog
+        character: nanoha
+        text: "{水曜|すいよう}の{放課後|ほうかご}、あおば{文具|ぶんぐ}でサクラを見かけたの。キラキラシールセット（150{円|えん}）を{買|か}ってた。"
+      - type: sprite
+        character: nanoha
+        expression: thinking
+      - type: dialog
+        character: nanoha
+        text: "ユウタの{誕生日|たんじょうび}プレゼントを{探|さが}してたみたい。でもサクラは{今週|こんしゅう}のお{小遣|こづか}い、もう{使|つか}い{切|き}ったはず。150{円|えん}はどこから……？"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{水曜|すいよう}の{昼休|ひるやす}みに{貯金箱|ちょきんばこ}から{何|なに}かを{取|と}り{出|だ}した（カイト{目撃|もくげき}）。{放課後|ほうかご}にシールセット150{円|えん}を{購入|こうにゅう}（ナノハ{目撃|もくげき}）。お{小遣|こづか}いは{使|つか}い{切|き}り。{貯金箱|ちょきんばこ}の150{円|えん}で{買|か}った？"
+
+  # ===== 証拠カード5: タイムライン追跡 =====
+  - id: card-5
+    bg: classroom
+    bgm: money-04/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "あおば{文具|ぶんぐ}に{確認|かくにん}しました。{水曜|すいよう}の15:30ごろ、サクラさんがキラキラシールセット（150{円|えん}）を{購入|こうにゅう}。『{友達|ともだち}の{誕生日|たんじょうび}プレゼントなの』と{嬉|うれ}しそうだったそうです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "タイムラインを{追跡|ついせき}しよう。{水曜|すいよう}の{朝|あさ}に50{円|えん}{入金|にゅうきん}→{累計|るいけい}400{円|えん}。{昼休|ひるやす}みに{貯金箱|ちょきんばこ}から150{円|えん}{出金|しゅっきん}→250{円|えん}。"
+      - type: narration
+        text: "{水曜|すいよう}15:30にシール150{円|えん}{購入|こうにゅう}。{木曜|もくよう}{入金|にゅうきん}+50{円|えん}→300{円|えん}。{金曜|きんよう}{入金|にゅうきん}+50{円|えん}→350{円|えん}。✅ {一致|いっち}！"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "「{盗|ぬす}まれた」のではなく「{自分|じぶん}で{出|だ}して使った」。{被害者|ひがいしゃ}だと{思|おも}っていたサクラが、{実|じつ}は「{自分|じぶん}で{使|つか}った{人|ひと}」だった。"
+      - type: narration
+        text: "{友達|ともだち}の{誕生日|たんじょうび}プレゼントを{買|か}いたかった{気持|きも}ちは{分|わ}かる。でも{貯金|ちょきん}チャレンジ{中|ちゅう}に{出|だ}すなら{記録|きろく}すべき。{記録|きろく}しなかったから{矛盾|むじゅん}が{生|う}まれた。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: money-04/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出|で}そろいました。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "150円を使ったのは誰？"
+        options:
+          - text: "サクラ自身（貯金箱から取り出して使った）"
+            feedback: "{水曜|すいよう}の{昼休|ひるやす}みに{貯金箱|ちょきんばこ}から150{円|えん}を{取|と}り{出|だ}し、{放課後|ほうかご}にシールセットを{購入|こうにゅう}。タイムラインが{完全|かんぜん}に{一致|いっち}する。"
+          - text: "他の誰かが盗んだ"
+            feedback: "{他|ほか}の3{人|にん}の{貯金|ちょきん}は{全員|ぜんいん}{一致|いっち}。サクラの{貯金箱|ちょきんばこ}を{開|あ}けたのはカイトの{目撃|もくげき}でサクラ{自身|じしん}。「{盗|ぬす}まれた」のではなく「{自分|じぶん}で{出|だ}した」。"
+          - text: "お店がおつりを間違えた"
+            feedback: "{今回|こんかい}はお{店|みせ}で{買|か}い{物|もの}をしたのは{水曜|すいよう}だけ。シール150{円|えん}の{支払|しはら}いは{正|ただ}しい。{問題|もんだい}はお{金|かね}の{出所|でどころ}が{貯金箱|ちょきんばこ}だったこと。"
+          - text: "記録ミス（入金額が実は500円ではない）"
+            feedback: "サクラの{入金|にゅうきん}{記録|きろく}は{毎日|まいにち}50{円|えん}×10{日|にち}＝500{円|えん}で{正|ただ}しい。{入金|にゅうきん}ではなく「{出金|しゅっきん}の{記録|きろく}もれ」が{原因|げんいん}。"
+      - type: choice
+        id: q2
+        text: "サクラの「友達のプレゼント」のために貯金から出すのはOK？"
+        options:
+          - text: "OK。友達のためなら仕方ない"
+            feedback: "{気持|きも}ちは{分|わ}かる。でも{貯金|ちょきん}チャレンジ{中|ちゅう}にルールを{破|やぶ}るのは{問題|もんだい}。お{母|かあ}さんに{相談|そうだん}するか、{来週|らいしゅう}のお{小遣|こづか}いで{買|か}う{方法|ほうほう}もあった。"
+          - text: "ダメ。貯金チャレンジのルール違反"
+            feedback: "{目標|もくひょう}を{決|き}めた{貯金|ちょきん}から{出|だ}すのはルール{違反|いはん}。でもサクラの「{友達|ともだち}を{喜|よろこ}ばせたい」{気持|きも}ちは{本物|ほんもの}。やり{方|かた}が{間違|まちが}っていただけ。"
+          - text: "出すのはいいけど記録すべきだった"
+            feedback: "{出金|しゅっきん}すること{自体|じたい}は{計画|けいかく}の{変更|へんこう}としてあり{得|う}る。でも{記録|きろく}しないと{実際|じっさい}と{合|あ}わなくなる。「{出|だ}す」なら「{書|か}く」。"
+          - text: "先に先生やお母さんに相談すべきだった"
+            feedback: "{相談|そうだん}すれば「お{小遣|こづか}いの{前借|まえが}り」や「{来週|らいしゅう}まで{待|ま}つ」など{別|べつ}の{方法|ほうほう}が{見|み}つかったかも。1{人|り}で{決|き}めて{後悔|こうかい}するより、{相談|そうだん}が{大事|だいじ}。"
+      - type: choice
+        id: q3
+        text: "「欲しい！」と「貯金の目標」がぶつかったら？"
+        options:
+          - text: "1日待って考える"
+            feedback: "「{衝動買|しょうどうが}い」を{防|ふせ}ぐ{一番|いちばん}の{方法|ほうほう}。1{日|にち}{待|ま}つと『やっぱりいらないかも』と{気|き}づくことが{多|おお}い。"
+          - text: "貯金の目標を優先する"
+            feedback: "{目標|もくひょう}を{決|き}めたら{守|まも}る。{達成|たっせい}した{後|あと}にご{褒美|ほうび}として{買|か}う{方|ほう}が{嬉|うれ}しい。"
+          - text: "別の方法でお金を用意する"
+            feedback: "お{母|かあ}さんに{相談|そうだん}する、{来週|らいしゅう}のお{小遣|こづか}いまで{待|ま}つ、お{手伝|てつだ}いして{稼|かせ}ぐ——{貯金|ちょきん}に{手|て}を{出|だ}さない{方法|ほうほう}はたくさんある。"
+          - text: "全部やる（待つ＋相談＋別の方法）"
+            feedback: "{完璧|かんぺき}。{衝動|しょうどう}を{抑|おさ}え、{相談|そうだん}し、{代替|だいたい}{案|あん}を{探|さが}す。この3つが「お{金|かね}の{計画|けいかく}」の{基本|きほん}。"
+
+  # ===== 真実: ユウタ =====
+  - id: truth-yuta
+    bg: classroom
+    bgm: money-04/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuta
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuta
+        text: "サクラの{入金|にゅうきん}{記録|きろく}は{正|ただ}しかった。500{円|えん}。でも{貯金箱|ちょきんばこ}の{音|おと}が{火曜|かよう}から{木曜|もくよう}で{変|か}わった。{水曜|すいよう}のどこかで{中身|なかみ}が{減|へ}ったんだ。"
+      - type: sprite
+        character: yuta
+        expression: thinking
+      - type: dialog
+        character: yuta
+        text: "タイムラインを{作|つく}ると{分|わ}かる。{水曜|すいよう}の{入金|にゅうきん}{後|ご}400{円|えん}→{出金|しゅっきん}150{円|えん}→250{円|えん}→{木|もく}300→{金|きん}350。{計算|けいさん}が{合|あ}う。"
+      - type: sprite
+        character: yuta
+        action: hide
+
+  # ===== 真実: カイト =====
+  - id: truth-kaito
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kaito
+        text: "{水曜|すいよう}の{昼休|ひるやす}み、サクラが{自分|じぶん}のロッカーの{前|まえ}で{貯金箱|ちょきんばこ}を{開|あ}けてた。{何|なに}かを{取|と}り{出|だ}して、{焦|あせ}った{顔|かお}で{教室|きょうしつ}を{出|で}ていった。"
+      - type: sprite
+        character: kaito
+        expression: determined
+      - type: dialog
+        character: kaito
+        text: "{最初|さいしょ}は「{盗|ぬす}まれた！」って{怒|おこ}ったけど、{自分|じぶん}で{出|だ}してたんだな。{友達|ともだち}のプレゼントのためだったのか。{気持|きも}ちは{分|わ}かるけど、{記録|きろく}はしないとダメだぜ。"
+      - type: sprite
+        character: kaito
+        action: hide
+
+  # ===== 真実: ナノハ =====
+  - id: truth-nanoha
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nanoha
+        expression: normal
+        position: left
+      - type: dialog
+        character: nanoha
+        text: "{水曜|すいよう}の{放課後|ほうかご}、あおば{文具|ぶんぐ}でサクラがシールセット150{円|えん}を{買|か}うのを見たの。ユウタの{誕生日|たんじょうび}プレゼントだって。"
+      - type: sprite
+        character: nanoha
+        expression: worried
+      - type: dialog
+        character: nanoha
+        text: "お{小遣|こづか}いは{使|つか}い{切|き}ってたはず。あのお{金|かね}、{貯金箱|ちょきんばこ}から{出|だ}したんだって{気|き}づいてた。でもサクラに{聞|き}けなかった。{親友|しんゆう}だから。"
+      - type: sprite
+        character: nanoha
+        action: hide
+
+  # ===== 真実: サクラ（犯人） =====
+  - id: truth-sakura
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: center
+      - type: dialog
+        character: sakura
+        text: "……{認|みと}めます。{貯金箱|ちょきんばこ}から150{円|えん}を{出|だ}したのは、わたしです。"
+      - type: narration
+        speed: slow
+        text: "サクラは{小|ちい}さくうつむいた。"
+      - type: sprite
+        character: sakura
+        expression: normal
+      - type: dialog
+        character: sakura
+        text: "{水曜|すいよう}に{来週|らいしゅう}がユウタの{誕生日|たんじょうび}だって{思|おも}い{出|だ}して。あおば{文具|ぶんぐ}でキラキラシールセットを見つけて、ユウタが{喜|よろこ}びそうだって。"
+      - type: sprite
+        character: sakura
+        expression: worried
+      - type: dialog
+        character: sakura
+        text: "でもお{小遣|こづか}いは{使|つか}い{切|き}ってて。「{貯金箱|ちょきんばこ}から150{円|えん}だけ……あとで{戻|もど}せばいいや」って{思|おも}っちゃった。"
+      - type: dialog
+        character: sakura
+        text: "{結局|けっきょく}{戻|もど}せなかった。{出金|しゅっきん}も{記録|きろく}しなかった。{金曜|きんよう}に{開|あ}けて350{円|えん}って{分|わ}かったとき、{青|あお}ざめた。ごめんなさい。"
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: narration
+        text: "{友達|ともだち}の{誕生日|たんじょうび}プレゼントを{買|か}いたかった{気持|きも}ちは{本物|ほんもの}。でも{貯金|ちょきん}から{出|だ}すなら{記録|きろく}する。{出金|しゅっきん}の{記録|きろく}がなかったから、500{円|えん}と350{円|えん}の{矛盾|むじゅん}が{生|う}まれた。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: money-04/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "サクラさん、{正直|しょうじき}に{話|はな}してくれてありがとう。ユウタくんのためにプレゼントを{買|か}いたかった{気持|きも}ち、{素敵|すてき}ですよ。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "でも{貯金|ちょきん}は「{入|い}れる」だけでなく「{出|だ}す」{記録|きろく}も{大事|だいじ}。{出金|しゅっきん}を{記録|きろく}しないと、{実際|じっさい}と{記録|きろく}が{合|あ}わなくなります。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "そして「{欲|ほ}しい！」と{思|おも}ったら、まず1{日|にち}{待|ま}つ。お{母|かあ}さんに{相談|そうだん}する。{貯金|ちょきん}に{手|て}を{出|だ}さない{方法|ほうほう}を{探|さが}す。これが「お{金|かね}の{計画|けいかく}」です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sakura
+        expression: determined
+        position: left
+      - type: sprite
+        character: yuta
+        expression: happy
+        position: right
+      - type: dialog
+        character: sakura
+        text: "{次|つぎ}からは{出金|しゅっきん}も{必|かなら}ず{記録|きろく}する。{欲|ほ}しいものがあっても、まず{相談|そうだん}。{約束|やくそく}。"
+      - type: dialog
+        character: yuta
+        text: "サクラ、プレゼントありがとう。でも{貯金|ちょきん}から{出|だ}さなくてよかったんだぜ。『{欲|ほ}しいものリスト』を{教|おし}えてくれたら、{来月|らいげつ}のお{小遣|こづか}いで{一緒|いっしょ}に{買|か}いに{行|い}けたのに。"
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "お{金|かね}の{管理|かんり}は「{入|い}れる」「{出|だ}す」「{記録|きろく}する」の3つ。そして「{我慢|がまん}する{力|ちから}」と「{相談|そうだん}する{勇気|ゆうき}」。これがお{金|かね}の{探偵|たんてい}の{力|ちから}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
