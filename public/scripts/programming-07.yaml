@@ -1,0 +1,496 @@
+meta:
+  id: programming-07
+  title: センサーの密室と消えたトロフィー
+  series: バグ探偵団
+  volume: 7
+  estimatedMinutes: 22
+
+characters:
+  kousuke:
+    name: コウスケ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  risa:
+    name: リサ
+    color: "#C0392B"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  jun:
+    name: ジュン
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  marika:
+    name: マリカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: science-lab
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}6年生の「{省|しょう}エネ{教室|きょうしつ}プロジェクト」——{理科室|りかしつ}に{自動|じどう}{照明|しょうめい}システムを{設置|せっち}した。人を{感|かん}じるセンサーと明るさセンサーを{組|く}み合わせた{装置|そうち}。"
+      - type: narration
+        text: "ところが{金曜|きんよう}の{夜|よる}——{誰|だれ}もいないはずの{理科室|りかしつ}の電気がついていた。{翌|よく}{月曜|げつよう}、6年1組の{科学賞|かがくしょう}トロフィーが消えていた！"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: kousuke
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: kousuke
+        text: "センサーは{正常|せいじょう}に{動作|どうさ}している。電気がついたということは——「{誰|だれ}かがいた」んだ。センサーのルールから{犯人|はんにん}を{突|つ}き{止|と}めよう！"
+      - type: sprite
+        character: kousuke
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "センサーの「もし〜なら」のルールを使って、{夜|よる}に{誰|だれ}がいたかを{論理的|ろんりてき}に{導|みちび}きましょう。これが「{演繹法|えんえきほう}」です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: kousuke, expression: thinking }
+          - { id: risa, expression: worried }
+          - { id: jun, expression: thinking }
+          - { id: marika, expression: thinking }
+      - type: narration
+        text: "リサが{顔|かお}を{伏|ふ}せた。"
+      - type: sprite
+        character: kousuke
+        action: hide
+      - type: sprite
+        character: risa
+        action: hide
+      - type: sprite
+        character: jun
+        action: hide
+      - type: sprite
+        character: marika
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.7
+        subtitle: センサーの密室と消えたトロフィー
+
+  - id: suspects
+    bg: science-lab
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人に話を聞こう。"
+      - type: sprite
+        character: kousuke
+        expression: normal
+        position: left
+      - type: dialog
+        character: kousuke
+        text: "ぼくがセンサーシステムを{設計|せっけい}した。電気がつく{条件|じょうけん}は「人がいる」かつ「{暗|くら}い」。どちらか{片方|かたほう}だけでは電気はつかない。"
+      - type: sprite
+        character: kousuke
+        action: hide
+      - type: sprite
+        character: risa
+        expression: normal
+        position: right
+      - type: dialog
+        character: risa
+        text: "わたしは{理科|りか}が{大好|だいす}き。でも{科学賞|かがくしょう}は1{組|くみ}が{取|と}った。……{金曜|きんよう}の{夜|よる}はお{母|かあ}さんの{買|か}い物に付き合ってた。"
+        expression: normal
+      - type: sprite
+        character: risa
+        action: hide
+      - type: sprite
+        character: jun
+        expression: normal
+        position: left
+      - type: dialog
+        character: jun
+        text: "おれはセンサーを{取|と}り{付|つ}けた。{金曜|きんよう}の{夜|よる}は{家|いえ}でお{父|とう}さんとカレー作り。先生が{証人|しょうにん}。"
+      - type: dialog
+        character: jun
+        text: "あ、{金曜|きんよう}16:50に{理科室|りかしつ}のそばで赤いペンが{落|お}ちてた。トロフィーはまだあったよ。"
+        expression: thinking
+      - type: sprite
+        character: jun
+        action: hide
+      - type: sprite
+        character: marika
+        expression: normal
+        position: right
+      - type: dialog
+        character: marika
+        text: "わたしはセンサーのログを{記録|きろく}してる。{金曜|きんよう}の{夜|よる}は{家族|かぞく}で{外食|がいしょく}。お{母|かあ}さんが{証人|しょうにん}。"
+      - type: dialog
+        character: marika
+        text: "{科学賞|かがくしょう}{発表|はっぴょう}の{後|あと}、リサが「わたしだって…1{組|くみ}なんかに{負|ま}けたくなかった」ってつぶやいてたのが気になったの。"
+        expression: thinking
+      - type: sprite
+        character: marika
+        action: hide
+
+  - id: evidence-1
+    bg: science-lab
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: センサーの状態レポート
+      - type: narration
+        text: "{理科室|りかしつ}の{確認|かくにん}{結果|けっか}——{自動|じどう}{照明|しょうめい}システム：{正常|せいじょう}。人を{感|かん}じるセンサー：{正常|せいじょう}。明るさセンサー：{正常|せいじょう}。"
+      - type: narration
+        text: "トロフィー：なくなっている！ ドア：{施錠|せじょう}されていなかった。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "センサーは{正常|せいじょう} ＝ センサーが{反応|はんのう}した{記録|きろく}は{信頼|しんらい}できる。電気がついたなら——{誰|だれ}かがいた。"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: センサーの条件分岐ルール
+      - type: narration
+        text: "{自動|じどう}{照明|しょうめい}のルール——電気がつくのは「2つの{条件|じょうけん}が{両方|りょうほう}{満|み}たされたとき」だけ。"
+      - type: narration
+        text: "人がいる ✅ かつ {暗|くら}い ✅ → 電気ON。それ{以外|いがい}はすべて電気OFF。"
+      - type: narration
+        text: "{警備員|けいびいん}さんは{金曜|きんよう}の{夜|よる}19:30ごろに{理科室|りかしつ}の電気がついているのを見た。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{金曜|きんよう}の{夜|よる}19:30 → {外|そと}は{暗|くら}い → 明るさセンサーは「{暗|くら}い」。電気がついていた ＝ 人を{感|かん}じるセンサーも{反応|はんのう}した ＝ {誰|だれ}かがいた！"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 警備員さんの証言
+      - type: narration
+        text: "{警備員|けいびいん}の田中さんの{証言|しょうげん}——「{金曜|きんよう}の{夜|よる}19:30ごろ、{理科室|りかしつ}の電気がついていた。中を見たらもう{誰|だれ}もいなかった。電気は{自動|じどう}で消えていた」"
+      - type: narration
+        text: "「{廊下|ろうか}に{小|ちい}さな{泥|どろ}のあとが{残|のこ}っていた。{外|そと}から来た人がいたようだ」"
+      - type: narration
+        text: "「{正門|せいもん}は{閉|し}まっていたが、{正門|せいもん}{横|よこ}の{通用|つうよう}門は{施錠|せじょう}されていなかった」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{夜|よる}に{外|そと}から学校に来た人がいた。{廊下|ろうか}の{泥|どろ}の{跡|あと}がそれを{証明|しょうめい}している。"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 金曜日の行動記録
+      - type: narration
+        text: "{金曜|きんよう}の{夜|よる}19:00〜20:00——4人はどこにいた？"
+      - type: narration
+        text: "コウスケ：{自宅|じたく}（お{母|かあ}さんが{証人|しょうにん}）。ジュン：{自宅|じたく}でカレー作り（お{父|とう}さんが{証人|しょうにん}）。マリカ：{家族|かぞく}で{外食|がいしょく}（お{母|かあ}さんが{証人|しょうにん}）。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "リサ：「お{母|かあ}さんの{買|か}い物に付き合った」——{証人|しょうにん}なし！"
+      - type: narration
+        text: "{犯行|はんこう}{推定|すいてい}{時間|じかん}は{金曜|きんよう}の{夜|よる}19:28〜19:35。この{時間|じかん}にアリバイがない人は——リサだけ。"
+
+  - id: evidence-5
+    bg: science-lab
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "コウスケがセンサーのログデータを{説明|せつめい}します。{演繹法|えんえきほう}で{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kousuke
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kousuke
+        text: "ログデータ——{金曜|きんよう}19:28に人センサーON・明るさセンサー「{暗|くら}い」→ 電気ON。19:35に人センサーOFF → 電気OFF。"
+      - type: sprite
+        character: kousuke
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{演繹法|えんえきほう}で{考|かんが}えよう——"
+      - type: narration
+        text: "①{一般|いっぱん}{法則|ほうそく}：人を{感|かん}じるセンサーが{反応|はんのう} ＝ {誰|だれ}かがいた。②{事実|じじつ}：{金曜|きんよう}19:28にセンサーが{反応|はんのう}した。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "③{結論|けつろん}：{金曜|きんよう}の{夜|よる}19:28〜19:35に{誰|だれ}かが{理科室|りかしつ}にいた。——犯行{時間|じかん}が{確定|かくてい}！"
+      - type: narration
+        text: "マリカの{証言|しょうげん}：リサが「わたしだって…1{組|くみ}なんかに{負|ま}けたくなかった」とつぶやいていた。"
+      - type: narration
+        text: "ジュンの{証言|しょうげん}：{金曜|きんよう}16:50にトロフィーのそばに{赤|あか}いペンが{落|お}ちていた。{赤|あか}いペンを使っているのはリサ。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{演繹法|えんえきほう}で「{誰|だれ}かがいた」→ アリバイ{消去法|しょうきょほう}で「リサだけ{証人|しょうにん}なし」→ {動機|どうき}「{科学賞|かがくしょう}への{嫉妬|しっと}」→ {物証|ぶっしょう}「{赤|あか}いペン」——すべてがリサを{指|さ}している。"
+
+  - id: questions
+    bg: science-lab
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{夜|よる}に{理科室|りかしつ}に{入|はい}ってトロフィーを{盗|ぬす}んだのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 金曜の夜に理科室に入り、トロフィーを持ち出したのは誰？
+        options:
+          - text: コウスケ（センサーを設計した。自宅にいて母が証人）
+            value: kousuke
+            feedback: コウスケは自宅にいてお母さんが証人。センサーの弱点を知っていても犯行時間にアリバイがある。
+          - text: リサ（科学賞を悔しがっていた。夜のアリバイなし。赤いペンの物証）
+            value: risa
+            feedback: 正解！ 演繹法で「夜に誰かがいた」→消去法で「リサだけ証人なし」→動機「科学賞への嫉妬」→物証「赤いペン」。すべてがリサを指す。
+          - text: ジュン（センサーを取り付けた。16:50にトロフィーのそばにいた）
+            value: jun
+            feedback: ジュンは夜は自宅でカレー作り。お父さんが証人。16:50はトロフィーがまだあったことの証言者だよ。
+          - text: マリカ（ログデータを記録している。リサの発言を聞いた）
+            value: marika
+            feedback: マリカは夜は家族で外食。お母さんが証人。リサの発言を聞いた証言者だよ。
+      - type: choice
+        id: q2
+        question: 「演繹法」とはどんな考え方？
+        options:
+          - text: ルール（一般法則）を事実に当てはめて結論を出す考え方
+            value: deduction
+            feedback: 正解！ 「センサーが反応した＝誰かがいた」というルールを、「金曜19:28にセンサーが反応した」という事実に当てはめて「誰かがいた」と結論を出した。
+          - text: たくさんの事例から共通点を見つける考え方
+            value: induction
+            feedback: それは「帰納法」。演繹法はルールから個別の結論を導く方法。帰納法とは逆の方向だよ。
+          - text: 全ての可能性を1つずつ試す考え方
+            value: brute-force
+            feedback: それは「全探索」（Vol.6で学んだ）。演繹法はルールから論理的に結論を導く方法だよ。
+          - text: 犯人を予想してから証拠を探す考え方
+            value: guess
+            feedback: 予想ではなく、ルール（センサーの仕組み）から論理的に「誰かがいた」を導く。順序が逆だよ。
+
+  - id: truth-intro
+    bg: science-lab
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 悔しかったから
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-kousuke
+    bg: science-lab
+    steps:
+      - type: sprite
+        character: kousuke
+        expression: worried
+        position: left
+      - type: dialog
+        character: kousuke
+        text: "ぼくもセンサーにログ{機能|きのう}をつけていたのに、{定期的|ていきてき}に{確認|かくにん}してなかった。もっと{早|はや}く気づけたかもしれない。"
+      - type: sprite
+        character: kousuke
+        action: hide
+
+  - id: truth-jun
+    steps:
+      - type: sprite
+        character: jun
+        expression: worried
+        position: right
+      - type: dialog
+        character: jun
+        text: "おれ、16:50に{赤|あか}いペンが{落|お}ちてるのを見つけたのに{拾|ひろ}わなかった。「{誰|だれ}かの{落|お}とし物だろう」って{思|おも}っただけ。"
+      - type: sprite
+        character: jun
+        action: hide
+
+  - id: truth-marika
+    steps:
+      - type: sprite
+        character: marika
+        expression: worried
+        position: left
+      - type: dialog
+        character: marika
+        text: "わたしはリサが{科学賞|かがくしょう}を{悔|くや}しがってるのを知ってた。でも「{大丈夫|だいじょうぶ}？」って{声|こえ}をかけなかった。"
+      - type: sprite
+        character: marika
+        action: hide
+
+  - id: truth-risa
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: risa
+        expression: worried
+        position: center
+      - type: dialog
+        character: risa
+        text: "……わたしがトロフィーを{持|も}ち出した。"
+      - type: narration
+        speed: slow
+        text: "リサが{静|しず}かに話し始めた。"
+      - type: dialog
+        character: risa
+        text: "{理科|りか}が{大好|だいす}きで、{実験|じっけん}はクラスで一番{得意|とくい}だった。{科学賞|かがくしょう}は{絶対|ぜったい}うちのクラスが{取|と}ると{思|おも}ってた。でも1{組|くみ}が{受賞|じゅしょう}した。"
+      - type: dialog
+        character: risa
+        text: "トロフィーが{理科室|りかしつ}に{飾|かざ}られるたびに、{胸|むね}が{痛|いた}くなった。{金曜|きんよう}の{夜|よる}、お{母|かあ}さんに「{忘|わす}れ物を{取|と}りに行く」って{嘘|うそ}をついて学校に行った。"
+        expression: worried
+      - type: dialog
+        character: risa
+        text: "{理科室|りかしつ}に入ったらセンサーが{反応|はんのう}して電気がついた。ログが{残|のこ}るとは{思|おも}わなかった。トロフィーを{花壇|かだん}の{用具|ようぐ}入れに{隠|かく}した。"
+      - type: dialog
+        character: risa
+        text: "でも……トロフィーを{隠|かく}しても、わたしの{実力|じつりょく}は変わらない。{悔|くや}しかったけど、やったことは{間違|まちが}いだった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: risa
+        action: hide
+      - type: narration
+        speed: slow
+        text: "リサに{悪意|あくい}はなかった。{理科|りか}が{大好|だいす}きで、がんばっていたのに{報|むく}われなかった{悔|くや}しさ。でもトロフィーを{隠|かく}しても{実力|じつりょく}は変わらない。{悔|くや}しい気持ちは{次|つぎ}にがんばるエネルギーに変えることが{大切|たいせつ}だ。"
+
+  - id: epilogue
+    bg: science-lab
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "リサ、{理科|りか}が{好|す}きで{悔|くや}しかった気持ちは{分|わ}かる。でもその{悔|くや}しさは「{次|つぎ}こそ」のエネルギーにしよう。"
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}の学び——{演繹法|えんえきほう}。ルール（「人がいたらセンサーON」）を{事実|じじつ}（「電気がついた」）に当てはめて{結論|けつろん}（「{誰|だれ}かがいた」）を{導|みちび}く。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "センサーのデータは{嘘|うそ}をつかない。{論理的|ろんりてき}に{考|かんが}えれば、{事実|じじつ}から{真実|しんじつ}にたどり着ける。それが{演繹法|えんえきほう}の{力|ちから}です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: kousuke, expression: happy }
+          - { id: risa, expression: determined }
+          - { id: jun, expression: happy }
+          - { id: marika, expression: happy }
+      - type: narration
+        text: "トロフィーは{花壇|かだん}の{用具|ようぐ}入れから{見|み}つかり、{理科室|りかしつ}に{戻|もど}された。リサは「{次|つぎ}の{科学賞|かがくしょう}は2{組|くみ}が{取|と}る！」と{宣言|せんげん}した。"
+      - type: narration
+        speed: slow
+        text: "ルールから{事実|じじつ}を{読|よ}み{解|と}く{力|ちから}——{演繹法|えんえきほう}。{条件|じょうけん}{分岐|ぶんき}と{組|く}み合わせれば、データが{真実|しんじつ}を{語|かた}る。バグ{探偵|たんてい}のスキルがまた一つ{増|ふ}えた。"
+      - type: sprite
+        character: kousuke
+        action: hide
+      - type: sprite
+        character: risa
+        action: hide
+      - type: sprite
+        character: jun
+        action: hide
+      - type: sprite
+        character: marika
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——センサーの{密室|みっしつ}と消えたトロフィー、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
