@@ -1,0 +1,531 @@
+meta:
+  id: health-05
+  title: ストレスのもと
+  series: 保健探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-05/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}の{保健|ほけん}{委員会|いいんかい}が「ストレスチェック{週間|しゅうかん}」に{取|と}り{組|く}んでいる。{全員|ぜんいん}がアンケートに{回答|かいとう}した。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "ところがハルキが{集計|しゅうけい}したデータに{不自然|ふしぜん}な{数値|すうち}が。ケンタの{回答欄|かいとうらん}の{点数|てんすう}が{明|あき}らかに{低|ひく}すぎる——{書|か}き{換|か}えられている{疑|うたが}いがある。"
+
+      - type: bgm
+        track: health-05/investigation
+
+      - type: narration
+        text: "「{元気|げんき}いっぱいで{悩|なや}みなんてない」と{思|おも}われているケンタ。でも{本当|ほんとう}は{何|なに}かを{抱|かか}えていたのかもしれない。"
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ストレスチェックの{数値|すうち}が{書|か}き{換|か}えられた{疑|うたが}いがある。{誰|だれ}が、なぜ{書|か}き{換|か}えたのか——ストレスの{症状|しょうじょう}と{原因|げんいん}のパターンを{使|つか}って{推理|すいり}しよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: happy }
+          - { id: sayaka, expression: thinking }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——{保健|ほけん}{探偵団|たんていだん}、{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: ストレスのもと
+        subtitle: 保健探偵団 Vol.5
+
+  # ========================================
+  # 証拠カード1: ストレスチェック集計表
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-05/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: ストレスチェックの数値を確認しよう
+
+      - type: narration
+        text: "ストレスチェック{集計|しゅうけい}{結果|けっか}——ハルキ18{点|てん}（ふつう）、ミオ22{点|てん}（やや{高|たか}め）、ケンタ12{点|てん}（{低|ひく}め）、サヤカ20{点|てん}（ふつう）。"
+
+      - type: narration
+        text: "{判定|はんてい}{基準|きじゅん}——0〜14{点|てん}：ストレスが{低|ひく}め。15〜24{点|てん}：ふつう〜やや{高|たか}め。25{点|てん}{以上|いじょう}：ストレス{高|たか}め。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "ケンタの12{点|てん}は「ほぼ{問題|もんだい}なし」。でも{本当|ほんとう}にそう？ {今日|きょう}の{推理|すいり}スキルは「{仮説|かせつ}{検証|けんしょう}」——「もしストレスが{低|ひく}いなら、こんな{症状|しょうじょう}は{出|で}ないはず」と{確|たし}かめよう。"
+
+  # ========================================
+  # 証拠カード2: 仮説検証の使い方
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 仮説検証の使い方
+
+      - type: narration
+        text: "「{仮説|かせつ}{検証|けんしょう}」とは——「もし○○なら、△△のはずだ」→{実際|じっさい}に△△が{起|お}きているか{確認|かくにん}する。"
+
+      - type: narration
+        text: "{例|れい}：「もしケンタのストレスが{本当|ほんとう}に{低|ひく}い（12{点|てん}）なら、{身体|しんたい}{症状|しょうじょう}（{頭痛|ずつう}・{腹痛|ふくつう}）は{出|で}ないはずだ」→{実際|じっさい}はどう？"
+
+      - type: narration
+        text: "ストレスの{症状|しょうじょう}は3{種類|しゅるい}。{身体的|しんたいてき}（{頭痛|ずつう}・{腹痛|ふくつう}・{疲|つか}れやすい）。{心理的|しんりてき}（{不安|ふあん}・イライラ・{集中|しゅうちゅう}できない）。{行動的|こうどうてき}（{食欲|しょくよく}がない・ぼーっとする）。"
+
+      - type: narration
+        speed: slow
+        text: "この{知識|ちしき}が{推理|すいり}の{武器|ぶき}。「{症状|しょうじょう}」と「{点数|てんすう}」が{合|あ}わなければ、{数値|すうち}が{本当|ほんとう}ではない{証拠|しょうこ}になる。"
+
+  # ========================================
+  # 証拠カード3: アンケート用紙の観察
+  # ========================================
+  - id: evidence-3
+    bgm: health-05/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: アンケート用紙の観察
+
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: haruki
+        text: "{集計|しゅうけい}のときに{気|き}づいたんだけど、ケンタのアンケート{用紙|ようし}、「{頭|あたま}が{痛|いた}い」と「お{腹|なか}が{痛|いた}い」の{欄|らん}に{薄|うす}い{跡|あと}がある。{消|け}した{後|あと}がある。"
+
+      - type: dialog
+        character: haruki
+        text: "でも「{誰|だれ}かに{話|はな}したくない」の{欄|らん}は2{点|てん}のまま{書|か}き{直|なお}してない。もし{書|か}き{換|か}える{前|まえ}の{点数|てんすう}がもっと{高|たか}かったとしたら……。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mio
+        text: "ケンタ、{最近|さいきん}なんか{元気|げんき}がない{気|き}がする。サッカーの{練習|れんしゅう}{中|ちゅう}にも{集中力|しゅうちゅうりょく}が{落|お}ちてるし、{給食|きゅうしょく}も{残|のこ}すようになった。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "アンケートに{消|け}した{跡|あと}がある。そして{身体|しんたい}{症状|しょうじょう}と{行動|こうどう}{症状|しょうじょう}が{見|み}られる。「ストレスが{低|ひく}い」はずの{人|ひと}に、なぜこれらの{症状|しょうじょう}が？"
+
+  # ========================================
+  # 証拠カード4: 保健室来室記録
+  # ========================================
+  - id: evidence-4
+    bgm: health-05/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 保健室の来室記録
+
+      - type: narration
+        text: "{過去|かこ}3{週間|しゅうかん}の{保健室|ほけんしつ}{来室|らいしつ}{記録|きろく}——"
+
+      - type: narration
+        text: "3{月|がつ}1{日|にち}（{水|すい}）ケンタ：{頭痛|ずつう}。3{月|がつ}8{日|にち}（{水|すい}）ケンタ：{腹痛|ふくつう}・{食欲|しょくよく}{不振|ふしん}。3{月|がつ}13{日|にち}（{月|げつ}）ケンタ：{頭痛|ずつう}。3{月|がつ}15{日|にち}（{水|すい}）ケンタ：{体|からだ}がだるい。3{月|がつ}17{日|にち}（{金|きん}）ケンタ：{腹痛|ふくつう}。"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "3{週間|しゅうかん}で5{回|かい}。{保健室|ほけんしつ}の{先生|せんせい}も「ケンタ、{最近|さいきん}どうしたんだろう」と{思|おも}っていた。2{月|がつ}までは{保健室|ほけんしつ}に{来|き}たことはほとんどなかった。"
+
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "{仮説|かせつ}{検証|けんしょう}してみよう。「もしケンタのストレスが{本当|ほんとう}に12{点|てん}（{低|ひく}め）なら、{頭痛|ずつう}・{腹痛|ふくつう}で{保健室|ほけんしつ}に5{回|かい}も{来|く}るはずがない」。{実際|じっさい}は5{回|かい}{来|き}ている。{仮説|かせつ}は{崩|くず}れた。12{点|てん}は{本当|ほんとう}じゃない。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-05/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{仮説|かせつ}{検証|けんしょう}の{結果|けっか}を{整理|せいり}しよう。{点数|てんすう}と{症状|しょうじょう}が{合|あ}わない{人|ひと}は{誰|だれ}？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: ストレスチェックの数値を書き換えたのは誰？
+        options:
+          - text: "ハルキ（{集計|しゅうけい}{担当|たんとう}で{数値|すうち}に{触|さわ}れる{立場|たちば}）"
+            value: haruki
+            feedback: "ハルキは{集計|しゅうけい}{担当|たんとう}だけど、{自分|じぶん}の{点数|てんすう}は18{点|てん}（ふつう）で{体調|たいちょう}も{良好|りょうこう}。{書|か}き{換|か}える{動機|どうき}がないよ。"
+          - text: "ミオ（やや{高|たか}め22{点|てん}を{下|さ}げたかった？）"
+            value: mio
+            feedback: "ミオは22{点|てん}（やや{高|たか}め）だけど、{正直|しょうじき}に{記入|きにゅう}している。{消|け}した{跡|あと}はミオの{用紙|ようし}にはなかった。"
+          - text: "ケンタ（{点数|てんすう}が{低|ひく}すぎる＋{症状|しょうじょう}と{矛盾|むじゅん}）"
+            value: kenta
+            feedback: "{鋭|するど}い！ 12{点|てん}（{低|ひく}め）なのに{保健室|ほけんしつ}に5{回|かい}、{頭痛|ずつう}・{腹痛|ふくつう}・{集中力|しゅうちゅうりょく}{低下|ていか}・{食欲|しょくよく}{不振|ふしん}。{仮説|かせつ}{検証|けんしょう}で「12{点|てん}は{本当|ほんとう}じゃない」と{確定|かくてい}。"
+          - text: "サヤカ（{矛盾|むじゅん}を{見|み}つけた{側|がわ}だけど……）"
+            value: sayaka
+            feedback: "サヤカは{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}。20{点|てん}（ふつう）で{症状|しょうじょう}との{矛盾|むじゅん}もない。サヤカの{用紙|ようし}にも{消|け}した{跡|あと}はなかった。"
+
+      - type: choice
+        id: q2
+        question: ケンタはなぜ点数を書き換えた？
+        options:
+          - text: "サッカーのエースとして「{弱|よわ}み」を{見|み}せたくなかった"
+            value: image
+            feedback: "{正解|せいかい}。ケンタは「{元気|げんき}でポジティブ」なイメージを{守|まも}りたかった。{試合|しあい}のプレッシャーでストレスを{感|かん}じていたのに、「{強|つよ}くいなければ」と{思|おも}い{込|こ}んでいた。"
+          - text: "ストレスが{高|たか}いと{先生|せんせい}に{怒|おこ}られると{思|おも}った"
+            value: fear-teacher
+            feedback: "ストレスが{高|たか}くても{怒|おこ}られることはない。でもケンタは「{弱|よわ}いと{思|おも}われる」ことが{怖|こわ}かった——{先生|せんせい}ではなく、{自分|じぶん}のイメージを{守|まも}りたかったんだ。"
+          - text: "ストレスという{言葉|ことば}の{意味|いみ}が{分|わ}からなかった"
+            value: misunderstand
+            feedback: "ケンタはストレスの{意味|いみ}を{分|わ}かっていた。{問診票|もんしんひょう}に「{試合|しあい}が{不安|ふあん}」と{書|か}いている。{分|わ}かっていたのに{隠|かく}した——それが{今回|こんかい}の{本質|ほんしつ}。"
+          - text: "{友達|ともだち}にからかわれたくなかった"
+            value: teasing
+            feedback: "からかいの{心配|しんぱい}もあったかもしれない。でも{本質|ほんしつ}は「エースとしての{自分|じぶん}」を{守|まも}りたかったこと。「{強|つよ}くあろうとすること」が、かえってストレスになっていた。"
+
+  # ========================================
+  # 証拠カード5: 保健室問診票
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-05/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: narration
+        text: "3{月|がつ}13{日|にち}の{保健室|ほけんしつ}{問診票|もんしんひょう}（ケンタ{記入|きにゅう}）——"
+
+      - type: narration
+        text: "{症状|しょうじょう}：{頭痛|ずつう}（じわじわ{痛|いた}い）。{体温|たいおん}：36.8℃（{平熱|へいねつ}）。"
+
+      - type: narration
+        speed: slow
+        text: "{気|き}になることや{最近|さいきん}の{様子|ようす}を{書|か}いてください——「サッカーの{試合|しあい}が{近|ちか}くて、うまくやれるか{不安|ふあん}。でも{大丈夫|だいじょうぶ}だと{思|おも}う。」"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        text: "{保健室|ほけんしつ}の{先生|せんせい}のコメント——「プレッシャーからくる{頭痛|ずつう}の{可能性|かのうせい}あり。{誰|だれ}かに{気持|きも}ちを{話|はな}してみるとよいかもしれない」"
+
+      - type: narration
+        speed: slow
+        text: "ストレスが12{点|てん}（ほぼなし）なのに、{保健室|ほけんしつ}で「{試合|しあい}が{不安|ふあん}」と{書|か}いている——この{矛盾|むじゅん}が、アンケートの{数値|すうち}が{本当|ほんとう}ではないことを{証明|しょうめい}する。"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 追加HO: ストレス対処法カード
+  # ========================================
+  - id: coping-card
+    bg: classroom
+    bgm: health-05/tension
+    steps:
+      - type: narration
+        text: "ケンタが{記入|きにゅう}した「ストレス{対処法|たいしょほう}チェックシート」が{見|み}つかった——"
+
+      - type: narration
+        text: "{体|からだ}を{動|うご}かす→○。{好|す}きなことをする→○。{十分|じゅうぶん}な{睡眠|すいみん}→△。{深呼吸|しんこきゅう}・リラックス→△。"
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "{誰|だれ}かに{話|はな}す・{相談|そうだん}する→×。ケンタは「{誰|だれ}かに{話|はな}す」だけを×にしていた。{自分|じぶん}1{人|り}で{抱|かか}え{込|こ}もうとしていた。"
+
+  # ========================================
+  # 真実 — ケンタ（犯人）
+  # ========================================
+  - id: truth-kenta
+    bg: classroom
+    bgm: health-05/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "……おれが{書|か}き{換|か}えた。{本当|ほんとう}は28{点|てん}。「ストレス{高|たか}め」{判定|はんてい}だった。"
+
+      - type: dialog
+        character: kenta
+        text: "サッカーの{試合|しあい}が{近|ちか}づいてきて、{毎日|まいにち}プレッシャーを{感|かん}じてた。「おれがエースだから{勝|か}たなきゃ」って。{頭|あたま}が{痛|いた}いし、お{腹|なか}も{痛|いた}い。でも——"
+
+      - type: dialog
+        character: kenta
+        expression: determined
+        text: "「ケンタは{元気|げんき}でポジティブ」——みんなそう{思|おも}ってる。おれもそうでいなきゃって{思|おも}ってた。「ストレス{高|たか}め」なんて{見|み}せたら、エースとしてのイメージが{崩|くず}れる。{弱|よわ}いって{思|おも}われたくなくて……{書|か}き{換|か}えちゃった。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        text: "ケンタは「{強|つよ}くあろうとすること」がストレスになっていた。{弱|よわ}みを{見|み}せることは{恥|はじ}じゃない。でもケンタにはそう{思|おも}えなかった。"
+
+  # ========================================
+  # 真実 — ハルキ
+  # ========================================
+  - id: truth-haruki
+    steps:
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: haruki
+        text: "{集計|しゅうけい}のとき、ケンタの{用紙|ようし}の{消|け}した{跡|あと}に{気|き}づいたけど、「{書|か}き{間違|まちが}いかな」って{思|おも}ってそのまま{処理|しょり}しちゃった。もっと{注意深|ちゅういぶか}く{見|み}ていれば{早|はや}く{気|き}づけた。"
+
+      - type: dialog
+        character: haruki
+        expression: determined
+        text: "データは{正直|しょうじき}に{記録|きろく}するものだけど、データの{裏|うら}にある{気持|きも}ちにも{気|き}づかなきゃいけない。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ========================================
+  # 真実 — ミオ
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mio
+        text: "ケンタが{元気|げんき}じゃないの、{気|き}づいてた。でも「ケンタに{悩|なや}みなんてあるわけない」って{思|おも}い{込|こ}んでた。「{元気|げんき}な{子|こ}にはストレスがない」——そんなの{嘘|うそ}だったんだ。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "{誰|だれ}でもストレスは{感|かん}じる。{元気|げんき}に{見|み}える{人|ひと}でも。{気|き}づいたときに「{大丈夫|だいじょうぶ}？」って{声|こえ}をかけることが{大事|だいじ}。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ========================================
+  # 真実 — サヤカ
+  # ========================================
+  - id: truth-sayaka
+    steps:
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "「{仮説|かせつ}{検証|けんしょう}」で{矛盾|むじゅん}を{見|み}つけられた。「もしストレスが{低|ひく}いなら、{保健室|ほけんしつ}に5{回|かい}も{来|こ}ないはず」——データと{現実|げんじつ}が{合|あ}わないところに{真実|しんじつ}がある。"
+
+      - type: dialog
+        character: sayaka
+        expression: determined
+        text: "でもケンタの{気持|きも}ちも{分|わ}かる。「{強|つよ}くいなきゃ」って{思|おも}うの、{辛|つら}いよね。{数字|すうじ}で{見|み}えるものと、{心|こころ}で{感|かん}じるものは{違|ちが}う。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-05/resolution
+
+      - type: narration
+        speed: slow
+        text: "「{元気|げんき}な{子|こ}にはストレスがない」——それは{思|おも}い{込|こ}み。{強|つよ}くあろうとすることが、かえってストレスになることがある。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-05/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ストレスを{感|かん}じることは{恥|はじ}じゃない。{誰|だれ}にでもある。{大事|だいじ}なのは「{気|き}づくこと」と「{誰|だれ}かに{話|はな}すこと」。"
+
+      - type: dialog
+        character: sensei
+        text: "ケンタの{対処法|たいしょほう}チェックで「{誰|だれ}かに{話|はな}す」だけが×だった。{自分|じぶん}1{人|り}で{抱|かか}え{込|こ}まなくていい。{弱|よわ}みを{見|み}せられる{関係|かんけい}こそが、{本当|ほんとう}の{強|つよ}さだよ。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{身体|しんたい}の{症状|しょうじょう}（{頭痛|ずつう}・{腹痛|ふくつう}）、{心|こころ}の{症状|しょうじょう}（{不安|ふあん}・{集中|しゅうちゅう}できない）、{行動|こうどう}の{症状|しょうじょう}（{食欲|しょくよく}がない・ぼーっとする）——ストレスは{体|からだ}と{心|こころ}の{両方|りょうほう}に{出|で}る。"
+
+      - type: narration
+        speed: slow
+        text: "「{強|つよ}くいなきゃ」と{思|おも}わなくていい。「つらい」と{言|い}えることが、{心|こころ}の{健康|けんこう}の{第一歩|だいいっぽ}。{保健|ほけん}{探偵団|たんていだん}——ストレスのもとの{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
