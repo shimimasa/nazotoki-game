@@ -1,0 +1,502 @@
+meta:
+  id: health-04
+  title: 眠れなかった夜
+  series: 保健探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-04/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}の{保健|ほけん}{探偵団|たんていだん}は「{生活習慣|せいかつしゅうかん}チェック{週間|しゅうかん}」に{取|と}り{組|く}んでいる。{毎日|まいにち}「{何時|なんじ}に{寝|ね}たか」「{朝|あさ}ごはんを{食|た}べたか」を{記録|きろく}する。"
+
+      - type: narration
+        text: "{金曜日|きんようび}の{朝|あさ}、4{人|にん}の{生活|せいかつ}チェック{表|ひょう}が{集|あつ}まった。{驚|おどろ}いたことに4{人|にん}{全員|ぜんいん}が「{昨日|きのう}は8{時|じ}に{寝|ね}た」と{記録|きろく}していた。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "ところが——サヤカだけ、{朝|あさ}からとても{眠|ねむ}そう。あくびばかりして、{目|め}の{下|した}にクマがある。「{大丈夫|だいじょうぶ}です。ちゃんと8{時|じ}に{寝|ね}ました」と{言|い}うけれど……。"
+
+      - type: bgm
+        track: health-04/investigation
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{全員|ぜんいん}が「8{時|じ}に{寝|ね}た」と{言|い}っている。でもサヤカだけ{体調|たいちょう}が{悪|わる}い。{生活|せいかつ}リズムと{体調|たいちょう}の{因果関係|いんがかんけい}を{調|しら}べて、{本当|ほんとう}の「{就寝時刻|しゅうしんじこく}」を{突|つ}き{止|と}めよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: normal }
+          - { id: sayaka, expression: worried }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——{保健|ほけん}{探偵団|たんていだん}、{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 眠れなかった夜
+        subtitle: 保健探偵団 Vol.4
+
+  # ========================================
+  # 証拠カード1: 生活チェック表
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-04/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 生活チェック表を確認しよう
+
+      - type: narration
+        text: "{木曜日|もくようび}の{記録|きろく}——ハルキ：{就寝|しゅうしん}20:00、{起床|きしょう}6:00、{睡眠|すいみん}10{時間|じかん}、{体調|たいちょう}◎。ミオ：20:00、6:30、10{時間|じかん}30{分|ぷん}、◎。"
+
+      - type: narration
+        text: "ケンタ：20:00（{少|すこ}し{夜|よ}ふかし）、6:30、？、△{少|すこ}し{眠|ねむ}い。サヤカ：20:00、6:00、10{時間|じかん}、△{少|すこ}しだるい。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "サヤカは「10{時間|じかん}{寝|ね}た」のに「{少|すこ}しだるい」。{推奨|すいしょう}{睡眠時間|すいみんじかん}（9〜10{時間|じかん}）の{範囲内|はんいない}なのに、なぜだるい？ 「{布団|ふとん}に{入|はい}った{時刻|じこく}」と「{眠|ねむ}りについた{時刻|じこく}」は{同|おな}じとは{限|かぎ}らない。"
+
+  # ========================================
+  # 証拠カード2: バトルアリーナの説明
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: オンラインゲーム「バトルアリーナ」
+
+      - type: narration
+        text: "クラスで{流行|はや}っている{対戦|たいせん}ゲーム「バトルアリーナ」。スマホやタブレットで{遊|あそ}べる。フレンド{登録|とうろく}すると「オンライン{中|ちゅう}」が{表示|ひょうじ}される。"
+
+      - type: narration
+        text: "{対戦|たいせん}すると「プレイ{履歴|りれき}」に{記録|きろく}が{残|のこ}る。いつ・{誰|だれ}と{対戦|たいせん}したかが{時刻|じこく}つきで{記録|きろく}される。{本人|ほんにん}が{消|け}すことはできない。"
+
+      - type: narration
+        speed: slow
+        text: "もし{夜|よる}{遅|おそ}くにプレイしていたら、その{記録|きろく}は{残|のこ}っているはず！"
+
+  # ========================================
+  # 証拠カード3: 保健室の観察記録
+  # ========================================
+  - id: evidence-3
+    bgm: health-04/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 保健室の観察記録
+
+      - type: narration
+        text: "{保健|ほけん}の{先生|せんせい}の{観察|かんさつ}——{金曜日|きんようび}のサヤカ：{目|め}の{下|した}にクマ、あくびが{多|おお}い、{授業中|じゅぎょうちゅう}ぼーっとしている。{先週|せんしゅう}も{同|おな}じ{状態|じょうたい}だった。"
+
+      - type: narration
+        text: "{先々週|せんせんしゅう}は{全部|ぜんぶ}◎だった。ここ2{週間|しゅうかん}で{急|きゅう}に{体調|たいちょう}が{悪化|あっか}している。"
+
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mio
+        text: "{先週|せんしゅう}の{水曜日|すいようび}の{帰|かえ}り{道|みち}、サヤカが「{最近|さいきん}ちょっと{眠|ねむ}い」って{言|い}ってた。サヤカって{絶対|ぜったい}{弱音|よわね}を{言|い}わない{子|こ}なのに、{珍|めずら}しいなって{思|おも}った。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "サヤカの{体調|たいちょう}{不良|ふりょう}は「{昨日|きのう}だけ」じゃない。2{週間|しゅうかん}{前|まえ}から{始|はじ}まっている。{何|なに}か{生活習慣|せいかつしゅうかん}が{変|か}わった？"
+
+  # ========================================
+  # 証拠カード4: 生活リズムと体調の因果表
+  # ========================================
+  - id: evidence-4
+    bgm: health-04/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 生活リズムと体調の因果関係
+
+      - type: narration
+        text: "{保健|ほけん}の{教科書|きょうかしょ}より——{夜|よ}ふかし→{睡眠|すいみん}{不足|ぶそく}→だるい、{集中|しゅうちゅう}できない。{寝|ね}る{前|まえ}のスマホ/ゲーム→ブルーライトで{脳|のう}が{覚醒|かくせい}→{入眠|にゅうみん}が{遅|おく}れる。"
+
+      - type: narration
+        text: "{重要|じゅうよう}——「{布団|ふとん}に{入|はい}った{時刻|じこく}」と「{実際|じっさい}に{眠|ねむ}りについた{時刻|じこく}」は{違|ちが}う{意味|いみ}！ 8{時|じ}に{布団|ふとん}に{入|はい}っても、11{時|じ}に{眠|ねむ}ったとしたら{睡眠時間|すいみんじかん}は7{時間|じかん}。{推奨|すいしょう}の9〜10{時間|じかん}に{足|た}りない。"
+
+      - type: sprite
+        character: kenta
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "{自分|じぶん}もゲーム{好|す}きだから{分|わ}かるけど、{寝|ね}る{前|まえ}にゲームすると{目|め}がさえて{全然|ぜんぜん}{眠|ねむ}れない。{画面|がめん}の{光|ひかり}が{強|つよ}いんだよね。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "もし「8{時|じ}に{布団|ふとん}に{入|はい}ったけど、11{時|じ}に{眠|ねむ}った」としたら？ {睡眠時間|すいみんじかん}は{推奨|すいしょう}を{大|おお}きく{下回|したまわ}る。それなら{体調|たいちょう}が{悪|わる}いのも{説明|せつめい}がつく。"
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-04/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "「8{時|じ}に{寝|ね}た」の{本当|ほんとう}の{意味|いみ}を{考|かんが}えよう。{生活|せいかつ}チェック{表|ひょう}にウソを{書|か}いたのは{誰|だれ}？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 生活チェック表にウソを書いたのは誰？
+        options:
+          - text: "ハルキ（{体調|たいちょう}◎で{問題|もんだい}なし）"
+            value: haruki
+            feedback: "ハルキは{体調|たいちょう}◎。{就寝|しゅうしん}20:00→{起床|きしょう}6:00で10{時間|じかん}{睡眠|すいみん}。{記録|きろく}と{体調|たいちょう}が{一致|いっち}しているよ。"
+          - text: "ミオ（{体調|たいちょう}◎で{問題|もんだい}なし）"
+            value: mio
+            feedback: "ミオも{体調|たいちょう}◎。{記録|きろく}どおりの{生活|せいかつ}リズムで{健康|けんこう}。ミオはサヤカの{異変|いへん}に{気|き}づいていた{側|がわ}だよ。"
+          - text: "ケンタ（「{少|すこ}し{夜|よ}ふかし」と{正直|しょうじき}に{書|か}いた）"
+            value: kenta
+            feedback: "ケンタは「{少|すこ}し{夜|よ}ふかし」と{正直|しょうじき}に{書|か}いている。{体調|たいちょう}△{少|すこ}し{眠|ねむ}いも{正直|しょうじき}。ケンタの{記録|きろく}には{矛盾|むじゅん}がないよ。"
+          - text: "サヤカ（「8{時|じ}に{寝|ね}た」のに{体調|たいちょう}が{悪|わる}い）"
+            value: sayaka
+            feedback: "{鋭|するど}い！ 「10{時間|じかん}{寝|ね}た」のに「{少|すこ}しだるい」は{矛盾|むじゅん}。「8{時|じ}に{寝|ね}た」＝「8{時|じ}に{布団|ふとん}に{入|はい}った」であって「8{時|じ}に{眠|ねむ}った」ではないのかも。"
+
+      - type: choice
+        id: q2
+        question: サヤカが体調不良の本当の原因は？
+        options:
+          - text: "{布団|ふとん}に{入|はい}った{後|あと}、{夜|よる}{遅|おそ}くまでゲームをしていた"
+            value: late-gaming
+            feedback: "{正解|せいかい}！ 8{時|じ}に{布団|ふとん}に{入|はい}ったのは{本当|ほんとう}。でもその{後|あと}スマホでゲームをして{実際|じっさい}に{眠|ねむ}ったのは11{時|じ}すぎ。ブルーライトで{脳|のう}が{覚醒|かくせい}し、{睡眠|すいみん}が{短|みじか}くなった。"
+          - text: "{朝|あさ}ごはんが{足|た}りなかった"
+            value: breakfast
+            feedback: "サヤカの{朝|あさ}ごはんはトースト・ヨーグルト・サラダで{十分|じゅうぶん}。{食事|しょくじ}が{原因|げんいん}ではないよ。{睡眠|すいみん}の{質|しつ}に{注目|ちゅうもく}しよう。"
+          - text: "{風邪|かぜ}をひいていた"
+            value: cold
+            feedback: "サヤカの{症状|しょうじょう}は「だるい、{眠|ねむ}い、あくび」。{風邪|かぜ}の{症状|しょうじょう}（{熱|ねつ}、{咳|せき}、{鼻水|はなみず}）とは{違|ちが}う。{睡眠|すいみん}{不足|ぶそく}の{典型的|てんけいてき}なサインだよ。"
+          - text: "{運動|うんどう}{不足|ぶそく}"
+            value: exercise
+            feedback: "{運動|うんどう}{不足|ぶそく}は{睡眠|すいみん}の{質|しつ}に{影響|えいきょう}するけど、2{週間|しゅうかん}で{急|きゅう}に{体調|たいちょう}が{悪化|あっか}する{原因|げんいん}としては{弱|よわ}い。もっと{直接的|ちょくせつてき}な{生活習慣|せいかつしゅうかん}の{変化|へんか}があるはず。"
+
+  # ========================================
+  # 証拠カード5: ケンタのプレイ履歴
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-04/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: kenta
+        expression: determined
+        position: center
+
+      - type: dialog
+        character: kenta
+        text: "……{自分|じぶん}のプレイ{履歴|りれき}を{見|み}てほしい。{木曜日|もくようび}の{夜|よる}のやつ。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        text: "ケンタのバトルアリーナ{履歴|りれき}（{木曜日|もくようび}）——20:32ログイン。20:35 vs. Tatsuya。20:48 vs. Yuto。21:15 vs. Tatsuya。"
+
+      - type: narration
+        text: "21:40——フレンド{一覧|いちらん}{確認|かくにん}。「Sayaka：オンライン{中|ちゅう}」"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "22:03——vs. Sayaka（{対戦|たいせん}・{負|ま}け）。22:18——vs. Sayaka（{対戦|たいせん}・{勝|か}ち）。22:31——ログアウト。"
+
+      - type: narration
+        speed: slow
+        text: "サヤカは{夜|よる}10{時|じ}すぎにゲームをしていた。「8{時|じ}に{寝|ね}た」と{記録|きろく}したのに、{少|すこ}なくとも{夜|よる}10{時|じ}すぎにはまだ{起|お}きていた。プレイ{履歴|りれき}は{消|け}せない。"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 真実 — サヤカ（犯人）
+  # ========================================
+  - id: truth-sayaka
+    bg: classroom
+    bgm: health-04/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sayaka
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: sayaka
+        text: "……8{時|じ}に{布団|ふとん}に{入|はい}ったのは{本当|ほんとう}。でも{眠|ねむ}れたのは11{時|じ}すぎだった。"
+
+      - type: dialog
+        character: sayaka
+        text: "2{週間|しゅうかん}{前|まえ}に{友達|ともだち}に{勧|すす}められてバトルアリーナを{始|はじ}めた。{夜|よる}、{布団|ふとん}の{中|なか}でスマホを{開|ひら}いたら{止|と}められなくなって。{毎晩|まいばん}{夜|よる}11{時|じ}すぎまで{遊|あそ}んでた。"
+
+      - type: dialog
+        character: sayaka
+        expression: determined
+        text: "わたしは「{生活習慣|せいかつしゅうかん}がきちんとしている{子|こ}」って{思|おも}われてる。それが{壊|こわ}れるのが{恥|はず}ずかしくて……「8{時|じ}に{寝|ね}た」って{書|か}いちゃった。{布団|ふとん}に{入|はい}ったのは{本当|ほんとう}だから、ウソじゃないって{自分|じぶん}に{言|い}い{聞|き}かせてた。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: narration
+        text: "「{布団|ふとん}に{入|はい}った」＝「{眠|ねむ}った」ではない。サヤカの{実際|じっさい}の{睡眠時間|すいみんじかん}は11{時|じ}〜6{時|じ}＝7{時間|じかん}。{推奨|すいしょう}の9〜10{時間|じかん}に{大|おお}きく{足|た}りなかった。"
+
+  # ========================================
+  # 真実 — ハルキ
+  # ========================================
+  - id: truth-haruki
+    steps:
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: haruki
+        text: "{生活|せいかつ}チェック{表|ひょう}のデータを{分析|ぶんせき}してたとき、「サヤカの{体調|たいちょう}△」が{気|き}になった。{就寝|しゅうしん}20:00で{睡眠|すいみん}10{時間|じかん}なのにだるいって、データが{合|あ}わない。"
+
+      - type: dialog
+        character: haruki
+        expression: determined
+        text: "「{布団|ふとん}に{入|はい}った{時刻|じこく}」と「{入眠時刻|にゅうみんじこく}」が{違|ちが}うかもしれないって、{保健|ほけん}の{授業|じゅぎょう}で{習|なら}ったのを{思|おも}い{出|だ}した。データは{正|ただ}しく{記録|きろく}しないと{意味|いみ}がない。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ========================================
+  # 真実 — ミオ
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mio
+        text: "サヤカが{先週|せんしゅう}「{最近|さいきん}{眠|ねむ}い」って{言|い}ったとき、もっと{聞|き}いてあげればよかった。サヤカは{絶対|ぜったい}{弱音|よわね}を{言|い}わない{子|こ}だから、あのとき{本当|ほんとう}につらかったんだ。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "「{完璧|かんぺき}じゃなくてもいいよ」って、{友達|ともだち}に{言|い}ってあげることも{大事|だいじ}だね。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ========================================
+  # 真実 — ケンタ
+  # ========================================
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kenta
+        text: "おれも「{少|すこ}し{夜|よ}ふかし」って{書|か}いた。{本当|ほんとう}は22{時|じ}{半|はん}まで{遊|あそ}んでた。でもサヤカほど{体調|たいちょう}は{悪|わる}くなかった——{毎日|まいにち}じゃなかったからかも。"
+
+      - type: dialog
+        character: kenta
+        expression: determined
+        text: "サヤカは2{週間|しゅうかん}{毎晩|まいばん}やってた。1{日|にち}だけなら{大丈夫|だいじょうぶ}でも、{毎日|まいにち}{続|つづ}くと{体|からだ}に{影響|えいきょう}が{出|で}る。{生活|せいかつ}リズムって、{積|つ}み{重|かさ}ねなんだな。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-04/resolution
+
+      - type: narration
+        speed: slow
+        text: "「{布団|ふとん}に{入|はい}る」≠「{眠|ねむ}る」。{言葉|ことば}のトリックが、{生活習慣|せいかつしゅうかん}の{問題|もんだい}を{隠|かく}していた。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-04/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "サヤカは「{完璧|かんぺき}なイメージ」を{守|まも}りたかった。でも{正直|しょうじき}に{向|む}き{合|あ}うことが、{体|からだ}を{守|まも}る{第一歩|だいいっぽ}。"
+
+      - type: dialog
+        character: sensei
+        text: "{布団|ふとん}に{入|はい}った{時刻|じこく}と、{実際|じっさい}に{眠|ねむ}りについた{時刻|じこく}は{違|ちが}います。{寝|ね}る{前|まえ}のスマホやゲームは、ブルーライトで{脳|のう}を{覚醒|かくせい}させて{入眠|にゅうみん}を{遅|おく}らせる。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{小学生|しょうがくせい}の{推奨|すいしょう}{睡眠時間|すいみんじかん}は9〜10{時間|じかん}。{生活|せいかつ}リズムを{整|ととの}えるのは、{自分|じぶん}の{体|からだ}を{大切|たいせつ}にすること。"
+
+      - type: narration
+        speed: slow
+        text: "そして——「{弱|よわ}いところを{見|み}せるのは{恥|はず}ずかしい」と{思|おも}う{気持|きも}ちは{分|わ}かる。でも{正直|しょうじき}に{話|はな}せる{友達|ともだち}がいることが、{一番|いちばん}の{健康|けんこう}だ。{保健|ほけん}{探偵団|たんていだん}——{眠|ねむ}れなかった{夜|よる}の{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
