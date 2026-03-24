@@ -1,0 +1,483 @@
+meta:
+  id: money-06
+  title: フリマの偽物
+  series: お金の探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  yuta:
+    name: ユウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sakura:
+    name: サクラ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kaito:
+    name: カイト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  nanoha:
+    name: ナノハ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: money-06/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}で「クラスフリーマーケット」が{開|ひら}かれた。4{人|にん}がそれぞれ{不用品|ふようひん}を{出品|しゅっぴん}して{売買|ばいばい}{体験|たいけん}をする。"
+      - type: sprite
+        character: kaito
+        expression: happy
+        position: left
+      - type: dialog
+        character: kaito
+        text: "『レアな{限定|げんてい}{消|け}しゴムセット』を150{円|えん}で{買|か}ったぜ！ すげーだろ！"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: yuta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: yuta
+        text: "これ……100{円|えん}ショップで{売|う}ってるやつじゃない？ 100{円|えん}の{消|け}しゴムを『レア』って……"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: bgm
+        file: money-06/tension
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "150{円|えん}で{買|か}った『レア{限定|げんてい}{消|け}しゴム』が、100{円|えん}ショップの{普通|ふつう}の{商品|しょうひん}？ {偽物|にせもの}を{出品|しゅっぴん}したのは{誰|だれ}でしょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: yuta
+            expression: determined
+          - character: sakura
+            expression: surprised
+          - character: kaito
+            expression: worried
+          - character: nanoha
+            expression: normal
+      - type: narration
+        text: "5つの{出品|しゅっぴん}を{全部|ぜんぶ}{調|しら}べて、{偽物|にせもの}を{出品|しゅっぴん}した{人物|じんぶつ}を{特定|とくてい}する{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "お金の探偵団 Vol.6"
+        subtitle: "フリマの偽物"
+
+  # ===== 証拠カード1: 事件の記録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: money-06/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "カイトが150{円|えん}で{買|か}った『レア{限定|げんてい}{消|け}しゴムセット』。{先生|せんせい}が{確認|かくにん}すると——"
+      - type: narration
+        text: "100{円|えん}ショップ「ダイソー」の「キラキラ{消|け}しゴム5{個|こ}{入|い}り」（{税込|ぜいこみ}110{円|えん}）と{同一|どういつ}{商品|しょうひん}。「レア」でも「{限定|げんてい}」でもない。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "110{円|えん}の{商品|しょうひん}を「レア{限定|げんてい}」と{偽|いつわ}って150{円|えん}で{出品|しゅっぴん}。しかも{出品|しゅっぴん}Cの{値札|ねふだ}カードには{出品者|しゅっぴんしゃ}の{名前|なまえ}が{書|か}かれていない。{他|ほか}の{出品|しゅっぴん}はすべて{名前|なまえ}あり。"
+
+  # ===== 証拠カード2: 全探索比較表 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: money-06/investigation
+    steps:
+      - type: narration
+        text: "5つの{出品|しゅっぴん}を{全部|ぜんぶ}{調|しら}べて{比較|ひかく}しよう。{全探索|ぜんたんさく}だ。"
+      - type: narration
+        text: "A（ユウタ）——プログラミング{本|ほん}200{円|えん}。{入手元|にゅうしゅもと}：{去年|きょねん}{買|か}って{読|よ}み{終|お}わった。{説明|せつめい}：{具体的|ぐたいてき}。✅"
+      - type: narration
+        text: "B（サクラ）——メモ{帳|ちょう}セット100{円|えん}。{入手元|にゅうしゅもと}：お{母|かあ}さんにもらった{余|あま}り。{説明|せつめい}：{具体的|ぐたいてき}。✅"
+      - type: narration
+        text: "C（？？？）——レア{限定|げんてい}{消|け}しゴムセット150{円|えん}。{入手元|にゅうしゅもと}：{不明|ふめい}。{説明|せつめい}：{曖昧|あいまい}（『レア』『{限定|げんてい}』だけ）。❌"
+      - type: narration
+        text: "D（カイト）——サッカーカード5{枚|まい}150{円|えん}。{入手元|にゅうしゅもと}：{自分|じぶん}のコレクション。{説明|せつめい}：{具体的|ぐたいてき}。✅"
+      - type: narration
+        text: "E（ナノハ）——{使|つか}いかけノート3{冊|さつ}50{円|えん}。{入手元|にゅうしゅもと}：{自分|じぶん}が{使|つか}いかけたもの。{説明|せつめい}：{具体的|ぐたいてき}。✅"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{出品|しゅっぴん}Cだけが{異質|いしつ}——{出品者|しゅっぴんしゃ}{名|めい}なし、{入手元|にゅうしゅもと}{不明|ふめい}、{説明|せつめい}が{曖昧|あいまい}。さらに{鑑定|かんてい}チェック——パッケージにメーカー{名|めい}なし、{裏面|うらめん}が{黒|くろ}く{塗|ぬ}りつぶされている、{公式|こうしき}サイトに「レア{限定|げんてい}{消|け}しゴムセット」は{存在|そんざい}しない。3つとも{不合格|ふごうかく}。"
+
+  # ===== 証拠カード3: 偽装分析と目撃情報 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: money-06/experiment
+    steps:
+      - type: sprite
+        character: yuta
+        expression: determined
+        position: left
+      - type: dialog
+        character: yuta
+        text: "ダイソーの「キラキラ{消|け}しゴム5{個|こ}{入|い}り」、{税込|ぜいこみ}110{円|えん}。カイトの『レア{消|け}しゴム』と{同一|どういつ}{商品|しょうひん}だ。いつでもダイソーで{買|か}える{普通|ふつう}の{商品|しょうひん}。"
+      - type: sprite
+        character: yuta
+        expression: thinking
+      - type: dialog
+        character: yuta
+        text: "{裏面|うらめん}のダイソーのロゴが{黒|くろ}マジックで{塗|ぬ}りつぶされてる。ロゴの{位置|いち}を{知|し}っている{人|ひと}——つまり{自分|じぶん}でダイソーで{買|か}った{人|ひと}がやった{偽装|ぎそう}だ。"
+      - type: dialog
+        character: yuta
+        text: "それと{火曜|かよう}の{放課後|ほうかご}、ナノハが100{円|えん}ショップの{袋|ふくろ}を{持|も}って{学校|がっこう}に{来|き}てた。『{何|なに}{買|か}ったの？』って{聞|き}いたら『べつに……ノートの{予備|よび}』って。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{偽装|ぎそう}の{技術|ぎじゅつ}レベル——ロゴを{塗|ぬ}りつぶす（{出所|でどころ}の{隠蔽|いんぺい}）、{名前|なまえ}を{書|か}かない（{匿名化|とくめいか}）、『レア{限定|げんてい}』と{記載|きさい}（{価値|かち}の{捏造|ねつぞう}）。ダイソーで{買|か}った{経験|けいけん}があり、{利益|りえき}{計算|けいさん}ができる{人物|じんぶつ}——。"
+
+  # ===== 証拠カード4: フリマ中の観察 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: money-06/experiment
+    steps:
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kaito
+        text: "フリマ{中|ちゅう}、ナノハが{出品|しゅっぴん}Cの{前|まえ}で{立|た}ち{止|ど}まって{値札|ねふだ}カードの{向|む}きを{直|なお}してたぜ。『{通|とお}りがかっただけ』って{言|い}ってたけど、{出品|しゅっぴん}Cの{配置|はいち}を{気|き}にしてるみたいだった。"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: sakura
+        expression: surprised
+        position: left
+      - type: dialog
+        character: sakura
+        text: "{出品|しゅっぴん}Cの{値札|ねふだ}カードの{裏|うら}に、{小|ちい}さく「ダイソー」のロゴが見えたの。ダイソーのシールを{値札|ねふだ}カードに{使|つか}い{回|まわ}してたのかも。"
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: narration
+        text: "{売上|うりあげ}{記録|きろく}——ユウタ200{円|えん}、カイト150{円|えん}、サクラ100{円|えん}、ナノハはノート50{円|えん}のみ。もし{出品|しゅっぴん}Cがナノハのものなら50+150＝200{円|えん}で1{位|い}タイ。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "ナノハには「{出品|しゅっぴん}を{増|ふ}やして{売上|うりあげ}1{位|い}になりたい」{動機|どうき}がある。50{円|えん}だけでは{最下位|さいかい}。150{円|えん}を{足|た}せば1{位|い}タイに。"
+
+  # ===== 証拠カード5: レシート発見 =====
+  - id: card-5
+    bg: classroom
+    bgm: money-06/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナノハさんのランドセルのポケットからレシートが見つかりました。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "ダイソーあおば{店|てん}、{火曜日|かようび}15:45。キラキラ{消|け}しゴム5{個|こ}{入|い}り、110{円|えん}。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{偽装|ぎそう}の{全工程|ぜんこうてい}——{月曜|げつよう}{夜|よる}に「{売上|うりあげ}1{位|い}になりたい」と{計画|けいかく}。{火曜|かよう}にダイソーで{消|け}しゴム110{円|えん}を{購入|こうにゅう}。{火曜|かよう}{夜|よる}にダイソーのロゴを{黒|くろ}マジックで{塗|ぬ}りつぶし。{水曜|すいよう}に「レア{限定|げんてい}」150{円|えん}の{値札|ねふだ}を{作成|さくせい}、{名前|なまえ}は{書|か}かず。カイトが150{円|えん}で{購入|こうにゅう}。{利益|りえき}：150−110＝40{円|えん}。"
+      - type: narration
+        text: "ナノハは{普段|ふだん}は{正直|しょうじき}で{倹約家|けんやくか}。でもフリマの「{売上|うりあげ}1{位|い}」になりたいという{承認|しょうにん}{欲求|よっきゅう}に{負|ま}けて、{嘘|うそ}の{出品|しゅっぴん}をしてしまった。{倹約|けんやく}の{知識|ちしき}（110{円|えん}で{仕入|しい}れて150{円|えん}で{売|う}る）が、{偽物|にせもの}{作|づく}りの{技術|ぎじゅつ}になってしまった。"
+      - type: narration
+        text: "「{嘘|うそ}で{得|え}た1{位|い}は{本物|ほんもの}の1{位|い}ではない」——{知識|ちしき}は「{正|ただ}しく使う」ことが{大事|だいじ}。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: money-06/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出|で}そろいました。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "偽物を出品したのは誰？"
+        options:
+          - text: "ナノハ（100円ショップで仕入れてレアと偽った）"
+            feedback: "{火曜|かよう}にダイソーで{購入|こうにゅう}したレシート、ロゴの{塗|ぬ}りつぶし、{値札|ねふだ}を{直|なお}す{目撃|もくげき}、{売上|うりあげ}1{位|い}の{動機|どうき}——{証拠|しょうこ}がすべてナノハを{指|さ}している。"
+          - text: "カイト（自作自演で同情を集めた？）"
+            feedback: "カイトは150{円|えん}を{払|はら}って{買|か}った{被害者|ひがいしゃ}。{自作自演|じさくじえん}なら150{円|えん}を{損|そん}するだけで{意味|いみ}がない。"
+          - text: "サクラ（ダイソーのロゴに気づいていたのに黙っていた）"
+            feedback: "サクラはロゴに{気|き}づいたが{出品者|しゅっぴんしゃ}ではない。{気|き}づいたのに{言|い}わなかったのは{問題|もんだい}だけど、{偽物|にせもの}を{作|つく}ったのは{別|べつ}の{人|ひと}。"
+          - text: "ユウタ（商品知識があるから偽物も作れる）"
+            feedback: "ユウタは100{円|えん}ショップに{詳|くわ}しいが、{自分|じぶん}の{出品|しゅっぴん}（{本|ほん}200{円|えん}）は{正直|しょうじき}。{偽物|にせもの}を{作|つく}る{動機|どうき}がない。"
+      - type: choice
+        id: q2
+        text: "偽物を見抜くために一番大事なことは？"
+        options:
+          - text: "全部の出品を1つずつ調べて比較する（全探索）"
+            feedback: "5{点|てん}{全部|ぜんぶ}{調|しら}べないと『{出品|しゅっぴん}Cだけ{異質|いしつ}』というパターンが見えない。{全探索|ぜんたんさく}は{偽物|にせもの}{発見|はっけん}の{基本|きほん}。"
+          - text: "鑑定チェックリスト（パッケージ・ロット番号・公式サイト）で確認"
+            feedback: "3つのチェックで{偽物|にせもの}を{論理的|ろんりてき}に{証明|しょうめい}できる。{特|とく}にロゴの{塗|ぬ}りつぶし（ロット{番号|ばんごう}の{隠蔽|いんぺい}）が{決|き}め{手|て}だった。"
+          - text: "『レア』『限定』の言葉を疑う"
+            feedback: "「レア＝{高|たか}い」は{認知|にんち}バイアス。{言葉|ことば}だけで{価値|かち}が{上|あ}がるわけではない。{実際|じっさい}の{相場|そうば}を{確認|かくにん}することが{大事|だいじ}。"
+          - text: "全部やる（全探索＋鑑定チェック＋言葉を疑う）"
+            feedback: "{完璧|かんぺき}。{全部|ぜんぶ}{調|しら}べて、チェックリストで{確認|かくにん}し、『レア』『{限定|げんてい}』を{疑|うたが}う。この3つで{偽物|にせもの}は{見抜|みぬ}ける。"
+      - type: choice
+        id: q3
+        text: "ナノハの「1位になりたい」気持ちについてどう思う？"
+        options:
+          - text: "気持ちは分かるけど嘘はダメ"
+            feedback: "「1{位|い}になりたい」は{自然|しぜん}な{気持|きも}ち。でも{嘘|うそ}で{得|え}た1{位|い}は{本物|ほんもの}じゃない。{正直|しょうじき}な{出品|しゅっぴん}で{勝負|しょうぶ}すべきだった。"
+          - text: "不用品が少ないなら仕方ない"
+            feedback: "{不用品|ふようひん}が{少|すく}ないのは{仕方|しかた}ない。でも「{嘘|うそ}で{補|おぎな}う」のは{間違|まちが}い。50{円|えん}のノートだけでも{正直|しょうじき}に{参加|さんか}する{方|ほう}がずっといい。"
+          - text: "倹約の知識を偽物に使ったのが一番の問題"
+            feedback: "ナノハの{倹約|けんやく}の{知識|ちしき}（{仕入|しい}れ{値|ね}と{売値|うりね}の{計算|けいさん}）は{素晴|すば}らしい。でもその{知識|ちしき}が{偽物|にせもの}{作|づく}りに{使|つか}われた。{知識|ちしき}は「どう使うか」が{大事|だいじ}。"
+          - text: "カイトも確認せずに買ったのが悪い"
+            feedback: "カイトが「レア」を{信|しん}じて{確認|かくにん}しなかったのも{問題|もんだい}。でも{偽物|にせもの}を{出品|しゅっぴん}したのはナノハ。{買|か}う{側|がわ}と{売|う}る{側|がわ}、{両方|りょうほう}に{学|まな}びがある。"
+
+  # ===== 真実: ユウタ =====
+  - id: truth-yuta
+    bg: classroom
+    bgm: money-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuta
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuta
+        text: "{消|け}しゴムを見た{瞬間|しゅんかん}、ダイソーの「キラキラ{消|け}しゴム5{個|こ}{入|い}り」だって{分|わ}かった。{税込|ぜいこみ}110{円|えん}。いつでも{買|か}える{普通|ふつう}の{商品|しょうひん}。"
+      - type: sprite
+        character: yuta
+        expression: determined
+      - type: dialog
+        character: yuta
+        text: "{裏面|うらめん}のロゴを{塗|ぬ}りつぶしてるのも{見|み}つけた。ロゴの{位置|いち}を{知|し}ってる＝{自分|じぶん}で{買|か}った{人|ひと}。{火曜|かよう}にナノハが100{円|えん}ショップの{袋|ふくろ}を{持|も}ってた。"
+      - type: sprite
+        character: yuta
+        action: hide
+
+  # ===== 真実: サクラ =====
+  - id: truth-sakura
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: right
+      - type: dialog
+        character: sakura
+        text: "わたし、{値札|ねふだ}カードの{裏|うら}にダイソーのロゴが見えてたの。でも『レア』って{書|か}いてあるから{本物|ほんもの}だろうって{信|しん}じちゃった。"
+      - type: sprite
+        character: sakura
+        expression: thinking
+      - type: dialog
+        character: sakura
+        text: "「レア＝{高|たか}い」って{思|おも}い{込|こ}み——{認知|にんち}バイアスだったんだ。カイトに{教|おし}えてあげれば150{円|えん}を{無駄|むだ}にしなかったのに。"
+      - type: sprite
+        character: sakura
+        action: hide
+
+  # ===== 真実: カイト =====
+  - id: truth-kaito
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaito
+        expression: worried
+        position: left
+      - type: dialog
+        character: kaito
+        text: "{出品者|しゅっぴんしゃ}の{名前|なまえ}が{書|か}いてないのに{気|き}にせず{買|か}っちまった。『レア{限定|げんてい}』の{文字|もじ}に{興奮|こうふん}して。"
+      - type: sprite
+        character: kaito
+        expression: determined
+      - type: dialog
+        character: kaito
+        text: "フリマ{中|ちゅう}にナノハが{値札|ねふだ}を{直|なお}してたの見たんだ。あのとき『ナノハが{出品者|しゅっぴんしゃ}？』って{気|き}づけたのに。{次|つぎ}からは「レア」って{書|か}いてあっても{確認|かくにん}するぜ。"
+      - type: sprite
+        character: kaito
+        action: hide
+
+  # ===== 真実: ナノハ（犯人） =====
+  - id: truth-nanoha
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nanoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: nanoha
+        text: "……{認|みと}めます。『レア{限定|げんてい}{消|け}しゴムセット』を{出品|しゅっぴん}したのは、わたしです。"
+      - type: narration
+        speed: slow
+        text: "ナノハは{目|め}を{伏|ふ}せた。"
+      - type: sprite
+        character: nanoha
+        expression: normal
+      - type: dialog
+        character: nanoha
+        text: "{売上|うりあげ}1{位|い}になりたかった。でも{不用品|ふようひん}がノート3{冊|さつ}（50{円|えん}）しかなくて、このままだと{最下位|さいかい}。"
+      - type: sprite
+        character: nanoha
+        expression: worried
+      - type: dialog
+        character: nanoha
+        text: "{火曜|かよう}にダイソーで{消|け}しゴムを110{円|えん}で{買|か}って、ロゴを{塗|ぬ}りつぶして、『レア{限定|げんてい}』って{値札|ねふだ}をつけた。{名前|なまえ}を{書|か}かなかったのは、バレたくなかったから。"
+      - type: dialog
+        character: nanoha
+        text: "{倹約|けんやく}が{得意|とくい}だから、110{円|えん}で{仕入|しい}れて150{円|えん}で{売|う}れば40{円|えん}の{利益|りえき}になるって{分|わ}かってた。{倹約|けんやく}の{知識|ちしき}を{偽物|にせもの}{作|づく}りに使っちゃった……{最低|さいてい}だ。"
+      - type: sprite
+        character: nanoha
+        expression: determined
+      - type: dialog
+        character: nanoha
+        text: "カイト、150{円|えん}{返|かえ}す。{嘘|うそ}で{得|え}た1{位|い}は{本物|ほんもの}の1{位|い}じゃない。ごめんなさい。"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: narration
+        text: "ナノハは{悪|わる}い{子|こ}ではない。{普段|ふだん}は{正直|しょうじき}で{倹約家|けんやくか}。でも「{売上|うりあげ}1{位|い}」の{承認|しょうにん}{欲求|よっきゅう}に{負|ま}けて、{知識|ちしき}を{間違|まちが}った{方向|ほうこう}に使ってしまった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: money-06/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナノハさん、{正直|しょうじき}に{認|みと}めてくれてありがとう。「1{位|い}になりたい」{気持|きも}ちは{悪|わる}くない。でも{嘘|うそ}の{方法|ほうほう}は{間違|まちが}い。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "フリマで{偽物|にせもの}を見{抜|ぬ}くには——{全探索|ぜんたんさく}で{全部|ぜんぶ}{比較|ひかく}する。{鑑定|かんてい}チェックリスト（パッケージ・ロット{番号|ばんごう}・{公式|こうしき}サイト）で{確認|かくにん}する。『レア』『{限定|げんてい}』の{言葉|ことば}を{疑|うたが}う。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "そして{大事|だいじ}なこと——{知識|ちしき}は「{正|ただ}しく使う」。ナノハの{倹約|けんやく}の{力|ちから}は{素晴|すば}らしい。それを{正直|しょうじき}なフリマに{活|い}かせば、みんなから{信頼|しんらい}される{出品者|しゅっぴんしゃ}になれますよ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: determined
+        position: left
+      - type: sprite
+        character: kaito
+        expression: happy
+        position: right
+      - type: dialog
+        character: nanoha
+        text: "{次|つぎ}のフリマでは{正直|しょうじき}に{出品|しゅっぴん}する。{倹約|けんやく}の{知識|ちしき}は「いいものを{安|やす}く{見|み}つける」ために使う。{約束|やくそく}。"
+      - type: dialog
+        character: kaito
+        text: "オレも「レア」って{書|か}いてあっても、{次|つぎ}からは{確認|かくにん}してから{買|か}うぜ。{全探索|ぜんたんさく}と{鑑定|かんてい}チェック、{忘|わす}れないぜ！"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『レア』『{限定|げんてい}』——この{言葉|ことば}に{出会|であ}ったら、まず{疑|うたが}おう。{全部|ぜんぶ}{調|しら}べて、チェックリストで{確認|かくにん}して、{相場|そうば}と{比|くら}べる。これがお{金|かね}の{探偵|たんてい}の{力|ちから}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
