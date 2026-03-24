@@ -1,0 +1,503 @@
+meta:
+  id: health-09
+  title: 保健室データの謎
+  series: 保健探偵団
+  volume: 9
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-09/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}の{保健|ほけん}{委員|いいん}が、1{年間|ねんかん}（4{学期|がっき}{分|ぶん}）の{保健室|ほけんしつ}{来室|らいしつ}{記録|きろく}をまとめた「{来室|らいしつ}データ{集計表|しゅうけいひょう}」を{作|つく}った。"
+
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: haruki
+        text: "ちょっと{待|ま}って。ある{時期|じき}だけ、{来室数|らいしつすう}がおかしい。{季節|きせつ}のパターンに{合|あ}っていない。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "{気温|きおん}・{湿度|しつど}と{病気|びょうき}の{関係|かんけい}を{調|しら}べると、{保健室|ほけんしつ}の{来室|らいしつ}には「{季節|きせつ}のパターン」がある。でも1か{所|しょ}だけ、そのパターンに{合|あ}わない{数値|すうち}がある。"
+
+      - type: bgm
+        track: health-09/investigation
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "「{帰納法|きのうほう}」でデータのパターンを{見|み}つけて、{異常値|いじょうち}の{原因|げんいん}を{特定|とくてい}しよう。{複数|ふくすう}の{例|れい}から{法則|ほうそく}を{見|み}つけ、そこから{外|はず}れる{例外|れいがい}を{発見|はっけん}する{方法|ほうほう}だ。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: thinking }
+          - { id: kenta, expression: normal }
+          - { id: sayaka, expression: thinking }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——{保健|ほけん}{探偵団|たんていだん}、{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 保健室データの謎
+        subtitle: 保健探偵団 Vol.9
+
+  # ========================================
+  # 証拠カード1: 来室データ集計表
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-09/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 来室データのパターンを見つけよう
+
+      - type: narration
+        text: "{月別|つきべつ}{来室|らいしつ}{件数|けんすう}——4{月|がつ}31{件|けん}、5{月|がつ}25{件|けん}（{春|はる}：{中|ちゅう}）。7{月|がつ}44{件|けん}（{夏|なつ}：{多|おお}い）。10{月|がつ}26{件|けん}、11{月|がつ}22{件|けん}（{秋|あき}：{少|すく}ない）。1{月|がつ}54{件|けん}、2{月|がつ}49{件|けん}（{冬|ふゆ}：{最多|さいた}）。"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "9{月|がつ}{後半|こうはん}——58{件|けん}。{冬|ふゆ}の{風邪|かぜ}シーズン{並|な}みの{数値|すうち}。{周|まわ}りの{月|つき}（9{月|がつ}{前半|ぜんはん}38{件|けん}、10{月|がつ}26{件|けん}）と{比|くら}べて{明|あき}らかに{突出|とっしゅつ}している。"
+
+      - type: narration
+        text: "{季節|きせつ}パターン——{冬|ふゆ}は{風邪|かぜ}・インフルエンザで{多|おお}い（{低温|ていおん}+{低|ひく}い{湿度|しつど}）。{夏|なつ}は{熱中症|ねっちゅうしょう}で{多|おお}い（{高温|こうおん}）。{秋|あき}は{少|すく}ない。{帰納法|きのうほう}でパターンを{見|み}つけよう。"
+
+  # ========================================
+  # 証拠カード2: 保健室日誌
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 保健室の先生の日誌
+
+      - type: narration
+        text: "{山本|やまもと}{先生|せんせい}の{日誌|にっし}（9{月|がつ}{後半|こうはん}）——9{月|がつ}25{日|にち}：{来室|らいしつ}5{件|けん}。{特記|とっき}{事項|じこう}なし。{体調|たいちょう}{不良|ふりょう}の{子|こ}は{特|とく}に{多|おお}くない。"
+
+      - type: narration
+        text: "9{月|がつ}26{日|にち}：{来室|らいしつ}4{件|けん}。{通常|つうじょう}レベル。{体調|たいちょう}{不良|ふりょう}の{子|こ}なし。9{月|がつ}27{日|にち}：{来室|らいしつ}6{件|けん}（うち3{件|けん}は{運動中|うんどうちゅう}のけが）。{風邪|かぜ}や{発熱|はつねつ}の{子|こ}は{来|き}ていない。"
+
+      - type: narration
+        text: "9{月|がつ}30{日|にち}：{来室|らいしつ}4{件|けん}。「9{月|がつ}{後半|こうはん}は{全体的|ぜんたいてき}に{落|お}ち{着|つ}いた{週|しゅう}だった」"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "{先生|せんせい}の{日誌|にっし}では「{落|お}ち{着|つ}いた{週|しゅう}」。なのに{集計表|しゅうけいひょう}では58{件|けん}。{日誌|にっし}と{集計表|しゅうけいひょう}の{数字|すうじ}が{合|あ}わない。"
+
+  # ========================================
+  # 証拠カード3: 気象データ
+  # ========================================
+  - id: evidence-3
+    bgm: health-09/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 気象観測データ
+
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "{気象|きしょう}{観測|かんそく}ノートを{持|も}ってきたよ。9{月|がつ}{後半|こうはん}の{平均|へいきん}{気温|きおん}は25.3℃、{湿度|しつど}は64%。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: narration
+        text: "{帰納法|きのうほう}で{照|て}らし{合|あ}わせよう。{冬|ふゆ}（{気温|きおん}4℃・{湿度|しつど}43%）→{風邪|かぜ}で{来室|らいしつ}{最多|さいた}。{夏|なつ}（31℃・80%）→{熱中症|ねっちゅうしょう}で{多|おお}い。{秋|あき}（18℃・62%）→{少|すく}ない。"
+
+      - type: narration
+        speed: slow
+        text: "9{月|がつ}{後半|こうはん}（25℃・64%）→{気温|きおん}はまだ{高|たか}いが{風邪|かぜ}ウイルスが{活発|かっぱつ}になるほど{下|さ}がっていない。{熱中症|ねっちゅうしょう}シーズンも{終|お}わりかけ。{来室|らいしつ}{増加|ぞうか}が{起|お}きにくい{時期|じき}——なのに58{件|けん}？ {医学的|いがくてき}パターンと{一致|いっち}しない。"
+
+  # ========================================
+  # 証拠カード4: ケンタの活動メモ
+  # ========================================
+  - id: evidence-4
+    bgm: health-09/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ケンタの保健委員活動メモ
+
+      - type: narration
+        text: "ケンタの{活動|かつどう}メモ——9{月|がつ}10{日|にち}：{山本|やまもと}{先生|せんせい}から{来室|らいしつ}データの{集計|しゅうけい}をお{願|ねが}いされた。10{月|がつ}1{日|にち}{締|し}め{切|き}り。"
+
+      - type: narration
+        text: "9{月|がつ}25{日|にち}：「{保健室|ほけんしつ}の{今後|こんご}について{校長|こうちょう}{先生|せんせい}が{話|はな}していた（{職員室|しょくいんしつ}{前|まえ}で{聞|き}こえた）。{来室数|らいしつすう}が{少|すく}ない{年|とし}は{施設|しせつ}{改修|かいしゅう}の{優先度|ゆうせんど}が{下|さ}がる、と」"
+
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mio
+        text: "9{月|がつ}{後半|こうはん}に{体調|たいちょう}{不良|ふりょう}の{子|こ}ってそんなにいたっけ？ {保健室|ほけんしつ}の{常連|じょうれん}のわたしから{見|み}ても、あの{時期|じき}は{静|しず}かだった{気|き}がする。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "{校長|こうちょう}{先生|せんせい}の「{来室数|らいしつすう}が{少|すく}ない{年|とし}は{施設|しせつ}{改修|かいしゅう}の{優先度|ゆうせんど}が{下|さ}がる」——この{言葉|ことば}を{聞|き}いた{後|あと}、ケンタは{何|なに}を{考|かんが}えた？"
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-09/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{帰納法|きのうほう}で{見|み}つけたパターンと{異常値|いじょうち}。{日誌|にっし}と{集計表|しゅうけいひょう}の{矛盾|むじゅん}。{誰|だれ}がデータを{操作|そうさ}した？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 来室データを操作したのは誰？
+        options:
+          - text: "ハルキ（データ{分析|ぶんせき}の{担当|たんとう}）"
+            value: haruki
+            feedback: "ハルキは{異常値|いじょうち}を{発見|はっけん}した{側|がわ}。{集計表|しゅうけいひょう}を{作|つく}ったのはケンタで、ハルキはその{数値|すうち}を{分析|ぶんせき}しただけだよ。"
+          - text: "ケンタ（{集計|しゅうけい}{担当|たんとう}で{入力|にゅうりょく}{権限|けんげん}がある）"
+            value: kenta
+            feedback: "{鋭|するど}い！ ケンタは{来室|らいしつ}データの{集計|しゅうけい}{担当|たんとう}で{入力|にゅうりょく}{権限|けんげん}がある。{校長|こうちょう}{先生|せんせい}の{話|はなし}を{聞|き}いた{後|あと}、{保健室|ほけんしつ}の{利用|りよう}{価値|かち}を{示|しめ}したくてデータを{水増|みずま}しした。"
+          - text: "ミオ（{保健室|ほけんしつ}の{常連|じょうれん}）"
+            value: mio
+            feedback: "ミオは{保健室|ほけんしつ}を{利用|りよう}する{側|がわ}で、データの{入力|にゅうりょく}{権限|けんげん}はない。「{静|しず}かだった」と{証言|しょうげん}しているよ。"
+          - text: "サヤカ（{気象|きしょう}データを{持|も}っている）"
+            value: sayaka
+            feedback: "サヤカは{気象|きしょう}{観測|かんそく}データで{異常値|いじょうち}の{発見|はっけん}を{助|たす}けた{側|がわ}。{来室|らいしつ}データの{入力|にゅうりょく}には{関|かか}わっていない。"
+
+      - type: choice
+        id: q2
+        question: ケンタはなぜデータを水増しした？
+        options:
+          - text: "{保健室|ほけんしつ}が{大切|たいせつ}だと{学校|がっこう}に{認|みと}めてもらいたかった"
+            value: protect
+            feedback: "{正解|せいかい}！ {校長|こうちょう}{先生|せんせい}の「{来室数|らいしつすう}が{少|すく}ないと{改修|かいしゅう}の{優先度|ゆうせんど}が{下|さ}がる」を{聞|き}いて、{保健室|ほけんしつ}を{守|まも}りたかった。{善意|ぜんい}だったが{方法|ほうほう}が{間違|まちが}っていた。"
+          - text: "{自分|じぶん}の{仕事|しごと}を{多|おお}く{見|み}せたかった"
+            value: show-off
+            feedback: "ケンタの{目的|もくてき}は{自己|じこ}アピールではなく{保健室|ほけんしつ}を{守|まも}ること。「みんなのために」という{動機|どうき}だった。"
+          - text: "データの{入力|にゅうりょく}ミス"
+            value: mistake
+            feedback: "15{件|けん}の{水増|みずま}しは{入力|にゅうりょく}ミスにしては{多|おお}すぎる。{入力|にゅうりょく}{時刻|じこく}（17{時|じ}{台|だい}）も{通常|つうじょう}（16{時|じ}{台|だい}）と{異|こと}なり、{意図的|いとてき}な{操作|そうさ}。"
+          - text: "{先生|せんせい}に{頼|たの}まれた"
+            value: ordered
+            feedback: "{山本|やまもと}{先生|せんせい}の{日誌|にっし}と{集計表|しゅうけいひょう}の{数値|すうち}が{合|あ}わない。{先生|せんせい}が{水増|みずま}しを{頼|たの}む{理由|りゆう}もない。ケンタが{自分|じぶん}の{判断|はんだん}で{行|おこな}った。"
+
+  # ========================================
+  # 証拠カード5: 入力ログ
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-09/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: narration
+        text: "パソコンの{入力|にゅうりょく}ログ——9{月|がつ}26{日|にち}：9{件|けん}（{通常|つうじょう}の{入力|にゅうりょく}{時間|じかん}ではなく17:42に{入力|にゅうりょく}）。27{日|にち}：11{件|けん}（17:51）。30{日|にち}：12{件|けん}（17:38）。"
+
+      - type: narration
+        text: "{山本|やまもと}{先生|せんせい}の{日誌|にっし}{合計|ごうけい}（9{月|がつ}26〜30{日|にち}）：28{件|けん}。{実際|じっさい}の{入力|にゅうりょく}{合計|ごうけい}：43{件|けん}。{差分|さぶん}：+15{件|けん}。"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "15{件|けん}が{水増|みずま}しされていた。{入力|にゅうりょく}{時刻|じこく}も{通常|つうじょう}（16{時|じ}{台|だい}）と{異|こと}なる17{時|じ}{台|だい}。ケンタが{通常|つうじょう}の{入力|にゅうりょく}{後|ご}に{追加|ついか}で{入力|にゅうりょく}していた{証拠|しょうこ}。"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 真実 — ケンタ（犯人）
+  # ========================================
+  - id: truth-kenta
+    bg: classroom
+    bgm: health-09/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "……おれがデータを{水増|みずま}しした。9{月|がつ}26{日|にち}から30{日|にち}の5{日間|にちかん}で15{件|けん}。"
+
+      - type: dialog
+        character: kenta
+        text: "{校長|こうちょう}{先生|せんせい}が「{来室数|らいしつすう}が{少|すく}ない{年|とし}は{施設|しせつ}{改修|かいしゅう}の{優先度|ゆうせんど}が{下|さ}がる」って{話|はな}してるの{聞|き}いて。{保健室|ほけんしつ}がなくなったらみんな{困|こま}るでしょ。"
+
+      - type: dialog
+        character: kenta
+        expression: determined
+        text: "「{来室数|らいしつすう}が{多|おお}ければ{保健室|ほけんしつ}が{大切|たいせつ}だと{分|わ}かってもらえる」って{思|おも}った。{保健室|ほけんしつ}を{守|まも}りたかったんだ。でも……{正確|せいかく}じゃないデータで{守|まも}るのは{間違|まちが}いだった。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        text: "ケンタの{動機|どうき}は「みんなのために」。{善意|ぜんい}だった。でも「{多|おお}い{来室数|らいしつすう}＝{保健室|ほけんしつ}が{必要|ひつよう}」という{考|かんが}えは{間違|まちが}い。{正確|せいかく}なデータこそが{保健室|ほけんしつ}の{価値|かち}を{証明|しょうめい}する。"
+
+  # ========================================
+  # 真実 — ハルキ
+  # ========================================
+  - id: truth-haruki
+    steps:
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: haruki
+        text: "4{学期|がっき}{分|ぶん}のデータを{並|なら}べて、{帰納法|きのうほう}でパターンを{見|み}つけた。{冬|ふゆ}は{多|おお}い、{夏|なつ}も{多|おお}い、{秋|あき}は{少|すく}ない——このパターンに9{月|がつ}{後半|こうはん}だけが{合|あ}わなかった。"
+
+      - type: dialog
+        character: haruki
+        expression: determined
+        text: "{帰納法|きのうほう}は「たくさんの{例|れい}から{法則|ほうそく}を{見|み}つける」{方法|ほうほう}。1つの{例外|れいがい}に{気|き}づくためには、まず{法則|ほうそく}を{知|し}らなきゃいけない。データは{嘘|うそ}をつかない——でも{入力|にゅうりょく}する{人|ひと}は{間違|まちが}えることがある。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ========================================
+  # 真実 — ミオ
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mio
+        text: "{保健室|ほけんしつ}の{常連|じょうれん}として{分|わ}かる。9{月|がつ}{後半|こうはん}は{本当|ほんとう}に{静|しず}かだった。{体調|たいちょう}{不良|ふりょう}でたくさん{来|き}てた{印象|いんしょう}はない。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "ケンタの{気持|きも}ちは{分|わ}かる。{保健室|ほけんしつ}は{大切|たいせつ}な{場所|ばしょ}だから。でも{嘘|うそ}のデータで{守|まも}るのは、{保健室|ほけんしつ}の{信頼|しんらい}を{壊|こわ}すことになる。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ========================================
+  # 真実 — サヤカ
+  # ========================================
+  - id: truth-sayaka
+    steps:
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "{気象|きしょう}データと{来室|らいしつ}データを{並|なら}べたら{矛盾|むじゅん}が{見|み}えた。9{月|がつ}{後半|こうはん}は{気温|きおん}25℃・{湿度|しつど}64%——{風邪|かぜ}ウイルスが{活発|かっぱつ}になる{条件|じょうけん}じゃない。{熱中症|ねっちゅうしょう}シーズンも{終|お}わり。この{時期|じき}に58{件|けん}は{医学的|いがくてき}に{説明|せつめい}がつかない。"
+
+      - type: dialog
+        character: sayaka
+        expression: determined
+        text: "{帰納法|きのうほう}と{気象|きしょう}データの{組|く}み{合|あ}わせで{異常値|いじょうち}を{特定|とくてい}できた。「パターンに{合|あ}わないところ」に{真実|しんじつ}がある。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-09/resolution
+
+      - type: narration
+        speed: slow
+        text: "「{良|よ}い{目的|もくてき}のためならデータを{操作|そうさ}していい」のか——{正確|せいかく}なデータこそが、{保健室|ほけんしつ}を{本当|ほんとう}に{守|まも}る{力|ちから}だ。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-09/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{保健室|ほけんしつ}の{来室|らいしつ}データは、{学校|がっこう}{全体|ぜんたい}の{健康|けんこう}{管理|かんり}に{使|つか}われる{大切|たいせつ}な{記録|きろく}。{正確|せいかく}なデータが{保健|ほけん}の{先生|せんせい}や{地域|ちいき}の{医師|いし}の{判断|はんだん}を{助|たす}ける。"
+
+      - type: dialog
+        character: sensei
+        text: "ケンタの「{保健室|ほけんしつ}を{守|まも}りたい」{気持|きも}ちは{本物|ほんもの}。でも{正確|せいかく}なデータこそが{保健室|ほけんしつ}の{価値|かち}を{証明|しょうめい}する。{嘘|うそ}の{数字|すうじ}は{信頼|しんらい}を{壊|こわ}す。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{帰納法|きのうほう}——{複数|ふくすう}のデータからパターンを{見|み}つけ、{例外|れいがい}を{発見|はっけん}する。{季節|きせつ}と{病気|びょうき}の{関係|かんけい}を{知|し}っていたからこそ、{異常値|いじょうち}に{気|き}づけた。"
+
+      - type: narration
+        speed: slow
+        text: "そして{大切|たいせつ}なこと——{地域|ちいき}の{保健|ほけん}{活動|かつどう}を{支|ささ}えるのは{正確|せいかく}な{記録|きろく}。そのデータが{医師|いし}や{地域|ちいき}{全体|ぜんたい}の{健康|けんこう}を{助|たす}ける。{保健|ほけん}{探偵団|たんていだん}——{保健室|ほけんしつ}データの{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
