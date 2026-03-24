@@ -1,0 +1,503 @@
+meta:
+  id: health-08
+  title: 「体にいい」の嘘
+  series: 保健探偵団
+  volume: 8
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-08/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}6{年|ねん}1{組|くみ}で「{健康|けんこう}{教室|きょうしつ}」が{開|ひら}かれた。{保健|ほけん}{委員|いいん}が{作|つく}った{配布|はいふ}{資料|しりょう}に、{気|き}になる{記述|きじゅつ}が{混|ま}じっていた。"
+
+      - type: narration
+        text: "「{喫煙|きつえん}の{害|がい}は{少|すこ}し{大|おお}げさに{言|い}われています」「{少|すこ}しの{飲酒|いんしゅ}なら{体|からだ}にいい{効果|こうか}があるという{研究|けんきゅう}もあります」"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "{担任|たんにん}の{先生|せんせい}が{気|き}づいた。「この{資料|しりょう}、{誰|だれ}が{書|か}いたの？」——クラスが{静|しず}まり{返|かえ}った。"
+
+      - type: bgm
+        track: health-08/investigation
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{配布|はいふ}{資料|しりょう}に{誤|あやま}った{情報|じょうほう}が{混|ま}じっている。{誰|だれ}がなぜこの{記述|きじゅつ}を{入|い}れたのか。{喫煙|きつえん}・{飲酒|いんしゅ}の{正確|せいかく}な{知識|ちしき}を{使|つか}って、{真相|しんそう}を{解明|かいめい}しよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: surprised }
+          - { id: sayaka, expression: worried }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——{保健|ほけん}{探偵団|たんていだん}、{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 「体にいい」の嘘
+        subtitle: 保健探偵団 Vol.8
+
+  # ========================================
+  # 証拠カード1: 問題の配布資料
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-08/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 資料の誤情報を特定しよう
+
+      - type: narration
+        text: "{配布|はいふ}{資料|しりょう}の{内容|ないよう}——タバコには{有害|ゆうがい}な{物質|ぶっしつ}（ニコチン・タール・{一酸化炭素|いっさんかたんそ}）が{含|ふく}まれている。「ただし{喫煙|きつえん}の{害|がい}は{少|すこ}し{大|おお}げさに{言|い}われているという{意見|いけん}もあります」"
+
+      - type: narration
+        text: "アルコールは{肝臓|かんぞう}で{分解|ぶんかい}される。{飲|の}みすぎると{体|からだ}に{負担|ふたん}がかかる。「{少|すこ}しの{量|りょう}であれば{体|からだ}によい{効果|こうか}があるという{研究|けんきゅう}もあります」"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "{医学的|いがくてき}{事実|じじつ}——{喫煙|きつえん}の{害|がい}（ニコチン{依存|いぞん}・がんリスク）は{科学的|かがくてき}に{確立|かくりつ}された{事実|じじつ}。「{大|おお}げさ」ではない。{子|こ}どもへの{飲酒|いんしゅ}の{影響|えいきょう}は{全|すべ}て{有害|ゆうがい}。「{少量|しょうりょう}でも{禁止|きんし}」が{医学的|いがくてき}{事実|じじつ}。{資料|しりょう}の2つの{記述|きじゅつ}は{明|あき}らかに{間違|まちが}い。"
+
+  # ========================================
+  # 証拠カード2: 認知バイアスチェック
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 認知バイアスチェック
+
+      - type: narration
+        text: "「{認知|にんち}バイアスの{認識|にんしき}」——「{大人|おとな}が{言|い}っている」「ネットに{書|か}いてある」というだけで{情報|じょうほう}を{正|ただ}しいと{思|おも}い{込|こ}んでいないか？"
+
+      - type: narration
+        text: "{資料|しりょう}の{記述|きじゅつ}と{医学的|いがくてき}{事実|じじつ}を{照|て}らし{合|あ}わせると——「{喫煙|きつえん}の{害|がい}は{大|おお}げさ」❌{不一致|ふいっち}。「{少|すこ}しの{飲酒|いんしゅ}は{体|からだ}にいい」❌{不一致|ふいっち}。「{薬物|やくぶつ}は{絶対|ぜったい}{禁止|きんし}」✅{一致|いっち}。"
+
+      - type: narration
+        speed: slow
+        text: "{誰|だれ}が{資料|しりょう}の{原稿|げんこう}を{最後|さいご}にまとめたか？ {問題|もんだい}の{記述|きじゅつ}はどこから{来|き}たか？ {書|か}いた{人|ひと}に{悪意|あくい}があったのか？"
+
+  # ========================================
+  # 証拠カード3: 教科書との照合
+  # ========================================
+  - id: evidence-3
+    bgm: health-08/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 教科書との照合メモ
+
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: haruki
+        text: "{教科書|きょうかしょ}と{照|て}らし{合|あ}わせたよ。「{喫煙|きつえん}は{肺|はい}がん・{心臓病|しんぞうびょう}のリスクを{高|たか}め、ニコチン{依存|いぞん}を{引|ひ}き{起|お}こす。{成長期|せいちょうき}の{子|こ}どもへの{影響|えいきょう}は{特|とく}に{大|おお}きい」——{大|おお}げさではない。"
+
+      - type: dialog
+        character: haruki
+        text: "「{子|こ}どもへの{飲酒|いんしゅ}の{影響|えいきょう}は{全|すべ}て{有害|ゆうがい}。{少量|しょうりょう}でも{禁止|きんし}」——「{体|からだ}にいい{効果|こうか}」の{記述|きじゅつ}はない。{問題|もんだい}の2つの{記述|きじゅつ}は{教科書|きょうかしょ}と{矛盾|むじゅん}している。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: sprite
+        character: kenta
+        expression: determined
+        position: right
+
+      - type: dialog
+        character: kenta
+        text: "おれも{健康|けんこう}{教室|きょうしつ}のとき「おかしい」って{思|おも}って{調|しら}べたら、{厚生労働省|こうせいろうどうしょう}のページに「{子|こ}どもの{少量|しょうりょう}{飲酒|いんしゅ}も{有害|ゆうがい}」って{書|か}いてあった。{資料|しりょう}と{全然|ぜんぜん}{違|ちが}う。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "{担当者|たんとうしゃ}が{何|なに}かを{勘違|かんちが}いしたか、{意図的|いとてき}に{変|か}えたか。{誰|だれ}が{資料|しりょう}を{最後|さいご}にまとめた？"
+
+  # ========================================
+  # 証拠カード4: 原稿ファイルの編集履歴
+  # ========================================
+  - id: evidence-4
+    bgm: health-08/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 原稿ファイルの編集履歴
+
+      - type: narration
+        text: "{編集|へんしゅう}ログ——6{日前|にちまえ}（{月|げつ}）ハルキが{有害|ゆうがい}{物質|ぶっしつ}の{説明|せつめい}と{薬物|やくぶつ}の{依存性|いぞんせい}を{追加|ついか}。5{日前|にちまえ}（{火|か}）{担任|たんにん}の{鈴木|すずき}{先生|せんせい}が{全体|ぜんたい}コメント・{赤字|あかじ}メモを{追加|ついか}。"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "4{日前|にちまえ}（{水|すい}）17:30——サヤカが{本文|ほんぶん}に{追記|ついき}・{最終版|さいしゅうばん}として{保存|ほぞん}。3{日前|にちまえ}（{木|もく}）{印刷|いんさつ}・{配布|はいふ}。"
+
+      - type: sprite
+        character: mio
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: mio
+        text: "サヤカが{最後|さいご}に{編集|へんしゅう}して{保存|ほぞん}している。でも{担任|たんにん}の{先生|せんせい}が5{日前|にちまえ}に{赤字|あかじ}で{何|なに}か{書|か}いた{後|あと}、サヤカが{翌日|よくじつ}に{変更|へんこう}してる。{先生|せんせい}の{赤字|あかじ}メモに{何|なに}が{書|か}いてあったんだろう？"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: narration
+        text: "サヤカが{最終|さいしゅう}{編集者|へんしゅうしゃ}。{担任|たんにん}の{赤字|あかじ}メモの{内容|ないよう}と、サヤカの{追記|ついき}の{関係|かんけい}は？"
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-08/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{編集|へんしゅう}{履歴|りれき}と{医学的|いがくてき}{事実|じじつ}を{照|て}らし{合|あ}わせよう。{誰|だれ}がなぜ{誤情報|ごじょうほう}を{入|い}れた？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 配布資料に誤情報を書いたのは誰？
+        options:
+          - text: "ハルキ（{有害|ゆうがい}{物質|ぶっしつ}の{説明|せつめい}を{書|か}いた）"
+            value: haruki
+            feedback: "ハルキが{書|か}いたのは{教科書|きょうかしょ}{準拠|じゅんきょ}の{正確|せいかく}な{内容|ないよう}（{有害|ゆうがい}{物質|ぶっしつ}・{薬物|やくぶつ}の{依存性|いぞんせい}）。{問題|もんだい}の{記述|きじゅつ}はハルキの{編集|へんしゅう}{後|ご}に{追加|ついか}されているよ。"
+          - text: "サヤカ（{最後|さいご}に{編集|へんしゅう}・{保存|ほぞん}した）"
+            value: sayaka
+            feedback: "{鋭|するど}い！ サヤカが{最終|さいしゅう}{編集者|へんしゅうしゃ}。{担任|たんにん}の「{赤字|あかじ}メモ」を{本文|ほんぶん}に{組|く}み{込|こ}んだ。でも{悪意|あくい}ではなく「{正確|せいかく}な{情報|じょうほう}を{伝|つた}えたい」という{正義感|せいぎかん}からだった。"
+          - text: "ケンタ（{健康|けんこう}{教室|きょうしつ}で「おかしい」と{気|き}づいた）"
+            value: kenta
+            feedback: "ケンタは「おかしい」と{気|き}づいて{調|しら}べた{側|がわ}。{資料|しりょう}の{編集|へんしゅう}には{参加|さんか}していないよ。"
+          - text: "ミオ（サヤカの{変化|へんか}に{気|き}づいていた）"
+            value: mio
+            feedback: "ミオは{担任|たんにん}に{呼|よ}ばれた{後|あと}のサヤカの{様子|ようす}が{気|き}になっていた。{気|き}づいた{側|がわ}であり、{資料|しりょう}の{編集|へんしゅう}には{関|かか}わっていない。"
+
+      - type: choice
+        id: q2
+        question: サヤカはなぜ誤情報を書いてしまった？
+        options:
+          - text: "{担任|たんにん}の「{教員|きょういん}向けメモ」を「{本文|ほんぶん}に{書|か}いていい{情報|じょうほう}」と{勘違|かんちが}いした"
+            value: misread
+            feedback: "{正解|せいかい}！ {担任|たんにん}のメモは「{教員|きょういん}が{口頭|こうとう}で{補足|ほそく}する{内容|ないよう}」であり「{資料|しりょう}の{本文|ほんぶん}に{書|か}く{内容|ないよう}」ではなかった。サヤカは{確認|かくにん}せずに{組|く}み{込|こ}んでしまった。"
+          - text: "{喫煙|きつえん}や{飲酒|いんしゅ}を{広|ひろ}めたかった"
+            value: promote
+            feedback: "サヤカに{悪意|あくい}はまったくない。「みんなに{正確|せいかく}な{情報|じょうほう}を{伝|つた}えたい」という{正義感|せいぎかん}で{動|うご}いた。でも{確認|かくにん}{不足|ぶそく}が{判断|はんだん}ミスを{生|う}んだ。"
+          - text: "ネットで{調|しら}べた{情報|じょうほう}をそのまま{書|か}いた"
+            value: internet
+            feedback: "サヤカの{情報源|じょうほうげん}はネットではなく{担任|たんにん}の「{赤字|あかじ}メモ」。「{先生|せんせい}が{書|か}いた＝{正|ただ}しい」という{権威|けんい}バイアスが{確認|かくにん}を{飛|と}ばさせた。"
+          - text: "{資料|しりょう}を{面白|おもしろ}くしたかった"
+            value: interesting
+            feedback: "サヤカは「{面白|おもしろ}さ」ではなく「{正確|せいかく}さ」を{追求|ついきゅう}した。{担任|たんにん}のメモを「より{正確|せいかく}な{情報|じょうほう}」だと{思|おも}い{込|こ}んでいたのが{問題|もんだい}。"
+
+  # ========================================
+  # 証拠カード5: 担任の赤字メモ原本
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-08/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: narration
+        text: "{担任|たんにん}の{鈴木|すずき}{先生|せんせい}の「{編集|へんしゅう}メモ」{原本|げんぽん}——"
+
+      - type: narration
+        text: "【タバコの{箇所|かしょ}・{教員|きょういん}向けメモ】「この{説明|せつめい}は{教科書|きょうかしょ}{準拠|じゅんきょ}で{正確|せいかく}です。{授業中|じゅぎょうちゅう}に『{大|おお}げさ』という{反論|はんろん}が{出|で}た{場合|ばあい}の{返|かえ}し{方|かた}として{教員|きょういん}向けに{補足|ほそく}できますが、{資料|しりょう}{本文|ほんぶん}には{書|か}かない」"
+
+      - type: narration
+        text: "【お{酒|さけ}の{箇所|かしょ}・{教員|きょういん}向けメモ】「{少量|しょうりょう}の{飲酒|いんしゅ}に{関|かん}する{研究|けんきゅう}は{成人|せいじん}の{話|はなし}であり、{子|こ}どもには{完全|かんぜん}に{当|あ}てはまらない。{資料|しりょう}{本文|ほんぶん}には{入|い}れない」"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "{担任|たんにん}のメモは「{教員|きょういん}が{口頭|こうとう}で{補足|ほそく}する{内容|ないよう}」であり「{資料|しりょう}の{本文|ほんぶん}に{書|か}く{内容|ないよう}」ではなかった。サヤカは「{先生|せんせい}が{書|か}いた＝{正|ただ}しい{追記|ついき}{情報|じょうほう}」と{思|おも}い{込|こ}んで{本文|ほんぶん}に{組|く}み{込|こ}んでしまった。"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 真実 — サヤカ（犯人）
+  # ========================================
+  - id: truth-sayaka
+    bg: classroom
+    bgm: health-08/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sayaka
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: sayaka
+        text: "……わたしが{資料|しりょう}に{追記|ついき}した。{担任|たんにん}の{先生|せんせい}が{赤字|あかじ}で{書|か}いたコメントを{見|み}て、「この{情報|じょうほう}も{本文|ほんぶん}に{入|い}れた{方|ほう}が{正確|せいかく}になる」と{思|おも}ったの。"
+
+      - type: dialog
+        character: sayaka
+        text: "「みんなに{本当|ほんとう}のことを{知|し}ってほしい」って{思|おも}った。{先生|せんせい}が{書|か}いたんだから{正|ただ}しい{情報|じょうほう}だって——{先生|せんせい}に{確認|かくにん}しないで{入|い}れちゃった。"
+
+      - type: dialog
+        character: sayaka
+        expression: determined
+        text: "でもあれは「{教員|きょういん}向けのメモ」で、「{資料|しりょう}に{書|か}いていい{内容|ないよう}」じゃなかった。「{先生|せんせい}が{書|か}いた＝{確認|かくにん}{不要|ふよう}」っていう{思|おも}い{込|こ}みが、{間違|まちが}いを{生|う}んでしまった。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: narration
+        text: "サヤカの{正義感|せいぎかん}は{本物|ほんもの}だった。でも「{確認|かくにん}」という{手順|てじゅん}を{飛|と}ばしたことで、{善意|ぜんい}が{誤情報|ごじょうほう}になった。「{先生|せんせい}が{書|か}いた＝{正|ただ}しい」は{認知|にんち}バイアス（{権威|けんい}バイアス）。"
+
+  # ========================================
+  # 真実 — ハルキ
+  # ========================================
+  - id: truth-haruki
+    steps:
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: haruki
+        text: "{教科書|きょうかしょ}と{照|て}らし{合|あ}わせてすぐに{矛盾|むじゅん}に{気|き}づいた。でも「{保健|ほけん}{委員|いいん}が{作|つく}った{資料|しりょう}なんだから{正|ただ}しいだろう」って{最初|さいしょ}は{思|おも}いかけた。"
+
+      - type: dialog
+        character: haruki
+        expression: determined
+        text: "「{誰|だれ}が{書|か}いたか」より「{何|なに}が{書|か}いてあるか」。{出典|しゅってん}を{確認|かくにん}する{習慣|しゅうかん}が{大事|だいじ}だ。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ========================================
+  # 真実 — ミオ
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mio
+        text: "{健康|けんこう}{教室|きょうしつ}の{後|あと}、{担任|たんにん}の{先生|せんせい}に{呼|よ}ばれたサヤカの{表情|ひょうじょう}が{暗|くら}かった。「{何|なに}かあったんだ」って{思|おも}った。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "サヤカは「{正|ただ}しいことを{伝|つた}えたい」{気持|きも}ちで{動|うご}いた。{気持|きも}ちは{間違|まちが}ってない。でも{確認|かくにん}しないで{動|うご}くと、{善意|ぜんい}が{誤情報|ごじょうほう}になることがある。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ========================================
+  # 真実 — ケンタ
+  # ========================================
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: kenta
+        text: "{健康|けんこう}{教室|きょうしつ}で「おかしい」って{感|かん}じて、その{場|ば}で{調|しら}べた。{厚生労働省|こうせいろうどうしょう}のページと{比|くら}べたら{全然|ぜんぜん}{違|ちが}った。"
+
+      - type: dialog
+        character: kenta
+        expression: determined
+        text: "「おかしい」と{思|おも}ったら{自分|じぶん}で{調|しら}べる。{情報|じょうほう}の「{出|で}どころ」を{確|たし}かめる。それが{認知|にんち}バイアスに{負|ま}けない{方法|ほうほう}だ。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-08/resolution
+
+      - type: narration
+        speed: slow
+        text: "「{大人|おとな}が{言|い}った」「ネットに{書|か}いてあった」——それだけでは「{事実|じじつ}」の{証拠|しょうこ}にならない。{情報|じょうほう}の{出|で}どころと{正確|せいかく}さを{確認|かくにん}する{力|ちから}が、{自分|じぶん}と{周|まわ}りを{守|まも}る。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-08/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{喫煙|きつえん}の{害|がい}（ニコチン{依存|いぞん}・がんリスク）は{科学的|かがくてき}{事実|じじつ}。{子|こ}どもへの{飲酒|いんしゅ}は{少量|しょうりょう}でも{有害|ゆうがい}。これは「{大|おお}げさ」ではなく「{医学|いがく}が{証明|しょうめい}した{事実|じじつ}」です。"
+
+      - type: dialog
+        character: sensei
+        text: "サヤカの{正義感|せいぎかん}は{本物|ほんもの}。でも{確認|かくにん}しないまま{情報|じょうほう}を{広|ひろ}げると、{善意|ぜんい}が{誤|あやま}った{情報|じょうほう}になってしまう。{正義感|せいぎかん}と{確認|かくにん}のプロセスは{両方|りょうほう}{必要|ひつよう}。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{認知|にんち}バイアス——「{先生|せんせい}が{言|い}った＝{正|ただ}しい」「ネットに{書|か}いてある＝{事実|じじつ}」。この{思|おも}い{込|こ}みは{誰|だれ}にでもある。"
+
+      - type: narration
+        speed: slow
+        text: "{情報|じょうほう}を{受|う}け{取|と}ったら3つを{確|たし}かめよう。「{誰|だれ}が{言|い}った？」「{根拠|こんきょ}はある？」「{確認|かくにん}した？」——この3つが、{嘘|うそ}から{自分|じぶん}を{守|まも}る{力|ちから}になる。{保健|ほけん}{探偵団|たんていだん}——「{体|からだ}にいい」の{嘘|うそ}の{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
