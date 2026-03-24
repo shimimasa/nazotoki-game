@@ -1,0 +1,560 @@
+meta:
+  id: moral-05
+  title: 消えた友情バッジと4つのちかい
+  series: 答えのない法廷
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  yuuki:
+    name: ユウキ
+    color: "#FFD700"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sakura:
+    name: サクラ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kanata:
+    name: カナタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  haruto:
+    name: ハルト
+    color: "#2E8B57"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: moral-05/opening
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}の{仲良|なかよ}し4{人|にん}——ユウキ、サクラ、カナタ、ハルトは、「ずっと{友達|ともだち}でいよう！」と{約束|やくそく}した。"
+
+      - type: narration
+        text: "{友情|ゆうじょう}の{証|あかし}として、4{人|にん}はそれぞれ{手作|てづく}りの「{友情|ゆうじょう}バッジ」を1{個|こ}ずつ{作|つく}った。{星|ほし}型、ハート型、{丸|まる}型、{四角|しかく}型——{心|こころ}をこめたバッジを「{友情|ゆうじょう}ボックス」に{入|い}れて、{教室|きょうしつ}の{棚|たな}に{置|お}いた。"
+
+      - type: sprite
+        character: haruto
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: haruto
+        text: "バッジをなくしたら{友情|ゆうじょう}おわり！"
+
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: narration
+        text: "みんな{笑|わら}った。{冗談|じょうだん}だと{思|おも}った。でも——"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "{翌日|よくじつ}の{朝|あさ}。ユウキがボックスを{開|あ}けると、バッジが3つしかない。ユウキの{星|ほし}のバッジだけが{消|き}えていた。"
+
+      - type: bgm
+        track: moral-05/tension
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "まず、きみたちで{話|はな}し{合|あ}ってごらん。{誰|だれ}が{何|なに}を{知|し}っているか、{整理|せいり}してみよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: yuuki, expression: worried }
+          - { id: sakura, expression: worried }
+          - { id: kanata, expression: thinking }
+          - { id: haruto, expression: surprised }
+
+      - type: narration
+        text: "ユウキ、サクラ、カナタ、ハルト——4{人|にん}の{推理|すいり}が{始|はじ}まる。"
+
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kanata
+        action: hide
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 消えた友情バッジと4つのちかい
+        subtitle: 答えのない法廷 Vol.5
+
+  # ========================================
+  # 証拠カード1: 友情ボックスの状態
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: moral-05/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 消えたバッジの手がかりを探そう
+
+      - type: narration
+        text: "{友情|ゆうじょう}ボックスは{小|ちい}さな{缶|かん}。{教室|きょうしつ}の{後|うし}ろの{棚|たな}に{置|お}いてある。{蓋|ふた}はついているが、{鍵|かぎ}はない——{誰|だれ}でも{開|あ}けられる。"
+
+      - type: narration
+        text: "{火曜日|かようび}の{朝|あさ}、ボックスの{中|なか}にはサクラのハート型、カナタの{丸型|まるがた}、ハルトの{四角型|しかくがた}の3つだけ。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "ユウキの{星型|ほしがた}バッジだけが{消|き}えている。{月曜日|げつようび}に4つ{入|い}れたはずなのに——いつ、{誰|だれ}が{持|も}ち{出|だ}した？"
+
+  # ========================================
+  # 証拠カード2: 月曜日の放課後タイムライン
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 月曜日の放課後タイムライン
+
+      - type: narration
+        text: "{月曜日|げつようび}{放課後|ほうかご}——15:30に4{人|にん}でバッジ{作|づく}り{開始|かいし}。15:45にバッジ{完成|かんせい}、ボックスに{保管|ほかん}。16:00に4{人|にん}で{一緒|いっしょ}に{帰宅|きたく}。"
+
+      - type: narration
+        text: "その{後|あと}の{行動|こうどう}——ユウキ：まっすぐ{帰|かえ}った。サクラ：まっすぐ{帰|かえ}った。カナタ：まっすぐ{帰|かえ}った。ハルト：まっすぐ{帰|かえ}った。"
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "4{人|にん}とも「{教室|きょうしつ}に{戻|もど}っていない」と{話|はな}している。でもバッジは{消|き}えた。{本当|ほんとう}に{全員|ぜんいん}が{戻|もど}っていない？ {誰|だれ}かの{話|はなし}が{違|ちが}っている{可能性|かのうせい}は？"
+
+  # ========================================
+  # 証拠カード3: ユウキのバッジ設計図
+  # ========================================
+  - id: evidence-3
+    bgm: moral-05/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ユウキのバッジ設計図
+
+      - type: narration
+        text: "ユウキの{星型|ほしがた}バッジ——{手|て}のひらサイズ。フェルトと{黄色|きいろ}いビーズ5{個|こ}でできている。"
+
+      - type: narration
+        text: "ビーズは{接着剤|せっちゃくざい}でつけてあるが、{強|つよ}く{押|お}すと{取|と}れる。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "つまり——{落|お}としたら{壊|こわ}れるかもしれない。「{盗|ぬす}まれた」{以外|いがい}の{可能性|かのうせい}も{考|かんが}えてみよう。"
+
+  # ========================================
+  # 証拠カード4: 火曜朝の掃除記録
+  # ========================================
+  - id: evidence-4
+    bgm: moral-05/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 火曜日の朝の掃除記録
+
+      - type: narration
+        text: "{火曜日|かようび}の{朝|あさ}、{掃除|そうじ}{当番|とうばん}のタカシくん（4{人|にん}{以外|いがい}）の{報告|ほうこく}——"
+
+      - type: narration
+        text: "「{教室|きょうしつ}の{後|うし}ろの{方|ほう}、{棚|たな}の{近|ちか}くの{床|ゆか}に、{小|ちい}さな{黄色|きいろ}いビーズが1{個|こ}{落|お}ちていました」"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "{黄色|きいろ}いビーズ——ユウキの{星型|ほしがた}バッジについていたのも{黄色|きいろ}いビーズ。{棚|たな}の{近|ちか}くの{床|ゆか}に{落|お}ちていた。バッジが{教室|きょうしつ}の{中|なか}で{壊|こわ}れた？"
+
+      - type: narration
+        text: "「{盗|ぬす}まれた」のではなく「{壊|こわ}れた」のだとしたら——{壊|こわ}した{人|ひと}は{誰|だれ}だ？ そしてなぜ{隠|かく}した？"
+
+  # ========================================
+  # 投票（犯人投票）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: moral-05/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{全員|ぜんいん}が「{教室|きょうしつ}に{戻|もど}っていない」と{言|い}っているけど、{本当|ほんとう}かな？ {床|ゆか}のビーズは{何|なに}を{意味|いみ}する？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: ユウキのバッジを持ち出した（壊した）のは誰？
+        options:
+          - text: "ユウキ（{自分|じぶん}のバッジに{自信|じしん}がなかった）"
+            value: yuuki
+            feedback: "ユウキは{火曜日|かようび}の{朝|あさ}にボックスを{開|あ}けて{初|はじ}めてバッジがないことに{気|き}づいた。{月曜日|げつようび}の{放課後|ほうかご}には{教室|きょうしつ}に{戻|もど}っていないよ。"
+          - text: "サクラ（おとなしいが{棚|たな}に{触|さわ}る{機会|きかい}があった？）"
+            value: sakura
+            feedback: "サクラは「{教室|きょうしつ}に{戻|もど}っていない」と{言|い}っている。でもカナタの{目撃|もくげき}と{矛盾|むじゅん}していないかな？ {床|ゆか}のビーズと{合|あ}わせて{考|かんが}えてみよう。"
+          - text: "カナタ（{観察力|かんさつりょく}がありバッジに{詳|くわ}しい）"
+            value: kanata
+            feedback: "カナタは{帰|かえ}り{道|みち}でサクラが{教室|きょうしつ}{方向|ほうこう}に{戻|もど}るのを{見|み}ている。カナタ{自身|じしん}は{教室|きょうしつ}に{戻|もど}っていないよ。"
+          - text: "ハルト（「{友情|ゆうじょう}おわりルール」を{言|い}い{出|だ}した）"
+            value: haruto
+            feedback: "ハルトは{火曜日|かようび}の{朝|あさ}{一番|いちばん}に{教室|きょうしつ}に{来|き}たが、ボックスは{開|あ}けていない。{月曜日|げつようび}の{放課後|ほうかご}に{教室|きょうしつ}に{戻|もど}った{記録|きろく}もないよ。"
+
+  # ========================================
+  # 証拠カード5: サクラの筆箱の中身
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: moral-05/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{先生|せんせい}が{教室|きょうしつ}を{調|しら}べていたら、こんなものが{見|み}つかりました。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "サクラの{筆箱|ふでばこ}の{中|なか}から——{壊|こわ}れた{星型|ほしがた}バッジの{欠片|かけら}。フェルトがちぎれている。"
+
+      - type: narration
+        text: "そして{黄色|きいろ}いビーズが4{個|こ}。{床|ゆか}で{見|み}つかった1{個|こ}と{合|あ}わせて{合計|ごうけい}5{個|こ}——ユウキのバッジについていた{数|かず}と{一致|いっち}する。"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "バッジは「{盗|ぬす}まれた」のではなく「{壊|こわ}れて{隠|かく}されていた」。サクラはなぜ{正直|しょうじき}に{言|い}えなかったのだろう？"
+
+      - type: narration
+        text: "——ハルトの「バッジをなくしたら{友情|ゆうじょう}おわり」。その{言葉|ことば}と、{関係|かんけい}があるかもしれない。"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 真実 — サクラ（犯人）
+  # ========================================
+  - id: truth-sakura
+    bg: classroom
+    bgm: moral-05/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: sakura
+        text: "……わたしがやりました。{月曜日|げつようび}の{放課後|ほうかご}、{忘|わす}れ{物|もの}を{取|と}りに{教室|きょうしつ}に{戻|もど}ったの。"
+
+      - type: dialog
+        character: sakura
+        text: "{友情|ゆうじょう}ボックスが{気|き}になって、{中|なか}のバッジを{出|だ}して{眺|なが}めてた。そしたらユウキの{星|ほし}のバッジを{手|て}から{滑|すべ}らせて{落|お}としちゃった。{床|ゆか}にぶつかって、ビーズがバラバラに……。"
+
+      - type: dialog
+        character: sakura
+        text: "ハルトの「{友情|ゆうじょう}おわりルール」が{頭|あたま}をよぎって……。{壊|こわ}したことがバレたら、みんなとの{友情|ゆうじょう}が{終|お}わるって{思|おも}った。"
+
+      - type: dialog
+        character: sakura
+        expression: determined
+        text: "{怖|こわ}くて、{壊|こわ}れたバッジを{筆箱|ふでばこ}に{入|い}れて{隠|かく}した。ビーズを1{個|こ}{拾|ひろ}い{忘|わす}れたのも{気|き}づかなかった。……ごめんなさい。"
+
+      - type: sprite
+        character: sakura
+        action: hide
+
+      - type: narration
+        text: "サクラは{盗|ぬす}んだのではなく、{壊|こわ}してしまったのを{隠|かく}した。{恥|はず}ずかしさと{恐怖|きょうふ}——「{友情|ゆうじょう}が{終|お}わる」という{思|おも}い{込|こ}みが、{正直|しょうじき}に{言|い}うことを{妨|さまた}げた。"
+
+  # ========================================
+  # 真実 — ユウキ
+  # ========================================
+  - id: truth-yuuki
+    steps:
+      - type: sprite
+        character: yuuki
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: yuuki
+        text: "……{実|じつ}は、{自分|じぶん}の{星|ほし}のバッジに{自信|じしん}がなかった。みんなのバッジはきれいにできてたのに、ぼくのだけビーズが{曲|ま}がってて。"
+
+      - type: dialog
+        character: yuuki
+        text: "だから「{誰|だれ}かが{自分|じぶん}のバッジだけわざと{捨|す}てたんじゃないか」って{疑|うたが}ってた。「{下手|へた}だから、いらないと{思|おも}われた」って……。"
+
+      - type: dialog
+        character: yuuki
+        expression: determined
+        text: "でもサクラは「かわいい！」って{言|い}ってくれてたんだ。{疑|うたが}ってごめん。"
+
+      - type: sprite
+        character: yuuki
+        action: hide
+
+      - type: narration
+        text: "ユウキは「{盗|ぬす}まれた」と{思|おも}い{込|こ}んでいた。{自信|じしん}のなさが、{友達|ともだち}への{疑|うたが}いに{変|か}わっていた。"
+
+  # ========================================
+  # 真実 — カナタ
+  # ========================================
+  - id: truth-kanata
+    steps:
+      - type: sprite
+        character: kanata
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: kanata
+        text: "……ぼく、{月曜日|げつようび}の{帰|かえ}り{道|みち}で{見|み}てたんだ。{校門|こうもん}を{出|で}たところで、サクラが「{忘|わす}れ{物|もの}！」って{言|い}って{校舎|こうしゃ}に{走|はし}って{戻|もど}った。"
+
+      - type: dialog
+        character: kanata
+        text: "バッジが{消|き}えたと{聞|き}いて、「サクラが{教室|きょうしつ}に{戻|もど}ったとき{触|さわ}ったのかも」って{思|おも}った。でも{友達|ともだち}を{疑|うたが}うのが{嫌|いや}で……{黙|だま}ってた。"
+
+      - type: dialog
+        character: kanata
+        expression: determined
+        text: "「{友達|ともだち}を{信|しん}じる」ってことと「{事実|じじつ}を{確|たし}かめる」ってことは、{違|ちが}うんだな……。{早|はや}く{言|い}えばよかった。"
+
+      - type: sprite
+        character: kanata
+        action: hide
+
+      - type: narration
+        text: "カナタは{友情|ゆうじょう}を{守|まも}りたくて{黙|だま}っていた。でも{沈黙|ちんもく}は{真相|しんそう}を{遠|とお}ざけた。「{信|しん}じる」と「{確|たし}かめる」は{両立|りょうりつ}できる。"
+
+  # ========================================
+  # 真実 — ハルト
+  # ========================================
+  - id: truth-haruto
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: haruto
+        text: "「バッジをなくしたら{友情|ゆうじょう}おわり」——あれ、ただの{冗談|じょうだん}だったんだ。でも……。"
+
+      - type: dialog
+        character: haruto
+        text: "サクラが{壊|こわ}したことを{言|い}えなかったのは、ぼくの{言葉|ことば}のせいだ。{冗談|じょうだん}のつもりでも、{誰|だれ}かを{追|お}い{詰|つ}めることがある。"
+
+      - type: dialog
+        character: haruto
+        expression: determined
+        text: "{思|おも}い{出|だ}した。バッジ{作|づく}りのとき、サクラだけ{笑|わら}わずに「ほんとに？」って{聞|き}いてた。サクラは{本気|ほんき}にしてたんだ……。ぼくが{悪|わる}かった。"
+
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: moral-05/resolution
+
+      - type: narration
+        text: "ハルトの{冗談|じょうだん}が、サクラを{追|お}い{詰|つ}めた。{言葉|ことば}には{力|ちから}がある。{冗談|じょうだん}のつもりでも、{相手|あいて}には{冗談|じょうだん}に{聞|き}こえないことがある。"
+
+  # ========================================
+  # 感想投票
+  # ========================================
+  - id: judgment
+    bg: classroom
+    bgm: moral-05/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{友情|ゆうじょう}を{守|まも}るために{一番|いちばん}{大事|だいじ}なことは{何|なに}だろう？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q2
+        question: 友情を守るために一番大事なことは？
+        feedback_default: "どの{答|こた}えにも{理由|りゆう}がある。「{友情|ゆうじょう}」は{物|もの}じゃなくて{関係|かんけい}。バッジが{壊|こわ}れても、{関係|かんけい}は{壊|こわ}れなくていい。"
+        options:
+          - text: "{失敗|しっぱい}しても{正直|しょうじき}に{話|はな}す{勇気|ゆうき}"
+            value: honesty
+          - text: "{友達|ともだち}の{失敗|しっぱい}を{許|ゆる}す{心|こころ}"
+            value: forgiveness
+          - text: "{冗談|じょうだん}でも{相手|あいて}を{追|お}い{詰|つ}めない{気|き}づかい"
+            value: kindness
+          - text: "{疑|うたが}う{前|まえ}に{確|たし}かめること"
+            value: verify
+
+      - type: narration
+        text: "{全部|ぜんぶ}{大事|だいじ}だ。{友情|ゆうじょう}は「{完璧|かんぺき}な{人|ひと}」じゃなくても{続|つづ}く。{大切|たいせつ}なのは、{失敗|しっぱい}したときに{向|む}き{合|あ}えるかどうか。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: moral-05/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "バッジは{壊|こわ}れた。でも{友情|ゆうじょう}は{壊|こわ}れていないよ。"
+
+      - type: dialog
+        character: sensei
+        text: "サクラは{怖|こわ}くて{言|い}えなかった。カナタは{友達|ともだち}を{疑|うたが}いたくなかった。ユウキは{自信|じしん}がなくて{疑|うたが}ってしまった。ハルトの{冗談|じょうだん}がサクラを{追|お}い{詰|つ}めた。"
+
+      - type: dialog
+        character: sensei
+        text: "4{人|にん}ともが{何|なに}かを{間違|まちが}えた。でも4{人|にん}ともが{友達|ともだち}のことを{大事|だいじ}に{思|おも}っていた。それは{間違|まちが}いない。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "{友情|ゆうじょう}は「バッジ」ではなく「{信頼|しんらい}」でできている。{信頼|しんらい}を{守|まも}るのは「{完璧|かんぺき}でいること」ではなく「{正直|しょうじき}でいること」だ。"
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "バッジは{作|つく}り{直|なお}せる。{友情|ゆうじょう}も、やり{直|なお}せる。{大事|だいじ}なのは「ごめんね」と「だいじょうぶだよ」を{言|い}い{合|あ}えること。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500
