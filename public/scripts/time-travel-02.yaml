@@ -1,0 +1,600 @@
+meta:
+  id: time-travel-02
+  title: 本能寺の夜に何が起きた？
+  series: タイムトラベル探偵団
+  volume: 2
+  estimatedMinutes: 22
+
+characters:
+  ranmaru:
+    name: ランマル
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  mitsuhide:
+    name: ミツヒデ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nou:
+    name: ノウ姫
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  enkai:
+    name: エンカイ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  nobunaga:
+    name: ノブナガ殿
+    color: "#C41E3A"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: time-travel-02/opening
+    steps:
+      - type: narration
+        text: "{天正|てんしょう}10{年|ねん}（1582{年|ねん}）、{京都|きょうと}・{本能寺|ほんのうじ}。{天下統一|てんかとういつ}を{目指|めざ}す{最強|さいきょう}の{武将|ぶしょう}ノブナガ{殿|どの}が{泊|と}まっているお{寺|てら}だ。"
+
+      - type: narration
+        text: "{昨夜|さくや}は{宴会|えんかい}だった。ノブナガ{殿|どの}が「{天下|てんか}はもうすぐわしのものじゃ！」と{上機嫌|じょうきげん}で{語|かた}り、みんなで{祝|いわ}った。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "ところが{今朝|けさ}——ノブナガ{殿|どの}が{大激怒|だいげきど}！ {殿|どの}の{部屋|へや}から{巻物|まきもの}「{天下|てんか}の{計|けい}」が{消|き}えた！"
+
+      - type: bgm
+        track: time-travel-02/tension
+
+      - type: narration
+        text: "この{巻物|まきもの}には、ノブナガ{殿|どの}の{天下統一|てんかとういつ}の{秘密|ひみつ}の{計画|けいかく}がぜんぶ{書|か}いてある。{超|ちょう}{大事|だいじ}なもの。"
+
+      - type: sprite
+        character: nobunaga
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: nobunaga
+        text: "{今|いま}すぐ{犯人|はんにん}を{見|み}つけ{出|だ}せ！ {見|み}つかるまで{誰|だれ}も{寺|てら}から{出|で}ることは{許|ゆる}さん！"
+
+      - type: sprite
+        character: nobunaga
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: ranmaru, expression: worried }
+          - { id: mitsuhide, expression: thinking }
+          - { id: nou, expression: surprised }
+          - { id: enkai, expression: thinking }
+
+      - type: narration
+        text: "ランマル、ミツヒデ、ノウ{姫|ひめ}、エンカイ——4{人|にん}の{容疑者|ようぎしゃ}が{集|あつ}められた。"
+
+      - type: sprite
+        character: ranmaru
+        action: hide
+      - type: sprite
+        character: mitsuhide
+        action: hide
+      - type: sprite
+        character: nou
+        action: hide
+      - type: sprite
+        character: enkai
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 本能寺の夜に何が起きた？
+        subtitle: タイムトラベル探偵団 Vol.2
+
+  # ========================================
+  # 証拠カード1: 本能寺の見取り図
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: time-travel-02/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 巻物の手がかりを探せ
+
+      - type: narration
+        text: "{本能寺|ほんのうじ}の{見取|みと}り{図|ず}。ノブナガ{殿|どの}の{部屋|へや}と{鐘楼|しょうろう}は{渡|わた}り{廊下|ろうか}でつながっている。"
+
+      - type: narration
+        text: "ミツヒデの{部屋|へや}はノブナガ{殿|どの}の{部屋|へや}に{近|ちか}い。ランマルは{廊下|ろうか}で{警備|けいび}。ノウ{姫|ひめ}の{部屋|へや}はランマルの{反対側|はんたいがわ}。エンカイの{部屋|へや}は{鐘楼|しょうろう}のそば。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "{巻物|まきもの}はノブナガ{殿|どの}の{部屋|へや}から{消|き}えた。{夜中|よなか}に{殿|どの}の{部屋|へや}に{近|ちか}づけたのは{誰|だれ}？"
+
+  # ========================================
+  # 証拠カード2: 巻物の目次
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 巻物「天下の計」の目次
+
+      - type: narration
+        text: "ノブナガ{殿|どの}の{書棚|しょだな}から{見|み}つかった{目次|もくじ}のメモ——"
+
+      - type: narration
+        text: "一、{東国|とうごく}の{平定|へいてい}。二、{西国|さいごく}の{攻略|こうりゃく}。三、{南蛮|なんばん}{貿易|ぼうえき}の{拡大|かくだい}。四、{城下町|じょうかまち}の{整備|せいび}。"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "五、{朝廷|ちょうてい}の{今後|こんご}——この{項目|こうもく}が{気|き}になるところ……。六、{天下統一|てんかとういつ}{後|ご}の{新秩序|しんちつじょ}。"
+
+      - type: narration
+        text: "「{朝廷|ちょうてい}の{今後|こんご}」——{天皇|てんのう}のまわりの{制度|せいど}をどうするつもりだったのか？ この{中身|なかみ}を{知|し}りたがる{人|ひと}がいるかもしれない。"
+
+  # ========================================
+  # 証拠カード3: タイムライン
+  # ========================================
+  - id: evidence-3
+    bgm: time-travel-02/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 昨夜のタイムライン
+
+      - type: narration
+        text: "{夕方|ゆうがた}17{時|じ}ごろ——{宴会|えんかい}。ノブナガ{殿|どの}が{天下統一|てんかとういつ}の{決意|けつい}を{語|かた}る。{全員|ぜんいん}{参加|さんか}。"
+
+      - type: narration
+        text: "{夜|よる}21{時|じ}ごろ——{宴会|えんかい}{終了|しゅうりょう}。{各自|かくじ}{部屋|へや}に{戻|もど}る。ランマルは{廊下|ろうか}の{警備|けいび}につく。エンカイは{鐘楼|しょうろう}で{夜|よる}の{勤行|ごんぎょう}。"
+
+      - type: narration
+        text: "{深夜|しんや}——ランマルが{足音|あしおと}を{聞|き}く。ノブナガ{殿|どの}の{部屋|へや}{方向|ほうこう}に{向|む}かう{音|おと}。ミツヒデの{部屋|へや}がある{側|がわ}から。"
+
+      - type: narration
+        text: "{同|おな}じ{深夜|しんや}——エンカイが{渡|わた}り{廊下|ろうか}で{人影|ひとかげ}を{見|み}る。ノブナガ{殿|どの}の{部屋|へや}{方向|ほうこう}から{出|で}てくる{姿|すがた}。{足早|あしばや}に{去|さ}っていった。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "ランマルの「{足音|あしおと}」は{部屋|へや}に{向|む}かう{音|おと}。エンカイの「{人影|ひとかげ}」は{部屋|へや}から{出|で}てくる{姿|すがた}。{同|おな}じ{人|ひと}？ それとも{別|べつ}の{人|ひと}？"
+
+  # ========================================
+  # 証拠カード4: 宴会での各人の様子
+  # ========================================
+  - id: evidence-4
+    bgm: time-travel-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 宴会での各人の様子
+
+      - type: sprite
+        character: ranmaru
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: ranmaru
+        text: "ぼくは{宴会|えんかい}でノブナガ{殿|どの}のそばで{給仕|きゅうじ}をしてました。とても{疲|つか}れていて……{夜|よる}の{警備|けいび}が{控|ひか}えていたので。"
+
+      - type: sprite
+        character: ranmaru
+        action: hide
+
+      - type: sprite
+        character: mitsuhide
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: mitsuhide
+        text: "わたしは{静|しず}かに{参加|さんか}しておりました。ノブナガ{殿|どの}の{天下統一|てんかとういつ}の{話|はなし}を{真剣|しんけん}に{聞|き}いていました。……{途中|とちゅう}で{少|すこ}し{席|せき}を{外|はず}しましたが。"
+
+      - type: sprite
+        character: mitsuhide
+        action: hide
+
+      - type: sprite
+        character: nou
+        expression: happy
+        position: left
+
+      - type: dialog
+        character: nou
+        text: "わたくしは{殿|どの}と{楽|たの}しくお{話|はなし}しておりました。{巻物|まきもの}のことを{聞|き}いたら、「{後|あと}で{見|み}せてやろう」とおっしゃっていましたわ。"
+
+      - type: sprite
+        character: nou
+        action: hide
+
+      - type: sprite
+        character: enkai
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: enkai
+        text: "わたしは{宴会|えんかい}の{端|はし}で{静|しず}かに{座|すわ}っておりました。お{酒|さけ}は{飲|の}まず{念仏|ねんぶつ}を。ノブナガ{殿|どの}の「{天下|てんか}」の{話|はなし}には……{複雑|ふくざつ}な{気持|きも}ちがありました。"
+
+      - type: sprite
+        character: enkai
+        action: hide
+
+      - type: narration
+        text: "ミツヒデが「{席|せき}を{外|はず}した」のはなぜ？ ノウ{姫|ひめ}は{巻物|まきもの}に{興味|きょうみ}。エンカイの「{複雑|ふくざつ}な{気持|きも}ち」とは？ ランマルは{疲|つか}れていた——{夜|よる}の{警備|けいび}に{影響|えいきょう}した？"
+
+  # ========================================
+  # 投票（犯人投票）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: time-travel-02/tension
+    steps:
+      - type: sprite
+        character: nobunaga
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: nobunaga
+        text: "{証拠|しょうこ}を{整理|せいり}せよ。{足音|あしおと}、{人影|ひとかげ}、{宴会|えんかい}の{様子|ようす}——{犯人|はんにん}は{誰|だれ}じゃ！"
+
+      - type: sprite
+        character: nobunaga
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 巻物「天下の計」を持ち出したのは誰？
+        options:
+          - text: "ランマル（{廊下|ろうか}で{警備|けいび}していた）"
+            value: ranmaru
+            feedback: "ランマルはノブナガ{殿|どの}を{守|まも}る{立場|たちば}。{巻物|まきもの}を{盗|ぬす}む{動機|どうき}がない。それに、{足音|あしおと}はランマルの{位置|いち}からではなくミツヒデの{部屋|へや}{側|がわ}から{聞|き}こえたよ。"
+          - text: "ミツヒデ（{席|せき}を{外|はず}し、{足音|あしおと}は{彼|かれ}の{部屋|へや}{側|がわ}から）"
+            value: mitsuhide
+            feedback: "{鋭|するど}い！ ミツヒデは{朝廷|ちょうてい}を{大切|たいせつ}にする{教養人|きょうようじん}。{巻物|まきもの}の「{朝廷|ちょうてい}の{今後|こんご}」に{何|なに}が{書|か}かれていたのか——それが{動機|どうき}のカギ。"
+          - text: "ノウ{姫|ひめ}（{巻物|まきもの}に{興味|きょうみ}を{示|しめ}していた）"
+            value: nou
+            feedback: "ノウ{姫|ひめ}は{巻物|まきもの}に{興味|きょうみ}があった。でもエンカイが{見|み}た「{人影|ひとかげ}」は{部屋|へや}から「{出|で}てくる」{姿|すがた}。{盗|ぬす}んだ{人|ひと}なら{巻物|まきもの}を{持|も}って{別|べつ}の{方向|ほうこう}に{行|い}くはず。"
+          - text: "エンカイ（{比叡山|ひえいざん}{焼|やき}き{討|うち}ちの{恨|うら}み）"
+            value: enkai
+            feedback: "エンカイには{恨|うら}みがある。でもエンカイは{鐘楼|しょうろう}で{勤行|ごんぎょう}していて、「{人影|ひとかげ}を{見|み}た」{側|がわ}。{暴力|ぼうりょく}を{否定|ひてい}する{信念|しんねん}の{持|も}ち{主|ぬし}でもある。"
+
+  # ========================================
+  # 証拠カード5: 鐘楼の調査結果
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: time-travel-02/investigation
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: narration
+        text: "ノブナガ{殿|どの}の{命令|めいれい}で{寺|てら}の{中|なか}を{隅|すみ}ずみまで{調査|ちょうさ}した{結果|けっか}——"
+
+      - type: narration
+        text: "{鐘楼|しょうろう}の{仏具棚|ぶつぐだな}から、{巻物|まきもの}を{包|つつ}んでいたと{思|おも}われる{布|ぬの}が{見|み}つかった。{布|ぬの}には{墨|すみ}の{跡|あと}がついていた。"
+
+      - type: narration
+        text: "{墨|すみ}は{乾|かわ}いていて{最近|さいきん}ついたものではない——{日常的|にちじょうてき}に{墨|すみ}を{使|つか}う{人|ひと}の{手|て}についていた{墨|すみ}が{移|うつ}ったもの。"
+
+      - type: narration
+        text: "さらに、ノブナガ{殿|どの}の{部屋|へや}から{鐘楼|しょうろう}へ{向|む}かう{渡|わた}り{廊下|ろうか}に、{点々|てんてん}と{砂|すな}が{落|お}ちていた。{砂|すな}の{跡|あと}はミツヒデの{部屋|へや}の{方角|ほうがく}から{鐘楼|しょうろう}に{向|む}かって{続|つづ}いている。"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "{墨|すみ}を{日常的|にちじょうてき}に{使|つか}う{人|ひと}は{誰|だれ}？ {書道|しょどう}や{書物|しょもつ}を{扱|あつか}う{教養人|きょうようじん}……。{砂|すな}の{跡|あと}はミツヒデの{部屋|へや}から{鐘楼|しょうろう}へ——。"
+
+  # ========================================
+  # 強制イベント: 使者到着！
+  # ========================================
+  - id: messenger
+    bg: classroom
+    bgm: time-travel-02/tension
+    steps:
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: effect
+        name: shake
+        duration: 600
+
+      - type: narration
+        speed: slow
+        text: "ドンドンドン！——{突然|とつぜん}、{寺|てら}の{正門|せいもん}を{激|はげ}しく{叩|たた}く{音|おと}がした。"
+
+      - type: bgm
+        track: time-travel-02/tension
+
+      - type: narration
+        text: "{息|いき}を{切|き}らした{使者|ししゃ}が{飛|と}び{込|こ}んできた——"
+
+      - type: narration
+        speed: slow
+        text: "「{大変|たいへん}です！ ミツヒデ{殿|どの}の{軍勢|ぐんぜい}が、{京都|きょうと}に{向|む}かっています！ {数千|すうせん}の{兵|へい}が、{夜通|よどお}し{行軍|こうぐん}しているとの{情報|じょうほう}です！」"
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "ノブナガ{殿|どの}：「……なに？ ミツヒデの{軍|ぐん}が？ {京都|きょうと}に？ なぜじゃ！」"
+
+      - type: wait
+        duration: 2000
+
+      - type: narration
+        speed: slow
+        text: "これが{本能寺|ほんのうじ}の{変|へん}の{始|はじ}まり。{天正|てんしょう}10{年|ねん}6{月|がつ}2{日|か}の{早朝|そうちょう}、{明智光秀|あけちみつひで}の{軍|ぐん}が{本能寺|ほんのうじ}を{取|と}り{囲|かこ}んだ。{歴史|れきし}の{教科書|きょうかしょ}にも{載|の}っている{大事件|だいじけん}の{前夜|ぜんや}に、きみたちはいるんだ。"
+
+      - type: narration
+        text: "{巻物|まきもの}の{盗難|とうなん}と、ミツヒデの{軍|ぐん}の{行動|こうどう}——この2つはつながっているのか？"
+
+  # ========================================
+  # 動機の質問
+  # ========================================
+  - id: motive
+    bg: classroom
+    bgm: time-travel-02/tension
+    steps:
+      - type: choice
+        id: q2
+        question: ミツヒデはなぜ巻物を持ち出した？
+        options:
+          - text: "{巻物|まきもの}に「{朝廷|ちょうてい}を{廃止|はいし}する」と{書|か}かれていたから"
+            value: court
+            feedback: "{正解|せいかい}！ ミツヒデは{朝廷|ちょうてい}と{天皇|てんのう}を{大切|たいせつ}にする{教養人|きょうようじん}。ノブナガ{殿|どの}が{天皇|てんのう}の{権威|けんい}をなくそうとしていると{知|し}り、{黙|だま}っていられなかった。"
+          - text: "ノブナガ{殿|どの}の{秘密|ひみつ}を{敵|てき}に{売|う}ろうとした"
+            value: betray
+            feedback: "ミツヒデは{裏切|うらぎ}り{者|もの}ではない。{敵|てき}に{情報|じょうほう}を{売|う}るのではなく、「{日本|にほん}の{伝統|でんとう}を{守|まも}りたい」という{信念|しんねん}で{動|うご}いた。"
+          - text: "{自分|じぶん}が{天下|てんか}を{取|と}るための{準備|じゅんび}"
+            value: ambition
+            feedback: "ミツヒデの{目的|もくてき}は{天下|てんか}を{取|と}ることではなかった。{朝廷|ちょうてい}と{天皇|てんのう}を{守|まも}ること——それがミツヒデの「{正義|せいぎ}」だった。"
+          - text: "ノブナガ{殿|どの}への{個人的|こじんてき}な{恨|うら}み"
+            value: grudge
+            feedback: "ミツヒデはノブナガ{殿|どの}を{恨|うら}んでいたわけではない。{忠実|ちゅうじつ}な{家来|けらい}だった。でも「{日本|にほん}の{未来|みらい}」のためにやむを{得|え}ず{行動|こうどう}した。"
+
+  # ========================================
+  # 真実 — ランマル
+  # ========================================
+  - id: truth-ranmaru
+    bg: classroom
+    bgm: time-travel-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: ranmaru
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: ranmaru
+        text: "……ぼく、{昨夜|さくや}の{警備中|けいびちゅう}に{居眠|いねむ}りしてしまいました。{殿|どの}のおそばで{寝|ね}るなんて、{小姓|こしょう}として{最悪|さいあく}です。"
+
+      - type: dialog
+        character: ranmaru
+        expression: determined
+        text: "{足音|あしおと}を{聞|き}いたのは{本当|ほんとう}です。でも{半分|はんぶん}{眠|ねむ}っていたから、{正確|せいかく}な{時刻|じこく}は{分|わ}かりません。……ぼくがちゃんと{起|お}きていたら、{犯人|はんにん}を{見|み}ていたかもしれません。"
+
+      - type: sprite
+        character: ranmaru
+        action: hide
+
+      - type: narration
+        text: "ランマルの{忠誠心|ちゅうせいしん}は{本物|ほんもの}。でも{疲|つか}れから{居眠|いねむ}りをしてしまった。{歴史|れきし}の{森蘭丸|もりらんまる}も、{信長|のぶなが}と{最後|さいご}まで{戦|たたか}った{忠実|ちゅうじつ}な{家来|けらい}だった。"
+
+  # ========================================
+  # 真実 — ミツヒデ（犯人）
+  # ========================================
+  - id: truth-mitsuhide
+    steps:
+      - type: sprite
+        character: mitsuhide
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: mitsuhide
+        text: "……わたしが{巻物|まきもの}を{持|も}ち{出|だ}しました。{宴会|えんかい}の{前|まえ}、{殿|どの}の{部屋|へや}でお{茶|ちゃ}を{出|だ}したとき、{巻物|まきもの}の{目次|もくじ}が{見|み}えた。"
+
+      - type: dialog
+        character: mitsuhide
+        text: "「{朝廷|ちょうてい}の{今後|こんご}」——{気|き}になって、{宴会|えんかい}の{後|あと}にこっそり{読|よ}んだ。すると「{朝廷|ちょうてい}を{廃止|はいし}する。{天皇|てんのう}の{権威|けんい}をなくす」と{書|か}いてあった。"
+
+      - type: dialog
+        character: mitsuhide
+        expression: determined
+        text: "{天皇|てんのう}と{朝廷|ちょうてい}は{日本|にほん}の{心|こころ}です。それをなくすわけにはいかない。{深夜|しんや}に{巻物|まきもの}を{持|も}ち{出|だ}し、{鐘楼|しょうろう}の{仏具棚|ぶつぐだな}に{隠|かく}しました。"
+
+      - type: sprite
+        character: mitsuhide
+        action: hide
+
+      - type: narration
+        text: "ミツヒデは「{裏切|うらぎ}り{者|もの}」ではなかった。{天皇|てんのう}と{日本|にほん}の{伝統|でんとう}を{守|まも}るために{行動|こうどう}した。{歴史|れきし}の「{裏切|うらぎ}り」には、{複雑|ふくざつ}な{理由|りゆう}がある。"
+
+  # ========================================
+  # 真実 — ノウ姫
+  # ========================================
+  - id: truth-nou
+    steps:
+      - type: sprite
+        character: nou
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: nou
+        text: "……わたくしも{告白|こくはく}しなければなりませんわ。{殿|どの}が{寝|ね}た{後|あと}、{巻物|まきもの}に{何|なに}が{書|か}いてあるか{気|き}になって、{殿|どの}の{部屋|へや}に{向|む}かいました。"
+
+      - type: dialog
+        character: nou
+        expression: determined
+        text: "ところが{書棚|しょだな}に{巻物|まきもの}がなかった。{驚|おどろ}いて{探|さが}したけれど{見|み}つからず、あわてて{自分|じぶん}の{部屋|へや}に{戻|もど}りました。エンカイが{見|み}た「{人影|ひとかげ}」は、わたくしだったのですわ。"
+
+      - type: sprite
+        character: nou
+        action: hide
+
+      - type: narration
+        text: "ノウ{姫|ひめ}は{巻物|まきもの}を{盗|ぬす}んでいない。でも{部屋|へや}に{忍|しの}び{込|こ}もうとした。エンカイの{見|み}た「{人影|ひとかげ}」はノウ{姫|ひめ}。ランマルの{聞|き}いた「{足音|あしおと}」はミツヒデ——{別人|べつじん}だった。"
+
+  # ========================================
+  # 真実 — エンカイ
+  # ========================================
+  - id: truth-enkai
+    steps:
+      - type: sprite
+        character: enkai
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: enkai
+        text: "わたしには{隠|かく}している{気持|きも}ちがあります。10{年|ねん}{以上|いじょう}{前|まえ}、{比叡山|ひえいざん}のお{坊|ぼう}さんでした。ノブナガ{殿|どの}に{焼|やき}き{討|う}ちにされた{寺|てら}です。"
+
+      - type: dialog
+        character: enkai
+        text: "{許|ゆる}せない{気持|きも}ちは{今|いま}もあります。でも「{暴力|ぼうりょく}は{何|なに}も{生|う}まない」と{信|しん}じている。{巻物|まきもの}を{盗|ぬす}むようなことは、わたしの{信念|しんねん}に{反|はん}します。"
+
+      - type: dialog
+        character: enkai
+        expression: determined
+        text: "{人影|ひとかげ}を{見|み}たのは{本当|ほんとう}です。あわてた{様子|ようす}で{足早|あしばや}に{去|さ}っていきました。あれはノウ{姫|ひめ}だったのですね。"
+
+      - type: sprite
+        character: enkai
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: time-travel-02/resolution
+
+      - type: narration
+        text: "エンカイには{恨|うら}みがあった。でも{復讐|ふくしゅう}はしなかった。「{許|ゆる}せない{気持|きも}ち」と「{暴力|ぼうりょく}を{否定|ひてい}する{信念|しんねん}」は{両立|りょうりつ}する。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: time-travel-02/resolution
+    steps:
+      - type: sprite
+        character: nobunaga
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: nobunaga
+        text: "ミツヒデ……{貴様|きさま}が{裏切|うらぎ}ったのか。わしは{貴様|きさま}を{信|しん}じていたのに。"
+
+      - type: sprite
+        character: nobunaga
+        action: hide
+
+      - type: narration
+        text: "1582{年|ねん}6{月|がつ}2{日|か}——{明智光秀|あけちみつひで}の{軍勢|ぐんぜい}が{本能寺|ほんのうじ}を{取|と}り{囲|かこ}む。{織田信長|おだのぶなが}は{炎|ほのお}の{中|なか}に{消|き}えた。これが「{本能寺|ほんのうじ}の{変|へん}」。"
+
+      - type: narration
+        text: "{歴史|れきし}の{教科書|きょうかしょ}では「{明智光秀|あけちみつひで}が{織田信長|おだのぶなが}を{裏切|うらぎ}った」と{書|か}かれている。でもなぜ{裏切|うらぎ}ったのかは、{今|いま}でも{色々|いろいろ}な{説|せつ}がある。"
+
+      - type: narration
+        speed: slow
+        text: "{朝廷|ちょうてい}を{守|まも}りたかった{説|せつ}。{個人的|こじんてき}な{恨|うら}み{説|せつ}。{野心|やしん}{説|せつ}。{黒幕|くろまく}がいた{説|せつ}——{正解|せいかい}は{誰|だれ}にも{分|わ}からない。"
+
+      - type: narration
+        text: "でも{確|たし}かなのは、{歴史|れきし}の「{裏切|うらぎ}り」には{複雑|ふくざつ}な{理由|りゆう}があるということ。「{悪|わる}い{人|ひと}だから{裏切|うらぎ}った」とは{限|かぎ}らない。"
+
+      - type: narration
+        speed: slow
+        text: "{歴史|れきし}は{勝|か}った{人|ひと}が{書|か}く。でも{負|ま}けた{人|ひと}にも{物語|ものがたり}がある。——タイムトラベル{探偵団|たんていだん}、{本能寺|ほんのうじ}の{夜|よる}の{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
