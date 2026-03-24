@@ -1,0 +1,503 @@
+meta:
+  id: digital-06
+  title: レビューのわな
+  series: 情報モラル探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-06/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の{教室|きょうしつ}に、「おすすめ{本|ほん}カード」コーナーがある。{読|よ}んだ{本|ほん}の{感想|かんそう}カードを{書|か}いて{掲示|けいじ}し、★の{数|かず}で{評価|ひょうか}をつけるルールだ。"
+      - type: narration
+        text: "{今月|こんげつ}の{一番|いちばん}{人気|にんき}は「{星|ほし}の{冒険|ぼうけん}」という{本|ほん}。なんと★5の{感想|かんそう}カードが5{枚|まい}も{並|なら}んでいる！"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: bgm
+        file: digital-06/tension
+      - type: dialog
+        character: sensei
+        text: "「おすすめ{本|ほん}カード」を{確認|かくにん}したところ、5{枚|まい}のうち3{枚|まい}が{架空|かくう}の{名前|なまえ}で{書|か}かれていました。やらせレビューです。"
+      - type: dialog
+        character: sensei
+        text: "タケシ・ユミ・ケンジ——この3{人|にん}は4年1{組|くみ}に{存在|そんざい}しません。{同|おな}じ{人|ひと}が{偽|にせ}の{名前|なまえ}で3{枚|まい}{書|か}いたのです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sora
+        expression: determined
+        position: left
+      - type: dialog
+        character: sora
+        text: "やらせレビューだって！？ オレの「サッカー{大百科|だいひゃっか}」は{正直|しょうじき}に1{枚|まい}しかないのに、{嘘|うそ}で5{枚|まい}にするなんて{卑怯|ひきょう}だぜ！"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: haruto
+            expression: thinking
+          - character: mio
+            expression: worried
+          - character: sora
+            expression: determined
+          - character: riko
+            expression: normal
+      - type: narration
+        text: "5{枚|まい}のレビューを{全部|ぜんぶ}{調|しら}べて、{偽|にせ}レビューを{書|か}いた{犯人|はんにん}を{見|み}つけ{出|だ}す{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "情報モラル探偵団 Vol.6"
+        subtitle: "レビューのわな"
+
+  # ===== 証拠カード1: 事件の記録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: digital-06/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "「{星|ほし}の{冒険|ぼうけん}」の{感想|かんそう}カード5{枚|まい}。まずは{本物|ほんもの}と{偽物|にせもの}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "レビューA——リコ（{月曜|げつよう}）★5。クラスに{在籍|ざいせき}：✅ {本物|ほんもの}。"
+      - type: narration
+        text: "レビューB——タケシ（{火曜|かよう}）★5。クラスに{在籍|ざいせき}：❌ {偽物|にせもの}。"
+      - type: narration
+        text: "レビューC——ミオ（{水曜|すいよう}）★5。クラスに{在籍|ざいせき}：✅ {本物|ほんもの}。"
+      - type: narration
+        text: "レビューD——ユミ（{木曜|もくよう}）★5。クラスに{在籍|ざいせき}：❌ {偽物|にせもの}。"
+      - type: narration
+        text: "レビューE——ケンジ（{木曜|もくよう}）★5。クラスに{在籍|ざいせき}：❌ {偽物|にせもの}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{偽|にせ}レビュー3{枚|まい}（B・D・E）は{同|おな}じ{人|ひと}が{架空|かくう}の{名前|なまえ}で{書|か}いた「やらせレビュー」。5{枚|まい}{全部|ぜんぶ}{調|しら}べないと、{偽物|にせもの}のパターンは見えてこない。"
+
+  # ===== 証拠カード2: レビュー全文比較 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: digital-06/investigation
+    steps:
+      - type: narration
+        text: "5{枚|まい}のレビューの{内容|ないよう}を{全文|ぜんぶん}{読|よ}み{比|くら}べてみよう。"
+      - type: narration
+        text: "A（リコ）——「{主人公|しゅじんこう}が{星|ほし}の{海|うみ}を{旅|たび}する{場面|ばめん}がすごくきれいで、{宇宙|うちゅう}の{広|ひろ}さを{感|かん}じました。3{章|しょう}で{仲間|なかま}と{出会|であ}うところが{好|す}きです」"
+      - type: narration
+        text: "B（タケシ）——「すごくおもしろい！ みんなも{読|よ}んでね！」"
+      - type: narration
+        text: "C（ミオ）——「{主人公|しゅじんこう}の{勇気|ゆうき}に{感動|かんどう}しました。{特|とく}に5{章|しょう}のクライマックスが{好|す}きです。{読|よ}み{終|お}わったあとしばらくぼーっとしました」"
+      - type: narration
+        text: "D（ユミ）——「{最高|さいこう}の{本|ほん}！ おすすめです！」"
+      - type: narration
+        text: "E（ケンジ）——「ぜったい{読|よ}むべき！ {感動|かんどう}します！」"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{本物|ほんもの}のレビュー（AとC）には{具体的|ぐたいてき}な{場面|ばめん}や{章|しょう}の{番号|ばんごう}が{書|か}かれている。{偽物|にせもの}（B・D・E）には{具体的|ぐたいてき}な{感想|かんそう}が{一切|いっさい}ない。"
+      - type: narration
+        text: "なぜ{偽物|にせもの}は{具体的|ぐたいてき}に{書|か}けないのか——{本|ほん}を{読|よ}んでいないから、{書|か}きようがないのだ。"
+
+  # ===== 証拠カード3: 裏面日付 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: digital-06/experiment
+    steps:
+      - type: narration
+        text: "{感想|かんそう}カードは{書|か}いた{日|ひ}を{裏面|うらめん}に{記入|きにゅう}するルール。{掲示|けいじ}{日|び}と{記入|きにゅう}{日|び}を{比|くら}べてみよう。"
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{裏面|うらめん}の{日付|ひづけ}を{調|しら}べました。A（リコ）は{月曜|げつよう}、B（タケシ）は{火曜|かよう}、C（ミオ）は{水曜|すいよう}——ここまでは{掲示|けいじ}{日|び}と{一致|いっち}。"
+      - type: sprite
+        character: haruto
+        expression: surprised
+      - type: dialog
+        character: haruto
+        text: "でもD（ユミ）とE（ケンジ）は{木曜|もくよう}に{掲示|けいじ}されたのに、{裏面|うらめん}の{日付|ひづけ}は{月曜|げつよう}！ {月曜|げつよう}に{書|か}いて{木曜|もくよう}まで{隠|かく}していたんです。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{月曜|げつよう}にレビューを{書|か}いた{人|ひと}——リコ（レビューA）も{月曜|げつよう}。{偽|にせ}レビューD・Eも{月曜|げつよう}。{同|おな}じ{日|ひ}に3{枚|まい}が{書|か}かれた。"
+
+  # ===== 証拠カード4: 目撃情報 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: digital-06/experiment
+    steps:
+      - type: narration
+        text: "リコの{行動|こうどう}について、2{人|り}が{証言|しょうげん}している。"
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "{月曜|げつよう}の{放課後|ほうかご}、{教室|きょうしつ}でリコが{感想|かんそう}カードを{何枚|なんまい}も{書|か}いてた。3{枚|まい}くらい。"
+      - type: dialog
+        character: sora
+        text: "『{何枚|なんまい}{書|か}いてるの？』って{聞|き}いたら、『{友達|ともだち}に{頼|たの}まれた……』って{言|い}ってカバンにしまった。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: left
+      - type: dialog
+        character: mio
+        text: "リコは「{星|ほし}の{冒険|ぼうけん}」が{本当|ほんとう}に{大好|だいす}きで、わたしにも『{読|よ}んで！』ってすすめてくれたの。{何回|なんかい}も『みんなに{読|よ}んでほしいんだよね』って{言|い}ってた。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "{月曜|げつよう}にカードを3{枚|まい}{書|か}いていた。「{友達|ともだち}に{頼|たの}まれた」と{言|い}ったが、タケシ・ユミ・ケンジはクラスにいない{名前|なまえ}。{頼|たの}まれたのは{本当|ほんとう}だろうか。"
+      - type: narration
+        text: "そして「{星|ほし}の{冒険|ぼうけん}」をみんなに{読|よ}んでほしいと{一番|いちばん}{強|つよ}く{思|おも}っている{人物|じんぶつ}——それはリコだ。"
+
+  # ===== 証拠カード5: やらせレビューの影響 =====
+  - id: card-5
+    bg: classroom
+    bgm: digital-06/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}がクラスに{聞|き}き{取|と}りをした{結果|けっか}が{届|とど}いた。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "「{星|ほし}の{冒険|ぼうけん}」はレビュー5{枚|まい}で{人気|にんき}だから{読|よ}もうと{思|おも}った{子|こ}——12{人|にん}。"
+      - type: dialog
+        character: sensei
+        text: "ソラの「サッカー{大百科|だいひゃっか}」はレビュー1{枚|まい}。{読|よ}みたいと{答|こた}えた{子|こ}——3{人|にん}。ハルトの「プログラミング{入門|にゅうもん}」もレビュー1{枚|まい}。{読|よ}みたい——2{人|にん}。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "レビューの{数|かず}が{多|おお}い{本|ほん}ほど『{読|よ}みたい』と{思|おも}われる。これが{認知|にんち}バイアス——『{人気|にんき}＝{良|よ}いもの』という{思|おも}い{込|こ}みです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "やらせレビューで「{星|ほし}の{冒険|ぼうけん}」の{人気|にんき}が{水増|みずま}しされた{結果|けっか}、{他|ほか}の{本|ほん}のおすすめが{埋|う}もれてしまった。"
+      - type: narration
+        text: "{好|す}きな{本|ほん}を{広|ひろ}めたい{気持|きも}ちは{分|わ}かる。でも{嘘|うそ}のレビューで{作|つく}った{人気|にんき}は、{本当|ほんとう}の{人気|にんき}ではない。そして{他|ほか}の{子|こ}の{正直|しょうじき}なおすすめを{奪|うば}ってしまう。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-06/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出|で}そろいました。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "偽レビュー3枚を書いたのは誰？"
+        options:
+          - text: "ハルト（データ分析が得意で裏面を確認した）"
+            feedback: "ハルトは{裏面|うらめん}の{日付|ひづけ}を{調|しら}べた{側|がわ}。{自分|じぶん}のおすすめ{本|ほん}もあるけど、やらせをする{動機|どうき}がない。"
+          - text: "ミオ（星の冒険の本物レビューを書いた）"
+            feedback: "ミオのレビュー（C）は{具体的|ぐたいてき}な{感想|かんそう}がある{本物|ほんもの}。リコにすすめられて{読|よ}んだだけで、やらせの{動機|どうき}はないよ。"
+          - text: "ソラ（自分の本が埋もれて一番怒っている）"
+            feedback: "ソラは「サッカー{大百科|だいひゃっか}」を{正直|しょうじき}にレビュー1{枚|まい}。{怒|おこ}っているのはやらせの{被害者|ひがいしゃ}だからだね。"
+          - text: "リコ（星の冒険が大好きでみんなに読ませたかった）"
+            feedback: "リコは「{星|ほし}の{冒険|ぼうけん}」が{一番|いちばん}{好|す}きな{本|ほん}。{月曜|げつよう}にカードを3{枚|まい}{書|か}いているのを{目撃|もくげき}されている。{裏面|うらめん}{日付|ひづけ}もリコと{同|おな}じ{月曜|げつよう}。"
+      - type: choice
+        id: q2
+        text: "偽レビューと本物の一番の違いは？"
+        options:
+          - text: "具体的な場面の感想があるかどうか"
+            feedback: "{本物|ほんもの}は「3{章|しょう}の{仲間|なかま}との{出会|であ}い」「5{章|しょう}のクライマックス」と{具体的|ぐたいてき}。{偽物|にせもの}は「おもしろい！」「{最高|さいこう}！」だけ。{本|ほん}を{読|よ}んでいないから{具体的|ぐたいてき}に{書|か}けない。"
+          - text: "★の数が全部5で不自然"
+            feedback: "{全部|ぜんぶ}★5なのは{確|たし}かに{不自然|ふしぜん}。でも{本物|ほんもの}2{枚|まい}も★5だから、★の{数|かず}だけでは{判断|はんだん}できないね。{内容|ないよう}の{具体性|ぐたいせい}が{決|き}め{手|て}。"
+          - text: "投稿日が近すぎる（D・Eが同日）"
+            feedback: "D・Eが{同日|どうじつ}なのは{怪|あや}しいポイント。でも{最大|さいだい}の{決|き}め{手|て}は、{裏面|うらめん}{日付|ひづけ}が{月曜|げつよう}だったこと——{掲示|けいじ}{日|び}より{前|まえ}に{書|か}かれていた。"
+          - text: "クラスにいない名前を使っている"
+            feedback: "{架空|かくう}の{名前|なまえ}は{最初|さいしょ}に{偽物|にせもの}だと{分|わ}かった{手|て}がかり。でもネットのレビューでは{名前|なまえ}だけで{判断|はんだん}できないから、{具体性|ぐたいせい}のチェックが{一番|いちばん}{大事|だいじ}。"
+      - type: choice
+        id: q3
+        text: "「レビューが多い＝良いもの」は正しい？"
+        options:
+          - text: "正しい。みんなが良いと言っているなら間違いない"
+            feedback: "でも{今回|こんかい}、5{枚|まい}のうち3{枚|まい}は{嘘|うそ}だった。{数|かず}だけで{判断|はんだん}すると、やらせに{騙|だま}されてしまう。"
+          - text: "正しくない。やらせが混じっている可能性がある"
+            feedback: "その{通|とお}り。レビューの{数|かず}だけでなく、{内容|ないよう}の{具体性|ぐたいせい}や{投稿|とうこう}パターンもチェックすることが{大切|たいせつ}。"
+          - text: "場合による。内容を確認してから判断すべき"
+            feedback: "{数|かず}だけでなく、{中身|なかみ}を{読|よ}んで{判断|はんだん}する。{具体的|ぐたいてき}な{感想|かんそう}がある{本物|ほんもの}と、{薄|うす}い{内容|ないよう}の{偽物|にせもの}を{見分|みわ}ける{力|ちから}が{大事|だいじ}。"
+          - text: "ネットの買い物でも同じ。レビューは数より中身"
+            feedback: "ネットの{買|か}い{物|もの}でも{全|まった}く{同|おな}じことが{起|お}きている。★5ばかりのレビューや、{具体性|ぐたいせい}のない{短|みじか}い{感想|かんそう}は{要注意|ようちゅうい}。"
+
+  # ===== 真実: ハルト =====
+  - id: truth-haruto
+    bg: classroom
+    bgm: digital-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{僕|ぼく}が{裏面|うらめん}の{日付|ひづけ}を{調|しら}べました。{偽|にせ}レビューのD・Eは{木曜|もくよう}に{掲示|けいじ}されたのに、{裏面|うらめん}は{月曜|げつよう}。{月曜|げつよう}に{書|か}いて{隠|かく}していた。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "{月曜|げつよう}に{自分|じぶん}のレビューを{書|か}いた{人|ひと}——リコ。{同|おな}じ{日|ひ}に{偽|にせ}レビューも{書|か}かれている。データが{示|しめ}す{結論|けつろん}は……。"
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ===== 真実: ミオ =====
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたし、{偽|にせ}レビューの3{枚|まい}を{読|よ}み{返|かえ}して{気|き}づいたの。{具体的|ぐたいてき}な{感想|かんそう}が{一|ひと}つもない。『おもしろい！』『{最高|さいこう}！』だけ。"
+      - type: sprite
+        character: mio
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "{本|ほん}を{読|よ}んでいたら、{好|す}きな{場面|ばめん}とか{心|こころ}に{残|のこ}ったセリフとか、{書|か}きたいことがあるはず。{書|か}けないのは……{読|よ}んでいないから。"
+      - type: dialog
+        character: mio
+        text: "「{星|ほし}の{冒険|ぼうけん}」は{本当|ほんとう}に{良|い}い{本|ほん}なのに。{嘘|うそ}のレビューがあると、{本物|ほんもの}の{感想|かんそう}まで{信用|しんよう}されなくなっちゃう。"
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ===== 真実: ソラ =====
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: left
+      - type: dialog
+        character: sora
+        text: "オレ、{月曜|げつよう}の{放課後|ほうかご}にリコが{教室|きょうしつ}で{感想|かんそう}カードを3{枚|まい}も{書|か}いてるの見たんだ。"
+      - type: sprite
+        character: sora
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "『{何枚|なんまい}{書|か}いてるの？』って{聞|き}いたら、『{友達|ともだち}に{頼|たの}まれた』って。でもその{友達|ともだち}ってタケシ・ユミ・ケンジ——クラスにいない{名前|なまえ}じゃないか。"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "やらせは{卑怯|ひきょう}だ。でもリコが「{星|ほし}の{冒険|ぼうけん}」を{好|す}きな{気持|きも}ちは{本物|ほんもの}だと{思|おも}う。やり{方|かた}が{間違|まちが}ってたんだ。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 真実: リコ（犯人） =====
+  - id: truth-riko
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riko
+        expression: worried
+        position: center
+      - type: dialog
+        character: riko
+        text: "……{認|みと}めます。{偽|にせ}レビューを{書|か}いたのは、わたしです。"
+      - type: narration
+        speed: slow
+        text: "リコは{小|ちい}さくうつむいた。"
+      - type: sprite
+        character: riko
+        expression: normal
+      - type: dialog
+        character: riko
+        text: "「{星|ほし}の{冒険|ぼうけん}」はわたしが{一番|いちばん}{好|す}きな{本|ほん}。みんなに{読|よ}んでほしかった。でもわたしのレビュー1{枚|まい}じゃ{目立|めだ}たない。"
+      - type: sprite
+        character: riko
+        expression: worried
+      - type: dialog
+        character: riko
+        text: "だからタケシ・ユミ・ケンジっていう{架空|かくう}の{名前|なまえ}で3{枚|まい}{書|か}いた。でも{本当|ほんとう}の{感想|かんそう}はレビューAに{全部|ぜんぶ}{書|か}いちゃったから、{偽物|にせもの}は『おもしろい！』としか{書|か}けなかった。"
+      - type: dialog
+        character: riko
+        text: "D・Eは『{一気|いっき}に{出|だ}すと{怪|あや}しい』と{思|おも}って{木曜|もくよう}まで{隠|かく}した。でも{裏面|うらめん}の{日付|ひづけ}を{書|か}き{変|か}え{忘|わす}れて、{月曜|げつよう}のまま{残|のこ}ってた……。"
+      - type: narration
+        speed: slow
+        text: "リコの{目|め}に{涙|なみだ}がにじむ。"
+      - type: sprite
+        character: riko
+        expression: determined
+      - type: dialog
+        character: riko
+        text: "{好|す}きな{本|ほん}を{広|ひろ}めたかっただけ。でも{嘘|うそ}の{人気|にんき}は{本当|ほんとう}の{人気|にんき}じゃない。ソラの{本|ほん}のおすすめも{埋|う}もれさせちゃった。ごめんなさい。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "リコに{悪意|あくい}はなかった。でもやらせレビューは「おすすめ{本|ほん}カード」コーナーの{信頼|しんらい}を{壊|こわ}し、{他|ほか}の{子|こ}の{正直|しょうじき}なおすすめを{埋|う}もれさせてしまった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-06/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "リコ、{正直|しょうじき}に{認|みと}めてくれてありがとう。{好|す}きな{本|ほん}をみんなに{広|ひろ}めたい{気持|きも}ち、よく{分|わ}かります。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "でもやらせレビューは{逆効果|ぎゃくこうか}です。{嘘|うそ}がバレた{瞬間|しゅんかん}、{本|ほん}の{信頼|しんらい}まで{落|お}ちてしまう。そして{他|ほか}の{子|こ}の{正直|しょうじき}なおすすめが{埋|う}もれてしまう。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "やらせレビューの{見分|みわ}け{方|かた}——{具体的|ぐたいてき}な{感想|かんそう}がない、{全部|ぜんぶ}★5、{短期間|たんきかん}に{集中|しゅうちゅう}、{名前|なまえ}が{不自然|ふしぜん}。ネットの{買|か}い{物|もの}でも{同|おな}じことが{起|お}きています。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: riko
+        expression: determined
+        position: left
+      - type: sprite
+        character: mio
+        expression: happy
+        position: right
+      - type: dialog
+        character: riko
+        text: "{次|つぎ}からは{自分|じぶん}の{言葉|ことば}で、{具体的|ぐたいてき}に{良|い}いところを{伝|つた}える。{嘘|うそ}じゃなくて、{本当|ほんとう}の{感想|かんそう}で。"
+      - type: dialog
+        character: mio
+        text: "リコの{本物|ほんもの}のレビュー、{本当|ほんとう}にすてきだったよ。あの1{枚|まい}だけで「{読|よ}みたい！」って{思|おも}ったもん。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『{数|かず}が{多|おお}い＝{良|よ}いもの』は{思|おも}い{込|こ}みです。{大切|たいせつ}なのは{数|かず}ではなく{中身|なかみ}。{自分|じぶん}の{目|め}で{読|よ}んで、{自分|じぶん}の{言葉|ことば}で{伝|つた}える——それが{一番|いちばん}{信頼|しんらい}される『おすすめ』です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
