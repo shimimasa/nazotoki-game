@@ -1,0 +1,502 @@
+meta:
+  id: health-10
+  title: 「健康」って何だろう
+  series: 保健探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-10/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}6{年|ねん}1{組|くみ}で「{健康|けんこう}コンテスト」が{開|ひら}かれた。{運動|うんどう}・{食事|しょくじ}・{睡眠|すいみん}の{記録|きろく}を1{週間|しゅうかん}つけて{得点|とくてん}を{競|きそ}うイベント。"
+
+      - type: narration
+        text: "しかしコンテスト{終了|しゅうりょう}の2{日後|にちご}——「{誰|だれ}かが{記録|きろく}シートのデータを{書|か}き{換|か}えた」という{疑惑|ぎわく}が{浮上|ふじょう}した。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: haruki
+        text: "{数値|すうち}がおかしい。さくらチームの{体重|たいじゅう}{変化|へんか}{欄|らん}に「+2.8kg」って{入|はい}ってる。1{週間|しゅうかん}で2.8kgは{医学的|いがくてき}にありえない。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: bgm
+        track: health-10/investigation
+
+      - type: narration
+        speed: slow
+        text: "これが{保健|ほけん}{探偵団|たんていだん}{最後|さいご}の{事件|じけん}。{記録|きろく}を{書|か}き{換|か}えたのは{誰|だれ}か——そして、その{先|さき}に{待|ま}つ{問|と}いは「{健康|けんこう}って{何|なに}だろう？」。"
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: normal }
+          - { id: kenta, expression: surprised }
+          - { id: sayaka, expression: thinking }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——{保健|ほけん}{探偵団|たんていだん}、{最後|さいご}の{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 「健康」って何だろう
+        subtitle: 保健探偵団 Vol.10（最終巻）
+
+  # ========================================
+  # 証拠カード1: 健康コンテスト記録表
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-10/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 書き換えられたデータを追え
+
+      - type: narration
+        text: "{健康|けんこう}コンテスト{結果|けっか}——あおばチーム84{点|てん}（2{位|い}）、ひまわりチーム91{点|てん}（1{位|い}）、さくらチーム78{点|てん}（3{位|い}）、もみじチーム73{点|てん}（4{位|い}）。"
+
+      - type: narration
+        text: "{問題|もんだい}——さくらチーム・メンバーBの「1{週間|しゅうかん}の{体重|たいじゅう}{変化|へんか}」が+2.8kg。メンバーDの「{食事|しょくじ}{記録|きろく}の{完成度|かんせいど}」が95%→75%に{下|さ}がっている。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "{小学生|しょうがくせい}が1{週間|しゅうかん}で{体重|たいじゅう}が{変化|へんか}する{正常|せいじょう}{範囲|はんい}は±0.5kg{以内|いない}。+2.8kgは{正常|せいじょう}{範囲|はんい}の{約|やく}5.6{倍|ばい}。{医学的|いがくてき}にありえない{数値|すうち}。"
+
+  # ========================================
+  # 証拠カード2: 書き換えの詳細分析
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 書き換えの影響分析
+
+      - type: narration
+        text: "2つの{書|か}き{換|か}えを{合|あ}わせると——{体重|たいじゅう}{変化|へんか}+2.8kgの{減点|げんてん}：-4{点|てん}。{食事|しょくじ}{完成度|かんせいど}95%→75%の{減点|げんてん}：-3{点|てん}。{合計|ごうけい}{影響|えいきょう}：さくらチームが7{点|てん}{低|ひく}く{評価|ひょうか}された。"
+
+      - type: narration
+        text: "もし{書|か}き{換|か}えがなければ：さくらチーム78+7＝85{点|てん}。{順位|じゅんい}は2{位|い}になっていた。"
+
+      - type: narration
+        speed: slow
+        text: "さくらチームの{得点|とくてん}を{下|さ}げる{方向|ほうこう}の{書|か}き{換|か}え。——{結果|けっか}、ひまわりチーム（ミオ{班|はん}）の1{位|い}が{確保|かくほ}された。"
+
+  # ========================================
+  # 証拠カード3: アクセスログ
+  # ========================================
+  - id: evidence-3
+    bgm: health-10/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 保健室端末のアクセスログ
+
+      - type: narration
+        text: "{保健室|ほけんしつ}{端末|たんまつ}{操作|そうさ}ログ——10{月|がつ}14{日|にち}（{月|げつ}）13:15〜13:28 ハルキ（データ{確認|かくにん}。{異常値|いじょうち}を{発見|はっけん}）。15:45〜15:52 サヤカ（{照合|しょうごう}{作業|さぎょう}）。"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "10{月|がつ}15{日|にち}（{火|か}）18:22〜18:31——ログインID：mio-mio（{三緒|みお}{美桜|みお}のアカウント）。この{時間帯|じかんたい}に{保健室|ほけんしつ}にいた{可能性|かのうせい}のある{人物|じんぶつ}は——{清掃|せいそう}{当番|とうばん}の{記録|きろく}を{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "{端末|たんまつ}{管理|かんり}ルール——18:00{以降|いこう}の{使用|しよう}は{保健室|ほけんしつ}の{先生|せんせい}の{許可|きょか}が{必要|ひつよう}。ただし{清掃|せいそう}{当番|とうばん}は18:40まで{保健室|ほけんしつ}に{残|のこ}れる。"
+
+  # ========================================
+  # 証拠カード4: 清掃当番記録とミオの証言
+  # ========================================
+  - id: evidence-4
+    bgm: health-10/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 清掃当番記録とミオの証言
+
+      - type: narration
+        text: "10{月|がつ}15{日|にち}の{清掃|せいそう}{当番|とうばん}（{保健室|ほけんしつ}）——{担当者|たんとうしゃ}：{三緒|みお}{美桜|みお}。{開始|かいし}18:15、{終了|しゅうりょう}18:40。ミオは18:15〜18:40の{間|あいだ}、{保健室|ほけんしつ}にいた。"
+
+      - type: narration
+        text: "ミオの{証言|しょうげん}——「15{日|にち}の{夕方|ゆうがた}は{塾|じゅく}に{行|い}ってた。18{時|じ}から20{時|じ}まで。{保健室|ほけんしつ}には{行|い}ってない。{清掃|せいそう}{当番|とうばん}じゃないし」"
+
+      - type: sprite
+        character: kenta
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "15{日|にち}の17{時|じ}{半|はん}ごろ、サッカー{練習|れんしゅう}{後|ご}に{学校|がっこう}を{通|とお}りかかった。{保健室|ほけんしつ}の{窓|まど}に{明|あ}かりがついてて、{中|なか}に{人|ひと}がいた。{女子|じょし}だったと{思|おも}う。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "ミオは「{清掃|せいそう}{当番|とうばん}じゃない」と{言|い}った。でも{清掃|せいそう}{記録|きろく}にはミオの{名前|なまえ}がある。そして「{塾|じゅく}に{行|い}っていた」と{言|い}った{時間帯|じかんたい}に、{保健室|ほけんしつ}にいた{可能性|かのうせい}。"
+
+  # ========================================
+  # 投票1: 犯人特定
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-10/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "アクセスログ・{数値|すうち}の{矛盾|むじゅん}・{証言|しょうげん}の{矛盾|むじゅん}——3つの{証拠|しょうこ}を{重|かさ}ね{合|あ}わせよう。{記録|きろく}を{書|か}き{換|か}えたのは{誰|だれ}？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 健康コンテストの記録を書き換えたのは誰？
+        options:
+          - text: "ハルキ（データ{管理|かんり}{担当|たんとう}）"
+            value: haruki
+            feedback: "ハルキは{異常値|いじょうち}を{発見|はっけん}した{側|がわ}。アクセスログでは14{日|にち}に{確認|かくにん}{作業|さぎょう}をしただけで、15{日|にち}のログにハルキの{名前|なまえ}はない。"
+          - text: "ミオ（{清掃|せいそう}{当番|とうばん}で{保健室|ほけんしつ}にいた）"
+            value: mio
+            feedback: "{正解|せいかい}！ アクセスログ（18:22 mio-mio）＋{清掃|せいそう}{記録|きろく}（18:15〜18:40）＋{証言|しょうげん}の{矛盾|むじゅん}（「{塾|じゅく}に{行|い}った」→{実際|じっさい}は{欠席|けっせき}）。3つの{証拠|しょうこ}が{全|すべ}てミオを{指|さ}している。"
+          - text: "ケンタ（コンテストで{張|は}り{切|き}っていた）"
+            value: kenta
+            feedback: "ケンタは15{日|にち}のサッカー{練習後|れんしゅうご}に{学校|がっこう}を{通|とお}りかかっただけ。{保健室|ほけんしつ}には{入|はい}っていない。"
+          - text: "サヤカ（{数値|すうち}の{矛盾|むじゅん}を{最初|さいしょ}に{気|き}づいた）"
+            value: sayaka
+            feedback: "サヤカは14{日|にち}に{照合|しょうごう}{作業|さぎょう}をした{側|がわ}。{犯人|はんにん}が{自分|じぶん}の{犯行|はんこう}を{暴|あば}く{動機|どうき}は{低|ひく}い。"
+
+  # ========================================
+  # 証拠カード5: パラダイムシフト
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-10/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ここで、もう1つの{証拠|しょうこ}を{見|み}てほしい。ソウくんの{保健|ほけん}{日誌|にっし}と、ミオのメモ。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "ソウくん（さくらチーム）——コンテスト{期間中|きかんちゅう}、{体調|たいちょう}{不良|ふりょう}で{欠席|けっせき}。{参加|さんか}できなかった。"
+
+      - type: narration
+        speed: slow
+        text: "ソウくんの{保健|ほけん}{日誌|にっし}——「10{月|がつ}1{日|にち}：ミオちゃんが『{具合|ぐあい}どう？』って{聞|き}いてくれた。うれしかった」"
+
+      - type: narration
+        text: "「10{月|がつ}8{日|にち}：コンテスト2{日目|にちめ}。{今日|きょう}もみんなちゃんとできたかな。{心配|しんぱい}」"
+
+      - type: narration
+        text: "「10{月|がつ}9{日|にち}：{保健室|ほけんしつ}の{先生|せんせい}に『みんなはどうですか？』って{聞|き}いたら『みんな{元気|げんき}だよ』って。よかった」"
+
+      - type: narration
+        speed: slow
+        text: "「10{月|がつ}13{日|にち}：コンテスト{最終日|さいしゅうび}。{参加|さんか}できなくてごめん。でもみんながんばってたの{知|し}ってる」"
+
+      - type: wait
+        duration: 1500
+
+      - type: narration
+        text: "ミオのメモ——「ソウくんは{体|からだ}は{弱|よわ}いけど、{毎日|まいにち}みんなのことを{心配|しんぱい}してた。それって{健康|けんこう}じゃないの？ {体|からだ}が{元気|げんき}なだけが{健康|けんこう}なら、ソウくんはずっと'{健康|けんこう}じゃない{子|こ}'のまま？ そんなの、おかしいと{思|おも}った。だから……」"
+
+      - type: narration
+        text: "{塾|じゅく}の{連絡帳|れんらくちょう}——10{月|がつ}15{日|にち}の{出席|しゅっせき}{記録|きろく}：{欠席|けっせき}。ミオは「{塾|じゅく}に{行|い}っていた」と{証言|しょうげん}したが、{実際|じっさい}は{欠席|けっせき}だった。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "ミオはソウくんを{守|まも}りたかった。「お{前|まえ}のせいで{負|ま}けた」と{言|い}わせたくなかった。だからさくらチームの{得点|とくてん}を{下|さ}げて、{自分|じぶん}のチームの{順位|じゅんい}を{確保|かくほ}しようとした。"
+
+  # ========================================
+  # 真実 — ミオ（犯人）
+  # ========================================
+  - id: truth-mio
+    bg: classroom
+    bgm: health-10/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mio
+        text: "……わたしが{書|か}き{換|か}えた。ソウくんが{参加|さんか}できなかったせいで、さくらチームが{不利|ふり}になった。「ソウくんのせいで{負|ま}けた」って{言|い}われるのが{許|ゆる}せなかった。"
+
+      - type: dialog
+        character: mio
+        text: "ソウくんは{体|からだ}が{弱|よわ}くても、{毎日|まいにち}みんなのことを{心配|しんぱい}してた。{保健|ほけん}{日誌|にっし}を{見|み}て。{参加|さんか}できなくても、ずっとみんなを{応援|おうえん}してた。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "{体|からだ}が{元気|げんき}なだけが{健康|けんこう}なの？ ソウくんは「{健康|けんこう}じゃない{子|こ}」なの？ わたしは、そう{思|おも}えなかった。だから……{間違|まちが}った{方法|ほうほう}だけど、ソウくんを{守|まも}りたかった。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: narration
+        text: "ミオの{行為|こうい}は{間違|まちが}い。でもミオが{問|と}いかけたことは{間違|まちが}いじゃない——「{健康|けんこう}って{何|なに}だろう？」"
+
+  # ========================================
+  # 真実 — ハルキ・ケンタ・サヤカ
+  # ========================================
+  - id: truth-others
+    steps:
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: haruki
+        text: "データで{犯人|はんにん}を{特定|とくてい}するのは{得意|とくい}だ。でもソウくんの{日誌|にっし}を{読|よ}んで、データだけじゃ{見|み}えないものがあるって{気|き}づいた。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kenta
+        text: "おれは「{運動|うんどう}できる{子|こ}＝{健康|けんこう}な{子|こ}」って{思|おも}ってた。でもソウくんは{体|からだ}が{弱|よわ}くても、{毎日|まいにち}みんなを{心配|しんぱい}してた。それって……{健康|けんこう}じゃないのか？"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sayaka
+        text: "WHO（{世界|せかい}{保健|ほけん}{機関|きかん}）は「{健康|けんこう}＝{身体的|しんたいてき}・{精神的|せいしんてき}・{社会的|しゃかいてき}に{良好|りょうこう}な{状態|じょうたい}」って{定義|ていぎ}してる。{体|からだ}が{丈夫|じょうぶ}なだけが{健康|けんこう}じゃない。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-10/resolution
+
+  # ========================================
+  # 投票2: 健康の定義
+  # ========================================
+  - id: judgment
+    bg: classroom
+    bgm: health-10/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ミオの{行為|こうい}は{間違|まちが}い。でもミオが{問|と}いかけたことを、みんなで{考|かんが}えてみよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q2
+        question: 本当の意味で「一番健康」なのは、どんな人？
+        feedback_default: "この{問|と}いに{正解|せいかい}はない。{健康|けんこう}の{定義|ていぎ}は1つじゃない。{大事|だいじ}なのは「{自分|じぶん}がどう{考|かんが}えるか」を{持|も}つこと。"
+        options:
+          - text: "{毎日|まいにち}{運動|うんどう}して{体|からだ}が{丈夫|じょうぶ}な{子|こ}"
+            value: physical
+          - text: "{心|こころ}が{豊|ゆた}かで{人|ひと}を{支|ささ}えられる{子|こ}"
+            value: mental-social
+          - text: "{生活習慣|せいかつしゅうかん}（{食事|しょくじ}・{睡眠|すいみん}・{運動|うんどう}）が{完璧|かんぺき}な{子|こ}"
+            value: lifestyle
+          - text: "{答|こた}えはない（{健康|けんこう}の{定義|ていぎ}は1つじゃない）"
+            value: no-answer
+
+      - type: narration
+        speed: slow
+        text: "WHO{憲章|けんしょう}——「{健康|けんこう}とは、{身体的|しんたいてき}・{精神的|せいしんてき}・{社会的|しゃかいてき}に{完全|かんぜん}に{良好|りょうこう}な{状態|じょうたい}であり、{単|たん}に{病気|びょうき}や{虚弱|きょじゃく}がないということではない」"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-10/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "Vol.1からVol.10まで——けが、{感染症|かんせんしょう}、{成長|せいちょう}、{生活習慣|せいかつしゅうかん}、ストレス、{応急処置|おうきゅうしょち}、{喫煙|きつえん}・{飲酒|いんしゅ}、{保健室|ほけんしつ}データ。{全部|ぜんぶ}「{健康|けんこう}」にまつわる{話|はなし}だった。"
+
+      - type: dialog
+        character: sensei
+        text: "ソウくんは{体|からだ}が{弱|よわ}くても、{毎日|まいにち}{誰|だれ}かのことを{心配|しんぱい}していた。それは「{精神的|せいしんてき}・{社会的|しゃかいてき}に{健康|けんこう}」と{言|い}えるかもしれない。"
+
+      - type: dialog
+        character: sensei
+        text: "{健康|けんこう}の{定義|ていぎ}は1つじゃない。{体|からだ}の{健康|けんこう}、{心|こころ}の{健康|けんこう}、{人|ひと}とのつながりの{健康|けんこう}。3つが{揃|そろ}ってはじめて「{完全|かんぜん}に{健康|けんこう}」。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "みなさんは「{健康|けんこう}な{人|ひと}」を{体|からだ}の{丈夫|じょうぶ}さや{運動|うんどう}の{得意|とくい}さで{判断|はんだん}していなかったか？ ソウくんを「{健康|けんこう}ではない{子|こ}」と{決|き}めつけていなかったか？"
+
+      - type: narration
+        speed: slow
+        text: "{保健|ほけん}{探偵団|たんていだん}——10{巻|かん}の{旅|たび}が{終|お}わる。けがの{記録|きろく}から{始|はじ}まった{推理|すいり}の{旅|たび}は、「{健康|けんこう}って{何|なに}だろう？」という{問|と}いにたどり{着|つ}いた。その{答|こた}えは、きみの{中|なか}にある。"
+
+      - type: effect
+        name: fade-out
+        duration: 2000
