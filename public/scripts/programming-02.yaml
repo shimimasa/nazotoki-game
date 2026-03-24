@@ -1,0 +1,505 @@
+meta:
+  id: programming-02
+  title: 暗号パズルと消えた宝物のゆくえ
+  series: バグ探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  akira:
+    name: アキラ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  natsu:
+    name: ナツ
+    color: "#C0392B"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kai:
+    name: カイ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}3年2組のお{楽|たの}しみ{会|かい}——「{暗号|あんごう}{宝|たから}さがし」が{行|おこな}われた。"
+      - type: narration
+        text: "3つのステーションに「{数|かず}のならび」の{暗号|あんごう}カードが{置|お}いてあり、{規則|きそく}を{見|み}つけて{答|こた}えを出すと{宝物|たからもの}の{隠|かく}し{場所|ばしょ}が分かる{仕組|しく}み。ところが——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: kai
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: kai
+        text: "{宝物|たからもの}がない！ 23{番|ばん}の{引|ひ}き出しを{開|あ}けたのに{空|から}っぽだ！"
+      - type: sprite
+        character: kai
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ステーション③の{答|こた}えカードが{書|か}きかえられていたみたい。{本当|ほんとう}の{答|こた}えは{別|べつ}の{場所|ばしょ}を{指|さ}しているはず。{数|かず}のならびの{規則|きそく}を読み{解|と}いて、{犯人|はんにん}を{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: akira, expression: thinking }
+          - { id: natsu, expression: worried }
+          - { id: kai, expression: surprised }
+          - { id: riko, expression: thinking }
+      - type: narration
+        text: "ナツがちらっと{教室|きょうしつ}の{後|うし}ろの{引|ひ}き出し{棚|だな}を見た。何か気にしている？"
+      - type: sprite
+        character: akira
+        action: hide
+      - type: sprite
+        character: natsu
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.2
+        subtitle: 暗号パズルと消えた宝物のゆくえ
+
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人のバグ{探偵|たんてい}に話を聞こう。"
+      - type: sprite
+        character: akira
+        expression: normal
+        position: left
+      - type: dialog
+        character: akira
+        text: "ぼくが{暗号|あんごう}パズルを作った。ステーション③の{答|こた}えは「25」のはず。ノートにも{書|か}いてある。なのに{答|こた}えカードには「23」って……"
+        expression: thinking
+      - type: sprite
+        character: akira
+        action: hide
+      - type: sprite
+        character: natsu
+        expression: normal
+        position: right
+      - type: dialog
+        character: natsu
+        text: "わたしはお{楽|たの}しみ{会|かい}の{飾|かざ}りつけ{担当|たんとう}。{放課後|ほうかご}は{教室|きょうしつ}で{飾|かざ}りを作ってたよ。"
+      - type: dialog
+        character: natsu
+        text: "……{宝物|たからもの}、{見|み}つかるといいね。"
+        expression: worried
+      - type: sprite
+        character: natsu
+        action: hide
+      - type: sprite
+        character: kai
+        expression: normal
+        position: left
+      - type: dialog
+        character: kai
+        text: "おれは{宝|たから}さがしコースのテスト{走|ばし}りをした。{放課後|ほうかご}はずっと校庭にいたぞ。{体育|たいいく}の先生が{証人|しょうにん}だ。"
+      - type: sprite
+        character: kai
+        action: hide
+      - type: sprite
+        character: riko
+        expression: normal
+        position: right
+      - type: dialog
+        character: riko
+        text: "わたしは{図書|としょ}{委員|いいん}で、{放課後|ほうかご}は15:30まで{図書室|としょしつ}にいた。{図書|としょ}の先生が{証人|しょうにん}。"
+      - type: dialog
+        character: riko
+        text: "でも15:30に{教室|きょうしつ}に{戻|もど}ったとき、ナツがステーション③の近くにいた気がする。"
+        expression: thinking
+      - type: sprite
+        character: riko
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 3つのステーションの暗号カード
+      - type: narration
+        text: "{宝|たから}さがしの3つのステーション——"
+      - type: narration
+        text: "ステーション①：2, 4, 6, 8, ? → {答|こた}え「10」✅ → 10{番|ばん}の{棚|たな}へ。"
+      - type: narration
+        text: "ステーション②：1, 4, 7, 10, ? → {答|こた}え「13」✅ → 13{番|ばん}の{箱|はこ}へ。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ステーション③：5, 10, 15, 20, ? → {答|こた}え「23」❓ → 23{番|ばん}の{引|ひ}き出し → {宝物|たからもの}がなかった！"
+      - type: narration
+        text: "「5, 10, 15, 20, ?」——この{数|かず}のならびの{規則|きそく}は何だろう？ {答|こた}えは{本当|ほんとう}に「23」かな？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: アキラの設計ノート
+      - type: sprite
+        character: akira
+        expression: thinking
+        position: left
+      - type: dialog
+        character: akira
+        text: "ぼくのノートを見てくれ。{暗号|あんごう}パズルを作ったときの{記録|きろく}だ。"
+      - type: sprite
+        character: akira
+        action: hide
+      - type: narration
+        text: "ステーション①：2, 4, 6, 8, ? → {規則|きそく}：+2 → {答|こた}え：10 ✅"
+      - type: narration
+        text: "ステーション②：1, 4, 7, 10, ? → {規則|きそく}：+3 → {答|こた}え：13 ✅"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ステーション③：5, 10, 15, 20, ? → {規則|きそく}：+5 → {答|こた}え：25 ✅"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "アキラのノートでは{答|こた}えは「25」！ でも{答|こた}えカードには「23」——{誰|だれ}かが25→23に{書|か}きかえた！"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 教室の引き出しマップ
+      - type: narration
+        text: "{教室|きょうしつ}の{後|うし}ろにある{引|ひ}き出し{棚|だな}の{番号|ばんごう}——"
+      - type: narration
+        text: "21 | 22 | 23 | 24 | 25 | 26 | 27"
+      - type: narration
+        text: "25{番|ばん} ＝ {宝物|たからもの}が{隠|かく}してある{場所|ばしょ}（正しいゴール）。23{番|ばん} ＝ {答|こた}えカードが{案内|あんない}した{場所|ばしょ}（{間違|まちが}ったゴール）。"
+      - type: narration
+        text: "23{番|ばん}と25{番|ばん}は{隣|となり}。23{番|ばん}の{引|ひ}き出しに何か入っていなかった？ {誰|だれ}かが23{番|ばん}を使っていた？"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 放課後の行動記録
+      - type: narration
+        text: "{水曜日|すいようび}の{放課後|ほうかご}——4人の{行動|こうどう}{記録|きろく}。"
+      - type: narration
+        text: "アキラ：15:00〜15:15 {教室|きょうしつ}（{暗号|あんごう}セット）→ 15:20〜16:00 {音楽室|おんがくしつ}（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "カイ：15:00〜16:00 校庭（{体育|たいいく}の先生が{証人|しょうにん}）"
+      - type: narration
+        text: "リコ：15:00〜15:30 {図書室|としょしつ}（{図書|としょ}の先生が{証人|しょうにん}）→ {教室|きょうしつ}に{戻|もど}った"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ナツ：15:00〜 {教室|きょうしつ}で{飾|かざ}りつけ。{証人|しょうにん}なし！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "アキラが15:20に{音楽室|おんがくしつ}に行った{後|あと}、{教室|きょうしつ}にいたのはナツだけ。{答|こた}えカードに{触|さわ}れたのは——？"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ステーション③の{答|こた}えカードをルーペで{見|み}てみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "「25」の{数字|すうじ}が{消|け}しゴムで消されていて、その上から「23」と{書|か}き{直|なお}されている。"
+      - type: narration
+        text: "ほかの{答|こた}えカード（①の「10」、②の「13」）は全部{青|あお}いペン。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "でもステーション③の「23」だけ——{赤|あか}いペン！"
+      - type: narration
+        text: "4人のペンの色——アキラ：{青|あお}。ナツ：{赤|あか}。カイ：{緑|みどり}。リコ：{紫|むらさき}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{赤|あか}いペンで「23」を{書|か}いたのは——ナツ。そしてナツには{証人|しょうにん}がいない。"
+
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{答|こた}えカードを{書|か}きかえたのは{誰|だれ}？ なぜ25を23にした？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ステーション③の答えを「25」から「23」に書きかえたのは誰？
+        options:
+          - text: アキラ（暗号を作った本人）
+            value: akira
+            feedback: アキラは答えを「25」に設定した側。15:20以降は音楽室にいて証人もいる。書きかえる理由がないよ。
+          - text: ナツ（赤いペン。教室に一人でいた。証人なし）
+            value: natsu
+            feedback: 正解！ 赤いペンで「23」を書いたのはナツ。アキラが音楽室に行った後、教室に一人でいた。23番の引き出しに秘密があった。
+          - text: カイ（校庭でテスト走りをした）
+            value: kai
+            feedback: カイは15:00〜16:00まで校庭にいて体育の先生が証人。教室にいなかった。
+          - text: リコ（図書室にいた）
+            value: riko
+            feedback: リコは15:30まで図書室にいて図書の先生が証人。15:30に戻ったときはもう書きかえられた後だった。
+      - type: choice
+        id: q2
+        question: ナツが答えを25→23に変えた理由は何だと思う？
+        options:
+          - text: 23番の引き出しに隠していたサプライズを守りたかった
+            value: surprise
+            feedback: 正解！ ナツは23番にみんなへのサプライズの折り紙を隠していた。25番のゴールが近くて、みんなが23番も開けてしまうかもしれないと心配した。
+          - text: 宝さがしを台無しにしたかった
+            value: sabotage
+            feedback: ナツは宝さがしを壊したかったわけではない。サプライズを守りたかったんだ。
+          - text: 計算を間違えた
+            value: mistake
+            feedback: 消しゴムで消して書き直しているから、わざとだよ。計算ミスではない。
+          - text: アキラに嫌がらせをしたかった
+            value: bully
+            feedback: ナツとアキラは仲が悪いわけではない。動機は別のところにあるよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: サプライズを守りたかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-akira
+    bg: classroom
+    steps:
+      - type: sprite
+        character: akira
+        expression: worried
+        position: left
+      - type: dialog
+        character: akira
+        text: "ぼくも{反省|はんせい}がある。15:15にナツが{引|ひ}き出し{付近|ふきん}をウロウロしてたのを見たのに、{気|き}にしなかった。"
+      - type: sprite
+        character: akira
+        action: hide
+
+  - id: truth-kai
+    steps:
+      - type: sprite
+        character: kai
+        expression: worried
+        position: right
+      - type: dialog
+        character: kai
+        text: "おれ、テスト{走|ばし}りのとき23{番|ばん}に{折|お}り{紙|がみ}がたくさん入ってるのを見たんだ。でも「{誰|だれ}かの{工作|こうさく}だろう」って{気|き}にしなかった。"
+      - type: sprite
+        character: kai
+        action: hide
+
+  - id: truth-riko
+    steps:
+      - type: sprite
+        character: riko
+        expression: worried
+        position: left
+      - type: dialog
+        character: riko
+        text: "わたしは15:30に{教室|きょうしつ}に{戻|もど}ったとき、ナツがステーション③の近くにいた。{答|こた}えカードの{字|じ}に{違|い}和感があった。でもすぐに{確認|かくにん}しなかった。"
+      - type: sprite
+        character: riko
+        action: hide
+
+  - id: truth-natsu
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: natsu
+        expression: worried
+        position: center
+      - type: dialog
+        character: natsu
+        text: "……わたしが{書|か}きかえた。"
+      - type: narration
+        speed: slow
+        text: "ナツが{小|ちい}さな{声|こえ}で話し始めた。"
+      - type: dialog
+        character: natsu
+        text: "お{楽|たの}しみ{会|かい}で、みんなにサプライズのプレゼントを{用意|ようい}してたの。1人1つの{折|お}り{紙|がみ}{動物|どうぶつ}を、23{番|ばん}の{引|ひ}き出しに{隠|かく}してた。"
+      - type: dialog
+        character: natsu
+        text: "でも{宝|たから}さがしのゴールが25{番|ばん}だって知って{焦|あせ}った。{隣|となり}の23{番|ばん}も{開|あ}けちゃうかもしれない。サプライズが{台無|だいな}しになる！"
+        expression: worried
+      - type: dialog
+        character: natsu
+        text: "だから{答|こた}えを25から23に変えて、先に{折|お}り{紙|がみ}を{回収|かいしゅう}しようと思ったの。でも{宝|たから}さがしがすぐ始まっちゃって{間|ま}に合わなかった。"
+      - type: dialog
+        character: natsu
+        text: "{宝|たから}さがしを{台無|だいな}しにしたかったわけじゃない。みんなへのサプライズを守りたかっただけ……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: natsu
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ナツに{悪意|あくい}はなかった。みんなを{喜|よろこ}ばせるためのサプライズを守りたかった。でも「{答|こた}えを{書|か}きかえる」ことで、みんなの{宝|たから}さがしを{壊|こわ}してしまった。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナツ、みんなへのサプライズの気持ちは{素敵|すてき}よ。でも{答|こた}えを{書|か}きかえたのは{間違|まちが}い。ほかの{方法|ほうほう}があったはず。"
+      - type: dialog
+        character: sensei
+        text: "そして{今日|きょう}の{大切|たいせつ}な学び——「{書|か}いてある{答|こた}え」を{鵜呑|うの}みにしない。自分で{規則|きそく}を{見|み}つけて{確|たし}かめる。それがパターン{認識|にんしき}の{力|ちから}です。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "「5, 10, 15, 20, ?」は+5ずつ{増|ふ}えている。だから{答|こた}えは25。{答|こた}えカードが23でも、自分で{計算|けいさん}すれば{間違|まちが}いに気づける。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: akira, expression: happy }
+          - { id: natsu, expression: happy }
+          - { id: kai, expression: happy }
+          - { id: riko, expression: happy }
+      - type: narration
+        text: "ナツの{折|お}り{紙|がみ}{動物|どうぶつ}はお{楽|たの}しみ{会|かい}の{最後|さいご}に{配|くば}られた。{宝|たから}さがしもやり{直|なお}し——{今度|こんど}のゴールはちゃんと25{番|ばん}！"
+      - type: narration
+        speed: slow
+        text: "パターンを{見|み}つける{力|ちから}は、{間違|まちが}いを{見|み}つける{力|ちから}。{書|か}いてあることを{疑|うたが}い、自分で{確|たし}かめる——それがバグ{探偵|たんてい}の{力|ちから}。"
+      - type: sprite
+        character: akira
+        action: hide
+      - type: sprite
+        character: natsu
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——{暗号|あんごう}パズルと消えた{宝物|たからもの}のゆくえ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
