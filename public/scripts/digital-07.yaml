@@ -1,0 +1,508 @@
+meta:
+  id: digital-07
+  title: 切り取られた動画
+  series: 情報モラル探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-07/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}には「あおばチャンネル」という{動画|どうが}ニュースがある。クラスの{出来事|できごと}を{撮影|さつえい}・{編集|へんしゅう}して「あおばトーク」に{投稿|とうこう}するものだ。{今週|こんしゅう}の{編集|へんしゅう}{係|がかり}はハルト。"
+      - type: narration
+        text: "{木曜日|もくようび}の{昼休|ひるやす}み、ミオの{工作|こうさく}{作品|さくひん}が{壊|こわ}れる{事件|じけん}が{起|お}きた。ハルトが{編集|へんしゅう}した{動画|どうが}が{投稿|とうこう}されると——"
+      - type: bgm
+        action: stop
+      - type: narration
+        text: "{動画|どうが}には、ソラがミオの{作品|さくひん}に{手|て}を{伸|の}ばし、{作品|さくひん}が{床|ゆか}に{落|お}ちて{壊|こわ}れる{場面|ばめん}が{映|うつ}っていた。"
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+      - type: dialog
+        character: mio
+        text: "わたしの「{星|ほし}の{模型|もけい}」が……2{週間|しゅうかん}もかけて{作|つく}ったのに……"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        expression: determined
+        position: right
+      - type: bgm
+        file: digital-07/tension
+      - type: dialog
+        character: sora
+        text: "{壊|こわ}してない！ {棚|たな}から{落|お}ちそうだったから{助|たす}けようとしたんだ！"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{動画|どうが}とソラの{証言|しょうげん}が{食|く}い{違|ちが}っています。{動画|どうが}は{本当|ほんとう}に{全|すべ}てを{映|うつ}しているのか——{調査|ちょうさ}してください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: haruto
+            expression: worried
+          - character: mio
+            expression: worried
+          - character: sora
+            expression: determined
+          - character: riko
+            expression: thinking
+      - type: narration
+        text: "{動画|どうが}には「見えていない{部分|ぶぶん}」があるのか。{情報|じょうほう}の{欠落|けつらく}を見{抜|ぬ}く{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "情報モラル探偵団 Vol.7"
+        subtitle: "切り取られた動画"
+
+  # ===== 証拠カード1: 投稿された動画 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: digital-07/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "{投稿|とうこう}された{動画|どうが}（15{秒|びょう}）の{内容|ないよう}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "0:00〜0:03——ソラが{棚|たな}の{方|ほう}に{手|て}を{伸|の}ばす。"
+      - type: narration
+        text: "0:04〜0:07——ソラの{手|て}がミオの{工作|こうさく}{作品|さくひん}「{星|ほし}の{模型|もけい}」に{触|ふ}れる。"
+      - type: narration
+        text: "0:08〜0:10——{作品|さくひん}が{棚|たな}から{床|ゆか}に{落|お}ちる。"
+      - type: narration
+        text: "0:11〜0:13——{作品|さくひん}が{壊|こわ}れる。パーツが{散|ち}らばる。"
+      - type: narration
+        text: "0:14〜0:15——ミオの{声|こえ}「あっ！」"
+      - type: narration
+        text: "この{動画|どうが}だけ見ると、ソラがわざと{壊|こわ}したように見える。でもソラは「{助|たす}けようとした」と{言|い}っている。{動画|どうが}に{映|うつ}っていない{場面|ばめん}はないだろうか？"
+
+  # ===== 証拠カード2: 動画の技術情報 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: digital-07/investigation
+    steps:
+      - type: narration
+        text: "{動画|どうが}の{技術|ぎじゅつ}{情報|じょうほう}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "{撮影者|さつえいしゃ}：ハルト。{撮影|さつえい}{時刻|じこく}：{木曜|もくよう}12:33〜12:36（{約|やく}3{分間|ぷんかん}{撮影|さつえい}）。"
+      - type: narration
+        text: "{元|もと}の{動画|どうが}の{長|なが}さ：45{秒|びょう}。{投稿|とうこう}された{動画|どうが}の{長|なが}さ：15{秒|びょう}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "カットされた{部分|ぶぶん}：{前半|ぜんはん}30{秒|びょう}。{編集|へんしゅう}{場所|ばしょ}：コンピュータ{室|しつ}。{投稿|とうこう}{時刻|じこく}：12:55。"
+      - type: narration
+        text: "{元|もと}の{動画|どうが}は45{秒|びょう}なのに、{投稿|とうこう}されたのは15{秒|びょう}。{前半|ぜんはん}30{秒|びょう}がまるごとカットされている。{消|き}えた30{秒|びょう}には{何|なに}が{映|うつ}っていたのだろう。"
+
+  # ===== 証拠カード3: 編集メモ =====
+  - id: evidence-3
+    bg: classroom
+    bgm: digital-07/experiment
+    steps:
+      - type: narration
+        text: "ハルトがコンピュータ{室|しつ}に{残|のこ}していた{編集|へんしゅう}メモが見つかった。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{元|もと}の{動画|どうが}45{秒|びょう}は{長|なが}すぎると{思|おも}って。{先週|せんしゅう}{先生|せんせい}に「15{秒|びょう}{以内|いない}にまとめよう」って{言|い}われてたから。"
+      - type: dialog
+        character: haruto
+        text: "{前半|ぜんはん}30{秒|びょう}を{削除|さくじょ}して、{後半|こうはん}15{秒|びょう}を{採用|さいよう}した。「インパクトのある{場面|ばめん}」を{残|のこ}したつもりだったんだ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: right
+      - type: dialog
+        character: sora
+        text: "{投稿|とうこう}された{直後|ちょくご}にハルトに『{元|もと}の{動画|どうが}を見せて！』って{頼|たの}んだんだ。そしたらハルトは{顔|かお}を{青|あお}くして言った——『カットしちゃった。{前半|ぜんはん}は{削除|さくじょ}した。{長|なが}すぎたから。{悪気|わるぎ}はない』って。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "ハルトは「インパクトのある{場面|ばめん}を{残|のこ}した」。だが{前後|ぜんご}の{文脈|ぶんみゃく}がないから「インパクト」が{生|う}まれた——{助|たす}けようとした{場面|ばめん}が{消|き}えて、{壊|こわ}した{場面|ばめん}だけが{残|のこ}ったのだ。"
+
+  # ===== 証拠カード4: 目撃者リコの記憶 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: digital-07/experiment
+    steps:
+      - type: narration
+        text: "{事件|じけん}の{全体|ぜんたい}を{直接|ちょくせつ}見ていたリコの{証言|しょうげん}。"
+      - type: sprite
+        character: riko
+        expression: normal
+        position: left
+      - type: dialog
+        character: riko
+        text: "わたしは{教室|きょうしつ}にいて、{全部|ぜんぶ}見てた。{動画|どうが}に{映|うつ}っていない{場面|ばめん}がある。"
+      - type: dialog
+        character: riko
+        text: "12:33——ミオの{作品|さくひん}「{星|ほし}の{模型|もけい}」が{棚|たな}からゆっくり{傾|かたむ}き{始|はじ}めた。{棚|たな}が{少|すこ}し{斜|なな}めだったの。"
+      - type: sprite
+        character: riko
+        expression: determined
+      - type: dialog
+        character: riko
+        text: "12:34——ソラが{気|き}づいて「あぶない！」って{叫|さけ}んで、3メートル{走|はし}った。{助|たす}けに{行|い}こうとしてた。"
+      - type: dialog
+        character: riko
+        text: "12:35——ソラが{手|て}を{伸|の}ばしてキャッチしようとしたけど、{手|て}が{滑|すべ}って{作品|さくひん}が{落|お}ちた。ソラは{間|ま}に{合|あ}わなかっただけ。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: mio
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしが{手洗|てあら}いから{戻|もど}ったとき、ソラが{壊|こわ}れた{作品|さくひん}を{拾|ひろ}い{上|あ}げて、『ごめん、{間|ま}に{合|あ}わなかった……』って{悲|かな}しそうに{言|い}ってた。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{動画|どうが}には「{作品|さくひん}が{傾|かたむ}く」「ソラが{叫|さけ}んで{走|はし}る」{場面|ばめん}が{映|うつ}っていない。この「見えない{情報|じょうほう}」がないと、ソラの{行動|こうどう}の{意味|いみ}がまったく{変|か}わってしまう。"
+
+  # ===== 証拠カード5: 元の動画復元 =====
+  - id: card-5
+    bg: classroom
+    bgm: digital-07/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルトのタブレットから{元|もと}の{動画|どうが}（45{秒|びょう}）を{復元|ふくげん}しました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "{元|もと}の{動画|どうが}——0:00〜0:10：ミオの{作品|さくひん}がゆっくり{傾|かたむ}き{始|はじ}める。{棚|たな}が{斜|なな}め。→ ❌ カットされた"
+      - type: narration
+        text: "0:11〜0:20：ソラが「あぶない！」と{叫|さけ}ぶ。{席|せき}を{立|た}って{走|はし}る。→ ❌ カットされた"
+      - type: narration
+        text: "0:21〜0:30：ソラが{棚|たな}に{駆|か}けつける。{手|て}を{伸|の}ばす。→ ❌ カットされた"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "0:31〜0:35：ソラの{手|て}が{作品|さくひん}に{触|ふ}れる。→ ✅ {投稿|とうこう}{動画|どうが}の{冒頭|ぼうとう}"
+      - type: narration
+        text: "0:36〜0:45：{手|て}が{滑|すべ}って{作品|さくひん}が{落|お}ちる。{壊|こわ}れる。ミオの{声|こえ}。→ ✅ {投稿|とうこう}{動画|どうが}の{後半|こうはん}"
+      - type: narration
+        speed: slow
+        text: "{元|もと}の{動画|どうが}で見ると——ソラは{助|たす}けようとして{走|はし}っていた。{作品|さくひん}は{自然|しぜん}に{傾|かたむ}いたのであり、ソラのせいではない。ソラは{間|ま}に{合|あ}わなかっただけだ。"
+      - type: narration
+        text: "「ソラが{壊|こわ}した」→「ソラは{助|たす}けようとした」——{同|おな}じ{出来事|できごと}でも、どこからどこまで見せるかで{意味|いみ}がまったく{変|か}わる。これが「{切|き}り{取|と}り」の{危険性|きけんせい}。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-07/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{元|もと}の{動画|どうが}が{復元|ふくげん}されました。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "動画をカットしてソラを犯人に見せたのは誰？"
+        options:
+          - text: "ハルト（編集係で前半をカットした）"
+            feedback: "{編集|へんしゅう}{係|がかり}のハルトが{前半|ぜんはん}30{秒|びょう}をカット。ソラが{走|はし}って{助|たす}けに{行|い}く{場面|ばめん}が{消|き}えた。{編集|へんしゅう}メモにも「{前半|ぜんはん}{削除|さくじょ}」と{書|か}いてある。"
+          - text: "ミオ（作品を壊されて一番怒っている）"
+            feedback: "ミオは{手洗|てあら}いに{行|い}っていて{事件|じけん}の{瞬間|しゅんかん}を見ていない。むしろソラの『{間|ま}に{合|あ}わなかった』という{言葉|ことば}に{迷|まよ}っている。"
+          - text: "ソラ（自分の名誉のために嘘をついている？）"
+            feedback: "リコの{目撃|もくげき}{証言|しょうげん}と{元|もと}の{動画|どうが}が、ソラの{主張|しゅちょう}を{裏付|うらづ}けている。ソラは{本当|ほんとう}に{助|たす}けようとしていた。"
+          - text: "リコ（全部見ていたのに最初に言わなかった）"
+            feedback: "リコは{目撃者|もくげきしゃ}であって{編集者|へんしゅうしゃ}ではない。{動画|どうが}をカットしたのは{編集|へんしゅう}{係|がかり}のハルト。"
+      - type: choice
+        id: q2
+        text: "ハルトはわざとソラを悪者にした？"
+        options:
+          - text: "わざと。衝撃的な動画を作りたかった"
+            feedback: "ハルトの{編集|へんしゅう}メモには「インパクトのある{場面|ばめん}を{残|のこ}した」とある。でもソラを{悪者|わるもの}にする{意図|いと}は{書|か}かれていない。{結果的|けっかてき}にそう見えただけかも。"
+          - text: "うっかり。急いでいて文脈が消えることに気づかなかった"
+            feedback: "ハルトは5{時間目|じかんめ}に{間|ま}に{合|あ}わせるため{焦|あせ}っていた。{短|みじか}くすることに{集中|しゅうちゅう}して、{文脈|ぶんみゃく}が{消|き}えることに{気|き}づかなかった。"
+          - text: "仕方ない。15秒にまとめるルールだから"
+            feedback: "{短|みじか}くするルール{自体|じたい}は{悪|わる}くない。でも『どこをカットするか』で{意味|いみ}が{変|か}わる。{大事|だいじ}な{文脈|ぶんみゃく}を{残|のこ}すカットの{仕方|しかた}があったはず。"
+          - text: "悪意はないけど、編集の責任はある"
+            feedback: "{悪意|あくい}がなくても、{編集|へんしゅう}で{文脈|ぶんみゃく}を{消|け}すと{誰|だれ}かが{傷|きず}つく。「{短|みじか}くした」だけでは{済|す}まない{責任|せきにん}がある。"
+      - type: choice
+        id: q3
+        text: "動画やニュースの『切り取り』に気づくにはどうすればいい？"
+        options:
+          - text: "前後に何があったか考える"
+            feedback: "『この{動画|どうが}の{前|まえ}に{何|なに}が{起|お}きた？ {後|あと}はどうなった？』と{考|かんが}えるだけで、{見|み}えない{部分|ぶぶん}に{気|き}づける。"
+          - text: "当事者の証言も聞く"
+            feedback: "{動画|どうが}だけでなく、{映|うつ}っている{人|ひと}の{言|い}い{分|ぶん}も{聞|き}く。ソラの{証言|しょうげん}を{聞|き}いていれば、{動画|どうが}が{全|すべ}てではないと{気|き}づけた。"
+          - text: "元の情報源を探す"
+            feedback: "カットされた{動画|どうが}ではなく、{元|もと}の{映像|えいぞう}や{情報|じょうほう}を{探|さが}す。{今回|こんかい}は{元|もと}の45{秒|びょう}の{動画|どうが}が{真実|しんじつ}を{映|うつ}していた。"
+          - text: "『これが全部？』と自問する"
+            feedback: "『見えていない{情報|じょうほう}があるかも』と{疑|うたが}う{力|ちから}。これがメディアリテラシーの{第一歩|だいいっぽ}。{動画|どうが}でもニュースでも{同|おな}じ。"
+
+  # ===== 真実: ミオ =====
+  - id: truth-mio
+    bg: classroom
+    bgm: digital-07/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたし、{動画|どうが}を見て「ソラがやったんだ」って{思|おも}っちゃった。{動画|どうが}だけで{判断|はんだん}してしまった。"
+      - type: sprite
+        character: mio
+        expression: thinking
+      - type: dialog
+        character: mio
+        text: "でもソラは{戻|もど}ったとき、{壊|こわ}れた{作品|さくひん}を{拾|ひろ}い{上|あ}げて『ごめん、{間|ま}に{合|あ}わなかった……』って{悲|かな}しそうに{言|い}ってた。あの{表情|ひょうじょう}は、わざと{壊|こわ}した{人|ひと}の{顔|かお}じゃなかった。"
+      - type: dialog
+        character: mio
+        text: "{動画|どうが}だけで{判断|はんだん}しちゃいけなかった。見えてない{部分|ぶぶん}があったのに。"
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ===== 真実: リコ =====
+  - id: truth-riko
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riko
+        expression: normal
+        position: left
+      - type: dialog
+        character: riko
+        text: "わたしは{全部|ぜんぶ}見てた。{作品|さくひん}が{傾|かたむ}いて、ソラが{叫|さけ}んで{走|はし}って、{手|て}が{滑|すべ}って……{動画|どうが}に{映|うつ}ってない{場面|ばめん}をずっと{知|し}ってた。"
+      - type: sprite
+        character: riko
+        expression: worried
+      - type: dialog
+        character: riko
+        text: "でもハルトを{犯人|はんにん}だと{名指|なざ}しすることになるから、{言|い}い{出|だ}せなかった。ソラの{名誉|めいよ}を{守|まも}るためにはもっと{早|はや}く{言|い}うべきだった。"
+      - type: sprite
+        character: riko
+        action: hide
+
+  # ===== 真実: ソラ =====
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+      - type: dialog
+        character: sora
+        text: "オレ、{助|たす}けようとしただけなんだ。{棚|たな}から「{星|ほし}の{模型|もけい}」が{落|お}ちそうになってるの見て、{走|はし}ったんだよ。"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "でも{間|ま}に{合|あ}わなくて、{手|て}が{滑|すべ}って……{動画|どうが}のせいで{犯人|はんにん}{扱|あつか}いされた。{誰|だれ}も{信|しん}じてくれなかった。"
+      - type: dialog
+        character: sora
+        text: "{動画|どうが}って{怖|こわ}いな。{一部|いちぶ}だけ{切|き}り{取|と}ると、{意味|いみ}がまったく{変|か}わっちまう。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 真実: ハルト（犯人） =====
+  - id: truth-haruto
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruto
+        text: "……{認|みと}めます。{動画|どうが}の{前半|ぜんはん}をカットしたのは{僕|ぼく}です。"
+      - type: narration
+        speed: slow
+        text: "ハルトは{静|しず}かに{目|め}を{伏|ふ}せた。"
+      - type: sprite
+        character: haruto
+        expression: normal
+      - type: dialog
+        character: haruto
+        text: "45{秒|びょう}は{長|なが}すぎると{思|おも}って、15{秒|びょう}にカットした。5{時間目|じかんめ}に{間|ま}に{合|あ}わせなきゃって{焦|あせ}ってて……。"
+      - type: sprite
+        character: haruto
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: "「インパクトのある{場面|ばめん}を{残|のこ}そう」って{思|おも}った。でもそのインパクトって、{前後|ぜんご}の{文脈|ぶんみゃく}がないから{生|う}まれたものだった。"
+      - type: dialog
+        character: haruto
+        text: "ソラが{走|はし}って{助|たす}けに{行|い}った{場面|ばめん}を{消|け}しちゃった。ソラを{悪者|わるもの}にするつもりはなかった。でも{結果的|けっかてき}にそうなった。ソラ、ごめん。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: narration
+        text: "ハルトに{悪意|あくい}はなかった。でも{編集|へんしゅう}で{文脈|ぶんみゃく}を{消|け}すと、{出来事|できごと}の{意味|いみ}がまったく{変|か}わってしまう。{短|みじか}くすること{自体|じたい}は{悪|わる}くない——{大事|だいじ}なのは「どこをカットするか」だ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-07/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルト、{正直|しょうじき}に{認|みと}めてくれてありがとう。{編集|へんしゅう}は{大切|たいせつ}な{仕事|しごと}です。でもその{分|ぶん}、{責任|せきにん}も{大|おお}きい。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{動画|どうが}や{情報|じょうほう}の「{切|き}り{取|と}り」は{意味|いみ}を{変|か}えます。{前後|ぜんご}の{文脈|ぶんみゃく}——「なぜそうなったか」「そのあとどうなったか」——がないと、{正反対|せいはんたい}の{解釈|かいしゃく}になることがある。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{大事|だいじ}なのは、「見えていない{情報|じょうほう}があるかも」と{気|き}づく{力|ちから}です。{動画|どうが}でもニュースでも、『これが{全部|ぜんぶ}？ {他|ほか}にもあるんじゃない？』と{自問|じもん}しましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sora
+        expression: happy
+        position: left
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: right
+      - type: dialog
+        character: haruto
+        text: "ソラ、{本当|ほんとう}にごめん。{次|つぎ}からは{文脈|ぶんみゃく}を{残|のこ}すカットを{心|こころ}がける。{大事|だいじ}な{場面|ばめん}を{消|け}さないように。"
+      - type: dialog
+        character: sora
+        text: "ハルトが{悪気|わるぎ}なかったのは{分|わ}かった。でも「{切|き}り{取|と}り」って{本当|ほんとう}に{怖|こわ}いな。オレ、{犯人|はんにん}{扱|あつか}いされて{本気|ほんき}でつらかったぜ。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ネットの{動画|どうが}やニュースも{同|おな}じ。「{切|き}り{取|と}り」かもしれないと{疑|うたが}う{力|ちから}——これがメディアリテラシー。{一生|いっしょう}の{武器|ぶき}になりますよ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
