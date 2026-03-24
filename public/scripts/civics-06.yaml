@@ -1,0 +1,551 @@
+meta:
+  id: civics-06
+  title: 消された意見
+  series: 公民探偵団
+  volume: 6
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}のクラスで「{新|あたら}しい{給食|きゅうしょく}メニューについてのアンケート」が{実施|じっし}された。テーマは「スパイシーカレーの{追加|ついか}」。{集計|しゅうけい}{結果|けっか}は——「{全員|ぜんいん}{賛成|さんせい}」。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: sora
+        text: "おかしいよ。ぼくは「{反対|はんたい}」って{書|か}いたはずなのに、{集計|しゅうけい}では「{全員|ぜんいん}{賛成|さんせい}」になってる。ぼくの{意見|いけん}が{消|き}えてる！"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: center
+      - type: dialog
+        character: kenta
+        text: "おれも「どちらでもない」って{書|か}いたぞ。なのに{賛成|さんせい}にカウントされてる……？"
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "アンケートの{回答|かいとう}と{集計|しゅうけい}{結果|けっか}が{合|あ}わない。{誰|だれ}かが{回答|かいとう}を{書|か}き{換|か}えた{可能性|かのうせい}があります。5{枚|まい}の{用紙|ようし}を{全部|ぜんぶ}{並|なら}べて{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: worried }
+          - { id: sora, expression: surprised }
+      - type: narration
+        text: "アンケートの{集計|しゅうけい}を{担当|たんとう}したのはハルキ。5{枚|まい}の{用紙|ようし}すべてに{目|め}を{通|とお}したはず——{何|なに}が{起|お}きたのか？"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.6
+        subtitle: 消された意見
+
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくが{集計|しゅうけい}係を{担当|たんとう}した。5{枚|まい}のアンケート{用紙|ようし}を{集|あつ}めて{数|かぞ}えたんだ。"
+      - type: dialog
+        character: haruki
+        text: "{結果|けっか}は「{全員|ぜんいん}{賛成|さんせい}」として{提出|ていしゅつ}した。{間違|まちが}いは……ないと{思|おも}うけど。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしは「{賛成|さんせい}」って{書|か}いたよ。スパイシーカレー、おいしそうだもん。"
+      - type: dialog
+        character: mio
+        text: "でもソラくんやケンタくんが「{自分|じぶん}の{意見|いけん}と{違|ちが}う」って{言|い}ってるのは{心配|しんぱい}……みんなの{意見|いけん}が{正確|せいかく}に{届|とど}くべきだよね。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれは「どちらでもない」って{書|か}いた。{辛|から}いのは{苦手|にがて}だけど、みんなが{食|た}べたいなら{反対|はんたい}するほどでもないかなって。"
+      - type: dialog
+        character: kenta
+        text: "でも{集計|しゅうけい}では「{賛成|さんせい}」にされてた。おれの{意見|いけん}、{軽|かる}く{見|み}られたってことか？"
+        expression: surprised
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは「{反対|はんたい}」って{書|か}いた。{辛|から}い{食|た}べ{物|もの}が{苦手|にがて}な人もいるから、{選択肢|せんたくし}を{増|ふ}やすべきだと{思|おも}った。"
+      - type: dialog
+        character: sora
+        text: "なのに{集計|しゅうけい}では「{全員|ぜんいん}{賛成|さんせい}」。ぼくの{声|こえ}が{消|き}されたみたいだ。"
+        expression: determined
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: アンケート集計結果
+      - type: narration
+        text: "クラスの「{新|あたら}{給食|きゅうしょく}メニュー（スパイシーカレー）{追加|ついか}」アンケート{集計|しゅうけい}{結果|けっか}——"
+      - type: narration
+        text: "{賛成|さんせい}：5{名|めい}（100%）。{反対|はんたい}：0{名|めい}（0%）。どちらでもない：0{名|めい}（0%）。"
+      - type: narration
+        text: "{担当|たんとう}：{集計|しゅうけい}係 {春木|はるき} {晴|はる}（ハルキ）。{提出日|ていしゅつび}：{水曜日|すいようび}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「{全員|ぜんいん}{賛成|さんせい}」——なのにソラは「{反対|はんたい}」、ケンタは「どちらでもない」と{書|か}いたと{言|い}っている。{集計|しゅうけい}が{正|ただ}しいなら、2人の{記憶|きおく}は{間違|まちが}い？ それとも——"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: アンケート用紙5枚
+      - type: narration
+        text: "5{枚|まい}の{用紙|ようし}を{全部|ぜんぶ}{並|なら}べてみよう。"
+      - type: narration
+        text: "{用紙|ようし}A（ハルキ）：{賛成|さんせい}に☑。——{特|とく}に{変|か}わったところはない。"
+      - type: narration
+        text: "{用紙|ようし}B（ソラ）：{賛成|さんせい}に☑。——{賛成|さんせい}の{欄|らん}に「シール」が{貼|は}られている。シールの{下|した}に{何|なに}かある？"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{用紙|ようし}C（ケンタ）：{賛成|さんせい}に☑。——「どちらでもない」の{欄|らん}に{白|しろ}い{修正液|しゅうせいえき}の{跡|あと}が{見|み}える！"
+      - type: narration
+        text: "{用紙|ようし}D（ミオ）：{賛成|さんせい}に☑。——{変|か}わったところはない。"
+      - type: narration
+        text: "{用紙|ようし}E（{他|ほか}のクラスメイト）：{賛成|さんせい}に☑。——{変|か}わったところはない。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "5{枚|まい}{並|なら}べると、{用紙|ようし}Bと{用紙|ようし}Cだけに{不自然|ふしぜん}な{痕跡|こんせき}がある。この2{枚|まい}が{書|か}き{換|か}えられた？"
+
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 提出記録（ソラが記録）
+      - type: sprite
+        character: mio
+        expression: normal
+        position: left
+      - type: dialog
+        character: mio
+        text: "ソラくんが{記録|きろく}した{提出|ていしゅつ}メモがあるよ。{誰|だれ}がどの{用紙|ようし}を{書|か}いたか{分|わ}かるはず。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "アンケート{提出|ていしゅつ}{記録|きろく}（{記録|きろく}係：ソラ）——"
+      - type: narration
+        text: "{月曜日|げつようび} 10:00 アンケート{用紙|ようし}5{枚|まい}を{配布|はいふ}。10:15 {全員|ぜんいん}が{記入|きにゅう}・{提出|ていしゅつ}。"
+      - type: narration
+        text: "{提出順|ていしゅつじゅん}：1. ハルキ（{用紙|ようし}A）——{賛成|さんせい}と{書|か}いていた。2. ソラ（{用紙|ようし}B）——{反対|はんたい}と{書|か}いた。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "3. ケンタ（{用紙|ようし}C）——すぐ{書|か}いて{提出|ていしゅつ}した。4. ミオ（{用紙|ようし}D）——{丁寧|ていねい}に{書|か}いていた。5. E（{用紙|ようし}E）——{素早|すばや}く{提出|ていしゅつ}した。"
+      - type: narration
+        speed: slow
+        text: "{集計|しゅうけい}はハルキが{担当|たんとう}。——ソラが「{反対|はんたい}」と{書|か}いたのは{記録|きろく}に{残|のこ}っている。なのに{用紙|ようし}Bは「{賛成|さんせい}」になっている。"
+
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 変更の痕跡（拡大確認）
+      - type: sprite
+        character: sora
+        expression: determined
+        position: right
+      - type: dialog
+        character: sora
+        text: "{用紙|ようし}Bと{用紙|ようし}Cを{拡大|かくだい}して{確認|かくにん}してみよう。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{用紙|ようし}B（ソラの{用紙|ようし}）：{賛成|さんせい}{欄|らん}に「☑のシール」が{貼|は}られている。シールの{下|した}に{別|べつ}の☑が{見|み}える。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "→ {元|もと}の{回答|かいとう}は「{反対|はんたい}」だった。{反対|はんたい}{欄|らん}の☑をシールで{隠|かく}し、{賛成|さんせい}{欄|らん}に{新|あら}たな☑を{貼|は}った！"
+      - type: narration
+        text: "{用紙|ようし}C（ケンタの{用紙|ようし}）：「どちらでもない」の{欄|らん}に{白|しろ}い{修正液|しゅうせいえき}の{跡|あと}がある。{修正液|しゅうせいえき}の{上|うえ}から「{賛成|さんせい}」の☑が{書|か}かれている。"
+      - type: narration
+        speed: slow
+        text: "→ {元|もと}の{回答|かいとう}は「どちらでもない」だった。{修正液|しゅうせいえき}で{消|け}し、{賛成|さんせい}に{書|か}き{換|か}えた！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "2{枚|まい}の{用紙|ようし}が{書|か}き{換|か}えられた。{用紙|ようし}に{触|さわ}れたのは——{集計|しゅうけい}を{担当|たんとう}したハルキだけ。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルキの{机|つくえ}から、{集計|しゅうけい}の{日|ひ}に{書|か}いたメモが{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——ハルキのメモ——"
+      - type: narration
+        text: "「スパイシーカレー、みんなに{食|た}べてほしい。{全員|ぜんいん}{賛成|さんせい}の{方|ほう}が{要望|ようぼう}として{強|つよ}い」"
+      - type: narration
+        text: "「でも{反対|はんたい}と『どちらでもない』が1{枚|まい}ずつ……このまま{出|だ}したら{要望|ようぼう}が{通|とお}らないかもしれない」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「{多数決|たすうけつ}で{決|き}まったことをスムーズに{進|すす}めるために。{全員|ぜんいん}{賛成|さんせい}として{伝|つた}えよう。{効率|こうりつ}よく——みんなのため、なのに——」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ハルキは「{効率|こうりつ}よくまとめたかった」。{悪意|あくい}ではなく{善意|ぜんい}——でもその{善意|ぜんい}が、ソラとケンタの{意見|いけん}を{消|け}した。"
+
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しましょう。アンケートの{回答|かいとう}を{書|か}き{換|か}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ソラの「反対」とケンタの「どちらでもない」を「賛成」に書き換えたのは誰？
+        options:
+          - text: ハルキ（集計係。5枚の用紙を集めて集計した）
+            value: haruki
+            feedback: 正解！ ハルキは集計係として全員の用紙を預かった。「全員賛成の方が要望として強い」と考え、ソラの用紙にシール、ケンタの用紙に修正液を使って2枚を書き換えた。
+          - text: ミオ（賛成と書いた。みんなの意見が届くべきと主張）
+            value: mio
+            feedback: ミオは自分の意見を正直に書いた側。むしろ「みんなの意見が正確に届くべき」と主張しているよ。書き換える動機がないね。
+          - text: ケンタ（「どちらでもない」と書いた）
+            value: kenta
+            feedback: ケンタは自分の用紙を書き換えられた被害者側。自分で「どちらでもない」を「賛成」に変える理由がないよ。
+          - text: ソラ（「反対」と書いた。提出記録の記録係）
+            value: sora
+            feedback: ソラも自分の用紙を書き換えられた被害者。しかも「反対」と書いた意見が消されたことに怒っている。犯人ではないよ。
+      - type: choice
+        id: q2
+        question: ハルキの行動の何が一番の問題？
+        options:
+          - text: 集計係の仕事をサボったこと
+            value: lazy
+            feedback: ハルキはサボったのではなく、むしろ積極的に書き換えた。問題は「他者の意見を勝手に変えた」こと。
+          - text: 他人の意見を書き換え、表現の自由を侵害したこと
+            value: freedom
+            feedback: 正解！ 日本国憲法第21条は「表現の自由」を保障している。アンケートに自分の意見を書くことは表現の自由の実践。他人の回答を勝手に変えることは、その人の権利を侵害する行為。
+          - text: スパイシーカレーを推したこと
+            value: curry
+            feedback: 何を好きかは自由。問題は「自分の好みを通すために他人の意見を消した」こと。好みの問題ではなく権利の問題だよ。
+          - text: メモに本音を書いてしまったこと
+            value: memo
+            feedback: メモを書いたこと自体は問題ではない。むしろメモのおかげで動機が分かった。問題の本質は「他人の意見を勝手に変えたこと」だよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 効率という名の侵害
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+      - type: dialog
+        character: mio
+        text: "わたし、{集計|しゅうけい}の{前|まえ}に「{全員|ぜんいん}の{意見|いけん}を{確認|かくにん}しよう」って{言|い}えばよかった。{確認|かくにん}する{義務|ぎむ}があったのに{省略|しょうりゃく}してしまった……"
+      - type: sprite
+        character: mio
+        action: hide
+
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+      - type: dialog
+        character: kenta
+        text: "おれ、「どちらでもない」って{書|か}いたとき、「どっちでもいいか」って{軽|かる}く{考|かんが}えてた。{自分|じぶん}の{意見|いけん}の{重|おも}みを{分|わ}かってなかった。"
+      - type: dialog
+        character: kenta
+        text: "でも——{軽|かる}い{気持|きも}ちでも、それはおれの{意見|いけん}だ。{勝手|かって}に{変|か}えられていいわけがない。"
+        expression: determined
+      - type: sprite
+        character: kenta
+        action: hide
+
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "ぼくは「{反対|はんたい}」と{書|か}いたけど、{理由|りゆう}を{書|か}かなかった。「なぜ{反対|はんたい}か」を{説明|せつめい}していれば、{簡単|かんたん}には{変|か}えられなかったかもしれない。"
+      - type: dialog
+        character: sora
+        text: "でも{理由|りゆう}を{書|か}かなかったからって、{意見|いけん}を{消|け}していい{理由|りゆう}にはならないよ。"
+        expression: determined
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: truth-haruki
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ハルキが{長|なが}い{間|あいだ}{黙|だま}っていた。そして——"
+      - type: dialog
+        character: haruki
+        text: "……ぼくがやった。"
+        expression: worried
+      - type: dialog
+        character: haruki
+        text: "{用紙|ようし}を{集|あつ}めたとき、{賛成|さんせい}3、{反対|はんたい}1、どちらでもない1だった。「{全員|ぜんいん}{賛成|さんせい}じゃないと{要望|ようぼう}が{通|とお}らない」って{思|おも}った。"
+      - type: dialog
+        character: haruki
+        text: "ソラの{用紙|ようし}の「{反対|はんたい}」にシールを{貼|は}って「{賛成|さんせい}」に{変|か}えた。ケンタの「どちらでもない」を{修正液|しゅうせいえき}で{消|け}して「{賛成|さんせい}」に{書|か}き{換|か}えた。"
+        expression: worried
+      - type: dialog
+        character: haruki
+        text: "{効率|こうりつ}よく——みんなのために——そう{思|おも}ってた。でも「みんなのため」じゃなかった。ソラとケンタの{声|こえ}を{消|け}したんだ。"
+        expression: determined
+      - type: dialog
+        character: haruki
+        text: "{少数|しょうすう}{意見|いけん}は「ノイズ」じゃない。{一人|ひとり}の{大切|たいせつ}な{声|こえ}だった。ごめん、ソラ、ケンタ。"
+        expression: worried
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ハルキに{悪意|あくい}はなかった。「{効率|こうりつ}よくまとめたい」「{要望|ようぼう}を{通|とお}したい」という{善意|ぜんい}——しかしその{善意|ぜんい}が、2人の「{表現|ひょうげん}の{自由|じゆう}」を{侵害|しんがい}した。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルキ、{正直|しょうじき}に話してくれてありがとう。「みんなのため」という気持ちは{本物|ほんもの}でした。"
+      - type: dialog
+        character: sensei
+        text: "でも{日本国|にほんこく}{憲法|けんぽう}{第|だい}21{条|じょう}は「{表現|ひょうげん}の{自由|じゆう}」を{保障|ほしょう}しています。アンケートに{自分|じぶん}の{意見|いけん}を{書|か}くことは、この{権利|けんり}の{実践|じっせん}です。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{他人|たにん}の{回答|かいとう}を{書|か}き{換|か}えることは——たとえ{善意|ぜんい}でも——その人の{権利|けんり}を{侵害|しんがい}する{行為|こうい}です。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "「{反対|はんたい}1{票|ぴょう}」も「どちらでもない1{票|ぴょう}」も、{弱|よわ}い{意見|いけん}ではありません。{全員|ぜんいん}の{意見|いけん}が{正確|せいかく}に{届|とど}くことが、{本当|ほんとう}の{民主主義|みんしゅしゅぎ}です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "アンケートはやり{直|なお}しになった。{今度|こんど}は{正|ただ}しい{集計|しゅうけい}——{賛成|さんせい}3、{反対|はんたい}1、どちらでもない1。{全員|ぜんいん}の{声|こえ}がそのまま{届|とど}いた。"
+      - type: narration
+        speed: slow
+        text: "{表現|ひょうげん}の{自由|じゆう}は「{全員|ぜんいん}の{意見|いけん}が{正確|せいかく}に{届|とど}く{権利|けんり}」。{少数|しょうすう}{意見|いけん}の{尊重|そんちょう}は、{民主主義|みんしゅしゅぎ}の{力|ちから}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{消|け}された{意見|いけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

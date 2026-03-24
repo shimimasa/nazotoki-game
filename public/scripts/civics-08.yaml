@@ -1,0 +1,537 @@
+meta:
+  id: civics-08
+  title: 偽りのアンケート
+  series: 公民探偵団
+  volume: 8
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}で「{遊|あそ}び{場|ば}をもっと{増|ふ}やしてほしい」という{要望|ようぼう}を{調|しら}べるアンケートが{実施|じっし}された。{結果|けっか}は——{賛成|さんせい}80%。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: haruki
+        text: "ちょっと{待|ま}って。このアンケートの{設問|せつもん}、おかしくないか？ 「{遊|あそ}び{場|ば}を{増|ふ}やすことに{賛成|さんせい}ですか？」じゃなくて、{別|べつ}の{聞|き}き{方|かた}をしてる。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "アンケートの{設問|せつもん}の{作|つく}り{方|かた}に{問題|もんだい}があるという{告発|こくはつ}がありました。「{賛成|さんせい}80%」という{数字|すうじ}は{本当|ほんとう}に{正|ただ}しいのか——{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: normal }
+          - { id: sora, expression: thinking }
+      - type: narration
+        text: "ミオだけが{不安|ふあん}そうな{表情|ひょうじょう}をしている。アンケートの{担当者|たんとうしゃ}はミオだった——何か{心当|こころあ}たりがあるのか？"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.8
+        subtitle: 偽りのアンケート
+
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくは{統計|とうけい}の{仕組|しく}みを{調|しら}べたことがある。アンケートは「{何|なに}を聞くか」で{結果|けっか}が{大|おお}きく{変|か}わるんだ。"
+      - type: dialog
+        character: haruki
+        text: "ミオに{任|まか}せようって{言|い}ったのはぼくだ。{事前|じぜん}に{設問|せつもん}をチェックしなかった……"
+        expression: worried
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしがアンケートの{担当者|たんとうしゃ}だったの。みんなのために{遊|あそ}び{場|ば}を{増|ふ}やしたくて、{一生懸命|いっしょうけんめい}アンケートを{作|つく}ったの。"
+      - type: dialog
+        character: mio
+        text: "80%が{賛成|さんせい}っていう{結果|けっか}が{出|で}たのは、みんなが{遊|あそ}び{場|ば}に{困|こま}っている{証拠|しょうこ}だと{思|おも}ったんだけど……"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれはアンケートの{結果|けっか}を見て「80%か、すごいな」って{素直|すなお}に{信|しん}じたよ。"
+      - type: dialog
+        character: kenta
+        text: "でもあとから{自分|じぶん}で3人に{聞|き}いてみたら、{結果|けっか}が{違|ちが}ったんだ。{設問|せつもん}が{違|ちが}うと{結果|けっか}も{変|か}わるのか？"
+        expression: thinking
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: normal
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは{公正|こうせい}なアンケートの{設問|せつもん}{設計|せっけい}ルールを{調|しら}べてきた。{誘導|ゆうどう}{質問|しつもん}や{選択肢|せんたくし}の{偏|かたよ}りを{防|ふせ}ぐルールがあるんだ。"
+        expression: thinking
+      - type: dialog
+        character: sora
+        text: "ミオが{丁寧|ていねい}に{作|つく}るだろうと思って、{事前|じぜん}{確認|かくにん}しなかったのは{反省|はんせい}している。"
+        expression: worried
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: アンケート結果発表
+      - type: narration
+        text: "{学校|がっこう}の{遊|あそ}び{場|ば}に{関|かん}するアンケート{結果|けっか}{発表|はっぴょう}——"
+      - type: narration
+        text: "{賛成|さんせい}：80%（16{名|めい}/20{名|めい}）。{担当|たんとう}：{三尾|みお} {美緒|みお}（ミオ）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{賛成|さんせい}80%——{圧倒的|あっとうてき}な{数字|すうじ}だ。でも{本当|ほんとう}に「{遊|あそ}び{場|ば}を{増|ふ}やすことに{賛成|さんせい}」が80%なのだろうか？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: アンケート用紙の写し
+      - type: narration
+        text: "アンケート{用紙|ようし}の{設問|せつもん}——"
+      - type: narration
+        text: "Q1. {学校|がっこう}の{遊|あそ}び{場|ば}が{少|すく}なくて{困|こま}ったことはありますか？"
+      - type: narration
+        text: "(A) {困|こま}ったことがある　(B) かなり{困|こま}ったことがある"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "——{選択肢|せんたくし}が2つだけ。「{困|こま}った」か「かなり{困|こま}った」。{反対|はんたい}の{意見|いけん}を{選|えら}べない！"
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "しかも{設問|せつもん}は「{遊|あそ}び{場|ば}を{増|ふ}やすことに{賛成|さんせい}ですか？」ではなく、「{困|こま}ったことがあるか？」と聞いている。{質問|しつもん}の{内容|ないよう}が{違|ちが}う——"
+
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ケンタの独自調査
+      - type: sprite
+        character: kenta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれが{自分|じぶん}で3人に聞いてみた{結果|けっか}を{見|み}てくれ。ミオのアンケートとは{設問|せつもん}を{変|か}えて聞いたんだ。"
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        text: "ケンタの{設問|せつもん}：「{遊|あそ}び{場|ば}をもっと{増|ふ}やすことに{賛成|さんせい}ですか？ (A){賛成|さんせい} (B){反対|はんたい} (C)どちらでもない」"
+      - type: narration
+        text: "{結果|けっか}——{賛成|さんせい}2{名|めい}、どちらでもない1{名|めい}、{反対|はんたい}0{名|めい}。{賛成|さんせい}67%。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ミオのアンケートは80%。ケンタの{調査|ちょうさ}は67%。——{設問|せつもん}が{違|ちが}えば{結果|けっか}が{変|か}わる。「80%{賛成|さんせい}」は{本当|ほんとう}の{賛成率|さんせいりつ}ではなかった？"
+
+  - id: evidence-4
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 設問設計のルール
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "{公正|こうせい}なアンケートの{設問|せつもん}{設計|せっけい}ルールを{調|しら}べてきた。{確認|かくにん}しよう。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "ルール①：{誘導|ゆうどう}{質問|しつもん}{禁止|きんし}——{回答者|かいとうしゃ}の{答|こた}えを{特定|とくてい}の{方向|ほうこう}に{誘導|ゆうどう}する{質問|しつもん}は{使|つか}わない。"
+      - type: narration
+        text: "NG{例|れい}：「○○で{困|こま}ったことはありますか？」（{経験|けいけん}を聞く）。正しい{例|れい}：「○○に{賛成|さんせい}ですか？」（{直接|ちょくせつ}聞く）。"
+      - type: narration
+        text: "ルール②：{選択肢|せんたくし}はすべての{意見|いけん}を{含|ふく}む——「{賛成|さんせい}」だけでなく「{反対|はんたい}」「どちらでもない」を{含|ふく}む{選択肢|せんたくし}が{必要|ひつよう}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{今回|こんかい}のアンケート（{証拠|しょうこ}②）はルール①とルール②に{違反|いはん}している！ {設問|せつもん}が{公正|こうせい}でなければ、{結果|けっか}の{数字|すうじ}は{意味|いみ}がない。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ミオさんのノートから、アンケートの{下書|したが}きメモが{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——ミオの{設計|せっけい}メモ（{下書|したが}きノートから{発見|はっけん}）——"
+      - type: narration
+        text: "{最初|さいしょ}の{案|あん}：「{遊|あそ}び{場|ば}をもっと{増|ふ}やすことに{賛成|さんせい}ですか？ (A){賛成|さんせい} (B){反対|はんたい} (C)どちらでもない」"
+      - type: narration
+        text: "→ これだと{反対|はんたい}{意見|いけん}が{多|おお}く{出|で}るかもしれない……"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "{変更後|へんこうご}の{案|あん}：「{遊|あそ}び{場|ば}が{少|すく}なくて{困|こま}ったことはありますか？ (A){困|こま}った (B)かなり{困|こま}った」"
+      - type: narration
+        speed: slow
+        text: "→ こっちの{方|ほう}が「{困|こま}っている人」の{数|かず}が{多|おお}く{出|だ}せる。{遊|あそ}び{場|ば}を{増|ふ}やす{根拠|こんきょ}になる。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{最初|さいしょ}の{案|あん}から{意図的|いとてき}に{設問|せつもん}を{変|か}えていた！ 「{強|つよ}い{根拠|こんきょ}を{出|だ}すために」{設問|せつもん}を{歪|ゆが}めた——{誰|だれ}が？"
+
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しましょう。アンケートの{設問|せつもん}を{意図的|いとてき}に{歪|ゆが}めたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: アンケートの設問を誘導質問に変更し、選択肢から「反対」を消したのは誰？
+        options:
+          - text: ハルキ（統計に詳しい。設問の問題に気づいた）
+            value: haruki
+            feedback: ハルキは統計の仕組みを知っていて設問の問題に気づいた側。設問をチェックしなかったことを後悔しているが、設問を作ったのは別の人だよ。
+          - text: ミオ（アンケート担当者。設計メモが見つかった）
+            value: mio
+            feedback: 正解！ ミオは「遊び場を増やすために強い根拠が必要」という責任感から、最初の公正な設問を誘導質問に変更した。選択肢からも「反対」を消して、80%という数字を作り出した。
+          - text: ケンタ（自分で3人に独自調査した）
+            value: kenta
+            feedback: ケンタはアンケートの結果を素直に信じた側。むしろ自分で正しい設問で調査して、結果の違いに気づいた人物だよ。
+          - text: ソラ（設問設計のルールを調べた）
+            value: sora
+            feedback: ソラは設問設計のルールを調べて問題点を指摘した側。事前に確認しなかったことを後悔しているが、設問を歪めたのは別の人だよ。
+      - type: choice
+        id: q2
+        question: ミオのアンケートの「賛成80%」が偽りの数字だと言える最大の理由は？
+        options:
+          - text: 回答者が20人と少なすぎるから
+            value: sample-size
+            feedback: 回答者の数は多い方がよいが、20人でも公正な設問なら有効な調査になる。問題は人数ではなく「設問の設計」にあるよ。
+          - text: 設問が「賛否」ではなく「困った経験」を聞いていて、反対を選べない選択肢だから
+            value: biased-question
+            feedback: 正解！ 「遊び場が少なくて困ったか」と聞くのは誘導質問で、選択肢も「困った」「かなり困った」だけ。「遊び場を増やすことへの賛否」を聞いていないのに「賛成80%」と発表した——設問設計のバイアスが数字を歪めた。
+          - text: ミオが計算を間違えたから
+            value: calculation-error
+            feedback: 計算自体は正確だよ（16/20=80%）。問題は「何を聞いたか」。設問が歪んでいるから、計算が正しくても数字の意味が違うんだ。
+          - text: アンケートを取った時期が悪かったから
+            value: timing
+            feedback: 時期の問題ではなく、設問の設計が問題。いつ実施しても、誘導質問と偏った選択肢では公正な結果にならないよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 責任感が歪めた数字
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-haruki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくは{統計|とうけい}が{得意|とくい}なのに、ミオに{任|まか}せきりにした。{設問|せつもん}を{事前|じぜん}にチェックしていれば、「この{聞|き}き{方|かた}はおかしい」って{気|き}づけたのに。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+      - type: dialog
+        character: kenta
+        text: "おれは「80%か、すごい」って{素直|すなお}に{信|しん}じてしまった。{設問|せつもん}の{中身|なかみ}まで{確認|かくにん}しなかった。{数字|すうじ}だけ見て{判断|はんだん}しちゃいけなかったんだ。"
+      - type: sprite
+        character: kenta
+        action: hide
+
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "ぼくは{設問|せつもん}{設計|せっけい}のルールを{知|し}っていた。でも「ミオが{丁寧|ていねい}に{作|つく}るだろう」と思って{事前|じぜん}{確認|かくにん}しなかった。{知識|ちしき}があっても{使|つか}わなければ{意味|いみ}がない。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: truth-mio
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: mio
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ミオが{長|なが}い{間|あいだ}{黙|だま}っていた。そして——"
+      - type: dialog
+        character: mio
+        text: "……わたしがやったの。"
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "{遊|あそ}び{場|ば}が{増|ふ}えれば、{子|こ}どもたちが{絶対|ぜったい}に{幸|しあわ}せになる。そう{信|しん}じてた。だから「{強|つよ}い{根拠|こんきょ}を{出|だ}さなきゃ」って{思|おも}ったの。"
+      - type: dialog
+        character: mio
+        text: "{最初|さいしょ}は「{遊|あそ}び{場|ば}を{増|ふ}やすことに{賛成|さんせい}ですか？」って{聞|き}こうとしてた。でも{反対|はんたい}が{多|おお}かったらどうしよう……って{不安|ふあん}になった。"
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "だから{設問|せつもん}を{変|か}えたの。「{遊|あそ}び{場|ば}が{少|すく}なくて{困|こま}ったことは？」にして、{選択肢|せんたくし}も「{困|こま}った」と「かなり{困|こま}った」だけにした。"
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "こうすれば「{困|こま}っている人」がたくさんいるように見える。{遊|あそ}び{場|ば}を{増|ふ}やす{根拠|こんきょ}になるって……"
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "でも「{困|こま}った{経験|けいけん}がある」と「{遊|あそ}び{場|ば}を{増|ふ}やすことに{賛成|さんせい}」は{違|ちが}うことだよね。{数字|すうじ}の{意味|いみ}を{歪|ゆが}めてしまった。"
+        expression: determined
+      - type: dialog
+        character: mio
+        text: "{悪意|あくい}はなかったの。でも「{良|よ}い{結果|けっか}のために{設問|せつもん}を{歪|ゆが}める」のは、{公正|こうせい}なアンケートじゃない。……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ミオに{悪意|あくい}はなかった。「{遊|あそ}び{場|ば}を{増|ふ}やしたい」という{責任感|せきにんかん}——しかしその{責任感|せきにんかん}が、アンケートの{公正|こうせい}さを{歪|ゆが}めた。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ミオ、{正直|しょうじき}に{話|はな}してくれてありがとう。「{遊|あそ}び{場|ば}を{増|ふ}やしたい」という{気持|きも}ちは{本物|ほんもの}だった。"
+      - type: dialog
+        character: sensei
+        text: "でも80%という{数字|すうじ}——{計算|けいさん}は{正確|せいかく}です。16÷20＝80%。でも{設問|せつもん}が「{賛否|さんぴ}」ではなく「{困|こま}った{経験|けいけん}」を聞いていた。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "つまり「{困|こま}った{経験|けいけん}がある人が80%」であって、「{遊|あそ}び{場|ば}を{増|ふ}やすことに{賛成|さんせい}が80%」ではない。{数字|すうじ}の{意味|いみ}が{全|まった}く{違|ちが}うんです。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "これを「{認知|にんち}バイアス」といいます。「80%という{大|おお}きな{数字|すうじ}＝{正|ただ}しい{根拠|こんきょ}」と{思|おも}い{込|こ}んでしまう。でも「どうやって{調|しら}べたか」を{確認|かくにん}しなければ、{数字|すうじ}は{信|しん}じられません。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "ニュースで「○○%が{賛成|さんせい}」という{数字|すうじ}を見たとき——「どんな{設問|せつもん}で聞いたのか」を{確認|かくにん}する{習慣|しゅうかん}を{身|み}につけましょう。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "アンケートは{正|ただ}しい{設問|せつもん}で{作|つく}り{直|なお}されることになった。{今度|こんど}は「{遊|あそ}び{場|ば}を{増|ふ}やすことに{賛成|さんせい}ですか？」——{公正|こうせい}な{設問|せつもん}で、{全員|ぜんいん}の{本当|ほんとう}の{意見|いけん}を聞く。"
+      - type: narration
+        speed: slow
+        text: "{数字|すうじ}は「{設問|せつもん}の{設計|せっけい}」で{意味|いみ}が{変|か}わる。{公正|こうせい}なアンケートは{民主主義|みんしゅしゅぎ}の{基盤|きばん}——{正|ただ}しく聞くことが、{正|ただ}しく{決|き}めることにつながる。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{偽|いつわ}りのアンケート、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

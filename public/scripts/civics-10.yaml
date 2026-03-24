@@ -1,0 +1,585 @@
+meta:
+  id: civics-10
+  title: 本当の声とは
+  series: 公民探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}の6{年|ねん}{生|せい}が{取|と}り{組|く}んでいた「より{良|よ}い{学校|がっこう}づくり{提案|ていあん}コンクール」。4つのグループが{提案書|ていあんしょ}を{作成|さくせい}し、{審査|しんさ}{委員会|いいんかい}に{提出|ていしゅつ}するはずだった。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: haruki
+        text: "{審査|しんさ}の日に{先生|せんせい}に{確認|かくにん}したら、うちのA{班|はん}の{提案書|ていあんしょ}だけ{届|とど}いてないって{言|い}われた。ぼくは{確|たし}かに{木曜|もくよう}の{放課後|ほうかご}に{提出|ていしゅつ}ボックスに{入|い}れたのに……"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{受領|じゅりょう}{台帳|だいちょう}にはA{班|はん}のサインがありません。{提案書|ていあんしょ}が{消|き}えた{理由|りゆう}を{調|しら}べてください。{全|すべ}てのグループの{声|こえ}が{公平|こうへい}に{届|とど}くことが、コンクールの{前提|ぜんてい}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: worried }
+          - { id: mio, expression: thinking }
+          - { id: kenta, expression: normal }
+          - { id: sora, expression: normal }
+      - type: narration
+        text: "4{人|にん}はそれぞれ{別|べつ}のグループに{所属|しょぞく}している。{全員|ぜんいん}が{何|なに}かを知っているはず——{事件|じけん}の{真相|しんそう}に{辿|たど}り{着|つ}けるだろうか？"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ========================================
+  # タイトル
+  # ========================================
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.10
+        subtitle: 本当の声とは
+
+  # ========================================
+  # 容疑者の証言
+  # ========================================
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4{人|にん}の{証言|しょうげん}を{聞|き}こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくはA{班|はん}の{代表|だいひょう}。「{図書室|としょしつ}{延長|えんちょう}」の{提案書|ていあんしょ}を{木曜|もくよう}の15:45に{提出|ていしゅつ}ボックスに{入|い}れた。{確実|かくじつ}に{入|い}れたのは{間違|まちが}いない。"
+      - type: dialog
+        character: haruki
+        text: "そのとき、{台帳|だいちょう}コーナーのあたりに{誰|だれ}かの{後|うし}ろ{姿|すがた}が{見|み}えた。でも{誰|だれ}かまでは{分|わ}からなかった。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしはB{班|はん}。{提案書|ていあんしょ}は{木曜|もくよう}14:50に{提出|ていしゅつ}して{台帳|だいちょう}にサインした。{問題|もんだい}なく{受領|じゅりょう}されたよ。"
+      - type: dialog
+        character: mio
+        text: "それと……{木曜|もくよう}の{昼休|ひるやす}みに、ソラが{廊下|ろうか}で「ハルキの{提案|ていあん}は{大|おお}げさすぎる」って{言|い}ってたのを{聞|き}いたの。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれはC{班|はん}。{木曜|もくよう}15:20に{提出|ていしゅつ}してサインした。{放課後|ほうかご}は15:30からサッカー{部|ぶ}の{練習|れんしゅう}で、{部活|ぶかつ}{出欠|しゅっけつ}ログにも{記録|きろく}がある。"
+      - type: dialog
+        character: kenta
+        text: "あと、{図書室|としょしつ}の{返却|へんきゃく}ログを{見|み}た。{木曜|もくよう}15:48にソラが{本|ほん}を{返却|へんきゃく}して{退室|たいしつ}している。{図書室|としょしつ}は{木曜|もくよう}15:50{閉館|へいかん}だ。"
+        expression: thinking
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: normal
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくはD{班|はん}。{木曜|もくよう}15:30に{提出|ていしゅつ}してサインした。そのあとは{図書室|としょしつ}にいた。15:30から16:00までずっと。"
+      - type: dialog
+        character: sora
+        text: "A{班|はん}の{提案書|ていあんしょ}がないって聞いたけど、ぼくは{何|なに}も{知|し}らない。"
+        expression: normal
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 証拠カード①: 受領台帳
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 受領台帳
+      - type: narration
+        text: "「より{良|よ}い{学校|がっこう}づくり{提案|ていあん}コンクール」{受領|じゅりょう}{台帳|だいちょう}——{受付|うけつけ}{期間|きかん}：{木曜|もくよう}14:45〜{金曜|きんよう}12:00"
+      - type: narration
+        text: "No.1 B{班|はん}（ミオ）——{受領|じゅりょう}サイン：ミオ。{受領|じゅりょう}{時刻|じこく}：{木|もく} 14:50。"
+      - type: narration
+        text: "No.2 C{班|はん}（ケンタ）——{受領|じゅりょう}サイン：ケンタ。{受領|じゅりょう}{時刻|じこく}：{木|もく} 15:20。"
+      - type: narration
+        text: "No.3 D{班|はん}（ソラ）——{受領|じゅりょう}サイン：ソラ。{受領|じゅりょう}{時刻|じこく}：{木|もく} 15:30。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "No.4 A{班|はん}（ハルキ）——{受領|じゅりょう}サイン：———。{受領|じゅりょう}{時刻|じこく}：（{記録|きろく}なし）。A{班|はん}だけがサインされていない。"
+
+  # ========================================
+  # 証拠カード②: 廊下平面図＋タイムライン
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 廊下平面図とタイムライン
+      - type: narration
+        text: "{廊下|ろうか}{平面図|へいめんず}——{図書室|としょしつ}から{提出|ていしゅつ}ボックスまで{約|やく}2{分|ふん}。{提出|ていしゅつ}ボックスから{受領|じゅりょう}{台帳|だいちょう}コーナーまで{約|やく}0.5{分|ふん}。"
+      - type: narration
+        text: "タイムライン{記録|きろく}——{木|もく} 14:50 B{班|はん}（ミオ）{提出|ていしゅつ}。{木|もく} 15:20 C{班|はん}（ケンタ）{提出|ていしゅつ}。{木|もく} 15:30 D{班|はん}（ソラ）{提出|ていしゅつ}。"
+      - type: narration
+        text: "{木|もく} 15:45 A{班|はん}（ハルキ）が{提出|ていしゅつ}ボックスへ{投函|とうかん}。{同|おな}じ{時刻|じこく}、{台帳|だいちょう}コーナーで「{誰|だれ}かの{後|うし}ろ{姿|すがた}」（ハルキの{証言|しょうげん}）。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{木|もく} 15:48 {図書室|としょしつ}の{返却|へんきゃく}ログ：「{空野|そらの} {宙|そら}」が{本|ほん}を{返却|へんきゃく}・{退室|たいしつ}。{木|もく} 15:50 {図書室|としょしつ}{閉館|へいかん}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ソラは「15:30から16:00まで{図書室|としょしつ}にいた」と{主張|しゅちょう}。しかし{図書室|としょしつ}ログでは15:48に{退室|たいしつ}。15:48{以降|いこう}、ソラは{図書室|としょしつ}にいなかった。"
+
+  # ========================================
+  # 証拠カード③: 証言記録＋アリバイ確認表
+  # ========================================
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 証言記録とアリバイ確認表
+      - type: sprite
+        character: mio
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mio
+        text: "{木曜|もくよう}の{昼休|ひるやす}み、12:30ごろ。{廊下|ろうか}でソラが{言|い}ってたの。"
+      - type: dialog
+        character: mio
+        text: "「ハルキの{図書室|としょしつ}{延長|えんちょう}の{提案|ていあん}、{読|よ}んだ。あれじゃ{学校|がっこう}は{変|か}わらない。{委員会|いいんかい}の{仕組|しく}みを{変|か}える{方|ほう}が{根本的|こんぽんてき}に{効果|こうか}がある」って。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "グループ{別|べつ}アリバイ{確認表|かくにんひょう}（{木曜|もくよう}15:30〜16:00）——"
+      - type: narration
+        text: "ハルキ：15:45に{提出|ていしゅつ}ボックス{付近|ふきん}にいた（{本人|ほんにん}{証言|しょうげん}）。ミオ：B{班|はん}の{教室|きょうしつ}で{後片付|あとかたづ}け（グループメンバー{確認|かくにん}{済|ず}み）。"
+      - type: narration
+        text: "ケンタ：15:30〜17:30 サッカー{部|ぶ}{練習|れんしゅう}（{部活|ぶかつ}{出欠|しゅっけつ}ログ{確認|かくにん}{済|ず}み）。ソラ：15:30に{提出|ていしゅつ}・{受領|じゅりょう}サイン{済|ず}み。その{後|ご}「{図書室|としょしつ}にいた」（{本人|ほんにん}{主張|しゅちょう}）。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "ケンタは{部活|ぶかつ}で{動|うご}けない。ミオは{教室|きょうしつ}にいた。ソラの{図書室|としょしつ}アリバイには15:48{以降|いこう}のすき{間|ま}がある——"
+
+  # ========================================
+  # 証拠カード⑤: 受領台帳詳細版＋ソラのメモ
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{受領|じゅりょう}{台帳|だいちょう}をもう{一度|いちど}よく{見|み}てください。A{班|はん}の{欄|らん}に、{何|なに}か{書|か}かれています。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{受領|じゅりょう}{台帳|だいちょう} A{班|はん}{欄|らん}（{詳細|しょうさい}{版|ばん}）——No.4 A{班|はん}（ハルキ）。{受領|じゅりょう}サイン：「{保留|ほりゅう}」（{手書|てが}きメモ）。{時刻|じこく}：{木|もく} 15:50。"
+      - type: narration
+        text: "ハルキの{正式|せいしき}なサインではなく、「{保留|ほりゅう}」という{文字|もじ}が{書|か}き{込|こ}まれている。このメモを{書|か}いた{人物|じんぶつ}は{受領|じゅりょう}{台帳|だいちょう}コーナーにいたことになる。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "さらに——A{班|はん}の{提案書|ていあんしょ}に{挟|はさ}まれた{手書|てが}きメモが{見|み}つかった。"
+      - type: narration
+        text: "「この{提案|ていあん}では{学校|がっこう}は{変|か}わらない。{委員会|いいんかい}の{見直|みなお}しの{方|ほう}が{根本的|こんぽんてき}に{正|ただ}しい。{最善|さいぜん}を{選|えら}んだ。でも……これで{本当|ほんとう}によかったのだろうか」"
+      - type: narration
+        speed: slow
+        text: "このメモの{筆跡|ひっせき}——そして「{委員会|いいんかい}の{見直|みなお}し」という{言葉|ことば}。ミオが{聞|き}いたソラの{発言|はつげん}と{一致|いっち}している。"
+
+  # ========================================
+  # 投票（2問）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しましょう。A{班|はん}の{提案書|ていあんしょ}を{審査|しんさ}{委員|いいん}に{届|とど}けなかったのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: A班の提案書を受け取りながら審査委員に届けず、台帳に「保留」と書いたのは誰？
+        options:
+          - text: ハルキ（A班代表。提出ボックスに投函した）
+            value: haruki
+            feedback: ハルキは被害者側。自分の提案書を隠す理由がない。提出ボックスに入れたのに届かなかったのは、別の誰かが取り出したからだよ。
+          - text: ミオ（B班代表。木曜昼にソラの発言を聞いた）
+            value: mio
+            feedback: ミオは木曜の放課後、B班の教室で後片付けをしていたことがグループメンバーに確認されている。提出ボックス付近にはいなかったよ。
+          - text: ケンタ（C班代表。放課後はサッカー部で練習）
+            value: kenta
+            feedback: ケンタは15:30から17:30までサッカー部の練習。部活出欠ログで確認されている。提出ボックスには行けなかったよ。
+          - text: ソラ（D班代表。図書室にいたと主張したが15:48に退室）
+            value: sora
+            feedback: 正解！ ソラは15:48に図書室を退室。2分で提出ボックスに行ける。台帳の「保留」メモと手書きメモの「委員会の見直し」がミオの証言と一致。ソラが意図的にA班の提案書を届けなかった。
+      - type: choice
+        id: q2
+        question: 政治参加で一番大切なのは何だと思う？
+        options:
+          - text: 正しい意見を選んで届けること
+            value: correct-opinion
+            feedback: 「正しい意見」は大事。でもソラも「正しい」と確信して行動した。誰かが「正しさ」を独占したとき、他の声が消える。正しさの判断は、全員の声を聞いた上で行うもの。
+          - text: 全ての声が聞かれる仕組みを守ること
+            value: equal-system
+            feedback: 全員の声が届く仕組みを守ること——それは民主主義の前提条件。ソラの事件は、この仕組みが壊れたとき何が起きるかを教えてくれた。
+          - text: みんなで対話して決めること
+            value: dialogue
+            feedback: 対話して決めること——それは民主主義の核心。一人で「最善」を決めるのではなく、全員で話し合って決める。今日の議論そのものが、その実践だった。
+          - text: 正解はない——全部必要
+            value: all-needed
+            feedback: 正しい意見を届けること、全ての声が聞かれること、対話して決めること——どれか1つではなく全部が合わさって民主主義は動く。その気づきこそが、このシリーズ最後の学び。
+
+  # ========================================
+  # 真実 — 導入
+  # ========================================
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 最善という名の排除
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ========================================
+  # 真実 — ハルキ
+  # ========================================
+  - id: truth-haruki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくは{提案書|ていあんしょ}をボックスに{入|い}れた。それでぼくの{役目|やくめ}は{終|お}わりだと{思|おも}ってた。"
+      - type: dialog
+        character: haruki
+        text: "でも「{届|とど}いたか{確認|かくにん}する」ってことをしなかった。{自分|じぶん}の{声|こえ}が{届|とど}いたかどうか——{最後|さいご}まで{見届|みとど}ける{責任|せきにん}が、ぼくにもあったんだ。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+
+  # ========================================
+  # 真実 — ミオ
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "ソラが「ハルキの{提案|ていあん}は{大|おお}げさすぎる」って{言|い}ったとき、わたしは{内心|ないしん}「そうかも」って{思|おも}ってしまった。"
+      - type: dialog
+        character: mio
+        text: "もしそのとき「でもハルキの{声|こえ}も{聞|き}くべきだよ」って{言|い}えていたら……ソラの{行動|こうどう}を{止|と}められたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ========================================
+  # 真実 — ケンタ
+  # ========================================
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれはC{班|はん}の{提出|ていしゅつ}がギリギリだったから、「{審査|しんさ}で{混乱|こんらん}したのはおれたちのせいかも」って{最初|さいしょ}{思|おも}った。"
+      - type: dialog
+        character: kenta
+        text: "でも{図書室|としょしつ}ログを{調|しら}べてソラのアリバイが{崩|くず}れたとき——「{声|こえ}が{届|とど}かない」って{怖|こわ}いことなんだなって{気|き}づいた。"
+        expression: thinking
+      - type: sprite
+        character: kenta
+        action: hide
+
+  # ========================================
+  # 真実 — ソラ（犯人）
+  # ========================================
+  - id: truth-sora
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: sora
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ソラが{長|なが}い{間|あいだ}{黙|だま}っていた。そして——"
+      - type: dialog
+        character: sora
+        text: "……ぼくがやった。"
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "{木曜|もくよう}15:48に{図書室|としょしつ}を{出|で}た。{廊下|ろうか}を{歩|ある}いて{提出|ていしゅつ}ボックスのところを{通|とお}ったら、ハルキの{提案書|ていあんしょ}が{入|はい}ってた。"
+      - type: dialog
+        character: sora
+        text: "{読|よ}んだ。「{図書室|としょしつ}{延長|えんちょう}」——{悪|わる}い{提案|ていあん}じゃない。でもぼくは{思|おも}った。「これでは{学校|がっこう}は{変|か}わらない」って。ぼくのD{班|はん}の{提案|ていあん}——{委員会|いいんかい}の{仕組|しく}みを{根本|こんぽん}から{変|か}える{方|ほう}が{正|ただ}しいって{確信|かくしん}してた。"
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "だから{台帳|だいちょう}に「{保留|ほりゅう}」と{書|か}いて、{提案書|ていあんしょ}をカバンに{入|い}れた。{審査|しんさ}{委員|いいん}には{届|とど}けなかった。"
+      - type: dialog
+        character: sora
+        text: "「{最善|さいぜん}を{選|えら}んだ」——そう{思|おも}ってた。{下手|へた}な{提案|ていあん}が{混|ま}ざると{審査|しんさ}が{曇|くも}ると{思|おも}った。"
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "でも……{最善|さいぜん}を{選|えら}ぶのは、ぼくの{仕事|しごと}じゃなかった。それは{審査|しんさ}{委員|いいん}の{仕事|しごと}で……{全員|ぜんいん}の{声|こえ}を{聞|き}いた{上|うえ}で{決|き}まることだった。"
+        expression: worried
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ソラに{悪意|あくい}はなかった。「{自分|じぶん}の{提案|ていあん}が{正|ただ}しい」という{確信|かくしん}——しかしその{確信|かくしん}が、{他|ほか}の{声|こえ}を{排除|はいじょ}した。「{自分|じぶん}だけが{正|ただ}しい」と{思|おも}い{込|こ}んだとき、{民主主義|みんしゅしゅぎ}は{壊|こわ}れる。"
+
+  # ========================================
+  # エピローグ — シリーズ最終巻
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ソラ、{正直|しょうじき}に{話|はな}してくれてありがとう。{自分|じぶん}の{提案|ていあん}に{自信|じしん}があったこと——その{気持|きも}ちは{本物|ほんもの}だった。"
+      - type: dialog
+        character: sensei
+        text: "でも「{全員|ぜんいん}の{声|こえ}が{届|とど}く{仕組|しく}み」を{壊|こわ}すことは、どんな{理由|りゆう}があっても{許|ゆる}されません。それが{民主主義|みんしゅしゅぎ}の{前提|ぜんてい}{条件|じょうけん}だからです。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "さて——ここで{問|と}いかけます。{政治|せいじ}{参加|さんか}とは{何|なに}でしょうか？ {投票|とうひょう}するだけが{政治|せいじ}{参加|さんか}でしょうか？"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}みんながやったこと——{誰|だれ}かの{声|こえ}が{届|とど}かなかったことに{気|き}づき、なぜそうなったかを{考|かんが}え、{議論|ぎろん}した。これも{政治|せいじ}{参加|さんか}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{公民|こうみん}{探偵団|たんていだん}、Vol.1からVol.10まで——{振|ふ}り{返|かえ}ってみましょう。"
+      - type: dialog
+        character: sensei
+        text: "Vol.1：{多数決|たすうけつ}の{手順|てじゅん}を{守|まも}る。Vol.2：{議事録|ぎじろく}の{正確|せいかく}さを{守|まも}る。Vol.3：{予算|よさん}の{透明性|とうめいせい}をチェックする。"
+      - type: dialog
+        character: sensei
+        text: "Vol.4：{署名|しょめい}・{請願|せいがん}の{意味|いみ}を{理解|りかい}する。Vol.5：{選挙|せんきょ}のルールを{守|まも}る{意味|いみ}を{考|かんが}える。Vol.6：{全員|ぜんいん}の{声|こえ}が{届|とど}いているか{確認|かくにん}する。"
+      - type: dialog
+        character: sensei
+        text: "Vol.7：{情報|じょうほう}{公開|こうかい}の{原則|げんそく}を{知|し}る。Vol.8：{報道|ほうどう}・アンケートの{公正|こうせい}さを{疑|うたが}う。Vol.9：{条例|じょうれい}の{条件|じょうけん}を{読|よ}み{解|と}く。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "そしてVol.10——{政治|せいじ}{参加|さんか}の{本質|ほんしつ}。{対話|たいわ}・{傾聴|けいちょう}・{声|こえ}を{上|あ}げること。{全部|ぜんぶ}が{民主主義|みんしゅしゅぎ}。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "「{政治|せいじ}」は{遠|とお}い{話|はなし}ではない。{今日|きょう}、みんなで{議論|ぎろん}したこと——{誰|だれ}かの{声|こえ}が{届|とど}かなかったことに{気|き}づき、なぜそうなったかを{考|かんが}えた。それも{政治|せいじ}{参加|さんか}。"
+      - type: narration
+        speed: slow
+        text: "{声|こえ}を{上|あ}げること。{声|こえ}を{聞|き}くこと。{声|こえ}を{届|とど}ける{仕組|しく}みを{守|まも}ること。——10{巻|かん}の{旅|たび}で{学|まな}んだすべてが、ここにつながっている。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵団|たんていだん}——{本当|ほんとう}の{声|こえ}とは、{解決|かいけつ}！"
+      - type: narration
+        speed: slow
+        text: "{公民|こうみん}{探偵団|たんていだん}、{全|ぜん}10{巻|かん}——{完結|かんけつ}。{民主主義|みんしゅしゅぎ}は、きみたちの{手|て}の{中|なか}にある。"
+      - type: effect
+        name: fade-out
+        duration: 2000

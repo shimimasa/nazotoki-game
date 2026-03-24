@@ -1,0 +1,539 @@
+meta:
+  id: civics-09
+  title: 条件のわな
+  series: 公民探偵団
+  volume: 9
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "みどり{市|し}の{市役所|しやくしょ}{会議室|かいぎしつ}。{条例|じょうれい}{改正|かいせい}をめぐる{問題|もんだい}が{発覚|はっかく}した——「{子|こ}ども{遊|あそ}び{場|ば}{整備|せいび}{条例|じょうれい}」の{改正|かいせい}に、{手続|てつづ}き{上|じょう}の{問題|もんだい}があるという。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: mio
+        text: "「{子|こ}ども{遊|あそ}び{場|ば}{整備|せいび}{条例|じょうれい}」の{改正|かいせい}……{住民|じゅうみん}に{意見|いけん}を{聞|き}く{機会|きかい}がなかったって。わたしたちの{声|こえ}を{聞|き}かないまま{決|き}めたの？"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{条例|じょうれい}{改正|かいせい}には「{住民|じゅうみん}への{告知|こくち}{期間|きかん}」と「{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}」が{必要|ひつよう}です。{過去|かこ}5{件|けん}の{事例|じれい}を{比較|ひかく}して、{条件|じょうけん}を{満|み}たしていないケースを{特定|とくてい}してください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: worried }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: normal }
+          - { id: sora, expression: thinking }
+      - type: narration
+        text: "ケンタだけが{落|お}ち{着|つ}いた{表情|ひょうじょう}を{保|たも}っている。「{子|こ}ども{遊|あそ}び{場|ば}{整備|せいび}{条例|じょうれい}」の{改正案|かいせいあん}を{提案|ていあん}したのは——ケンタだった。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.9
+        subtitle: 条件のわな
+
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくは{条例|じょうれい}{改正|かいせい}の{記録|きろく}を{整理|せいり}した{記録|きろく}係。{過去|かこ}5{件|けん}の{事例|じれい}{一覧表|いちらんひょう}を{作|つく}った。"
+      - type: dialog
+        character: haruki
+        text: "でも……5{件|けん}目だけ{告知|こくち}{期間|きかん}のデータが{空白|くうはく}だった。{見落|みお}としだと{思|おも}って、{確認|かくにん}しなかった……"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "「{子|こ}ども{遊|あそ}び{場|ば}{整備|せいび}{条例|じょうれい}」の{改正|かいせい}で、{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}がなかったって知ったとき、すごくショックだった。わたしたちの{意見|いけん}を{聞|き}く{機会|きかい}がなかったなんて。"
+      - type: dialog
+        character: mio
+        text: "でも、正式に{確認|かくにん}することはしなかった。もっと{早|はや}く{声|こえ}を上げるべきだった。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれが「{子|こ}ども{遊|あそ}び{場|ば}{整備|せいび}{条例|じょうれい}」の{改正案|かいせいあん}を{提案|ていあん}した。{夏休|なつやす}み{前|まえ}に{遊|あそ}び{場|ば}を{整備|せいび}すれば、{子|こ}どもたちが{夏|なつ}に{遊|あそ}べると{思|おも}ったんだ。"
+      - type: dialog
+        character: kenta
+        text: "{手続|てつづ}きは……ちゃんとやったつもりだ。"
+        expression: normal
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは{条例|じょうれい}{改正|かいせい}の{正式|せいしき}な{手続|てつづ}き{条件|じょうけん}を{調|しら}べた。みどり{市|し}{議会|ぎかい}{規程|きてい}{第|だい}5{条|じょう}——「{告知|こくち}{期間|きかん}{最低|さいてい}30{日間|にちかん}」と「{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}の{実施|じっし}」が{必要|ひつよう}。"
+      - type: dialog
+        character: sora
+        text: "でも、ケンタの{件|けん}について{事前|じぜん}にチェックしなかった。{知|し}っていたのに。"
+        expression: worried
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 条例改正5件一覧
+      - type: narration
+        text: "みどり{市|し} {条例|じょうれい}{改正|かいせい}{一覧|いちらん}（{直近|ちょっきん}5{件|けん}）——"
+      - type: narration
+        text: "{事例|じれい}1：{公園|こうえん}{管理|かんり}{条例|じょうれい}。{告知|こくち}{期間|きかん}：30{日|にち}。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：あり。"
+      - type: narration
+        text: "{事例|じれい}2：{学童|がくどう}{保育|ほいく}{条例|じょうれい}。{告知|こくち}{期間|きかん}：35{日|にち}。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：あり。"
+      - type: narration
+        text: "{事例|じれい}3：{図書館|としょかん}{運営|うんえい}{条例|じょうれい}。{告知|こくち}{期間|きかん}：30{日|にち}。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：あり。"
+      - type: narration
+        text: "{事例|じれい}4：{道路|どうろ}{整備|せいび}{条例|じょうれい}。{告知|こくち}{期間|きかん}：42{日|にち}。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：あり。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{事例|じれい}5：{子|こ}ども{遊|あそ}び{場|ば}{整備|せいび}{条例|じょうれい}。{告知|こくち}{期間|きかん}：？ {住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：？"
+      - type: narration
+        text: "4{件|けん}は{告知|こくち}{期間|きかん}と{意見|いけん}{聴取|ちょうしゅ}のデータがある。でも5{件|けん}目だけ——{空白|くうはく}。なぜ？"
+
+  - id: evidence-2
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 事例1〜3の詳細記録
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくが{整理|せいり}した{事例|じれい}1〜3の{詳細|しょうさい}{記録|きろく}を{見|み}てほしい。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: narration
+        text: "{事例|じれい}1：{公園|こうえん}{管理|かんり}{条例|じょうれい}{改正|かいせい}。{告知|こくち}{期間|きかん}30{日|にち}（3{月|がつ}1{日|にち}〜3{月|がつ}31{日|にち}）。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：{実施|じっし}{済|ず}み（{意見|いけん}22{件|けん}）。「{遊具|ゆうぐ}の{配置|はいち}を{変|か}えてほしい」→ {反映|はんえい}{済|ず}み。{結果|けっか}：{改正|かいせい}{承認|しょうにん}。"
+      - type: narration
+        text: "{事例|じれい}2：{学童|がくどう}{保育|ほいく}{条例|じょうれい}{改正|かいせい}。{告知|こくち}{期間|きかん}35{日|にち}（4{月|がつ}1{日|にち}〜5{月|がつ}5{日|にち}）。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：{実施|じっし}{済|ず}み（{意見|いけん}15{件|けん}）。「{保育|ほいく}{時間|じかん}を{延長|えんちょう}してほしい」→ {一部|いちぶ}{反映|はんえい}。{結果|けっか}：{改正|かいせい}{承認|しょうにん}。"
+      - type: narration
+        text: "{事例|じれい}3：{図書館|としょかん}{運営|うんえい}{条例|じょうれい}{改正|かいせい}。{告知|こくち}{期間|きかん}30{日|にち}（5{月|がつ}10{日|にち}〜6{月|がつ}9{日|にち}）。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：{実施|じっし}{済|ず}み（{意見|いけん}8{件|けん}）。{結果|けっか}：{改正|かいせい}{承認|しょうにん}。"
+      - type: narration
+        speed: slow
+        text: "3{件|けん}とも「{告知|こくち}30{日|にち}{以上|いじょう}＋{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}あり」。{共通|きょうつう}のパターンが{見|み}えてくる。"
+
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 事例4＋手続き条件書
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "{事例|じれい}4のデータと、{条例|じょうれい}{改正|かいせい}の{正式|せいしき}な{手続|てつづ}き{条件|じょうけん}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{事例|じれい}4：{道路|どうろ}{整備|せいび}{条例|じょうれい}{改正|かいせい}。{告知|こくち}{期間|きかん}42{日|にち}（6{月|がつ}1{日|にち}〜7{月|がつ}12{日|にち}）。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}：{実施|じっし}{済|ず}み（{意見|いけん}30{件|けん}）。「{歩道|ほどう}の{幅|はば}を{広|ひろ}げてほしい」→ {反映|はんえい}{済|ず}み。{結果|けっか}：{改正|かいせい}{承認|しょうにん}。"
+      - type: narration
+        text: "これで4{件|けん}とも{同|おな}じパターン——{告知|こくち}30{日|にち}{以上|いじょう}＋{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}あり。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "みどり{市|し}{議会|ぎかい}{規程|きてい}{第|だい}5{条|じょう}——{条例|じょうれい}を{改正|かいせい}するとき、{次|つぎ}の{手続|てつづ}きが{必要|ひつよう}："
+      - type: narration
+        text: "1. {住民|じゅうみん}への{告知|こくち}{期間|きかん}：{最低|さいてい}30{日間|にちかん}（{改正案|かいせいあん}の{公示|こうじ}から{意見|いけん}{聴取|ちょうしゅ}{終了|しゅうりょう}まで）"
+      - type: narration
+        text: "2. {住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}の{実施|じっし}：{告知|こくち}{期間|きかん}中に{市民|しみん}から{意見|いけん}を{収集|しゅうしゅう}すること"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{上記|じょうき}{条件|じょうけん}を{満|み}たさない{改正|かいせい}は{手続|てつづ}き{上|じょう}の{瑕疵|かし}となりうる。——この{条件|じょうけん}を{満|み}たしていない{事例|じれい}があるとしたら？"
+
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 帰納法比較——5件目の真実
+      - type: narration
+        text: "5{件|けん}の{事例|じれい}を{並|なら}べて{比較|ひかく}する——{帰納法|きのうほう}で{共通|きょうつう}パターンを{導|みちび}き{出|だ}そう。"
+      - type: narration
+        text: "{事例|じれい}1：{告知|こくち}30{日|にち} ✓ / {意見|いけん}{聴取|ちょうしゅ}あり ✓ → {条件|じょうけん}{充足|じゅうそく}"
+      - type: narration
+        text: "{事例|じれい}2：{告知|こくち}35{日|にち} ✓ / {意見|いけん}{聴取|ちょうしゅ}あり ✓ → {条件|じょうけん}{充足|じゅうそく}"
+      - type: narration
+        text: "{事例|じれい}3：{告知|こくち}30{日|にち} ✓ / {意見|いけん}{聴取|ちょうしゅ}あり ✓ → {条件|じょうけん}{充足|じゅうそく}"
+      - type: narration
+        text: "{事例|じれい}4：{告知|こくち}42{日|にち} ✓ / {意見|いけん}{聴取|ちょうしゅ}あり ✓ → {条件|じょうけん}{充足|じゅうそく}"
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{事例|じれい}5：{告知|こくち}0{日|にち} ✗ / {意見|いけん}{聴取|ちょうしゅ}なし ✗ → {条件|じょうけん}{未充足|みじゅうそく}！"
+      - type: narration
+        speed: slow
+        text: "4{件|けん}は{両方|りょうほう}{満|み}たしている。5{件|けん}目だけ{両方|りょうほう}なし。——{提案者|ていあんしゃ}はケンタ。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ケンタの{改正案|かいせいあん}{準備|じゅんび}ノートが{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——ケンタの{準備|じゅんび}ノート——"
+      - type: narration
+        text: "{目標|もくひょう}：{夏休|なつやす}み{前|まえ}（7{月|がつ}末）までに{遊|あそ}び{場|ば}を{整備|せいび}{開始|かいし}。"
+      - type: narration
+        text: "{問題|もんだい}：30{日|にち}の{告知|こくち}{期間|きかん}を{設|もう}けると……6{月|がつ}30{日|にち}から{始|はじ}めると7{月|がつ}31{日|にち}まで。{夏休|なつやす}み{前|まえ}に{間|ま}に{合|あ}わない！"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "→ {告知|こくち}{期間|きかん}を{省略|しょうりゃく}して{直接|ちょくせつ}{議会|ぎかい}に{提出|ていしゅつ}すれば、7{月|がつ}15{日|にち}の{議会|ぎかい}で{承認|しょうにん}が{取|と}れる。そうすれば{夏休|なつやす}みに{間|ま}に{合|あ}う！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「{子|こ}どもたちに{早|はや}く{遊|あそ}び{場|ば}を。そのためなら……」——ケンタは「みんなのため」に{手続|てつづ}きを{省略|しょうりゃく}した。"
+
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しましょう。{条例|じょうれい}{改正|かいせい}の{手続|てつづ}き{条件|じょうけん}を{省略|しょうりゃく}したのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 5件の条例改正を比較して、手続き条件（告知30日＋住民意見聴取）を省略したのは誰？
+        options:
+          - text: ハルキ（記録係。5件の事例一覧表を整理した）
+            value: haruki
+            feedback: ハルキは記録を整理した側。5件目の空白に気づいたが確認しなかっただけ。手続きを省略した人は別だよ。
+          - text: ミオ（住民意見聴取がなかったことに気づいた）
+            value: mio
+            feedback: ミオは問題に気づいて声を上げた側。条例改正の提案者ではないよ。
+          - text: ケンタ（子ども遊び場整備条例の改正案の提案者）
+            value: kenta
+            feedback: 正解！ ケンタは「夏休みに間に合わせたい」という理由で、告知期間30日と住民意見聴取を省略して改正案を議会に提出した。5件中、ケンタの事例だけが条件未充足。
+          - text: ソラ（条例改正の手続き条件を調べた）
+            value: sora
+            feedback: ソラは正式な手続き条件を確認した側。ルールを知っていたが事前チェックをしなかっただけで、手続きを省略した人ではないよ。
+      - type: choice
+        id: q2
+        question: ケンタの行動のどこが問題だった？
+        options:
+          - text: 告知期間と住民意見聴取を省略し、住民の参加権を奪ったこと
+            value: skipped-procedure
+            feedback: 正解！ 条例は市民全員が守るルール。だから作るときも変えるときも、市民が内容を知り意見を言う機会（参加権）が必要。それを省略したことが問題。
+          - text: 遊び場を作ろうとしたこと自体が問題
+            value: playground-bad
+            feedback: 遊び場を作ること自体は良いこと。問題は「手続きを省略した」こと。良い目的でも正しい手続きを踏む必要があるよ。
+          - text: 議会に提出したこと
+            value: submitted
+            feedback: 議会への提出自体は正しいプロセスの一部。問題は提出の「前」に必要な手続き（告知＋意見聴取）を省略したこと。
+          - text: 他の4件と違うやり方をしたこと
+            value: different
+            feedback: 「他と違う」ことが問題なのではなく、「正式な手続き条件を満たしていない」ことが問題。帰納法で見つけたパターンの意味を考えてみよう。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 条件のわな
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-haruki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくも{記録|きろく}を{整理|せいり}したとき「5{件|けん}目だけ{告知|こくち}なし」に気づいてた。でも「{見落|みお}としだろう」って{流|なが}してしまった。{確認|かくにん}すべきだった。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしも{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}がなかったことに気づいていたのに、正式に{確認|かくにん}しなかった。もっと{早|はや}く{声|こえ}を上げていれば……"
+      - type: sprite
+        character: mio
+        action: hide
+
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "ぼくは{手続|てつづ}き{条件|じょうけん}を知っていたのに、ケンタの{件|けん}について{事前|じぜん}にチェックしなかった。{知識|ちしき}があっても{行動|こうどう}しなければ{意味|いみ}がない。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: truth-kenta
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ケンタが{長|なが}い{間|あいだ}{黙|だま}っていた。そして——"
+      - type: dialog
+        character: kenta
+        text: "……おれがやった。{告知|こくち}{期間|きかん}を{省略|しょうりゃく}した。"
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: "{夏休|なつやす}み{前|まえ}に{遊|あそ}び{場|ば}を{整備|せいび}{開始|かいし}したかった。でも30{日|にち}の{告知|こくち}{期間|きかん}を{設|もう}けたら{夏休|なつやす}みに{間|ま}に{合|あ}わない。"
+      - type: dialog
+        character: kenta
+        text: "だから{告知|こくち}{期間|きかん}を{省略|しょうりゃく}して、{直接|ちょくせつ}{議会|ぎかい}に{提出|ていしゅつ}した。{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}もやらなかった。"
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: "「{子|こ}どもたちのため」って{思|おも}ってた。{早|はや}く{決|き}めれば{早|はや}く{遊|あそ}べる。それが「みんなのため」だと。"
+        expression: determined
+      - type: dialog
+        character: kenta
+        text: "でも……{住民|じゅうみん}の{意見|いけん}を{聞|き}かないまま{決|き}めることは、「みんなのため」じゃなかった。みんなの{声|こえ}を{聞|き}くことが、{本当|ほんとう}の「みんなのため」だったんだ。"
+        expression: worried
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ケンタに{悪意|あくい}はなかった。「{子|こ}どもたちのために{急|いそ}いだ」だけだった。しかしその{行動力|こうどうりょく}の{暴走|ぼうそう}が、{住民|じゅうみん}の{参加|さんか}{権|けん}を{奪|うば}った。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ケンタ、正直に話してくれてありがとう。「{子|こ}どもたちのために」という{気持|きも}ちは{本物|ほんもの}だった。"
+      - type: dialog
+        character: sensei
+        text: "でも{条例|じょうれい}は{市民|しみん}{全員|ぜんいん}が{守|まも}るルール。だから{作|つく}るときも{変|か}えるときも、{市民|しみん}{全員|ぜんいん}が{参加|さんか}できなければなりません。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{告知|こくち}{期間|きかん}と{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}は、{市民|しみん}の「{参加|さんか}{権|けん}」を{保障|ほしょう}するための{手続|てつづ}き。これを{省略|しょうりゃく}することは、{住民|じゅうみん}の{参加|さんか}{権|けん}を{奪|うば}うことです。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "「みんなのために」という{言葉|ことば}の{中|なか}に、「みんなの{声|こえ}を{聞|き}く」ことが{含|ふく}まれていなければ——{本当|ほんとう}のみんなのためにはなりません。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "{条例|じょうれい}{改正|かいせい}はやり{直|なお}しになった。{今度|こんど}は{告知|こくち}{期間|きかん}30{日|にち}を{設|もう}け、{住民|じゅうみん}{意見|いけん}{聴取|ちょうしゅ}も{実施|じっし}。{市民|しみん}の{声|こえ}を{聞|き}いた{上|うえ}での{改正|かいせい}が{進|すす}んだ。"
+      - type: narration
+        speed: slow
+        text: "{手続|てつづ}きは「めんどうなもの」じゃない。{市民|しみん}の{参加|さんか}{権|けん}を{守|まも}る「{大切|たいせつ}な{仕組|しく}み」。それが{主権者|しゅけんしゃ}としての{学|まな}び。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{条件|じょうけん}のわな、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

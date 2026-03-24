@@ -1,0 +1,533 @@
+meta:
+  id: civics-07
+  title: 隠された計画
+  series: 公民探偵団
+  volume: 7
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "みどり{市|し}が{進|すす}めている「{公園|こうえん}{改修|かいしゅう}{計画|けいかく}」。{市民|しみん}の{憩|いこ}いの{場|ば}を{新|あたら}しくする{大|おお}きなプロジェクトだ。"
+      - type: narration
+        text: "{委員会|いいんかい}の{議事録|ぎじろく}を{調|しら}べていたケンタが、あることに{気|き}づいた——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: kenta
+        expression: surprised
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: kenta
+        text: "{公園|こうえん}{改修|かいしゅう}{委員会|いいんかい}の{議事録|ぎじろく}、{全部|ぜんぶ}で5{回|かい}あるはずなのに——{第|だい}3{回|かい}だけ「{作成中|さくせいちゅう}」で{提出|ていしゅつ}されてない！"
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{行政|ぎょうせい}の{委員会|いいんかい}{記録|きろく}に{欠落|けつらく}がある。これは{情報|じょうほう}{公開|こうかい}の{原則|げんそく}に{関|かか}わる{問題|もんだい}です。{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: normal }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: surprised }
+          - { id: sora, expression: thinking }
+      - type: narration
+        text: "ハルキは{落|お}ち{着|つ}いた{表情|ひょうじょう}で{議事録|ぎじろく}の{一覧|いちらん}を{眺|なが}めている。{議事録|ぎじろく}の{記録|きろく}係を{担当|たんとう}したのは——ハルキだった。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.7
+        subtitle: 隠された計画
+
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくは{公園|こうえん}{改修|かいしゅう}{委員会|いいんかい}の{議事録|ぎじろく}係を{担当|たんとう}した。{第|だい}1{回|かい}から{第|だい}5{回|かい}まで、ぼくが{記録|きろく}して{提出|ていしゅつ}する{役目|やくめ}だった。"
+      - type: dialog
+        character: haruki
+        text: "{第|だい}3{回|かい}は……まだ{作成中|さくせいちゅう}なんだ。{内容|ないよう}が{複雑|ふくざつ}で、まとめるのに{時間|じかん}がかかっていて。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "{公園|こうえん}は{市民|しみん}みんなのもの。{改修|かいしゅう}{計画|けいかく}の{中身|なかみ}を{知|し}る{権利|けんり}があるはずだよね。{全部|ぜんぶ}の{記録|きろく}が{公開|こうかい}されるべきだと{思|おも}う。"
+      - type: dialog
+        character: mio
+        text: "{第|だい}3{回|かい}の{内容|ないよう}が{気|き}になるのに、{正式|せいしき}に{情報|じょうほう}{公開|こうかい}{請求|せいきゅう}をしなかった。{今|いま}になって{後悔|こうかい}してる……"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれは{市役所|しやくしょ}の{公開|こうかい}{窓口|まどぐち}に{直接|ちょくせつ}{行|い}って、{全|ぜん}{議事録|ぎじろく}の{一覧|いちらん}をもらってきた。そこで{第|だい}3{回|かい}だけ「{未提出|みていしゅつ}」だって{分|わ}かったんだ。"
+      - type: dialog
+        character: kenta
+        text: "「どこかにあるだろう」って{思|おも}って、すぐに{確認|かくにん}しなかったのは{失敗|しっぱい}だった。"
+        expression: thinking
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは{情報|じょうほう}{公開|こうかい}の{法律|ほうりつ}を{調|しら}べた。{行政|ぎょうせい}{機関|きかん}の{議事録|ぎじろく}は{原則|げんそく}{公開|こうかい}——{記録|きろく}の{欠落|けつらく}は{情報|じょうほう}{公開|こうかい}{義務|ぎむ}{違反|いはん}の{可能性|かのうせい}がある。"
+      - type: dialog
+        character: sora
+        text: "でも{議事録|ぎじろく}が{全部|ぜんぶ}{揃|そろ}っているか、ぼく{自身|じしん}は{確認|かくにん}していなかった。{法律|ほうりつ}を{知|し}っていたのに。"
+        expression: worried
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 議事録一覧
+      - type: narration
+        text: "{公園|こうえん}{改修|かいしゅう}{委員会|いいんかい} {議事録|ぎじろく}{一覧|いちらん}（みどり{市|し} {公園|こうえん}{管理|かんり}課）——"
+      - type: narration
+        text: "{第|だい}1{回|かい}（3{月|がつ}15{日|にち}）：{提出|ていしゅつ}{済|ず}み・{公開中|こうかいちゅう}。{第|だい}2{回|かい}（4{月|がつ}3{日|にち}）：{提出|ていしゅつ}{済|ず}み・{公開中|こうかいちゅう}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{第|だい}3{回|かい}（4{月|がつ}17{日|にち}）：{作成中|さくせいちゅう}（{未提出|みていしゅつ}）。"
+      - type: narration
+        text: "{第|だい}4{回|かい}（5{月|がつ}1{日|にち}）：{提出|ていしゅつ}{済|ず}み・{公開中|こうかいちゅう}。{第|だい}5{回|かい}（5{月|がつ}15{日|にち}）：{提出|ていしゅつ}{済|ず}み・{公開中|こうかいちゅう}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "5{回|かい}のうち4{回|かい}は{提出|ていしゅつ}{済|ず}み。{第|だい}3{回|かい}だけが1{ヶ月|かげつ}{以上|いじょう}「{作成中|さくせいちゅう}」のまま——なぜ？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 第1回・第2回の議事録抜粋
+      - type: narration
+        text: "{第|だい}1{回|かい}{議事録|ぎじろく}（{抜粋|ばっすい}）——3{月|がつ}15{日|にち}。{議題|ぎだい}：{公園|こうえん}{改修|かいしゅう}{計画|けいかく}の{概要|がいよう}{説明|せつめい}。{委員|いいん}5{名|めい}で{計画|けいかく}を{進|すす}める。"
+      - type: narration
+        text: "{第|だい}2{回|かい}{議事録|ぎじろく}（{抜粋|ばっすい}）——4{月|がつ}3{日|にち}。{議題|ぎだい}：{工事|こうじ}{業者|ぎょうしゃ}の{選定|せんてい}{方針|ほうしん}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{決定|けってい}{事項|じこう}：{工事|こうじ}{業者|ぎょうしゃ}は「{一般|いっぱん}{公募|こうぼ}」で{選定|せんてい}する。{公平性|こうへいせい}を{確保|かくほ}するため、{複数|ふくすう}の{業者|ぎょうしゃ}から{見積|みつも}もりを{取|と}る{方針|ほうしん}を{全会|ぜんかい}{一致|いっち}で{承認|しょうにん}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{第|だい}2{回|かい}では「{一般|いっぱん}{公募|こうぼ}」で{業者|ぎょうしゃ}を{選|えら}ぶと{決|き}まった。{公平|こうへい}なやり{方|かた}だ。では{第|だい}3{回|かい}では——{何|なに}が{話|はな}し{合|あ}われたのか？"
+
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 市役所の窓口確認記録
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "{市役所|しやくしょ}の{公開|こうかい}{窓口|まどぐち}に{行|い}って、{直接|ちょくせつ}{確認|かくにん}してきた。"
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        text: "Q：{公園|こうえん}{改修|かいしゅう}{委員会|いいんかい}の{全|ぜん}{議事録|ぎじろく}を見せてください。A：{第|だい}3{回|かい}のみ「{作成中|さくせいちゅう}で{未提出|みていしゅつ}」です。"
+      - type: narration
+        text: "Q：{第|だい}3{回|かい}の{会議|かいぎ}は{開|ひら}かれましたか？ A：はい。4{月|がつ}17{日|にち}に{開催|かいさい}されました。{参加|さんか}{委員|いいん}の{出席|しゅっせき}{記録|きろく}はあります。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "Q：{議事録|ぎじろく}の{担当者|たんとうしゃ}は？ A：{委員会|いいんかい}の{記録|きろく}係として「{春木|はるき}」という{方|かた}が{担当|たんとう}されていたと{記録|きろく}にあります。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{会議|かいぎ}は{開|ひら}かれた。{出席|しゅっせき}{記録|きろく}もある。なのに{議事録|ぎじろく}だけが{未提出|みていしゅつ}——そして{担当|たんとう}は「{春木|はるき}」。ハルキだ。"
+
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ハルキの第3回会議メモ
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: right
+      - type: dialog
+        character: haruki
+        text: "……{第|だい}3{回|かい}の{会議|かいぎ}メモ、ぼくが持ってる。{正式|せいしき}に{提出|ていしゅつ}してなかったけど……見てほしい。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: narration
+        text: "ハルキの{第|だい}3{回|かい}{会議|かいぎ}メモ（{未提出|みていしゅつ}{版|ばん}）——4{月|がつ}17{日|にち}。{議題|ぎだい}：{予算|よさん}の{再検討|さいけんとう}。"
+      - type: narration
+        text: "{当初|とうしょ}{予算|よさん}：500{万|まん}円 → {修正|しゅうせい}{案|あん}：400{万|まん}円（100{万|まん}円{削減|さくげん}）。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{新|あたら}しい{提案|ていあん}（A{委員|いいん}より）：{予算|よさん}{削減|さくげん}のため、{工事|こうじ}の{一部|いちぶ}（{外構|がいこう}{工事|こうじ}：150{万|まん}円）を「{随意|ずいい}{契約|けいやく}」で○○{建設|けんせつ}に{発注|はっちゅう}する。"
+      - type: narration
+        text: "※{随意|ずいい}{契約|けいやく}とは：{競争|きょうそう}{入札|にゅうさつ}なしに、{特定|とくてい}の{業者|ぎょうしゃ}と{直接|ちょくせつ}{契約|けいやく}する{方式|ほうしき}。{一般|いっぱん}{公募|こうぼ}より{費用|ひよう}が{高|たか}くなることもある。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "A{委員|いいん}の{提案|ていあん}：{承認|しょうにん}（{賛成|さんせい}4、{反対|はんたい}1）。——{第|だい}2{回|かい}で{決|き}めた「{一般|いっぱん}{公募|こうぼ}」が、{第|だい}3{回|かい}でひっくり{返|かえ}されていた！"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{市役所|しやくしょ}の{内部|ないぶ}{文書|ぶんしょ}から、{第|だい}3{回|かい}{会議|かいぎ}の{内容|ないよう}{概要|がいよう}が{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{第|だい}3{回|かい}{公園|こうえん}{改修|かいしゅう}{委員会|いいんかい} {会議|かいぎ}{内容|ないよう}（{概要|がいよう}）——"
+      - type: narration
+        text: "・{予算|よさん}を500{万|まん}円から400{万|まん}円に{削減|さくげん}する{提案|ていあん}。・{削減|さくげん}のため、{外構|がいこう}{工事|こうじ}（150{万|まん}円）を「{随意|ずいい}{契約|けいやく}」で{特定|とくてい}{業者|ぎょうしゃ}に{発注|はっちゅう}する{提案|ていあん}。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{賛成|さんせい}{多数|たすう}（4{対|たい}1）で{承認|しょうにん}。——ただし、{第|だい}2{回|かい}で{決定|けってい}した「{一般|いっぱん}{公募|こうぼ}」の{方針|ほうしん}と{矛盾|むじゅん}する{決定|けってい}が{行|おこな}われていた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{第|だい}2{回|かい}：「{一般|いっぱん}{公募|こうぼ}で{公平|こうへい}に{選|えら}ぶ」。{第|だい}3{回|かい}：「{随意|ずいい}{契約|けいやく}で{特定|とくてい}{業者|ぎょうしゃ}に{発注|はっちゅう}」。——この{矛盾|むじゅん}が{隠|かく}されていたのだ。"
+
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しましょう。{第|だい}3{回|かい}の{議事録|ぎじろく}を{提出|ていしゅつ}しなかったのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 第3回委員会の議事録を「作成中」のまま意図的に提出しなかったのは誰？
+        options:
+          - text: ミオ（市民の知る権利を主張していた）
+            value: mio
+            feedback: ミオは「市民が知る権利がある」と主張していた側。議事録を隠す動機がないよ。
+          - text: ケンタ（市役所の窓口で確認してきた）
+            value: kenta
+            feedback: ケンタは窓口に行って議事録の欠落を発見した側。提出しなかったのは記録係の担当者だよ。
+          - text: ハルキ（委員会の議事録記録係を担当していた）
+            value: haruki
+            feedback: 正解！ ハルキは議事録の記録係だった。第3回の会議で随意契約の議論があり、関係者を守るために議事録を「作成中」のまま提出しなかった。
+          - text: ソラ（情報公開の法律を調べていた）
+            value: sora
+            feedback: ソラは情報公開の法律を調べていた側。法的根拠を確認する立場で、隠す動機がないよ。
+      - type: choice
+        id: q2
+        question: ハルキが議事録を提出しなかったことの何が問題？
+        options:
+          - text: 予算を削減したこと自体が問題
+            value: budget-cut
+            feedback: 予算の削減は委員会の正当な議論。問題は「その議論の記録を隠したこと」だよ。
+          - text: 行政の情報公開の原則に反し、市民の知る権利を侵害したこと
+            value: disclosure-violation
+            feedback: 正解！ 行政の活動はすべて記録され、市民が確認できる状態に置かれなければならない。議事録を意図的に隠すことは、市民の「知る権利」を侵害する行為。
+          - text: 会議に出席したこと自体が不正
+            value: attendance
+            feedback: 会議に出席して記録すること自体は正当な業務。問題は「記録した議事録を提出しなかったこと」だよ。
+          - text: 随意契約を提案したのがハルキだった
+            value: proposal
+            feedback: 随意契約を提案したのはA委員であり、ハルキではない。ハルキの問題は「記録を隠したこと」だよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 隠された記録
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+      - type: dialog
+        character: mio
+        text: "わたし、{第|だい}3{回|かい}の{内容|ないよう}が{気|き}になっていたのに、{正式|せいしき}に{情報|じょうほう}{公開|こうかい}{請求|せいきゅう}をしなかった。{市民|しみん}の{権利|けんり}を{使|つか}えば、もっと{早|はや}く{分|わ}かったかもしれないのに……"
+      - type: sprite
+        character: mio
+        action: hide
+
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+      - type: dialog
+        character: kenta
+        text: "おれも{議事録|ぎじろく}{一覧|いちらん}をもらったとき「{第|だい}3{回|かい}だけないな」って{気|き}づいてた。でも「そのうち{出|で}るだろう」って{流|なが}してしまった。すぐに{追|お}いかけていれば……"
+      - type: sprite
+        character: kenta
+        action: hide
+
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "ぼくは{情報|じょうほう}{公開|こうかい}の{法律|ほうりつ}を{知|し}っていたのに、{議事録|ぎじろく}が{全部|ぜんぶ}{揃|そろ}っているか{確認|かくにん}しなかった。{知識|ちしき}を持っていても、{使|つか}わなければ{意味|いみ}がない。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: truth-haruki
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ハルキが{長|なが}い{間|あいだ}{黙|だま}っていた。そして——"
+      - type: dialog
+        character: haruki
+        text: "……ぼくがやった。{第|だい}3{回|かい}の{議事録|ぎじろく}、{提出|ていしゅつ}しなかったのはぼくだ。"
+        expression: worried
+      - type: dialog
+        character: haruki
+        text: "{第|だい}3{回|かい}の{会議|かいぎ}で、{随意|ずいい}{契約|けいやく}の{話|はなし}が{出|で}た。{提案|ていあん}したA{委員|いいん}は——ぼくの{父|ちち}の{知人|ちじん}だった。"
+      - type: dialog
+        character: haruki
+        text: "この{記録|きろく}が{公開|こうかい}されたら、あの人が{批判|ひはん}されるかもしれない。「{守|まも}りたい」って{思|おも}った。だから「{作成中|さくせいちゅう}」のまま{放置|ほうち}した。"
+        expression: worried
+      - type: dialog
+        character: haruki
+        text: "{提出|ていしゅつ}{期限|きげん}が来たとき、「まだ{作成中|さくせいちゅう}です」って{言|い}えばなんとかなると{思|おも}った。でも{時間|じかん}が{経|た}つうちに……{取|と}り{戻|もど}せなくなった。"
+        expression: determined
+      - type: dialog
+        character: haruki
+        text: "{悪意|あくい}はなかった。でも{行政|ぎょうせい}の{記録|きろく}を{隠|かく}した。{市民|しみん}の「{知|し}る{権利|けんり}」を{侵害|しんがい}してしまった……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ハルキに{悪意|あくい}はなかった。「{大切|たいせつ}な人を{守|まも}りたい」という{気持|きも}ち——しかしその{気持|きも}ちが、{行政|ぎょうせい}の{透明性|とうめいせい}を{壊|こわ}した。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルキ、{正直|しょうじき}に{話|はな}してくれてありがとう。「{守|まも}りたかった」という{気持|きも}ちは{本物|ほんもの}だった。"
+      - type: dialog
+        character: sensei
+        text: "でも{行政|ぎょうせい}の{情報|じょうほう}{公開|こうかい}の{原則|げんそく}はこう{言|い}っています——「すべての{行政|ぎょうせい}{活動|かつどう}は{記録|きろく}され、{市民|しみん}が{確認|かくにん}できる{状態|じょうたい}に{置|お}かれなければならない」。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{委員会|いいんかい}の{会議|かいぎ}は、{税金|ぜいきん}を{使|つか}った{行政|ぎょうせい}{活動|かつどう}です。{市民|しみん}の{代|か}わりに{行|おこな}われている{活動|かつどう}。その{記録|きろく}を{意図的|いとてき}に{隠|かく}すことは——{市民|しみん}の「{知|し}る{権利|けんり}」を{侵害|しんがい}することになります。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{記録|きろく}がなければ、{矛盾|むじゅん}に{誰|だれ}も{気|き}づけません。{記録|きろく}があるからこそ、{民主主義|みんしゅしゅぎ}は{機能|きのう}するのです。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "{第|だい}3{回|かい}の{議事録|ぎじろく}は{正式|せいしき}に{提出|ていしゅつ}され、{公開|こうかい}された。{随意|ずいい}{契約|けいやく}の{決定|けってい}も{見直|みなお}されることになった。"
+      - type: narration
+        speed: slow
+        text: "「あるべき{記録|きろく}がない」——その{欠落|けつらく}に{気|き}づくことが、{市民|しみん}の{力|ちから}。{情報|じょうほう}{公開|こうかい}は{民主主義|みんしゅしゅぎ}の{土台|どだい}だ。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{隠|かく}された{計画|けいかく}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
