@@ -1,0 +1,573 @@
+meta:
+  id: moral-03
+  title: 消えたお悩み手紙と4つの正義
+  series: 答えのない法廷
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  sora:
+    name: ソラ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  rin:
+    name: リン
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuuma:
+    name: ユウマ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  koharu:
+    name: コハル
+    color: "#FF8C00"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: moral-03/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}4{年|ねん}1{組|くみ}には「お{悩|なや}みポスト」がある。{困|こま}ったことや{悩|なや}んでいることを{手紙|てがみ}に{書|か}いて{入|い}れる{相談箱|そうだんばこ}だ。"
+
+      - type: narration
+        text: "{毎週|まいしゅう}{金曜日|きんようび}に{学級委員|がっきゅういいん}が{手紙|てがみ}を{回収|かいしゅう}し、{翌週|よくしゅう}の{学級会|がっきゅうかい}で{名前|なまえ}を{出|だ}さずに{話|はな}し{合|あ}う。{誰|だれ}でも{安心|あんしん}して{悩|なや}みを{書|か}ける——みんなが{信頼|しんらい}している{仕組|しく}みだ。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "ところが{金曜日|きんようび}の{放課後|ほうかご}、ポストから{手紙|てがみ}が1{通|つう}{消|き}えた。"
+
+      - type: bgm
+        track: moral-03/tension
+
+      - type: narration
+        text: "うわさでは、その{手紙|てがみ}には「ある{子|こ}が{仲間|なかま}はずれにされている」という{深刻|しんこく}な{内容|ないよう}が{書|か}かれていたらしい。"
+
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、{先生|せんせい}が{手紙|てがみ}がなくなっていることに{気|き}づいた。{放課後|ほうかご}に{教室|きょうしつ}に{残|のこ}っていたのは4{人|にん}だけ。"
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "お{悩|なや}みポストから{手紙|てがみ}が1{通|つう}なくなっている。あの{手紙|てがみ}には、{誰|だれ}かの{大事|だいじ}な{気持|きも}ちが{書|か}かれていた。"
+
+      - type: dialog
+        character: sensei
+        text: "{放課後|ほうかご}に{教室|きょうしつ}にいたのはきみたち4{人|にん}だけだ。{何|なに}があったのか、きみたちで{明|あき}らかにしてほしい。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: thinking }
+          - { id: rin, expression: worried }
+          - { id: yuuma, expression: worried }
+          - { id: koharu, expression: thinking }
+
+      - type: narration
+        text: "ソラ、リン、ユウマ、コハル——4{人|にん}が{別室|べっしつ}に{呼|よ}ばれた。"
+
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: rin
+        action: hide
+      - type: sprite
+        character: yuuma
+        action: hide
+      - type: sprite
+        character: koharu
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 消えたお悩み手紙と4つの正義
+        subtitle: 答えのない法廷 Vol.3
+
+  # ========================================
+  # 証拠カード1: お悩みポストのルール
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: moral-03/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 消えた手紙のゆくえを追おう
+
+      - type: narration
+        text: "まずはお{悩|なや}みポストのルールを{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "{悩|なや}みは{手紙|てがみ}に{書|か}いてポストに{入|い}れる。{名前|なまえ}は{書|か}かなくてもいい。"
+
+      - type: narration
+        text: "{毎週|まいしゅう}{金曜日|きんようび}に{学級委員|がっきゅういいん}が{回収|かいしゅう}。{翌週|よくしゅう}の{学級会|がっきゅうかい}で{名前|なまえ}を{出|だ}さずに{話|はな}し{合|あ}う。"
+
+      - type: narration
+        text: "{学級委員以外|がっきゅういいんいがい}は{手紙|てがみ}を{読|よ}んではいけない。{鍵|かぎ}は{学級委員|がっきゅういいん}が{管理|かんり}する。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "お{悩|なや}みポストはみんなの「{安全|あんぜん}な{場所|ばしょ}」。{手紙|てがみ}を{出|だ}した{人|ひと}の{信頼|しんらい}で{成|な}り{立|た}っている。"
+
+  # ========================================
+  # 証拠カード2: 壊れた鍵とタイムライン
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 壊れた鍵と放課後タイムライン
+
+      - type: narration
+        text: "{月曜日|げつようび}に{先生|せんせい}が{確認|かくにん}したところ、ポストの{鍵|かぎ}の{留|と}め{金|がね}が{曲|ま}がっていた。フタが{完全|かんぜん}に{閉|し}まらず、{隙間|すきま}から{中|なか}が{見|み}える{状態|じょうたい}。"
+
+      - type: narration
+        text: "{金曜日|きんようび}{放課後|ほうかご}のタイムライン——"
+
+      - type: narration
+        text: "16:00〜16:10——ソラは{教室|きょうしつ}で{本|ほん}を{読|よ}んでいた。リンは{委員会|いいんかい}の{作業|さぎょう}。ユウマは{宿題|しゅくだい}。コハルは{校庭|こうてい}で{遊|あそ}んでいた。"
+
+      - type: narration
+        text: "16:10〜16:20——ソラがポストの{近|ちか}くを{通|とお}り、その{後|あと}{教室|きょうしつ}を{出|で}た。ユウマもポストの{前|まえ}まで{行|い}ったが、{席|せき}に{戻|もど}った。コハルが{忘|わす}れ{物|もの}を{取|と}りに{教室|きょうしつ}{方向|ほうこう}へ。"
+
+      - type: narration
+        text: "16:20〜16:30——ソラが{教室|きょうしつ}に{戻|もど}り、{帰|かえ}った。リン、ユウマ、コハルも{順|じゅん}に{帰|かえ}った。"
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "16:10〜16:20の{間|あいだ}に、ソラとユウマの2{人|り}がポスト{付近|ふきん}にいた。ソラはその{後|あと}{教室|きょうしつ}を{出|で}ている——どこに{行|い}った？"
+
+  # ========================================
+  # 証拠カード3: 職員室の来室記録
+  # ========================================
+  - id: evidence-3
+    bgm: moral-03/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 職員室の来室記録
+
+      - type: narration
+        text: "{職員室|しょくいんしつ}の{入口|いりぐち}にある「{来室記録|らいしつきろく}」ノートを{調|しら}べた——"
+
+      - type: narration
+        text: "16:15　4{年|ねん}1{組|くみ} ソラ——「{先生|せんせい}に{相談|そうだん}」"
+
+      - type: narration
+        text: "{担任|たんにん}{不在|ふざい}。{他|ほか}の{先生|せんせい}にも{会|あ}わずに{帰|かえ}った。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "ソラが16:15に{職員室|しょくいんしつ}に{来|き}ている。ポストの{近|ちか}くを{通|とお}った{後|あと}に{職員室|しょくいんしつ}に{行|い}った——この2つはつながっている？"
+
+  # ========================================
+  # 証拠カード4: 手紙の内容のうわさ
+  # ========================================
+  - id: evidence-4
+    bgm: moral-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 手紙の内容のうわさ
+
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、クラスで{広|ひろ}がっているうわさ——"
+
+      - type: narration
+        text: "「お{悩|なや}みポストから{手紙|てがみ}が{消|き}えたって」「すごく{深刻|しんこく}な{内容|ないよう}だったらしい」"
+
+      - type: narration
+        text: "「クラスの{誰|だれ}かが{仲間|なかま}はずれにされてるって{書|か}いてあったみたい」"
+
+      - type: narration
+        text: "「{犯人|はんにん}が{読|よ}んで{捨|す}てたのかな？」「{先生|せんせい}がすごく{怒|おこ}ってるらしい」"
+
+      - type: narration
+        speed: slow
+        text: "このうわさが{正確|せいかく}かどうかは{分|わ}からない。{手紙|てがみ}の{内容|ないよう}を{知|し}っている{人|ひと}は——{書|か}いた{本人|ほんにん}と、{読|よ}んだ{人|ひと}だけのはずだ。"
+
+  # ========================================
+  # 投票（犯人投票）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: moral-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{鍵|かぎ}が{壊|こわ}れていたこと、タイムライン、{職員室|しょくいんしつ}の{記録|きろく}——{因果関係|いんがかんけい}を{順番|じゅんばん}に{追|お}いかけてみて。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: お悩みポストから手紙を持ち出したのは誰？
+        options:
+          - text: "ソラ（ポスト{付近|ふきん}を{通|とお}り、その{後|あと}{職員室|しょくいんしつ}へ）"
+            value: sora
+            feedback: "{鍵|かぎ}が{壊|こわ}れていた→ソラが{中|なか}を{見|み}た→{深刻|しんこく}な{内容|ないよう}→{職員室|しょくいんしつ}へ{走|はし}った。{因果関係|いんがかんけい}の{連鎖|れんさ}がつながる！"
+          - text: "リン（{学級委員|がっきゅういいん}で{鍵|かぎ}を{管理|かんり}している）"
+            value: rin
+            feedback: "リンは{学級委員|がっきゅういいん}だから{手紙|てがみ}を{読|よ}む{権限|けんげん}はある。でも{放課後|ほうかご}ずっと{教室|きょうしつ}の{前|まえ}の{席|せき}にいた。ポストに{近|ちか}づいた{記録|きろく}がないよ。"
+          - text: "ユウマ（ポストの{前|まえ}まで{行|い}った）"
+            value: yuuma
+            feedback: "ユウマはポストの{前|まえ}まで{行|い}ったけど、{席|せき}に{戻|もど}っている。その{後|あと}{教室|きょうしつ}を{出|で}ていない。{職員室|しょくいんしつ}の{記録|きろく}にもユウマの{名前|なまえ}はないよ。"
+          - text: "コハル（{忘|わす}れ{物|もの}を{取|と}りに{来|き}た）"
+            value: koharu
+            feedback: "コハルは{校庭|こうてい}から{教室|きょうしつ}{方向|ほうこう}に{来|き}たけど、{窓|まど}の{外|そと}から{見|み}ただけ。{教室|きょうしつ}に{入|はい}った{記録|きろく}はあるけど、{忘|わす}れ{物|もの}を{取|と}っただけだよ。"
+
+  # ========================================
+  # 証拠カード5: 先生のメモ（真相の転換点）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: moral-03/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ここで、みんなに{伝|つた}えることがある。{月曜日|げつようび}の{朝|あさ}に{起|お}きたことだ。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "{月曜日|げつようび}の{朝|あさ}8:10——{教室|きょうしつ}に{来|く}る{前|まえ}に、ソラが{職員室|しょくいんしつ}に{来|き}た。ソラは1{通|つう}の{手紙|てがみ}を{持|も}っていた。"
+
+      - type: narration
+        text: "ソラの{言葉|ことば}——「{先生|せんせい}、すみません。{金曜日|きんようび}にお{悩|なや}みポストからこの{手紙|てがみ}を{持|も}ち{出|だ}しました。」"
+
+      - type: narration
+        text: "「{鍵|かぎ}が{壊|こわ}れていて、{中|なか}が{見|み}えて{読|よ}んでしまいました。{深刻|しんこく}な{内容|ないよう}だったので、{先生|せんせい}に{渡|わた}したくて{持|も}ち{出|だ}しました。」"
+
+      - type: narration
+        text: "「{金曜日|きんようび}に{職員室|しょくいんしつ}に{来|き}たけど、{先生|せんせい}がいなくて……すみません」"
+
+      - type: narration
+        speed: slow
+        text: "{手紙|てがみ}の{内容|ないよう}を{確認|かくにん}——クラスの{児童|じどう}に{関|かか}わる{深刻|しんこく}な{相談|そうだん}だった。ソラは{泣|な}いていた。"
+
+      - type: wait
+        duration: 1500
+
+      - type: narration
+        speed: slow
+        text: "ソラは{手紙|てがみ}を「{盗|ぬす}んだ」のではなく、「{届|とど}けようとした」。でもルールを{破|やぶ}ったのは{事実|じじつ}。——ソラの{行動|こうどう}は、{正|ただ}しかったのか？"
+
+  # ========================================
+  # 判決フェーズ
+  # ========================================
+  - id: judgment
+    bg: classroom
+    bgm: moral-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ソラの{行動|こうどう}について、みんなで{考|かんが}えてほしい。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q2
+        question: ソラの行動は正しかった？
+        feedback_default: "この{問|と}いに{正解|せいかい}はない。{大事|だいじ}なのは「なぜそう{思|おも}ったか」を{自分|じぶん}の{言葉|ことば}で{考|かんが}えること。"
+        options:
+          - text: "A：{正|ただ}しかった。{困|こま}っている{子|こ}を{助|たす}けるためなら、ルールを{破|やぶ}ってもいい"
+            value: right
+          - text: "B：{正|ただ}しくなかった。どんな{理由|りゆう}があっても、ルールは{守|まも}るべきだ"
+            value: wrong
+          - text: "C：{気持|きも}ちは{正|ただ}しかったけど、やり{方|かた}が{間違|まちが}っていた"
+            value: partial
+
+      - type: narration
+        text: "「{正義|せいぎ}」は1つではない。ソラの「{助|たす}けたい」も、リンの「ルールを{守|まも}りたい」も、どちらも{正義|せいぎ}だ。{大事|だいじ}なのは、{自分|じぶん}の{正義|せいぎ}が{誰|だれ}かを{傷|きず}つけていないか{考|かんが}えること。"
+
+  # ========================================
+  # 真実 — ソラ
+  # ========================================
+  - id: truth-sora
+    bg: classroom
+    bgm: moral-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "……ぼくがお{悩|なや}みポストから{手紙|てがみ}を{持|も}ち{出|だ}した。"
+
+      - type: dialog
+        character: sora
+        text: "{鍵|かぎ}が{壊|こわ}れていて、{中|なか}が{見|み}えちゃったんだ。{読|よ}んだら「{仲間|なかま}はずれにされてる{子|こ}がいる」って——すぐに{先生|せんせい}に{見|み}せなきゃと{思|おも}った。"
+
+      - type: dialog
+        character: sora
+        expression: determined
+        text: "{学級会|がっきゅうかい}まで{待|ま}つなんて{遅|おそ}すぎる。{困|こま}ってる{子|こ}が{今|いま}{助|たす}けを{求|もと}めてるのに！ ……でも、{先生|せんせい}がいなくて、{結局|けっきょく}{持|も}ち{帰|かえ}っちゃった。"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: narration
+        text: "ソラの{正義|せいぎ}——「{困|こま}っている{人|ひと}を{放|ほう}っておけない」。でもその{正義感|せいぎかん}が{行|い}き{過|す}ぎて、ルールを{破|やぶ}ってしまった。"
+
+  # ========================================
+  # 真実 — リン
+  # ========================================
+  - id: truth-rin
+    steps:
+      - type: sprite
+        character: rin
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: rin
+        text: "……わたし、{金曜日|きんようび}の{朝|あさ}、{鍵|かぎ}が{壊|こわ}れてるのに{気|き}づいてた。フタがちゃんと{閉|し}まらなくて。"
+
+      - type: dialog
+        character: rin
+        text: "でも{先生|せんせい}に{言|い}ったら「{管理|かんり}がなってない」って{怒|おこ}られると{思|おも}って……{報告|ほうこく}しなかった。"
+
+      - type: dialog
+        character: rin
+        expression: determined
+        text: "わたしが{朝|あさ}のうちに{報告|ほうこく}していたら、{手紙|てがみ}は{安全|あんぜん}だった。{学級委員|がっきゅういいん}なのに、{自分|じぶん}を{守|まも}ることを{優先|ゆうせん}してしまった。"
+
+      - type: sprite
+        character: rin
+        action: hide
+
+      - type: narration
+        text: "リンの{正義|せいぎ}——「ちゃんと{管理|かんり}しなきゃ」。でも「{怒|おこ}られたくない」という{気持|きも}ちに{負|ま}けて、{報告|ほうこく}できなかった。"
+
+  # ========================================
+  # 真実 — ユウマ
+  # ========================================
+  - id: truth-yuuma
+    steps:
+      - type: sprite
+        character: yuuma
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: yuuma
+        text: "……{消|き}えた{手紙|てがみ}を{書|か}いたのは、ぼくです。"
+
+      - type: dialog
+        character: yuuma
+        text: "クラスの{友達|ともだち}のミキが、グループの{子|こ}たちに{仲間|なかま}はずれにされてるのを{見|み}てた。{昼休|ひるやす}みにいつも1{人|り}でいるミキを{見|み}てて……つらかった。"
+
+      - type: dialog
+        character: yuuma
+        text: "でも{自分|じぶん}から「やめろ」って{言|い}う{勇気|ゆうき}がなくて。だからお{悩|なや}みポストに{手紙|てがみ}を{書|か}いた。{学級会|がっきゅうかい}でみんなに{話|はな}し{合|あ}ってほしくて。"
+
+      - type: dialog
+        character: yuuma
+        expression: determined
+        text: "{名前|なまえ}は{書|か}かなかった。{自分|じぶん}が{書|か}いたってバレたら、{自分|じぶん}も{仲間|なかま}はずれにされるかもって……。"
+
+      - type: sprite
+        character: yuuma
+        action: hide
+
+      - type: narration
+        text: "ユウマの{正義|せいぎ}——「{友達|ともだち}を{助|たす}けたい」。{勇気|ゆうき}を{出|だ}してお{悩|なや}みポストに{手紙|てがみ}を{書|か}いた。でも「{自分|じぶん}を{守|まも}りたい」{気持|きも}ちもある。"
+
+  # ========================================
+  # 真実 — コハル
+  # ========================================
+  - id: truth-koharu
+    steps:
+      - type: sprite
+        character: koharu
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: koharu
+        text: "……わたし、{金曜日|きんようび}に{窓|まど}の{外|そと}からソラを{見|み}たの。ソラがお{悩|なや}みポストから{何|なに}かを{取|と}り{出|だ}してた。"
+
+      - type: dialog
+        character: koharu
+        text: "でもソラの{顔|かお}がすごく{真剣|しんけん}で……「きっと{理由|りゆう}があるんだ」と{思|おも}って、{声|こえ}をかけなかった。"
+
+      - type: dialog
+        character: koharu
+        expression: determined
+        text: "ソラを{犯人|はんにん}{扱|あつか}いするのがかわいそうで、{月曜日|げつようび}の{聞|き}き{取|と}りでも{黙|だま}っちゃった。でも……{黙|だま}ってたせいで、{真相|しんそう}がなかなか{見|み}えなかった。"
+
+      - type: sprite
+        character: koharu
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: moral-03/resolution
+
+      - type: narration
+        text: "コハルの{正義|せいぎ}——「{誰|だれ}も{傷|きず}つけたくない」。でも「やさしさ」を{理由|りゆう}に{真実|しんじつ}を{隠|かく}すことは、{本当|ほんとう}のやさしさだろうか。"
+
+      - type: narration
+        speed: slow
+        text: "4{人|にん}それぞれの「{正義|せいぎ}」があった。でも{全員|ぜんいん}が{何|なに}かを「しなかった」か「しすぎた」。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: moral-03/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "4{人|にん}とも、それぞれの「{正義|せいぎ}」で{動|うご}いていた。でも、{正義|せいぎ}は1つじゃない。"
+
+      - type: dialog
+        character: sensei
+        text: "ソラは{助|たす}けたくてルールを{破|やぶ}った。リンは{怖|こわ}くて{報告|ほうこく}できなかった。ユウマは{勇気|ゆうき}を{出|だ}して{手紙|てがみ}を{書|か}いた。コハルは{優|やさ}しさで{黙|だま}った。"
+
+      - type: dialog
+        character: sensei
+        text: "どれも「{間違|まちが}い」とは{言|い}い{切|き}れない。でも、もっと{良|よ}い{方法|ほうほう}があったかもしれない。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "「{正|ただ}しいこと」のために{行動|こうどう}するのは{大事|だいじ}だ。でも、その{方法|ほうほう}が{誰|だれ}かを{傷|きず}つけていないか——{立|た}ち{止|ど}まって{考|かんが}える{力|ちから}も、{正義|せいぎ}の一つ。"
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{自分|じぶん}の{正義|せいぎ}を{信|しん}じること。でも、{相手|あいて}の{正義|せいぎ}も{想像|そうぞう}すること。その2つができたとき、{本当|ほんとう}に{強|つよ}い{人|ひと}になれる。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500
