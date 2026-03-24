@@ -1,0 +1,497 @@
+meta:
+  id: money-02
+  title: おつりの謎
+  series: お金の探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  yuta:
+    name: ユウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sakura:
+    name: サクラ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kaito:
+    name: カイト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  nanoha:
+    name: ナノハ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: money-02/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の「お{買|か}い{物|もの}{体験|たいけん}」の{授業|じゅぎょう}。{先生|せんせい}から4{人|にん}にそれぞれ500{円|えん}玉が{渡|わた}された。{学校|がっこう}{近|ちか}くの{文房具|ぶんぼうぐ}店「あおば{文具|ぶんぐ}」で{好|す}きなものを1つ{買|か}ってくるミッションだ。"
+      - type: narration
+        text: "4{人|にん}は{買|か}い{物|もの}を{終|お}え、レシートとおつりを{持|も}って{教室|きょうしつ}に{帰|かえ}ってきた。{先生|せんせい}がおつりを{確認|かくにん}すると——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナノハさんのおつりが10{円|えん}{多|おお}いわ。220{円|えん}のシャープペンシルを{買|か}って500{円|えん}で{払|はら}ったら、おつりは280{円|えん}のはずなのに、290{円|えん}あるわね。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: surprised
+        position: left
+      - type: bgm
+        file: money-02/tension
+      - type: dialog
+        character: nanoha
+        text: "え？ お{店|みせ}の{人|ひと}がおつりを{間違|まちが}えたんじゃない？"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: sprite
+        character: kaito
+        expression: determined
+        position: right
+      - type: dialog
+        character: kaito
+        text: "10{円|えん}{多|おお}い？ {誰|だれ}かがごまかしたんじゃないのか！"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "お{店|みせ}のレジの{記録|きろく}では280{円|えん}を{正|ただ}しく{渡|わた}しています。10{円|えん}はどこから{来|き}たのか——お{金|かね}の{探偵|たんてい}のみなさん、{調査|ちょうさ}してください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: yuta
+            expression: thinking
+          - character: sakura
+            expression: worried
+          - character: kaito
+            expression: determined
+          - character: nanoha
+            expression: worried
+      - type: narration
+        text: "4{人|にん}のレシート・おつり・{硬貨|こうか}の{内訳|うちわけ}を{表|ひょう}にまとめて、{謎|なぞ}の10{円|えん}を{追|お}う{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "お金の探偵団 Vol.2"
+        subtitle: "おつりの謎"
+
+  # ===== 証拠カード1: 買い物結果 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: money-02/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "4{人|にん}の{買|か}い{物|もの}{結果|けっか}を{確認|かくにん}しよう。500{円|えん}−{値段|ねだん}＝おつり。"
+      - type: narration
+        text: "ユウタ——コンパス350{円|えん}。おつり150{円|えん}。{財布|さいふ}の{中身|なかみ}150{円|えん}。✅ {一致|いっち}。"
+      - type: narration
+        text: "サクラ——メモ{帳|ちょう}180{円|えん}。おつり320{円|えん}。{財布|さいふ}の{中身|なかみ}320{円|えん}。✅ {一致|いっち}。"
+      - type: narration
+        text: "カイト——{消|け}しゴム120{円|えん}。おつり380{円|えん}。{財布|さいふ}の{中身|なかみ}380{円|えん}。✅ {一致|いっち}。"
+      - type: narration
+        text: "ナノハ——シャープペンシル220{円|えん}。おつり280{円|えん}。{財布|さいふ}の{中身|なかみ}290{円|えん}。❌ +10{円|えん}！"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "ナノハだけ{財布|さいふ}の{中身|なかみ}がおつりより10{円|えん}{多|おお}い。お{店|みせ}は280{円|えん}を{正|ただ}しく{渡|わた}している。10{円|えん}はどこから{来|き}たのだろう。"
+
+  # ===== 証拠カード2: レジ記録 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: money-02/investigation
+    steps:
+      - type: narration
+        text: "「あおば{文具|ぶんぐ}」のレジ{記録|きろく}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "10:15——ナノハ。シャープペンシル220{円|えん}。お{預|あず}かり500{円|えん}。おつり280{円|えん}。"
+      - type: narration
+        text: "10:17——ユウタ。コンパス350{円|えん}。おつり150{円|えん}。"
+      - type: narration
+        text: "10:20——サクラ。メモ{帳|ちょう}180{円|えん}。おつり320{円|えん}。"
+      - type: narration
+        text: "10:25——カイト。{消|け}しゴム120{円|えん}。おつり380{円|えん}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "お{店|みせ}のレジ{記録|きろく}では、ナノハに{渡|わた}したおつりは280{円|えん}。お{店|みせ}{側|がわ}に{間違|まちが}いはない。"
+      - type: narration
+        text: "おつりの{内訳|うちわけ}——100{円|えん}玉×2 + 50{円|えん}玉×1 + 10{円|えん}玉×3 ＝ 280{円|えん}。でもナノハの{財布|さいふ}には290{円|えん}。{差|さ}の10{円|えん}はお{店|みせ}からではない。"
+
+  # ===== 証拠カード3: 硬貨の詳細分析 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: money-02/experiment
+    steps:
+      - type: sprite
+        character: yuta
+        expression: determined
+        position: left
+      - type: dialog
+        character: yuta
+        text: "ナノハの{財布|さいふ}の{硬貨|こうか}を{調|しら}べました。100{円|えん}玉2{枚|まい}、50{円|えん}玉1{枚|まい}、10{円|えん}玉4{枚|まい}で{合計|ごうけい}290{円|えん}。"
+      - type: sprite
+        character: yuta
+        expression: thinking
+      - type: dialog
+        character: yuta
+        text: "お{店|みせ}が{渡|わた}したのは10{円|えん}玉3{枚|まい}。でもナノハの{財布|さいふ}には10{円|えん}玉が4{枚|まい}ある。1{枚|まい}{多|おお}い。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{余計|よけい}な10{円|えん}玉1{枚|まい}はどこから{来|き}た？ お{店|みせ}からではないなら……ナノハの{財布|さいふ}に{元|もと}からあった？"
+
+  # ===== 証拠カード4: 買い物前の準備状況 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: money-02/experiment
+    steps:
+      - type: narration
+        text: "{今朝|けさ}のルール——「{財布|さいふ}を{空|から}にして、{先生|せんせい}の500{円|えん}だけ{持|も}ってくること」。4{人|にん}の{準備|じゅんび}{状況|じょうきょう}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "ユウタ——{財布|さいふ}を{逆|さか}さまにして{確認|かくにん}。✅"
+      - type: narration
+        text: "サクラ——{財布|さいふ}を{開|あ}けて{中身|なかみ}をゼロ{確認|かくにん}。✅"
+      - type: narration
+        text: "カイト——{昨日|きのう}の{夜|よる}にお{母|かあ}さんと{一緒|いっしょ}に{確認|かくにん}。✅"
+      - type: narration
+        text: "ナノハ——{確認|かくにん}していない。「{空|から}にしたと{思|おも}う」とだけ。❓"
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kaito
+        text: "{昨日|きのう}ナノハに『{財布|さいふ}{空|から}にしてね』って{言|い}ったんだ。ナノハは『うん、{分|わ}かってる』って。でも{今朝|けさ}、{財布|さいふ}を{確認|かくにん}しないでそのまま{持|も}ってきてた。"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: left
+      - type: dialog
+        character: sakura
+        text: "お{店|みせ}に{行|い}く{前|まえ}にナノハの{財布|さいふ}がチラッと見えたの。{中|なか}に{小|ちい}さい{硬貨|こうか}が{光|ひか}ってた{気|き}がする……"
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "ナノハは{財布|さいふ}を{空|から}にしたか{確認|かくにん}していない。{元|もと}からお{金|かね}が{入|はい}っていた{可能性|かのうせい}がある。"
+
+  # ===== 証拠カード5: お小遣い帳 =====
+  - id: card-5
+    bg: classroom
+    bgm: money-02/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナノハさんの{先週|せんしゅう}のお{小遣|こづか}い{帳|ちょう}を{確認|かくにん}しました。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{先週|せんしゅう}{木曜|もくよう}に60{円|えん}の{消|け}しゴムを{買|か}って、{残金|ざんきん}は10{円|えん}。{金曜|きんよう}は「使わなかった」——{残金|ざんきん}10{円|えん}のまま。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{先週|せんしゅう}の{残金|ざんきん}10{円|えん}が、ナノハの{財布|さいふ}に{残|のこ}っていた。{今朝|けさ}、{財布|さいふ}を{空|から}にするのを{忘|わす}れて500{円|えん}玉と{一緒|いっしょ}に{持|も}ってきた。"
+      - type: narration
+        text: "お{店|みせ}のおつり280{円|えん} + {元|もと}からの10{円|えん} ＝ 290{円|えん}。お{店|みせ}は{間違|まちが}っていない。10{円|えん}はナノハ{自身|じしん}のお{金|かね}だった。"
+      - type: narration
+        text: "ナノハは「290{円|えん}ある。10{円|えん}{多|おお}い。お{店|みせ}が{間違|まちが}えたんだ、ラッキー！」と{思|おも}い{込|こ}んだ。でも{実際|じっさい}はお{店|みせ}は{正|ただ}しく、10{円|えん}は{自分|じぶん}のお{金|かね}——{誤解|ごかい}だったのだ。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: money-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出|で}そろいました。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "10円が多い原因を作ったのは誰？"
+        options:
+          - text: "お店（おつりを間違えて渡した）"
+            feedback: "レジ{記録|きろく}では280{円|えん}を{正|ただ}しく{渡|わた}しています。{硬貨|こうか}の{内訳|うちわけ}も{合|あ}っている。お{店|みせ}は{間違|まちが}っていないよ。"
+          - text: "ナノハ（財布を空にし忘れた）"
+            feedback: "{先週|せんしゅう}の{残金|ざんきん}10{円|えん}が{財布|さいふ}に{残|のこ}っていた。{空|から}にするのを{忘|わす}れ、おつりを{数|かぞ}えなかったから{誤解|ごかい}が{生|う}まれた。"
+          - text: "ユウタ（計算を間違えている？）"
+            feedback: "ユウタのおつりは150{円|えん}で{完璧|かんぺき}に{一致|いっち}。{計算|けいさん}も{正確|せいかく}。むしろ{硬貨|こうか}の{分析|ぶんせき}で{真相|しんそう}に{近|ちか}づいた{側|がわ}だよ。"
+          - text: "カイト（ナノハに10円を渡した？）"
+            feedback: "カイトのおつりは380{円|えん}で{一致|いっち}。{自分|じぶん}のお{金|かね}は{完璧|かんぺき}。ナノハに10{円|えん}を{渡|わた}す{理由|りゆう}もないね。"
+      - type: choice
+        id: q2
+        text: "ナノハの誤解はなぜ起きた？"
+        options:
+          - text: "おつりをその場で数えなかったから"
+            feedback: "{受|う}け{取|と}ったおつりを{数|かぞ}えずに{財布|さいふ}に{入|い}れた。その{場|ば}で280{円|えん}を{確認|かくにん}していれば、{後|あと}で290{円|えん}あったときに「あれ？」と{気|き}づけた。"
+          - text: "財布を空にしたか確認しなかったから"
+            feedback: "{先週|せんしゅう}の10{円|えん}が{残|のこ}っていることに{気|き}づかなかった。{買|か}い{物|もの}{前|まえ}に{財布|さいふ}を{確認|かくにん}する{習慣|しゅうかん}が{大切|たいせつ}。"
+          - text: "両方（数えなかった＋確認しなかった）"
+            feedback: "その{通|とお}り。2つの「しなかった」が{重|かさ}なって{誤解|ごかい}が{生|う}まれた。どちらか1つでもしていれば{気|き}づけた。"
+          - text: "お店が間違えたと思い込んだから"
+            feedback: "「おつりが{多|おお}い＝お{店|みせ}のミス」という{思|おも}い{込|こ}み。でも{実際|じっさい}はお{店|みせ}は{正|ただ}しかった。{思|おも}い{込|こ}みで{判断|はんだん}せず{確認|かくにん}することが{大事|だいじ}。"
+      - type: choice
+        id: q3
+        text: "おつりが多かったらどうすべき？"
+        options:
+          - text: "ラッキー！ もらっちゃう"
+            feedback: "おつりが{多|おお}いのは「{得|とく}」ではない。お{店|みせ}の{損|そん}になるし、{元|もと}から{自分|じぶん}のお{金|かね}かもしれない。{確認|かくにん}してから{判断|はんだん}しよう。"
+          - text: "お店に戻って返す"
+            feedback: "{正直|しょうじき}に{返|かえ}すのが{正|ただ}しい。お{店|みせ}の{人|ひと}も{助|たす}かるし、{信頼|しんらい}される{人|ひと}になれる。"
+          - text: "まず自分で計算し直す"
+            feedback: "まず「{本当|ほんとう}に{多|おお}いのか」を{確認|かくにん}するのは{大事|だいじ}。{今回|こんかい}のように「{元|もと}から{入|はい}っていた」{可能性|かのうせい}もある。{計算|けいさん}してから{判断|はんだん}。"
+          - text: "先生や大人に相談する"
+            feedback: "{自分|じぶん}で{判断|はんだん}できないときは{相談|そうだん}する。{先生|せんせい}やおうちの{人|ひと}に{聞|き}けば、{正|ただ}しい{対応|たいおう}を{教|おし}えてもらえる。"
+
+  # ===== 真実: ユウタ =====
+  - id: truth-yuta
+    bg: classroom
+    bgm: money-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuta
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuta
+        text: "{僕|ぼく}はナノハの{直後|ちょくご}にレジに{並|なら}んでたんだ。お{店|みせ}の{人|ひと}がナノハに100{円|えん}玉2{枚|まい}、50{円|えん}玉1{枚|まい}、10{円|えん}玉3{枚|まい}——280{円|えん}を{渡|わた}したのを見てた。"
+      - type: sprite
+        character: yuta
+        expression: determined
+      - type: dialog
+        character: yuta
+        text: "お{店|みせ}は{間違|まちが}っていない。10{円|えん}はお{店|みせ}からじゃない。ナノハの{財布|さいふ}に{元|もと}からあったんだ。"
+      - type: sprite
+        character: yuta
+        action: hide
+
+  # ===== 真実: サクラ =====
+  - id: truth-sakura
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: right
+      - type: dialog
+        character: sakura
+        text: "わたし、お{店|みせ}に{行|い}く{前|まえ}にナノハの{財布|さいふ}がチラッと見えたの。{中|なか}に{小|ちい}さい{硬貨|こうか}が{光|ひか}ってた。あれがたぶん10{円|えん}玉……"
+      - type: sprite
+        character: sakura
+        expression: thinking
+      - type: dialog
+        character: sakura
+        text: "それとナノハ、おつりを{受|う}け{取|と}ったとき{数|かぞ}えないでそのまま{財布|さいふ}に{入|い}れちゃったの。あのとき「{数|かぞ}えないの？」って{思|おも}ったけど、{何|なに}も{言|い}えなかった。"
+      - type: sprite
+        character: sakura
+        action: hide
+
+  # ===== 真実: カイト =====
+  - id: truth-kaito
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaito
+        text: "{昨日|きのう}ナノハに『{財布|さいふ}{空|から}にしてね』って{言|い}ったのに、{今朝|けさ}{確認|かくにん}しないで{持|も}ってきてた。あのとき「{本当|ほんとう}に{空|から}？」ってもう{一回|いっかい}{聞|き}けばよかった。"
+      - type: sprite
+        character: kaito
+        expression: determined
+      - type: dialog
+        character: kaito
+        text: "{最初|さいしょ}は「ごまかした！」って{怒|おこ}った。でもナノハは{嘘|うそ}をつく{気|き}はなかった。{間違|まちが}えただけ。{確認|かくにん}しなかったのがいけなかったんだ。"
+      - type: sprite
+        character: kaito
+        action: hide
+
+  # ===== 真実: ナノハ（犯人） =====
+  - id: truth-nanoha
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nanoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: nanoha
+        text: "……{認|みと}めます。わたしの{財布|さいふ}に、{先週|せんしゅう}のお{小遣|こづか}いの{残|のこ}り10{円|えん}が{入|はい}ったままだった。"
+      - type: narration
+        speed: slow
+        text: "ナノハは{小|ちい}さくうつむいた。"
+      - type: sprite
+        character: nanoha
+        expression: normal
+      - type: dialog
+        character: nanoha
+        text: "{財布|さいふ}を{空|から}にしたか{確認|かくにん}しなかった。おつりも{数|かぞ}えなかった。{帰|かえ}ってきて290{円|えん}あるのを見て、『お{店|みせ}が{間違|まちが}えた。ラッキー！』って{思|おも}っちゃった。"
+      - type: sprite
+        character: nanoha
+        expression: worried
+      - type: dialog
+        character: nanoha
+        text: "でも{本当|ほんとう}はお{店|みせ}は{正|ただ}しかった。10{円|えん}はわたし{自身|じしん}のお{金|かね}だった。{思|おも}い{込|こ}みで{黙|だま}ってたこと、ごめんなさい。"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: narration
+        text: "ナノハの{誤解|ごかい}は2つの「しなかった」から{生|う}まれた。①おつりを{数|かぞ}えなかった ②{財布|さいふ}を{空|から}にしたか{確認|かくにん}しなかった——どちらか1つでもしていれば{気|き}づけたはずだ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: money-02/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナノハさん、{正直|しょうじき}に{認|みと}めてくれてありがとう。{間違|まちが}いに{気|き}づけたことが{大事|だいじ}です。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "おつりを{受|う}け{取|と}ったら、その{場|ば}で{数|かぞ}えること。{多|おお}くても{少|すく}なくても、{確認|かくにん}する{習慣|しゅうかん}が{大切|たいせつ}です。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "そして「{得|とく}をした」と{思|おも}っても、{正直|しょうじき}に{申告|しんこく}すること。{思|おも}い{込|こ}みで{判断|はんだん}せず、{事実|じじつ}を{確認|かくにん}することが{大事|だいじ}ですよ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: determined
+        position: left
+      - type: sprite
+        character: kaito
+        expression: happy
+        position: right
+      - type: dialog
+        character: nanoha
+        text: "{次|つぎ}からは{買|か}い{物|もの}の{前|まえ}に{財布|さいふ}を{確認|かくにん}する。おつりもその{場|ば}で{数|かぞ}える。{約束|やくそく}。"
+      - type: dialog
+        character: kaito
+        text: "おう！ オレも{一緒|いっしょ}に{確認|かくにん}するぜ。お{金|かね}のことは{正確|せいかく}が{一番|いちばん}だ！"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "お{金|かね}を{正|ただ}しく{使|つか}うための{基本|きほん}——{数|かぞ}える、{確認|かくにん}する、{正直|しょうじき}に{言|い}う。この3つをいつも{忘|わす}れないでくださいね。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
