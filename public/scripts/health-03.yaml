@@ -1,0 +1,517 @@
+meta:
+  id: health-03
+  title: 成長の数字が合わない
+  series: 保健探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-03/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}4{年|ねん}1{組|くみ}の{保健|ほけん}{委員|いいん}ハルキは、クラスの{身体測定|しんたいそくてい}データを{管理|かんり}している。4{月|がつ}と9{月|がつ}の{記録|きろく}を{整理|せいり}していたとき——"
+
+      - type: sprite
+        character: sayaka
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sayaka
+        text: "ちょっと{待|ま}って。ハルキの{記録|きろく}、4{月|がつ}が130.0cmで9{月|がつ}が142.0cm……4か{月|げつ}で12cm{伸|の}びたってこと？ そんなことあるの？"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "{保健|ほけん}の{授業|じゅぎょう}で{学|まな}んだ{知識|ちしき}がある。{小学|しょうがく}4{年生|ねんせい}の{身長|しんちょう}は{年間|ねんかん}5〜8cm{伸|の}びるのが{標準|ひょうじゅん}。4か{月|げつ}で12cmは{医学的|いがくてき}にありえない{数値|すうち}。"
+
+      - type: bgm
+        track: health-03/investigation
+
+      - type: narration
+        text: "{誰|だれ}かが{成長|せいちょう}{記録|きろく}を{書|か}き{換|か}えた——その{疑|うたが}いが{浮|う}かんだ。"
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{記録|きろく}に「ありえない{数値|すうち}」が{混|ま}じっている。{誰|だれ}が、なぜ{書|か}き{換|か}えたのか、{突|つ}き{止|と}めてほしい。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: normal }
+          - { id: mio, expression: thinking }
+          - { id: kenta, expression: surprised }
+          - { id: sayaka, expression: determined }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——{保健|ほけん}{探偵団|たんていだん}、{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 成長の数字が合わない
+        subtitle: 保健探偵団 Vol.3
+
+  # ========================================
+  # 証拠カード1: 標準値カード
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-03/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 成長の標準値を確認しよう
+
+      - type: narration
+        text: "{小学|しょうがく}4{年生|ねんせい}の{身長|しんちょう}の{年間|ねんかん}{成長量|せいちょうりょう}は5〜8cm。4か{月|げつ}では{約|やく}1.5〜2.5cmが{標準|ひょうじゅん}。"
+
+      - type: narration
+        text: "4か{月|げつ}で1〜3cm→{標準|ひょうじゅん}{範囲内|はんいない}。4〜5cm→やや{多|おお}いが{成長|せいちょう}スパートの{可能性|かのうせい}。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "4か{月|げつ}で12cm→{医学的|いがくてき}にありえない。{年間|ねんかん}{換算|かんさん}36cm。{成長|せいちょう}ホルモンの{病気|びょうき}でも{起|お}こりえないほど{異常|いじょう}な{数値|すうち}。"
+
+      - type: narration
+        text: "{成長|せいちょう}スパートの{時期|じき}には{個人差|こじんさ}がある。{早|はや}い{子|こ}は{小|しょう}4〜5{年|ねん}、{遅|おそ}い{子|こ}は{中学生|ちゅうがくせい}{以降|いこう}。{遅|おそ}くてもスパートは{必|かなら}ず{来|く}る。"
+
+  # ========================================
+  # 証拠カード2: 成長記録シート
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4年1組の成長記録シート
+
+      - type: narration
+        text: "ハルキが{作成|さくせい}・{管理|かんり}している{記録|きろく}シート——"
+
+      - type: narration
+        text: "ハルキ：4{月|がつ}130.0cm→9{月|がつ}142.0cm（+12.0cm）★{要確認|ようかくにん}。ミオ：138.2→140.1（+1.9cm）✅。ケンタ：138.3→145.5（+7.2cm）✅。サヤカ：132.0→134.2（+2.2cm）✅。"
+
+      - type: narration
+        text: "{体重|たいじゅう}は{全員|ぜんいん}{標準|ひょうじゅん}{範囲内|はんいない}。ハルキの{体重|たいじゅう}も28.5→29.8kgで{正常|せいじょう}。"
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "ハルキの{身長|しんちょう}だけが{異常|いじょう}。{体重|たいじゅう}はおかしくないのに、なぜ{身長|しんちょう}だけ{飛|と}びすぎている？ {書|か}き{換|か}えは{身長|しんちょう}だけ？"
+
+  # ========================================
+  # 証拠カード3: 保健室の観察ノート
+  # ========================================
+  - id: evidence-3
+    bgm: health-03/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 測定手順と目撃情報
+
+      - type: narration
+        text: "{測定|そくてい}{手順|てじゅん}——{保健|ほけん}の{先生|せんせい}が{測定|そくてい}→{数値|すうち}を{読|よ}み{上|あ}げ→{担任|たんにん}が{黒板|こくばん}に{記録|きろく}→{保健|ほけん}{委員|いいん}（ハルキ）が{記録|きろく}シートに{転記|てんき}→{放課後|ほうかご}にハルキが{印刷室|いんさつしつ}でデータを{印刷|いんさつ}。"
+
+      - type: narration
+        text: "ハルキは「{記録|きろく}シートの{最終|さいしゅう}{確認|かくにん}をしてから{印刷|いんさつ}する」と{申|もう}し{出|で}た。16{時|じ}ごろ{印刷室|いんさつしつ}で{単独|たんどく}{作業|さぎょう}。{原本|げんぽん}は{保健室|ほけんしつ}に{保管|ほかん}{済|ず}み。"
+
+      - type: sprite
+        character: kenta
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "そういえば{火曜日|かようび}の{放課後|ほうかご}、{廊下|ろうか}を{歩|ある}いてたら{印刷室|いんさつしつ}の{窓|まど}からハルキが{見|み}えた。パソコンを{操作|そうさ}しながら、{手元|てもと}で{何|なに}かを{書|か}いたり{消|け}したりしてた。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "{測定|そくてい}→{読|よ}み{上|あ}げ→{転記|てんき}→{最終|さいしゅう}{確認|かくにん}→{印刷|いんさつ}。どのステップでデータを{変|か}えることができる？ ハルキは{印刷|いんさつ}{前|まえ}に1{人|り}で{作業|さぎょう}していた。"
+
+  # ========================================
+  # 証拠カード4: 保健授業ノート
+  # ========================================
+  - id: evidence-4
+    bgm: health-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 保健授業ノートとミオの観察
+
+      - type: narration
+        text: "2{週間|しゅうかん}{前|まえ}の{保健|ほけん}{授業|じゅぎょう}「{体|からだ}の{発育|はついく}・{発達|はったつ}」——{成長|せいちょう}スパートの{時期|じき}は{個人|こじん}によって{違|ちが}う。{早|はや}い{子|こ}も{遅|おそ}い{子|こ}も、{成長|せいちょう}のゴールは{同|おな}じ。{焦|あせ}らなくていい。"
+
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mio
+        text: "あの{授業|じゅぎょう}のとき、ハルキが「{成長|せいちょう}スパートって、{来|こ}ない{人|ひと}もいるの？」って{先生|せんせい}に{聞|き}いてた。{先生|せんせい}が「みんなに{来|く}る、ただし{時期|じき}が{違|ちが}う」って{答|こた}えたのに……ハルキ、うつむいてた。"
+
+      - type: dialog
+        character: mio
+        text: "{最近|さいきん}、{身長|しんちょう}の{話題|わだい}になるとハルキだけ{参加|さんか}しなかった。ケンタが「すごく{伸|の}びた」って{盛|も}り{上|あ}がってたとき、ハルキは{何|なに}も{言|い}わなかった。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "ハルキは{成長|せいちょう}について{悩|なや}んでいた。{授業|じゅぎょう}で{標準値|ひょうじゅんち}を{知|し}っていたのに、{記録|きろく}を{書|か}き{換|か}えたのだとしたら——その{動機|どうき}は？"
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{記録|きろく}シートにアクセスできたのは{誰|だれ}？ {標準値|ひょうじゅんち}を{知|し}っていたのに、なぜ「ありえない{数値|すうち}」を{入|い}れた？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 成長記録を書き換えたのは誰？
+        options:
+          - text: "ハルキ（{保健|ほけん}{委員|いいん}で{記録|きろく}を{管理|かんり}していた）"
+            value: haruki
+            feedback: "{鋭|するど}い！ ハルキは{記録|きろく}シートを{編集|へんしゅう}できる{唯一|ゆいいつ}の{立場|たちば}。{印刷|いんさつ}{前|まえ}に1{人|り}で{作業|さぎょう}。ケンタが{印刷室|いんさつしつ}での{操作|そうさ}を{目撃|もくげき}。そして{成長|せいちょう}への{悩|なや}み——{動機|どうき}がある。"
+          - text: "ミオ（ハルキの{様子|ようす}がおかしいと{気|き}づいていた）"
+            value: mio
+            feedback: "ミオはハルキの{異変|いへん}に{気|き}づいていたが、{記録|きろく}シートにアクセスする{権限|けんげん}がない。{記録|きろく}を{書|か}き{換|か}えたのではなく、{気|き}づいた{側|がわ}だよ。"
+          - text: "ケンタ（{一番|いちばん}{身長|しんちょう}が{伸|の}びた）"
+            value: kenta
+            feedback: "ケンタは{自分|じぶん}の{成長|せいちょう}に{満足|まんぞく}していた。{他人|たにん}の{記録|きろく}を{書|か}き{換|か}える{動機|どうき}がない。しかもケンタは{印刷室|いんさつしつ}で{作業|さぎょう}する{立場|たちば}ではないよ。"
+          - text: "サヤカ（{異常|いじょう}な{数値|すうち}を{最初|さいしょ}に{発見|はっけん}した）"
+            value: sayaka
+            feedback: "サヤカは{異常|いじょう}を{見|み}つけた{側|がわ}。{記録|きろく}を{管理|かんり}する{権限|けんげん}もなく、{書|か}き{換|か}える{動機|どうき}もない。"
+
+      - type: choice
+        id: q2
+        question: なぜ書き換えた？
+        options:
+          - text: "クラスで{一番|いちばん}{身長|しんちょう}が{伸|の}びたと{認|みと}められたかった"
+            value: approval
+            feedback: "{正解|せいかい}。ハルキは{成長|せいちょう}が{伸|の}び{悩|なや}んでいて、ケンタばかり{注目|ちゅうもく}される{中|なか}、「{自分|じぶん}も{認|みと}めてほしい」という{気持|きも}ちがあった。{承認|しょうにん}{欲求|よっきゅう}だ。"
+          - text: "{記録|きろく}のミスを{隠|かく}したかった"
+            value: hide-mistake
+            feedback: "ミスではない。{原本|げんぽん}と{照|て}らし{合|あ}わせれば、{意図的|いとてき}に{数値|すうち}を{変|か}えたことが{分|わ}かる。4{月|がつ}を2.5cm{下|さ}げ、9{月|がつ}を6.2cm{上|あ}げている。"
+          - text: "{自分|じぶん}の{成長|せいちょう}が{遅|おそ}いことを{隠|かく}したかった"
+            value: hide-slow
+            feedback: "{近|ちか}い{答|こた}え。でも「{隠|かく}す」だけでなく「{認|みと}めてほしい」という{気持|きも}ちが{本当|ほんとう}の{動機|どうき}。ハルキの{実際|じっさい}の{成長|せいちょう}（3.3cm）は{標準|ひょうじゅん}{範囲内|はんいない}なのに。"
+          - text: "いたずら"
+            value: prank
+            feedback: "いたずらではない。ハルキは{保健|ほけん}の{授業|じゅぎょう}で{成長|せいちょう}について{悩|なや}むほど{真剣|しんけん}だった。うつむいていたミオの{証言|しょうげん}がそれを{裏|うら}づけている。"
+
+  # ========================================
+  # 証拠カード5: 保健室の原本
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-03/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: narration
+        text: "サヤカが{保健|ほけん}の{先生|せんせい}に{申請|しんせい}し、{保健室|ほけんしつ}に{保管|ほかん}されている{手書|てが}きの{原本|げんぽん}を{確認|かくにん}できることになった。"
+
+      - type: narration
+        text: "{原本|げんぽん}——ハルキ：4{月|がつ}132.5cm、9{月|がつ}135.8cm（{増加量|ぞうかりょう}+3.3cm）。ミオ：138.2→140.1（{一致|いっち}）。ケンタ：138.3→145.5（{一致|いっち}）。サヤカ：132.0→134.2（{一致|いっち}）。"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "ハルキの{原本|げんぽん}：132.5cm→135.8cm。{記録|きろく}シート：130.0cm→142.0cm。4{月|がつ}を2.5cm{下|さ}げ、9{月|がつ}を6.2cm{上|あ}げて「12cm{伸|の}びた」に{見|み}せかけていた。{他|ほか}の3{人|にん}は{原本|げんぽん}と{完全|かんぜん}に{一致|いっち}。"
+
+      - type: narration
+        text: "ハルキの{本当|ほんとう}の{成長|せいちょう}——4か{月|げつ}で3.3cm。{標準値|ひょうじゅんち}カードを{見|み}てみよう。3.3cmは{標準|ひょうじゅん}{範囲内|はんいない}。ハルキの{成長|せいちょう}はおかしくない——でもハルキはそう{感|かん}じられなかった。"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 真実 — ハルキ（犯人）
+  # ========================================
+  - id: truth-haruki
+    bg: classroom
+    bgm: health-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: haruki
+        text: "……ぼくが{書|か}き{換|か}えた。4{月|がつ}の{記録|きろく}を{下|さ}げて、9{月|がつ}の{記録|きろく}を{上|あ}げた。"
+
+      - type: dialog
+        character: haruki
+        text: "ケンタは4か{月|げつ}で7cm{以上|いじょう}{伸|の}びた。クラスでみんなが「すごい！」って{言|い}ってた。でも{誰|だれ}もぼくの{成長|せいちょう}には{気|き}づいてくれなかった。"
+
+      - type: dialog
+        character: haruki
+        expression: determined
+        text: "「{一番|いちばん}{伸|の}びた」って{記録|きろく}があったら、{少|すこ}しは{気|き}にしてもらえるかもって{思|おも}った。{保健|ほけん}{委員|いいん}だから{記録|きろく}を{触|さわ}れる{立場|たちば}で……。"
+
+      - type: dialog
+        character: haruki
+        text: "ぼくの{本当|ほんとう}の{成長|せいちょう}は4か{月|げつ}で3.3cm。{標準|ひょうじゅん}{範囲内|はんいない}だって{分|わ}かってた。でも{標準|ひょうじゅん}じゃ{誰|だれ}も{気|き}づかない。{認|みと}めてほしかった——ただ、それだけだった。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: narration
+        text: "ハルキの{動機|どうき}は{承認|しょうにん}{欲求|よっきゅう}。「{認|みと}めてほしい」という{気持|きも}ちは{誰|だれ}にでもある。でもデータの{改|かい}ざんは{信頼|しんらい}を{壊|こわ}す。"
+
+  # ========================================
+  # 真実 — ミオ
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mio
+        text: "ハルキがうつむいてたの、ずっと{気|き}になってた。「どうかした？」って{聞|き}いたけど「{別|べつ}に{何|なに}もない」って。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "もっとちゃんと{話|はな}を{聞|き}いてあげればよかった。「{何|なに}もない」って{言|い}われても、{本当|ほんとう}に{何|なに}もないとは{限|かぎ}らないんだ。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ========================================
+  # 真実 — ケンタ
+  # ========================================
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "おれが「すごく{伸|の}びた」って{盛|も}り{上|あ}がってたせいで、ハルキは{余計|よけい}に{辛|つら}かったのかも。"
+
+      - type: dialog
+        character: kenta
+        expression: determined
+        text: "{印刷室|いんさつしつ}でハルキが{何|なに}かしてるの{見|み}てたのに、「{保健|ほけん}{委員|いいん}の{仕事|しごと}だろう」ってスルーしちゃった。もうちょっと{気|き}にかけてればよかった。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+  # ========================================
+  # 真実 — サヤカ
+  # ========================================
+  - id: truth-sayaka
+    steps:
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "{標準値|ひょうじゅんち}を{知|し}っていたから「おかしい」と{気|き}づけた。{保健|ほけん}の{授業|じゅぎょう}で{学|まな}んだことが{推理|すいり}の{役|やく}に{立|た}ったんだ。"
+
+      - type: dialog
+        character: sayaka
+        expression: determined
+        text: "でも、ハルキの{気持|きも}ちも{分|わ}かる。{自分|じぶん}の{成長|せいちょう}が{周|まわ}りと{比|くら}べて{遅|おそ}いと{感|かん}じるのは、つらいよね。{数字|すうじ}だけじゃ{見|み}えないものがある。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-03/resolution
+
+      - type: narration
+        speed: slow
+        text: "ハルキの3.3cmは{標準|ひょうじゅん}{範囲内|はんいない}。おかしくない。でもハルキはそう{感|かん}じられなかった——{周|まわ}りと{比|くら}べてしまったから。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-03/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{成長|せいちょう}は{比|くら}べるものじゃない。スパートは{必|かなら}ず{来|く}る。{早|はや}い{子|こ}も{遅|おそ}い{子|こ}も、{成長|せいちょう}のゴールは{同|おな}じ。"
+
+      - type: dialog
+        character: sensei
+        text: "データを{正|ただ}しく{記録|きろく}することは、{自分|じぶん}の{体|からだ}を{大切|たいせつ}にすることの{第一歩|だいいっぽ}。{改|かい}ざんは{信頼|しんらい}を{壊|こわ}すけど、{正直|しょうじき}に{向|む}き{合|あ}うことは{勇気|ゆうき}だよ。"
+
+      - type: dialog
+        character: sensei
+        text: "そしてハルキ——3.3cm{伸|の}びたのは{事実|じじつ}。それは{立派|りっぱ}な{成長|せいちょう}だよ。{数字|すうじ}の{大|おお}きさじゃなくて、{自分|じぶん}の{体|からだ}が{確|たし}かに{成長|せいちょう}していること。それが{一番|いちばん}{大事|だいじ}。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "{成長|せいちょう}には{個人差|こじんさ}がある。{焦|あせ}らなくていい。{自分|じぶん}のペースで{成長|せいちょう}していること——それを{認|みと}めてあげよう。{保健|ほけん}{探偵団|たんていだん}——{成長|せいちょう}の{数字|すうじ}の{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
