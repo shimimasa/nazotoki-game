@@ -1,0 +1,506 @@
+meta:
+  id: programming-03
+  title: しおれた花と書きかえられた条件カード
+  series: バグ探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  souma:
+    name: ソウマ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  saya:
+    name: サヤ
+    color: "#C0392B"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  ren:
+    name: レン
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  noa:
+    name: ノア
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: schoolyard
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}4年1組の{花壇|かだん}に「{自動|じどう}{水|みず}やり{装置|そうち}」が{設置|せっち}された。{条件|じょうけん}カードに{書|か}かれたルールで{動|うご}く{仕組|しく}みだ。"
+      - type: narration
+        text: "ところが{晴|は}れの{暑|あつ}い日なのに{水|みず}が出ず、{花|はな}がしおれてしまった。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: noa
+        expression: worried
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: noa
+        text: "{花|はな}がしおれてる！ {装置|そうち}が{動|うご}いてない！ {条件|じょうけん}カードを{調|しら}べたら……カード1が{書|か}きかえられてた！"
+      - type: sprite
+        character: noa
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{条件|じょうけん}カードのルールを1つずつたどって、何がおかしいか{見|み}つけて。そして{犯人|はんにん}を{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souma, expression: thinking }
+          - { id: saya, expression: worried }
+          - { id: ren, expression: surprised }
+          - { id: noa, expression: thinking }
+      - type: narration
+        text: "サヤが{花壇|かだん}から{目|め}をそらした。"
+      - type: sprite
+        character: souma
+        action: hide
+      - type: sprite
+        character: saya
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: noa
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.3
+        subtitle: しおれた花と書きかえられた条件カード
+
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人のバグ{探偵|たんてい}に話を聞こう。"
+      - type: sprite
+        character: souma
+        expression: normal
+        position: left
+      - type: dialog
+        character: souma
+        text: "ぼくが{条件|じょうけん}カードを{設計|せっけい}した。カード1は「もし{土|つち}がかわいていたら → {水|みず}を出す」——そう{書|か}いたはず。なのに「出さない」に変わってる。"
+        expression: thinking
+      - type: sprite
+        character: souma
+        action: hide
+      - type: sprite
+        character: saya
+        expression: normal
+        position: right
+      - type: dialog
+        character: saya
+        text: "わたしは{水|みず}やり{当番|とうばん}。{火曜|かよう}と{金曜|きんよう}の{週|しゅう}2{回|かい}。{木曜|もくよう}の{放課後|ほうかご}は{花壇|かだん}を見に行ったけど、{別|べつ}に何もしてないよ。"
+        expression: normal
+      - type: sprite
+        character: saya
+        action: hide
+      - type: sprite
+        character: ren
+        expression: normal
+        position: left
+      - type: dialog
+        character: ren
+        text: "おれは{装置|そうち}を{組|く}み{立|た}てた。{木曜|もくよう}の{放課後|ほうかご}はずっと校庭でサッカー。{体育|たいいく}の先生が{証人|しょうにん}だ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: noa
+        expression: normal
+        position: right
+      - type: dialog
+        character: noa
+        text: "わたしは{花|はな}の{観察|かんさつ}{日記|にっき}をつけてる。{木曜|もくよう}の16:00に{花壇|かだん}に行ったとき、サヤが{装置|そうち}の近くにいた。"
+        expression: thinking
+      - type: sprite
+        character: noa
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 条件カードの中身
+      - type: narration
+        text: "{自動|じどう}{水|みず}やり{装置|そうち}の{条件|じょうけん}カード3{枚|まい}——上から{順番|じゅんばん}にたどる。"
+      - type: narration
+        text: "カード1：もし{土|つち}がかわいていたら → {水|みず}を「{出|だ}さない」"
+      - type: narration
+        text: "カード2：もし{雨|あめ}がふっていたら → {水|みず}を{出|だ}さない"
+      - type: narration
+        text: "カード3：もし{気温|きおん}が30{度|ど}{以上|いじょう}なら → {水|みず}を{多|おお}めに{出|だ}す"
+      - type: narration
+        text: "{今日|きょう}の{天気|てんき}：{晴|は}れ、{気温|きおん}32{度|ど}、{土|つち}はかわいている。カード1から見ると——"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "カード1：{土|つち}がかわいている？ → はい → 「{水|みず}を{出|だ}さない」を{実行|じっこう}。{水|みず}が出ない！ {花|はな}がしおれた{原因|げんいん}はこれだ！"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: ソウマの設計ノート
+      - type: sprite
+        character: souma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souma
+        text: "ぼくの{設計|せっけい}ノートを見てくれ。正しいルールが{書|か}いてある。"
+      - type: sprite
+        character: souma
+        action: hide
+      - type: narration
+        text: "{設計|せっけい}ノート——カード1：もし{土|つち}がかわいていたら → {水|みず}を「{出|だ}す」✅"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ノートでは「{出|だ}す」。今のカードは「{出|だ}さない」。——{誰|だれ}かが{書|か}きかえた！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "正しいルールなら：{土|つち}がかわいている → {水|みず}を{出|だ}す ✅ → さらに{気温|きおん}32{度|ど} → {水|みず}を{多|おお}めに{出|だ}す ✅。{花|はな}はしおれなかった！"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 花壇の記録表
+      - type: narration
+        text: "{花壇|かだん}の{記録|きろく}——{装置|そうち}がいつ{動|うご}いたかの{記録|きろく}。"
+      - type: narration
+        text: "{火曜|かよう}：{晴|は}れ・28{度|ど}・{土|つち}かわいている → {水|みず}が出た ✅"
+      - type: narration
+        text: "{水曜|すいよう}：{雨|あめ}・22{度|ど}・しめっている → {水|みず}は出なかった ✅"
+      - type: narration
+        text: "{木曜|もくよう}：くもり・25{度|ど}・すこしかわき → {水|みず}が出た ✅"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{金曜|きんよう}：{晴|は}れ・32{度|ど}・かわいている → {水|みず}が出ない ❌"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{火曜|かよう}〜{木曜|もくよう}は正しく{動|うご}いていた。{金曜|きんよう}だけおかしい。{木曜|もくよう}の{放課後|ほうかご}〜{金曜|きんよう}の{朝|あさ}の{間|あいだ}に{書|か}きかえられた！"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 木曜放課後の行動記録
+      - type: narration
+        text: "{木曜|もくよう}の{放課後|ほうかご}、4人はどこにいた？"
+      - type: narration
+        text: "ソウマ：15:30〜15:55 {委員会|いいんかい}（先生が{証人|しょうにん}）→ 16:00〜 {理科室|りかしつ}（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "レン：15:30〜16:10 校庭サッカー（{体育|たいいく}の先生が{証人|しょうにん}）"
+      - type: narration
+        text: "ノア：15:30〜15:55 {図書室|としょしつ}（{図書|としょ}の先生が{証人|しょうにん}）→ 16:00 {花壇|かだん}に来た"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "サヤ：15:45に「{花壇|かだん}を見に行った」——{証人|しょうにん}なし！"
+      - type: narration
+        text: "ノアの{証言|しょうげん}：16:10にサヤが{装置|そうち}の近くにいた。15:45〜16:00の{間|あいだ}、{花壇|かだん}に{一人|ひとり}でいたのはサヤだけ。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ノアが2つの{手|て}がかりを{見|み}つけました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{手|て}がかり1——サヤのノートの{最後|さいご}のページ。{条件|じょうけん}カードの{仕組|しく}みが{書|か}き{写|うつ}してある。"
+      - type: narration
+        text: "そしてカード1のところに{赤|あか}い{線|せん}が{引|ひ}いてあり、{横|よこ}にメモ——"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「カード1を『{出|だ}さない』にしたら → {土|つち}がかわいても{水|みず}が{出|だ}ない → {装置|そうち}がこわれたみたいになる → {当番|とうばん}なくなる？」"
+      - type: narration
+        text: "{手|て}がかり2——{水|みず}やり{当番表|とうばんひょう}。ソウマ：{月曜|げつよう}。サヤ：{火曜|かよう}と{金曜|きんよう}。レン：{水曜|すいよう}。ノア：{木曜|もくよう}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "サヤだけ{週|しゅう}2{回|かい}{当番|とうばん}。{条件|じょうけん}カードの{仕組|しく}みを{理解|りかい}した上で、{装置|そうち}が{壊|こわ}れたように見せて{当番|とうばん}をなくそうと{計画|けいかく}していた！"
+
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{条件|じょうけん}カードを{書|か}きかえたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 条件カード1の「出す」を「出さない」に書きかえたのは誰？
+        options:
+          - text: ソウマ（条件カードを設計した本人）
+            value: souma
+            feedback: ソウマは「出す」と正しく書いた側。委員会と理科室にいて証人もいる。書きかえる理由がないよ。
+          - text: サヤ（証人なし。ノートに計画メモ。週2回の当番から逃げたかった）
+            value: saya
+            feedback: 正解！ サヤは条件カードの仕組みを理解した上で、装置が壊れたように見せて当番をなくそうと計画した。
+          - text: レン（装置を組み立てた）
+            value: ren
+            feedback: レンは校庭でサッカー中。体育の先生が証人。花壇に来ていない。
+          - text: ノア（花壇で花の観察をしていた）
+            value: noa
+            feedback: ノアは16:00に花壇に来た側。サヤが装置の近くにいたのを目撃した証人だよ。
+      - type: choice
+        id: q2
+        question: サヤが条件カードを書きかえた理由は？
+        options:
+          - text: 水やり当番が嫌で、装置が壊れたことにしたかった
+            value: escape
+            feedback: 正解！ サヤは週2回の当番が嫌で、「装置が壊れたら当番がなくなる」と考えた。条件分岐の仕組みを理解した上でわざと変えた。
+          - text: 花が嫌いだった
+            value: hate-flowers
+            feedback: サヤは花が嫌いなわけではない。花がしおれて後悔している。問題は「当番から逃げたい」気持ちだよ。
+          - text: 装置の性能をテストしたかった
+            value: test
+            feedback: テストなら元に戻すはず。サヤのノートには「当番なくなる？」と書いてある。テストではなく意図的な行為。
+          - text: ソウマに嫌がらせをしたかった
+            value: bully
+            feedback: サヤはソウマと仲が悪いわけではない。動機は「自分の当番を減らしたい」という逃避だよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 当番から逃げたかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-souma
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souma
+        expression: worried
+        position: left
+      - type: dialog
+        character: souma
+        text: "ぼくも{反省|はんせい}がある。{装置|そうち}ボックスの{鍵|かぎ}をかけ{忘|わす}れた。テスト{成功|せいこう}で{浮|う}かれて{忘|わす}れてしまった。{鍵|かぎ}がかかっていれば{触|さわ}れなかった。"
+      - type: sprite
+        character: souma
+        action: hide
+
+  - id: truth-ren
+    steps:
+      - type: sprite
+        character: ren
+        expression: worried
+        position: right
+      - type: dialog
+        character: ren
+        text: "おれも……ポンプの{音|おと}が少し{変|へん}だったのに「大丈夫だろう」って{流|なが}しちゃった。{装置|そうち}を{組|く}み{立|た}てたのにメンテナンスを{怠|おこた}ってた。"
+      - type: sprite
+        character: ren
+        action: hide
+
+  - id: truth-noa
+    steps:
+      - type: sprite
+        character: noa
+        expression: worried
+        position: left
+      - type: dialog
+        character: noa
+        text: "わたしは16:10にサヤが{装置|そうち}のそばにいるのを見た。でも「何かしてるんだな」って{思|おも}って{声|こえ}をかけなかった。"
+      - type: sprite
+        character: noa
+        action: hide
+
+  - id: truth-saya
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: saya
+        expression: worried
+        position: center
+      - type: dialog
+        character: saya
+        text: "……わたしが{書|か}きかえた。"
+      - type: narration
+        speed: slow
+        text: "サヤが{小|ちい}さな{声|こえ}で話し始めた。"
+      - type: dialog
+        character: saya
+        text: "{水|みず}やり{当番|とうばん}が{週|しゅう}2{回|かい}もある。みんなは{週|しゅう}1{回|かい}なのに。「なんで{自分|じぶん}だけ2{回|かい}？」ってずっと{思|おも}ってた。"
+      - type: dialog
+        character: saya
+        text: "{自動|じどう}{水|みず}やり{装置|そうち}ができたとき「もう{当番|とうばん}しなくていい！」って{喜|よろこ}んだのに、先生が「{当番|とうばん}は{続|つづ}ける」って。"
+        expression: worried
+      - type: dialog
+        character: saya
+        text: "だから{条件|じょうけん}カードの{仕組|しく}みを{調|しら}べて、カード1を{変|か}えたら{装置|そうち}が{壊|こわ}れたみたいになるって分かった。{壊|こわ}れたことにすれば{当番|とうばん}がなくなると{思|おも}った。"
+      - type: dialog
+        character: saya
+        text: "でも……{花|はな}がしおれるとは{思|おも}ってなかった。「1日くらい大丈夫」って{軽|かる}く{考|かんが}えてた。{金曜|きんよう}の{朝|あさ}にしおれた{花|はな}を見て……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: saya
+        action: hide
+      - type: narration
+        speed: slow
+        text: "サヤに{悪意|あくい}はなかった。でも「{当番|とうばん}から{逃|に}げたい」という気持ちが、{花|はな}を{傷|きず}つけてしまった。「もし〜なら」のルールを{理解|りかい}した上で{変|か}えた——{知識|ちしき}の{使|つか}い方を{間違|まちが}えた。"
+
+  - id: epilogue
+    bg: schoolyard
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "サヤ、{当番|とうばん}がつらかったんだね。でもそれなら「{当番|とうばん}を{平等|びょうどう}にしてほしい」って{相談|そうだん}する{方法|ほうほう}があったはず。"
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}の{大切|たいせつ}な学び——{条件|じょうけん}カード（もし〜なら）のルールは、1つ{変|か}えるだけで{結果|けっか}が大きく{変|か}わる。「{出|だ}す」が「{出|だ}さない」——たった2{文字|もじ}の{変更|へんこう}で{花|はな}がしおれた。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{条件|じょうけん}{分岐|ぶんき}の{力|ちから}は、正しく使えば{花|はな}を守れる。でも{間違|まちが}った使い方をすると{壊|こわ}してしまう。{知識|ちしき}には{責任|せきにん}が{伴|ともな}います。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souma, expression: happy }
+          - { id: saya, expression: determined }
+          - { id: ren, expression: happy }
+          - { id: noa, expression: happy }
+      - type: narration
+        text: "{条件|じょうけん}カードは{元|もと}に{戻|もど}された。「もし{土|つち}がかわいていたら → {水|みず}を{出|だ}す」。そして{水|みず}やり{当番|とうばん}は{週|しゅう}1{回|かい}ずつに{変更|へんこう}になった。"
+      - type: narration
+        speed: slow
+        text: "「もし〜なら」のルールは、{日常|にちじょう}のいろんなところにある。{信号|しんごう}、{天気予報|てんきよほう}、お{小遣|こづか}い。ルールを{理解|りかい}し、正しく使う——それがバグ{探偵|たんてい}の{力|ちから}。"
+      - type: sprite
+        character: souma
+        action: hide
+      - type: sprite
+        character: saya
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: noa
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——しおれた{花|はな}と{書|か}きかえられた{条件|じょうけん}カード、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
