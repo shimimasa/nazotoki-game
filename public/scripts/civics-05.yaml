@@ -1,0 +1,515 @@
+meta:
+  id: civics-05
+  title: 選挙の不正
+  series: 公民探偵団
+  volume: 5
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}の{児童|じどう}{議会|ぎかい}{会長|かいちょう}{選挙|せんきょ}が{終|お}わった。{当選者|とうせんしゃ}はBグループのユウキさん。ところが——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: mio
+        text: "タカシさんが「{立候補|りっこうほ}しようとしたのに{受付|うけつけ}が{終|お}わっていた」って{言|い}ってる。正式な{受付|うけつけ}{時間|じかん}の{中|なか}のはずなのに……"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{選挙|せんきょ}のルールに{従|したが}えば、{当選者|とうせんしゃ}が{違|ちが}うかもしれないという{告発|こくはつ}です。{誰|だれ}かが{選挙|せんきょ}の{手続|てつづ}きを{歪|ゆが}めた{可能性|かのうせい}がある。{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: worried }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: normal }
+          - { id: sora, expression: thinking }
+      - type: narration
+        text: "ケンタだけが{落|お}ち{着|つ}いた{表情|ひょうじょう}を{保|たも}っている。ユウキさんの{応援|おうえん}をしていたと{公言|こうげん}しているケンタ——何か知っているのか？"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.5
+        subtitle: 選挙の不正
+
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくは{選管|せんかん}{記録|きろく}係。{立候補|りっこうほ}{受付|うけつけ}{名簿|めいぼ}を{管理|かんり}した。{受付|うけつけ}に来たのはユウキさん1人だけだった。"
+      - type: dialog
+        character: haruki
+        text: "でも……タカシさんの{名前|なまえ}がないのは{確|たし}かに{気|き}になっていた。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "タカシさんに{聞|き}いたの。「9:25に{受付|うけつけ}に行ったら『{終|お}わりました』って{言|い}われた」って。でも正式な{時間|じかん}なら9:30まであるはずだよね？"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれはユウキさんを{応援|おうえん}してた。ユウキさんが{会長|かいちょう}になれば{絶対|ぜったい}にクラスが{良|よ}くなると{思|おも}ってたから。"
+      - type: dialog
+        character: kenta
+        text: "{選挙|せんきょ}の日は{朝|あさ}から{教室|きょうしつ}にいた。「{早|はや}く{立候補|りっこうほ}しに来て」って{声|こえ}をかけた。"
+        expression: normal
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: normal
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは{選管|せんかん}{規定|きてい}を{調|しら}べた。正式な{立候補|りっこうほ}{受付|うけつけ}は9:00〜9:30。そして{第|だい}2{条|じょう}——「{全校|ぜんこう}{生徒|せいと}に{同|おな}じ{内容|ないよう}で{告知|こくち}しなければならない」。"
+        expression: thinking
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 投票結果
+      - type: narration
+        text: "{児童|じどう}{議会|ぎかい}{会長|かいちょう}{選挙|せんきょ} {投票|とうひょう}{結果|けっか}——"
+      - type: narration
+        text: "{候補者|こうほしゃ}：ユウキ（Bグループ）。{得票|とくひょう}{数|すう}：23{票|ひょう}。"
+      - type: narration
+        text: "{立候補者|りっこうほしゃ}が1{名|めい}のみだったため、{信任|しんにん}{投票|とうひょう}を{実施|じっし}。{賛成|さんせい}23{票|ひょう}・{反対|はんたい}0{票|ひょう} → {当選|とうせん}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{立候補者|りっこうほしゃ}が1{名|めい}だけ——{本来|ほんらい}ならタカシさんも{立候補|りっこうほ}するはずだったのに。なぜ？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 立候補受付名簿
+      - type: narration
+        text: "{立候補|りっこうほ}{受付|うけつけ}{名簿|めいぼ}——{受付日|うけつけび}：{火曜日|かようび}。"
+      - type: narration
+        text: "1. ユウキ（Bグループ）——{受付|うけつけ}{時刻|じこく}：9:05。{立候補届|りっこうほとどけ}：{提出|ていしゅつ}{済|ず}み。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{以上|いじょう}1{名|めい}。——タカシさんの{名前|なまえ}がない。"
+      - type: narration
+        text: "タカシさんは{月曜|げつよう}から「{絶対|ぜったい}に{立候補|りっこうほ}する」と{言|い}っていた。{届出|とどけで}用紙も{準備|じゅんび}{済|ず}みだった。なのになぜ{来|こ}なかった？"
+
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 選管規定（立候補ルール）
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "{選管|せんかん}{規定|きてい}を{確認|かくにん}しよう。正式なルールが{書|か}いてある。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{第|だい}1{条|じょう}：{立候補|りっこうほ}の{受付|うけつけ}は、{選挙日|せんきょび}の{前日|ぜんじつ}（{火曜日|かようび}）の{午前|ごぜん}9:00から9:30まで。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{第|だい}2{条|じょう}：{立候補|りっこうほ}{受付|うけつけ}の{日時|にちじ}・{場所|ばしょ}は、{全校|ぜんこう}{生徒|せいと}に{同|おな}じ{内容|ないよう}で{告知|こくち}しなければならない。{一部|いちぶ}の人にのみ{異|こと}なる{情報|じょうほう}を{伝|つた}えることは{禁止|きんし}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "正式な{受付|うけつけ}は9:30まで。タカシさんが9:25に来たなら、{正式|せいしき}{時間|じかん}{内|ない}のはず。なのに「{終|お}わっていた」と{言|い}われた——なぜ？"
+
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: タカシさんの証言
+      - type: sprite
+        character: mio
+        expression: worried
+        position: left
+      - type: dialog
+        character: mio
+        text: "タカシさんから{聞|き}いた話をまとめたの。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "タカシさんの{証言|しょうげん}——「{月曜|げつよう}から{立候補|りっこうほ}すると{決|き}めていた。{届出|とどけで}用紙も{準備|じゅんび}{済|ず}みだった」"
+      - type: narration
+        text: "「{火曜|かよう}の{朝|あさ}8:50ごろ、{廊下|ろうか}でAグループの{友達|ともだち}から『{受付|うけつけ}が9:15に{終|お}わるらしいよ』と聞いた」"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "「{急|いそ}いで行ったが、9:25に着いたときには『{受付|うけつけ}は{終|お}わりました』と{言|い}われた」"
+      - type: narration
+        text: "「正式な{受付|うけつけ}{時間|じかん}を{確認|かくにん}していれば9:30まであったはず……{悔|くや}しい」"
+      - type: narration
+        speed: slow
+        text: "タカシさんが聞いた「9:15に{終|お}わる」——正式な{時間|じかん}は9:30。{誰|だれ}が{間違|まちが}った{時間|じかん}を{流|なが}した？"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{教室|きょうしつ}の{掲示板|けいじばん}の{跡|あと}に、{別|べつ}の{告知|こくち}メモが{残|のこ}っていました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——ケンタの「{別|べつ}{告知|こくち}メモ」——"
+      - type: narration
+        text: "「{会長|かいちょう}{選挙|せんきょ}の{立候補|りっこうほ}{受付|うけつけ}は {明日|あした}（{火曜日|かようび}）8:45〜9:15 です。{忘|わす}れずに来てください！」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "正式{告知|こくち}：9:00〜9:30。ケンタの{告知|こくち}：8:45〜9:15。——{開始|かいし}が15分{早|はや}く、{終了|しゅうりょう}も15分{早|はや}い！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "この{別|べつ}{告知|こくち}を見た人は「9:15で{終|お}わり」と思う。タカシさんが聞いた「9:15に{終|お}わるらしい」と{一致|いっち}——ケンタが{流|なが}した{偽|にせ}の{時間|じかん}が、タカシさんの{立候補|りっこうほ}を{妨|さまた}げた。"
+
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{立候補|りっこうほ}{受付|うけつけ}の{告知|こくち}を{操作|そうさ}したのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 「8:45〜9:15」という偽の告知メモを作り、タカシの立候補を妨げたのは誰？
+        options:
+          - text: ハルキ（選管記録係。受付名簿を管理していた）
+            value: haruki
+            feedback: ハルキは正式な受付名簿を管理していた側。タカシがいないことに気づいたが報告しなかっただけ。偽の告知を作ったのは別の人だよ。
+          - text: ミオ（タカシの証言を聞いた）
+            value: mio
+            feedback: ミオはタカシから話を聞いて問題に気づいた側。告知を操作する動機がないよ。
+          - text: ケンタ（ユウキを応援。掲示板に別告知メモが残っていた）
+            value: kenta
+            feedback: 正解！ ケンタはユウキを当選させたい正義感から、偽の告知メモ（8:45〜9:15）を作成。正式時間（9:00〜9:30）と15分ずらすことで、タカシの立候補を妨げた。
+          - text: ソラ（選管規定に詳しい）
+            value: sora
+            feedback: ソラは正式なルールを確認した側。ルールを歪める動機がないよ。
+      - type: choice
+        id: q2
+        question: ケンタの行動のどこが選挙の不正にあたる？
+        options:
+          - text: 全員に同じ告知をせず、一部に偽の時間を流したこと
+            value: unfair-notice
+            feedback: 正解！ 選管規定第2条「全校生徒に同じ内容で告知」に違反。一部の人だけに有利な情報を流すことは選挙の公正さを根本から壊す行為。
+          - text: ユウキを応援したこと自体が不正
+            value: supporting
+            feedback: 応援すること自体は自由。問題は「告知の操作で競争相手を排除した」こと。応援と不正は別だよ。
+          - text: 立候補届を偽造したこと
+            value: forgery
+            feedback: ケンタはユウキの届出を偽造したわけではない。ユウキ自身は正式に9:05に受付を完了している。問題は「告知の時間を操作した」こと。
+          - text: 投票結果を操作したこと
+            value: vote-rigging
+            feedback: 投票自体は正式に行われた。問題はその前段階——「立候補の機会」を不平等にしたこと。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 正義感の暴走
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-haruki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくも{受付|うけつけ}{名簿|めいぼ}を見て「タカシさんの{名前|なまえ}がない」って気づいてた。でも「何かの{間違|まちが}いだろう」って{流|なが}してしまった。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしもタカシさんから「{受付|うけつけ}が{終|お}わっていた」って聞いたのに、{公式|こうしき}に{報告|ほうこく}しなかった。もっと{早|はや}く{声|こえ}を上げていれば……"
+      - type: sprite
+        character: mio
+        action: hide
+
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "ぼくは{選管|せんかん}{規定|きてい}を{確認|かくにん}していたのに、「当日の{告知|こくち}が正しいか」までチェックしなかった。{見落|みお}としがあった。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: truth-kenta
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ケンタが{長|なが}い{間|あいだ}{黙|だま}っていた。そして——"
+      - type: dialog
+        character: kenta
+        text: "……おれがやった。"
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: "{月曜|げつよう}の{夜|よる}、「タカシが{立候補|りっこうほ}する」って聞いた。ユウキさんのライバルになる。おれはユウキさんが{会長|かいちょう}になれば{絶対|ぜったい}にクラスが{良|よ}くなると{思|おも}ってた。"
+      - type: dialog
+        character: kenta
+        text: "だから{前日|ぜんじつ}の{夜|よる}に{別|べつ}の{告知|こくち}メモを作った。「{受付|うけつけ}は8:45〜9:15」って{書|か}いて、Aグループ側に{見|み}えるように{掲示板|けいじばん}に{貼|は}った。"
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: "タカシが「9:15で{終|お}わり」だと思えば、{正式|せいしき}な9:30より{前|まえ}に{来|き}て……でも{受付|うけつけ}が始まるのは9:00。タカシが9:25に来ても「{終|お}わりました」と{思|おも}わせる{仕掛|しか}けだった。"
+      - type: dialog
+        character: kenta
+        text: "ユウキさんは{何|なに}も知らない。ユウキさん{自身|じしん}は{正式|せいしき}に{立候補|りっこうほ}した。おれが{勝手|かって}にやったんだ。"
+        expression: determined
+      - type: dialog
+        character: kenta
+        text: "{不正|ふせい}とは思ってなかった。「ユウキさんのため」って{思|おも}ってた。でも……タカシには{立候補|りっこうほ}する{権利|けんり}があった。おれがそれを{奪|うば}った。"
+        expression: worried
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ケンタに{悪意|あくい}はなかった。「ユウキさんならクラスを{良|よ}くしてくれる」という{純粋|じゅんすい}な{正義感|せいぎかん}——しかしその{正義感|せいぎかん}が、{選挙|せんきょ}の{公正|こうせい}さを壊した。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ケンタ、正直に話してくれてありがとう。「ユウキさんのため」という気持ちは{本物|ほんもの}だった。"
+      - type: dialog
+        character: sensei
+        text: "でも{選挙|せんきょ}の{公正|こうせい}さとは「{全員|ぜんいん}に{平等|びょうどう}なチャンスが{与|あた}えられること」。{一部|いちぶ}の人にだけ{有利|ゆうり}な{情報|じょうほう}を{流|なが}すことは、その{基盤|きばん}を壊す{行為|こうい}です。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "どんなに「正しい{結果|けっか}」のためでも、{手続|てつづ}きが{公正|こうせい}でなければ——{民主主義|みんしゅしゅぎ}は{成立|せいりつ}しません。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "「{良|よ}い{結果|けっか}のための{不正|ふせい}」は{許|ゆる}されるか？ この{問|と}いを、{覚|おぼ}えていてください。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "{選挙|せんきょ}はやり{直|なお}しになった。{今度|こんど}はタカシさんも{立候補|りっこうほ}。{全員|ぜんいん}に{平等|びょうどう}なチャンスが{与|あた}えられた、正しい{選挙|せんきょ}だ。"
+      - type: narration
+        speed: slow
+        text: "{選挙|せんきょ}の{公正|こうせい}さは「{結果|けっか}」ではなく「{手続|てつづ}き」で守られる。それが{民主主義|みんしゅしゅぎ}の{力|ちから}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{選挙|せんきょ}の{不正|ふせい}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
