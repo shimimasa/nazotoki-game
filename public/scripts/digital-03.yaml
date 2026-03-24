@@ -1,0 +1,524 @@
+meta:
+  id: digital-03
+  title: 拡散した写真
+  series: 情報モラル探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-03/opening
+    steps:
+      - type: narration
+        text: "{月曜日|げつようび}、あおば小学校4年1{組|くみ}は{遠足|えんそく}で「あおば{自然|しぜん}公園」に{行|い}った。{天気|てんき}もよく、みんな{最高|さいこう}の1{日|にち}を{過|す}ごした。"
+      - type: sprite
+        character: mio
+        expression: happy
+        position: left
+      - type: dialog
+        character: mio
+        text: "{今日|きょう}の{遠足|えんそく}、{楽|たの}しかったね！ {集合|しゅうごう}写真をあおばトークにのせるよ。クラスだけで見てね。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "ミオは16:00に{集合|しゅうごう}写真を「あおばトーク」に{投稿|とうこう}した。「クラスだけで見てね」という{言葉|ことば}を{添|そ}えて。"
+      - type: narration
+        text: "ところが——{翌日|よくじつ}の{火曜|かよう}の{朝|あさ}。"
+      - type: bgm
+        action: stop
+      - type: se
+        file: digital-03/notification
+      - type: narration
+        text: "4年3{組|くみ}のアキラがミオに{話|はな}しかけてきた。"
+      - type: narration
+        text: "「ミオちゃんたちの{遠足|えんそく}の写真、見たよ！ {楽|たの}しそうだったね！」"
+      - type: sprite
+        character: mio
+        expression: surprised
+        position: center
+      - type: dialog
+        character: mio
+        text: "え……？ なんで4年3{組|くみ}の{子|こ}が、うちのクラスの写真を{知|し}ってるの……？"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: bgm
+        file: digital-03/tension
+      - type: dialog
+        character: sensei
+        text: "{調|しら}べたところ、写真は「あおばトーク」から{外部|がいぶ}に{転送|てんそう}され、4年2{組|くみ}から4年3{組|くみ}へと{広|ひろ}がっていました。"
+      - type: dialog
+        character: sensei
+        text: "{情報|じょうほう}モラル{探偵|たんてい}のみなさん、写真を{最初|さいしょ}にクラスの{外|そと}へ{送|おく}ったのは{誰|だれ}か、{突|つ}き{止|と}めてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: haruto
+            expression: normal
+          - character: mio
+            expression: worried
+          - character: sora
+            expression: determined
+          - character: riko
+            expression: thinking
+      - type: narration
+        text: "写真がどうやって{広|ひろ}がったのか——{転送|てんそう}チェーンをたどり、{出発点|しゅっぱつてん}を{見|み}つけ{出|だ}す{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "情報モラル探偵団 Vol.3"
+        subtitle: "拡散した写真"
+
+  # ===== 証拠カード1: 転送チェーン =====
+  - id: evidence-1
+    bg: classroom
+    bgm: digital-03/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "{先生|せんせい}が4年3{組|くみ}と4年2{組|くみ}に{聞|き}き{取|と}り{調査|ちょうさ}をした{結果|けっか}、写真が{広|ひろ}がった「{転送|てんそう}チェーン」が{見|み}えてきた。"
+      - type: narration
+        text: "{転送|てんそう}チェーンを{逆|ぎゃく}にたどると——"
+      - type: narration
+        text: "4年3{組|くみ}{全員|ぜんいん} ← アキラが4年3{組|くみ}グループに{投稿|とうこう}（{月曜|げつよう}17:30）"
+      - type: narration
+        text: "アキラ ← 4年2{組|くみ}ユウキから{受信|じゅしん}（{月曜|げつよう}17:00）"
+      - type: narration
+        text: "ユウキ ← 「？？？」から{受信|じゅしん}（{月曜|げつよう}16:35）"
+      - type: narration
+        text: "「？？？」← 4年1{組|くみ}の「あおばトーク」から写真を{持|も}ち{出|だ}した{人|ひと}"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "「？？？」= 4年1{組|くみ}の4{人|にん}のうち{誰|だれ}か。ユウキに写真を{送|おく}った{人物|じんぶつ}を{特定|とくてい}するのがミッションだ。"
+
+  # ===== 証拠カード2: 転送の仕組み =====
+  - id: evidence-2
+    bg: classroom
+    bgm: digital-03/investigation
+    steps:
+      - type: narration
+        text: "写真が{外部|がいぶ}に{広|ひろ}がるには、こんな{手順|てじゅん}が{必要|ひつよう}だ。"
+      - type: narration
+        text: "まず①ダウンロード——「あおばトーク」から{自分|じぶん}のタブレットに写真を{保存|ほぞん}する。"
+      - type: narration
+        text: "次に②{転送|てんそう}——{自分|じぶん}のタブレットからプライベートアプリで{外部|がいぶ}の{人|ひと}に{送|おく}る。"
+      - type: narration
+        text: "そして③さらに{転送|てんそう}——{受|う}け{取|と}った{人|ひと}が{別|べつ}の{人|ひと}に{送|おく}り、{連鎖|れんさ}が{続|つづ}く。"
+      - type: narration
+        text: "「あおばトーク」では、{投稿者|とうこうしゃ}が「{保存|ほぞん}OK」にしていないと写真はダウンロードできない。ミオは「みんながアルバムに{保存|ほぞん}できるように」と「{保存|ほぞん}OK」をオンにしていた。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "つまり、写真を{外部|がいぶ}に{送|おく}るには、まず「ダウンロード」が{必要|ひつよう}。ダウンロードした{人|ひと}が{犯人|はんにん}{候補|こうほ}になる。しかも——ダウンロードには{記録|きろく}（ログ）が{残|のこ}る。"
+
+  # ===== 証拠カード3: 放課後の行動 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: digital-03/investigation
+    steps:
+      - type: narration
+        text: "{月曜日|げつようび}の{放課後|ほうかご}（16:00〜17:00）、4{人|にん}はどこにいて、{何|なに}をしていたのか。"
+      - type: narration
+        text: "ハルト——16:00〜16:25は{教室|きょうしつ}。そのあと{校門|こうもん}{付近|ふきん}へ。プライベートアプリあり。4年2{組|くみ}にユウキという{仲|なか}のよい{友達|ともだち}がいる。"
+      - type: narration
+        text: "ミオ——16:00に写真{投稿|とうこう}。16:10に{帰宅|きたく}。プライベートアプリあり。4年2{組|くみ}に{友達|ともだち}はいない。"
+      - type: narration
+        text: "ソラ——16:00〜16:50は{校庭|こうてい}でサッカー。タブレット{不使用|ふしよう}。プライベートアプリなし。4年2{組|くみ}に{友達|ともだち}はいない。"
+      - type: narration
+        text: "リコ——16:00〜16:30は{教室|きょうしつ}。16:30に{帰宅|きたく}。プライベートアプリあり。4年2{組|くみ}に{友達|ともだち}はいない。"
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "16:40ごろ、{校門|こうもん}の{近|ちか}くでハルトがスマホを使ってた。{画面|がめん}を見ながらニコニコして、{何|なに}か{送|おく}ってるみたいだった。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "ユウキが写真を{受信|じゅしん}したのは16:35。プライベートアプリを{持|も}っていて、ユウキと{友達|ともだち}で、その{時間|じかん}に{学校|がっこう}にいた{人|ひと}は——。"
+
+  # ===== 証拠カード4: ダウンロードログ =====
+  - id: evidence-4
+    bg: classroom
+    bgm: digital-03/experiment
+    steps:
+      - type: narration
+        text: "{先生|せんせい}が「あおばトーク」の{管理|かんり}{画面|がめん}で、写真のダウンロードログを{確認|かくにん}した。"
+      - type: narration
+        text: "16:00——ミオが写真を{投稿|とうこう}。"
+      - type: narration
+        text: "16:10——ハルト、ソラが{既読|きどく}。"
+      - type: narration
+        text: "16:12——リコが{既読|きどく}。"
+      - type: narration
+        text: "16:20——ハルトが写真をダウンロード。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "写真をダウンロードしたのはハルトだけ。ミオ・ソラ・リコはダウンロードしていない。"
+      - type: sprite
+        character: riko
+        expression: normal
+        position: left
+      - type: dialog
+        character: riko
+        text: "16:20ごろ、ハルトがタブレットで写真をダウンロードしてるのを{見|み}ました。そのあとすぐタブレットをロッカーに{戻|もど}して、{教室|きょうしつ}を{出|で}ていきました。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "ダウンロードしなければ{外部|がいぶ}に{送|おく}れない。ダウンロードしたのはハルトだけ。だが、ダウンロードしただけでは「{送|おく}った」{証拠|しょうこ}にはならない。{決定的|けっていてき}な{証言|しょうげん}は——。"
+
+  # ===== 証拠カード5: ユウキの証言 =====
+  - id: card-5
+    bg: classroom
+    bgm: digital-03/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}が4年2{組|くみ}のユウキに{聞|き}き{取|と}りをした{結果|けっか}が{届|とど}いた。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ユウキの{証言|しょうげん}です。「{月曜|げつよう}の16:35ごろ、ハルトからプライベートアプリで写真が{送|おく}られてきたよ」"
+      - type: dialog
+        character: sensei
+        text: "ハルトのメッセージは「{遠足|えんそく}めっちゃ{楽|たの}しかったよ。見て！」——{友達|ともだち}に見せたかっただけのようです。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "ユウキはさらにこう{言|い}っています。「ハルトは『クラスだけで見てね』とは{言|い}ってなかった。だから{僕|ぼく}も『いい写真だね』と{思|おも}って、{仲|なか}のいいアキラに{送|おく}った」"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{転送|てんそう}チェーンが{完成|かんせい}した。ハルト → ユウキ → アキラ → 4年3{組|くみ}{全員|ぜんいん}。"
+      - type: narration
+        text: "でもここで{考|かんが}えてみよう——{一番|いちばん}{悪|わる}いのは{誰|だれ}だろう？"
+      - type: narration
+        text: "ハルトは{最初|さいしょ}にクラス{外|そと}に{送|おく}った。「ユウキ1{人|り}に{送|おく}っただけ」と{言|い}う。"
+      - type: narration
+        text: "ユウキはアキラにさらに{転送|てんそう}した。「ハルトから『クラスだけ』とは{聞|き}いてない」と{言|い}う。"
+      - type: narration
+        text: "アキラはクラスグループに{投稿|とうこう}して{拡散|かくさん}した。「ユウキが{送|おく}ってきたから、みんなに見せただけ」と{言|い}う。"
+      - type: narration
+        text: "ミオは「{保存|ほぞん}OK」{設定|せってい}をオンにしていた。{技術的|ぎじゅつてき}にダウンロードを{止|と}められなかった。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{転送|てんそう}チェーンの{全体像|ぜんたいぞう}が見えました。ここで{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "写真を最初にクラスの外へ送ったのは誰？"
+        options:
+          - text: "ハルト（ダウンロードしてユウキに送った）"
+            feedback: "ダウンロードログと{放課後|ほうかご}の{行動|こうどう}、ユウキの{証言|しょうげん}がすべて{一致|いっち}する。{転送|てんそう}チェーンの{出発点|しゅっぱつてん}はハルトだ。"
+          - text: "ミオ（写真を投稿して保存OKにした）"
+            feedback: "ミオは16:10に{帰宅|きたく}していて、{外部|がいぶ}に{送|おく}ってはいない。ただ「{保存|ほぞん}OK」にしたことで、ダウンロードを{止|と}められなかった。"
+          - text: "ソラ（正義感が強い裏に何かある？）"
+            feedback: "ソラはプライベートアプリを{持|も}っていないし、{校庭|こうてい}にいてタブレットも使っていない。写真を{送|おく}ることは{不可能|ふかのう}だね。"
+          - text: "リコ（プライベートアプリを持っている）"
+            feedback: "リコはプライベートアプリを{持|も}っているけど、ダウンロードログに{名前|なまえ}がない。ダウンロードしていなければ{外部|がいぶ}に{送|おく}れない。"
+      - type: choice
+        id: q2
+        text: "一番悪いのは誰だと思う？"
+        options:
+          - text: "ハルト（最初にクラス外に送った）"
+            feedback: "{転送|てんそう}チェーンの{出発点|しゅっぱつてん}。ハルトが{送|おく}らなければ{広|ひろ}がらなかった。{最初|さいしょ}の1{歩|ぽ}の{責任|せきにん}は{大|おお}きい。"
+          - text: "ユウキやアキラ（さらに転送・拡散した）"
+            feedback: "{転送|てんそう}チェーンの{中継点|ちゅうけいてん}。ユウキが{止|と}めていれば4年3{組|くみ}には{広|ひろ}がらなかった。「{止|と}める」{選択|せんたく}もあったはず。"
+          - text: "ミオ（保存OKにしていた）"
+            feedback: "{技術的|ぎじゅつてき}にダウンロードを{止|と}める{設定|せってい}はあった。「お{願|ねが}い」だけでなく「{設定|せってい}」で{守|まも}る{方法|ほうほう}もある。"
+          - text: "全員に少しずつ責任がある"
+            feedback: "{送|おく}った{人|ひと}、{転送|てんそう}した{人|ひと}、{止|と}められなかった{人|ひと}——それぞれに{考|かんが}えるべきことがある。{誰|だれ}か1{人|り}のせいにするのは{簡単|かんたん}だけど、みんなで{考|かんが}えることが{大切|たいせつ}。"
+      - type: choice
+        id: q3
+        text: "「1人だけに送る」のは写真を広めることになる？"
+        options:
+          - text: "ならない。1人に送っただけだから"
+            feedback: "でも{今回|こんかい}は1{人|り}から30{人|にん}{以上|いじょう}に{広|ひろ}がった。デジタルデータは{簡単|かんたん}にコピー・{転送|てんそう}できるから、「1{人|り}だけ」は{通|つう}じないかも。"
+          - text: "なる。送った相手がさらに送るかもしれない"
+            feedback: "その{通|とお}り。デジタルの写真は、{相手|あいて}が「さらに{送|おく}る」{可能性|かのうせい}がある。「1{人|り}だけ」のつもりでも、{連鎖|れんさ}が{始|はじ}まるかもしれない。"
+          - text: "場合による。相手を信頼できるかどうか"
+            feedback: "{信頼|しんらい}は{大事|だいじ}。でもハルトはユウキを{信頼|しんらい}していた。ユウキも{悪気|わるぎ}はなかった。{信頼|しんらい}だけでは{止|と}められないこともある。"
+          - text: "送る前に「転送しないで」と伝えるべき"
+            feedback: "「お{願|ねが}い」を{伝|つた}えるのは{大事|だいじ}。でもミオも「クラスだけで見てね」と{書|か}いていた。お{願|ねが}いだけでなく、{技術的|ぎじゅつてき}に{止|と}める{方法|ほうほう}も{組|く}み{合|あ}わせるとより{安全|あんぜん}。"
+
+  # ===== 真実: ハルト（犯人） =====
+  - id: truth-haruto
+    bg: classroom
+    bgm: digital-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruto
+        text: "……{認|みと}めます。写真を{最初|さいしょ}にクラスの{外|そと}に{送|おく}ったのは、{僕|ぼく}です。"
+      - type: sprite
+        character: haruto
+        expression: normal
+      - type: dialog
+        character: haruto
+        text: "{遠足|えんそく}の{集合|しゅうごう}写真がすごくよく{撮|と}れてて……4年2{組|くみ}のユウキに「見て！」って{見|み}せたくなったんだ。"
+      - type: dialog
+        character: haruto
+        text: "16:20に写真をダウンロードして、{教室|きょうしつ}を{出|で}たあと、{校門|こうもん}の{近|ちか}くでお{母|かあ}さんのスマホを{使|つか}ってユウキに{送|おく}った。"
+      - type: sprite
+        character: haruto
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: "ミオの「クラスだけで見てね」は{読|よ}んでた。でも「{友達|ともだち}1{人|り}くらいいいでしょ」って{軽|かる}く{考|かんが}えちゃって……"
+      - type: narration
+        speed: slow
+        text: "ハルトは{目|め}を{伏|ふ}せた。"
+      - type: dialog
+        character: haruto
+        text: "{火曜|かよう}の{朝|あさ}、4年3{組|くみ}まで{広|ひろ}がってるって{知|し}って……{青|あお}ざめた。「1{人|り}に{送|おく}っただけなのに」って。IT{係|がかり}なのに、デジタルの{怖|こわ}さを{分|わ}かってなかった。"
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ===== 真実: ミオ =====
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたし、写真を{投稿|とうこう}するとき「{保存|ほぞん}OK」にしちゃってたの。「みんながアルバムに{保存|ほぞん}できるように」って{思|おも}って。"
+      - type: sprite
+        character: mio
+        expression: thinking
+      - type: dialog
+        character: mio
+        text: "「クラスだけで見てね」って{書|か}いたけど、あれは「お{願|ねが}い」でしかなかった。{技術的|ぎじゅつてき}にダウンロードを{止|と}める{設定|せってい}にしていれば……"
+      - type: dialog
+        character: mio
+        text: "ルールを{破|やぶ}ったのは{転送|てんそう}した{人|ひと}だけど、わたしにも{防|ふせ}げたことがあった。"
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ===== 真実: ソラ =====
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: left
+      - type: dialog
+        character: sora
+        text: "オレ、{月曜|げつよう}の16:40ごろ、{校門|こうもん}の{近|ちか}くでハルトがスマホを使ってるのを見たんだ。ニコニコして{何|なに}か{送|おく}ってた。"
+      - type: sprite
+        character: sora
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "あのとき「{何|なに}してるの？」って{聞|き}いてれば、{止|と}められたかもしれない。サッカーに{夢中|むちゅう}で{声|こえ}をかけなかった。"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "ルールを{破|やぶ}ったのはハルトだ。でも「ハルトだけが{悪|わる}い」って{言|い}うのも……{違|ちが}う{気|き}がする。チェーンの{途中|とちゅう}で{止|と}められた{人|ひと}もいたはずだから。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 真実: リコ =====
+  - id: truth-riko
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riko
+        expression: normal
+        position: right
+      - type: dialog
+        character: riko
+        text: "わたし、16:20ごろ{教室|きょうしつ}でハルトがタブレットで写真をダウンロードしてるのを見ていました。"
+      - type: sprite
+        character: riko
+        expression: worried
+      - type: dialog
+        character: riko
+        text: "でも「{写真|しゃしん}を{保存|ほぞん}するのは{自由|じゆう}だし」と{思|おも}って{気|き}にしなかった。{外部|がいぶ}に{送|おく}るとは{思|おも}わなかったから。"
+      - type: dialog
+        character: riko
+        text: "データを見れば{分|わ}かることを、{見|み}て{見|み}ぬふりをしてしまった。わたしも、もっと{早|はや}く{気|き}づけばよかった。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "{転送|てんそう}チェーンの{出発点|しゅっぱつてん}はハルトだった。でも、{全員|ぜんいん}に{少|すこ}しずつ{責任|せきにん}がある。{送|おく}った{人|ひと}、{転送|てんそう}した{人|ひと}、{止|と}められなかった{人|ひと}——デジタルの写真は、1{人|り}に{送|おく}っただけでチェーンのように{広|ひろ}がる。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-03/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルト、{正直|しょうじき}に{認|みと}めてくれてありがとう。{友達|ともだち}に見せたかった{気持|きも}ち、{分|わ}かります。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "でもデジタルの写真は、{紙|かみ}の写真とは{違|ちが}います。{簡単|かんたん}にコピーでき、{転送|てんそう}でき、{一度|いちど}{送|おく}ったら{取|と}り{消|け}せません。"
+      - type: dialog
+        character: sensei
+        text: "「1{人|り}だけに{送|おく}る」のつもりでも、{送|おく}った{瞬間|しゅんかん}にコントロールが{手|て}を{離|はな}れます。ドミノ{倒|たお}しの{最初|さいしょ}の1{枚|まい}のように。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{大事|だいじ}なのは2つ。1つ目——{送|おく}る{前|まえ}に「{広|ひろ}がっても{大丈夫|だいじょうぶ}か」と{考|かんが}えること。2つ目——{技術的|ぎじゅつてき}な{設定|せってい}とルールの{両方|りょうほう}で{守|まも}ること。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: sprite
+        character: mio
+        expression: happy
+        position: right
+      - type: dialog
+        character: haruto
+        text: "ミオ、ごめん。{次|つぎ}からは「{送|おく}ってもいい？」って{聞|き}くよ。IT{係|がかり}として、{設定|せってい}のことももっとみんなに{伝|つた}える。"
+      - type: dialog
+        character: mio
+        text: "ありがとう、ハルト。わたしも{次|つぎ}は「{保存|ほぞん}OK」にするかどうか、ちゃんと{考|かんが}えるね。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "デジタルのデータは、{手|て}を{離|はな}れたら{戻|もど}ってこない。だからこそ「{送|おく}る{前|まえ}に{考|かんが}える」。これが{情報|じょうほう}モラルの{第一歩|だいいっぽ}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
