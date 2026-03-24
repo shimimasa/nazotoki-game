@@ -1,0 +1,591 @@
+meta:
+  id: disaster-02
+  title: 避難所のひみつ
+  series: 防災探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: gym
+    bgm: disaster-02/opening
+    steps:
+      - type: narration
+        text: "X市に{強|つよ}い{台風|たいふう}が{近|ちか}づいた夜——"
+      - type: se
+        sound: disaster-02/wind
+      - type: narration
+        text: "{激|はげ}しい{雨|あめ}と{風|かぜ}の{音|おと}が{窓|まど}を{叩|たた}く。{地域|ちいき}の{避難所|ひなんじょ}「みどり{小学校|しょうがっこう}{体育館|たいいくかん}」に{人々|ひとびと}が{集|あつ}まっていた。"
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団の4人——ソウタ、ナナ、ケイ、アイも{避難所|ひなんじょ}にいた。"
+      - type: narration
+        text: "{翌朝|よくあさ}、{避難所|ひなんじょ}の{担当者|たんとうしゃ}が{深刻|しんこく}な{表情|ひょうじょう}で話し始めた。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: bgm
+        track: disaster-02/investigation
+      - type: dialog
+        character: sensei
+        text: "みなさん、{昨夜|さくや}のことで{確認|かくにん}したいことがあります。{高齢者|こうれいしゃ}のタカギさん——ご{存知|ぞんじ}ですね。{耳|みみ}が{不自由|ふじゆう}な方です。"
+      - type: dialog
+        character: sensei
+        text: "タカギさんの{避難所|ひなんじょ}{到着|とうちゃく}が{大幅|おおはば}に{遅|おく}れました。{警報|けいほう}レベル3が出てから2{時間|じかん}もかかったんです。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}かが{声|こえ}をかけていれば、もっと{早|はや}く{安全|あんぜん}な{場所|ばしょ}に来られたはず……。4人で{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: surprised }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: thinking }
+          - { id: ai, expression: thinking }
+      - type: narration
+        text: "4人は{顔|かお}を見合わせた。{台風|たいふう}の夜、タカギさんの{避難|ひなん}がなぜ{遅|おく}れたのか——{情報|じょうほう}の{伝|つた}わり方にズレがあったのかもしれない。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.2
+        subtitle: 避難所のひみつ
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: gym
+    bgm: disaster-02/investigation
+    steps:
+      - type: narration
+        text: "{昨夜|さくや}の{行動|こうどう}を4人に聞いてみよう。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくはソウタ。{防災|ぼうさい}アプリの{通知|つうち}が来たのは18:40。{準備|じゅんび}を始めて20:00に{避難所|ひなんじょ}に{到着|とうちゃく}した。"
+      - type: dialog
+        character: souta
+        text: "タカギさんのことは{顔|かお}は知ってるけど、{耳|みみ}が{不自由|ふじゆう}だとは知らなかったんだ。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしはナナ。{通知|つうち}は18:30——4人の中で一番{早|はや}く{受|う}け取った。{避難所|ひなんじょ}には20:30に着いたの。一番{最後|さいご}。"
+      - type: dialog
+        character: nana
+        text: "タカギさんと{一緒|いっしょ}に来たの。タカギさんは{足|あし}が{不自由|ふじゆう}で、ゆっくりしか{歩|ある}けなかったから……"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。{防災|ぼうさい}クラブのメンバーだ。{通知|つうち}は18:35で、すぐ{準備|じゅんび}した。{避難所|ひなんじょ}には19:00に一番{乗|の}り！"
+      - type: dialog
+        character: kei
+        text: "タカギさんの名前は知ってるけど、{親|した}しくはないな。"
+        expression: thinking
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしはアイ。{通知|つうち}は18:50——一番{遅|おそ}かった。20:00にソウタと{同時|どうじ}に{到着|とうちゃく}した。"
+      - type: dialog
+        character: ai
+        text: "{夕方|ゆうがた}、タカギさんが{庭|にわ}で{空|そら}を心配そうに見上げてるのを見かけたの。"
+        expression: thinking
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: 避難タイムライン記録 =====
+  - id: evidence-1
+    bg: gym
+    bgm: disaster-02/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 避難タイムラインを確認しよう
+      - type: narration
+        text: "{避難所|ひなんじょ}の{受付|うけつけ}{記録|きろく}が{残|のこ}っている。{到着|とうちゃく}{順|じゅん}に見てみよう。"
+      - type: narration
+        text: "19:00 ケイ——{非常|ひじょう}{持|も}ち出し{袋|ぶくろ}{持参|じさん}。{元気|げんき}。"
+      - type: narration
+        text: "19:30 タカギさん（78{歳|さい}）——ナナと{一緒|いっしょ}に{到着|とうちゃく}。{足|あし}が{不自由|ふじゆう}。{疲|つか}れた{様子|ようす}。"
+      - type: narration
+        text: "20:00 ソウタ、アイ——それぞれ{一人|ひとり}で{到着|とうちゃく}。"
+      - type: narration
+        text: "20:30 ナナ——タカギさんを{送|おく}ってから{戻|もど}って{再度|さいど}{到着|とうちゃく}。"
+      - type: narration
+        text: "そして{警戒|けいかい}レベルの{発令|はつれい}タイムライン——"
+      - type: narration
+        text: "15:00 レベル2（{大雨|おおあめ}{注意報|ちゅういほう}）。17:30 レベル3（{高齢者|こうれいしゃ}{等|とう}{避難|ひなん}）。19:00 レベル4（{避難|ひなん}{指示|しじ}）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "レベル3が出たのは17:30。タカギさんが{避難所|ひなんじょ}に着いたのは19:30。——2{時間|じかん}もかかっている。なぜ？"
+
+  # ===== 証拠カード2: 防災アプリ通知記録 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4人の防災アプリ通知記録
+      - type: narration
+        text: "4人のスマートフォンに{届|とど}いた{通知|つうち}{履歴|りれき}を{確認|かくにん}する。"
+      - type: narration
+        text: "ソウタ：18:40に{受信|じゅしん} → 18:50に{準備|じゅんび}{開始|かいし}"
+      - type: narration
+        text: "ナナ：18:30に{受信|じゅしん} → 19:00に{行動|こうどう}{開始|かいし}"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ナナが一番{早|はや}く{受|う}け取ったのに、{行動|こうどう}{開始|かいし}まで30分かかっている——なぜ？"
+      - type: narration
+        text: "ケイ：18:35に{受信|じゅしん} → 18:35にすぐ{準備|じゅんび}"
+      - type: narration
+        text: "アイ：18:50に{受信|じゅしん} → 19:10に{準備|じゅんび}{開始|かいし}"
+      - type: narration
+        text: "タカギさんはスマートフォンを{持|も}っていない。{防災|ぼうさい}アプリも使えない。{耳|みみ}が{不自由|ふじゆう}で{防災|ぼうさい}{無線|むせん}も{聞|き}こえにくい。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "タカギさんの家はナナの家から{徒歩|とほ}2分。{情報|じょうほう}を{受|う}け取るには「{近所|きんじょ}の人からの{声|こえ}かけ」が{頼|たよ}りだった。"
+
+  # ===== 証拠カード3: 警戒レベルの意味 =====
+  - id: evidence-3
+    bgm: disaster-02/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 警戒レベルの意味を知ろう
+      - type: narration
+        text: "{台風|たいふう}・{大雨|おおあめ}のときの{警戒|けいかい}レベル——{気象庁|きしょうちょう}が{定|さだ}めた{基準|きじゅん}だ。"
+      - type: narration
+        text: "レベル1：{早期|そうき}{注意|ちゅうい}{情報|じょうほう}。{最新|さいしん}{情報|じょうほう}に{注意|ちゅうい}する。"
+      - type: narration
+        text: "レベル2：{大雨|おおあめ}{注意報|ちゅういほう}。ハザードマップを{確認|かくにん}する。"
+      - type: narration
+        text: "レベル3：{高齢者|こうれいしゃ}{等|とう}{避難|ひなん}。{高齢者|こうれいしゃ}や{体|からだ}の{不自由|ふじゆう}な方は{避難|ひなん}を{開始|かいし}。そのほかの人は{避難|ひなん}{準備|じゅんび}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{重要|じゅうよう}——レベル3の「{高齢者|こうれいしゃ}{等|とう}」の「{等|とう}（など）」には、{耳|みみ}や{足|あし}の{不自由|ふじゆう}な方も{含|ふく}まれる。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "そしてレベル3は「{要配慮者|ようはいりょしゃ}を{助|たす}ける{側|がわ}の人も{行動|こうどう}を{開始|かいし}するタイミング」でもある。"
+      - type: narration
+        text: "レベル4：{避難|ひなん}{指示|しじ}。{全員|ぜんいん}が{避難|ひなん}を{完了|かんりょう}すべき。レベル5：{緊急|きんきゅう}{安全|あんぜん}{確保|かくほ}。{移動|いどう}できない{状態|じょうたい}。"
+
+  # ===== 証拠カード4: タカギさんの状況 =====
+  - id: evidence-4
+    bgm: disaster-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: タカギさんはどうしていた？
+      - type: narration
+        text: "ケイが{避難所|ひなんじょ}の{担当者|たんとうしゃ}から聞いた、タカギさんの{状況|じょうきょう}——"
+      - type: narration
+        text: "タカギさん（78{歳|さい}・{女性|じょせい}）。ナナの家から{徒歩|とほ}2分の{距離|きょり}。"
+      - type: narration
+        text: "{補聴器|ほちょうき}を使っているが、{強|つよ}い{雨音|あまおと}の中では{聞|き}こえにくい。スマートフォンは{持|も}っていない。"
+      - type: narration
+        text: "テレビはあるが、{昨夜|さくや}は{停電|ていでん}で{一時|いちじ}使えなかった。{家族|かぞく}は{別|べつ}の市にいて{連絡|れんらく}がとれなかった。"
+      - type: narration
+        text: "タカギさんが{情報|じょうほう}を{受|う}け取る{手段|しゅだん}を整理しよう。"
+      - type: narration
+        text: "{防災|ぼうさい}{無線|むせん} → △（{雨音|あまおと}で{聞|き}こえにくい）。{防災|ぼうさい}アプリ → ✗。テレビ → △（{停電|ていでん}）。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{近所|きんじょ}の人からの{声|こえ}かけ——これが{唯一|ゆいいつ}の{確実|かくじつ}な{手段|しゅだん}だった。{声|こえ}をかけられる{近所|きんじょ}の人は{誰|だれ}？"
+
+  # ===== 証拠カード5: タカギさんの手書きメモ（反転） =====
+  - id: evidence-5
+    bg: gym
+    bgm: disaster-02/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "新しい{情報|じょうほう}が入りました。{避難所|ひなんじょ}スタッフが、タカギさんの{手書|てが}きメモを{見|み}つけたんです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——タカギさんの走り{書|が}きのメモ——"
+      - type: narration
+        text: "「17:30ごろ、テレビに『{高齢者|こうれいしゃ}{等|とう}{避難|ひなん}』と出た。わたしも行かないといけないかと思った」"
+      - type: narration
+        text: "「でも{足|あし}が{痛|いた}くて、ひとりでは{荷物|にもつ}が{持|も}てない。ナナちゃんが{声|こえ}をかけてくれるのを待っていた」"
+      - type: narration
+        speed: slow
+        text: "「ナナちゃんはいつも{声|こえ}をかけてくれるから」"
+      - type: narration
+        text: "「7{時|じ}（19{時|じ}）になっても来なかったから、もう少し待とうと思っていたら、来てくれた」"
+      - type: narration
+        text: "「{足|あし}が{遅|おそ}くてごめんなさい」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "タカギさんは17:30から19:00まで——1{時間|じかん}半、ひとりで待っていた。ナナが来てくれるのを。"
+      - type: narration
+        text: "ナナが{防災|ぼうさい}アプリで{通知|つうち}を{受|う}けたのは18:30。{行動|こうどう}{開始|かいし}は19:00。——この30分の「{空白|くうはく}」に何があった？"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: gym
+    bgm: disaster-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。タカギさんの{避難|ひなん}が{遅|おく}れた{原因|げんいん}は何だったのでしょう？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: タカギさんへの声かけが遅れた原因は、誰の行動にある？
+        options:
+          - text: ソウタ（通知確認が10分遅れた）
+            value: souta
+            feedback: ソウタの10分の遅れは確かに反省点だけど、タカギさんの近くに住んでいたのはナナだよ。
+          - text: ナナ（一番早く通知を受けたのに30分動かなかった）
+            value: nana
+            feedback: そう。ナナは18:30に通知を受けたのに、19:00まで動かなかった。タカギさんの家は徒歩2分。なぜ30分も待ったんだろう？
+          - text: ケイ（要配慮者リストを確認しなかった）
+            value: kei
+            feedback: ケイがリストを確認していれば別の人が声かけ担当だったかもしれない。でも直接の原因は別にあるよ。
+          - text: アイ（タカギさんを見かけたのに声をかけなかった）
+            value: ai
+            feedback: アイが声をかけていれば連絡先を交換できたかもしれない。でも避難が遅れた直接の原因は別のところにあるよ。
+      - type: choice
+        id: q2
+        question: ナナが18:30にすぐ動かなかったのは、どんな誤解があったから？
+        options:
+          - text: 「レベル3は自分には関係ない」と思った
+            value: not-me
+            feedback: その通り！ ナナは「レベル3＝高齢者向け＝自分はまだ動かなくていい」と思っていた。本当は「要配慮者を助ける側も動くタイミング」だったのに。
+          - text: タカギさんが自分で避難できると思った
+            value: can-alone
+            feedback: ナナはタカギさんの耳が不自由なことを知っていた。「自分で動ける」とは思っていなかったよ。問題は「いつ動くか」の判断だった。
+          - text: 台風がまだ来ないと思った
+            value: no-typhoon
+            feedback: 台風はすでに接近していて雨も降っていた。ナナは危険は感じていたけど、「レベル4になってから」と時間を待っていたんだ。
+          - text: 通知の意味がわからなかった
+            value: no-understand
+            feedback: ナナは通知を読んで「高齢者等避難」という内容は理解していた。でも「等」に含まれる人や「助ける側も動くべき」という意味を正しく知らなかった。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: gym
+    bgm: disaster-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 4人それぞれの後ろめたさ
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソウタの秘密
+  - id: truth-souta
+    bg: gym
+    steps:
+      - type: sprite
+        character: souta
+        expression: worried
+        position: left
+      - type: dialog
+        character: souta
+        text: "……{正直|しょうじき}に{言|い}うと、ぼくも{反省|はんせい}することがある。"
+      - type: dialog
+        character: souta
+        text: "18:30に{防災|ぼうさい}アプリの{通知音|つうちおん}が鳴ったとき、{算数|さんすう}の{問題|もんだい}を{解|と}いてた。「あとで{確認|かくにん}しよう」って10分{放置|ほうち}した。"
+        expression: worried
+      - type: dialog
+        character: souta
+        text: "「すぐ{確認|かくにん}する人」だって思われてたのに……{恥|は}ずかしい。"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "おれも{言|い}わなきゃいけないことがある。{防災|ぼうさい}クラブで「{要配慮者|ようはいりょしゃ}リスト」っていうのがあるって{習|なら}った。"
+      - type: dialog
+        character: kei
+        text: "{避難|ひなん}に{支援|しえん}が{必要|ひつよう}な人の{名前|なまえ}と{住所|じゅうしょ}が{書|か}いてあるリストだ。でもおれ、タカギさんがそのリストに{載|の}ってるか{確認|かくにん}してなかった。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "「{防災|ぼうさい}のことをよく知ってる」はずなのに、大事なリストを見てなかった……{悔|くや}しい。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # アイの秘密
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたしも{言|い}いたいことがある。{夕方|ゆうがた}17{時|じ}ごろ、タカギさんが{庭|にわ}で{空|そら}を心配そうに見上げてるのを見かけた。"
+      - type: dialog
+        character: ai
+        text: "「{台風|たいふう}が来るのが心配なのかな」って思ったのに、{声|こえ}をかけなかった。「大人のことだから口を出すのは{失礼|しつれい}かも」って。"
+        expression: worried
+      - type: dialog
+        character: ai
+        text: "あのとき{声|こえ}をかけていれば、{連絡先|れんらくさき}を{交換|こうかん}できたかもしれない。気づいていたのに{動|うご}けなかった。"
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ナナの真実（クライマックス）
+  - id: truth-nana
+    bgm: disaster-02/truth
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: center
+      - type: dialog
+        character: nana
+        text: "……わたしが一番、話さなきゃいけないことがある。"
+      - type: narration
+        speed: slow
+        text: "ナナがゆっくりと話し始めた。"
+      - type: dialog
+        character: nana
+        text: "18:30にアプリで「{警戒|けいかい}レベル3：{高齢者|こうれいしゃ}{等|とう}{避難|ひなん}」って{通知|つうち}を見たの。"
+      - type: dialog
+        character: nana
+        text: "そのとき、こう思った。「{高齢者|こうれいしゃ}{等|とう}{避難|ひなん}……自分は{子|こ}どもだから、まだいいや。レベル4になったら{声|こえ}をかけに行こう」って。"
+        expression: worried
+      - type: dialog
+        character: nana
+        text: "だからレベル4が出た19:00に、やっとタカギさんの家に行った。でも……"
+      - type: dialog
+        character: nana
+        text: "タカギさんは17:30からずっと、わたしが来てくれるのを{待|ま}ってた。1{時間|じかん}半も。ひとりで。"
+        expression: determined
+      - type: narration
+        speed: slow
+        text: "ナナの{目|め}に{涙|なみだ}がにじんだ。"
+      - type: dialog
+        character: nana
+        text: "わたし、サボったんじゃない。でも「レベル3は自分には{関係|かんけい}ない」って{思|おも}い{込|こ}んでた。{本当|ほんとう}は、レベル3が出たときに{助|たす}ける{側|がわ}として{動|うご}くべきだった。"
+      - type: dialog
+        character: nana
+        text: "タカギさん、ごめんなさい……"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ナナに{悪意|あくい}はなかった。ただ、{警報|けいほう}レベルの{意味|いみ}を正しく知らなかった——それだけだ。でもその{小|ちい}さな{誤解|ごかい}が、タカギさんの1{時間|じかん}半に{繋|つな}がった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: gym
+    bgm: disaster-02/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナナは{悪|わる}い子じゃない。タカギさんのことを{大切|たいせつ}に思っていた。でも{大事|だいじ}なことが一つ{足|た}りなかった。"
+      - type: dialog
+        character: sensei
+        text: "{警戒|けいかい}レベル3の「{高齢者|こうれいしゃ}{等|とう}」の「{等|とう}」には、{耳|みみ}や{足|あし}の{不自由|ふじゆう}な方も{含|ふく}まれます。そしてレベル3は「{助|たす}ける{側|がわ}も{動|うご}き始めるタイミング」なんです。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして——ソウタも、ケイも、アイも、それぞれ{後|うし}ろめたいことがありましたね。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{防災|ぼうさい}は「{完璧|かんぺき}な{一人|ひとり}」がいればいいのではなく、みんなが{少|すこ}しずつ「気にかける」ことで成り立つんです。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: determined }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: determined }
+      - type: narration
+        text: "ソウタは「{通知|つうち}はすぐ{確認|かくにん}する」と{決|き}めた。ケイは「{要配慮者|ようはいりょしゃ}リストを{確認|かくにん}する」と{決|き}めた。"
+      - type: narration
+        text: "アイは「気づいたら{声|こえ}をかける」と{決|き}めた。そしてナナは「レベル3が出たら、自分が{助|たす}ける{側|がわ}として{動|うご}く」と{決|き}めた。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{同|おな}じ{情報|じょうほう}でも「自分には{関係|かんけい}ない」と思ったら{見|み}えなくなる。{防災|ぼうさい}は、自分だけでなく{周|まわ}りの人を思って{行動|こうどう}すること。"
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団——{避難所|ひなんじょ}のひみつ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
