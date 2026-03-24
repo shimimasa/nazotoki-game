@@ -1,0 +1,484 @@
+meta:
+  id: disaster-07
+  title: 気象データの穴
+  series: 防災探偵団
+  volume: 7
+  estimatedMinutes: 22
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: disaster-03/opening
+    steps:
+      - type: narration
+        text: "{防災|ぼうさい}{委員会|いいんかい}の{気象|きしょう}データ{記録|きろく}——{台風|たいふう}{接近|せっきん}の日、4人が{当番制|とうばんせい}で{記録|きろく}ノートを引き{継|つ}いだ。"
+      - type: narration
+        text: "ところが{記録|きろく}を{確認|かくにん}すると——9月14日の11:50〜15:30の3{時間|じかん}40分、データが{完全|かんぜん}に{空白|くうはく}になっている。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: bgm
+        track: disaster-03/investigation
+      - type: dialog
+        character: sensei
+        text: "その{空白|くうはく}の{時間帯|じかんたい}は、{実|じつ}は「{大雨|おおあめ}{警報|けいほう}が出るべきだった{時刻|じこく}」と{一致|いっち}します。{誰|だれ}がデータを{記録|きろく}せず、なぜ{空白|くうはく}を作ったのか——{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: normal }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: thinking }
+          - { id: ai, expression: thinking }
+      - type: narration
+        text: "ソウタだけが{静|しず}かな{表情|ひょうじょう}を{保|たも}っている。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.7
+        subtitle: 気象データの穴
+
+  - id: suspects
+    bg: classroom
+    bgm: disaster-03/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは10:00から{気象|きしょう}データの{記録|きろく}を{担当|たんとう}した。{記録|きろく}は{正確|せいかく}なはずだ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしは{午後|ごご}、{記録室|きろくしつ}に{様子|ようす}を見に行ったの。14:00〜14:30に。でも{気象|きしょう}データの{記録|きろく}は{担当|たんとう}じゃなかった。"
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれは15:50から{記録|きろく}を引き{継|つ}いだ。16:00と16:30のデータはおれが{書|か}いた。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしは15:45に{記録室|きろくしつ}を{覗|のぞ}いたけど、2分で出た。データの{数値|すうち}をちらっと見ただけ。"
+      - type: sprite
+        character: ai
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 気象警報の発令基準
+      - type: narration
+        text: "{大雨|おおあめ}{警報|けいほう}の{基準|きじゅん}——{時間|じかん}{雨量|うりょう}50mm/h{以上|いじょう}。{暴風|ぼうふう}{警報|けいほう}——{最大|さいだい}{風速|ふうそく}25m/s{以上|いじょう}。"
+      - type: narration
+        text: "ソウタの{記録|きろく}——11:50の{時点|じてん}で{気圧|きあつ}985hPa、{風速|ふうそく}18m/s、{雨量|うりょう}42mm/h。"
+      - type: narration
+        text: "15:30の{時点|じてん}で{気圧|きあつ}971hPa、{風速|ふうそく}28m/s、{雨量|うりょう}35mm/h。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "11:50から15:30の{間|あいだ}に{気圧|きあつ}が14hPa{低下|ていか}、{風速|ふうそく}が10m/s{上昇|じょうしょう}。{途中|とちゅう}で{警報|けいほう}{基準|きじゅん}を{超|こ}えているはずだが——データがない。"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 記録ノートの空白
+      - type: narration
+        text: "{防災|ぼうさい}{委員会|いいんかい}の{記録|きろく}ノート——"
+      - type: narration
+        text: "No.1（10:00）〜No.5（11:50）：ソウタが{正確|せいかく}に{記録|きろく}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "No.5（11:50）→ No.6（15:30）——3{時間|じかん}40分の{空白|くうはく}！"
+      - type: narration
+        text: "No.7（16:00）、No.8（16:30）はケイが{記録|きろく}。{大雨|おおあめ}{警報|けいほう}{発令|はつれい}は「15:50」と{記載|きさい}。"
+      - type: narration
+        text: "なぜ3{時間|じかん}40分もデータが空いている？ {機械|きかい}エラー？ それとも{人|ひと}が{記録|きろく}しなかった？"
+
+  - id: evidence-3
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 記録室の来室ログ
+      - type: narration
+        text: "9月14日の{記録室|きろくしつ}の出入り{記録|きろく}——"
+      - type: narration
+        text: "10:00 ソウタ{入室|にゅうしつ}。11:52 ソウタ{退室|たいしつ}（少し{急|いそ}いでいる{様子|ようす}）。"
+      - type: narration
+        text: "14:00 ナナ{入室|にゅうしつ}。14:30 ナナ{退室|たいしつ}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "15:27 ソウタ{再|さい}{入室|にゅうしつ}（{顔|かお}が{赤|あか}く、{息|いき}が{少|すこ}し{荒|あら}い）。"
+      - type: narration
+        text: "15:45 アイ{入室|にゅうしつ}。15:47 アイ{退室|たいしつ}。15:50 ケイ{入室|にゅうしつ}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ソウタの{不在|ふざい}{時間|じかん}：11:52〜15:27 ＝ 3{時間|じかん}35分。{空白|くうはく}とほぼ{一致|いっち}する。"
+
+  - id: evidence-4
+    bgm: disaster-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 近隣気象委員会の公式記録
+      - type: narration
+        text: "{近隣|きんりん}{気象|きしょう}{委員会|いいんかい}の{公式|こうしき}{記録|きろく}——{空白|くうはく}{時間帯|じかんたい}の{本当|ほんとう}のデータ。"
+      - type: narration
+        text: "12:30 {雨量|うりょう}55mm/h。13:00 {雨量|うりょう}61mm/h。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "13:10——{大雨|おおあめ}{警報|けいほう}{発令|はつれい}！ 13:30——{暴風|ぼうふう}{警報|けいほう}{発令|はつれい}！"
+      - type: narration
+        text: "{防災|ぼうさい}{委員会|いいんかい}の{記録|きろく}では{警報|けいほう}{発令|はつれい}「15:50」。{公式|こうしき}{記録|きろく}では「13:10」。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "2{時間|じかん}40分のズレ！ {同|おな}じ{警報|けいほう}の{時刻|じこく}がなぜこんなにズレる？ {誰|だれ}かが{記録|きろく}を{書|か}き{換|か}えた？"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{記録|きろく}ノートの{原本|げんぽん}を{詳|くわ}しく{調|しら}べました。{重大|じゅうだい}な{発見|はっけん}があります。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{発見|はっけん}①——No.6の{番号|ばんごう}欄に{消|け}しゴムで{消|け}した{跡|あと}がある。{元|もと}は「No.12」と{書|か}いてあった。"
+      - type: narration
+        text: "{発見|はっけん}②——No.5とNo.6の{間|あいだ}のページに{切|き}り取られた{形跡|けいせき}がある。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{発見|はっけん}③——ノートの{余白|よはく}に{小|ちい}さなメモ。「15:30に{戻|もど}ってきた。No.を{直|なお}した。ばれないと思う。でも……」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ソウタが{番号|ばんごう}を{振|ふ}り{直|なお}して{空白|くうはく}を{隠蔽|いんぺい}した。15:30から{再開|さいかい}した{記録|きろく}を「11:50の{続|つづ}き」に見せかけていた。"
+
+  - id: questions
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{記録|きろく}の{空白|くうはく}を作り、{番号|ばんごう}を{振|ふ}り{直|なお}したのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 3時間40分のデータ空白を作り、番号を振り直して隠蔽したのは誰？
+        options:
+          - text: ソウタ（11:52に退室→15:27に再入室。空白と不在時間が一致）
+            value: souta
+            feedback: 正解！ ソウタは11:52に急いで退室し、15:27に息を切らして戻ってきた。その間のデータが空白で、番号を振り直して隠蔽した。
+          - text: ナナ（14:00〜14:30に記録室にいた）
+            value: nana
+            feedback: ナナは記録室に来たけど、気象データの記録担当ではなかった。空白の原因はナナではないよ。
+          - text: ケイ（15:50から引き継いだが、それ以前は不在）
+            value: kei
+            feedback: ケイは15:50に入室して16:00から記録を引き継いだ。空白の時間帯（11:50〜15:30）にはまだ担当前だよ。
+          - text: アイ（15:45に2分だけ来室）
+            value: ai
+            feedback: アイは15:45に2分だけ来て数値を見ただけ。空白を作ったのは別の人だよ。
+      - type: choice
+        id: q2
+        question: ソウタが空白を隠蔽した理由は何だと思う？
+        options:
+          - text: 家族の避難準備を手伝っていて、戻ったら空白に焦った
+            value: family
+            feedback: 正解！ お母さんから「荷物を2階に上げてほしい」と頼まれて帰宅した。戻ったら3時間以上の空白。「叱られる」「信頼を失う」と焦って番号を振り直した。
+          - text: データを改ざんして警報を遅らせたかった
+            value: malicious
+            feedback: ソウタに悪意はなかった。家族の避難準備という正しい行動をした後、空白を隠す判断をしてしまった。
+          - text: 記録の仕方がわからなかった
+            value: no-skill
+            feedback: ソウタは11:50まで正確に記録していた。記録の仕方は知っていた。問題は「空白を正直に報告できなかった」こと。
+          - text: 眠ってしまった
+            value: sleeping
+            feedback: 来室ログでソウタは11:52に急いで退室し、15:27に息を切らして戻っている。眠っていたのではなく外出していた。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 空白の3時間40分
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-nana
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: left
+      - type: dialog
+        character: nana
+        text: "わたしも{完璧|かんぺき}じゃなかった。{避難所|ひなんじょ}のボランティア{名簿|めいぼ}に、{承認|しょうにん}を取らずに自分の{名前|なまえ}を{代筆|だいひつ}した。"
+      - type: sprite
+        character: nana
+        action: hide
+
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "おれは{防災|ぼうさい}{訓練|くんれん}に5分{遅刻|ちこく}した。{近隣|きんりん}{記録|きろく}と{委員会|いいんかい}{記録|きろく}のズレに気づいたけど、すぐ{報告|ほうこく}しなかった。"
+      - type: sprite
+        character: kei
+        action: hide
+
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたしは{前日|ぜんじつ}に「{明日|あした}の{記録|きろく}{担当|たんとう}を{確認|かくにん}しておこう」と思ったのに、{声|こえ}をかけずに{帰宅|きたく}した。"
+      - type: sprite
+        character: ai
+        action: hide
+
+  - id: truth-souta
+    bgm: disaster-03/truth
+    steps:
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "ソウタが{長|なが}い{間|あいだ}、{黙|だま}っていた。"
+      - type: dialog
+        character: souta
+        text: "……{空白|くうはく}を作ったのは、ぼくだ。"
+        expression: worried
+      - type: dialog
+        character: souta
+        text: "12{時|じ}過ぎにお{母|かあ}さんから「{台風|たいふう}が来る{前|まえ}に{荷物|にもつ}を2{階|かい}に上げてほしい」って{連絡|れんらく}が来た。「15分だけ」って思って{帰|かえ}ったけど、{準備|じゅんび}がすごく{大変|たいへん}で……気づいたら15{時|じ}半だった。"
+      - type: dialog
+        character: souta
+        text: "{急|いそ}いで{学校|がっこう}に{戻|もど}ったら、ノートが11:50で{止|と}まっていた。3{時間|じかん}40分の{空白|くうはく}。「これが{見|み}つかったら{叱|しか}られる」「{防災|ぼうさい}{委員|いいん}として{信頼|しんらい}してもらえなくなる」って——"
+        expression: worried
+      - type: dialog
+        character: souta
+        text: "{焦|あせ}って{番号|ばんごう}を{振|ふ}り{直|なお}した。15:30の{記録|きろく}を「No.6」にして、11:50の{続|つづ}きに見せた。{警報|けいほう}{発令|はつれい}もアプリで{確認|かくにん}した15:50をそのまま{書|か}いた。"
+      - type: dialog
+        character: souta
+        text: "{本当|ほんとう}は13:10に{大雨|おおあめ}{警報|けいほう}が出ていた。ぼくの{記録|きろく}が{正|ただ}しければ、その{時間帯|じかんたい}の{危険|きけん}が分かったはずなのに。"
+        expression: determined
+      - type: dialog
+        character: souta
+        text: "{家族|かぞく}の{準備|じゅんび}を{手伝|てつだ}ったこと自体は……{間違|まちが}ってないと思う。でも{空白|くうはく}を{隠|かく}したのは{間違|まちが}いだった。"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ソウタは{悪意|あくい}で{隠蔽|いんぺい}したのではなかった。{家族|かぞく}を守る正しい{行動|こうどう}をした後、{空白|くうはく}を{認|みと}める{勇気|ゆうき}が{持|も}てなかった。{責任感|せきにんかん}が{逆|ぎゃく}に{働|はたら}いた。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: disaster-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ソウタ、{家族|かぞく}の{準備|じゅんび}を{手伝|てつだ}ったことは正しかった。でも{空白|くうはく}を{隠|かく}したことで、「{本当|ほんとう}に{危険|きけん}だった{時間帯|じかんたい}」の{情報|じょうほう}が{消|き}えてしまった。"
+      - type: dialog
+        character: sensei
+        text: "{空白|くうはく}こそが{最|もっと}も{重要|じゅうよう}な{情報|じょうほう}だった。「{記録|きろく}のない{時間|じかん}」が{誰|だれ}かの{判断|はんだん}を{誤|あやま}らせる。{防災|ぼうさい}データは正直に{残|のこ}すことが{命|いのち}を守ります。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "「データがないこと自体が{情報|じょうほう}」——{今日|きょう}の{大切|たいせつ}な学びです。{記録|きろく}ミスを{報告|ほうこく}しやすい{仕組|しく}み、ダブルチェック{制度|せいど}——{仕組|しく}みで{防|ふせ}ぐことが大事です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: determined }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: determined }
+      - type: narration
+        text: "ソウタは{記録|きろく}を{修正|しゅうせい}した。{空白|くうはく}の{時間帯|じかんたい}に「{不在|ふざい}：{家族|かぞく}{避難|ひなん}{準備|じゅんび}」と正直に{書|か}いた。"
+      - type: narration
+        speed: slow
+        text: "「{情報|じょうほう}がないこと」に気づく{力|ちから}。それが{今日|きょう}の{防災|ぼうさい}{探偵|たんてい}団の{新|あたら}しいスキル。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団——{気象|きしょう}データの{穴|あな}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
