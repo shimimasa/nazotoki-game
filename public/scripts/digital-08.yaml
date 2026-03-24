@@ -1,0 +1,492 @@
+meta:
+  id: digital-08
+  title: ネットいじめの構造
+  series: 情報モラル探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-08/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の「あおばトーク」に、{匿名|とくめい}でリコの{悪口|わるぐち}が{投稿|とうこう}された。"
+      - type: narration
+        text: "『リコって{暗|くら}いよね。いつも1{人|り}でいるし』——{水曜|すいよう}21:15。"
+      - type: narration
+        text: "『リコって{友達|ともだち}いないんじゃない？ かわいそう』——{水曜|すいよう}21:30。"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: riko
+        expression: worried
+        position: center
+      - type: narration
+        speed: slow
+        text: "{木曜|もくよう}の{朝|あさ}、リコはこれを{読|よ}んで{泣|な}いてしまった。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: bgm
+        file: digital-08/tension
+      - type: dialog
+        character: sensei
+        text: "ネットで{人|ひと}の{悪口|わるぐち}を{書|か}くのは{絶対|ぜったい}にダメです。いじめです。{誰|だれ}が{書|か}いたか、{調査|ちょうさ}します。"
+      - type: dialog
+        character: sensei
+        text: "でもこの{事件|じけん}には、{悪口|わるぐち}を{書|か}いた{理由|りゆう}にもう1つの{問題|もんだい}が{隠|かく}れています。{情報|じょうほう}モラル{探偵|たんてい}のみなさん、{真相|しんそう}を{突|つ}き{止|と}めてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: haruto
+            expression: thinking
+          - character: mio
+            expression: worried
+          - character: sora
+            expression: determined
+          - character: riko
+            expression: worried
+      - type: narration
+        text: "{匿名|とくめい}の{悪口|わるぐち}を{書|か}いたのは{誰|だれ}か。そしてなぜ——その{裏|うら}にある「{思|おも}い{込|こ}み」の{問題|もんだい}を{解|と}き{明|あ}かす{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "情報モラル探偵団 Vol.8"
+        subtitle: "ネットいじめの構造"
+
+  # ===== 証拠カード1: 匿名メッセージ =====
+  - id: evidence-1
+    bg: classroom
+    bgm: digital-08/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "「あおばトーク」に{投稿|とうこう}された{匿名|とくめい}メッセージ2{通|つう}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "メッセージ1（{水曜|すいよう}21:15）——「リコって{暗|くら}いよね。いつも1{人|り}でいるし」"
+      - type: narration
+        text: "メッセージ2（{水曜|すいよう}21:30）——「リコって{友達|ともだち}いないんじゃない？ かわいそう」"
+      - type: narration
+        text: "「{名無|ななし}しさん」アカウントから{投稿|とうこう}。{家庭|かてい}のネット{回線|かいせん}から{接続|せつぞく}——{学校|がっこう}のWi-Fiではない。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{悪口|わるぐち}の{内容|ないよう}は「{暗|くら}い」「1{人|り}でいる」「{友達|ともだち}がいない」——リコの{最近|さいきん}の{様子|ようす}をよく{知|し}っている{人|ひと}が{書|か}いたものだ。"
+
+  # ===== 証拠カード2: 4人の関係と行動 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: digital-08/investigation
+    steps:
+      - type: narration
+        text: "4{人|にん}の{最近|さいきん}の{関係|かんけい}と、{水曜|すいよう}の{夜|よる}の{行動|こうどう}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "リコ——{先月|せんげつ}から{図書|としょ}{委員|いいん}に。{昼休|ひるやす}みは{図書室|としょしつ}の{仕事|しごと}で{教室|きょうしつ}にいないことが{増|ふ}えた。"
+      - type: narration
+        text: "ミオ——{最近|さいきん}{元気|げんき}がない。1{人|り}でいることが{多|おお}い。{先週|せんしゅう}ソラに「リコと{遊|あそ}べなくてさみしい」と{相談|そうだん}。"
+      - type: narration
+        text: "ソラ——ミオに「{直接|ちょくせつ}リコに{言|い}えばいいじゃん」とアドバイスした。"
+      - type: narration
+        text: "{水曜|すいよう}の{夜|よる}の{行動|こうどう}——ハルト：{自宅|じたく}でオンライン{学習中|がくしゅうちゅう}（ログあり）。ミオ：{自宅|じたく}にいた（タブレット{使用|しよう}{可能|かのう}）。ソラ：サッカー{練習|れんしゅう}{帰|がえ}り（21:30{帰宅|きたく}、タブレットなし）。リコ：21:00に{就寝|しゅうしん}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{水曜|すいよう}21:15にタブレットを使えたのはミオだけ。そして「リコと{遊|あそ}べなくてさみしい」と{言|い}っていたのも——ミオだ。"
+
+  # ===== 証拠カード3: 技術情報 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: digital-08/experiment
+    steps:
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{管理|かんり}{画面|がめん}で「{名無|ななし}しさん」アカウントの{端末|たんまつ}{情報|じょうほう}を{調|しら}べました。{使用|しよう}{端末|たんまつ}は——ミオの{家|いえ}のタブレットです。{端末|たんまつ}IDが{一致|いっち}しています。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "ただ、ミオの{家|いえ}のタブレット＝ミオが使ったとは{限|かぎ}りません。{家族|かぞく}の{可能性|かのうせい}もある。{技術的|ぎじゅつてき}{証拠|しょうこ}だけでは{断定|だんてい}できない。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+      - type: dialog
+        character: sora
+        text: "{先週|せんしゅう}、ミオがリコに{話|はな}しかけたらリコに『{今|いま}{忙|いそが}しいから{後|あと}でね』って{言|い}われてたんだ。ミオは、ものすごく{悲|かな}しそうな{顔|かお}をしてた。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "ミオの{家|いえ}のタブレットが使われた。ミオはリコに「{後|あと}でね」と{言|い}われて{傷|きず}ついていた。ミオには{動機|どうき}がある——だが、なぜ{悪口|わるぐち}を{書|か}いたのか。その{理由|りゆう}にこそ、{本当|ほんとう}の{問題|もんだい}が{隠|かく}れている。"
+
+  # ===== 証拠カード4: ミオとリコの関係 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: digital-08/experiment
+    steps:
+      - type: sprite
+        character: riko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: riko
+        text: "{悪口|わるぐち}の{内容|ないよう}……「{暗|くら}い」「1{人|り}でいる」「{友達|ともだち}がいない」。これはわたしの{最近|さいきん}の{様子|ようす}そのもの。こんなことを{書|か}けるのは、わたしのことをよく見ている{人|ひと}。{最近|さいきん}の{変化|へんか}を{気|き}にしている{人|ひと}。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "ミオの{行動|こうどう}の{変化|へんか}——{先月|せんげつ}まではリコといつも{一緒|いっしょ}で{明|あか}るかった。リコが{図書|としょ}{委員|いいん}になってからは1{人|り}でいることが{増|ふ}え、{元気|げんき}がなくなった。"
+      - type: narration
+        text: "{先週|せんしゅう}、ソラに「さみしい」と{相談|そうだん}。リコに{話|はな}しかけて「{後|あと}でね」と{言|い}われた。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "そして{今週|こんしゅう}——{先生|せんせい}がミオのノートを{確認|かくにん}したところ、こう{書|か}かれていた。「リコはもうわたしのこと{嫌|きら}いなのかも」"
+      - type: narration
+        text: "ミオは「リコに{嫌|きら}われた」と{思|おも}い{込|こ}んでいた。リコが{忙|いそが}しいだけなのに、リコの{行動|こうどう}を{全部|ぜんぶ}「{自分|じぶん}を{避|さ}けている{証拠|しょうこ}」として{解釈|かいしゃく}してしまっていた。これが{確証|かくしょう}バイアスだ。"
+
+  # ===== 証拠カード5: リコの本当の気持ち =====
+  - id: card-5
+    bg: classroom
+    bgm: digital-08/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}がリコに「ミオのことをどう{思|おも}っているか」を{聞|き}いた{結果|けっか}。"
+      - type: sprite
+        character: riko
+        expression: normal
+        position: center
+      - type: dialog
+        character: riko
+        text: "ミオは1{年生|ねんせい}からの{大切|たいせつ}な{友達|ともだち}です。{最近|さいきん}{図書|としょ}{委員|いいん}で{忙|いそが}しくて{一緒|いっしょ}に{遊|あそ}べなかったけど、{嫌|きら}いになったわけじゃない。"
+      - type: sprite
+        character: riko
+        expression: worried
+      - type: dialog
+        character: riko
+        text: "{先週|せんしゅう}『{今|いま}{忙|いそが}しいから{後|あと}でね』って{言|い}ったのは、{本|ほん}の{整理|せいり}が{大変|たいへん}だっただけ。ミオを{避|さ}けたつもりはなかった。"
+      - type: dialog
+        character: riko
+        text: "{悪口|わるぐち}を{書|か}いた{人|ひと}がミオだとしたら……わたしがミオの{気持|きも}ちに{気|き}づかなかったのも{悪|わる}い。『{後|あと}でね』じゃなくて、『{忙|いそが}しいけどミオのこと{嫌|きら}いじゃないよ』って{言|い}えばよかった。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        speed: slow
+        text: "ミオの{思|おも}い{込|こ}み——「リコに{嫌|きら}われた」。でも{実際|じっさい}は{忙|いそが}しかっただけ。{同|おな}じ{出来事|できごと}でも、{思|おも}い{込|こ}みがあるとまったく{違|ちが}って見える。これが「{確証|かくしょう}バイアス」。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-08/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出|で}そろいました。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "匿名で悪口を書いたのは誰？"
+        options:
+          - text: "ハルト（IT係で匿名アカウントを作れる）"
+            feedback: "ハルトは{水曜|すいよう}{夜|よる}にオンライン{学習中|がくしゅうちゅう}でログが{残|のこ}っている。{端末|たんまつ}IDもミオの{家|いえ}のものと{一致|いっち}。ハルトではないよ。"
+          - text: "ミオ（端末IDが一致＋リコに嫌われたと思い込んでいた）"
+            feedback: "{端末|たんまつ}IDがミオの{家|いえ}のタブレットと{一致|いっち}。リコに「{嫌|きら}われた」と{思|おも}い{込|こ}み、{寂|さび}しさが{怒|いか}りに{変|か}わった。{確証|かくしょう}バイアスが{生|う}んだネットいじめ。"
+          - text: "ソラ（ミオの相談を受けて代わりに書いた？）"
+            feedback: "ソラは{水曜|すいよう}21:30まで{練習|れんしゅう}でタブレットもない。ミオに「{直接|ちょくせつ}{言|い}えば」とアドバイスした{側|がわ}。ソラではないね。"
+          - text: "リコ（自作自演で同情を集めようとした？）"
+            feedback: "リコは{水曜|すいよう}21:00に{就寝|しゅうしん}。タブレットも使っていない。{何|なに}より{被害者|ひがいしゃ}であり、{泣|な}いていたのは{本当|ほんとう}の{悲|かな}しみだよ。"
+      - type: choice
+        id: q2
+        text: "ミオが悪口を書いた本当の理由は？"
+        options:
+          - text: "リコのことが嫌いだったから"
+            feedback: "ミオはリコのことが{嫌|きら}いだったわけじゃない。むしろ{大好|だいす}きな{友達|ともだち}だからこそ、{遊|あそ}べなくて{寂|さび}しかった。{嫌|きら}いと{寂|さび}しいは{違|ちが}うよ。"
+          - text: "寂しさが怒りに変わった（確証バイアス）"
+            feedback: "「{嫌|きら}われた」と{思|おも}い{込|こ}むと、{相手|あいて}の{行動|こうどう}が{全部|ぜんぶ}その{証拠|しょうこ}に見える。{寂|さび}しさが{怒|いか}りに{変|か}わり、{匿名|とくめい}で{攻撃|こうげき}してしまった。"
+          - text: "匿名なら何を書いてもバレないと思った"
+            feedback: "{匿名|とくめい}だから{書|か}けた{面|めん}はある。でも{根本|こんぽん}の{原因|げんいん}は「{嫌|きら}われた」という{思|おも}い{込|こ}み。{匿名|とくめい}がなくても{寂|さび}しさは{変|か}わらなかった。"
+          - text: "リコに気持ちを分かってほしかった"
+            feedback: "{本当|ほんとう}は「{嫌|きら}わないで」「{遊|あそ}んでほしい」と{言|い}いたかった。でも{直接|ちょくせつ}{言|い}えなくて、{逆|ぎゃく}の{形|かたち}（{悪口|わるぐち}）で{表現|ひょうげん}してしまった。"
+      - type: choice
+        id: q3
+        text: "思い込みで人を傷つけないために何ができる？"
+        options:
+          - text: "直接本人に聞く（嫌いじゃないよね？）"
+            feedback: "ミオが『{嫌|きら}いじゃないよね？』と{直接|ちょくせつ}{聞|き}いていれば、リコは『{忙|いそが}しいだけだよ』と{答|こた}えたはず。{思|おも}い{込|こ}みで{判断|はんだん}する{前|まえ}に{確認|かくにん}。"
+          - text: "別の理由がないか考える"
+            feedback: "『{嫌|きら}われた』{以外|いがい}の{理由|りゆう}——『{忙|いそが}しいだけかも』『{体調|たいちょう}が{悪|わる}いのかも』。{別|べつ}の{可能性|かのうせい}を{考|かんが}えるだけで、{思|おも}い{込|こ}みから{抜|ぬ}け{出|だ}せる。"
+          - text: "信頼できる人に相談する"
+            feedback: "ソラに{相談|そうだん}して「{直接|ちょくせつ}{言|い}えば」とアドバイスをもらった。でもそのアドバイスを{実行|じっこう}できなかった。{先生|せんせい}にも{相談|そうだん}する{勇気|ゆうき}が{大切|たいせつ}。"
+          - text: "自分の気持ちの正体を知る（寂しい？ 怒り？）"
+            feedback: "ミオの{本当|ほんとう}の{気持|きも}ちは「{寂|さび}しい」だった。でもそれが「{怒|いか}り」に{変|か}わってしまった。{自分|じぶん}の{気持|きも}ちの{正体|しょうたい}に{気|き}づくことが{第一歩|だいいっぽ}。"
+
+  # ===== 真実: ハルト =====
+  - id: truth-haruto
+    bg: classroom
+    bgm: digital-08/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{端末|たんまつ}IDを{調|しら}べた{結果|けっか}、「{名無|ななし}しさん」はミオの{家|いえ}のタブレットから{作|つく}られていました。{技術的|ぎじゅつてき}{証拠|しょうこ}は{明確|めいかく}です。"
+      - type: sprite
+        character: haruto
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: "でも……{犯人|はんにん}を{見|み}つけるだけじゃダメだと{思|おも}った。「なぜ{書|か}いたのか」——その{理由|りゆう}を{知|し}ることが、もっと{大事|だいじ}だと。"
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ===== 真実: ソラ =====
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+      - type: dialog
+        character: sora
+        text: "オレ、ミオに「{直接|ちょくせつ}{言|い}えば」ってアドバイスした。でもその{後|あと}、ミオがリコに『{後|あと}でね』って{言|い}われてすごく{悲|かな}しそうだったの見てた。"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "あのときもっとちゃんとフォローしてれば……ミオが1{人|り}で{抱|かか}え{込|こ}まなくて{済|す}んだかもしれない。ネットいじめは{許|ゆる}せない。でもミオの{気持|きも}ちに{気|き}づかなかったオレも{悪|わる}い。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 真実: リコ =====
+  - id: truth-riko
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riko
+        expression: worried
+        position: left
+      - type: dialog
+        character: riko
+        text: "{悪口|わるぐち}を{読|よ}んで{泣|な}いた。「{暗|くら}い」「{友達|ともだち}がいない」って。でも{考|かんが}えたの——こんなことを{書|か}けるのは、わたしのことをよく見ている{人|ひと}だって。"
+      - type: sprite
+        character: riko
+        expression: normal
+      - type: dialog
+        character: riko
+        text: "もしミオなら……わたしがミオの{気持|きも}ちに{気|き}づかなかったのも{悪|わる}い。『{後|あと}でね』じゃなくて、『{忙|いそが}しいけど{嫌|きら}いじゃないよ』って{言|い}えばよかった。"
+      - type: dialog
+        character: riko
+        text: "ミオはわたしの{大切|たいせつ}な{友達|ともだち}。{嫌|きら}いになんかなってない。ずっとそう{思|おも}ってた。"
+      - type: sprite
+        character: riko
+        action: hide
+
+  # ===== 真実: ミオ（犯人） =====
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+      - type: dialog
+        character: mio
+        text: "……{書|か}いたのは、わたしです。"
+      - type: narration
+        speed: slow
+        text: "ミオの{目|め}から{涙|なみだ}がこぼれた。"
+      - type: sprite
+        character: mio
+        expression: normal
+      - type: dialog
+        character: mio
+        text: "リコとずっと{仲良|なかよ}しだったのに、{先月|せんげつ}から{全然|ぜんぜん}{遊|あそ}べなくなって。リコが{他|ほか}の{子|こ}と{話|はな}してるの見て、『わたしのこと{嫌|きら}いなんだ』って{思|おも}っちゃった。"
+      - type: sprite
+        character: mio
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "『{後|あと}でね』って{言|い}われたとき、『やっぱり{避|さ}けてる』って。リコの{行動|こうどう}が{全部|ぜんぶ}「わたしを{嫌|きら}ってる{証拠|しょうこ}」に見えて……"
+      - type: dialog
+        character: mio
+        text: "{寂|さび}しくて、{悲|かな}しくて、それが{怒|いか}りに{変|か}わって。{匿名|とくめい}なら{分|わ}からないと{思|おも}って……{最低|さいてい}なことをしました。"
+      - type: narration
+        speed: slow
+        text: "ミオは{声|こえ}を{震|ふる}わせた。"
+      - type: sprite
+        character: mio
+        expression: determined
+      - type: dialog
+        character: mio
+        text: "{本当|ほんとう}は「{嫌|きら}わないで」って{言|い}いたかっただけ。リコ……ごめんなさい。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "ミオは「{嫌|きら}われた」と{思|おも}い{込|こ}んでいた。でもリコは{忙|いそが}しかっただけ。{一度|いちど}「{嫌|きら}われた」と{思|おも}うと、{相手|あいて}の{行動|こうどう}が{全部|ぜんぶ}その{証拠|しょうこ}に見えてしまう——これが{確証|かくしょう}バイアス。{思|おも}い{込|こ}みが、{大切|たいせつ}な{友達|ともだち}を{傷|きず}つけてしまった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-08/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ミオ、{正直|しょうじき}に{話|はな}してくれてありがとう。{匿名|とくめい}で{悪口|わるぐち}を{書|か}くことは{絶対|ぜったい}にいけません。でもミオの「{寂|さび}しかった」という{気持|きも}ちは{本物|ほんもの}です。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}{学|まな}んでほしいのは「{確証|かくしょう}バイアス」です。{一度|いちど}「{嫌|きら}われた」と{思|おも}うと、{相手|あいて}の{行動|こうどう}が{全部|ぜんぶ}その{証拠|しょうこ}に見える。でも{実際|じっさい}は{忙|いそが}しいだけかもしれない。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{思|おも}い{込|こ}みで{判断|はんだん}する{前|まえ}に、{直接|ちょくせつ}{聞|き}くこと。「{嫌|きら}いじゃないよね？」——この{一言|ひとこと}で{防|ふせ}げたはずです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: sprite
+        character: riko
+        expression: normal
+        position: left
+      - type: dialog
+        character: riko
+        text: "ミオ。わたし、ミオのこと{嫌|きら}いじゃないよ。ずっと{大切|たいせつ}な{友達|ともだち}だよ。"
+      - type: sprite
+        character: mio
+        expression: happy
+      - type: dialog
+        character: mio
+        text: "リコ……ありがとう。そしてごめんなさい。{次|つぎ}からは{思|おも}い{込|こ}む{前|まえ}に、{直接|ちょくせつ}{聞|き}くね。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "「{嫌|きら}われたかも」と{思|おも}ったら、{攻撃|こうげき}する{前|まえ}に{確認|かくにん}する。{自分|じぶん}の{気持|きも}ちの{正体|しょうたい}——{本当|ほんとう}は「{寂|さび}しい」なのか「{怒|いか}り」なのか——を{知|し}ること。これが{一番|いちばん}の{情報|じょうほう}モラルです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
