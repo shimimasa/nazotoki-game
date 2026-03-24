@@ -1,0 +1,483 @@
+meta:
+  id: money-10
+  title: お金で買えないもの
+  series: お金の探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  yuta:
+    name: ユウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sakura:
+    name: サクラ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kaito:
+    name: カイト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  nanoha:
+    name: ナノハ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: money-10/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の「お{金|かね}の{使|つか}い{方|かた}コンテスト」。4チームがそれぞれ{予算|よさん}500{円|えん}で「クラスのためになるもの」を{買|か}い、{先生|せんせい}とクラス{全員|ぜんいん}の{投票|とうひょう}で{一番|いちばん}{良|い}い{使|つか}い{方|かた}を{決|き}める。"
+      - type: narration
+        text: "{投票|とうひょう}{結果|けっか}——ナノハのチームが1{位|い}。「150{円|えん}で{済|す}ませた！ お{金|かね}を{大切|たいせつ}にした！」と{評価|ひょうか}された。"
+      - type: narration
+        text: "ところが——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: yuta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yuta
+        text: "サクラの{計画書|けいかくしょ}、{元|もと}は200{円|えん}って{書|か}いてあったのに400{円|えん}になってる。カイトの{計画書|けいかくしょ}も300{円|えん}が450{円|えん}に。{書|か}き{換|か}えられてる！"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: bgm
+        file: money-10/tension
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これはお{金|かね}の{探偵団|たんていだん}の{最後|さいご}の{事件|じけん}です。{解|と}くべき{謎|なぞ}は2つ。"
+      - type: dialog
+        character: sensei
+        text: "1つ目——{計画書|けいかくしょ}を{書|か}き{換|か}えたのは{誰|だれ}か。2つ目——{一番|いちばん}{良|い}いお{金|かね}の{使|つか}い{方|かた}は、{本当|ほんとう}に「{一番|いちばん}{安|やす}い」チーム？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: yuta
+            expression: thinking
+          - character: sakura
+            expression: worried
+          - character: kaito
+            expression: determined
+          - character: nanoha
+            expression: normal
+      - type: narration
+        text: "お{金|かね}の{探偵団|たんていだん}、{最後|さいご}の{調査|ちょうさ}が{始|はじ}まる。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "お金の探偵団 Vol.10"
+        subtitle: "お金で買えないもの"
+
+  # ===== 証拠カード1: 計画書の比較 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: money-10/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "4チームの{計画書|けいかくしょ}——{元|もと}の{金額|きんがく}と{発表|はっぴょう}時の{金額|きんがく}を{比較|ひかく}しよう。"
+      - type: narration
+        text: "ユウタ——{元|もと}500{円|えん}、{発表|はっぴょう}時500{円|えん}。{変化|へんか}なし。"
+      - type: narration
+        text: "サクラ——{元|もと}200{円|えん}、{発表|はっぴょう}時400{円|えん}。+200{円|えん}に{書|か}き{換|か}え！ ❌"
+      - type: narration
+        text: "カイト——{元|もと}300{円|えん}、{発表|はっぴょう}時450{円|えん}。+150{円|えん}に{書|か}き{換|か}え！ ❌"
+      - type: narration
+        text: "ナノハ——{元|もと}150{円|えん}、{発表|はっぴょう}時150{円|えん}。{変化|へんか}なし。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "サクラとカイトの{金額|きんがく}だけが{高|たか}くなっている。{書|か}き{換|か}えによってナノハの150{円|えん}が{圧倒的|あっとうてき}に{安|やす}く見える。{書|か}き{換|か}えで{一番|いちばん}{得|とく}するのは{誰|だれ}？"
+
+  # ===== 証拠カード2: 各チームの効果 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: money-10/investigation
+    steps:
+      - type: narration
+        text: "4チームが{実際|じっさい}に{買|か}ったものと、クラスへの{効果|こうか}を{比較|ひかく}しよう。"
+      - type: narration
+        text: "ユウタ——500{円|えん}で{学級|がっきゅう}{文庫|ぶんこ}の{本|ほん}1{冊|さつ}。{本好|ほんず}きの5{人|にん}が{読|よ}んだ。"
+      - type: narration
+        text: "サクラ——200{円|えん}で{色紙|いろがみ}・リボン・シール。クラス28{人|にん}{全員|ぜんいん}にメッセージカードを{手作|てづく}り。みんなで{作|つく}る{時間|じかん}を{共有|きょうゆう}。"
+      - type: narration
+        text: "カイト——300{円|えん}でゴムボール1{個|こ}。{昼休|ひるやす}みにクラス28{人|にん}が{一緒|いっしょ}に{遊|あそ}んだ。1{人|り}あたり{約|やく}11{円|えん}。"
+      - type: narration
+        text: "ナノハ——150{円|えん}で{雑巾|ぞうきん}3{枚|まい}。{掃除|そうじ}{当番|とうばん}が{使用|しよう}。{便利|べんり}だが{感動|かんどう}はない。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "「{安|やす}さ」で1{位|い}はナノハ。でも「{喜|よろこ}んだ{人数|にんずう}」で見ると——サクラ28{人|にん}、カイト28{人|にん}、ナノハ6{人|にん}。{何|なに}を{基準|きじゅん}にするかで「{一番|いちばん}{良|い}い{使|つか}い{方|かた}」は{変|か}わる。"
+
+  # ===== 証拠カード3: 書き換えの痕跡 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: money-10/experiment
+    steps:
+      - type: sprite
+        character: yuta
+        expression: determined
+        position: left
+      - type: dialog
+        character: yuta
+        text: "サクラの{計画書|けいかくしょ}は「200」の{上|うえ}から「400」が{書|か}かれている。{消|け}し{跡|あと}あり。カイトの{計画書|けいかくしょ}も「300」の{上|うえ}から「450」。"
+      - type: sprite
+        character: yuta
+        expression: thinking
+      - type: dialog
+        character: yuta
+        text: "{書|か}き{換|か}えた{数字|すうじ}の「4」の{上|うえ}の{横棒|よこぼう}が{長|なが}い。これはナノハの{字|じ}の{特徴|とくちょう}。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: narration
+        text: "{動機|どうき}の{消去法|しょうきょほう}——ユウタ：500{円|えん}で{変化|へんか}なし。{得|とく}しない。サクラ/カイト：{金額|きんがく}が{上|あ}がって{損|そん}。{被害者|ひがいしゃ}。ナノハ：{他|ほか}が{高|たか}くなれば{自分|じぶん}の150{円|えん}が{圧倒的|あっとうてき}に{安|やす}く見える。{唯一|ゆいいつ}{得|とく}する。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{書|か}き{換|か}えて{得|とく}するのはナノハだけ。{筆跡|ひっせき}もナノハの{特徴|とくちょう}と{一致|いっち}。"
+
+  # ===== 証拠カード4: 水曜の行動 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: money-10/experiment
+    steps:
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: right
+      - type: dialog
+        character: sakura
+        text: "{水曜|すいよう}の{放課後|ほうかご}、{教室|きょうしつ}を{通|とお}りかかったとき、ナノハが{計画書|けいかくしょ}の{前|まえ}に{立|た}って{何|なに}かを{書|か}いていたの。{自分|じぶん}のチームの{計画書|けいかくしょ}じゃなくて、わたしとカイトの{計画書|けいかくしょ}の{前|まえ}にいた。"
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaito
+        text: "{木曜|もくよう}の{朝|あさ}、{計画書|けいかくしょ}を見たら450{円|えん}になってた。「あれ、300{円|えん}って{書|か}いたのに」って{思|おも}ったけど、{発表|はっぴょう}{直前|ちょくぜん}だから{放置|ほうち}しちゃった。"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "ナノハが{水曜|すいよう}{放課後|ほうかご}に「{他|ほか}チームの{計画書|けいかくしょ}の{前|まえ}」にいた（サクラ{目撃|もくげき}）。カイトは{書|か}き{換|か}えに{気|き}づいたが{放置|ほうち}。{証拠|しょうこ}がそろった。"
+
+  # ===== 証拠カード5: お金の本当の価値 =====
+  - id: card-5
+    bg: classroom
+    bgm: money-10/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nanoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: nanoha
+        text: "……{書|か}き{換|か}えたのはわたしです。サクラの200{円|えん}を400{円|えん}に、カイトの300{円|えん}を450{円|えん}にしました。"
+      - type: dialog
+        character: nanoha
+        text: "わたしは『{安|やす}く{済|す}ませるのが{正|ただ}しい』と{信|しん}じていました。150{円|えん}で{掃除|そうじ}{用品|ようひん}を{買|か}ったのは{本当|ほんとう}にクラスのため。{無駄遣|むだづか}いしないのが{大事|だいじ}だと。"
+      - type: sprite
+        character: nanoha
+        expression: thinking
+      - type: dialog
+        character: nanoha
+        text: "でも……サクラが200{円|えん}で28{人|にん}{分|ぶん}のメッセージカードを{作|つく}ったとき、みんな{本当|ほんとう}に{嬉|うれ}しそうだった。カイトのボールでクラス{全員|ぜんいん}が{笑顔|えがお}で{遊|あそ}んだ。わたしの{雑巾|ぞうきん}3{枚|まい}より、みんなの{笑顔|えがお}の{方|ほう}が『{価値|かち}がある』のかも……"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        speed: slow
+        text: "お{金|かね}で{買|か}えるもの——{本|ほん}、ボール、{雑巾|ぞうきん}、{材料|ざいりょう}。お{金|かね}で{買|か}えないもの——みんなで{作|つく}った{思|おも}い{出|で}、{一緒|いっしょ}に{遊|あそ}んだ{時間|じかん}、{友達|ともだち}の{笑顔|えがお}。"
+      - type: narration
+        text: "ナノハは「{安|やす}い＝{正|ただ}しい」と{信|しん}じた。でもサクラとカイトは{少|すく}ないお{金|かね}で「お{金|かね}では{買|か}えない{価値|かち}」を{生|う}み{出|だ}した。「{一番|いちばん}{良|い}いお{金|かね}の{使|つか}い{方|かた}」は{安|やす}さだけでは{決|き}まらない。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: money-10/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{最後|さいご}の{事件|じけん}です。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "計画書を書き換えたのは誰？"
+        options:
+          - text: "ナノハ（書き換えで一番得する＋筆跡＋目撃）"
+            feedback: "{他|ほか}チームの{金額|きんがく}を{上|あ}げて{自分|じぶん}の150{円|えん}を{圧倒的|あっとうてき}に{安|やす}く見せた。{筆跡|ひっせき}、{目撃|もくげき}、{動機|どうき}がすべて{一致|いっち}。"
+          - text: "ユウタ（計画書の分析ができるから）"
+            feedback: "ユウタは500{円|えん}で{変化|へんか}なし。{書|か}き{換|か}えで{得|とく}しない。むしろ{書|か}き{換|か}えを{発見|はっけん}した{側|がわ}。"
+          - text: "サクラ（自分の金額を上げて同情を集めた？）"
+            feedback: "サクラは{被害者|ひがいしゃ}。{自分|じぶん}の{金額|きんがく}を{上|あ}げても{損|そん}するだけ。{同情|どうじょう}を{集|あつ}める{動機|どうき}もない。"
+          - text: "カイト（書き換えに気づいて放置した＝共犯？）"
+            feedback: "カイトは{書|か}き{換|か}えに{気|き}づいて{放置|ほうち}した。これは{問題|もんだい}だけど、{書|か}き{換|か}えた{本人|ほんにん}ではない。"
+      - type: choice
+        id: q2
+        text: "一番良いお金の使い方はどのチーム？"
+        options:
+          - text: "ナノハ（150円で一番安い）"
+            feedback: "「{安|やす}さ」で{判断|はんだん}するならナノハ。でも{喜|よろこ}んだ{人数|にんずう}は{掃除|そうじ}{当番|とうばん}の6{人|にん}。{安|やす}さだけが「{良|い}い{使|つか}い{方|かた}」だろうか？"
+          - text: "サクラ（200円で28人の思い出を作った）"
+            feedback: "200{円|えん}で28{人|にん}{全員|ぜんいん}がメッセージカードを{手作|てづく}り。「みんなで{作|つく}った{思|おも}い{出|で}」はお{金|かね}では{買|か}えない。"
+          - text: "カイト（300円で28人が一緒に遊んだ）"
+            feedback: "300{円|えん}で28{人|にん}が{昼休|ひるやす}みに{一緒|いっしょ}に{遊|あそ}んだ。「{友達|ともだち}と{遊|あそ}んだ{時間|じかん}」はお{金|かね}では{買|か}えない。"
+          - text: "正解はない。何を大切にするかで変わる"
+            feedback: "その{通|とお}り。「{安|やす}さ」「{喜|よろこ}ぶ{人数|にんずう}」「{思|おも}い{出|で}」——{何|なに}を{基準|きじゅん}にするかで{答|こた}えが{変|か}わる。{大事|だいじ}なのは「{安|やす}さだけ」で{判断|はんだん}しないこと。"
+      - type: choice
+        id: q3
+        text: "お金で買えないものは何？"
+        options:
+          - text: "みんなで作った思い出"
+            feedback: "サクラのメッセージカード。{材料|ざいりょう}は200{円|えん}で{買|か}えるけど、「28{人|にん}で{一緒|いっしょ}に{作|つく}った{体験|たいけん}」はお{金|かね}では{買|か}えない。"
+          - text: "友達と遊んだ時間"
+            feedback: "カイトのボール。ボールは300{円|えん}で{買|か}えるけど、「28{人|にん}で{笑|わら}い{合|あ}った{昼休|ひるやす}み」はお{金|かね}では{買|か}えない。"
+          - text: "友達の笑顔"
+            feedback: "{笑顔|えがお}はどんなに{高|たか}いお{金|かね}を{出|だ}しても{買|か}えない。でも{心|こころ}を{込|こ}めた200{円|えん}のプレゼントが28{人|にん}の{笑顔|えがお}を{生|う}んだ。"
+          - text: "全部（思い出・時間・笑顔）"
+            feedback: "お{金|かね}で{買|か}えるのは「{物|もの}」だけ。でもお{金|かね}を{使|つか}って「お{金|かね}で{買|か}えない{価値|かち}」を{生|う}み{出|だ}すことはできる。それが{一番|いちばん}{賢|かしこ}いお{金|かね}の{使|つか}い{方|かた}。"
+
+  # ===== 真実: ユウタ =====
+  - id: truth-yuta
+    bg: classroom
+    bgm: money-10/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuta
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuta
+        text: "{筆跡|ひっせき}と{消去法|しょうきょほう}で{分|わ}かった。{書|か}き{換|か}えで{得|とく}するのはナノハだけ。{書|か}き{換|か}え{前|まえ}はナノハ150{円|えん} vs サクラ200{円|えん}で50{円|えん}{差|さ}。{書|か}き{換|か}え{後|ご}はナノハ150{円|えん} vs サクラ400{円|えん}で250{円|えん}{差|さ}。{圧倒的|あっとうてき}に{安|やす}く見えるように{工作|こうさく}した。"
+      - type: sprite
+        character: yuta
+        expression: thinking
+      - type: dialog
+        character: yuta
+        text: "でも{犯人|はんにん}を{見|み}つけた{先|さき}の{問|と}いが{大事|だいじ}。「{安|やす}い＝{良|い}い」は{本当|ほんとう}か。{僕|ぼく}の500{円|えん}の{本|ほん}は5{人|にん}しか{読|よ}まなかった。サクラの200{円|えん}は28{人|にん}を{笑顔|えがお}にした。{数字|すうじ}だけでは{測|はか}れない{価値|かち}がある。"
+      - type: sprite
+        character: yuta
+        action: hide
+
+  # ===== 真実: サクラ =====
+  - id: truth-sakura
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: right
+      - type: dialog
+        character: sakura
+        text: "{水曜|すいよう}にナノハが{他|ほか}チームの{計画書|けいかくしょ}の{前|まえ}にいるのを見た。あのとき{声|こえ}をかけていれば……"
+      - type: sprite
+        character: sakura
+        expression: happy
+      - type: dialog
+        character: sakura
+        text: "でもわたしたちのメッセージカード、みんな{本当|ほんとう}に{喜|よろこ}んでくれた。200{円|えん}の{材料|ざいりょう}だけど、28{人|にん}で{一緒|いっしょ}に{作|つく}った{思|おも}い{出|で}はお{金|かね}では{買|か}えない。"
+      - type: sprite
+        character: sakura
+        action: hide
+
+  # ===== 真実: カイト =====
+  - id: truth-kaito
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaito
+        expression: worried
+        position: left
+      - type: dialog
+        character: kaito
+        text: "{木曜|もくよう}の{朝|あさ}に{書|か}き{換|か}えに{気|き}づいてたのに{放置|ほうち}しちゃった。「まあいいか」って。あのとき{言|い}うべきだった。"
+      - type: sprite
+        character: kaito
+        expression: happy
+      - type: dialog
+        character: kaito
+        text: "でもオレたちのボール、クラス{全員|ぜんいん}で{遊|あそ}べたぜ。300{円|えん}のボール1{個|こ}で28{人|にん}が{笑|わら}った。お{金|かね}で{買|か}ったのはボールだけど、{生|う}まれたのは「みんなで{遊|あそ}んだ{時間|じかん}」だ。"
+      - type: sprite
+        character: kaito
+        action: hide
+
+  # ===== 真実: ナノハ（犯人） =====
+  - id: truth-nanoha
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nanoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: nanoha
+        text: "……{認|みと}めます。{計画書|けいかくしょ}を{書|か}き{換|か}えたのはわたしです。"
+      - type: narration
+        speed: slow
+        text: "ナノハの{目|め}に{涙|なみだ}がにじむ。"
+      - type: sprite
+        character: nanoha
+        expression: normal
+      - type: dialog
+        character: nanoha
+        text: "わたしは「{安|やす}く{済|す}ませるのが{正|ただ}しい{使|つか}い{方|かた}」と{信|しん}じてた。150{円|えん}で{掃除|そうじ}{用品|ようひん}を{買|か}ったのは{本気|ほんき}でクラスのため。"
+      - type: sprite
+        character: nanoha
+        expression: worried
+      - type: dialog
+        character: nanoha
+        text: "でも{書|か}き{換|か}えてまで1{位|い}になろうとしたのは{間違|まちが}い。「{安|やす}い＝{正|ただ}しい」が{暴走|ぼうそう}して、{不正|ふせい}をしてしまった。"
+      - type: sprite
+        character: nanoha
+        expression: determined
+      - type: dialog
+        character: nanoha
+        text: "サクラのカードでみんなが{笑|わら}ってるのを見て{気|き}づいた。わたしの{雑巾|ぞうきん}3{枚|まい}より、あの{笑顔|えがお}の{方|ほう}がずっと「{価値|かち}がある」。{安|やす}さだけがお{金|かね}の{価値|かち}じゃなかった。ごめんなさい。"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: narration
+        text: "ナノハの「{安|やす}い＝{正|ただ}しい」は{間違|まちが}いではない。{節約|せつやく}は{大事|だいじ}。でもそれだけでは{足|た}りない。お{金|かね}の{価値|かち}は「いくら{使|つか}ったか」ではなく「{何|なに}を{生|う}み{出|だ}したか」で{決|き}まる。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: money-10/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナノハさん、{正直|しょうじき}に{認|みと}めてくれてありがとう。{節約|せつやく}の{大切|たいせつ}さを{知|し}っているナノハさんは{素晴|すば}らしい。でもお{金|かね}の{価値|かち}には{安|やす}さ{以外|いがい}もあるのです。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "お{金|かね}で{買|か}えるのは「{物|もの}」だけ。でもお{金|かね}を{使|つか}って「お{金|かね}では{買|か}えない{価値|かち}」を{生|う}み{出|だ}すことはできる。{思|おも}い{出|で}、{時間|じかん}、{友情|ゆうじょう}、{笑顔|えがお}——これがお{金|かね}の{本当|ほんとう}の{力|ちから}です。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "Vol.1からVol.10まで、{消去法|しょうきょほう}、{情報|じょうほう}{整理|せいり}、{因果|いんが}{連鎖|れんさ}、タイムライン、{仮説|かせつ}{検証|けんしょう}、{全探索|ぜんたんさく}、{情報|じょうほう}{欠落|けつらく}、{認知|にんち}バイアス、{帰納法|きのうほう}、{複合|ふくごう}{推理|すいり}とメタ{認知|にんち}——{全部|ぜんぶ}「お{金|かね}を{正|ただ}しく{使|つか}う{力|ちから}」です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: determined
+        position: left
+      - type: sprite
+        character: sakura
+        expression: happy
+        position: right
+      - type: dialog
+        character: nanoha
+        text: "{安|やす}さは{大事|だいじ}。でもそれだけじゃない。これからは「{何|なに}を{生|う}み{出|だ}せるか」も{考|かんが}えてお{金|かね}を{使|つか}う。{約束|やくそく}。"
+      - type: dialog
+        character: sakura
+        text: "200{円|えん}の{材料|ざいりょう}が28{人|にん}の{笑顔|えがお}になった。お{金|かね}の{価値|かち}は、{使|つか}う{人|ひと}の{心|こころ}{次第|しだい}だね。"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{最後|さいご}に{一番|いちばん}{大切|たいせつ}なこと——お{金|かね}で{買|か}えないもの。{友達|ともだち}と{過|す}ごす{時間|じかん}、{一緒|いっしょ}に{笑|わら}った{思|おも}い{出|で}、{大切|たいせつ}な{人|ひと}の{笑顔|えがお}。これがお{金|かね}の{探偵団|たんていだん}の、{最後|さいご}の{学|まな}びです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "お{金|かね}の{探偵団|たんていだん}——10{本|ぽん}の{事件|じけん}を{通|とお}じて、4{人|にん}は{成長|せいちょう}した。お{金|かね}を{正|ただ}しく{使|つか}い、{騙|だま}されず、そして「お{金|かね}で{買|か}えない{価値|かち}」を{大切|たいせつ}にする{力|ちから}——それがお{金|かね}の{探偵|たんてい}の{本当|ほんとう}の{力|ちから}だ。"
+      - type: effect
+        name: fade-out
