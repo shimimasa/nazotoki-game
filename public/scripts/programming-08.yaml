@@ -1,0 +1,514 @@
+meta:
+  id: programming-08
+  title: アルゴリズム迷路と消えた設計図
+  series: バグ探偵団
+  volume: 8
+  estimatedMinutes: 22
+
+characters:
+  issei:
+    name: イッセイ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kouhei:
+    name: コウヘイ
+    color: "#C0392B"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  suzuka:
+    name: スズカ
+    color: "#E67E22"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  chinatsu:
+    name: チナツ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}6年生の「{迷路|めいろ}コンテスト」。4人がそれぞれ{迷路|めいろ}を{設計|せっけい}し、お{互|たが}いの{迷路|めいろ}を{解|と}くタイムトライアル。"
+      - type: narration
+        text: "ところが{本番|ほんばん}{当日|とうじつ}——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: suzuka
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: suzuka
+        text: "イッセイの{迷路|めいろ}、どう{進|すす}んでも{行|い}き{止|ど}まりになる！ {解|と}けない！ しかも{設計図|せっけいず}が消えてる！"
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{迷路|めいろ}を「手順」でテストすると、{何|なに}がおかしいか分かります。「{右手|みぎて}ルール」でたどってみましょう。これが「アルゴリズム的{思考|しこう}」です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: issei, expression: worried }
+          - { id: kouhei, expression: normal }
+          - { id: suzuka, expression: thinking }
+          - { id: chinatsu, expression: thinking }
+      - type: narration
+        text: "コウヘイだけが{落|お}ち{着|つ}いた{表情|ひょうじょう}を{保|たも}っている。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.8
+        subtitle: アルゴリズム迷路と消えた設計図
+
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人に話を聞こう。"
+      - type: sprite
+        character: issei
+        expression: worried
+        position: left
+      - type: dialog
+        character: issei
+        text: "ぼくの{迷路|めいろ}はちゃんと{解|と}ける{迷路|めいろ}を作ったのに……{設計図|せっけいず}も消えてる。{設計図|せっけいず}には{正解|せいかい}ルートが{赤|あか}い{線|せん}で{描|えが}いてあったんだ。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        expression: normal
+        position: right
+      - type: dialog
+        character: kouhei
+        text: "ぼくの{迷路|めいろ}は{簡単|かんたん}に作った。みんなのは{難|むずか}しそうだったけど、ぼくのは……まあ、{楽|たの}しんでもらえればいいかなって。"
+        expression: normal
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        expression: normal
+        position: left
+      - type: dialog
+        character: suzuka
+        text: "あたしが{最初|さいしょ}にイッセイの{迷路|めいろ}を{解|と}こうとした。でもどう{進|すす}んでも{行|い}き{止|ど}まり。{木曜|もくよう}の見せ合いのときは{解|と}けたのに。"
+      - type: dialog
+        character: suzuka
+        text: "{金曜|きんよう}の16:30に{教室|きょうしつ}に{戻|もど}ったとき、コウヘイが{掃除|そうじ}{用具|ようぐ}入れのそばにいた。"
+        expression: thinking
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        expression: normal
+        position: right
+      - type: dialog
+        character: chinatsu
+        text: "わたしはイッセイの{迷路|めいろ}の{行|い}き{止|ど}まりを{数|かぞ}えたら4つあった。ルールでは3つまで。{木曜|もくよう}は2つだったのに——{壁|かべ}が{追加|ついか}されて{増|ふ}えてる。"
+        expression: thinking
+      - type: sprite
+        character: chinatsu
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 迷路コンテストのルール
+      - type: narration
+        text: "{迷路|めいろ}コンテストのルール——①スタートとゴールがある。②{解|と}ける{迷路|めいろ}であること。③{行|い}き{止|ど}まりは3つまで。④ズルは{禁止|きんし}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "イッセイの{迷路|めいろ}はルール②に{違反|いはん}！ スタートからゴールまで{通|とお}れる{道|みち}がない！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "イッセイは「ちゃんと{解|と}ける{迷路|めいろ}を作った」と{言|い}っている。はじめから{解|と}けなかったのか、それとも{後|あと}から{誰|だれ}かが{書|か}きかえたのか？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4人の迷路の比較表
+      - type: narration
+        text: "{木曜日|もくようび}の見せ合いで{確認|かくにん}した4人の{迷路|めいろ}——"
+      - type: narration
+        text: "イッセイ：★★★（きれいに{整理|せいり}。{木曜|もくよう}は{解|と}けた）。スズカ：★★★（{複雑|ふくざつ}）。チナツ：★★★（{行|い}き{止|ど}まりが{多|おお}い）。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "コウヘイ：★（{簡単|かんたん}）——4人の中で一番{簡単|かんたん}！"
+      - type: narration
+        text: "イッセイの{迷路|めいろ}は{木曜日|もくようび}には{解|と}けた。{月曜|げつよう}{当日|とうじつ}は{解|と}けない → {木曜|もくよう}〜{月曜|げつよう}の{間|あいだ}に{誰|だれ}かが{書|か}きかえた。"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 設計図の情報
+      - type: sprite
+        character: issei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: issei
+        text: "ぼくの{設計図|せっけいず}には{正解|せいかい}ルートが{赤|あか}い{線|せん}で{描|えが}いてあった。{設計図|せっけいず}を見れば、どこに{壁|かべ}を{足|た}せば{迷路|めいろ}が{解|と}けなくなるかが分かる。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: chinatsu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: chinatsu
+        text: "イッセイの{迷路|めいろ}の{行|い}き{止|ど}まりが4つに{増|ふ}えてる。{木曜|もくよう}は2つだったのに。{壁|かべ}が{追加|ついか}されて{行|い}き{止|ど}まりが{増|ふ}えたんだ。"
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: narration
+        text: "{設計図|せっけいず}は{金曜|きんよう}の{放課後|ほうかご}、{教室|きょうしつ}の{引|ひ}き{出|だ}し（{鍵|かぎ}なし）にあった。{金曜|きんよう}の{放課後|ほうかご}に{教室|きょうしつ}にいた人なら{取|と}れた。"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 金曜放課後の行動記録
+      - type: narration
+        text: "{金曜|きんよう}の{放課後|ほうかご}——4人はどこにいた？"
+      - type: narration
+        text: "イッセイ：15:00〜16:30 {図書室|としょしつ}（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "スズカ：15:00〜16:30 {体育館|たいいくかん}バスケ（コーチが{証人|しょうにん}）"
+      - type: narration
+        text: "チナツ：15:00〜16:00 {美術室|びじゅつしつ}ポスター（先生が{証人|しょうにん}）→ {下校|げこう}"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "コウヘイ：15:00〜16:00 校庭ドッジ → 16:00〜16:30 {教室|きょうしつ}で{荷物|にもつ}整理——{一人|ひとり}！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{金曜|きんよう}16:00〜16:30に{教室|きょうしつ}にいたのはコウヘイだけ。{設計図|せっけいず}は{鍵|かぎ}なしの{引|ひ}き{出|だ}し。スズカは16:30にコウヘイを{掃除|そうじ}{用具|ようぐ}入れのそばで{目撃|もくげき}。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "イッセイが{迷路|めいろ}を「{右手|みぎて}ルール」でテストする{方法|ほうほう}を{説明|せつめい}します。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: issei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: issei
+        text: "{右手|みぎて}ルール——①スタートに{立|た}つ ②{右手|みぎて}を{壁|かべ}につける ③{右手|みぎて}を{壁|かべ}から{離|はな}さないまま{歩|ある}く ④ゴールに着いたら正しい{迷路|めいろ}。同じ{場所|ばしょ}に{戻|もど}ったら{解|と}けない{迷路|めいろ}。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: narration
+        text: "イッセイの{迷路|めいろ}で{右手|みぎて}ルールをやってみると——"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "同じ{場所|ばしょ}に{戻|もど}った！ ループした！ → {解|と}けない{迷路|めいろ}。"
+      - type: narration
+        text: "でも{後|あと}から{追加|ついか}された{壁|かべ}を1{本|ぽん}{取|と}りのぞくと——"
+      - type: narration
+        speed: slow
+        text: "ゴールに着いた！ → {壁|かべ}がなければ{解|と}けるきれいな{迷路|めいろ}だ！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{追加|ついか}された{壁|かべ}は{正解|せいかい}ルートの上にある。{設計図|せっけいず}の{正解|せいかい}ルートを知らなければ{置|お}けない{位置|いち}。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "チナツの{観察|かんさつ}：「{木曜|もくよう}にコウヘイが『ぼくのはすぐ{解|と}けちゃうな…』とつぶやいていた」。コウヘイだけ{迷路|めいろ}が{簡単|かんたん}すぎることを気にしていた。"
+
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{迷路|めいろ}に{壁|かべ}を{追加|ついか}して{設計図|せっけいず}を{持|も}ち出したのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: イッセイの迷路に壁を追加し、設計図を持ち出したのは誰？
+        options:
+          - text: イッセイ（迷路の設計者。図書室にいて証人あり）
+            value: issei
+            feedback: イッセイは自分の迷路を解けなくする理由がない。図書室にいて証人もいる。
+          - text: コウヘイ（迷路が簡単すぎて悩んでいた。金曜16:00〜16:30に教室に一人。掃除用具入れのそばで目撃）
+            value: kouhei
+            feedback: 正解！ コウヘイは自分の迷路が簡単すぎるプライドから、設計図を見て正解ルート上に壁を追加。設計図は掃除用具入れに隠した。
+          - text: スズカ（迷路解きが得意。体育館にいて証人あり）
+            value: suzuka
+            feedback: スズカは迷路が解けないことを「最初に発見した」側。体育館にいて証人もいる。
+          - text: チナツ（行き止まりの増加を発見。美術室にいて証人あり）
+            value: chinatsu
+            feedback: チナツは行き止まりが増えたことに気づいた観察者。美術室にいて証人もいる。
+      - type: choice
+        id: q2
+        question: 「右手ルール」でテストして分かったことは何？
+        options:
+          - text: 壁が追加されたせいで迷路がループし、解けなくなっていた
+            value: wall-added
+            feedback: 正解！ 右手ルールでたどるとループした。追加された壁を取り除くとゴールに着いた。手順でテストすることで「何が問題か」が見えた。これがアルゴリズム的思考。
+          - text: 迷路がもともと間違って設計されていた
+            value: original-error
+            feedback: 木曜の見せ合いでは解けた。右手ルールで壁を取り除くとゴールに着く。もともとは正しい迷路だった。
+          - text: 壁の色が違っていた
+            value: color
+            feedback: 色の違いは手がかりの一つだけど、右手ルールで分かったのは「壁が追加されてループが生じた」という構造的な問題だよ。
+          - text: ゴールの位置が変わっていた
+            value: goal-moved
+            feedback: ゴールの位置は変わっていない。壁が1本追加されて正解ルートがふさがれた。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 簡単な迷路が恥ずかしかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-issei
+    bg: classroom
+    steps:
+      - type: sprite
+        character: issei
+        expression: worried
+        position: left
+      - type: dialog
+        character: issei
+        text: "ぼくも{設計図|せっけいず}を{鍵|かぎ}なしの{引|ひ}き{出|だ}しに入れてた。ちゃんと{管理|かんり}していれば{取|と}られなかった。"
+      - type: sprite
+        character: issei
+        action: hide
+
+  - id: truth-suzuka
+    steps:
+      - type: sprite
+        character: suzuka
+        expression: worried
+        position: right
+      - type: dialog
+        character: suzuka
+        text: "あたし、16:30にコウヘイが{掃除|そうじ}{用具|ようぐ}入れのそばにいるのを見たのに、「{荷物|にもつ}を{整理|せいり}してる」って{言葉|ことば}を{信|しん}じちゃった。"
+      - type: sprite
+        character: suzuka
+        action: hide
+
+  - id: truth-chinatsu
+    steps:
+      - type: sprite
+        character: chinatsu
+        expression: worried
+        position: left
+      - type: dialog
+        character: chinatsu
+        text: "わたしは{木曜|もくよう}にコウヘイが{元気|げんき}がないのに気づいてた。「ぼくのはすぐ{解|と}けちゃう」って。でも{声|こえ}をかけなかった。"
+      - type: sprite
+        character: chinatsu
+        action: hide
+
+  - id: truth-kouhei
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: kouhei
+        expression: normal
+        position: center
+      - type: narration
+        speed: slow
+        text: "コウヘイが{長|なが}い{間|あいだ}{黙|だま}っていた。"
+      - type: dialog
+        character: kouhei
+        text: "……ぼくがやった。"
+        expression: worried
+      - type: dialog
+        character: kouhei
+        text: "みんなの{迷路|めいろ}を見{比|くら}べたとき、ぼくのだけ{簡単|かんたん}すぎた。イッセイのは{整理|せいり}されてきれい。スズカのは{複雑|ふくざつ}でかっこいい。チナツのは{本格的|ほんかくてき}。——ぼくのだけ「すぐ{解|と}ける」。"
+      - type: dialog
+        character: kouhei
+        text: "「レベルが{低|ひく}い」って{思|おも}われたくなかった。だから{金曜|きんよう}の{放課後|ほうかご}、{教室|きょうしつ}に{一人|ひとり}でいるときにイッセイの{設計図|せっけいず}を見つけた。{正解|せいかい}ルートが{描|えが}いてあった。"
+        expression: worried
+      - type: dialog
+        character: kouhei
+        text: "「ここに{壁|かべ}を1{本|ぽん}{足|た}せば{解|と}けなくなる」——そう気づいて、{展示|てんじ}スペースに行ってイッセイの{迷路|めいろ}に{壁|かべ}を{追加|ついか}した。{設計図|せっけいず}は{掃除|そうじ}{用具|ようぐ}入れに{隠|かく}した。"
+      - type: dialog
+        character: kouhei
+        text: "でも……イッセイの{迷路|めいろ}を{壊|こわ}しても、ぼくの{迷路|めいろ}が{上手|じょうず}くなるわけじゃない。ごめん。"
+        expression: determined
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "コウヘイに{悪意|あくい}はなかった。{自分|じぶん}の{作品|さくひん}に{自信|じしん}が{持|も}てなくて、{他|ほか}の人をおとしいれることで{自分|じぶん}を守ろうとした。でも「{簡単|かんたん}で分かりやすい{迷路|めいろ}」は{恥|は}ずかしいことではない。分かりやすい{設計|せっけい}は、{立派|りっぱ}な{力|ちから}だ。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "コウヘイ、{自分|じぶん}の{迷路|めいろ}が{簡単|かんたん}だって{悩|なや}んでたんだね。でも「{簡単|かんたん}で分かりやすい{設計|せっけい}」は{恥|は}ずかしいことじゃない。{立派|りっぱ}な{力|ちから}だよ。"
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}の学び——アルゴリズム的{思考|しこう}。「手順を{決|き}めてテストする」。{右手|みぎて}ルールという手順で{迷路|めいろ}をテストしたら、「{壁|かべ}が{追加|ついか}された」と分かった。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "手順を{決|き}めてテストすると、{見|み}えなかったことが{見|み}えるようになる。それがアルゴリズムの{力|ちから}です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: issei, expression: happy }
+          - { id: kouhei, expression: determined }
+          - { id: suzuka, expression: happy }
+          - { id: chinatsu, expression: happy }
+      - type: narration
+        text: "イッセイの{迷路|めいろ}は{壁|かべ}を{取|と}りのぞいて{元|もと}に{戻|もど}された。{設計図|せっけいず}も{掃除|そうじ}{用具|ようぐ}入れから{見|み}つかった。{迷路|めいろ}コンテストは{正|ただ}しくやり{直|なお}し。"
+      - type: narration
+        speed: slow
+        text: "手順を{決|き}めてテストする{力|ちから}——アルゴリズム的{思考|しこう}。{問題|もんだい}を{解|と}くための「{手順|てじゅん}」を{設計|せっけい}し、その{手順|てじゅん}で正しさをテストする。バグ{探偵|たんてい}のスキルがまた一つ{増|ふ}えた。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——アルゴリズム{迷路|めいろ}と消えた{設計図|せっけいず}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
