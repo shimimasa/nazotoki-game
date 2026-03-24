@@ -1,0 +1,563 @@
+meta:
+  id: disaster-05
+  title: 煙の動きを知っていたか
+  series: 防災探偵団
+  volume: 5
+  estimatedMinutes: 22
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: disaster-03/opening
+    steps:
+      - type: narration
+        text: "X市立みどり{小学校|しょうがっこう}——{火災|かさい}を{想定|そうてい}した{避難|ひなん}{訓練|くんれん}が{終|お}わった。"
+      - type: narration
+        text: "{訓練|くんれん}のルール——「{火元|ひもと}から{遠|とお}い{廊下|ろうか}側の出口を使い、{低姿勢|ていしせい}（ハイハイ）で{煙|けむり}の下をくぐって{避難|ひなん}すること」"
+      - type: narration
+        text: "{記録|きろく}係のソウタが{全員|ぜんいん}の{避難|ひなん}ルートを{確認|かくにん}すると——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: bgm
+        track: disaster-03/investigation
+      - type: dialog
+        character: souta
+        text: "ケイだけが{窓側|まどがわ}の{非常口|ひじょうぐち}から出ていた。ルールと{違|ちが}う出口だ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "なぜケイは{決|き}められたルートを使わなかったのでしょう。ルールを{無視|むし}したのか——それとも何か理由があったのか。{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: thinking }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: worried }
+          - { id: ai, expression: thinking }
+      - type: narration
+        text: "ケイが{目|め}を{伏|ふ}せた。何かを{抱|かか}えているように見える。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.5
+        subtitle: 煙の動きを知っていたか
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: disaster-03/investigation
+    steps:
+      - type: narration
+        text: "{訓練|くんれん}の{記録|きろく}と4人の{証言|しょうげん}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは{記録|きろく}係。{廊下|ろうか}側出口から10:12に{避難|ひなん}した。{低姿勢|ていしせい}で{出|で}た。{問題|もんだい}なし。"
+      - type: dialog
+        character: souta
+        text: "{集計|しゅうけい}したらケイだけが{窓側|まどがわ}の{非常口|ひじょうぐち}を使ってた。なぜ？"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしも{廊下|ろうか}側出口から10:13に{避難|ひなん}。{低姿勢|ていしせい}で{出|で}た。"
+      - type: dialog
+        character: nana
+        text: "{訓練|くんれん}の{報告会|ほうこくかい}のとき、ケイが{目|め}をそらして{黙|だま}ってたのが気になったの……"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: worried
+        position: left
+      - type: dialog
+        character: kei
+        text: "……おれは{窓側|まどがわ}の{非常口|ひじょうぐち}から10:12に出た。ルールと{違|ちが}うことは分かってた。"
+      - type: dialog
+        character: kei
+        text: "でも……理由があったんだ。"
+        expression: worried
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしは{廊下|ろうか}側出口から10:14に{避難|ひなん}。{低姿勢|ていしせい}で{出|で}た。"
+      - type: dialog
+        character: ai
+        text: "{訓練中|くんれんちゅう}、ケイが{廊下|ろうか}と{反対|はんたい}{方向|ほうこう}に{向|む}かうのを見たの。……{止|と}めなかった。"
+        expression: thinking
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: 訓練記録シート =====
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 火災避難訓練の記録シート
+      - type: narration
+        text: "{訓練|くんれん}{記録|きろく}——4人の{避難|ひなん}ルートと{時刻|じこく}。"
+      - type: narration
+        text: "ソウタ：{廊下|ろうか}側出口 → 10:12 → {低姿勢|ていしせい}○"
+      - type: narration
+        text: "ナナ：{廊下|ろうか}側出口 → 10:13 → {低姿勢|ていしせい}○"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ケイ：{窓側|まどがわ}{非常口|ひじょうぐち} → 10:12 → {低姿勢|ていしせい}△ → ルール外の出口！"
+      - type: narration
+        text: "アイ：{廊下|ろうか}側出口 → 10:14 → {低姿勢|ていしせい}○"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ケイだけが{違|ちが}う出口を使った。{偶然|ぐうぜん}？ それとも{意図的|いとてき}な{判断|はんだん}？"
+
+  # ===== 証拠カード2: 廊下見取り図 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 3階廊下の見取り図
+      - type: narration
+        text: "みどり{小学校|しょうがっこう}3{階|かい}の{廊下|ろうか}——{東西|とうざい}に約20m。"
+      - type: narration
+        text: "{東端|ひがしはし}に{火元|ひもと}（{想定|そうてい}{位置|いち}）。{西端|にしはし}に{廊下|ろうか}側出口（ルール{指定|してい}）。{距離|きょり}は約20m。"
+      - type: narration
+        text: "{廊下|ろうか}の{南面|みなみめん}{中央|ちゅうおう}付近に{窓側|まどがわ}{非常口|ひじょうぐち}（ケイが使った出口）。{火元|ひもと}からの{水平|すいへい}{距離|きょり}は同じく約20m。"
+      - type: narration
+        text: "{天井|てんじょう}には「{煙|けむり}の{想定|そうてい}シート（{黄色|きいろ}）」が{東端|ひがしはし}3m・8m・15m{地点|ちてん}に{設置|せっち}。"
+      - type: narration
+        text: "つまり——{廊下|ろうか}側出口も{窓側|まどがわ}{非常口|ひじょうぐち}も、{火元|ひもと}からの{距離|きょり}はほぼ{同|おな}じ20m。"
+
+  # ===== 証拠カード3: ソウタの煙速度計算 =====
+  - id: evidence-3
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 煙の速度を計算してみよう
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souta
+        text: "{防災|ぼうさい}の本で{調|しら}べた。{火災|かさい}時の{煙|けむり}は{天井|てんじょう}付近を{毎秒|まいびょう}3〜5mで{移動|いどう}する。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: "{廊下|ろうか}の{長|なが}さ：20m。{煙|けむり}が{廊下|ろうか}の{端|はし}まで{到達|とうたつ}する時間——"
+      - type: narration
+        text: "20m ÷ 3m/秒（{最低|さいてい}{速度|そくど}）＝ 約7{秒|びょう}。20m ÷ 5m/秒（{最大|さいだい}{速度|そくど}）＝ 約4{秒|びょう}。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{最速|さいそく}4{秒|びょう}・{最遅|さいち}7{秒|びょう}で{廊下|ろうか}{全体|ぜんたい}の{天井|てんじょう}付近が{煙|けむり}に{覆|おお}われる！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "でも——{低姿勢|ていしせい}（{床面|ゆかめん}30cm{以下|いか}）で{進|すす}めば、その下は{煙|けむり}が{薄|うす}い。{低姿勢|ていしせい}で{進|すす}む方が「{遠|とお}い出口を{探|さが}す」より安全だ。"
+
+  # ===== 証拠カード4: アイの観察ノート =====
+  - id: evidence-4
+    bgm: disaster-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: アイの観察ノート
+      - type: sprite
+        character: ai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ai
+        text: "{訓練中|くんれんちゅう}に{天井|てんじょう}を{観察|かんさつ}したの。{煙|けむり}の{想定|そうてい}シートの{位置|いち}が気になった。"
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "アイの{観察|かんさつ}——{天井|てんじょう}の{煙|けむり}{想定|そうてい}シートは{東端|ひがしはし}3m〜15m{地点|ちてん}にあった。{廊下|ろうか}{全体|ぜんたい}の{広|ひろ}い{範囲|はんい}に{煙|けむり}が{広|ひろ}がることを{想定|そうてい}している。"
+      - type: narration
+        text: "でも{床面|ゆかめん}付近にはシートがなかった——{低|ひく}い{場所|ばしょ}は{煙|けむり}が{薄|うす}かったということ。"
+      - type: narration
+        text: "{窓側|まどがわ}{非常口|ひじょうぐち}付近の{天井|てんじょう}にはシートがなかった。でも——"
+      - type: narration
+        speed: slow
+        text: "そこも{廊下|ろうか}の{天井|てんじょう}と{繋|つな}がっている。{煙|けむり}が来なかった{保証|ほしょう}はないのでは？"
+
+  # ===== 証拠カード5: 煙のシミュレーション + ケイのノートメモ =====
+  - id: evidence-5
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "2つの{資料|しりょう}が{見|み}つかりました。{煙|けむり}の{動|うご}きのシミュレーション図と、ケイのノートメモです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——{煙|けむり}の{動|うご}きの3つのポイント——"
+      - type: narration
+        text: "①{煙|けむり}は{火元|ひもと}から上に向かって{上昇|じょうしょう}する（{熱|ねつ}を{持|も}つため{軽|かる}くなる）"
+      - type: narration
+        text: "②{天井|てんじょう}に{達|たっ}すると{水平|すいへい}{方向|ほうこう}に{広|ひろ}がる（{速|はや}さ：{毎秒|まいびょう}3〜5m）"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "③{火元|ひもと}と「{反対側|はんたいがわ}」にも{広|ひろ}がる！ {天井|てんじょう}を{伝|つた}って{全|ぜん}{方向|ほうこう}に{流|なが}れるため。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "つまり——{窓側|まどがわ}{非常口|ひじょうぐち}付近の{天井|てんじょう}にも、4〜7{秒|びょう}後には{煙|けむり}が{到達|とうたつ}する。「{遠|とお}い＝{安全|あんぜん}」は{成立|せいりつ}しない。"
+      - type: narration
+        text: "そしてケイのノートメモ——"
+      - type: narration
+        speed: slow
+        text: "「{窓側|まどがわ}なら{煙|けむり}から{逃|に}げられると思ったんだ。{火元|ひもと}から{遠|とお}い方に{逃|に}げれば{安全|あんぜん}なはず、って{考|かんが}えた」"
+      - type: narration
+        text: "「ルールと{違|ちが}うことは分かってた。でも、自分の{命|いのち}を守るためにベストだと思った」"
+      - type: narration
+        speed: slow
+        text: "「……{本当|ほんとう}に正しかったかな。{煙|けむり}ってどこに行くんだろう。{調|しら}べておけばよかった」"
+      - type: narration
+        text: "ケイは{悪意|あくい}ではなく——自分を守ろうとして、{間違|まちが}った{判断|はんだん}をした。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。ルールと{違|ちが}う出口を使ったのは{誰|だれ}で、なぜだったのでしょう？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 窓側の非常口から避難したのは誰？ その理由は？
+        options:
+          - text: ケイ（「火元から遠い方が安全」と判断して窓側を選んだ）
+            value: kei
+            feedback: 正解！ ケイは「遠い＝安全」と考えたが、煙は天井を全方向に広がるため、窓側も廊下側も天井付近の煙の濃さはほぼ同じだった。
+          - text: ソウタ（記録係だから特別な出口を使えた）
+            value: souta
+            feedback: ソウタは廊下側出口から出ている。記録係だからといって別ルートは使わないよ。
+          - text: ナナ（パニックになって間違えた）
+            value: nana
+            feedback: ナナは廊下側出口から低姿勢で出ている。パニックではなくルール通り行動したよ。
+          - text: アイ（窓側が近いと思った）
+            value: ai
+            feedback: アイは廊下側出口から出ている。ケイが別方向に行くのを見たけど止めなかったことは後悔しているけどね。
+      - type: choice
+        id: q2
+        question: ケイの判断「火元から遠い＝安全」はなぜ間違いだった？
+        options:
+          - text: 煙は天井を全方向に広がるから、遠くても天井付近には煙が来る
+            value: smoke-spread
+            feedback: 正解！ 煙は天井を伝って全方向に広がる。4〜7秒で廊下全体の天井が煙に覆われる。「遠い」は煙の動きには関係ない。
+          - text: 窓側の非常口は鍵がかかっていたから
+            value: locked
+            feedback: 非常口は開いていたし、ケイは実際に通れた。問題は「安全かどうか」の判断だよ。
+          - text: ケイが走ったから煙を吸ってしまう
+            value: running
+            feedback: 走ることも問題だけど、核心は「遠くても天井付近の煙は同じ」という事実。低姿勢で近い出口を使う方が安全だった。
+          - text: 窓側は風が吹いて煙が逆流するから
+            value: wind
+            feedback: それも実際の火災では起こりうるけど、今回の核心は「煙は天井を全方向に広がる」という物理特性の方だよ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 善意の判断が逆効果だった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソウタの秘密
+  - id: truth-souta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souta
+        expression: worried
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくも{反省|はんせい}がある。{訓練|くんれん}{前日|ぜんじつ}に「{廊下|ろうか}側出口を使う」って{書|か}いたプリントを配った。"
+      - type: dialog
+        character: souta
+        text: "でも「なぜこのルートか」の理由——{煙|けむり}の{動|うご}きについては{説明|せつめい}しなかった。理由を{書|か}いていれば、ケイの{判断|はんだん}は変わっていたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ナナの秘密
+  - id: truth-nana
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしも……。{訓練|くんれん}{前日|ぜんじつ}にケイが「{窓側|まどがわ}の{非常口|ひじょうぐち}も使えるんだよね？」って聞いてきたの。"
+      - type: dialog
+        character: nana
+        text: "「う〜ん、どっちでも{逃|に}げればいいんじゃ？」って{曖昧|あいまい}に{答|こた}えちゃった。あのとき「ルール通り{廊下|ろうか}側を使おう」って{言|い}えばよかった。"
+        expression: determined
+      - type: sprite
+        character: nana
+        action: hide
+
+  # アイの秘密
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたしは{訓練中|くんれんちゅう}、ケイが{廊下|ろうか}と{反対|はんたい}{方向|ほうこう}に向かうのを見た。"
+      - type: dialog
+        character: ai
+        text: "「{防災|ぼうさい}クラブの子だから何か考えがあるんだろう」って思って、{止|と}めなかった。見て見ぬふりをした。"
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ケイの真実（クライマックス）
+  - id: truth-kei
+    bgm: disaster-03/truth
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: center
+      - type: dialog
+        character: kei
+        text: "……おれは自分の{命|いのち}を守りたかったんだ。"
+      - type: narration
+        speed: slow
+        text: "ケイがゆっくりと話し始めた。"
+      - type: dialog
+        character: kei
+        text: "{火元|ひもと}から{遠|とお}い方に{逃|に}げれば{煙|けむり}が{少|すく}ないはず——そう思った。{窓側|まどがわ}の{非常口|ひじょうぐち}なら{火元|ひもと}から{遠|とお}いし、{安全|あんぜん}だって。"
+      - type: dialog
+        character: kei
+        text: "でも……{煙|けむり}は{天井|てんじょう}を{伝|つた}って{全方向|ぜんほうこう}に{広|ひろ}がるんだよな。{遠|とお}くても{天井|てんじょう}付近は{同|おな}じ{濃|こ}さの{煙|けむり}が来る。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "おれの「{遠|とお}ければ{安全|あんぜん}」っていう{仮説|かせつ}は、{間違|まちが}いだった。{低姿勢|ていしせい}で{廊下|ろうか}側出口を通るのが正しかった。"
+      - type: dialog
+        character: kei
+        text: "{知|し}らなかった自分がこわい。{本当|ほんとう}の{火事|かじ}だったら……おれは{煙|けむり}を{吸|す}ってたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ケイに{悪意|あくい}はなかった。自分の{命|いのち}を守りたくて、ベストだと思った{行動|こうどう}をした。でも{煙|けむり}の{動|うご}きを知らなかったから、{善意|ぜんい}の{判断|はんだん}が{逆効果|ぎゃくこうか}になった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: disaster-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ケイ、正直に話してくれてありがとう。「自分を守りたかった」という気持ちは{間違|まちが}ってないわ。"
+      - type: dialog
+        character: sensei
+        text: "でも大事なことが一つ——{煙|けむり}は{天井|てんじょう}を{伝|つた}って{全方向|ぜんほうこう}に{広|ひろ}がります。「{火元|ひもと}から{遠|とお}い＝{安全|あんぜん}」は{煙|けむり}には当てはまらない。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{低姿勢|ていしせい}で{指定|してい}のルートを通ること。{床面|ゆかめん}から30cm{以下|いか}なら{煙|けむり}が{薄|うす}い。これが{煙|けむり}から{身|み}を守る正しい方法です。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "そしてソウタもナナもアイも、「なぜそのルートか」を{確認|かくにん}していれば、ケイの{判断|はんだん}は変わっていたかもしれない。{防災|ぼうさい}{訓練|くんれん}は{手順|てじゅん}だけでなく「理由」も{一緒|いっしょ}に学びましょう。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: determined }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: determined }
+      - type: narration
+        text: "ケイは「{次|つぎ}からは『なぜ？』を{確認|かくにん}してから{動|うご}く」と{決|き}めた。{知識|ちしき}は{行動|こうどう}を変える——それが{今日|きょう}の学び。"
+      - type: narration
+        speed: slow
+        text: "「{遠|とお}ければ{安全|あんぜん}」という{思|おも}い{込|こ}みが一番{危|あぶ}ない。{煙|けむり}の{動|うご}きを知って、正しく{行動|こうどう}する{力|ちから}を{持|も}つ。それが{本当|ほんとう}の{防災|ぼうさい}。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団——{煙|けむり}の{動|うご}きを知っていたか、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
