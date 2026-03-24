@@ -1,0 +1,471 @@
+meta:
+  id: money-07
+  title: 予算オーバーの謎
+  series: お金の探偵団
+  volume: 7
+  estimatedMinutes: 22
+
+characters:
+  yuta:
+    name: ユウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sakura:
+    name: サクラ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kaito:
+    name: カイト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  nanoha:
+    name: ナノハ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: money-07/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の{学校祭|がっこうさい}。4{人|にん}が{出|だ}し{物|もの}「おばけ{屋敷|やしき}」の{飾|かざ}りつけを{担当|たんとう}。{先生|せんせい}から{予算|よさん}3000{円|えん}をもらい、ユウタが{予算|よさん}{管理|かんり}{係|がかり}。"
+      - type: narration
+        text: "{買|か}い{物|もの}が{全部|ぜんぶ}{終|お}わって{精算|せいさん}すると——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: yuta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yuta
+        text: "レシートの{合計|ごうけい}が3450{円|えん}！ {予算|よさん}3000{円|えん}を450{円|えん}もオーバーしてる！ おかしいな、{予算表|よさんひょう}では3000{円|えん}ぴったりのはずなのに……"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: kaito
+        expression: determined
+        position: right
+      - type: bgm
+        file: money-07/tension
+      - type: dialog
+        character: kaito
+        text: "450{円|えん}オーバーだって？ {誰|だれ}かがお{金|かね}をごまかしたんじゃないのか！"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{予算表|よさんひょう}は3000{円|えん}。レシートは3450{円|えん}。450{円|えん}の{差|さ}はどこから{来|き}たのか。{予算表|よさんひょう}に「{書|か}いてない{費用|ひよう}」がないか{調|しら}べましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: yuta
+            expression: worried
+          - character: sakura
+            expression: worried
+          - character: kaito
+            expression: determined
+          - character: nanoha
+            expression: thinking
+      - type: narration
+        text: "{予算表|よさんひょう}とレシートを{照合|しょうごう}して、「{隠|かく}れたコスト」を{見|み}つけ{出|だ}す{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "お金の探偵団 Vol.7"
+        subtitle: "予算オーバーの謎"
+
+  # ===== 証拠カード1: 予算表とレシート合計 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: money-07/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "ユウタの{予算表|よさんひょう}——ガーランド（ネット{注文|ちゅうもん}）2700{円|えん}、{小物|こもの}3{個|こ}（100{円|えん}ショップ）300{円|えん}。{合計|ごうけい}3000{円|えん}。"
+      - type: narration
+        text: "レシートの{合計|ごうけい}——3450{円|えん}。{差額|さがく}：3450−3000＝450{円|えん}オーバー！"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{予算表|よさんひょう}に{書|か}いてある{金額|きんがく}とレシートの{金額|きんがく}がずれている。450{円|えん}の「{隠|かく}れたコスト」がどこかにあるはずだ。"
+
+  # ===== 証拠カード2: レシート3枚の詳細 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: money-07/investigation
+    steps:
+      - type: narration
+        text: "レシートは{全部|ぜんぶ}で3{枚|まい}。1{枚|まい}ずつ{確認|かくにん}しよう。"
+      - type: narration
+        text: "レシート1（ネット{注文|ちゅうもん}）——ガーランド2700{円|えん}（{税込|ぜいこみ}）＋{送料|そうりょう}300{円|えん}＝{合計|ごうけい}3000{円|えん}。"
+      - type: narration
+        text: "レシート2（100{円|えん}ショップ）——おばけシール110{円|えん}＋くもの{巣|す}デコ110{円|えん}＋キャンドルライト110{円|えん}＝{合計|ごうけい}330{円|えん}（{税込|ぜいこみ}）。"
+      - type: narration
+        text: "レシート3（コンビニ）——ガムテープ（{透明|とうめい}）120{円|えん}（{税込|ぜいこみ}）。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "3{枚|まい}の{合計|ごうけい}：3000＋330＋120＝3450{円|えん}。"
+      - type: narration
+        text: "{予算表|よさんひょう}との{照合|しょうごう}——ガーランドの{商品|しょうひん}{代|だい}2700{円|えん}は{一致|いっち}。でも{送料|そうりょう}300{円|えん}が{予算表|よさんひょう}にない。{小物|こもの}は{予算表|よさんひょう}300{円|えん}だがレシートは330{円|えん}（{消費税|しょうひぜい}の{差|さ}30{円|えん}）。テープ120{円|えん}は{予算表|よさんひょう}に{品目|ひんもく}{自体|じたい}がない。"
+
+  # ===== 証拠カード3: ネット注文と目撃 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: money-07/experiment
+    steps:
+      - type: narration
+        text: "ユウタのタブレットに{残|のこ}っていたネット{注文|ちゅうもん}の{確認|かくにん}メール。"
+      - type: narration
+        text: "{商品|しょうひん}：ガーランド2700{円|えん}（{税込|ぜいこみ}）。{送料|そうりょう}：300{円|えん}。お{支払|しはら}い{合計|ごうけい}：3000{円|えん}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{確認|かくにん}メールには「{送料|そうりょう}300{円|えん}」と{明記|めいき}されている。でもユウタの{予算表|よさんひょう}には「ガーランド2700{円|えん}」だけ。{送料|そうりょう}が{抜|ぬ}けている。"
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kaito
+        text: "{木曜|もくよう}の{放課後|ほうかご}、ユウタがコンビニの{袋|ふくろ}を{持|も}って{教室|きょうしつ}に{来|き}たぜ。『テープが{足|た}りなかったから{買|か}ってきた』って。テープ、{予算表|よさんひょう}に{入|はい}ってたっけ？"
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: narration
+        text: "{送料|そうりょう}300{円|えん}の{記載|きさい}もれ。テープ120{円|えん}の{追加|ついか}{購入|こうにゅう}。どちらも{予算表|よさんひょう}にない。{予算|よさん}{管理|かんり}{係|がかり}のユウタが{書|か}き{忘|わす}れた？"
+
+  # ===== 証拠カード4: 消費税と3つの隠れたコスト =====
+  - id: evidence-4
+    bg: classroom
+    bgm: money-07/experiment
+    steps:
+      - type: sprite
+        character: sakura
+        expression: surprised
+        position: left
+      - type: dialog
+        character: sakura
+        text: "100{円|えん}ショップのレジで『330{円|えん}です』って{言|い}われて{驚|おどろ}いたの。{予算表|よさんひょう}には300{円|えん}って{書|か}いてあったのに。{消費税|しょうひぜい}で1{個|こ}あたり10{円|えん}{高|たか}くなるんだよね。"
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: nanoha
+        expression: determined
+        position: right
+      - type: dialog
+        character: nanoha
+        text: "{予算表|よさんひょう}にない{費用|ひよう}が3つある。①{送料|そうりょう}300{円|えん}。②{消費税|しょうひぜい}の{差|さ}30{円|えん}。③テープの{追加|ついか}{購入|こうにゅう}120{円|えん}。"
+      - type: sprite
+        character: nanoha
+        expression: thinking
+      - type: dialog
+        character: nanoha
+        text: "300＋30＋120＝450{円|えん}。{予算|よさん}オーバーの{全額|ぜんがく}が{説明|せつめい}できる。全部「{隠|かく}れたコスト」——{予算表|よさんひょう}に{書|か}かれていない{費用|ひよう}だった。"
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "「{情報|じょうほう}{欠落|けつらく}」——{書|か}いてある{情報|じょうほう}だけでなく、{書|か}いて「ない」{情報|じょうほう}に{気|き}づくことが{大事|だいじ}。{予算表|よさんひょう}に{載|の}っていない3つの{費用|ひよう}の{合計|ごうけい}が、ぴったり450{円|えん}。"
+
+  # ===== 証拠カード5: ユウタの告白 =====
+  - id: card-5
+    bg: classroom
+    bgm: money-07/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ユウタくんに{確認|かくにん}しました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "ユウタの{告白|こくはく}——「ごめん……{送料|そうりょう}を{書|か}き{忘|わす}れたのと、100{円|えん}ショップの{消費税|しょうひぜい}を{計算|けいさん}に{入|い}れてなかったのと、テープを{追加|ついか}で{買|か}ったのを{書|か}なかった。3つ{全部|ぜんぶ}{僕|ぼく}のミスです」"
+      - type: narration
+        text: "「{予算|よさん}{管理|かんり}{係|がかり}なのに、{商品|しょうひん}の{値段|ねだん}だけ見て、それ{以外|いがい}にかかるお{金|かね}を{忘|わす}れてた。{送料|そうりょう}も{税|ぜい}も『見えにくいお{金|かね}』だから{気|き}づかなかった……」"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "{前提|ぜんてい}{破壊|はかい}——「{誰|だれ}かがお{金|かね}をごまかした」のではなく「{予算表|よさんひょう}に{書|か}き{忘|わす}れた{費用|ひよう}があった」。{悪意|あくい}ではなく{記載|きさい}もれ。3つの{小|ちい}さな「見えにくい{費用|ひよう}」の{合計|ごうけい}が450{円|えん}になった。"
+      - type: narration
+        text: "{隠|かく}れたコストを{防|ふせ}ぐチェックリスト——{商品|しょうひん}{代|だい}{以外|いがい}に{送料|そうりょう}はかかる？ {表示|ひょうじ}{価格|かかく}は{税込|ぜいこみ}？{税抜|ぜいぬき}？ {予算表|よさんひょう}にない{追加|ついか}{購入|こうにゅう}はない？ {全|すべ}てのレシートを{予算表|よさんひょう}と{照合|しょうごう}した？"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: money-07/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出|で}そろいました。{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "予算オーバーの原因を作ったのは誰？"
+        options:
+          - text: "ユウタ（予算管理係で3つの費用を書き忘れた）"
+            feedback: "{送料|そうりょう}300{円|えん}＋{消費税|しょうひぜい}30{円|えん}＋テープ120{円|えん}＝450{円|えん}。{全|すべ}て{予算表|よさんひょう}に{書|か}き{忘|わす}れた。{予算|よさん}{管理|かんり}{係|がかり}としての{記載|きさい}もれ。"
+          - text: "お店（送料が高すぎる）"
+            feedback: "{送料|そうりょう}300{円|えん}は{注文|ちゅうもん}{確認|かくにん}メールに{明記|めいき}されていた。お{店|みせ}は{正直|しょうじき}。ユウタが{予算表|よさんひょう}に{書|か}き{忘|わす}れただけ。"
+          - text: "サクラとナノハ（消費税に気づいたのに報告しなかった）"
+            feedback: "サクラは{消費税|しょうひぜい}に{気|き}づいたが{報告|ほうこく}し{忘|わす}れた。でも{予算表|よさんひょう}を{作|つく}ったのはユウタ。{消費税|しょうひぜい}を{計算|けいさん}に{入|い}れるのは{予算|よさん}{管理|かんり}{係|がかり}の{仕事|しごと}。"
+          - text: "全員に少しずつ責任がある"
+            feedback: "ユウタの{記載|きさい}もれが{主因|しゅいん}だが、サクラも{消費税|しょうひぜい}を{報告|ほうこく}すべきだった。{予算|よさん}{管理|かんり}は「{係|がかり}だけの{仕事|しごと}」ではなく「{全員|ぜんいん}で{確認|かくにん}すること」が{大事|だいじ}。"
+      - type: choice
+        id: q2
+        text: "「隠れたコスト」に気づくために大事なことは？"
+        options:
+          - text: "商品代以外の費用（送料・税・手数料）を確認する"
+            feedback: "「{商品|しょうひん}の{値段|ねだん}」だけ見ていると、{送料|そうりょう}や{消費税|しょうひぜい}を{見落|みおと}とす。{買|か}い{物|もの}の{前|まえ}に「{他|ほか}にかかるお{金|かね}はない？」と{確認|かくにん}する{習慣|しゅうかん}が{大事|だいじ}。"
+          - text: "予算表とレシートを1枚ずつ照合する"
+            feedback: "{予算表|よさんひょう}の{品目|ひんもく}とレシートの{品目|ひんもく}を{照合|しょうごう}すると、「{予算表|よさんひょう}にないレシート」や「{金額|きんがく}のずれ」が見つかる。ナノハのように1{枚|まい}ずつ{確認|かくにん}するのが{正解|せいかい}。"
+          - text: "予算に余裕を持たせる（ぴったりにしない）"
+            feedback: "「{予算|よさん}ぴったり」は{危険|きけん}。{送料|そうりょう}や{税|ぜい}の{端数|はすう}で{簡単|かんたん}にオーバーする。{予算|よさん}の10%くらいの{余裕|よゆう}を{持|も}たせるのがコツ。"
+          - text: "全部やる（費用確認＋照合＋余裕）"
+            feedback: "{完璧|かんぺき}。{隠|かく}れたコストを{確認|かくにん}し、レシートと{照合|しょうごう}し、{余裕|よゆう}を{持|も}たせる。この3つが{予算|よさん}{管理|かんり}の{基本|きほん}。"
+      - type: choice
+        id: q3
+        text: "ユウタは「計算が得意」なのになぜ見落とした？"
+        options:
+          - text: "商品の値段にだけ注目して送料や税を想像できなかった"
+            feedback: "「{計算|けいさん}が{得意|とくい}」と「{全|すべ}ての{費用|ひよう}に{気|き}づく」は{別|べつ}のスキル。{計算|けいさん}は{正確|せいかく}でも、「見えにくいお{金|かね}」を{想像|そうぞう}する{力|ちから}が{必要|ひつよう}。"
+          - text: "予算表を作った時点で安心してしまった"
+            feedback: "「{予算表|よさんひょう}＝3000{円|えん}＝OK」と{思|おも}い{込|こ}んで、{買|か}い{物|もの}{後|ご}の{照合|しょうごう}を{怠|おこた}った。{予算表|よさんひょう}は{作|つく}って{終|お}わりではなく、{実際|じっさい}の{支出|ししゅつ}と{比|くら}べて{初|はじ}めて{完成|かんせい}。"
+          - text: "ミスを認めるのが恥ずかしくて黙っていた"
+            feedback: "{予算|よさん}{管理|かんり}{係|がかり}としてのプライドが{邪魔|じゃま}した。{送料|そうりょう}に{気|き}づいた{時点|じてん}で{報告|ほうこく}していれば、{対策|たいさく}できた。「ミスの{報告|ほうこく}」は{恥|はず}ではなく{責任|せきにん}。"
+          - text: "「見えにくいお金」は大人でも見落とす"
+            feedback: "{送料|そうりょう}・{消費税|しょうひぜい}・{手数料|てすうりょう}——{大人|おとな}でも{見落|みおと}とす「{隠|かく}れたコスト」。ユウタだけの{問題|もんだい}ではなく、{全員|ぜんいん}が{学|まな}ぶべきこと。"
+
+  # ===== 真実: サクラ =====
+  - id: truth-sakura
+    bg: classroom
+    bgm: money-07/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: right
+      - type: dialog
+        character: sakura
+        text: "100{円|えん}ショップのレジで『330{円|えん}です』って{言|い}われて「あれ？」って{思|おも}ったの。{消費税|しょうひぜい}で30{円|えん}{多|おお}かった。"
+      - type: sprite
+        character: sakura
+        expression: thinking
+      - type: dialog
+        character: sakura
+        text: "でもユウタに{報告|ほうこく}するのを{忘|わす}れちゃった……30{円|えん}だけだし、って{思|おも}って。でもその30{円|えん}も450{円|えん}の{一部|いちぶ}だったんだ。"
+      - type: sprite
+        character: sakura
+        action: hide
+
+  # ===== 真実: カイト =====
+  - id: truth-kaito
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaito
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaito
+        text: "{木曜|もくよう}にユウタがコンビニからテープを{持|も}ってきたのを見たんだ。あのとき「{予算表|よさんひょう}に{入|はい}ってる？」って{聞|き}けばよかった。"
+      - type: sprite
+        character: kaito
+        expression: determined
+      - type: dialog
+        character: kaito
+        text: "{最初|さいしょ}は「{誰|だれ}かがごまかした」って{怒|おこ}った。でも{実際|じっさい}は「{書|か}き{忘|わす}れ」だった。{悪意|あくい}じゃなくて「見えにくいお{金|かね}」を{見落|みおと}としただけなんだ。"
+      - type: sprite
+        character: kaito
+        action: hide
+
+  # ===== 真実: ナノハ =====
+  - id: truth-nanoha
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nanoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: nanoha
+        text: "レシート3{枚|まい}を{照合|しょうごう}して、3つの「{隠|かく}れたコスト」を{全部|ぜんぶ}{特定|とくてい}した。{送料|そうりょう}300{円|えん}、{消費税|しょうひぜい}の{差|さ}30{円|えん}、テープ120{円|えん}。{合計|ごうけい}ぴったり450{円|えん}。"
+      - type: sprite
+        character: nanoha
+        expression: determined
+      - type: dialog
+        character: nanoha
+        text: "ユウタは{計算|けいさん}が{得意|とくい}なのに見{落|お}とした。なぜなら「{商品|しょうひん}の{値段|ねだん}」にだけ{注目|ちゅうもく}して、「それ{以外|いがい}のコスト」を{想像|そうぞう}できなかったから。{情報|じょうほう}{欠落|けつらく}に{気|き}づく{力|ちから}は、{計算力|けいさんりょく}とは{別|べつ}のスキル。"
+      - type: sprite
+        character: nanoha
+        action: hide
+
+  # ===== 真実: ユウタ（犯人） =====
+  - id: truth-yuta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: yuta
+        expression: worried
+        position: center
+      - type: dialog
+        character: yuta
+        text: "……{認|みと}めます。{予算|よさん}オーバーの{原因|げんいん}は{全部|ぜんぶ}{僕|ぼく}のミスです。"
+      - type: narration
+        speed: slow
+        text: "ユウタは{目|め}を{伏|ふ}せた。"
+      - type: sprite
+        character: yuta
+        expression: normal
+      - type: dialog
+        character: yuta
+        text: "{送料|そうりょう}300{円|えん}は{注文|ちゅうもん}メールに{書|か}いてあったのに、{商品|しょうひん}{代|だい}だけ{予算表|よさんひょう}に{書|か}いた。100{円|えん}ショップの{消費税|しょうひぜい}も{計算|けいさん}に{入|い}れてなかった。テープは{急|きゅう}に{必要|ひつよう}になって{買|か}ったけど、{予算表|よさんひょう}に{書|か}かなかった。"
+      - type: sprite
+        character: yuta
+        expression: worried
+      - type: dialog
+        character: yuta
+        text: "{予算|よさん}{管理|かんり}{係|がかり}なのに、「{隠|かく}れたコスト」を3つも見{落|お}とした。{計算|けいさん}が{得意|とくい}って{思|おも}ってたのに……{恥|は}ずかしくて{言|い}い{出|だ}せなかった。ごめん。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: narration
+        text: "ユウタに{悪意|あくい}はなかった。「{商品|しょうひん}の{値段|ねだん}」にだけ{注目|ちゅうもく}して、「{送料|そうりょう}」「{消費税|しょうひぜい}」「{追加|ついか}{購入|こうにゅう}」という「見えにくいお{金|かね}」を{忘|わす}れた。{計算|けいさん}が{得意|とくい}でも、「{隠|かく}れたコスト」には{気|き}づけないことがある。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: money-07/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ユウタくん、{正直|しょうじき}に{認|みと}めてくれてありがとう。{予算|よさん}{管理|かんり}は{大人|おとな}でも{難|むずか}しい。{大事|だいじ}なのは「{失敗|しっぱい}から{学|まな}ぶ」ことです。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{予算|よさん}を{立|た}てるときは「{隠|かく}れたコスト」を{忘|わす}れない。{送料|そうりょう}・{消費税|しょうひぜい}・{手数料|てすうりょう}・{追加|ついか}{購入|こうにゅう}。「{商品|しょうひん}の{値段|ねだん}」だけでは{足|た}りません。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "そして{予算|よさん}には{余裕|よゆう}を{持|も}たせましょう。「ぴったり」は{危険|きけん}。10%くらいの{予備費|よびひ}があると{安心|あんしん}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: yuta
+        expression: determined
+        position: left
+      - type: sprite
+        character: nanoha
+        expression: happy
+        position: right
+      - type: dialog
+        character: yuta
+        text: "{次|つぎ}からは{予算表|よさんひょう}に「{送料|そうりょう}」「{消費税|しょうひぜい}」「{予備費|よびひ}」の{欄|らん}を{作|つく}る。{隠|かく}れたコスト、もう{見落|みおと}とさないぜ。"
+      - type: dialog
+        character: nanoha
+        text: "そしてレシートと{予算表|よさんひょう}は{必|かなら}ず{照合|しょうごう}する。「{書|か}いてある{金額|きんがく}」と「{実際|じっさい}の{金額|きんがく}」が{合|あ}ってるか{確認|かくにん}。これが{予算|よさん}{管理|かんり}の{基本|きほん}。"
+      - type: sprite
+        character: yuta
+        action: hide
+      - type: sprite
+        character: nanoha
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "「見えにくいお{金|かね}」は{意識|いしき}しないと{見落|みおと}とす。{送料|そうりょう}、{税金|ぜいきん}、{手数料|てすうりょう}——これに{気|き}づく{力|ちから}が、お{金|かね}の{探偵|たんてい}の{力|ちから}です。{大人|おとな}になっても{使|つか}えるスキルですよ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
