@@ -1,0 +1,547 @@
+meta:
+  id: health-02
+  title: 風邪はどこから来た？
+  series: 保健探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-02/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}4{年|ねん}1{組|くみ}で、{先週|せんしゅう}から{風邪|かぜ}が{流行|はや}り{始|はじ}めた。"
+
+      - type: narration
+        text: "{最初|さいしょ}に{欠席|けっせき}したのはハルキ。{水曜日|すいようび}から3{日間|にちかん}お{休|やす}み。その{後|あと}、クラスの{何人|なんにん}かが{次々|つぎつぎ}と{体調|たいちょう}を{崩|くず}した。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "クラスでこんな{噂|うわさ}が{広|ひろ}まっている——「ハルキが{感染源|かんせんげん}だよ。{最初|さいしょ}に{休|やす}んだんだから」"
+
+      - type: bgm
+        track: health-02/investigation
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "「{最初|さいしょ}に{休|やす}んだ{人|ひと}＝{感染源|かんせんげん}」とは{限|かぎ}りません。{感染|かんせん}が{起|お}きるには「{感染源|かんせんげん}」「{感染経路|かんせんけいろ}」「{感受性|かんじゅせい}」の3つが{全部|ぜんぶ}{揃|そろ}う{必要|ひつよう}がある。{接触記録|せっしょくきろく}を{整理|せいり}して、{本当|ほんとう}の{感染源|かんせんげん}を{見|み}つけよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: worried }
+          - { id: mio, expression: thinking }
+          - { id: kenta, expression: happy }
+          - { id: sayaka, expression: thinking }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——4{人|にん}の{保健|ほけん}{探偵|たんてい}が{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 風邪はどこから来た？
+        subtitle: 保健探偵団 Vol.2
+
+  # ========================================
+  # 証拠カード1: 感染経路の早見表
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-02/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: 感染のしくみを確認しよう
+
+      - type: narration
+        text: "{感染症|かんせんしょう}が{広|ひろ}がるためには、3つの{条件|じょうけん}が{全部|ぜんぶ}{揃|そろ}う{必要|ひつよう}がある。"
+
+      - type: narration
+        text: "①{感染源|かんせんげん}——{病原体|びょうげんたい}（ウイルス）を{持|も}っている{人|ひと}。②{感染経路|かんせんけいろ}——{病原体|びょうげんたい}が{移動|いどう}する{道筋|みちすじ}。③{感受性|かんじゅせい}——{感染|かんせん}しやすい{状態|じょうたい}。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        text: "{風邪|かぜ}の{感染経路|かんせんけいろ}は{主|おも}に2つ。{飛沫感染|ひまつかんせん}（{咳|せき}・くしゃみの{飛|と}び{散|ち}りを{吸|す}い{込|こ}む。1〜2m{以内|いない}）と{接触感染|せっしょくかんせん}（{病原体|びょうげんたい}がついた{手|て}・{物|もの}に{触|さわ}れる）。"
+
+      - type: narration
+        speed: slow
+        text: "{接触|せっしょく}がなければ{感染経路|かんせんけいろ}は{成立|せいりつ}しない——この{知識|ちしき}が{今日|きょう}の{推理|すいり}のカギ！"
+
+  # ========================================
+  # 証拠カード2: 接触記録整理シート
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 火曜日の接触記録
+
+      - type: narration
+        text: "{火曜日|かようび}に「{誰|だれ}が{誰|だれ}と・どこで・どのくらいの{距離|きょり}で{接触|せっしょく}したか」を{整理|せいり}しよう。"
+
+      - type: narration
+        text: "ミオ↔ハルキ：{図書室|としょしつ}で{放課後|ほうかご}{約|やく}30{分|ぷん}。{並|なら}んで{着席|ちゃくせき}（{約|やく}0.5m）。{飛沫感染|ひまつかんせん}の{可能性|かのうせい}が{高|たか}い。"
+
+      - type: narration
+        text: "ミオ↔サヤカ：{給食|きゅうしょく}の{教室|きょうしつ}で{約|やく}20{分|ぷん}。{同|おな}じグループ（{約|やく}1〜1.5m）。{飛沫感染|ひまつかんせん}の{可能性|かのうせい}あり。"
+
+      - type: narration
+        text: "ミオ↔ケンタ：{廊下|ろうか}ですれ{違|ちが}い（{数秒|すうびょう}）。{接触|せっしょく}なし。ハルキ↔ケンタ：{体育|たいいく}で{同|おな}じチーム（2〜3m{以上|いじょう}）。{接触|せっしょく}なし。"
+
+      - type: effect
+        name: flash
+        duration: 300
+
+      - type: narration
+        speed: slow
+        text: "{感染経路|かんせんけいろ}が{一番|いちばん}{成立|せいりつ}しやすいのは「ミオ↔ハルキ」のペア。でも{感染源|かんせんげん}を{特定|とくてい}するには「{誰|だれ}が{先|さき}に{症状|しょうじょう}を{出|だ}していたか」も{必要|ひつよう}！"
+
+  # ========================================
+  # 証拠カード3: ハルキの健康手帳
+  # ========================================
+  - id: evidence-3
+    bgm: health-02/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ハルキの健康手帳
+
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: haruki
+        text: "ぼくの{健康手帳|けんこうてちょう}を{見|み}せるよ。{毎日|まいにち}{体温|たいおん}を{記録|きろく}してるんだ。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: narration
+        text: "{月曜日|げつようび}36.5℃（{元気|げんき}）。{火曜日|かようび}36.8℃（{普通|ふつう}）。{放課後|ほうかご}に{図書室|としょしつ}でミオと{読|よ}み{聞|き}かせ{準備|じゅんび}。"
+
+      - type: narration
+        text: "{水曜日|すいようび}38.1℃（{発熱|はつねつ}→{欠席|けっせき}）。{木曜日|もくようび}37.8℃。{金曜日|きんようび}37.2℃。{今週|こんしゅう}{月曜日|げつようび}36.6℃（{回復|かいふく}）。"
+
+      - type: narration
+        text: "ハルキのメモ——「{火曜日|かようび}の{放課後|ほうかご}、{図書室|としょしつ}でミオと30{分|ぷん}{一緒|いっしょ}にいた。そのとき、ミオが2〜3{回|かい}{咳|せき}をしていた」"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "ハルキは{火曜日|かようび}まで{熱|ねつ}がない。{水曜日|すいようび}に{発症|はっしょう}。「{最初|さいしょ}に{休|やす}んだ{人|ひと}が{感染源|かんせんげん}」とは{限|かぎ}らない——{感染源|かんせんげん}はハルキより{先|さき}に{症状|しょうじょう}を{出|だ}していた{人|ひと}のはず。"
+
+  # ========================================
+  # 証拠カード4: 保健の先生の観察メモ
+  # ========================================
+  - id: evidence-4
+    bgm: health-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 保健の先生の観察メモ
+
+      - type: narration
+        text: "{火曜日|かようび}12:30——{保健|ほけん}の{先生|せんせい}がミオに{声|こえ}をかけた。「{顔|かお}が{少|すこ}し{赤|あか}いけど{大丈夫|だいじょうぶ}？」ミオは「{大丈夫|だいじょうぶ}です。ちょっと{暑|あつ}かっただけです」と{答|こた}えた。{体温|たいおん}{測定|そくてい}を{勧|すす}めたが{断|ことわ}られた。"
+
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "わたしも{気|き}づいてた。{給食|きゅうしょく}のとき、ミオが{何度|なんど}もティッシュで{鼻水|はなみず}を{拭|ふ}いてたの。「{風邪|かぜ}っぽい？」って{聞|き}いたら「{大丈夫|だいじょうぶ}、ちょっと{鼻水|はなみず}が{出|で}るだけ」って。{顔|かお}も{少|すこ}し{赤|あか}い{気|き}がした。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "{先生|せんせい}もサヤカも{火曜日|かようび}のミオに「{体調|たいちょう}が{悪|わる}そう」と{気|き}づいていた。ミオは「{大丈夫|だいじょうぶ}」と{言|い}っていたが——{体温|たいおん}を{測|はか}ったらどうだった？"
+
+  # ========================================
+  # 投票（感染源投票）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{接触記録|せっしょくきろく}と{感染経路|かんせんけいろ}を{整理|せいり}しよう。「{接触|せっしょく}がなければ{感染|かんせん}しない」——この{原則|げんそく}で{候補|こうほ}を{絞|しぼ}り{込|こ}もう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: 本当の感染源は誰？
+        options:
+          - text: "ハルキ（{最初|さいしょ}に{休|やす}んだ）"
+            value: haruki
+            feedback: "ハルキは{火曜日|かようび}まで{熱|ねつ}がない（36.8℃）。{水曜日|すいようび}に{発症|はっしょう}。「{最初|さいしょ}に{休|やす}んだ＝{感染源|かんせんげん}」とは{限|かぎ}らない。{感染源|かんせんげん}はハルキより{先|さき}に{症状|しょうじょう}が{出|で}ていた{人|ひと}のはず。"
+          - text: "ミオ（{火曜日|かようび}に{体調|たいちょう}が{悪|わる}そうだった）"
+            value: mio
+            feedback: "{鋭|するど}い！ {先生|せんせい}もサヤカもミオの{体調|たいちょう}{不良|ふりょう}に{気|き}づいていた。ミオとハルキは{図書室|としょしつ}で30{分|ぷん}{至近距離|しきんきょり}で{接触|せっしょく}——{飛沫感染|ひまつかんせん}の{条件|じょうけん}が{成立|せいりつ}する。"
+          - text: "ケンタ（{元気|げんき}だけど{接触|せっしょく}が{多|おお}い）"
+            value: kenta
+            feedback: "ケンタは{感染|かんせん}していない。{体力|たいりょく}があり{症状|しょうじょう}もない。{誰|だれ}とも{至近距離|しきんきょり}での{長時間|ちょうじかん}{接触|せっしょく}がなかった。"
+          - text: "サヤカ（{観察力|かんさつりょく}があるけど{軽|かる}い{鼻水|はなみず}がある）"
+            value: sayaka
+            feedback: "サヤカの{鼻水|はなみず}は{木曜日|もくようび}から。ミオと{給食|きゅうしょく}で{同|おな}じグループだった。サヤカはミオから{感染|かんせん}した{可能性|かのうせい}が{高|たか}い——{感染源|かんせんげん}ではなく{被害者|ひがいしゃ}だ。"
+
+  # ========================================
+  # 証拠カード5: ミオの健康手帳
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-02/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ミオさん、{健康手帳|けんこうてちょう}を{持|も}っていますよね。{見|み}せてもらえますか？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: mio
+        text: "……うん。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: narration
+        text: "ミオの{健康手帳|けんこうてちょう}——{月曜日|げつようび}36.7℃（{元気|げんき}）。{火曜日|かようび}……"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "{火曜日|かようび}：38.2℃！ 「{少|すこ}し{熱|ねつ}っぽい。でも{読|よ}み{聞|き}かせボランティアの{準備|じゅんび}があるから{登校|とうこう}」"
+
+      - type: narration
+        text: "ミオの{方|ほう}がハルキより{先|さき}に{症状|しょうじょう}が{出|で}ていた。ミオは{火曜日|かようび}に38.2℃の{熱|ねつ}がありながら{登校|とうこう}し、ハルキと{図書室|としょしつ}で30{分|ぷん}{至近距離|しきんきょり}で{接触|せっしょく}した。"
+
+      - type: narration
+        speed: slow
+        text: "{感染経路|かんせんけいろ}：ミオ（{感染源|かんせんげん}）→{飛沫感染|ひまつかんせん}→ハルキ。ミオの{手帳|てちょう}のメモ——「{読|よ}み{聞|き}かせのリハーサル{最終日|さいしゅうび}。みんなに{迷惑|めいわく}かけたくない。マスクしてれば{大丈夫|だいじょうぶ}かな」"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 動機の質問
+  # ========================================
+  - id: motive
+    bg: classroom
+    bgm: health-02/tension
+    steps:
+      - type: choice
+        id: q2
+        question: ミオはなぜ熱があっても登校した？
+        options:
+          - text: "{読|よ}み{聞|き}かせボランティアの{準備|じゅんび}を{休|やす}めなかったから"
+            value: volunteer
+            feedback: "{正解|せいかい}。ミオは3か{月|げつ}{前|まえ}から{準備|じゅんび}してきた{大切|たいせつ}なイベント。「{自分|じぶん}が{休|やす}んだら{後輩|こうはい}に{迷惑|めいわく}をかける」という{責任感|せきにんかん}だった。"
+          - text: "{症状|しょうじょう}が{軽|かる}いと{思|おも}っていたから"
+            value: mild
+            feedback: "それも{理由|りゆう}の{一|ひと}つ。ミオは「{気|き}のせいかも」「{大|たい}した{症状|しょうじょう}じゃない」と{思|おも}い{込|こ}んでいた。でも38.2℃は{明|あき}らかな{発熱|はつねつ}。"
+          - text: "みんなに{感染|かんせん}させるつもりだった"
+            value: intentional
+            feedback: "ミオに{悪意|あくい}はまったくなかった。{自分|じぶん}が{感染源|かんせんげん}になるとは{思|おも}っていなかった。{責任感|せきにんかん}ゆえの{判断|はんだん}ミスだ。"
+          - text: "{親|おや}が「{行|い}きなさい」と{言|い}ったから"
+            value: parent
+            feedback: "ミオは{自分|じぶん}で「{大丈夫|だいじょうぶ}」と{判断|はんだん}して{登校|とうこう}した。{体温|たいおん}を{測|はか}って38.2℃と{分|わ}かっていたのに、「マスクをすれば{大丈夫|だいじょうぶ}」と{考|かんが}えてしまった。"
+
+  # ========================================
+  # 真実 — ハルキ
+  # ========================================
+  - id: truth-haruki
+    bg: classroom
+    bgm: health-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: haruki
+        text: "ぼくが{感染源|かんせんげん}だと{思|おも}われてた。「{最初|さいしょ}に{休|やす}んだから」って。でも{火曜日|かようび}のぼくの{体温|たいおん}は36.8℃。{熱|ねつ}はなかった。"
+
+      - type: dialog
+        character: haruki
+        expression: determined
+        text: "{図書室|としょしつ}でミオと30{分|ぷん}{一緒|いっしょ}にいたとき、ミオが{咳|せき}をしてたんだ。「{風邪|かぜ}っぽいね」って{言|い}ったら「{気|き}のせいかも」って。……ぼくはミオから{感染|かんせん}したんだ。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: narration
+        text: "「{最初|さいしょ}に{休|やす}んだ{人|ひと}＝{感染源|かんせんげん}」は{間違|まちが}い。{大事|だいじ}なのは「{誰|だれ}が{先|さき}に{症状|しょうじょう}を{出|だ}していたか」と「{感染経路|かんせんけいろ}が{成立|せいりつ}するか」。"
+
+  # ========================================
+  # 真実 — ミオ（感染源）
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mio
+        text: "……{火曜日|かようび}の{朝|あさ}、{体温|たいおん}を{測|はか}ったら38.2℃あった。「{少|すこ}し{熱|ねつ}っぽいかな」って{思|おも}ったけど……{読|よ}み{聞|き}かせボランティアの{最終|さいしゅう}{準備|じゅんび}だったの。"
+
+      - type: dialog
+        character: mio
+        text: "3か{月|げつ}{前|まえ}から{準備|じゅんび}してきた{大切|たいせつ}なイベント。「{自分|じぶん}が{休|やす}んだら{後輩|こうはい}に{迷惑|めいわく}をかける」って。「{大|たい}した{症状|しょうじょう}じゃない、{気|き}のせいかも」って{自分|じぶん}に{言|い}い{聞|き}かせて{登校|とうこう}した。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "ハルキが{風邪|かぜ}をひいたのを{聞|き}いて、「もしかして{自分|じぶん}のせい？」って……。でも{確信|かくしん}がなくて{黙|だま}ってた。……ごめんなさい。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+      - type: narration
+        text: "ミオは{悪意|あくい}がなかった。{責任感|せきにんかん}が{裏目|うらめ}に{出|で}た。「{症状|しょうじょう}が{出|で}たら{休|やす}む」——{自分|じぶん}のためだけじゃなく、{周|まわ}りの{人|ひと}を{守|まも}るためのルール。"
+
+  # ========================================
+  # 真実 — ケンタ
+  # ========================================
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "おれは{感染|かんせん}してない。{体力|たいりょく}には{自信|じしん}がある！ でも、{実|じつ}は{火曜日|かようび}の{昼休|ひるやす}みに{保健室|ほけんしつ}の{前|まえ}を{通|とお}ったとき、{先生|せんせい}がミオに「{顔|かお}が{赤|あか}いけど{大丈夫|だいじょうぶ}？」って{聞|き}いてたのを{聞|き}いちゃったんだ。"
+
+      - type: dialog
+        character: kenta
+        expression: determined
+        text: "「{盗|ぬす}み{聞|き}みたいで{言|い}いにくい」って{思|おも}ってたけど……{早|はや}く{言|い}えばよかった。あの{情報|じょうほう}が{推理|すいり}の{役|やく}に{立|た}ったかもしれない。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        text: "ケンタは{感染|かんせん}しなかった{理由|りゆう}——{誰|だれ}とも{至近距離|しきんきょり}での{長時間|ちょうじかん}{接触|せっしょく}がなかった。{感染経路|かんせんけいろ}が{成立|せいりつ}しなかったのだ。"
+
+  # ========================================
+  # 真実 — サヤカ
+  # ========================================
+  - id: truth-sayaka
+    steps:
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "わたしは{木曜日|もくようび}から{軽|かる}い{鼻水|はなみず}がある。{火曜日|かようび}の{給食|きゅうしょく}でミオと{同|おな}じグループだったから、そこで{感染|かんせん}したのかもしれない。"
+
+      - type: dialog
+        character: sayaka
+        expression: determined
+        text: "「ミオ、{風邪|かぜ}っぽい？」って{聞|き}いたとき、「{大丈夫|だいじょうぶ}」って{言|い}われてそれ{以上|いじょう}{追及|ついきゅう}しなかった。でも{本当|ほんとう}に{心配|しんぱい}なら、{先生|せんせい}に{伝|つた}えるべきだったかもしれない。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-02/resolution
+
+      - type: narration
+        text: "サヤカは「{最初|さいしょ}に{休|やす}んだ{人|ひと}＝{感染源|かんせんげん}とは{限|かぎ}らない」と{最初|さいしょ}に{疑問|ぎもん}を{持|も}った。{観察力|かんさつりょく}が{推理|すいり}のカギになった。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-02/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{感染源|かんせんげん}はミオでした。でもミオは{悪|わる}い{人|ひと}じゃない。{大切|たいせつ}なイベントのために{無理|むり}をしてしまった。"
+
+      - type: dialog
+        character: sensei
+        text: "{感染症|かんせんしょう}が{広|ひろ}がるには3つの{条件|じょうけん}が{必要|ひつよう}——{感染源|かんせんげん}、{感染経路|かんせんけいろ}、{感受性|かんじゅせい}。この3つのうち1つでも{断|た}てば、{感染|かんせん}は{止|と}められる。"
+
+      - type: dialog
+        character: sensei
+        text: "「{症状|しょうじょう}が{出|で}たら{休|やす}む」は{自分|じぶん}のためだけじゃない。{周|まわ}りの{人|ひと}を{守|まも}るための{行動|こうどう}でもあるんだ。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "{病気|びょうき}の{予防|よぼう}は{行動|こうどう}で{変|か}えられる。{手洗|てあら}い、マスク、そして——「{具合|ぐあい}が{悪|わる}いときは{休|やす}む{勇気|ゆうき}」。それが{自分|じぶん}も{友達|ともだち}も{守|まも}る、{一番|いちばん}の{予防|よぼう}だ。"
+
+      - type: narration
+        text: "{保健|ほけん}{探偵団|たんていだん}——{風邪|かぜ}はどこから{来|き}た？ の{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
