@@ -1,0 +1,497 @@
+meta:
+  id: programming-09
+  title: 投票カウンターのバグ
+  series: バグ探偵団
+  volume: 9
+  estimatedMinutes: 22
+
+characters:
+  issei:
+    name: イッセイ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kouhei:
+    name: コウヘイ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  suzuka:
+    name: スズカ
+    color: "#C0392B"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  chinatsu:
+    name: チナツ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5年2組のプログラミングクラブが「クラス{投票|とうひょう}アプリ」を作った。「{好|す}きな{給食|きゅうしょく}メニューランキング」を{決|き}める{投票|とうひょう}。"
+      - type: narration
+        text: "{結果|けっか}{発表|はっぴょう}——1{位|い}はカレー（18{票|ひょう}）。ところが先生が手で{数|かぞ}え{直|なお}すと——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: issei
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: issei
+        text: "手計算だとカレーは14{票|ひょう}でハンバーグが16{票|ひょう}！ プログラムと{手計算|てけいさん}で{結果|けっか}が{違|ちが}う！ カレーだけ4{票|ひょう}{多|おお}い！"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "プログラムの{結果|けっか}と{手計算|てけいさん}が合わない。4人のうち{誰|だれ}かのパートに「バグ」がある。データを{比|くら}べて{法則|ほうそく}を{見|み}つけて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: issei, expression: thinking }
+          - { id: kouhei, expression: thinking }
+          - { id: suzuka, expression: worried }
+          - { id: chinatsu, expression: thinking }
+      - type: narration
+        text: "スズカが{目|め}をそらした。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.9
+        subtitle: 投票カウンターのバグ
+
+  - id: suspects
+    bg: classroom
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "{投票|とうひょう}アプリの4つのパートと{担当者|たんとうしゃ}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: issei
+        expression: normal
+        position: left
+      - type: dialog
+        character: issei
+        text: "ぼくは{入力|にゅうりょく}フォーム{担当|たんとう}。{班長|はんちょう}の{紙|かみ}と{照合|しょうごう}して正しく{入力|にゅうりょく}した。先生も{確認|かくにん}{済|ず}み。{問題|もんだい}なし。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        expression: normal
+        position: right
+      - type: dialog
+        character: kouhei
+        text: "おれはデータ{保存|ほぞん}{担当|たんとう}。{保存|ほぞん}されたデータは{入力|にゅうりょく}のままで{変|か}わってない。先生{確認|かくにん}{済|ず}み。"
+      - type: dialog
+        character: kouhei
+        text: "ただ……スズカがテストの{前|まえ}に「ちょっと先にカレーで{試|ため}してみる」って{言|い}ってたのを{覚|おぼ}えてる。"
+        expression: thinking
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        expression: normal
+        position: left
+      - type: dialog
+        character: suzuka
+        text: "あたしは{集計|しゅうけい}プログラム{担当|たんとう}。テストでは{合計|ごうけい}5{票|ひょう}で正しかった。{問題|もんだい}ないはず。"
+        expression: normal
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        expression: normal
+        position: right
+      - type: dialog
+        character: chinatsu
+        text: "わたしは{結果|けっか}{表示|ひょうじ}{担当|たんとう}。{集計|しゅうけい}の{数字|すうじ}をそのまま{表示|ひょうじ}するだけ。先生{確認|かくにん}{済|ず}み。"
+      - type: dialog
+        character: chinatsu
+        text: "でも{班|はん}ごとに手で{計算|けいさん}したら「カレーが{毎回|まいかい}+1{票|ひょう}」になってるのに気づいた。"
+        expression: thinking
+      - type: sprite
+        character: chinatsu
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 事件の記録
+      - type: narration
+        text: "プログラムの{集計|しゅうけい}{結果|けっか}と先生の{手計算|てけいさん}の{比較|ひかく}——"
+      - type: narration
+        text: "プログラム：カレー18{票|ひょう}（1{位|い}）、ハンバーグ16{票|ひょう}。"
+      - type: narration
+        text: "{手計算|てけいさん}：カレー14{票|ひょう}、ハンバーグ16{票|ひょう}（1{位|い}）。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "カレーだけ4{票|ひょう}{多|おお}い！ {他|ほか}のメニューはプログラムと{手計算|てけいさん}が{一致|いっち}。"
+      - type: narration
+        text: "{入力|にゅうりょく}フォーム：{問題|もんだい}なし。データ{保存|ほぞん}：{問題|もんだい}なし。{結果|けっか}{表示|ひょうじ}：{問題|もんだい}なし。{集計|しゅうけい}プログラム：{未確認|みかくにん}！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "バグがあるのは{集計|しゅうけい}プログラム——スズカの{担当|たんとう}パート。"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 投票結果の比較表
+      - type: narration
+        text: "{全|ぜん}メニューの{比較|ひかく}——"
+      - type: narration
+        text: "カレー：プログラム18{票|ひょう} vs {手計算|てけいさん}14{票|ひょう} → +4{票|ひょう}。ハンバーグ：16 vs 16 → 0。からあげ：2 vs 2 → 0。{焼|や}きそば：3 vs 3 → 0。シチュー：2 vs 2 → 0。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ずれているのはカレーだけ。しかもぴったり4{票|ひょう}。{班|はん}は4つ……「4」という{数字|すうじ}に{意味|いみ}がある？"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 班別の入力データ詳細
+      - type: narration
+        text: "イッセイの{入力|にゅうりょく}データ（{班長|はんちょう}の{紙|かみ}と{一致|いっち}{確認|かくにん}{済|ず}み）——カレーの{入力|にゅうりょく}：1{班|はん}3、2{班|はん}2、3{班|はん}4、4{班|はん}5 → {合計|ごうけい}14{票|ひょう}。"
+      - type: narration
+        text: "コウヘイが{保存|ほぞん}データから{確認|かくにん}した、{集計|しゅうけい}プログラムが出した{班|はん}ごとのカレー{票数|ひょうすう}——"
+      - type: narration
+        text: "1{班|はん}{後|ご}：4。2{班|はん}{後|ご}：7。3{班|はん}{後|ご}：12。4{班|はん}{後|ご}：18。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "1{班|はん}の{入力|にゅうりょく}は「3」なのに{集計|しゅうけい}は「4」。+1{票|ひょう}！ {毎回|まいかい}+1ずつ{多|おお}くなっている！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{帰納法|きのうほう}で{法則|ほうそく}を{見|み}つけよう——1{班|はん}+1、2{班|はん}+1、3{班|はん}+1、4{班|はん}+1。「{入力|にゅうりょく}のたびにカレーに+1{票|ひょう}される{法則|ほうそく}」が{存在|そんざい}する。"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: テストの記録と証言
+      - type: narration
+        text: "{月曜日|げつようび}の{動作|どうさ}テスト——"
+      - type: narration
+        text: "スズカのテスト{記録|きろく}：「{各|かく}メニューに1{票|ひょう}ずつ{入力|にゅうりょく} → {合計|ごうけい}5{票|ひょう} → OK！ テスト{完了|かんりょう}」"
+      - type: narration
+        text: "コウヘイの{証言|しょうげん}：「スズカはテストの{前|まえ}に『ちょっと先にカレーで{試|ため}してみる』って{言|い}ってたよ。それからリセットして{全|ぜん}メニュー1{票|ひょう}ずつのテストをやった……と{思|おも}う」"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "スズカは「先にカレーで{試|ため}した」。そのあとリセットした？ もしカレーのカウンターだけ「1」のまま{残|のこ}っていたら——？"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "スズカの{集計|しゅうけい}プログラムのコードを{確認|かくにん}しました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "カウンター（{票|ひょう}を{数|かぞ}える入れ物）の{初期値|しょきち}——"
+      - type: narration
+        text: "カレー＝1。ハンバーグ＝0。からあげ＝0。{焼|や}きそば＝0。シチュー＝0。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "カレーのカウンターだけ{最初|さいしょ}から「1」になっていた！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "このプログラムは{班|はん}のデータが{入力|にゅうりょく}されるたびに{初期値|しょきち}から{集計|しゅうけい}し{直|なお}す{仕組|しく}み。{毎回|まいかい}{初期値|しょきち}1が{加算|かさん}される——"
+      - type: narration
+        text: "1{班|はん}{後|ご}：1+3＝4。2{班|はん}{後|ご}：4+1+2＝7。3{班|はん}{後|ご}：7+1+4＝12。4{班|はん}{後|ご}：12+1+5＝18。"
+      - type: narration
+        speed: slow
+        text: "4{回|かい}の{入力|にゅうりょく}×{初期値|しょきち}1＝+4{票|ひょう}。カレーだけ4{票|ひょう}多かった{理由|りゆう}——テストデータの消し{忘|わす}れだった！"
+
+  - id: questions
+    bg: classroom
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。カレーが4{票|ひょう}{多|おお}くなったバグの{原因|げんいん}は？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: カレーが+4票になったバグの原因は誰のどのミス？
+        options:
+          - text: スズカ（集計プログラム担当。テストでカレーに1を入れて消し忘れた）
+            value: suzuka
+            feedback: 正解！ スズカはテスト用にカレーのカウンターに「1」を入れたが、初期値を0に戻すのを忘れた。4班分の入力で毎回+1が加算され、合計+4票のずれが生まれた。
+          - text: イッセイ（入力フォーム担当。データを間違えて入力した）
+            value: issei
+            feedback: イッセイの入力は班長の紙と一致。先生も確認済み。入力に問題はないよ。
+          - text: コウヘイ（データ保存担当。保存時にデータが変わった）
+            value: kouhei
+            feedback: コウヘイの保存データは入力のままで変わっていない。先生確認済み。バグは保存ではなく集計で起きた。
+          - text: チナツ（結果表示担当。表示するときに数字が変わった）
+            value: chinatsu
+            feedback: チナツの表示は集計結果をそのまま出しているだけ。先生確認済み。バグは表示ではなく集計段階。
+      - type: choice
+        id: q2
+        question: 「帰納法」でどんな法則を発見した？
+        options:
+          - text: 「入力のたびにカレーに+1票される」法則を、班ごとのデータ比較から発見した
+            value: induction
+            feedback: 正解！ 1班+1、2班+1、3班+1、4班+1——複数のデータを比較して「カレーだけ毎回+1」という共通パターンを見つけた。これが帰納法。
+          - text: カレーが一番人気だという法則
+            value: popularity
+            feedback: カレーの人気は帰納法で発見したのではなく、+4票のバグで見かけ上1位になっただけ。本当の1位はハンバーグだよ。
+          - text: プログラムは必ずバグがあるという法則
+            value: always-bug
+            feedback: バグは必ずあるわけではない。今回見つけたのは「カレーだけ毎回+1票」という具体的なデータパターンだよ。
+          - text: 4は偶数だから4票多いという法則
+            value: even
+            feedback: 4票多いのは「4班×初期値1」の結果。偶数だからではなく、班の数と初期値の掛け算だよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: テストデータの消し忘れ
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-issei
+    bg: classroom
+    steps:
+      - type: sprite
+        character: issei
+        expression: worried
+        position: left
+      - type: dialog
+        character: issei
+        text: "ぼくも{入力|にゅうりょく}{後|ご}に{班|はん}ごとの{集計|しゅうけい}を{確認|かくにん}しなかった。{合計|ごうけい}だけ見て「OK」にしてしまった。"
+      - type: sprite
+        character: issei
+        action: hide
+
+  - id: truth-kouhei
+    steps:
+      - type: sprite
+        character: kouhei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kouhei
+        text: "おれ、{保存|ほぞん}データを見たときカレーの{初期値|しょきち}が「1」になってるのに気づいてた。でも「テストデータだろう」って{気|き}にしなかった。"
+      - type: sprite
+        character: kouhei
+        action: hide
+
+  - id: truth-chinatsu
+    steps:
+      - type: sprite
+        character: chinatsu
+        expression: worried
+        position: left
+      - type: dialog
+        character: chinatsu
+        text: "わたしは{班|はん}ごとに手で{計算|けいさん}して「カレーが{毎回|まいかい}+1{票|ひょう}」に気づいてた。でも{発表|はっぴょう}{前|まえ}に{言|い}い出せなかった。"
+      - type: sprite
+        character: chinatsu
+        action: hide
+
+  - id: truth-suzuka
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: suzuka
+        expression: worried
+        position: center
+      - type: dialog
+        character: suzuka
+        text: "……あたしのミスだ。"
+      - type: narration
+        speed: slow
+        text: "スズカが{小|ちい}さな{声|こえ}で話し始めた。"
+      - type: dialog
+        character: suzuka
+        text: "{集計|しゅうけい}プログラムを作るとき、{動作|どうさ}テストとしてカレーのカウンターに「1」を入れた。テストはうまくいった。でも……{初期値|しょきち}を「0」に{戻|もど}すのを{忘|わす}れた。"
+      - type: dialog
+        character: suzuka
+        text: "{結果|けっか}{発表|はっぴょう}でカレーが1{位|い}になったとき、あたしカレーが{好|す}きだから{正直|しょうじき}{嬉|うれ}しかった。でも先生が手で{数|かぞ}え{直|なお}し始めたとき「あ、テストデータの消し{忘|わす}れかも……」って気づいた。"
+        expression: worried
+      - type: dialog
+        character: suzuka
+        text: "プログラミングが一番{得意|とくい}なあたしが、{初期値|しょきち}の消し{忘|わす}れなんて{初歩的|しょほてき}ミス。{恥|は}ずかしくて{言|い}えなかった。"
+      - type: dialog
+        character: suzuka
+        text: "でも……バグを{見|み}つけたら{直|なお}すのがプログラマー。{黙|だま}ってた方がもっと{恥|は}ずかしい。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: narration
+        speed: slow
+        text: "スズカに{悪意|あくい}はなかった。テストデータの消し{忘|わす}れという{初歩的|しょほてき}なバグ。でも{恥|は}ずかしくて{黙|だま}っていたことが、みんなの{投票|とうひょう}{結果|けっか}を{歪|ゆが}めてしまった。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "スズカ、{正直|しょうじき}に話してくれてありがとう。プログラムのバグは「{間違|まちが}い」であって「{悪|わる}いこと」ではないよ。大事なのは{見|み}つけたら{直|なお}すこと。"
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}の学び——「{初期化|しょきか}」。プログラムのカウンターは「0」から始めるのが{基本|きほん}。テスト{後|ご}は{必|かなら}ずリセットする。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして「{帰納法|きのうほう}」——{複数|ふくすう}のデータを{比|くら}べて「カレーだけ{毎回|まいかい}+1{票|ひょう}」という{法則|ほうそく}を{見|み}つけた。データのパターンが{原因|げんいん}を{教|おし}えてくれる。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: issei, expression: happy }
+          - { id: kouhei, expression: happy }
+          - { id: suzuka, expression: determined }
+          - { id: chinatsu, expression: happy }
+      - type: narration
+        text: "カレーの{初期値|しょきち}は「0」に{修正|しゅうせい}された。正しい{結果|けっか}——1{位|い}はハンバーグ（16{票|ひょう}）、2{位|い}はカレー（14{票|ひょう}）。みんなの{意思|いし}が正しく{反映|はんえい}された。"
+      - type: narration
+        speed: slow
+        text: "データの{正確|せいかく}さは{信頼|しんらい}の{基盤|きばん}。バグを{見|み}つけたら{直|なお}す。{恥|は}ずかしくても{正直|しょうじき}に{言|い}う——それがプログラマーの{誇|ほこ}り。"
+      - type: sprite
+        character: issei
+        action: hide
+      - type: sprite
+        character: kouhei
+        action: hide
+      - type: sprite
+        character: suzuka
+        action: hide
+      - type: sprite
+        character: chinatsu
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——{投票|とうひょう}カウンターのバグ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
