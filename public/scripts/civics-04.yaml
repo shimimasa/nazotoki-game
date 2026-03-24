@@ -1,0 +1,515 @@
+meta:
+  id: civics-04
+  title: 署名の嘘
+  series: 公民探偵団
+  volume: 4
+  estimatedMinutes: 22
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: civics-01/opening
+    steps:
+      - type: narration
+        text: "みどり市の「校庭に{公園|こうえん}を作ってほしい」という{住民|じゅうみん}{署名|しょめい}が{市役所|しやくしょ}に{提出|ていしゅつ}された。ところが——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: kenta
+        expression: surprised
+        position: center
+      - type: bgm
+        track: civics-01/investigation
+      - type: dialog
+        character: kenta
+        text: "{署名|しょめい}した人から「そんなことを{頼|たの}んだつもりはなかった」っていう{苦情|くじょう}が{相次|あいつ}いでるぞ！"
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{署名|しょめい}用紙の{文言|もんごん}と、{実際|じっさい}に{提出|ていしゅつ}された{請願書|せいがんしょ}の{内容|ないよう}が{違|ちが}うようです。{誰|だれ}かが{署名|しょめい}を集めた{後|あと}で、{請願|せいがん}の{内容|ないよう}を変えた{可能性|かのうせい}がある。{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: surprised }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: thinking }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "ミオが{目|め}を{伏|ふ}せた。{何|なに}かを{抱|かか}えているように見える。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 公民探偵団 Vol.4
+        subtitle: 署名の嘘
+
+  - id: suspects
+    bg: classroom
+    bgm: civics-01/investigation
+    steps:
+      - type: narration
+        text: "4人の{証言|しょうげん}を聞こう。"
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくは{署名|しょめい}集めの{記録|きろく}係。{月曜|げつよう}に{全員|ぜんいん}で{署名|しょめい}用紙を{確認|かくにん}した。「{遊具|ゆうぐ}のある{公園|こうえん}」って{書|か}いてあった。{間違|まちが}いない。"
+      - type: dialog
+        character: haruki
+        text: "{木曜|もくよう}の15:30にミオが{全部|ぜんぶ}{回収|かいしゅう}した。そのときも「{遊具|ゆうぐ}のある{公園|こうえん}」だった。"
+        expression: thinking
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたしが{署名|しょめい}集めの{責任者|せきにんしゃ}。40{名|めい}{分|ぶん}を{回収|かいしゅう}して整理して、{金曜|きんよう}の{朝|あさ}に{市役所|しやくしょ}に{提出|ていしゅつ}した。"
+      - type: dialog
+        character: mio
+        text: "……ちゃんと{提出|ていしゅつ}したよ。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        expression: normal
+        position: left
+      - type: dialog
+        character: kenta
+        text: "おれは{市役所|しやくしょ}に{電話|でんわ}して{確認|かくにん}した。{受理|じゅり}された{請願書|せいがんしょ}の{内容|ないよう}は「{自然|しぜん}{広場|ひろば}」だった。「{遊具|ゆうぐ}のある{公園|こうえん}」じゃなくて。"
+      - type: dialog
+        character: kenta
+        text: "{住民|じゅうみん}3人にも聞いた。{全員|ぜんいん}「{遊具|ゆうぐ}のある{公園|こうえん}に{署名|しょめい}した」って{言|い}ってるぞ。"
+        expression: determined
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        expression: normal
+        position: right
+      - type: dialog
+        character: sora
+        text: "ぼくは{請願|せいがん}{制度|せいど}を{調|しら}べた。{署名|しょめい}は「この{内容|ないよう}に{同意|どうい}します」という{意思|いし}{表明|ひょうめい}。{内容|ないよう}を変えるなら{署名者|しょめいしゃ}{全員|ぜんいん}の{再|さい}{同意|どうい}が{必要|ひつよう}。"
+        expression: thinking
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: evidence-1
+    bg: classroom
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 元の署名用紙
+      - type: narration
+        text: "{元|もと}の{署名|しょめい}用紙——{月曜|げつよう}に{全員|ぜんいん}で{確認|かくにん}した{内容|ないよう}。"
+      - type: narration
+        text: "「さくら{小学校|しょうがっこう}の校庭に『{遊具|ゆうぐ}のある{公園|こうえん}』を{整備|せいび}することを{強|つよ}く{求|もと}めます。{子|こ}どもたちが{安全|あんぜん}に{楽|たの}しく{遊|あそ}べる{遊具|ゆうぐ}の{設置|せっち}を{希望|きぼう}します」"
+      - type: narration
+        text: "{署名|しょめい}欄：40{名|めい}{分|ぶん}。{作成日|さくせいび}：{月曜|げつよう}。{作成者|さくせいしゃ}：{公民|こうみん}{探偵|たんてい}団。"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 提出された請願書
+      - type: narration
+        text: "{市役所|しやくしょ}に{提出|ていしゅつ}された{請願書|せいがんしょ}——"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "「さくら{小学校|しょうがっこう}の校庭に『{自然|しぜん}{広場|ひろば}——{木|き}と{草|くさ}を{大切|たいせつ}にした{遊|あそ}び{場|ば}』を{整備|せいび}することを{強|つよ}く{求|もと}めます」"
+      - type: narration
+        text: "「{子|こ}どもたちが{自然|しぜん}と{触|ふ}れ合い、のびのびと{育|そだ}つ{環境|かんきょう}の{整備|せいび}を{希望|きぼう}します」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「{遊具|ゆうぐ}のある{公園|こうえん}」が「{自然|しぜん}{広場|ひろば}」に{変|か}わっている！ {提出者|ていしゅつしゃ}：{三尾|みお} {美緒|みお}——ミオだ。"
+
+  - id: evidence-3
+    bgm: civics-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ハルキの署名回収記録
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくの{記録|きろく}ノートを見てくれ。{誰|だれ}がいつ{署名|しょめい}用紙を{持|も}っていたか分かる。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: narration
+        text: "{月曜|げつよう}15:00——{署名|しょめい}用紙を{全員|ぜんいん}で{確認|かくにん}（{内容|ないよう}：{遊具|ゆうぐ}のある{公園|こうえん}）。"
+      - type: narration
+        text: "{火曜|かよう}〜{木曜|もくよう}——各自で{署名|しょめい}集め。{合計|ごうけい}40{名|めい}{分|ぶん}。"
+      - type: narration
+        text: "{木曜|もくよう}15:30——ミオが{全員|ぜんいん}{分|ぶん}を{回収|かいしゅう}。「整理して{市役所|しやくしょ}用にまとめる」。ハルキがこの{時点|じてん}で{内容|ないよう}を{確認|かくにん}——「{遊具|ゆうぐ}のある{公園|こうえん}」。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{木曜|もくよう}18:00——ミオが「整理するので{持|も}ち{帰|かえ}る」と{連絡|れんらく}。{金曜|きんよう}8:00——ミオが{市役所|しやくしょ}に{提出|ていしゅつ}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{木曜|もくよう}15:30{以降|いこう}、{署名|しょめい}用紙を{持|も}っていたのはミオだけ。{内容|ないよう}が変わったのは{木曜|もくよう}の{夜|よる}——ミオが{一人|ひとり}で{保管|ほかん}していた{時間帯|じかんたい}。"
+
+  - id: evidence-4
+    bgm: civics-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 市役所の確認と住民証言
+      - type: sprite
+        character: kenta
+        expression: determined
+        position: right
+      - type: dialog
+        character: kenta
+        text: "おれが{市役所|しやくしょ}に{電話|でんわ}して、{住民|じゅうみん}にも{聞|き}き{込|こ}みした。"
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: narration
+        text: "{市役所|しやくしょ}の{回答|かいとう}：「{自然|しぜん}{広場|ひろば}の{請願|せいがん}」として{受理|じゅり}した。"
+      - type: narration
+        text: "{住民|じゅうみん}Aさん：「{遊具|ゆうぐ}のある{公園|こうえん}に{署名|しょめい}しました。{自然|しぜん}{広場|ひろば}なんて聞いていません」"
+      - type: narration
+        text: "{住民|じゅうみん}Bさん：「{子|こ}どもに{遊具|ゆうぐ}で{遊|あそ}ばせたくて{署名|しょめい}しました。{内容|ないよう}が変わっているとは」"
+      - type: narration
+        text: "{住民|じゅうみん}Cさん：「{署名|しょめい}した{内容|ないよう}と{違|ちが}うなら{取|と}り{消|け}したい」"
+      - type: narration
+        speed: slow
+        text: "40{名|めい}{全員|ぜんいん}が「{遊具|ゆうぐ}のある{公園|こうえん}」に{署名|しょめい}した。{誰|だれ}も「{自然|しぜん}{広場|ひろば}」には{同意|どうい}していない。"
+
+  - id: evidence-5
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{署名|しょめい}用紙の{束|たば}の中に、ミオのメモが{挟|はさ}まっていました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——ミオのメモ——"
+      - type: narration
+        text: "「{自然|しぜん}{広場|ひろば}のほうが{絶対|ぜったい}に{子|こ}どもにとっていい。{遊具|ゆうぐ}では{毎年|まいとし}300{件|けん}{以上|いじょう}の{怪我|けが}{事故|じこ}。{自然|しぜん}の中での{遊|あそ}びは{創造力|そうぞうりょく}と{体力|たいりょく}を{育|そだ}てる」"
+      - type: narration
+        text: "「{調|しら}べた{記事|きじ}：{遊具|ゆうぐ}{事故|じこ}データ（{消費者庁|しょうひしゃちょう}）、{自然|しぜん}{遊|あそ}びと{子|こ}どもの{発育|はついく}（{研究|けんきゅう}{論文|ろんぶん}3{件|けん}）」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「{署名|しょめい}した人たちも、{本当|ほんとう}のことを知ったらきっとそう思う——」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ミオは「{自然|しぜん}{広場|ひろば}の方が{子|こ}どもに良い」という{強|つよ}い{確信|かくしん}を{持|も}っていた。その{確信|かくしん}に{基|もと}づいて、{署名者|しょめいしゃ}の{意思|いし}を{確認|かくにん}せずに{内容|ないよう}を{書|か}き{換|か}えた。"
+
+  - id: questions
+    bg: classroom
+    bgm: civics-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{署名|しょめい}の{内容|ないよう}を{書|か}き{換|か}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 請願書の内容を「遊具のある公園」から「自然広場」に書き換えたのは誰？
+        options:
+          - text: ハルキ（記録係。署名用紙を確認していた）
+            value: haruki
+            feedback: ハルキは木曜15:30に「遊具のある公園」を確認した側。その後ミオに渡している。ハルキが変えたのではないよ。
+          - text: ミオ（署名集め責任者。木曜夜に一人で保管し、金曜朝に提出）
+            value: mio
+            feedback: 正解！ タイムラインから、木曜15:30以降にミオだけが用紙を持っていた。メモには「自然広場の方がいい」という確信が書かれていた。
+          - text: ケンタ（市役所に電話確認した）
+            value: kenta
+            feedback: ケンタは文言の違いを発見した側。市役所に確認し、住民証言も集めた。書き換えたのは別の人だよ。
+          - text: ソラ（請願制度に詳しい）
+            value: sora
+            feedback: ソラは制度の知識を持っているだけ。署名用紙を保管していたのはミオだよ。
+      - type: choice
+        id: q2
+        question: ミオの行動のどこが問題だった？
+        options:
+          - text: 署名者の意思を確認せずに、自分の信念で内容を変えたこと
+            value: override
+            feedback: 正解！ 署名は「この内容に同意します」という一人ひとりの意思表明。内容を変えることは40人の意思を無視する行為。たとえ「子どもにとって良い」確信があっても、署名者の意思は尊重しなければならない。
+          - text: 自然広場の方が良いという判断自体が間違っていた
+            value: wrong-opinion
+            feedback: ミオの「自然広場が良い」という意見自体は一つの考え方。問題は意見の中身ではなく「署名者の同意なしに内容を変えた」という手続きの部分だよ。
+          - text: 市役所に黙って提出したこと
+            value: secret
+            feedback: 黙って提出したことも問題だけど、本質は「署名者の意思を勝手に変えた」こと。署名は民主的手続きの根幹だよ。
+          - text: 一人で全部やろうとしたこと
+            value: alone
+            feedback: 確かに一人で抱え込んだことも問題だけど、核心は「他の人の意思決定を自分の判断で上書きした」こと。民主主義の原則に反する行為だよ。
+
+  - id: truth-intro
+    bg: classroom
+    bgm: civics-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 「正しい」と信じたから
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-haruki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruki
+        text: "ぼくも{反省|はんせい}がある。ミオに{用紙|ようし}を{渡|わた}すとき「{提出|ていしゅつ}{前|まえ}にもう{一度|いちど}{全員|ぜんいん}で{確認|かくにん}しよう」って{言|い}えばよかった。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+      - type: dialog
+        character: kenta
+        text: "おれ、{木曜|もくよう}の{夜|よる}にミオが{公園|こうえん}で{請願書|せいがんしょ}を{書|か}き{直|なお}してるのを{見|み}かけたんだ。「{準備|じゅんび}を{頑張|がんば}ってるんだ」って思って{声|こえ}をかけなかった。"
+      - type: sprite
+        character: kenta
+        action: hide
+
+  - id: truth-sora
+    steps:
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "ぼくは{請願書|せいがんしょ}の{提出|ていしゅつ}{前|まえ}に「{内容|ないよう}の{最終|さいしゅう}{確認|かくにん}を{全員|ぜんいん}でしよう」って思ってたのに、「ミオに{任|まか}せよう」って{言|い}わなかった。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  - id: truth-mio
+    bgm: civics-01/truth
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+      - type: dialog
+        character: mio
+        text: "……わたしが{書|か}き{換|か}えた。"
+      - type: narration
+        speed: slow
+        text: "ミオが{静|しず}かに話し始めた。"
+      - type: dialog
+        character: mio
+        text: "{遊具|ゆうぐ}の{事故|じこ}データを{調|しら}べたの。{毎年|まいとし}300{件|けん}{以上|いじょう}の{怪我|けが}。{自然|しぜん}の中で{遊|あそ}ぶ方が{創造力|そうぞうりょく}も{体力|たいりょく}も{育|そだ}つっていう{研究|けんきゅう}もあった。"
+      - type: dialog
+        character: mio
+        text: "「{自然|しぜん}{広場|ひろば}の方が{絶対|ぜったい}に{子|こ}どもにとっていい」——{本当|ほんとう}にそう{思|おも}った。{署名|しょめい}した人たちも、{本当|ほんとう}のことを知ったらきっとそう思うって。"
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "だから{木曜|もくよう}の{夜|よる}、{一人|ひとり}で{請願書|せいがんしょ}を{書|か}き{直|なお}した。{金曜|きんよう}の{朝|あさ}、「{自然|しぜん}{広場|ひろば}」として{提出|ていしゅつ}した。"
+      - type: dialog
+        character: mio
+        text: "でも……40人の人が「{遊具|ゆうぐ}のある{公園|こうえん}」に{署名|しょめい}したんだよね。わたしが{勝手|かって}に{変|か}えたら、40人の{意思|いし}を{無視|むし}したことになる。"
+        expression: determined
+      - type: dialog
+        character: mio
+        text: "「{正|ただ}しい」と信じてたけど……{署名|しょめい}した人の{気持|きも}ちを{聞|き}かなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ミオに{悪意|あくい}はなかった。{子|こ}どもたちのために「{本当|ほんとう}に良いもの」を{届|とど}けたかった。でも——「{自分|じぶん}が{正|ただ}しい」という{確信|かくしん}が、{他|ほか}の人の{意思|いし}を{見|み}えなくさせてしまった。"
+
+  - id: epilogue
+    bg: classroom
+    bgm: civics-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ミオ、正直に話してくれてありがとう。{子|こ}どもたちを{思|おも}う気持ちは{本物|ほんもの}だった。"
+      - type: dialog
+        character: sensei
+        text: "でも{署名|しょめい}は「この{内容|ないよう}に{同意|どうい}します」という{一人|ひとり}ひとりの{意思|いし}{表明|ひょうめい}。{内容|ないよう}を変えることは、40人の{意思|いし}を{無視|むし}すること——{住民|じゅうみん}{参加|さんか}の{民主的|みんしゅてき}{手続|てつづ}きの{破壊|はかい}です。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "「{自分|じぶん}が{正|ただ}しい」と{思|おも}っても、{他|ほか}の人の{意思|いし}を{勝手|かって}に{変|か}えてはいけない。{正|ただ}しいと思うなら、まず{説明|せつめい}して{同意|どうい}を{得|え}る——それが{民主主義|みんしゅしゅぎ}の{道|みち}です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: mio, expression: determined }
+          - { id: kenta, expression: determined }
+          - { id: sora, expression: determined }
+      - type: narration
+        text: "ミオは{署名者|しょめいしゃ}{全員|ぜんいん}に{事情|じじょう}を{説明|せつめい}し、「{遊具|ゆうぐ}のある{公園|こうえん}」の{請願書|せいがんしょ}を{改|あらた}めて{提出|ていしゅつ}し{直|なお}した。"
+      - type: narration
+        speed: slow
+        text: "「{絶対|ぜったい}に{正|ただ}しい」と{思|おも}っても、{他|ほか}の人の{意思|いし}を{確認|かくにん}する。それが{民主主義|みんしゅしゅぎ}の{基本|きほん}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "{公民|こうみん}{探偵|たんてい}団——{署名|しょめい}の{嘘|うそ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
