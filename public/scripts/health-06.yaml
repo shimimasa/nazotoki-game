@@ -1,0 +1,494 @@
+meta:
+  id: health-06
+  title: 応急処置の判断ミス
+  series: 保健探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sayaka:
+    name: サヤカ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: health-06/opening
+    steps:
+      - type: narration
+        text: "{体育|たいいく}の{授業|じゅぎょう}が{終|お}わった{直後|ちょくご}、{体育館|たいいくかん}{前|まえ}の{廊下|ろうか}でケンタが{足|あし}をねんざした。{着地|ちゃくち}した{瞬間|しゅんかん}に{左|ひだり}{足首|あしくび}をひねってしまった。"
+
+      - type: narration
+        text: "ハルキ、ミオ、サヤカがすぐに{駆|か}けつけて、RICE{処置|しょち}を{手分|てわ}けして{行|おこな}った。R（{安静|あんせい}）、I（{冷却|れいきゃく}）、C（{圧迫|あっぱく}）、E（{挙上|きょじょう}）。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "ところが{処置後|しょちご}もケンタの{状態|じょうたい}が{改善|かいぜん}しない。{足先|あしさき}が{青白|あおじろ}くなり、しびれを{訴|うった}えている。RICE{処置|しょち}の「やり{方|かた}」に{問題|もんだい}があったらしい。"
+
+      - type: bgm
+        track: health-06/investigation
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "RICE{処置|しょち}の4ステップを{全探索|ぜんたんさく}して、どのステップの「やり{方|かた}」が{間違|まちが}っていたか{突|つ}き{止|と}めよう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: thinking }
+          - { id: mio, expression: worried }
+          - { id: kenta, expression: worried }
+          - { id: sayaka, expression: thinking }
+
+      - type: narration
+        text: "ハルキ、ミオ、ケンタ、サヤカ——{保健|ほけん}{探偵団|たんていだん}、{調査|ちょうさ}{開始|かいし}。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 応急処置の判断ミス
+        subtitle: 保健探偵団 Vol.6
+
+  # ========================================
+  # 証拠カード1: 現場の目撃記録
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: health-06/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: ステップ1：調査
+        subtitle: RICE処置を全探索しよう
+
+      - type: narration
+        text: "4{人|にん}がそれぞれRICE{処置|しょち}を{分担|ぶんたん}した——"
+
+      - type: narration
+        text: "ハルキ→R（{安静|あんせい}）：ケンタを{座|すわ}らせ、{動|うご}かないよう{支|ささ}えた。ミオ→I（{冷却|れいきゃく}）：タオル{越|ご}しに{氷嚢|ひょうのう}を{当|あ}てた。"
+
+      - type: narration
+        text: "ハルキ→C（{圧迫|あっぱく}）：{弾性|だんせい}{包帯|ほうたい}を{足首|あしくび}に{巻|ま}いた。サヤカ→E（{挙上|きょじょう}）：リュックの{上|うえ}に{足|あし}を{乗|の}せ、{心臓|しんぞう}より{高|たか}い{位置|いち}に{上|あ}げた。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "{処置|しょち}は{全部|ぜんぶ}やったはず。なのにケンタの{足先|あしさき}が{青白|あおじろ}く、しびれている。どのステップの「やり{方|かた}」が{間違|まちが}っていた？"
+
+  # ========================================
+  # 証拠カード2: 全探索ワークシート
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 全探索ワークシート
+
+      - type: narration
+        text: "「{全探索|ぜんたんさく}」とは——{選択肢|せんたくし}を{全部|ぜんぶ}{並|なら}べて、1つずつ「{正|ただ}しい？ {間違|まちが}い？」を{確認|かくにん}する{方法|ほうほう}。"
+
+      - type: narration
+        text: "R（{安静|あんせい}）：{座|すわ}らせて{動|うご}かさない→？。I（{冷却|れいきゃく}）：タオル{越|ご}しに{氷嚢|ひょうのう}→？。C（{圧迫|あっぱく}）：{弾性|だんせい}{包帯|ほうたい}で{巻|ま}いた→？。E（{挙上|きょじょう}）：{心臓|しんぞう}より{高|たか}く{上|あ}げた→？。"
+
+      - type: narration
+        speed: slow
+        text: "4{人|にん}{全員|ぜんいん}が「{正|ただ}しいことをしよう」として{動|うご}いた。でもケンタの{状態|じょうたい}が{悪化|あっか}している。{全部|ぜんぶ}{確認|かくにん}してから{答|こた}えを{出|だ}そう。"
+
+  # ========================================
+  # 証拠カード3: 応急処置マニュアル
+  # ========================================
+  - id: evidence-3
+    bgm: health-06/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 応急処置マニュアル
+
+      - type: narration
+        text: "RICE{処置|しょち}の{注意点|ちゅういてん}——"
+
+      - type: narration
+        text: "R（{安静|あんせい}）：{無理|むり}に{歩|ある}かせない。I（{冷却|れいきゃく}）：{皮膚|ひふ}に{直接|ちょくせつ}{当|あ}てず、タオルを1{枚|まい}はさむ。15〜20{分|ぷん}。"
+
+      - type: narration
+        text: "C（{圧迫|あっぱく}）：{弾性|だんせい}{包帯|ほうたい}で{軽|かる}く{押|お}さえる。{強|つよ}く{締|し}めすぎない（{血流|けつりゅう}を{遮断|しゃだん}しない）。{指|ゆび}が2{本|ほん}{入|はい}る{余裕|よゆう}を{残|のこ}す。"
+
+      - type: narration
+        text: "E（{挙上|きょじょう}）：{心臓|しんぞう}より{高|たか}い{位置|いち}に{上|あ}げる。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "マニュアルに「{強|つよ}く{締|し}めすぎない」「{指|ゆび}が2{本|ほん}{入|はい}る{余裕|よゆう}」と{明記|めいき}されている。{実際|じっさい}の{処置|しょち}はどうだった？"
+
+  # ========================================
+  # 証拠カード4: ケンタの症状とハルキの行動記録
+  # ========================================
+  - id: evidence-4
+    bgm: health-06/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ケンタの訴えとハルキの行動
+
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "{冷|ひ}やしてもらってるのに、{足先|あしさき}が{冷|つめ}たすぎるっていうか、しびれてきて。{包帯|ほうたい}のところがきついなって{思|おも}ったけど、ハルキがちゃんと{巻|ま}いてくれたんだから{大丈夫|だいじょうぶ}かなって……{言|い}い{出|だ}せなかった。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        text: "ハルキの{行動|こうどう}{記録|きろく}——「できるだけきつく{巻|ま}いた」「{隙間|すきま}ができたらダメだと{思|おも}って、2{重|じゅう}に{巻|ま}いて{端|はし}をしっかり{留|と}めた」"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "マニュアルには「{強|つよ}く{締|し}めすぎない」「{指|ゆび}が2{本|ほん}{入|はい}る{余裕|よゆう}」。ハルキは「できるだけきつく」「2{重|じゅう}に」。ここがずれている。"
+
+      - type: narration
+        text: "ケンタの{足先|あしさき}が{青白|あおじろ}い、しびれがある——これは{血流|けつりゅう}{遮断|しゃだん}のサイン。{圧迫|あっぱく}がきつすぎて{血|ち}が{通|とお}っていない。"
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: health-06/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{全探索|ぜんたんさく}で4ステップを{全部|ぜんぶ}{確認|かくにん}しよう。{間違|まちが}っていたのはどのステップ？"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: RICE処置でやり方が間違っていたのはどのステップ？
+        options:
+          - text: "R（{安静|あんせい}）：{座|すわ}らせて{動|うご}かさない"
+            value: rest
+            feedback: "R（{安静|あんせい}）はハルキがケンタを{座|すわ}らせて{支|ささ}えた。マニュアルどおり、{動|うご}かさずに{安静|あんせい}にしている。{正|ただ}しい{処置|しょち}だよ。"
+          - text: "I（{冷却|れいきゃく}）：タオル{越|ご}しに{氷嚢|ひょうのう}"
+            value: ice
+            feedback: "I（{冷却|れいきゃく}）はミオがタオル{越|ご}しに{氷嚢|ひょうのう}を{当|あ}てた。マニュアルの「{皮膚|ひふ}に{直接|ちょくせつ}{当|あ}てない」に{合致|がっち}。{正|ただ}しい{処置|しょち}だよ。"
+          - text: "C（{圧迫|あっぱく}）：{弾性|だんせい}{包帯|ほうたい}で{巻|ま}いた"
+            value: compression
+            feedback: "{正解|せいかい}！ ハルキは「できるだけきつく」「2{重|じゅう}に」{巻|ま}いた。マニュアルには「{軽|かる}く{押|お}さえる」「{指|ゆび}が2{本|ほん}{入|はい}る{余裕|よゆう}」。{強|つよ}すぎる{圧迫|あっぱく}で{血流|けつりゅう}が{止|と}まり、{足先|あしさき}が{青白|あおじろ}くなった。"
+          - text: "E（{挙上|きょじょう}）：{心臓|しんぞう}より{高|たか}く{上|あ}げた"
+            value: elevation
+            feedback: "E（{挙上|きょじょう}）はサヤカがリュックの{上|うえ}に{足|あし}を{乗|の}せた。{心臓|しんぞう}より{高|たか}い{位置|いち}に{上|あ}げる——マニュアルどおり。{正|ただ}しい{処置|しょち}だよ。"
+
+      - type: choice
+        id: q2
+        question: ハルキはなぜきつく巻いてしまった？
+        options:
+          - text: "「しっかり{巻|ま}く＝{正|ただ}しい」と{思|おも}い{込|こ}んでいた"
+            value: bias
+            feedback: "{正解|せいかい}。ハルキはマニュアルに{詳|くわ}しい{記録|きろく}{係|がかり}。でも「{圧迫|あっぱく}＝しっかり{巻|ま}く」という{思|おも}い{込|こ}みがあった。{知識|ちしき}があっても「やり{方|かた}」を{間違|まちが}えることがある。"
+          - text: "ケンタを{早|はや}く{楽|らく}にしたくて{焦|あせ}った"
+            value: rush
+            feedback: "{焦|あせ}りもあったかもしれない。でも{本質|ほんしつ}は「しっかり＝{正|ただ}しい」という{認知|にんち}バイアス。マニュアルの「{注意点|ちゅういてん}」を{飛|と}ばして「{手順|てじゅん}」だけ{見|み}てしまった。"
+          - text: "マニュアルを{読|よ}んでいなかった"
+            value: no-read
+            feedback: "ハルキはマニュアルに{詳|くわ}しい{記録|きろく}{係|がかり}。{読|よ}んでいた。でも「{注意点|ちゅういてん}」の「{強|つよ}く{締|し}めすぎない」を{見落|みお}としていた——{知|し}っているつもりが{落|お}とし{穴|あな}。"
+          - text: "わざとケンタを{傷|きず}つけたかった"
+            value: intentional
+            feedback: "ハルキに{悪意|あくい}はまったくない。ケンタの{腫|は}れを{止|と}めたい{一心|いっしん}で{行動|こうどう}した。{一生懸命|いっしょうけんめい}やることと{正|ただ}しくやることは{違|ちが}う。"
+
+  # ========================================
+  # 証拠カード5: 保健室の先生のメモ
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: health-06/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{保健室|ほけんしつ}の{先生|せんせい}がケンタを{診|み}た{結果|けっか}を{報告|ほうこく}します。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{先生|せんせい}のメモ——「4{人|にん}がRICE{処置|しょち}を{分担|ぶんたん}したのは{素晴|すば}らしい{判断|はんだん}です。{安静|あんせい}・{冷却|れいきゃく}・{挙上|きょじょう}は{正|ただ}しくできています。」"
+
+      - type: narration
+        speed: slow
+        text: "「ただ——{圧迫|あっぱく}がきつすぎます。{包帯|ほうたい}をきつく{巻|ま}くと{血流|けつりゅう}が{止|と}まり、{足先|あしさき}に{血|ち}が{行|い}かなくなります。{指先|ゆびさき}が{青白|あおじろ}いのはその{証拠|しょうこ}です。」"
+
+      - type: narration
+        text: "「{圧迫|あっぱく}は'{軽|かる}く{押|お}さえる'が{正解|せいかい}。{目安|めやす}は{指|ゆび}が2{本|ほん}{入|はい}る{余裕|よゆう}を{残|のこ}すこと。RICE{処置|しょち}は4つの{手順|てじゅん}がセットで{機能|きのう}する。1つでもやり{方|かた}を{間違|まちが}えると、{他|ほか}の3つが{正|ただ}しくても{逆効果|ぎゃくこうか}になることがある。」"
+
+      - type: wait
+        duration: 1500
+
+  # ========================================
+  # 真実 — ハルキ（犯人）
+  # ========================================
+  - id: truth-haruki
+    bg: classroom
+    bgm: health-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: 真実
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: haruki
+        text: "……ぼくが{包帯|ほうたい}をきつく{巻|ま}きすぎた。「ちゃんと{圧迫|あっぱく}しないと{腫|は}れが{広|ひろ}がる」と{思|おも}って。{隙間|すきま}ができないように2{重|じゅう}に{巻|ま}いた。"
+
+      - type: dialog
+        character: haruki
+        text: "{保健|ほけん}{委員会|いいんかい}の{記録|きろく}{係|がかり}として、マニュアルには{詳|くわ}しいつもりだった。でも「{注意点|ちゅういてん}」の「{強|つよ}く{締|し}めすぎない」を{見落|みお}としてた。"
+
+      - type: dialog
+        character: haruki
+        expression: determined
+        text: "「しっかり{巻|ま}く＝{正|ただ}しい」と{思|おも}い{込|こ}んでた。{知|し}ってるつもりが、やり{方|かた}を{間違|まちが}えてた。ケンタ、ごめん。"
+
+      - type: sprite
+        character: haruki
+        action: hide
+
+      - type: narration
+        text: "ハルキは「{悪|わる}い{人|ひと}」ではない。「しっかり{処置|しょち}しようとしてやり{方|かた}を{間違|まちが}えた{人|ひと}」。{一生懸命|いっしょうけんめい}やることと{正|ただ}しくやることは{違|ちが}う。"
+
+  # ========================================
+  # 真実 — ミオ
+  # ========================================
+  - id: truth-mio
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mio
+        text: "{実|じつ}は……ハルキが{包帯|ほうたい}を{巻|ま}いてるとき、「ちょっときつそう」って{思|おも}った。でも{言|い}えなかった。ハルキがマニュアルに{詳|くわ}しいから、「ハルキのやり{方|かた}が{正|ただ}しいんだろう」って。"
+
+      - type: dialog
+        character: mio
+        expression: determined
+        text: "「おかしい」と{思|おも}ったら{声|こえ}に{出|だ}す。それが{友達|ともだち}を{守|まも}ることになるんだ。{遠慮|えんりょ}が{一番|いちばん}こわい。"
+
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ========================================
+  # 真実 — ケンタ
+  # ========================================
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: kenta
+        text: "{包帯|ほうたい}がきつかったの、{気|き}づいてた。でも「ハルキがちゃんと{巻|ま}いてくれたんだから」って{思|おも}って{言|い}い{出|だ}せなかった。"
+
+      - type: dialog
+        character: kenta
+        expression: determined
+        text: "{自分|じぶん}の{体|からだ}の{異変|いへん}に{気|き}づいたら、すぐに{伝|つた}えなきゃダメだ。「{大丈夫|だいじょうぶ}」って{我慢|がまん}するのは、{本当|ほんとう}の{勇気|ゆうき}じゃない。"
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+  # ========================================
+  # 真実 — サヤカ
+  # ========================================
+  - id: truth-sayaka
+    steps:
+      - type: sprite
+        character: sayaka
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sayaka
+        text: "{全探索|ぜんたんさく}で4ステップを{全部|ぜんぶ}{確認|かくにん}して、C（{圧迫|あっぱく}）だけが{間違|まちが}っていたと{分|わ}かった。R・I・Eは{正|ただ}しかった。"
+
+      - type: dialog
+        character: sayaka
+        expression: determined
+        text: "「{全部|ぜんぶ}{確認|かくにん}してから{答|こた}えを{出|だ}す」——これが{全探索|ぜんたんさく}。「たぶんこれだ！」と{飛|と}びつかないで、1つずつ{確|たし}かめることが{大事|だいじ}。"
+
+      - type: sprite
+        character: sayaka
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: health-06/resolution
+
+      - type: narration
+        speed: slow
+        text: "RICE{処置|しょち}は4つの{手順|てじゅん}がセットで{機能|きのう}する。1つでもやり{方|かた}を{間違|まちが}えると{逆効果|ぎゃくこうか}。「{知|し}っている」と「{正|ただ}しくできる」は{違|ちが}う。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: health-06/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "4{人|にん}{全員|ぜんいん}が「{正|ただ}しいことをしよう」として{動|うご}いた。それは{素晴|すば}らしいこと。"
+
+      - type: dialog
+        character: sensei
+        text: "でも{大事|だいじ}なのは「やろうとする{気持|きも}ち」だけじゃなく「{正|ただ}しいやり{方|かた}」。{知識|ちしき}とやり{方|かた}の{両方|りょうほう}を{持|も}つことが、{大切|たいせつ}な{人|ひと}を{守|まも}る{力|ちから}になる。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "RICE{処置|しょち}——R（{安静|あんせい}）、I（{冷却|れいきゃく}）、C（{圧迫|あっぱく}：{軽|かる}く！ {指|ゆび}2{本|ほん}の{余裕|よゆう}）、E（{挙上|きょじょう}）。{急性|きゅうせい}のけがには「{冷|ひ}やす」。{温|あたた}めるのは{数日後|すうじつご}から。"
+
+      - type: narration
+        speed: slow
+        text: "そして——「おかしい」と{思|おも}ったら{声|こえ}に{出|だ}す{勇気|ゆうき}。「{大丈夫|だいじょうぶ}」と{我慢|がまん}しない{勇気|ゆうき}。それも{大切|たいせつ}な{応急処置|おうきゅうしょち}。{保健|ほけん}{探偵団|たんていだん}——{応急処置|おうきゅうしょち}の{判断|はんだん}ミスの{謎|なぞ}、{解決|かいけつ}！"
+
+      - type: effect
+        name: fade-out
+        duration: 1500
