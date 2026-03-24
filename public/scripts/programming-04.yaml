@@ -1,0 +1,487 @@
+meta:
+  id: programming-04
+  title: ありえない実験結果と光るナゾ
+  series: バグ探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  hayato:
+    name: ハヤト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yuna:
+    name: ユナ
+    color: "#C0392B"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  daichi:
+    name: ダイチ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  honoka:
+    name: ホノカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: science-lab
+    bgm: programming-01/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5年2組の{理科|りか}の{授業|じゅぎょう}——「{植物|しょくぶつ}の{成長|せいちょう}に光は{必要|ひつよう}か」の{条件|じょうけん}{制御|せいぎょ}{実験|じっけん}。4つの{鉢|はち}で「光あり/なし」「{水|みず}あり/なし」を比べている。"
+      - type: narration
+        text: "1{週間後|しゅうかんご}、{結果|けっか}を{確認|かくにん}すると——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: hayato
+        expression: surprised
+        position: center
+      - type: bgm
+        track: programming-01/investigation
+      - type: dialog
+        character: hayato
+        text: "「光なし」の{鉢|はち}Bが12cmも{育|そだ}ってる！ {条件|じょうけん}{制御|せいぎょ}のルールだと、光なしで{育|そだ}つはずがないのに！"
+      - type: sprite
+        character: hayato
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{条件|じょうけん}{制御|せいぎょ}{実験|じっけん}のルール——「変えるのは1つだけ」。このルールに{照|て}らすと、{鉢|はち}Bの{結果|けっか}はありえない。{誰|だれ}かが{実験|じっけん}{条件|じょうけん}を変えたんです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: hayato, expression: thinking }
+          - { id: yuna, expression: worried }
+          - { id: daichi, expression: surprised }
+          - { id: honoka, expression: thinking }
+      - type: narration
+        text: "ユナが{目|め}をそらした。"
+      - type: sprite
+        character: hayato
+        action: hide
+      - type: sprite
+        character: yuna
+        action: hide
+      - type: sprite
+        character: daichi
+        action: hide
+      - type: sprite
+        character: honoka
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: バグ探偵団 Vol.4
+        subtitle: ありえない実験結果と光るナゾ
+
+  - id: suspects
+    bg: science-lab
+    bgm: programming-01/investigation
+    steps:
+      - type: narration
+        text: "4人に話を聞こう。まず{実験|じっけん}{前|まえ}の{予想|よそう}を{確認|かくにん}。"
+      - type: sprite
+        character: hayato
+        expression: normal
+        position: left
+      - type: dialog
+        character: hayato
+        text: "ぼくの{予想|よそう}は「光が{必要|ひつよう}」。{光合成|こうごうせい}には光が{必要|ひつよう}だから。{鉢|はち}Bの{結果|けっか}はおかしい。"
+      - type: sprite
+        character: hayato
+        action: hide
+      - type: sprite
+        character: yuna
+        expression: normal
+        position: right
+      - type: dialog
+        character: yuna
+        text: "わたしの{予想|よそう}は「光なしでも{育|そだ}つ」。{暗|くら}い{場所|ばしょ}でも{草|くさ}は生えるから。……{鉢|はち}Bが{育|そだ}ったのは、わたしの{予想|よそう}が正しかったってことじゃない？"
+        expression: normal
+      - type: sprite
+        character: yuna
+        action: hide
+      - type: sprite
+        character: daichi
+        expression: normal
+        position: left
+      - type: dialog
+        character: daichi
+        text: "おれの{予想|よそう}は「光が{必要|ひつよう}」。ひまわりは{太陽|たいよう}の方を向くから。{金曜|きんよう}の{放課後|ほうかご}はずっと校庭にいた。先生が{証人|しょうにん}。"
+      - type: sprite
+        character: daichi
+        action: hide
+      - type: sprite
+        character: honoka
+        expression: normal
+        position: right
+      - type: dialog
+        character: honoka
+        text: "わたしの{予想|よそう}は「光が{必要|ひつよう}」。教科書にそう{書|か}いてある。{木曜|もくよう}まで{鉢|はち}Bは{育|そだ}ってなかったのに、{金曜|きんよう}〜{月曜|げつよう}で{急|きゅう}に{育|そだ}った。{変|へん}。"
+        expression: thinking
+      - type: sprite
+        character: honoka
+        action: hide
+
+  - id: evidence-1
+    bg: science-lab
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 実験条件表と結果
+      - type: narration
+        text: "4つの{鉢|はち}の{条件|じょうけん}と{結果|けっか}——"
+      - type: narration
+        text: "{鉢|はち}A（{基準|きじゅん}）：光あり・{水|みず}あり → よく{育|そだ}った（15cm）✅"
+      - type: narration
+        text: "{鉢|はち}B：光なし・{水|みず}あり → {育|そだ}った（12cm）❓"
+      - type: narration
+        text: "{鉢|はち}C：光あり・{水|みず}なし → {枯|か}れた。{鉢|はち}D：光あり・{水|みず}あり → よく{育|そだ}った（14cm）✅"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{鉢|はち}Bは「光なし」なのに12cmも{育|そだ}った！ {条件|じょうけん}{制御|せいぎょ}のルール「変えるのは1つだけ」に{照|て}らすと——ありえない{結果|けっか}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{鉢|はち}Bが{育|そだ}ったのは「光なしでも{育|そだ}つから」？ それとも「{条件|じょうけん}が{勝手|かって}に変えられたから」？"
+
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4人の実験前の予想
+      - type: narration
+        text: "{実験|じっけん}{前|まえ}の4人の{予想|よそう}——"
+      - type: narration
+        text: "ハヤト：「光が{必要|ひつよう}」。ダイチ：「光が{必要|ひつよう}」。ホノカ：「光が{必要|ひつよう}」。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ユナ：「光なしでも{育|そだ}つ」——4人の中でユナだけ{違|ちが}う{予想|よそう}！"
+      - type: narration
+        text: "{鉢|はち}Bの{結果|けっか}は「光なしでも{育|そだ}った」→ ユナの{予想|よそう}だけが「当たった」ことになる。ぐうぜん？ それとも……？"
+
+  - id: evidence-3
+    bgm: programming-01/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 暗箱の仕組み
+      - type: narration
+        text: "{鉢|はち}Bの「暗{箱|ばこ}」——{段|だん}ボールの{箱|はこ}で光を{完全|かんぜん}に{遮|さえぎ}る{設計|せっけい}。{水|みず}やりのときだけ10{秒|びょう}以内にフタを{開|あ}ける。"
+      - type: narration
+        text: "{温度|おんど}は{通気口|つうきこう}で{箱|はこ}の{外|そと}と{同|おな}じ。中に光{源|げん}がなければ{植物|しょくぶつ}に光は当たらない。"
+      - type: narration
+        speed: slow
+        text: "もし{誰|だれ}かが{箱|はこ}の中にライトを入れたら——「光なし」の{条件|じょうけん}が{壊|こわ}れる。"
+
+  - id: evidence-4
+    bgm: programming-01/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 金曜放課後の行動記録
+      - type: narration
+        text: "{金曜|きんよう}の{放課後|ほうかご}——4人はどこにいた？"
+      - type: narration
+        text: "ハヤト：15:00 {理科室|りかしつ}で{鉢|はち}{確認|かくにん} → 15:10〜16:00 {図書室|としょしつ}（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "ダイチ：15:00〜16:00 校庭サッカー（先生が{証人|しょうにん}）"
+      - type: narration
+        text: "ホノカ：15:00〜15:30 {教室|きょうしつ}で{日記|にっき}（先生が{証人|しょうにん}）→ {下校|げこう}"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "ユナ：「すぐ{帰|かえ}った」——{証人|しょうにん}なし！"
+      - type: narration
+        text: "ハヤトが15:10に{理科室|りかしつ}を{出|で}た{後|あと}、{理科室|りかしつ}に入れたのは——ユナだけ。"
+
+  - id: evidence-5
+    bg: science-lab
+    bgm: programming-01/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{鉢|はち}Bの暗{箱|ばこ}の中を{調|しら}べました。{驚|おどろ}く{発見|はっけん}がありました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "暗{箱|ばこ}のフタを{開|あ}けると——{鉢|はち}の{横|よこ}に{小|ちい}さなLEDライトが{置|お}いてあった！ スイッチはONのまま。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{金曜|きんよう}からずっと光を当て{続|つづ}けていた。{鉢|はち}Bは「光なし」ではなく「光あり」だった！ {実験|じっけん}の{条件|じょうけん}が{壊|こわ}れていた！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ホノカの{観察|かんさつ}{日記|にっき}：{木曜|もくよう}まで{鉢|はち}Bは{育|そだ}っていない。{金曜|きんよう}→{月曜|げつよう}で{急|きゅう}{成長|せいちょう}。ライトは{金曜|きんよう}に入れられた。"
+      - type: narration
+        text: "{金曜|きんよう}{放課後|ほうかご}に{理科室|りかしつ}に行けたのは{誰|だれ}？ そして{鉢|はち}Bを{育|そだ}てたい{理由|りゆう}がある人は？"
+
+  - id: questions
+    bg: science-lab
+    bgm: programming-01/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。暗{箱|ばこ}にLEDライトを入れたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 鉢Bの暗箱にLEDライトを入れて実験条件を壊したのは誰？
+        options:
+          - text: ハヤト（15:00に理科室で鉢を確認した）
+            value: hayato
+            feedback: ハヤトは15:10以降図書室にいて証人がいる。15:00に鉢を確認しただけ。ライトを入れる理由もないよ。
+          - text: ユナ（「光なしでも育つ」と予想。証人なし。予想を当てたかった）
+            value: yuna
+            feedback: 正解！ ユナだけが「光なしでも育つ」と予想。予想が外れそうだと焦り、LEDライトを入れて「育った」ことにしようとした。
+          - text: ダイチ（校庭でサッカーをしていた）
+            value: daichi
+            feedback: ダイチは15:00〜16:00まで校庭。体育の先生が証人。理科室に行っていない。
+          - text: ホノカ（観察日記をつけていた）
+            value: honoka
+            feedback: ホノカは教室で日記を書いていて証人がいる。むしろ成長スピードの異常を発見した観察者だよ。
+      - type: choice
+        id: q2
+        question: ユナの行動がなぜ「実験を壊した」と言える？
+        options:
+          - text: 「変えるのは1つだけ」のルールを破り、鉢Bが「光あり」になったから
+            value: control
+            feedback: 正解！ 条件制御実験では「変える条件は1つだけ」。ユナがライトを入れたことで鉢Bは鉢Aと同じ条件になり、実験の意味がなくなった。
+          - text: LEDライトが危険だったから
+            value: danger
+            feedback: 安全性の問題ではなく、「実験の条件が壊れた」ことが問題。比較実験が成り立たなくなった。
+          - text: 先生に許可を取らなかったから
+            value: permission
+            feedback: 許可の問題もあるけど、本質は「条件制御のルール違反」。変えていい条件は1つだけ。光の条件を勝手に変えた。
+          - text: 予想が当たるように不正をしたから
+            value: cheating
+            feedback: 不正をしたのは確か。でもより重要なのは「なぜ不正が実験を壊すのか」——条件制御のルールが崩れると何も分からなくなるから。
+
+  - id: truth-intro
+    bg: science-lab
+    bgm: programming-01/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 予想が外れるのは失敗じゃない
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  - id: truth-hayato
+    bg: science-lab
+    steps:
+      - type: sprite
+        character: hayato
+        expression: worried
+        position: left
+      - type: dialog
+        character: hayato
+        text: "ぼくも{水曜|すいよう}にユナが{理科室|りかしつ}{前|まえ}で{鉢|はち}Bを見つめてるのに気づいてた。でも{声|こえ}をかけなかった。"
+      - type: sprite
+        character: hayato
+        action: hide
+
+  - id: truth-daichi
+    steps:
+      - type: sprite
+        character: daichi
+        expression: worried
+        position: right
+      - type: dialog
+        character: daichi
+        text: "おれ、{木曜|もくよう}の{水|みず}やりで暗{箱|ばこ}を{開|あ}けたとき「{箱|はこ}の中が{温|あたた}かい」と{思|おも}った。でも気にしなかった。LEDの{熱|ねつ}だったかもしれない。"
+      - type: sprite
+        character: daichi
+        action: hide
+
+  - id: truth-honoka
+    steps:
+      - type: sprite
+        character: honoka
+        expression: worried
+        position: left
+      - type: dialog
+        character: honoka
+        text: "わたし、{金曜|きんよう}15:10にユナが{理科室|りかしつ}から出てくるのを見た。でも「何か{忘|わす}れ物かな」って{思|おも}って聞かなかった。"
+      - type: sprite
+        character: honoka
+        action: hide
+
+  - id: truth-yuna
+    bgm: programming-01/truth
+    steps:
+      - type: sprite
+        character: yuna
+        expression: worried
+        position: center
+      - type: dialog
+        character: yuna
+        text: "……わたしがLEDライトを入れた。"
+      - type: narration
+        speed: slow
+        text: "ユナが{小|ちい}さな{声|こえ}で話し始めた。"
+      - type: dialog
+        character: yuna
+        text: "{実験|じっけん}の{前|まえ}、わたしだけ「光なしでも{育|そだ}つ」って{予想|よそう}した。でも{水曜|すいよう}に見に行ったら、{鉢|はち}Bはぜんぜん{育|そだ}ってなかった。"
+      - type: dialog
+        character: yuna
+        text: "「{予想|よそう}が{外|はず}れる。みんなの{前|まえ}で{間違|まちが}えたと{思|おも}われる」——それが{怖|こわ}くて。"
+        expression: worried
+      - type: dialog
+        character: yuna
+        text: "{金曜|きんよう}の{放課後|ほうかご}、「すぐ{帰|かえ}る」って{言|い}って{理科室|りかしつ}にこっそり行った。家から{持|も}ってきたLEDライトを暗{箱|ばこ}に入れた。{週末|しゅうまつ}の{間|あいだ}に{育|そだ}てば「{予想|よそう}が当たった」ことにできると{思|おも}った。"
+      - type: dialog
+        character: yuna
+        text: "でもこれは{実験|じっけん}のルール{違反|いはん}。{条件|じょうけん}を{変|か}えたから、{鉢|はち}Bは{鉢|はち}Aと{同|おな}じ{条件|じょうけん}になった。{育|そだ}ったのは当然で……{実験|じっけん}としては{意味|いみ}がなくなった。"
+        expression: determined
+      - type: dialog
+        character: yuna
+        text: "ごめんなさい。{予想|よそう}が{外|はず}れるのが{恥|は}ずかしかっただけ。でも{理科|りか}の{実験|じっけん}で{大切|たいせつ}なのは「当てること」じゃなくて「正しい{方法|ほうほう}で{調|しら}べること」だった。"
+        expression: worried
+      - type: sprite
+        character: yuna
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ユナに{悪意|あくい}はなかった。「{間違|まちが}えるのが{恥|は}ずかしい」——その気持ちが{実験|じっけん}を{壊|こわ}してしまった。でも{予想|よそう}が{外|はず}れたら、それは「光が{必要|ひつよう}だと分かった」という{大切|たいせつ}な{発見|はっけん}なのだ。"
+
+  - id: epilogue
+    bg: science-lab
+    bgm: programming-01/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ユナ、{正直|しょうじき}に話してくれてありがとう。「{予想|よそう}が{外|はず}れるのが{恥|は}ずかしい」——その気持ちは分かるわ。"
+      - type: dialog
+        character: sensei
+        text: "でも{理科|りか}では、{予想|よそう}が{外|はず}れたら「{失敗|しっぱい}」ではなく「{発見|はっけん}」。「光がないと{育|そだ}たない」と分かったら、それは{大切|たいせつ}な{知識|ちしき}になる。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{条件|じょうけん}{制御|せいぎょ}{実験|じっけん}のルール——「変えるのは1つだけ」。これを{守|まも}らないと、何も分からなくなる。正しい{方法|ほうほう}で{調|しら}べたことに{価値|かち}がある。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: hayato, expression: happy }
+          - { id: yuna, expression: determined }
+          - { id: daichi, expression: happy }
+          - { id: honoka, expression: happy }
+      - type: narration
+        text: "{実験|じっけん}はやり{直|なお}し。{今度|こんど}はLEDなし——正しい{条件|じょうけん}で。ユナの{予想|よそう}は{外|はず}れるだろう。でもそれが「{発見|はっけん}」だ。"
+      - type: narration
+        speed: slow
+        text: "{予想|よそう}が{外|はず}れることは{失敗|しっぱい}じゃない。正しい{方法|ほうほう}で{調|しら}べることに{価値|かち}がある——それがバグ{探偵|たんてい}の{学|まな}び。"
+      - type: sprite
+        character: hayato
+        action: hide
+      - type: sprite
+        character: yuna
+        action: hide
+      - type: sprite
+        character: daichi
+        action: hide
+      - type: sprite
+        character: honoka
+        action: hide
+      - type: narration
+        text: "バグ{探偵|たんてい}団——ありえない{実験|じっけん}{結果|けっか}と光るナゾ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
