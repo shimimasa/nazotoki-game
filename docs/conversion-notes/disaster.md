@@ -83,3 +83,23 @@
 | `disaster-03/tension.mp3` | 緊迫・投票 | 魔王魂ピアノ36 | BGM→ピアノ→ピアノ36 |
 | `disaster-03/truth.mp3` | ソウタの告白 | 魔王魂ピアノ19 | BGM→ピアノ→ピアノ19 |
 | `disaster-03/resolution.mp3` | チームワークの学び | DOVA-SYNDROME | 「Recollections」検索 |
+
+## disaster-04（防災探偵団 Vol.4）
+
+**変換日**: 2026-03-24 / シーン16 / キャラ5 / 選択肢2問 / souta→boy-b, nana→girl-c, kei→boy-d, ai→girl-b, sensei→teacher-f
+
+### 気づき
+- **言語の多義性がミステリーの核心**: 「高いところ」が「高台」と「建物の上階」の両方に取れる。VNでは証拠カード⑤でアイのメモが公開されたとき、プレイヤーが「あ！」と気づく瞬間がある。この「靴が落ちる」瞬間のためにslow narrationとflashを重ねて演出。
+- **犯人アイ（観察型）の初登場**: Vol.1=ケイ、Vol.2=ナナ、Vol.3=ソウタと来て、Vol.4でアイ。これで4人全員が犯人を経験。シリーズの「全員が犯人になりうる」構造が完成。
+- **BGMはdisaster-03のものを流用**: 同一シリーズ内でBGMスロットを共有。disaster-03/openingとdisaster-03/investigationを使用。シリーズで統一感が出る一方、個別BGM調達の手間が省ける。
+- **schoolyard背景の再使用**: プロローグとエピローグでschoolyard。Vol.1と同じ。訓練の始まりと終わりは校庭。
+
+### 課題
+- **津波サイレンSE**: `disaster-04/siren.mp3`が必要だが、disaster-01のsiren.mp3を共用してもよい。
+- **海岸/商業施設の背景**: 理想的にはB商業施設の外観が見える背景があると没入感が上がる。
+
+### BGM/SEソーシング推薦
+
+| ファイル | 用途 | 推薦ソース | 検索キーワード |
+|---|---|---|---|
+| disaster-03/* | 全BGMをdisaster-03から流用 | — | disaster-03と共通 |

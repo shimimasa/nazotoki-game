@@ -1,0 +1,585 @@
+meta:
+  id: disaster-04
+  title: 津波避難の矛盾
+  series: 防災探偵団
+  volume: 4
+  estimatedMinutes: 22
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: schoolyard
+    bgm: disaster-03/opening
+    steps:
+      - type: narration
+        text: "X市{防災|ぼうさい}{委員会|いいんかい}が「{津波|つなみ}{避難|ひなん}{訓練|くんれん}」を{行|おこな}った。"
+      - type: narration
+        text: "ルール——{地震|じしん}{発生|はっせい}の合図から15分{以内|いない}に、みどり山{展望台|てんぼうだい}（{高台|たかだい}・{標高|ひょうこう}25m）へ{到達|とうたつ}すること。"
+      - type: narration
+        text: "{訓練|くんれん}{終了後|しゅうりょうご}、{記録|きろく}係のソウタが{全員|ぜんいん}の{到達|とうたつ}{時刻|じこく}を{集計|しゅうけい}すると——"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: bgm
+        track: disaster-03/investigation
+      - type: dialog
+        character: souta
+        text: "おかしい。アイの{記録|きろく}に{矛盾|むじゅん}がある。"
+      - type: dialog
+        character: souta
+        text: "アイは「A{避難|ひなん}路（{海岸|かいがん}通りの{階段|かいだん}）を通って{高台|たかだい}へ上がった」って{言|い}ってる。でも、A{避難|ひなん}路{経由|けいゆ}だと15分{以内|いない}には{到達|とうたつ}できないはずなんだ。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "アイはどこにいたのでしょうか？ そして「{高|たか}いところへ{逃|に}げろ」というアドバイスを、アイはどう{解釈|かいしゃく}していたのか——{調|しら}べてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: thinking }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: thinking }
+          - { id: ai, expression: normal }
+      - type: narration
+        text: "アイだけが{静|しず}かな{表情|ひょうじょう}を{保|たも}っている。でもその{目|め}は、どこか{落|お}ち{着|つ}かない。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.4
+        subtitle: 津波避難の矛盾
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: schoolyard
+    bgm: disaster-03/investigation
+    steps:
+      - type: narration
+        text: "{訓練|くんれん}の{記録|きろく}と、4人の{証言|しょうげん}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは{記録|きろく}係。A{避難|ひなん}路を通って13分で{高台|たかだい}に{到達|とうたつ}した。4人の{記録|きろく}を{集計|しゅうけい}したら、アイの{記録|きろく}に{矛盾|むじゅん}があったんだ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしは12分で{到達|とうたつ}。A{避難|ひなん}路は{急|きゅう}{勾配|こうばい}できつかったけど、{頑張|がんば}った。"
+      - type: dialog
+        character: nana
+        text: "{訓練|くんれん}の{報告会|ほうこくかい}のとき、アイが{目|め}をそらして{早口|はやくち}で話してたのが気になったの。"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれは{急|いそ}ぎ{足|あし}で{走|はし}って11分！ 4人の中で{最速|さいそく}だった。A{避難|ひなん}路は1.2kmで{急|きゅう}{勾配|こうばい}、{普通|ふつう}に{歩|ある}くと18分かかるぞ。"
+      - type: dialog
+        character: kei
+        text: "アイが14分でA{避難|ひなん}路を通った？ おれより{足|あし}が{遅|おそ}いアイが？ ……{計算|けいさん}が合わない気がする。"
+        expression: thinking
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしはA{避難|ひなん}路を通って14分で{到達|とうたつ}した。{急|きゅう}{勾配|こうばい}はきつかったけど、{頑張|がんば}って{登|のぼ}った。"
+      - type: dialog
+        character: ai
+        text: "……{何|なに}かおかしいの？"
+        expression: normal
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: 訓練記録シート =====
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 津波避難訓練の記録シート
+      - type: narration
+        text: "{訓練|くんれん}の{公式|こうしき}{記録|きろく}——4人の{到達|とうたつ}{時刻|じこく}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "ケイ：A{避難|ひなん}路 → 11分。ナナ：A{避難|ひなん}路 → 12分。ソウタ：A{避難|ひなん}路 → 13分。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "アイ：A{避難|ひなん}路 → 14分。——{全員|ぜんいん}15分{以内|いない}で{到達|とうたつ}と{記録|きろく}されている。"
+      - type: narration
+        text: "A{避難|ひなん}路：{海岸|かいがん}通りから{高台|たかだい}への{階段|かいだん}ルート。{距離|きょり}1.2km・{急|きゅう}{勾配|こうばい}・{標高差|ひょうこうさ}25m。"
+      - type: narration
+        text: "B{商業|しょうぎょう}{施設|しせつ}：{海岸|かいがん}から{徒歩|とほ}2分。3{階建|かいだ}て。{高台|たかだい}ではない。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ケイが{最速|さいそく}で11分。アイが{最|もっと}も{遅|おそ}く14分。3分の差——これは{合理的|ごうりてき}だろうか？"
+
+  # ===== 証拠カード2: ハザードマップ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: X市津波ハザードマップ
+      - type: narration
+        text: "X市{津波|つなみ}{浸水|しんすい}{想定図|そうていず}——"
+      - type: narration
+        text: "{海岸|かいがん}エリア〜B{商業|しょうぎょう}{施設|しせつ}{周辺|しゅうへん}：{浸水|しんすい}12m{以上|いじょう}（{濃|こ}い{紫|むらさき}）。3〜4{階|かい}まで{水没|すいぼつ}する{可能性|かのうせい}。"
+      - type: narration
+        text: "A{避難|ひなん}路の{中腹|ちゅうふく}：{浸水|しんすい}5〜10m（{赤|あか}）。みどり山{展望台|てんぼうだい}：{浸水|しんすい}{想定|そうてい}なし（{安全域|あんぜんいき}）。"
+      - type: narration
+        text: "{建物|たてもの}の{高|たか}さの{目安|めやす}——1{階|かい}：約1m。2{階|かい}：約4m。3{階|かい}の{天井|てんじょう}：約10m。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "B{商業|しょうぎょう}{施設|しせつ}の3{階|かい}（約10m）。{浸水|しんすい}{想定|そうてい}（12m{以上|いじょう}）。——3{階|かい}は{水没|すいぼつ}する。{安全|あんぜん}ではない。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "みどり山{展望台|てんぼうだい}（{標高|ひょうこう}25m）は{安全域|あんぜんいき}。「{高|たか}いところ」とは、{建物|たてもの}の上{階|かい}ではなく{地形的|ちけいてき}に{高|たか}い{場所|ばしょ}のこと。"
+
+  # ===== 証拠カード3: ケイの現地測定データ =====
+  - id: evidence-3
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ケイの現地測定データ
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "{訓練|くんれん}の{翌日|よくじつ}に{実際|じっさい}に{歩|ある}いて{測定|そくてい}したデータだ。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        text: "A{避難|ひなん}路（{海岸|かいがん}→{高台|たかだい}）：{距離|きょり}1.2km。{高低差|こうていさ}25m（{急|きゅう}{勾配|こうばい}）。"
+      - type: narration
+        text: "ケイが「{普通|ふつう}に{歩|ある}いた」{所要|しょよう}時間：18分。ケイが「{急|いそ}ぎ{足|あし}（かなり{速|はや}い）」{所要|しょよう}時間：11分。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{普通|ふつう}に{歩|ある}くと18分。ケイが{全力|ぜんりょく}で{急|いそ}いで11分。アイが14分でA{避難|ひなん}路を通ったとすると——ケイより3分{遅|おそ}いだけ。"
+      - type: narration
+        text: "でもアイはケイより{足|あし}が{遅|おそ}い。{急|きゅう}{勾配|こうばい}を{登|のぼ}るのが{一番|いちばん}{苦手|にがて}なはず。「14分」はむしろ「{速|はや}すぎる」のでは？"
+      - type: narration
+        text: "もしB{商業|しょうぎょう}{施設|しせつ}に{先|さき}に行ってから{高台|たかだい}へ向かったとすると——2分＋{遠回|とおまわ}り＝{最短|さいたん}でも20分{以上|いじょう}。{記録|きろく}の14分とも合わない。"
+
+  # ===== 証拠カード4: ソウタの計算ノート =====
+  - id: evidence-4
+    bgm: disaster-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ソウタのタイムライン検証
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souta
+        text: "{記録|きろく}を{集計|しゅうけい}してから{計算|けいさん}してみたんだ。アイの{証言|しょうげん}を{検証|けんしょう}する。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: "ソウタの{検証|けんしょう}——ケイ（{最速|さいそく}）：11分。ナナ：12分。ソウタ：13分。"
+      - type: narration
+        text: "アイが{仮|かり}にソウタと{同|おな}じ{速|はや}さだとすると：13分。14分より{速|はや}い。"
+      - type: narration
+        text: "つまり、アイが「A{避難|ひなん}路を14分で通った」なら、4人の中でアイだけが{他|ほか}の3人{全員|ぜんいん}より{遅|おそ}く{急|きゅう}{勾配|こうばい}を{登|のぼ}ったことになる。"
+      - type: narration
+        speed: slow
+        text: "アイは{普段|ふだん}から{慎重|しんちょう}で、{急|きゅう}{勾配|こうばい}を{登|のぼ}るのが{苦手|にがて}。「14分」は{物理的|ぶつりてき}に{可能|かのう}だろうか——？"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "A{避難|ひなん}路を通っていないとしたら、アイはどこへ行ったのか？"
+
+  # ===== 証拠カード5: アイの避難メモ（反転） =====
+  - id: evidence-5
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "新しい{情報|じょうほう}が入りました。アイのかばんから{折|お}りたたまれたメモが{見|み}つかりました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "——アイの{手書|てが}きメモ——"
+      - type: narration
+        text: "「{津波|つなみ}{避難|ひなん}メモ（自分用）。{作成日|さくせいび}：{訓練|くんれん}{前日|ぜんじつ}」"
+      - type: narration
+        text: "「ケイに{言|い}われたこと：『{高|たか}いところへ{逃|に}げろ』」"
+      - type: narration
+        text: "「{高|たか}いところ ＝ どこ？ → B{商業|しょうぎょう}{施設|しせつ}の3{階|かい}」"
+      - type: narration
+        text: "「・{海岸|かいがん}から2分で着く ・3{階|かい}は{地面|じめん}から約10m ・{高台|たかだい}は15m。大して変わらない？ ・近いし{早|はや}く着ける」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「{訓練|くんれん}当日の{計画|けいかく}：{地震|じしん}の合図 → B{商業|しょうぎょう}{施設|しせつ}の3{階|かい}へ → {高台|たかだい}へ（{後|あと}から）」"
+      - type: narration
+        text: "そしてメモの{裏側|うらがわ}——{別|べつ}の日に{書|か}いたと思われる走り{書|が}き。"
+      - type: narration
+        speed: slow
+        text: "「3{階|かい}（10m）… ハザードマップ… 12m{以上|いじょう}… あ」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "アイは「{高|たか}いところ」を「{建物|たてもの}の上{階|かい}」と{解釈|かいしゃく}していた。ケイが{言|い}った「{高|たか}いところ」は「{高台|たかだい}」のことだったのに——。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。{証言|しょうげん}に{矛盾|むじゅん}があるのは{誰|だれ}でしょう？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 「A避難路を通って14分で高台に到達した」という証言に矛盾があるのは誰？
+        options:
+          - text: ソウタ（13分で到達。記録係として計算ミスの可能性は？）
+            value: souta
+            feedback: ソウタの13分はケイ（11分）より2分遅いだけで合理的。記録係として矛盾を発見した側だよ。
+          - text: ナナ（12分で到達。本当にA避難路を通った？）
+            value: nana
+            feedback: ナナの12分はケイ（11分）の1分後で、急ぎ足の範囲内。証言に矛盾はないよ。
+          - text: ケイ（11分の最速記録。本当にそんなに速い？）
+            value: kei
+            feedback: ケイは行動型で足が速い。翌日の測定でも急ぎ足11分を確認済み。矛盾はないよ。
+          - text: アイ（14分で到達。ケイより足が遅いのに14分は速すぎる）
+            value: ai
+            feedback: 正解！ アイは慎重な性格で急勾配が苦手。ケイの急ぎ足11分と比べて「14分」は速すぎる。メモにはB商業施設3階へ行く計画が書いてあった。
+      - type: choice
+        id: q2
+        question: アイが「高いところ」を間違えた原因は何？
+        options:
+          - text: ケイの「高いところへ逃げろ」という言葉が曖昧だった
+            value: ambiguous
+            feedback: そう！ ケイは「高台」と言うべきところを「高いところ」と曖昧に伝えた。「建物の上階」とも「地形の高台」とも取れる言葉だった。
+          - text: アイがハザードマップを見ていなかった
+            value: no-map
+            feedback: メモの裏に「ハザードマップ…12m以上…あ」と書いてある。後から見て気づいたけど、最初は確認していなかったんだ。
+          - text: B商業施設が安全だと誰かに教えられた
+            value: taught
+            feedback: ナナが「B商業施設の3階は高くて景色がいい」と言ったことはあるけど、「安全だ」と教えたわけではない。アイ自身の解釈の問題だよ。
+          - text: アイは津波の知識がまったくなかった
+            value: no-knowledge
+            feedback: アイは知識がなかったわけではなく、「高いところ」という言葉の意味を「建物の上階」と解釈してしまった。言語の多義性の問題だよ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 「高いところ」の意味
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソウタの秘密
+  - id: truth-souta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souta
+        expression: worried
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくも{反省|はんせい}がある。{訓練|くんれん}の{前日|ぜんじつ}に「A{避難|ひなん}路とB{商業|しょうぎょう}{施設|しせつ}、どちらが近いか」{調|しら}べてたんだ。"
+      - type: dialog
+        character: souta
+        text: "でもアイに教えるのを{忘|わす}れた。教えていれば、アイがB{商業|しょうぎょう}{施設|しせつ}に{行|い}くことはなかったかもしれない。"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ナナの秘密
+  - id: truth-nana
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしも……。{訓練|くんれん}の{前日|ぜんじつ}に「B{商業|しょうぎょう}{施設|しせつ}の3{階|かい}は{高|たか}くて{景色|けしき}がきれいだよね」って何気なく{言|い}っちゃったの。"
+      - type: dialog
+        character: nana
+        text: "もしかして、アイが「3{階|かい}＝{高|たか}いところ」って思った{原因|げんいん}の一つかもしれない……"
+        expression: determined
+      - type: sprite
+        character: nana
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれがアイに「{高|たか}いところへ{逃|に}げろ」って{言|い}ったんだ。でも「{高台|たかだい}」とは{言|い}わなかった。"
+      - type: dialog
+        character: kei
+        text: "「{高|たか}いところ」って、{防災|ぼうさい}の{意味|いみ}では「{地形的|ちけいてき}に{高|たか}い{場所|ばしょ}」のことだ。でも{普通|ふつう}の{言葉|ことば}だと「{建物|たてもの}の上{階|かい}」とも取れる。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "おれの{言葉|ことば}が{曖昧|あいまい}だった。ちゃんと「みどり山{展望台|てんぼうだい}に{逃|に}げろ」って{言|い}えばよかった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # アイの真実（クライマックス）
+  - id: truth-ai
+    bgm: disaster-03/truth
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: center
+      - type: dialog
+        character: ai
+        text: "……ごめんなさい。わたし、{嘘|うそ}をついた。"
+      - type: narration
+        speed: slow
+        text: "アイが{静|しず}かに話し始めた。"
+      - type: dialog
+        character: ai
+        text: "A{避難|ひなん}路は通ってない。{地震|じしん}の合図が鳴ったとき、B{商業|しょうぎょう}{施設|しせつ}の3{階|かい}に{逃|に}げたの。2分で着いた。"
+      - type: dialog
+        character: ai
+        text: "ケイに「{高|たか}いところへ{逃|に}げろ」って{言|い}われて、「{高|たか}いところ＝{建物|たてもの}の上{階|かい}」だと思った。3{階|かい}は{地面|じめん}から10m。{高台|たかだい}は25mだけど、近いし{早|はや}く着けるって。"
+        expression: worried
+      - type: dialog
+        character: ai
+        text: "でも3{階|かい}に着いてから、{訓練|くんれん}のゴールが「みどり山{展望台|てんぼうだい}」だって気づいた。{慌|あわ}てて{高台|たかだい}に向かったけど、着いたのは20分後。{制限|せいげん}{時間|じかん}をオーバーしてた。"
+      - type: dialog
+        character: ai
+        text: "「{高|たか}いところ」の{意味|いみ}を{間違|まちが}えてたなんて、{恥|は}ずかしくて{言|い}えなかった。だから「A{避難|ひなん}路を通って14分」って{嘘|うそ}の{報告|ほうこく}をした。"
+        expression: determined
+      - type: dialog
+        character: ai
+        text: "あとでハザードマップを見たら、B{商業|しょうぎょう}{施設|しせつ}{周辺|しゅうへん}は{浸水|しんすい}12m{以上|いじょう}。3{階|かい}（10m）は{水没|すいぼつ}する。——{本当|ほんとう}の{津波|つなみ}だったら、わたしは……"
+        expression: worried
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        speed: slow
+        text: "アイに{悪意|あくい}はなかった。{一生懸命|いっしょうけんめい}{準備|じゅんび}しようとしていた。でも「{高|たか}いところ」という{言葉|ことば}の{意味|いみ}を、{誰|だれ}にも{確認|かくにん}しなかった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: schoolyard
+    bgm: disaster-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "アイ、正直に話してくれてありがとう。大事なことが分かりましたね。"
+      - type: dialog
+        character: sensei
+        text: "{津波|つなみ}から{逃|に}げるときの「{高|たか}いところ」は「{地形的|ちけいてき}に{高|たか}い{場所|ばしょ}＝{高台|たかだい}」のことです。{建物|たてもの}の上{階|かい}は「やむを得ない{場合|ばあい}の{最終|さいしゅう}{手段|しゅだん}」。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "B{商業|しょうぎょう}{施設|しせつ}の3{階|かい}（10m）は{浸水|しんすい}12m{以上|いじょう}のエリアにある。{本当|ほんとう}の{津波|つなみ}なら{水没|すいぼつ}していました。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "そして——ケイの{言葉|ことば}が{曖昧|あいまい}だったこと、ナナの何気ない{一言|ひとこと}、ソウタの{教|おし}え{忘|わす}れ。みんなにも{原因|げんいん}がありましたね。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{防災|ぼうさい}の{言葉|ことば}は{正確|せいかく}に、{確認|かくにん}しながら使う。「{分|わ}からないときは聞く」。それが{命|いのち}を守ります。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: determined }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: determined }
+      - type: narration
+        text: "ケイは「{次|つぎ}からは『{高台|たかだい}』と{具体的|ぐたいてき}に{言|い}う」と{決|き}めた。アイは「分からないことは{確認|かくにん}する」と{決|き}めた。"
+      - type: narration
+        speed: slow
+        text: "「{高|たか}いところ」の{意味|いみ}は一つじゃない。{防災|ぼうさい}の{言葉|ことば}は{正確|せいかく}に。{確認|かくにん}し合うことが、お{互|たが}いの{命|いのち}を守る。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団——{津波|つなみ}{避難|ひなん}の{矛盾|むじゅん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
