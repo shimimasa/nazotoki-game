@@ -1,0 +1,553 @@
+meta:
+  id: disaster-06
+  title: 土砂災害の前兆を見た
+  series: 防災探偵団
+  volume: 6
+  estimatedMinutes: 22
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nana:
+    name: ナナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  ai:
+    name: アイ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: schoolyard
+    bgm: disaster-03/opening
+    steps:
+      - type: narration
+        text: "みどり山のふもとで、{大雨|おおあめ}が{続|つづ}いた{翌日|よくじつ}の{朝|あさ}——{小規模|しょうきぼ}な{土砂崩|どしゃくず}れが{起|お}きた。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{幸|さいわ}い{被害|ひがい}は出なかった。しかし{防災|ぼうさい}{委員会|いいんかい}が{調|しら}べると、{驚|おどろ}くべき{事実|じじつ}が{判明|はんめい}した。"
+      - type: bgm
+        action: stop
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: bgm
+        track: disaster-03/investigation
+      - type: dialog
+        character: sensei
+        text: "{前日|ぜんじつ}に、4人の{生徒|せいと}が{土砂|どしゃ}{災害|さいがい}の「{前兆|ぜんちょう}{現象|げんしょう}」を{目撃|もくげき}していました。なのに——{誰|だれ}も{報告|ほうこく}しなかった。"
+      - type: dialog
+        character: sensei
+        text: "なぜ{誰|だれ}も{報告|ほうこく}しなかったのか。そして一番{重要|じゅうよう}な{前兆|ぜんちょう}を見ていたのは{誰|だれ}か——{調|しら}べてください。"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: worried }
+          - { id: nana, expression: worried }
+          - { id: kei, expression: worried }
+          - { id: ai, expression: worried }
+      - type: narration
+        text: "4人{全員|ぜんいん}が{目|め}をそらした。{全員|ぜんいん}が何かを見ていた——でも「大したことない」と思っていた。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 防災探偵団 Vol.6
+        subtitle: 土砂災害の前兆を見た
+
+  # ===== 容疑者紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: disaster-03/investigation
+    steps:
+      - type: narration
+        text: "4人がそれぞれ{前日|ぜんじつ}に何を見たか、聞いてみよう。"
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは14:30ごろ、{学校|がっこう}{裏山|うらやま}の{遊歩道|ゆうほどう}を{歩|ある}いていた。{斜面|しゃめん}から{小石|こいし}が3〜4{個|こ}転がってきたけど、{山|やま}ではよくあることだと思った。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        expression: normal
+        position: right
+      - type: dialog
+        character: nana
+        text: "わたしは16:00ごろ、ふもとの{公園|こうえん}でソウタの{妹|いもうと}のミドリちゃんと{遊|あそ}んでた。ちょっと気になることがあったけど……大したことないと思う。"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれは15:30ごろ、さくら{川|かわ}の{橋|はし}の上から{川|かわ}を見た。いつもは{透明|とうめい}なのに{茶色|ちゃいろ}く{濁|にご}ってた。{雨|あめ}のせいだと思ったけどな。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        expression: normal
+        position: right
+      - type: dialog
+        character: ai
+        text: "わたしは15:00ごろ、さくら{川|かわ}{沿|ぞ}いの{斜面|しゃめん}に{細|こま}かいひびが入っているのを{見|み}つけた。{前|まえ}からあったのかもしれないと思って、{写真|しゃしん}だけ{撮|と}った。"
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ===== 証拠カード1: 防災委員会の記録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 防災委員会の調査記録
+      - type: narration
+        text: "{土砂崩|どしゃくず}れ{発生|はっせい}の{翌日|よくじつ}、{防災|ぼうさい}{委員会|いいんかい}が{調査|ちょうさ}した{記録|きろく}——"
+      - type: narration
+        text: "ソウタ：{学校|がっこう}{裏山|うらやま}の{遊歩道|ゆうほどう} / 14:30ごろ / {報告|ほうこく}なし"
+      - type: narration
+        text: "アイ：さくら{川沿|かわぞ}い / 15:00ごろ / {報告|ほうこく}なし"
+      - type: narration
+        text: "ケイ：さくら{川|かわ}の{橋|はし}の上 / 15:30ごろ / {報告|ほうこく}なし"
+      - type: narration
+        text: "ナナ：みどり山ふもとの{公園|こうえん} / 16:00ごろ / {報告|ほうこく}なし"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "4人{全員|ぜんいん}が「大したことないと思ったから」と{説明|せつめい}。でも4人が見たものを{全部|ぜんぶ}集めると——？"
+
+  # ===== 証拠カード2: 前兆現象リスト =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 土砂災害の前兆現象リスト
+      - type: narration
+        text: "{国土|こくど}{交通省|こうつうしょう}「{土砂|どしゃ}{災害|さいがい}の{前兆|ぜんちょう}{現象|げんしょう}」——5種類のサインを覚えよう。"
+      - type: narration
+        text: "A：{湧|わ}き{水|みず}の{急増|きゅうぞう}——{斜面|しゃめん}や{地面|じめん}から{急|きゅう}に{水|みず}が出てくる。"
+      - type: narration
+        text: "B：{斜面|しゃめん}のふくらみ——{斜面|しゃめん}の{一部|いちぶ}が{外側|そとがわ}に{押|お}し出されるように{盛|も}り上がる。{危険度|きけんど}：{高|たか}い。"
+      - type: narration
+        text: "C：{地面|じめん}のひびや{亀裂|きれつ}——{地面|じめん}や{斜面|しゃめん}に{細|ほそ}い{割|わ}れ目が入る。"
+      - type: narration
+        text: "D：{小石|こいし}が転がる{音|おと}（{山鳴|やまな}り）——「ゴロゴロ」「バキバキ」という{音|おと}が{山|やま}から{聞|き}こえる。"
+      - type: narration
+        text: "E：{川|かわ}の{水|みず}の{急激|きゅうげき}な{濁|にご}り——{急|きゅう}に{川|かわ}の{水|みず}が{泥色|どろいろ}になる。{流木|りゅうぼく}が{流|なが}れてくる。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{注意|ちゅうい}——{複数|ふくすう}の{前兆|ぜんちょう}が{同時|どうじ}に{起|お}きているとき、{危険度|きけんど}は{大幅|おおはば}に上がる！"
+
+  # ===== 証拠カード3: ソウタとケイの目撃メモ =====
+  - id: evidence-3
+    bgm: disaster-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ソウタとケイの目撃メモ
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souta
+        text: "{遊歩道|ゆうほどう}を{歩|ある}いていたら、{斜面|しゃめん}の{岩|いわ}の{間|あいだ}から{小石|こいし}がころころ転がってきた。{山|やま}ではよくあることかな、って。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: "ソウタが{目撃|もくげき}した{前兆|ぜんちょう}：D（{小石|こいし}が転がる{音|おと}・{山鳴|やまな}り）"
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kei
+        text: "さくら{川|かわ}を{橋|はし}から見たら、いつもは{透明|とうめい}なのに{茶色|ちゃいろ}く{濁|にご}ってた。{流木|りゅうぼく}も1本{流|なが}れてきた。{雨|あめ}のせいだと思ったけど。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        text: "ケイが{目撃|もくげき}した{前兆|ぜんちょう}：E（{川|かわ}の{水|みず}の{急激|きゅうげき}な{濁|にご}り）"
+
+  # ===== 証拠カード4: アイとナナの目撃メモ =====
+  - id: evidence-4
+    bgm: disaster-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: アイとナナの目撃メモ
+      - type: sprite
+        character: ai
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ai
+        text: "{橋|はし}の下の{斜面|しゃめん}に、{細|こま}かいひびが入ってるのを{見|み}つけた。{幅|はば}2〜3mm、{長|なが}さ1mくらい。{前|まえ}の{週|しゅう}には{確|たし}かなかった気がする。"
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "アイが{目撃|もくげき}した{前兆|ぜんちょう}：C（{地面|じめん}のひびや{亀裂|きれつ}）"
+      - type: sprite
+        character: nana
+        expression: worried
+        position: right
+      - type: dialog
+        character: nana
+        text: "ミドリちゃんと{公園|こうえん}で{遊|あそ}んでいたとき、{公園|こうえん}の{端|はし}にある{斜面|しゃめん}が盛り上がっているように見えた。そこから{細|ほそ}い{水|みず}が{流|なが}れ出していた。"
+      - type: dialog
+        character: nana
+        text: "「あそこ{変|へん}だね」ってミドリちゃんに{言|い}ったら、{怖|こわ}がって{泣|な}きそうになっちゃって……「大丈夫だよ」って{言|い}って、{早|はや}く{帰|かえ}った。"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ナナが{目撃|もくげき}した{前兆|ぜんちょう}：A（{湧|わ}き{水|みず}の{急増|きゅうぞう}）＋ B（{斜面|しゃめん}のふくらみ）——2{種類|しゅるい}{同時|どうじ}！"
+
+  # ===== 証拠カード5: 地形データ + 全探索ワークシート =====
+  - id: evidence-5
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みどり山の{地形|ちけい}データと、{全探索|ぜんたんさく}ワークシートを{見|み}てください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "みどり山の{危険|きけん}{要素|ようそ}——{傾斜|けいしゃ}35度の{急|きゅう}{斜面|しゃめん}。{砂防|さぼう}ダムの{老朽化|ろうきゅうか}。{大雨|おおあめ}で{累積|るいせき}{雨量|うりょう}が{基準値|きじゅんち}の85%。"
+      - type: narration
+        text: "そして4人の{目撃|もくげき}{情報|じょうほう}を{全部|ぜんぶ}並べてみよう——"
+      - type: narration
+        text: "ソウタ → D（{小石|こいし}が転がる{音|おと}）。アイ → C（{斜面|しゃめん}のひび）。ケイ → E（{川|かわ}の{濁|にご}り）。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "ナナ → B（{斜面|しゃめん}のふくらみ）＋ A（{湧|わ}き{水|みず}の{急増|きゅうぞう}）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "A・B・C・D・E——{前兆|ぜんちょう}5{種類|しゅるい}{全部|ぜんぶ}が{揃|そろ}っていた！"
+      - type: narration
+        text: "{国土|こくど}{交通省|こうつうしょう}のガイドラインでは、{複数|ふくすう}の{前兆|ぜんちょう}が{同|おな}じエリアで{確認|かくにん}された{場合|ばあい}——「{即時|そくじ}{通報|つうほう}・{即時|そくじ}{避難|ひなん}」レベルの{危険度|きけんど}。"
+      - type: narration
+        text: "そしてナナだけが、{最|もっと}も{危険|きけん}な{前兆|ぜんちょう}（B：{斜面|しゃめん}のふくらみ）を{含|ふく}む2{種類|しゅるい}を、{崩壊|ほうかい}に{最|もっと}も{近|ちか}い{場所|ばしょ}で{目撃|もくげき}していた。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: disaster-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}を整理しましょう。一番{重要|じゅうよう}な{前兆|ぜんちょう}を見ていたのに{報告|ほうこく}しなかったのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 最も危険な前兆を見ていたのに報告しなかったのは誰？
+        options:
+          - text: ソウタ（小石が転がる音を聞いた）
+            value: souta
+            feedback: ソウタが見た前兆D（山鳴り）は重要だけど、単体での危険度は「中」。もっと危険な前兆を見た人がいるよ。
+          - text: ナナ（斜面のふくらみ＋湧き水の急増、2種類を目撃）
+            value: nana
+            feedback: 正解！ ナナは最も危険度が高い前兆B（斜面のふくらみ）を含む2種類を、崩壊に最も近い場所で目撃していた。
+          - text: ケイ（川の急激な濁りを見た）
+            value: kei
+            feedback: ケイが見た前兆E（川の濁り）は重要だけど、「雨のせい」と解釈するのは無理もない。もっと明確な前兆を見た人がいるよ。
+          - text: アイ（斜面のひびを見つけた）
+            value: ai
+            feedback: アイが見た前兆C（亀裂）は重要だけど、1種類のみ。2種類同時に見ていた人がいるよ。
+      - type: choice
+        id: q2
+        question: ナナが報告しなかった一番の理由は何だと思う？
+        options:
+          - text: ミドリちゃんを怖がらせたくなかった
+            value: midori
+            feedback: そう。ナナはミドリちゃんが怖がって泣きそうになったのを見て「大丈夫」と言ってしまった。目の前の人を守りたい気持ちが、報告という行動を後回しにさせた。
+          - text: 大げさだと思われたくなかった
+            value: exaggerate
+            feedback: それも理由の一つ。「先生に言ったら大げさだと思われるかも」という気持ちが報告をためらわせた。でももっと直接的な理由があるよ。
+          - text: 前兆現象だと知らなかった
+            value: no-knowledge
+            feedback: ナナは「変だな」と感じていた。知識がゼロだったわけではなく、「大したことない」と自分に言い聞かせてしまったんだ。
+          - text: 面倒だった
+            value: lazy
+            feedback: ナナは面倒で報告しなかったのではない。ミドリちゃんを守りたいというやさしさと、「大げさかも」という気持ちが重なったんだ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: disaster-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: なぜ誰も報告しなかったのか
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ソウタの秘密
+  - id: truth-souta
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souta
+        expression: worried
+        position: left
+      - type: dialog
+        character: souta
+        text: "ぼくは{小石|こいし}が転がる{音|おと}を聞いた。でも「{山|やま}のそばだから{石|いし}が{落|お}ちることはある」って思い{込|こ}んで{報告|ほうこく}しなかった。"
+      - type: dialog
+        character: souta
+        text: "1つの{前兆|ぜんちょう}だけで{判断|はんだん}しようとした。{誰|だれ}かに「こんなことがあった」と{伝|つた}えていれば……"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "おれは{川|かわ}が{濁|にご}ってるのを見た。「{雨|あめ}が{続|つづ}いてたから{濁|にご}るのは{普通|ふつう}だろう」って{判断|はんだん}した。"
+      - type: dialog
+        character: kei
+        text: "でも{流木|りゅうぼく}も{流|なが}れてきてた。{普通|ふつう}じゃなかったかもしれない。おれも{報告|ほうこく}すべきだった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # アイの秘密
+  - id: truth-ai
+    steps:
+      - type: sprite
+        character: ai
+        expression: worried
+        position: left
+      - type: dialog
+        character: ai
+        text: "わたしは{斜面|しゃめん}のひびを見つけた。「{前|まえ}からあったかもしれない」って自分に{言|い}い聞かせた。"
+      - type: dialog
+        character: ai
+        text: "でも{前|まえ}の{週|しゅう}にはなかった気がする。{新|あたら}しいひびだったかもしれない。{写真|しゃしん}を{撮|と}っただけで{満足|まんぞく}してしまった。"
+        expression: determined
+      - type: sprite
+        character: ai
+        action: hide
+
+  # ナナの真実（クライマックス）
+  - id: truth-nana
+    bgm: disaster-03/truth
+    steps:
+      - type: sprite
+        character: nana
+        expression: worried
+        position: center
+      - type: dialog
+        character: nana
+        text: "……わたしが一番、話さなきゃいけない。"
+      - type: narration
+        speed: slow
+        text: "ナナが{静|しず}かに話し始めた。"
+      - type: dialog
+        character: nana
+        text: "{公園|こうえん}で{斜面|しゃめん}のふくらみと{湧|わ}き{水|みず}を見たとき、「{変|へん}だな」って思った。でもミドリちゃんがそばにいた。"
+      - type: dialog
+        character: nana
+        text: "ミドリちゃんに「あそこ{変|へん}だね」って{言|い}ったら、{怖|こわ}がって{泣|な}きそうになった。だから「大丈夫だよ」って{言|い}って、{早|はや}く{帰|かえ}ることを{優先|ゆうせん}した。"
+        expression: worried
+      - type: dialog
+        character: nana
+        text: "{帰|かえ}ってから「やっぱり{報告|ほうこく}すればよかった」って思った。でも{夜|よる}になって「もう大丈夫かも」って自分に{言|い}い聞かせた。"
+      - type: dialog
+        character: nana
+        text: "{翌朝|よくあさ}、{土砂崩|どしゃくず}れが{起|お}きたとき……「あの{亀裂|きれつ}が……わたしが{報告|ほうこく}していれば」って。"
+        expression: determined
+      - type: dialog
+        character: nana
+        text: "ミドリちゃんを{怖|こわ}がらせたくなかった。「大げさだと思われるかも」って{思|おも}った。でもそれが、{報告|ほうこく}するべきだった{行動|こうどう}を{止|と}めてしまった。"
+        expression: worried
+      - type: sprite
+        character: nana
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ナナに{悪意|あくい}はなかった。{目|め}の{前|まえ}の人を守りたいやさしさが、もっと大きな{危険|きけん}を{見|み}えなくさせてしまった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: schoolyard
+    bgm: disaster-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナナ、話してくれてありがとう。でもこれはナナだけの{問題|もんだい}ではないわ。"
+      - type: dialog
+        character: sensei
+        text: "4人{全員|ぜんいん}が{前兆|ぜんちょう}を見ていたのに、{全員|ぜんいん}が「大したことない」と{判断|はんだん}した。1人が見た1つの{前兆|ぜんちょう}は「気のせいかも」。でも——"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "5つ{全部|ぜんぶ}{揃|そろ}っていたら「{即時|そくじ}{通報|つうほう}」レベル。でも{誰|だれ}も「{全部|ぜんぶ}集めて{判断|はんだん}する」ことができなかった。なぜ？"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "一人で{全部|ぜんぶ}{判断|はんだん}しようとしたからです。{気|き}づいたら{伝|つた}える。自分{一人|ひとり}で{判断|はんだん}しない。「大げさでいい」——それが{命|いのち}を守る{行動|こうどう}です。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: souta, expression: determined }
+          - { id: nana, expression: determined }
+          - { id: kei, expression: determined }
+          - { id: ai, expression: determined }
+      - type: narration
+        text: "4人は{決|き}めた。「1つでも気になったら、すぐ大人に{伝|つた}える」「自分だけで{判断|はんだん}しようとしない」"
+      - type: narration
+        speed: slow
+        text: "「大げさかも」という気持ちが一番{危|あぶ}ない。気づいたら{伝|つた}える——それが{防災|ぼうさい}の{基本|きほん}。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: ai
+        action: hide
+      - type: narration
+        text: "{防災|ぼうさい}{探偵|たんてい}団——{土砂|どしゃ}{災害|さいがい}の{前兆|ぜんちょう}を見た、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
