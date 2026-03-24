@@ -1,0 +1,606 @@
+meta:
+  id: moral-02
+  title: "{広|ひろ}がったウワサと4{人|にん}の{言|い}ぶん"
+  series: "{答|こた}えのない{法廷|ほうてい}"
+  volume: 2
+  estimatedMinutes: 22
+
+characters:
+  aoi:
+    name: アオイ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  natsu:
+    name: ナツ
+    color: "#FF8C00"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  haru:
+    name: ハル
+    color: "#2E8B57"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sensei:
+    name: "{先生|せんせい}"
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      worried: teacher-f-worried.webp
+      kind: teacher-f-happy.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: moral-02/daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}5{年|ねん}1{組|くみ}。{月曜日|げつようび}、クラスメイトのユウキに{関|かん}するウワサが{広|ひろ}がった。"
+
+      - type: narration
+        text: "「ユウキの{家|いえ}が{大変|たいへん}らしい」——そんな{話|はなし}がいつの{間|ま}にか{学年中|がくねんじゅう}に{広|ひろ}まった。"
+
+      - type: narration
+        text: "{火曜日|かようび}、ユウキは{学校|がっこう}に{来|き}た。でも、みんなの{態度|たいど}がおかしい。"
+
+      - type: narration
+        text: "「{大丈夫|だいじょうぶ}？」「{引|ひ}っ{越|こ}すの？」「お{父|とう}さん{元気|げんき}？」——{知|し}らないことを{次々|つぎつぎ}{聞|き}かれて、ユウキは{混乱|こんらん}した。"
+
+      - type: narration
+        text: "{昼休|ひるやす}み、{他|ほか}のクラスの{子|こ}にまで「かわいそうだね」と{言|い}われて、ユウキは{泣|な}いて{保健室|ほけんしつ}に{行|い}った。"
+
+      - type: bgm
+        action: stop
+
+      - type: se
+        sound: common/tension
+
+      - type: narration
+        speed: slow
+        text: "{水曜日|すいようび}——ユウキは{学校|がっこう}に{来|こ}なかった。\n{木曜日|もくようび}——ユウキはまた{学校|がっこう}に{来|こ}なかった。"
+
+      - type: bgm
+        track: moral-02/tension
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ユウキが{学校|がっこう}に{来|こ}られなくなっている。きみたちがウワサに{関|かか}わっていたことは{分|わ}かっている。"
+
+      - type: dialog
+        character: sensei
+        text: "でも、{先生|せんせい}が{罰|ばつ}を{決|き}めるつもりはない。きみたち{自身|じしん}で、{何|なに}が{起|お}きたのか{整理|せいり}してほしい。"
+
+      - type: dialog
+        character: sensei
+        text: "そして——これからどうするのか、{自分|じぶん}で{考|かんが}えてほしい。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: aoi, expression: worried }
+          - { id: ren, expression: thinking }
+          - { id: natsu, expression: worried }
+          - { id: haru, expression: worried }
+
+      - type: narration
+        text: "アオイ、レン、ナツ、ハル——4{人|にん}が{別室|べっしつ}に{呼|よ}ばれた。"
+
+      - type: sprite
+        character: aoi
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: natsu
+        action: hide
+      - type: sprite
+        character: haru
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: "{広|ひろ}がったウワサと4{人|にん}の{言|い}ぶん"
+        subtitle: "{答|こた}えのない{法廷|ほうてい} Vol.2"
+
+  # ========================================
+  # 証拠カード1: 連絡ボードのメモ
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: moral-02/investigation
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: title_card
+        text: "ステップ1：{調査|ちょうさ}"
+        subtitle: "ウワサのあとを{追|お}おう"
+
+      - type: narration
+        text: "{教室|きょうしつ}の{連絡|れんらく}ボードに、メモが{貼|は}られていた。{月曜日|げつようび}16:30ごろのものだ。"
+
+      - type: narration
+        text: "「みんなへ。ユウキくんが{引|ひ}っ{越|こ}すかもしれません。お{別|わか}れ{会|かい}を{考|かんが}えましょう。——レン」"
+
+      - type: narration
+        text: "メモを{書|か}いたのはレン。「{引|ひ}っ{越|こ}す**かもしれません**」と{書|か}いてある。{確定|かくてい}ではない。"
+
+      - type: narration
+        text: "レンがこのメモを{書|か}いた{根拠|こんきょ}は、アオイから{聞|き}いた{話|はなし}。"
+
+      - type: se
+        sound: common/discover
+
+      - type: narration
+        speed: slow
+        text: "メモは{連絡|れんらく}ボードに{貼|は}られている——クラスの{全員|ぜんいん}が{読|よ}める{状態|じょうたい}だった。"
+
+  # ========================================
+  # 証拠カード2: ユウキの手紙
+  # ========================================
+  - id: evidence-2
+    bgm: moral-02/emotional
+    steps:
+      - type: title_card
+        text: "{証拠|しょうこ}②"
+        subtitle: "ユウキが{保健室|ほけんしつ}で{書|か}いた{手紙|てがみ}"
+
+      - type: narration
+        text: "{火曜日|かようび}の{昼休|ひるやす}み、ユウキが{保健室|ほけんしつ}で{書|か}いた{手紙|てがみ}——"
+
+      - type: narration
+        speed: slow
+        text: "「せんせいへ。ぼくは{引|ひ}っ{越|こ}しません。お{父|とう}さんも{元気|げんき}です。」"
+
+      - type: narration
+        text: "「なのに、みんなが『{大丈夫|だいじょうぶ}？』『{引|ひ}っ{越|こ}すの？』『お{父|とう}さんげんき？』って{聞|き}いてきます。」"
+
+      - type: narration
+        text: "「{知|し}らない{人|ひと}にまで『{家|いえ}が{大変|たいへん}なんでしょ？』って{言|い}われました。」"
+
+      - type: narration
+        speed: slow
+        text: "「{何|なん}のことか{分|わ}かりません。でもみんなが{知|し}っているのに、ぼくだけ{知|し}らないのがこわいです。」"
+
+      - type: narration
+        speed: slow
+        text: "「{学校|がっこう}に{行|い}きたくないです。——5{年|ねん}1{組|くみ} ユウキ」"
+
+      - type: wait
+        duration: 1500
+
+      - type: narration
+        text: "ユウキは{引|ひ}っ{越|こ}さない。お{父|とう}さんも{元気|げんき}。ウワサの{内容|ないよう}は{事実|じじつ}ではなかった。"
+
+  # ========================================
+  # 証拠カード3: 先生のメモ（職員室の会話記録）
+  # ========================================
+  - id: evidence-3
+    bgm: moral-02/investigation
+    steps:
+      - type: title_card
+        text: "{証拠|しょうこ}③"
+        subtitle: "{職員室|しょくいんしつ}での{会話記録|かいわきろく}"
+
+      - type: narration
+        text: "{担任|たんにん}の{先生|せんせい}が、{職員室|しょくいんしつ}での{会話|かいわ}を{確認|かくにん}した{記録|きろく}——"
+
+      - type: narration
+        text: "{月曜日|げつようび}16:00ごろ。{職員室|しょくいんしつ}のドアが{少|すこ}し{開|あ}いていた。"
+
+      - type: narration
+        text: "{田中|たなか}{先生|せんせい}：「{佐藤|さとう}{先生|せんせい}のご{友人|ゆうじん}が{大阪|おおさか}に{転勤|てんきん}されるそうですね」"
+
+      - type: narration
+        text: "{山本|やまもと}{先生|せんせい}：「はい、{来月|らいげつ}からです。あ、それとユウキくんの{算数|さんすう}テスト、{再|さい}テストの{日程|にってい}を{決|き}めないといけませんね」"
+
+      - type: se
+        sound: common/discover
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "「{転勤|てんきん}」は{佐藤|さとう}{先生|せんせい}の{友人|ゆうじん}の{話|はなし}。「ユウキ」は{算数|さんすう}テストの{話|はなし}。——**2つは{全|まった}く{別|べつ}の{話題|わだい}**だった。"
+
+      - type: narration
+        text: "でも、{廊下|ろうか}にいた{人|ひと}には{連続|れんぞく}して{聞|き}こえた{可能性|かのうせい}がある。"
+
+  # ========================================
+  # 証拠カード4: 伝言の変遷
+  # ========================================
+  - id: evidence-4
+    bgm: moral-02/tension
+    steps:
+      - type: title_card
+        text: "{証拠|しょうこ}④"
+        subtitle: "{伝言|でんごん}の{変化|へんか}"
+
+      - type: narration
+        text: "4{人|にん}の{話|はなし}とメモの{記録|きろく}から、ウワサがどう{変|か}わったかが{見|み}えてきた——"
+
+      - type: narration
+        text: "【{元|もと}の{事実|じじつ}】「{佐藤|さとう}{先生|せんせい}の{友人|ゆうじん}が{大阪|おおさか}に{転勤|てんきん}」＋「ユウキの{算数|さんすう}テスト」——{別々|べつべつ}の{話題|わだい}。"
+
+      - type: narration
+        text: "【{第|だい}1{段階|だんかい}】アオイ→レン：「ユウキくんのお{父|とう}さんが{転勤|てんきん}するかも」——{別人|べつじん}の{転勤|てんきん}とユウキの{名前|なまえ}を{結|むす}びつけた。"
+
+      - type: narration
+        text: "【{第|だい}2{段階|だんかい}】レン→{連絡|れんらく}ボード：「ユウキくんが{引|ひ}っ{越|こ}すかもしれません」——{父|ちち}の{転勤|てんきん}→{本人|ほんにん}の{引|ひ}っ{越|こ}しに{変化|へんか}。"
+
+      - type: narration
+        text: "【{第|だい}3{段階|だんかい}】ナツ→{隣|となり}のクラス：「ユウキくんが{引|ひ}っ{越|こ}す。{家|いえ}の{事情|じじょう}で{大変|たいへん}」——「かも」が「する」に{変|か}わり、{想像|そうぞう}が{追加|ついか}された。"
+
+      - type: narration
+        text: "【{第|だい}4{段階|だんかい}】ハル→{学年全体|がくねんぜんたい}：「ユウキの{家|いえ}が{大変|たいへん}らしい」——3クラスに{拡散|かくさん}。"
+
+      - type: effect
+        name: flash
+        duration: 400
+
+      - type: narration
+        speed: slow
+        text: "たった4{人|にん}を{経由|けいゆ}しただけで、{元|もと}の{事実|じじつ}と{全|まった}く{違|ちが}う{話|はなし}になった。これが「{伝言|でんごん}ゲーム」だ。"
+
+  # ========================================
+  # 投票（責任投票 + 修復投票）
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: moral-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ウワサがどう{広|ひろ}がったか、{見|み}えてきたね。ここで{考|かんが}えてほしいことがある。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: "4{人|にん}の{中|なか}で、{一番|いちばん}{責任|せきにん}が{重|おも}いのは{誰|だれ}？"
+        feedback_default: "この{問|と}いに{正解|せいかい}はない。{大事|だいじ}なのは「なぜそう{思|おも}ったか」を{考|かんが}えること。"
+        options:
+          - text: "アオイ（{聞|き}き{間違|まちが}いでウワサを{始|はじ}めた）"
+            value: aoi
+          - text: "レン（{推測|すいそく}を{事実|じじつ}のように{連絡|れんらく}ボードに{書|か}いた）"
+            value: ren
+          - text: "ナツ（{想像|そうぞう}を{加|くわ}えて{他|ほか}のクラスに{伝|つた}えた）"
+            value: natsu
+          - text: "ハル（{学年全体|がくねんぜんたい}に{広|ひろ}めた）"
+            value: haru
+          - text: "{全員|ぜんいん}{同|おな}じくらい"
+            value: everyone
+
+      - type: narration
+        text: "{誰|だれ}か1{人|り}のせいじゃない。でも{全員|ぜんいん}が{関|かか}わった。それを{認|みと}められるかどうかが{大事|だいじ}だ。"
+
+      - type: choice
+        id: q2
+        question: "ウワサが{広|ひろ}がった{一番|いちばん}の{原因|げんいん}は{何|なに}？"
+        feedback_default: "どの{答|こた}えにも{理由|りゆう}がある。{情報|じょうほう}が{人|ひと}から{人|ひと}へ{伝|つた}わるとき、{何|なに}が{起|お}きるかを{考|かんが}えよう。"
+        options:
+          - text: "{確|たし}かめずに{伝|つた}えたこと"
+            value: no-verify
+          - text: "{推測|すいそく}や{想像|そうぞう}を{事実|じじつ}のように{話|はな}したこと"
+            value: speculation
+          - text: "{本人|ほんにん}に{聞|き}かなかったこと"
+            value: no-ask
+          - text: "すべてが{重|かさ}なったこと"
+            value: all-combined
+
+      - type: narration
+        text: "{情報|じょうほう}を{受|う}け{取|と}ったら3つを{確|たし}かめよう。{誰|だれ}が{言|い}った？ {本当|ほんとう}？ {伝|つた}えていい？"
+
+      - type: choice
+        id: q3
+        question: "ユウキのために、クラスとして{最初|さいしょ}にすべきことは？"
+        feedback_default: "{大切|たいせつ}なのは「ユウキが{何|なに}を{望|のぞ}んでいるか」。{自分|じぶん}がしたいことではなく、{相手|あいて}が{求|もと}めていることを{考|かんが}えよう。"
+        options:
+          - text: "4{人|にん}がクラスの{前|まえ}でユウキにあやまる"
+            value: apologize
+          - text: "{何|なに}があったか{全員|ぜんいん}で{話|はな}し{合|あ}う（{学級会|がっきゅうかい}）"
+            value: class-meeting
+          - text: "{普通|ふつう}に{接|せっ}する（{特別扱|とくべつあつか}いしない）"
+            value: normal
+          - text: "ユウキが{望|のぞ}むことを{先|さき}に{聞|き}く"
+            value: ask-yuuki
+
+      - type: narration
+        text: "「やってあげたい」と「{相手|あいて}が{求|もと}めている」は{違|ちが}うことがある。まず{聞|き}くことから{始|はじ}めよう。"
+
+  # ========================================
+  # 証拠カード5: ユウキのお父さんの手紙
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: moral-02/emotional
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 500
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ここで、ユウキのお{父|とう}さんから{届|とど}いた{手紙|てがみ}を{読|よ}みます。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        speed: slow
+        text: "「{先生|せんせい}へ。{学校|がっこう}でのことを{聞|き}きました。ユウキは{傷|きず}ついています。」"
+
+      - type: narration
+        text: "「でも、{子|こ}どもたちが{悪意|あくい}でやったのではないことも{分|わ}かっています。」"
+
+      - type: narration
+        speed: slow
+        text: "「ユウキは{昨夜|さくや}、こう{言|い}いました。『みんなが{心配|しんぱい}してくれたのかもしれない。でも、{知|し}らないウワサが{広|ひろ}がっているのがこわかった』」"
+
+      - type: narration
+        text: "「{大人|おとな}として、{子|こ}どもたちがこの{経験|けいけん}から{自分|じぶん}で{学|まな}ぶ{機会|きかい}にしてほしいと{思|おも}います。」"
+
+      - type: narration
+        speed: slow
+        text: "「ユウキは{来週|らいしゅう}、{学校|がっこう}に{行|い}きたいと{言|い}っています。そのとき、{教室|きょうしつ}が{安全|あんぜん}な{場所|ばしょ}であってほしいと{願|ねが}っています。——ユウキの{父|ちち}より」"
+
+      - type: wait
+        duration: 2000
+
+  # ========================================
+  # 真実 — アオイ
+  # ========================================
+  - id: truth-aoi
+    bg: classroom
+    bgm: moral-02/confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        text: "{真実|しんじつ}"
+
+      - type: effect
+        name: fade-in
+        duration: 500
+
+      - type: sprite
+        character: aoi
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: aoi
+        text: "……わたしが{最初|さいしょ}に{話|はな}したの。{月曜日|げつようび}の{放課後|ほうかご}、{掃除|そうじ}{当番|とうばん}で{廊下|ろうか}にいたとき、{職員室|しょくいんしつ}の{前|まえ}で{先生|せんせい}たちの{会話|かいわ}が{聞|き}こえた。"
+
+      - type: dialog
+        character: aoi
+        text: "「{転勤|てんきん}」と「ユウキ」って{言葉|ことば}が{聞|き}こえて……{心配|しんぱい}になって、すぐレンに「ユウキくんのお{父|とう}さんが{転勤|てんきん}するかも」って{伝|つた}えちゃった。"
+
+      - type: dialog
+        character: aoi
+        expression: determined
+        text: "でも{本当|ほんとう}は、{転勤|てんきん}の{話|はなし}は{佐藤|さとう}{先生|せんせい}の{友人|ゆうじん}のことで、ユウキは{算数|さんすう}テストの{話|はなし}だった。2つは{別|べつ}の{話題|わだい}だったの。{確|たし}かめないで{伝|つた}えちゃった……。"
+
+      - type: sprite
+        character: aoi
+        action: hide
+
+      - type: narration
+        text: "アオイに{悪意|あくい}はなかった。でも「{聞|き}いた」と「{確|たし}かめた」は{違|ちが}う。{確認|かくにん}せずに{伝|つた}えたことが、ウワサの{出発点|しゅっぱつてん}になった。"
+
+  # ========================================
+  # 真実 — レン
+  # ========================================
+  - id: truth-ren
+    steps:
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: ren
+        text: "アオイから「ユウキのお{父|とう}さんが{転勤|てんきん}するかも」って{聞|き}いて、「お{父|とう}さんが{転勤|てんきん}なら、ユウキも{引|ひ}っ{越|こ}す」と{思|おも}った。"
+
+      - type: dialog
+        character: ren
+        text: "クラス{委員|いいん}として、お{別|わか}れ{会|かい}を{準備|じゅんび}しなきゃって。それで{連絡|れんらく}ボードにメモを{書|か}いたんだ。"
+
+      - type: dialog
+        character: ren
+        expression: determined
+        text: "でも……「お{父|とう}さんの{転勤|てんきん}」を「ユウキの{引|ひ}っ{越|こ}し」に{変|か}えたのは、ぼくの{推測|すいそく}だった。{確認|かくにん}しないまま、{事実|じじつ}みたいに{書|か}いてしまった。"
+
+      - type: sprite
+        character: ren
+        action: hide
+
+      - type: narration
+        text: "{推測|すいそく}を{連絡|れんらく}ボードに{書|か}くと、{読|よ}んだ{人|ひと}は{事実|じじつ}だと{思|おも}う。「かもしれません」と{書|か}いても、{多|おお}くの{人|ひと}は「そうなんだ」と{受|う}け{取|と}る。"
+
+  # ========================================
+  # 真実 — ナツ
+  # ========================================
+  - id: truth-natsu
+    steps:
+      - type: sprite
+        character: natsu
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: natsu
+        text: "{連絡|れんらく}ボードにレンのメモがあって……「ユウキくんが{引|ひ}っ{越|こ}す」って{書|か}いてあったから、{本当|ほんとう}だと{思|おも}ったの。"
+
+      - type: dialog
+        character: natsu
+        text: "{心配|しんぱい}になって、{隣|となり}のクラスの{友達|ともだち}に「ユウキくんが{引|ひ}っ{越|こ}す。{家|いえ}の{事情|じじょう}で{大変|たいへん}みたい」って{伝|つた}えちゃった。"
+
+      - type: dialog
+        character: natsu
+        expression: determined
+        text: "でも……「{家|いえ}の{事情|じじょう}で{大変|たいへん}」は、わたしが{勝手|かって}に{想像|そうぞう}したこと。{連絡|れんらく}ボードにはそんなこと{書|か}いてなかった。"
+
+      - type: sprite
+        character: natsu
+        action: hide
+
+      - type: narration
+        text: "「{書|か}いてあった」＝「{本当|ほんとう}」ではない。さらに{自分|じぶん}の{想像|そうぞう}を{加|くわ}えて{伝|つた}えたことで、ウワサはもっと{深刻|しんこく}になった。"
+
+  # ========================================
+  # 真実 — ハル
+  # ========================================
+  - id: truth-haru
+    steps:
+      - type: sprite
+        character: haru
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: haru
+        text: "ナツから「ユウキの{家|いえ}が{大変|たいへん}」って{聞|き}いて、「みんなで{優|やさ}しくしてあげなきゃ！」って{思|おも}ったんだ。"
+
+      - type: dialog
+        character: haru
+        text: "それで5{年|ねん}2{組|くみ}のタケルとか、6{年生|ねんせい}のサクラとかリクとか……3つのクラスの{友達|ともだち}に{伝|つた}えた。"
+
+      - type: dialog
+        character: haru
+        expression: determined
+        text: "ユウキのためだと{思|おも}ってた。でも……ユウキが{一番|いちばん}つらかったのは「{知|し}らない{人|ひと}にまで{言|い}われた」ことだった。ぼくの「{善意|ぜんい}」が、ユウキを{一番|いちばん}{傷|きず}つけた。"
+
+      - type: sprite
+        character: haru
+        action: hide
+
+      - type: wait
+        duration: 1500
+
+      - type: bgm
+        track: moral-02/hope
+
+      - type: narration
+        text: "「やってあげたい」と「{相手|あいて}が{望|のぞ}んでいる」は{違|ちが}う。{善意|ぜんい}でも、{本人|ほんにん}の{許可|きょか}なく{広|ひろ}げることは、プライバシーの{侵害|しんがい}になる。"
+
+      - type: narration
+        speed: slow
+        text: "これを「{善意|ぜんい}の{加害|かがい}」という。{良|よ}いことをしたつもりでも、{相手|あいて}を{傷|きず}つけることがある。"
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: moral-02/hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ありがとう。みんなが{正直|しょうじき}に{話|はな}してくれた。"
+
+      - type: dialog
+        character: sensei
+        text: "1{人|り}ひとりは「それくらい」のことだった。でも4つが{重|かさ}なって、ユウキを{大|おお}きく{傷|きず}つけた。"
+
+      - type: dialog
+        character: sensei
+        text: "「{自分|じぶん}1{人|り}のせいじゃない」は{本当|ほんとう}。でも「{自分|じぶん}も{関|かか}わった」も{本当|ほんとう}。それを{認|みと}められることが、{大人|おとな}への{一歩|いっぽ}だよ。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{情報|じょうほう}を{受|う}け{取|と}ったら、3つを{確|たし}かめよう。"
+
+      - type: narration
+        text: "1つ{目|め}——{誰|だれ}が{言|い}った？（{情報|じょうほう}の{出|で}どころ）\n2つ{目|め}——{本当|ほんとう}？（{事実|じじつ}か{推測|すいそく}か）\n3つ{目|め}——{伝|つた}えていい？（{本人|ほんにん}が{望|のぞ}んでいるか）"
+
+      - type: narration
+        speed: slow
+        text: "この3つを{確|たし}かめるだけで、{今回|こんかい}のようなことは{防|ふせ}げる。そしてそれは、{大人|おとな}になっても{一生|いっしょう}{使|つか}えるスキルだ。"
+
+      - type: sprite
+        character: sensei
+        expression: kind
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ユウキは{来週|らいしゅう}、{学校|がっこう}に{来|き}たいと{言|い}っている。そのとき、{教室|きょうしつ}が{安全|あんぜん}な{場所|ばしょ}であるように——みんなで{考|かんが}えていこう。"
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500
