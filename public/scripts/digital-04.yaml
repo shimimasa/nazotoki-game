@@ -1,0 +1,529 @@
+meta:
+  id: digital-04
+  title: 消えたパスワード
+  series: 情報モラル探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-04/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}には、{委員会|いいんかい}{活動|かつどう}用のタブレットが1{台|だい}ある。パスワードを{知|し}っているのは、ハルト・ミオ・ソラ・リコの4{人|にん}だけ。"
+      - type: narration
+        text: "{火曜日|かようび}の{放課後|ほうかご}まで、タブレットは{普通|ふつう}に使えていた。ところが——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: center
+      - type: dialog
+        character: sora
+        text: "パスワードがちがう！？ {何度|なんど}{入力|にゅうりょく}しても{開|あ}けないぞ！"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "{誰|だれ}かが{勝手|かって}にパスワードを{変|か}えたんだ！ {委員会|いいんかい}の{仕事|しごと}ができないじゃないか！"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: bgm
+        file: digital-04/tension
+      - type: dialog
+        character: sensei
+        text: "アクセスログを{確認|かくにん}しました。{火曜日|かようび}の17:05にパスワードが{変更|へんこう}されています。"
+      - type: dialog
+        character: sensei
+        text: "パスワードを{知|し}っている4{人|にん}のうち、{誰|だれ}が{変|か}えたのか。{情報|じょうほう}モラル{探偵|たんてい}のみなさん、{調査|ちょうさ}してください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: haruto
+            expression: thinking
+          - character: mio
+            expression: worried
+          - character: sora
+            expression: determined
+          - character: riko
+            expression: normal
+      - type: narration
+        text: "アクセスログのタイムラインを{再構成|さいこうせい}し、「17:05にタブレットを使えた{人|ひと}」を{特定|とくてい}する{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "情報モラル探偵団 Vol.4"
+        subtitle: "消えたパスワード"
+
+  # ===== 証拠カード1: アクセスログ =====
+  - id: evidence-1
+    bg: classroom
+    bgm: digital-04/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "{委員会|いいんかい}タブレットのアクセスログ——{火曜日|かようび}の{記録|きろく}を見てみよう。"
+      - type: narration
+        text: "12:30——ログイン{成功|せいこう}。"
+      - type: narration
+        text: "12:55——ログアウト。"
+      - type: narration
+        text: "15:40——ログイン{成功|せいこう}。"
+      - type: narration
+        text: "15:50——ログアウト。"
+      - type: narration
+        text: "17:02——ログイン{成功|せいこう}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "17:05——パスワード{変更|へんこう}。"
+      - type: narration
+        text: "17:08——ログアウト。"
+      - type: narration
+        text: "{犯人|はんにん}は17:02にタブレットにログインし、17:05にパスワードを{変|か}えた。ただし、ログには「{誰|だれ}が」は{記録|きろく}されていない。パスワードが4{人|にん}{共通|きょうつう}のためだ。"
+
+  # ===== 証拠カード2: 放課後の行動 =====
+  - id: evidence-2
+    bg: classroom
+    bgm: digital-04/investigation
+    steps:
+      - type: narration
+        text: "{火曜日|かようび}の{放課後|ほうかご}（15:30〜17:30）、4{人|にん}はどこにいたのだろう。"
+      - type: narration
+        text: "ハルト——15:30〜16:00は{教室|きょうしつ}で{委員会|いいんかい}の{仕事|しごと}。16:00に{帰宅|きたく}。"
+      - type: narration
+        text: "ミオ——15:30〜16:45は{教室|きょうしつ}で{宿題|しゅくだい}。16:45に{帰宅|きたく}。{忘|わす}れ{物|もの}を{取|と}りに17:00に{教室|きょうしつ}に{戻|もど}り、17:10に{帰宅|きたく}。"
+      - type: narration
+        text: "ソラ——15:30〜15:50は{教室|きょうしつ}でタブレット{使用|しよう}。15:50に{体育館|たいいくかん}へ{移動|いどう}し、17:20までバスケ。"
+      - type: narration
+        text: "リコ——15:30〜16:00は{教室|きょうしつ}で{読書|どくしょ}。16:00に{帰宅|きたく}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "パスワード{変更|へんこう}は17:05。この{時刻|じこく}に{教室|きょうしつ}にいられた{人|ひと}は——"
+      - type: narration
+        text: "ハルト：16:00に{帰宅|きたく}→ ❌"
+      - type: narration
+        text: "ソラ：15:50から{体育館|たいいくかん}→ ❌"
+      - type: narration
+        text: "リコ：16:00に{帰宅|きたく}→ ❌"
+      - type: narration
+        text: "ミオ：17:00〜17:10に{教室|きょうしつ}→ ✅"
+
+  # ===== 証拠カード3: 詳細ログ =====
+  - id: evidence-3
+    bg: classroom
+    bgm: digital-04/experiment
+    steps:
+      - type: narration
+        text: "ハルトが{先生|せんせい}の{許可|きょか}で{確認|かくにん}した、さらに{詳|くわ}しいログが{届|とど}いた。"
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{詳細|しょうさい}ログを{報告|ほうこく}します。12:30にログイン、12:50にファイルが{保存|ほぞん}されています。{保存|ほぞん}されたのは——2つのファイルです。"
+      - type: dialog
+        character: haruto
+        text: "そのあと12:55にログアウト。15:40にまたログインして15:50にログアウト。ここまでは{正常|せいじょう}。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "{問題|もんだい}はここからです。17:02にログイン。17:03に{共有|きょうゆう}フォルダから1つのファイルが{削除|さくじょ}されている。そして17:05にパスワード{変更|へんこう}。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "12:50に{保存|ほぞん}された2つのファイルのうち、1つは{委員会|いいんかい}の{議事録|ぎじろく}。もう1つは——17:03に{削除|さくじょ}されたファイル。ファイル{名|めい}は{記録|きろく}されていない。"
+      - type: narration
+        text: "なぜ{犯人|はんにん}は、パスワードを{変|か}える{前|まえ}にファイルを{削除|さくじょ}したのだろう？"
+
+  # ===== 証拠カード4: 目撃情報 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: digital-04/experiment
+    steps:
+      - type: narration
+        text: "{火曜日|かようび}の{放課後|ほうかご}、2{人|り}がミオの{様子|ようす}について{証言|しょうげん}している。"
+      - type: sprite
+        character: riko
+        expression: normal
+        position: right
+      - type: dialog
+        character: riko
+        text: "{火曜|かよう}の15:45ごろ、ソラがタブレットを使ってる{横|よこ}で、ミオが{画面|がめん}をのぞき{込|こ}んでたの。"
+      - type: sprite
+        character: riko
+        expression: surprised
+      - type: dialog
+        character: riko
+        text: "ミオは{画面|がめん}を見た{瞬間|しゅんかん}、{顔|かお}が{青|あお}くなって『あっ……やばい』ってつぶやいたの。{何|なに}かまずいものを見つけたみたいだった。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sora
+        text: "{火曜|かよう}の15:50ごろ、{廊下|ろうか}でミオとすれちがった。ミオは{顔|かお}が{青|あお}くて、『どうしよう、{間違|まちが}えちゃった……』って{小|ちい}さく{言|い}ってた。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "ミオは{昼休|ひるやす}みにタブレットを使い、15:45ごろ{何|なに}かに{気|き}づいて{青|あお}ざめた。そして{夕方|ゆうがた}、『{忘|わす}れ{物|もの}を{取|と}りに』と{教室|きょうしつ}に{戻|もど}っている。パスワード{変更|へんこう}は17:05——。"
+
+  # ===== 証拠カード5: 削除されたファイルの復元 =====
+  - id: card-5
+    bg: classroom
+    bgm: digital-04/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "IT{専門|せんもん}の{先生|せんせい}に{依頼|いらい}して、{削除|さくじょ}されたファイルを{復元|ふくげん}しました。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{削除|さくじょ}されたファイルの{名前|なまえ}は——『ミオの{日記|にっき}』。{作成|さくせい}{日時|にちじ}は{火曜|かよう}12:50。{削除|さくじょ}は{火曜|かよう}17:03。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "つまり——ミオが{昼休|ひるやす}みに{委員会|いいんかい}{資料|しりょう}と{一緒|いっしょ}に、{自分|じぶん}の{日記|にっき}を{間違|まちが}えて{共有|きょうゆう}フォルダに{保存|ほぞん}していた。"
+      - type: narration
+        text: "{夕方|ゆうがた}に{気|き}づいたミオは、17:00に{教室|きょうしつ}に{戻|もど}り、17:03に{日記|にっき}を{削除|さくじょ}。そして17:05にパスワードを{変更|へんこう}した。"
+      - type: narration
+        text: "パスワード{変更|へんこう}は「{日記|にっき}を{他|ほか}の{人|ひと}に{読|よ}まれないようにする」ための{行動|こうどう}だった。"
+      - type: narration
+        text: "{日記|にっき}を{消|け}すだけでよかったのに、パニックになって『{誰|だれ}にもアクセスできないようにしよう』と{必要|ひつよう}{以上|いじょう}のことをしてしまった。"
+      - type: narration
+        text: "{先生|せんせい}は{言|い}った。「{日記|にっき}の{中身|なかみ}はプライバシーなので{読|よ}みません。{大事|だいじ}なのは、{日記|にっき}を{守|まも}るためにパスワードを{変|か}えてしまったということです」"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-04/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここで{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "パスワードを変えたのは誰？"
+        options:
+          - text: "ハルト（IT係でログを読める）"
+            feedback: "ハルトは16:00に{帰宅|きたく}していて、17:05には{学校|がっこう}にいない。ログを{読|よ}めることと、パスワードを{変|か}えることは{別|べつ}だよ。"
+          - text: "ミオ（17:00に教室に戻った）"
+            feedback: "17:00〜17:10に{教室|きょうしつ}にいたのはミオだけ。{日記|にっき}の{間違|まちが}い{保存|ほぞん}に{気|き}づいて{戻|もど}ってきた。タイムラインが{完全|かんぜん}に{一致|いっち}する。"
+          - text: "ソラ（パスワードが変わって一番怒っている）"
+            feedback: "ソラは15:50から17:20まで{体育館|たいいくかん}にいた。{教室|きょうしつ}のタブレットには{触|さわ}れない。{怒|おこ}っているのは{被害者|ひがいしゃ}だからだね。"
+          - text: "リコ（冷静すぎて逆に怪しい？）"
+            feedback: "リコは16:00に{帰宅|きたく}。17:05にはいない。{冷静|れいせい}なのは{性格|せいかく}であって、{怪|あや}しさの{証拠|しょうこ}にはならないよ。"
+      - type: choice
+        id: q2
+        text: "ミオはなぜ日記を消すだけでなくパスワードまで変えた？"
+        options:
+          - text: "みんなに嫌がらせをしたかった"
+            feedback: "ミオに{悪意|あくい}はなかった。{日記|にっき}を{読|よ}まれるのが{怖|こわ}くて、パニックになっただけ。{嫌|いや}がらせではないよ。"
+          - text: "パニックで必要以上のことをしてしまった"
+            feedback: "その{通|とお}り。{焦|あせ}ると『もっと{安全|あんぜん}にしなきゃ』と{過剰|かじょう}{反応|はんのう}してしまう。{冷静|れいせい}なら{日記|にっき}を{消|け}すだけで{済|す}んだのに。"
+          - text: "パスワード変更の方法を知らなかった（間違えた）"
+            feedback: "ミオは{意図的|いとてき}にパスワードを{変更|へんこう}した。{間違|まちが}いではなく、『{誰|だれ}にも{開|あ}けないようにしよう』という{判断|はんだん}だった。"
+          - text: "日記の内容がよほど知られたくなかった"
+            feedback: "{日記|にっき}には{友達|ともだち}のことが{書|か}いてあったから、{読|よ}まれたら{友情|ゆうじょう}が{壊|こわ}れると{思|おも}った。{気持|きも}ちは{分|わ}かるけど、やり{方|かた}が{間違|まちが}っていたね。"
+      - type: choice
+        id: q3
+        text: "ミオはどうすればよかった？"
+        options:
+          - text: "先生に『間違えて保存した』と相談する"
+            feedback: "{先生|せんせい}に{相談|そうだん}すれば、{先生|せんせい}が{日記|にっき}を{削除|さくじょ}してくれた。パスワードも{変|か}わらず、{委員会|いいんかい}の{仕事|しごと}も{止|と}まらなかった。"
+          - text: "日記を削除するだけにする"
+            feedback: "{日記|にっき}を{消|け}せば{問題|もんだい}は{解決|かいけつ}。パスワードを{変|か}える{必要|ひつよう}はなかった。{冷静|れいせい}に{考|かんが}えれば{気|き}づけたはず。"
+          - text: "最初から共有タブレットに日記を保存しない"
+            feedback: "これが{一番|いちばん}の{予防策|よぼうさく}。{共有|きょうゆう}{端末|たんまつ}に{個人|こじん}データを{保存|ほぞん}しなければ、こんな{事態|じたい}にはならなかった。"
+          - text: "友達に正直に話す"
+            feedback: "「{間違|まちが}えて{日記|にっき}を{保存|ほぞん}しちゃった」と{正直|しょうじき}に{言|い}えば、みんなも{協力|きょうりょく}して{消|け}してくれたかも。{隠|かく}すより{話|はな}す{方|ほう}が{安全|あんぜん}。"
+
+  # ===== 真実: ハルト =====
+  - id: truth-haruto
+    bg: classroom
+    bgm: digital-04/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{僕|ぼく}はIT{係|がかり}として、アクセスログの{詳細|しょうさい}を{確認|かくにん}しました。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "17:02ログイン、17:03ファイル{削除|さくじょ}、17:05パスワード{変更|へんこう}——この{流|なが}れを見て、「{何|なに}かを{隠|かく}すためにパスワードを{変|か}えた」と{分|わ}かりました。"
+      - type: dialog
+        character: haruto
+        text: "ログの{情報|じょうほう}をすぐ{出|だ}すべきか{迷|まよ}った。データは{嘘|うそ}をつかないけど、{誰|だれ}かを{傷|きず}つけるかもしれないから。"
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ===== 真実: ソラ =====
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: right
+      - type: dialog
+        character: sora
+        text: "オレ、{火曜|かよう}の15:50に{廊下|ろうか}でミオとすれちがったんだ。ミオは{顔|かお}が{青|あお}くて、『どうしよう、{間違|まちが}えちゃった……』って{言|い}ってた。"
+      - type: sprite
+        character: sora
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "あのとき{声|こえ}をかけてれば、ミオが1{人|り}で{抱|かか}え{込|こ}まなくて{済|す}んだかも。バスケに{行|い}きたくて{素通|すどお}りしちゃった。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 真実: リコ =====
+  - id: truth-riko
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riko
+        expression: normal
+        position: left
+      - type: dialog
+        character: riko
+        text: "わたし、15:45ごろに見てたの。ソラがタブレットを使ってる{横|よこ}で、ミオが{画面|がめん}をのぞき{込|こ}んで、{顔|かお}が{青|あお}くなった。"
+      - type: sprite
+        character: riko
+        expression: worried
+      - type: dialog
+        character: riko
+        text: "ミオは『あっ……やばい』ってつぶやいてた。たぶん{共有|きょうゆう}フォルダに{自分|じぶん}のファイルが見えたんだと{思|おも}う。"
+      - type: dialog
+        character: riko
+        text: "わたしも{何|なに}も{聞|き}けなかった。ミオの{様子|ようす}がおかしかったのに……もっと{早|はや}く{声|こえ}をかければよかった。"
+      - type: sprite
+        character: riko
+        action: hide
+
+  # ===== 真実: ミオ（犯人） =====
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+      - type: dialog
+        character: mio
+        text: "……パスワードを{変|か}えたのは、わたしです。"
+      - type: narration
+        speed: slow
+        text: "ミオは{目|め}を{伏|ふ}せて、{静|しず}かに{話|はな}し{始|はじ}めた。"
+      - type: sprite
+        character: mio
+        expression: normal
+      - type: dialog
+        character: mio
+        text: "{昼休|ひるやす}みに{委員会|いいんかい}の{資料|しりょう}を{編集|へんしゅう}してたとき、{自分|じぶん}の{日記|にっき}を{間違|まちが}えて{共有|きょうゆう}フォルダに{保存|ほぞん}しちゃったの。"
+      - type: sprite
+        character: mio
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "{日記|にっき}には{友達|ともだち}のことが{書|か}いてあって……{読|よ}まれたら{大変|たいへん}って、ものすごく{焦|あせ}った。"
+      - type: dialog
+        character: mio
+        text: "{夕方|ゆうがた}に{気|き}づいて、{忘|わす}れ{物|もの}を{取|と}りにいくフリで{教室|きょうしつ}に{戻|もど}って……{日記|にっき}を{消|け}して、パスワードも{変|か}えちゃった。"
+      - type: narration
+        speed: slow
+        text: "ミオの{目|め}に{涙|なみだ}がにじむ。"
+      - type: sprite
+        character: mio
+        expression: determined
+      - type: dialog
+        character: mio
+        text: "{日記|にっき}を{消|け}すだけでよかったのに、パニックで「{誰|だれ}にも{開|あ}けないようにしなきゃ」って……みんなの{委員会|いいんかい}の{仕事|しごと}を{止|と}めちゃって、ごめんなさい。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: narration
+        text: "ミオに{悪意|あくい}はなかった。{日記|にっき}を{守|まも}りたかっただけ。でも{焦|あせ}りが{判断|はんだん}を{間違|まちが}えさせた——{日記|にっき}の{削除|さくじょ}だけで{済|す}んだはずの{問題|もんだい}を、パスワード{変更|へんこう}で{大|おお}きくしてしまった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-04/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ミオ、{正直|しょうじき}に{話|はな}してくれてありがとう。{日記|にっき}を{読|よ}まれたくない{気持|きも}ち、よく{分|わ}かります。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "でも{大事|だいじ}なことが3つあります。1つ目——{共有|きょうゆう}タブレットに{個人|こじん}のファイルを{保存|ほぞん}しない。みんなで使う{端末|たんまつ}に{秘密|ひみつ}のデータを{置|お}くのは{危険|きけん}です。"
+      - type: dialog
+        character: sensei
+        text: "2つ目——パスワードを{勝手|かって}に{変|か}えない。{共有|きょうゆう}のパスワードは、みんなの「{鍵|かぎ}」。1{人|り}が{変|か}えるとみんなが{困|こま}ります。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "3つ目——{困|こま}ったときは{先生|せんせい}に{相談|そうだん}する。『{間違|まちが}えて{保存|ほぞん}しちゃった』と{言|い}ってくれれば、{先生|せんせい}が{削除|さくじょ}しましたよ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: sprite
+        character: sora
+        expression: normal
+        position: left
+      - type: dialog
+        character: sora
+        text: "ミオ、{日記|にっき}の{中身|なかみ}は{聞|き}かないよ。プライバシーは{大事|だいじ}だからな。"
+      - type: sprite
+        character: mio
+        expression: happy
+      - type: dialog
+        character: mio
+        text: "ありがとう、ソラ。{次|つぎ}からは{共有|きょうゆう}タブレットに{個人|こじん}のファイルは{保存|ほぞん}しない。{困|こま}ったら{先生|せんせい}に{相談|そうだん}する。{約束|やくそく}。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{焦|あせ}ったときほど、{深呼吸|しんこきゅう}。そして{相談|そうだん}。1{人|り}で{抱|かか}え{込|こ}まないことが、{一番|いちばん}の{情報|じょうほう}モラルです。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
