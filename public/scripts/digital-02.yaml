@@ -1,0 +1,567 @@
+meta:
+  id: digital-02
+  title: なりすましアカウント
+  series: 情報モラル探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: digital-02/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}。クラスの{連絡|れんらく}アプリ「あおばトーク」に、{突然|とつぜん}見知らぬアカウントが{現|あらわ}れた。"
+      - type: narration
+        text: "アカウント名は「ナゾの人」。プロフィール{画像|がぞう}もない、{誰|だれ}のものかもわからないアカウント。"
+      - type: se
+        file: digital-02/notification
+      - type: narration
+        text: "「ナゾの人」は、ミオが{学級|がっきゅう}新聞に{描|か}いたイラストに対して、3{通|つう}のメッセージを送ってきた。"
+      - type: narration
+        text: "「この{絵|え}、めっちゃ{変|へん}だよね」——{月曜|げつよう}16:35。"
+      - type: narration
+        text: "「もっと、ちゃんと、{描|か}き{直|なお}した{方|ほう}がいいよね」——{月曜|げつよう}16:45。"
+      - type: narration
+        text: "「やっぱり、{別|べつ}の{人|ひと}が{描|か}いた{方|ほう}がいいよね」——{火曜|かよう}7:50。"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: mio
+        expression: worried
+        position: center
+      - type: dialog
+        character: mio
+        text: "……{一生懸命|いっしょうけんめい}{描|か}いたのに。{匿名|とくめい}で「ヘタクソ」なんて……{悲|かな}しい。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: bgm
+        file: digital-02/tension
+      - type: dialog
+        character: sensei
+        text: "なりすましは{絶対|ぜったい}にダメです。{誰|だれ}がやったか、{必|かなら}ず{調|しら}べます。"
+      - type: dialog
+        character: sensei
+        text: "{情報|じょうほう}モラル{探偵|たんてい}のみなさん、「ナゾの{人|ひと}」の{正体|しょうたい}を{突|つ}き{止|と}めてください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: haruto
+            expression: thinking
+          - character: mio
+            expression: worried
+          - character: sora
+            expression: determined
+          - character: riko
+            expression: normal
+      - type: narration
+        text: "4{人|にん}の{情報|じょうほう}モラル{探偵|たんてい}に、{調査|ちょうさ}ミッションが{与|あた}えられた。{手|て}がかりは「メッセージの{言葉遣|ことばづか}い」と「{投稿|とうこう}時間」。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "情報モラル探偵団 Vol.2"
+        subtitle: "なりすましアカウント"
+
+  # ===== 証拠カード1: 3通のメッセージ =====
+  - id: evidence-1
+    bg: classroom
+    bgm: digital-02/investigation
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+      - type: narration
+        text: "まずは「ナゾの{人|ひと}」が送った3{通|つう}のメッセージを{詳|くわ}しく見てみよう。"
+      - type: narration
+        text: "メッセージ1（{月曜|げつよう}16:35）——「この{絵|え}、めっちゃ{変|へん}だよね」"
+      - type: narration
+        text: "メッセージ2（{月曜|げつよう}16:45）——「もっと、ちゃんと、{描|か}き{直|なお}した{方|ほう}がいいよね」"
+      - type: narration
+        text: "メッセージ3（{火曜|かよう}7:50）——「やっぱり、{別|べつ}の{人|ひと}が{描|か}いた{方|ほう}がいいよね」"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "3{通|つう}のメッセージには{共通|きょうつう}する{言葉|ことば}がある。「めっちゃ」「〜だよね」、そして「、」をたくさん使う{書|か}き{方|かた}。"
+      - type: narration
+        text: "「ナゾの{人|ひと}」のアカウント{情報|じょうほう}——{作成|さくせい}日時：{月曜|げつよう}16:32。{学校|がっこう}のWi-Fiから{接続|せつぞく}。つまり{学校|がっこう}の{中|なか}から使っている。"
+
+  # ===== 証拠カード2: 4人の普段のメッセージ =====
+  - id: evidence-2
+    bg: classroom
+    bgm: digital-02/investigation
+    steps:
+      - type: narration
+        text: "「あおばトーク」の{過去|かこ}のメッセージから、4{人|にん}の{書|か}き{方|かた}の{特徴|とくちょう}を{比|くら}べてみよう。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "「{明日|あした}の{持|も}ち{物|もの}は{教科書|きょうかしょ}とノートです。{忘|わす}れないようにしましょう」"
+      - type: narration
+        text: "ハルトの{特徴|とくちょう}——「ですます{調|ちょう}」。{絵文字|えもじ}なし。{丁寧|ていねい}な{書|か}き{方|かた}。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mio
+        expression: happy
+        position: right
+      - type: dialog
+        character: mio
+        text: "「イラスト{完成|かんせい}したよ！ 見てね✨ がんばった！」"
+      - type: narration
+        text: "ミオの{特徴|とくちょう}——「！」が{多|おお}い。{絵文字|えもじ}をよく使う。{明|あか}るい{口調|くちょう}。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: sora
+        expression: happy
+        position: left
+      - type: dialog
+        character: sora
+        text: "「{明日|あした}ドッジボールやろうぜ！ {体育館|たいいくかん}で{待|ま}ってるぜ！」"
+      - type: narration
+        text: "ソラの{特徴|とくちょう}——「〜だぜ」「〜ぜ」{口調|くちょう}。{元気|げんき}。「！」が{多|おお}い。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: riko
+        expression: normal
+        position: right
+      - type: dialog
+        character: riko
+        text: "「{明日|あした}の{準備|じゅんび}、もうできたよね。わたしは、めっちゃ{時間|じかん}かかったけど」"
+      - type: narration
+        text: "リコの{特徴|とくちょう}——「、」を{多|おお}く使う。「めっちゃ」をよく使う。「〜だよね」「〜よね」で{文|ぶん}を{終|お}える。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "4{人|にん}の{書|か}き{方|かた}を{表|ひょう}にまとめて、「ナゾの{人|ひと}」のメッセージと{比|くら}べてみよう。{一番|いちばん}{似|に}ているのは{誰|だれ}だろう？"
+
+  # ===== 証拠カード3: 技術情報 =====
+  - id: evidence-3
+    bg: classroom
+    bgm: digital-02/investigation
+    steps:
+      - type: narration
+        text: "ハルトがIT{係|がかり}として、「あおばトーク」の{管理|かんり}{画面|がめん}を{調|しら}べた{結果|けっか}が{届|とど}いた。"
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "「ナゾの{人|ひと}」のアカウントは、{学校|がっこう}のWi-Fiから{作成|さくせい}されていました。つまり{外部|がいぶ}の{人|ひと}ではなく、クラスの{誰|だれ}かです。"
+      - type: dialog
+        character: haruto
+        text: "さらに、{使用|しよう}された{端末|たんまつ}はタブレット16{番|ばん}。ロッカーの{一番|いちばん}{端|はし}にあるものです。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "タブレットは{個人|こじん}{固定|こてい}じゃないから、16{番|ばん}を使った{人|ひと}＝{犯人|はんにん}とは{限|かぎ}りません。でも、ロッカーの{端|はし}にあるから……こっそり{取|と}り{出|だ}しやすい{位置|いち}です。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "メッセージ1と2は{月曜|げつよう}16:35〜16:45に{投稿|とうこう}されている。つまり{放課後|ほうかご}に{学校|がっこう}にいて、タブレットを使えた{人|ひと}が{犯人|はんにん}{候補|こうほ}だ。"
+
+  # ===== 証拠カード4: 放課後の行動 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: digital-02/experiment
+    steps:
+      - type: narration
+        text: "{月曜日|げつようび}の{放課後|ほうかご}（15:30〜17:00）、4{人|にん}はどこにいたのだろう？"
+      - type: narration
+        text: "ハルト——15:30〜17:00、コンピュータ{室|しつ}で{委員会|いいんかい}の{仕事|しごと}。{教室|きょうしつ}のタブレットは{使|つか}えない。"
+      - type: narration
+        text: "ミオ——15:30〜16:30、{教室|きょうしつ}でイラストを{描|か}いていた。16:30に{帰宅|きたく}。"
+      - type: narration
+        text: "ソラ——15:30〜17:00、{校庭|こうてい}でサッカー。タブレットは{持|も}ち{出|だ}し{禁止|きんし}。"
+      - type: narration
+        text: "リコ——15:30〜17:00、{教室|きょうしつ}で{宿題|しゅくだい}。"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "タブレットが使える{場所|ばしょ}は{教室|きょうしつ}だけ。コンピュータ{室|しつ}は{委員会|いいんかい}{専用|せんよう}パソコンのみ。{校庭|こうてい}は{持|も}ち{出|だ}し{禁止|きんし}。"
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sora
+        text: "{月曜|げつよう}の16:50ごろ、{校庭|こうてい}から{帰|かえ}るときに{教室|きょうしつ}の{前|まえ}を{通|とお}ったんだけど……リコが{教室|きょうしつ}にいた。タブレットを{開|ひら}いてたけど、{宿題|しゅくだい}かと{思|おも}ってた。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: narration
+        text: "メッセージ1（16:35）の{時点|じてん}で、ミオはすでに{帰宅|きたく}{済|ず}み。{教室|きょうしつ}にいたのはリコだけ。メッセージ2（16:45）も{同様|どうよう}——リコだけだ。"
+
+  # ===== 証拠カード5: 文体の決定的一致 =====
+  - id: card-5
+    bg: classroom
+    bgm: digital-02/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}が「ナゾの{人|ひと}」のメッセージと4{人|にん}の{普段|ふだん}のメッセージを{詳|くわ}しく{分析|ぶんせき}した{結果|けっか}が{届|とど}いた。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{文体|ぶんたい}{分析|ぶんせき}の{結果|けっか}を{報告|ほうこく}します。「ナゾの{人|ひと}」のメッセージの{特徴|とくちょう}を、4{人|にん}の{普段|ふだん}の{書|か}き{方|かた}と{比|くら}べました。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "「、」を1{文|ぶん}に2{個|こ}{以上|いじょう}使う——ナゾの{人|ひと}：✅ / ハルト：❌ / ミオ：❌ / ソラ：❌ / リコ：✅"
+      - type: narration
+        text: "「めっちゃ」を使う——ナゾの{人|ひと}：✅ / ハルト：❌ / ミオ：✅ / ソラ：❌ / リコ：✅"
+      - type: narration
+        text: "「〜だよね」「〜よね」で{終|お}わる——ナゾの{人|ひと}：✅ / ハルト：❌ / ミオ：❌ / ソラ：❌ / リコ：✅"
+      - type: se
+        file: common/discover
+      - type: narration
+        text: "「ナゾの{人|ひと}」と{文体|ぶんたい}が3つとも{一致|いっち}するのは——リコだけ。"
+      - type: narration
+        text: "ミオは「めっちゃ」を使うが、「、」の{多用|たよう}と「〜だよね」は使わない。ハルトとソラは1つも{一致|いっち}しない。"
+      - type: narration
+        text: "{匿名|とくめい}のつもりでも、{文章|ぶんしょう}の{書|か}き{方|かた}には「その{人|ひと}らしさ」が{出|で}る。リコは{普段|ふだん}と{同|おな}じ{言葉遣|ことばづか}いでメッセージを{書|か}いてしまった。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: digital-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出|で}そろいました。ここで{考|かんが}えてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "「ナゾの人」の正体は誰だと思う？"
+        options:
+          - text: "ハルト（IT係で管理画面を見ていた）"
+            feedback: "ハルトは「ですます{調|ちょう}」で{絵文字|えもじ}なし。「ナゾの{人|ひと}」の{文体|ぶんたい}とは{全|まった}く{違|ちが}うね。コンピュータ{室|しつ}にいて{教室|きょうしつ}のタブレットも使えなかった。"
+          - text: "ミオ（被害者だけど自作自演？）"
+            feedback: "ミオは「めっちゃ」を使うけど、「、」の{多用|たよう}と「〜だよね」は使わない。それに16:30に{帰宅|きたく}していて、16:35のメッセージは送れないよ。"
+          - text: "ソラ（正義感の裏に何かある？）"
+            feedback: "ソラは「〜だぜ」{口調|くちょう}。「ナゾの{人|ひと}」の{文体|ぶんたい}とは1つも{一致|いっち}しない。{校庭|こうてい}にいてタブレットも使えなかった。"
+          - text: "リコ（文体が一致している）"
+            feedback: "「、」の{多用|たよう}、「めっちゃ」、「〜だよね」——3つの{特徴|とくちょう}がすべて{一致|いっち}。{放課後|ほうかご}も{教室|きょうしつ}にいた。{鋭|するど}い{推理|すいり}だね。"
+      - type: choice
+        id: q2
+        text: "なりすましがバレた一番の決め手は何？"
+        options:
+          - text: "投稿時間（放課後に教室にいたのはリコだけ）"
+            feedback: "{時間|じかん}と{場所|ばしょ}の{消去法|しょうきょほう}だね。ミオが{帰|かえ}った{後|あと}、{教室|きょうしつ}にいたのはリコだけだった。{大事|だいじ}な{手|て}がかりだ。"
+          - text: "文体の癖（「めっちゃ」「〜だよね」がリコと一致）"
+            feedback: "{文体|ぶんたい}{分析|ぶんせき}は{強力|きょうりょく}な{手|て}がかり。{匿名|とくめい}でも{無意識|むいしき}に{自分|じぶん}の{言葉遣|ことばづか}いが{出|で}てしまう。"
+          - text: "タブレット16番の端末情報"
+            feedback: "{端末|たんまつ}{情報|じょうほう}も{重要|じゅうよう}な{証拠|しょうこ}。{学校|がっこう}のWi-Fiから{作成|さくせい}されていて、ロッカーの{端|はし}のタブレットが使われていた。"
+          - text: "全部合わせた総合判断"
+            feedback: "その{通|とお}り！ 1つの{証拠|しょうこ}だけでなく、{時間|じかん}・{場所|ばしょ}・{文体|ぶんたい}・{端末|たんまつ}{情報|じょうほう}を{総合|そうごう}して{判断|はんだん}する。これが{情報|じょうほう}{整理|せいり}の{力|ちから}だ。"
+      - type: choice
+        id: q3
+        text: "匿名でメッセージを送ることについて、どう思う？"
+        options:
+          - text: "匿名でも本当のことなら言ってもいい"
+            feedback: "{本当|ほんとう}のことでも、{匿名|とくめい}で{言|い}われると{相手|あいて}は{誰|だれ}に{言|い}われたか分からなくて、もっと{不安|ふあん}になる。{直接|ちょくせつ}{伝|つた}える{方|ほう}が{建設的|けんせつてき}だね。"
+          - text: "匿名でも傷つけることを言うのはダメ"
+            feedback: "{匿名|とくめい}でも{相手|あいて}が{傷|きず}つくことに{変|か}わりはない。むしろ{誰|だれ}か分からない{方|ほう}が{怖|こわ}いこともある。"
+          - text: "直接言えないなら先生に相談すればいい"
+            feedback: "{直接|ちょくせつ}{言|い}いにくいときは、{信頼|しんらい}できる{大人|おとな}に{相談|そうだん}するのも{大切|たいせつ}な{選択肢|せんたくし}だね。"
+          - text: "リコの気持ちも分かるけど方法が間違っていた"
+            feedback: "{悔|くや}しい{気持|きも}ちは{自然|しぜん}なこと。でもその{伝|つた}え{方|かた}が{大事|だいじ}。なりすましではなく、{言葉|ことば}で{伝|つた}える{方法|ほうほう}があったはず。"
+
+  # ===== 真実: ハルト =====
+  - id: truth-haruto
+    bg: classroom
+    bgm: digital-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはIT{係|がかり}として、{管理|かんり}{画面|がめん}を{調|しら}べていました。「ナゾの{人|ひと}」のアカウントはクラスのタブレット16{番|ばん}から{作成|さくせい}されていた。"
+      - type: sprite
+        character: haruto
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "でも「{端末|たんまつ}{番号|ばんごう}まで{調|しら}べた」と{言|い}うと、みんながパニックになるかもしれないと{思|おも}って……もう{少|すこ}し{証拠|しょうこ}が{集|あつ}まってから{共有|きょうゆう}しようと{思|おも}っていたんです。"
+      - type: sprite
+        character: haruto
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: "IT{係|がかり}って、みんなの{情報|じょうほう}を見ることができる。その{責任|せきにん}は{重|おも}いなって……{思|おも}いました。"
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ===== 真実: ミオ =====
+  - id: truth-mio
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mio
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "わたし、{知|し}ってたの。リコもイラスト{担当|たんとう}に{立候補|りっこうほ}してたこと。"
+      - type: sprite
+        character: mio
+        expression: normal
+      - type: dialog
+        character: mio
+        text: "{先生|せんせい}がわたしを{選|えら}んだとき、リコ、{何|なに}も{言|い}わなかったけど……{少|すこ}し{悲|かな}しそうな{顔|かお}をしてた。"
+      - type: sprite
+        character: mio
+        expression: worried
+      - type: dialog
+        character: mio
+        text: "「{悔|くや}しかったかも」って{思|おも}ったのに、{声|こえ}をかけるタイミングを{逃|のが}しちゃった。わたしがもっと{早|はや}く{気|き}づいていれば……"
+      - type: sprite
+        character: mio
+        action: hide
+
+  # ===== 真実: ソラ =====
+  - id: truth-sora
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: left
+      - type: dialog
+        character: sora
+        text: "オレ、{月曜|げつよう}の16:50ごろ、{校庭|こうてい}から{帰|かえ}るときに{教室|きょうしつ}の{前|まえ}を{通|とお}ったんだ。そしたらリコが{教室|きょうしつ}にいて、タブレットを{開|ひら}いてた。"
+      - type: sprite
+        character: sora
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "「{宿題|しゅくだい}かな」って{思|おも}って、{声|こえ}もかけずに{通|とお}り{過|す}ぎた。でも今{思|おも}うと……あの{時間帯|じかんたい}にタブレットを使ってたのは……"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "なりすましは{卑怯|ひきょう}だと{思|おも}う。でも……リコを{責|せ}めるだけじゃダメだよな。リコの{気持|きも}ちも{聞|き}かないと。"
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ===== 真実: リコ（犯人） =====
+  - id: truth-riko
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riko
+        expression: worried
+        position: center
+      - type: dialog
+        character: riko
+        text: "……{認|みと}めます。「ナゾの{人|ひと}」は、わたしです。"
+      - type: narration
+        speed: slow
+        text: "リコは{静|しず}かにうつむいた。{教室|きょうしつ}が{一瞬|いっしゅん}、{静|しず}まり{返|かえ}る。"
+      - type: sprite
+        character: riko
+        expression: normal
+      - type: dialog
+        character: riko
+        text: "わたし、{絵|え}を{描|か}くのが{好|す}きで……{学級|がっきゅう}新聞のイラスト{担当|たんとう}に{立候補|りっこうほ}したの。でも{先生|せんせい}はミオを{選|えら}んだ。"
+      - type: sprite
+        character: riko
+        expression: worried
+      - type: dialog
+        character: riko
+        text: "「{自分|じぶん}の{方|ほう}がうまいのに」って{悔|くや}しかった。でもミオに{直接|ちょくせつ}{言|い}えなくて……"
+      - type: dialog
+        character: riko
+        text: "それで、「{匿名|とくめい}なら{誰|だれ}か{分|わ}からない」と{思|おも}って、「ナゾの{人|ひと}」っていうアカウントを{作|つく}って……{嫌|いや}なメッセージを{送|おく}ってしまいました。"
+      - type: narration
+        speed: slow
+        text: "リコの{目|め}に{涙|なみだ}が{浮|う}かぶ。"
+      - type: sprite
+        character: riko
+        expression: determined
+      - type: dialog
+        character: riko
+        text: "でも、{自分|じぶん}の{文章|ぶんしょう}の{癖|くせ}に{気|き}づいてなかった。{普段|ふだん}と{同|おな}じように「めっちゃ」「〜だよね」って{書|か}いちゃってた……。"
+      - type: dialog
+        character: riko
+        text: "ミオ、ごめんなさい。{匿名|とくめい}で{傷|きず}つけて、{本当|ほんとう}にごめんなさい。"
+      - type: sprite
+        character: riko
+        action: hide
+      - type: narration
+        text: "なりすましは「バレない」と{思|おも}っていても、{文体|ぶんたい}の{癖|くせ}・{投稿|とうこう}{時間|じかん}・{端末|たんまつ}{情報|じょうほう}から{特定|とくてい}できる。ネットの{匿名|とくめい}は{完全|かんぜん}ではないのだ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: digital-02/resolution
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "リコ、{正直|しょうじき}に{認|みと}めてくれてありがとう。{悔|くや}しかった{気持|きも}ちは、{悪|わる}いことじゃありません。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "でも、その{気持|きも}ちの{伝|つた}え{方|かた}が{大事|だいじ}です。なりすましで{匿名|とくめい}のメッセージを{送|おく}ることは、{相手|あいて}をもっと{深|ふか}く{傷|きず}つけます。"
+      - type: sprite
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "「{悔|くや}しい」「わたしもやりたかった」——その{気持|きも}ちを、{自分|じぶん}の{言葉|ことば}で{直接|ちょくせつ}{伝|つた}えること。それが{一番|いちばん}{大切|たいせつ}です。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mio
+        expression: normal
+        position: left
+      - type: sprite
+        character: riko
+        expression: worried
+        position: right
+      - type: dialog
+        character: mio
+        text: "リコ、{一緒|いっしょ}にイラスト{描|か}かない？ 2{人|り}で{描|か}いたら、もっといい{学級|がっきゅう}新聞になると{思|おも}うの。"
+      - type: sprite
+        character: riko
+        expression: happy
+      - type: dialog
+        character: riko
+        text: "……いいの？ わたし、ミオに{嫌|いや}なこと{言|い}っちゃったのに。"
+      - type: dialog
+        character: mio
+        text: "{気持|きも}ちを{話|はな}してくれたから。なりすましじゃなくて、ちゃんとリコの{言葉|ことば}で。"
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ネットの{匿名|とくめい}は{完全|かんぜん}じゃない。{文体|ぶんたい}の{癖|くせ}、{投稿|とうこう}{時間|じかん}、{端末|たんまつ}{情報|じょうほう}——{手|て}がかりはいくつもある。"
+      - type: dialog
+        character: sensei
+        text: "でも{一番|いちばん}{大事|だいじ}なのは「バレるかどうか」じゃない。{困|こま}ったときは、なりすましじゃなくて「{話|はな}し{合|あ}い」。{自分|じぶん}の{気持|きも}ちは、{自分|じぶん}の{名前|なまえ}で{伝|つた}えよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
