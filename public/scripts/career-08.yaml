@@ -1,0 +1,509 @@
+meta:
+  id: career-08
+  title: 看護師の判断
+  series: キャリア探偵団
+  volume: 8
+  estimatedMinutes: 22
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tanaka:
+    name: 田中先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: career-08/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}の{保健|ほけん}{委員会|いいんかい}。{保健室|ほけんしつ}に来た子への{対応|たいおう}{記録|きろく}をつけるのが{仕事|しごと}だ。"
+      - type: narration
+        text: "ところが{今日|きょう}、{田中先生|たなかせんせい}が{記録|きろく}を{確認|かくにん}して{気|き}がついた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: tanaka
+        expression: normal
+        position: center
+      - type: bgm
+        track: career-08/investigation
+      - type: dialog
+        character: tanaka
+        text: "6月10日の{対応|たいおう}{記録|きろく}、{順番|じゅんばん}がおかしい。{観察|かんさつ}も{報告|ほうこく}もせずに、いきなり{処置|しょち}している。"
+        expression: thinking
+      - type: dialog
+        character: tanaka
+        text: "{保健室|ほけんしつ}では「{観察|かんさつ}→{報告|ほうこく}→{判断|はんだん}→{処置|しょち}」がルール。なぜその日だけ{順番|じゅんばん}が{違|ちが}ったのか{調|しら}べて。"
+      - type: dialog
+        character: tanaka
+        text: "{責|せ}めてるんじゃない。次に{活|い}かすために{聞|き}いてるの。"
+        expression: normal
+      - type: sprite
+        character: tanaka
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.8
+        subtitle: 看護師の判断
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: career-08/investigation
+    steps:
+      - type: narration
+        text: "{保健室|ほけんしつ}の{対応|たいおう}プロトコル——{観察|かんさつ}→{報告|ほうこく}→{判断|はんだん}→{処置|しょち}。この{手順|てじゅん}を{守|まも}ることが{安全|あんぜん}な{対応|たいおう}の{基本|きほん}。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。{記録|きろく}{整理|せいり}{担当|たんとう}。6月10日の{記録|きろく}で「{観察|かんさつ}」と「{報告|ほうこく}」の{欄|らん}が{空白|くうはく}なのを見つけたんだ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。{直接|ちょくせつ}{対応|たいおう}{担当|たんとう}。{保健室|ほけんしつ}に来た子の{様子|ようす}を{最初|さいしょ}に見る{役割|やくわり}だよ。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。{連絡|れんらく}・{物品|ぶっぴん}{準備|じゅんび}{担当|たんとう}。{先生|せんせい}を{呼|よ}んだり、アイスパックを{用意|ようい}したりするよ。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。{記録|きろく}{確認|かくにん}・{検証|けんしょう}{担当|たんとう}。{記録|きろく}に{間違|まちが}いがないか{確認|かくにん}する。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: プロトコル =====
+  - id: evidence-1
+    bg: classroom
+    bgm: career-08/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 保健室の対応プロトコル
+      - type: narration
+        text: "{保健室|ほけんしつ}{対応|たいおう}プロトコル（{必|かなら}ず{守|まも}ること）——"
+      - type: narration
+        text: "STEP 1：{観察|かんさつ}（{顔色|かおいろ}・{呼吸|こきゅう}・{意識|いしき}・{体温|たいおん}を{確認|かくにん}）"
+      - type: narration
+        text: "STEP 2：{報告|ほうこく}（{田中先生|たなかせんせい}に{状態|じょうたい}を{伝|つた}える）"
+      - type: narration
+        text: "STEP 3：{判断|はんだん}（{先生|せんせい}が「どう{対応|たいおう}するか」を{決|き}める）"
+      - type: narration
+        text: "STEP 4：{処置|しょち}（{先生|せんせい}の{判断|はんだん}に{従|したが}って{手当|てあ}てをする）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "★{状態|じょうたい}を{確認|かくにん}せずに{処置|しょち}すると{危険|きけん}な{場合|ばあい}がある。{先生|せんせい}に{報告|ほうこく}することで、より{正確|せいかく}な{判断|はんだん}ができる。"
+
+  # ===== 証拠カード2: 対応記録 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 6月10日の対応記録
+      - type: narration
+        text: "{保健|ほけん}{委員会|いいんかい} {対応|たいおう}{記録|きろく}——6月10日（月）"
+      - type: narration
+        text: "来室者：6年2組 {高橋|たかはし}ユウキ（{頭痛|ずつう}）　来室時刻：12:40"
+      - type: narration
+        text: "STEP 1 {観察|かんさつ}：{担当|たんとう}ミナ　{内容|ないよう}：【{空白|くうはく}】"
+      - type: narration
+        text: "STEP 2 {報告|ほうこく}：{担当|たんとう}ミナ　{報告|ほうこく}時刻：【{空白|くうはく}】"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "STEP 4 {処置|しょち}：{担当|たんとう}ミナ　{内容|ないよう}：アイスパックを{額|ひたい}に当てた　{処置|しょち}時刻：12:42"
+      - type: narration
+        text: "{田中先生|たなかせんせい}来室時刻：12:55"
+      - type: narration
+        text: "{観察|かんさつ}と{報告|ほうこく}が{空白|くうはく}で、{先生|せんせい}が来る13分前に{処置|しょち}が{行|おこな}われている。プロトコルの{順番|じゅんばん}が守られていない。"
+
+  # ===== 証拠カード3: 田中先生のメモ =====
+  - id: evidence-3
+    bgm: career-08/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 田中先生のメモ
+      - type: narration
+        text: "{田中先生|たなかせんせい}からのメモ——"
+      - type: narration
+        text: "「{処置|しょち}の時刻が12:42。わたしが{保健室|ほけんしつ}に来たのは12:55。」"
+      - type: narration
+        text: "「つまり、わたしが来る13分前に{処置|しょち}が{行|おこな}われています。」"
+      - type: narration
+        text: "「プロトコルでは、わたしへの{報告|ほうこく}（STEP 2）の{後|あと}に{処置|しょち}（STEP 4）を{行|おこな}うはずです。」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "「これは『どういう{判断|はんだん}でそうしたのか』を教えてください。{責|せ}めているのではなく、次に{活|い}かすために{聞|き}いています。」"
+
+  # ===== 証拠カード4: ケイのメモ =====
+  - id: evidence-4
+    bgm: career-08/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ケイの行動記録
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれの{手帳|てちょう}メモを見せるよ。あの日の{行動|こうどう}を書いてある。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        text: "12:40　ユウキくん来室。ミナが{対応|たいおう}{開始|かいし}。「{先生|せんせい}を{呼|よ}んできます」と{言|い}って{職員室|しょくいんしつ}へ"
+      - type: narration
+        text: "12:40〜12:45　{職員室|しょくいんしつ}に行ったら{田中先生|たなかせんせい}は{会議|かいぎ}中。{廊下|ろうか}で{待|ま}つ"
+      - type: narration
+        text: "12:46　{先生|せんせい}に{伝|つた}える。{先生|せんせい}「すぐ行きます」"
+      - type: narration
+        text: "12:48　{物品室|ぶっぴんしつ}でアイスパックとタオルを{準備|じゅんび}して{保健室|ほけんしつ}に{戻|もど}る"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "→ ミナがすでにアイスを当てていた。（どこのアイスを使った？ {冷蔵庫|れいぞうこ}が{開|あ}いてた）"
+      - type: narration
+        text: "ケイが{先生|せんせい}に{報告|ほうこく}できたのは12:46。ミナが{処置|しょち}したのは12:42。{報告|ほうこく}より{処置|しょち}が4分先——プロトコル{違反|いはん}。"
+
+  # ===== 証拠カード5: ミナのノート（反転） =====
+  - id: evidence-5
+    bgm: career-08/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ミナのノートの断片
+      - type: sprite
+        character: tanaka
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tanaka
+        text: "ミナのノートにこんなメモが{残|のこ}っていたわ。"
+      - type: sprite
+        character: tanaka
+        action: hide
+      - type: narration
+        text: "ミナのノート——6月10日、{放課後|ほうかご}"
+      - type: narration
+        text: "「ユウキくんの{顔|かお}を見たとき、{青白|あおじろ}くて{額|ひたい}に{汗|あせ}が出ていて……」"
+      - type: narration
+        text: "「『早くしなきゃ』って{思|おも}った。」"
+      - type: narration
+        text: "「{頭|あたま}の中で『{先生|せんせい}を{呼|よ}ぼう』『でも{間|ま}に{合|あ}わない』『とにかくアイスを当てないと』がぐるぐるして……」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「気づいたらアイスを{冷蔵庫|れいぞうこ}から出していた。」"
+      - type: narration
+        text: "（{余白|よはく}に{小|ちい}さな字で）「{行動|こうどう}しないより{行動|こうどう}したほうがいい。でも、それが正しいとは{限|かぎ}らないのか……」"
+      - type: narration
+        text: "ミナは「早く{助|たす}けたい」という{気持|きも}ちで{動|うご}いた。{行動|こうどう}バイアス——「何もしないより何かしたほうがいい」という{思|おも}い{込|こ}みが{手順|てじゅん}を{飛|と}ばさせた。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: career-08/tension
+    steps:
+      - type: sprite
+        character: tanaka
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tanaka
+        text: "プロトコルの{順番|じゅんばん}が守られなかったのは{誰|だれ}の{判断|はんだん}？ そしてなぜ？"
+      - type: sprite
+        character: tanaka
+        action: hide
+      - type: choice
+        id: q1
+        question: プロトコルを飛ばして処置したのは誰？
+        options:
+          - text: ハルト（記録整理で見落とした）
+            value: haruto
+            feedback: ハルトは記録の矛盾に気づいた側。処置をしたのは直接対応担当のミナだよ。
+          - text: ミナ（報告前にアイスパックを当てた）
+            value: mina
+            feedback: 正解！ ミナはユウキくんの顔色を見てパニックになり、先生への報告前にアイスパックを当てた。
+          - text: ケイ（先生への連絡が遅れた）
+            value: kei
+            feedback: ケイは先生に報告しようとしたが会議中で待った。処置を先にしたのはミナだよ。
+          - text: サキ（記録確認で空白を見逃した）
+            value: saki
+            feedback: サキは記録の空白に気づいたが確認しなかった。でも処置を先にしたのはミナ。
+      - type: choice
+        id: q2
+        question: ミナはなぜプロトコルを守れなかった？
+        options:
+          - text: プロトコルを知らなかった
+            value: didnt-know
+            feedback: ミナはプロトコルを知っていた。でも緊急に感じた場面で思い込みが手順を上回った。
+          - text: 焦ってパニックになった（行動バイアス）
+            value: panic
+            feedback: 正解。「早く助けなきゃ」という気持ちが先走り、「何もしないより何かしたほうがいい」という行動バイアスが働いた。
+          - text: わざと手順を無視した
+            value: intentional
+            feedback: ミナに悪意はなかった。「助けたい」という善意と焦りが、手順を飛ばさせた。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: career-08/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 早く助けたかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{記録|きろく}の{矛盾|むじゅん}に気づいたのに、3日間{放置|ほうち}しちゃった。「自分の{記録|きろく}ミスかも」って{不安|ふあん}で、すぐ{先生|せんせい}に言えなかった。"
+      - type: dialog
+        character: haruto
+        text: "もっと早く{声|こえ}を上げるべきだった。"
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "{先生|せんせい}が{会議|かいぎ}中で、{報告|ほうこく}が12:46になった。ミナが{処置|しょち}したのは12:42。おれがもっと早く{報告|ほうこく}できていたら、ミナは{先|さき}に{動|うご}かなかったかもしれない。"
+      - type: dialog
+        character: kei
+        text: "{戻|もど}ったときミナがすでにアイスを当ててて「え、もう？」って{思|おも}ったけど、何も言わなかった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # サキの秘密
+  - id: truth-saki
+    steps:
+      - type: sprite
+        character: saki
+        expression: worried
+        position: left
+      - type: dialog
+        character: saki
+        text: "6月10日の{記録|きろく}を{確認|かくにん}したとき、「{観察|かんさつ}」{欄|らん}が{空白|くうはく}なのに気づいてた。でも「書き{忘|わす}れかな？」って思ってそのまま{通|とお}しちゃった。"
+      - type: dialog
+        character: saki
+        text: "{記録|きろく}{確認|かくにん}が自分の{仕事|しごと}なのに、{確認|かくにん}を{怠|おこた}った。わたしにも{責任|せきにん}がある。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ミナの告白（クライマックス）
+  - id: truth-mina
+    bgm: career-08/truth
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: center
+      - type: dialog
+        character: mina
+        text: "……わたしです。ユウキくんの{顔|かお}を見たとき、すごく{青白|あおじろ}くて……{怖|こわ}くて、とにかく早く{楽|らく}にしてあげなきゃって。"
+      - type: narration
+        speed: slow
+        text: "ミナがゆっくり話し{始|はじ}めた。"
+      - type: dialog
+        character: mina
+        text: "{頭|あたま}の中では「{先生|せんせい}を{呼|よ}ぼう」って分かってた。でも「{呼|よ}びに行ってる{時間|じかん}もない、{今|いま}すぐやらないと」って……気づいたらアイスを当てていました。"
+        expression: worried
+      - type: dialog
+        character: mina
+        text: "プロトコルは知ってたのに。「{何|なに}もしないより{何|なに}かしたほうがいい」って{思|おも}い{込|こ}んで、{手順|てじゅん}を{飛|と}ばしちゃった。"
+      - type: dialog
+        character: mina
+        text: "{助|たす}けたかっただけ。でも、{先生|せんせい}に{報告|ほうこく}してから{判断|はんだん}してもらうべきだった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ミナの{動機|どうき}は「早く{助|たす}けたい」という{純粋|じゅんすい}な{善意|ぜんい}だった。でも{行動|こうどう}バイアス——「{何|なに}もしないより{何|なに}かしたほうがいい」という{思|おも}い{込|こ}みが、プロトコルを{飛|と}ばさせた。{善意|ぜんい}と正しい{手順|てじゅん}、{両方|りょうほう}がそろって{初|はじ}めて{安全|あんぜん}な{対応|たいおう}になる。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: career-08/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: tanaka
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tanaka
+        text: "{今回|こんかい}のことで大事なことが分かったね。"
+      - type: dialog
+        character: tanaka
+        text: "ミナが「{助|たす}けたい」と{思|おも}ったのは{間違|まちが}いじゃない。でもプロトコルは「もっと{安全|あんぜん}に{助|たす}ける」ための{仕組|しく}み。"
+        expression: normal
+      - type: dialog
+        character: tanaka
+        text: "{焦|あせ}ったとき、「{観察|かんさつ}だけはやる」と{決|き}めておく。それだけで{危険|きけん}な{処置|しょち}を{防|ふせ}げることがある。"
+        expression: thinking
+      - type: sprite
+        character: tanaka
+        action: hide
+      - type: sprite
+        character: mina
+        expression: determined
+        position: left
+      - type: dialog
+        character: mina
+        text: "次からは{焦|あせ}っても「まず{観察|かんさつ}」。{先生|せんせい}を{呼|よ}びながら自分は{観察|かんさつ}に{集中|しゅうちゅう}する。チームで{分担|ぶんたん}する。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "{保健|ほけん}{委員会|いいんかい}はプロトコルの{研修|けんしゅう}をやり{直|なお}した。「{焦|あせ}ったときこそ{手順|てじゅん}」——みんなの{合言葉|あいことば}になった。"
+      - type: narration
+        speed: slow
+        text: "「{助|たす}けたい」{気持|きも}ちは{正|ただ}しい。でも「正しい{手順|てじゅん}で{助|たす}ける」ことが、{本当|ほんとう}に{相手|あいて}を{守|まも}る。{善意|ぜんい} + 正しい{手順|てじゅん}。この2つで{初|はじ}めて{安全|あんぜん}が{生|う}まれる。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——{看護師|かんごし}の{判断|はんだん}の{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
