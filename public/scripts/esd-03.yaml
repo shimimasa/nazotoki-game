@@ -1,0 +1,332 @@
+meta:
+  id: esd-03
+  title: ごみ袋のトリック
+  series: ESD探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-03/opening
+    steps:
+      - type: narration
+        text: "あおば小学校の『ごみ{減量|げんりょう}チャレンジ{週間|しゅうかん}』。クラス{全員|ぜんいん}で{分別|ぶんべつ}を{守|まも}って、ごみを50%{減|へ}らす{目標|もくひょう}。"
+      - type: narration
+        text: "ところが水曜日の{回収後|かいしゅうご}——"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "ごみ{収集員|しゅうしゅういん}の{山下|やました}さんから{報告|ほうこく}。『{燃|も}えるごみの{袋|ふくろ}の中に、{資源|しげん}ごみが{大量|たいりょう}に{混入|こんにゅう}していた。ペットボトル5本・{缶|かん}10{個|こ}・{段|だん}ボール2{枚|まい}。』"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{資源|しげん}ごみを{燃|も}えるごみに{混|ま}ぜると、リサイクルできなくなる。{追加|ついか}{費用|ひよう}500{円|えん}もかかる。{誰|だれ}が{混|ま}ぜた？"
+      - type: dialog
+        character: sensei
+        text: "{因果|いんが}{連鎖|れんさ}で{原因|げんいん}を{追|お}おう。ESD{探偵団|たんていだん}、{出動|しゅつどう}！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-03/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 分別ルールと因果連鎖を追え
+
+      # --- ごみ記録の確認 ---
+      - type: narration
+        text: "{各|かく}{担当|たんとう}エリアのごみ{記録|きろく}を{確認|かくにん}。{廊下|ろうか}{担当|たんとう}ハルキだけ、水曜の{燃|も}えるごみが+600g{増加|ぞうか}。{他|ほか}の3エリアは{変化|へんか}なし。"
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "火曜に{廊下|ろうか}の{資源|しげん}ごみはわたしが{正|ただ}しく{回収|かいしゅう}した。水曜の朝にも{確認|かくにん}して、{回収|かいしゅう}ボックスは{空|から}だった。"
+      - type: dialog
+        character: kana
+        text: "でも水曜の{午前|ごぜん}10時ごろ、2年生の子が{廊下|ろうか}の{回収|かいしゅう}ボックスの前でペットボトルを{床|ゆか}に{置|お}いてたって先生が言ってた。{正|ただ}しいボックスに入れられなかったらしい。"
+        expression: worried
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- タイムラインと目撃 ---
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "水曜の12時30分ごろ、グラウンドの{窓|まど}から{廊下|ろうか}が見えた。ハルキが{赤|あか}いごみ{袋|ふくろ}の前でしゃがんで、{袋|ふくろ}を{縛|しば}ろうとしているように見えた。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: "ごみ{収集|しゅうしゅう}は12時45分。ハルキが12時30分ごろ{袋|ふくろ}を{縛|しば}った。{直前|ちょくぜん}のタイミング。"
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "{因果|いんが}{連鎖|れんさ}を{整理|せいり}しよう。A：2年生が{廊下|ろうか}に{資源|しげん}ごみを{散|ち}らかした → B：{誰|だれ}かがそれを{燃|も}えるごみ{袋|ふくろ}に入れた → C：リサイクルできなくなった → D：CO2{排出|はいしゅつ}{増加|ぞうか}+{追加|ついか}{費用|ひよう}。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-03/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 廊下の証拠
+
+      - type: narration
+        text: "先生が{廊下|ろうか}の{回収|かいしゅう}ボックス{周辺|しゅうへん}を{調|しら}べた。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "{床|ゆか}に{段|だん}ボールの{破片|はへん}1{枚|まい}とペットボトルのキャップ2{個|こ}。キャップには{青|あお}いラベル（{資源|しげん}ごみ用）。{赤|あか}いごみ{袋|ふくろ}の口に{白|しろ}い{糸|いと}くず——ハルキの{上着|うわぎ}の{繊維|せんい}。"
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "ハルキの{上着|うわぎ}の{繊維|せんい}が{袋|ふくろ}の口に。12時30分にハルキが{袋|ふくろ}を{縛|しば}った{目撃|もくげき}。{廊下|ろうか}{担当|たんとう}はハルキ。{全|すべ}てつながる。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-03/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 資源ごみを燃えるごみに混ぜたのは
+
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ibuki
+        text: "{廊下|ろうか}エリアだけ+600g。水曜に{新|あら}たに{散|ち}らかった{資源|しげん}ごみ。ハルキが12:30に{袋|ふくろ}を{縛|しば}った。{繊維|せんい}{証拠|しょうこ}。"
+      - type: dialog
+        character: kana
+        text: "火曜の{資源|しげん}ごみはわたしが{正|ただ}しく{回収|かいしゅう}{済|ず}み。水曜に{新|あら}たに{置|お}かれたごみを{誰|だれ}かが{燃|も}えるごみに入れた。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{資源|しげん}ごみを{燃|も}えるごみに{混|ま}ぜたのは{誰|だれ}？"
+      - type: choice
+        question: "資源ごみを混ぜたのは？"
+        options:
+          - text: ハルキ
+            correct: true
+            feedback: "正解。ハルキは{廊下|ろうか}に{散|ち}らかった{資源|しげん}ごみを『きれいにしたい』と{思|おも}い、{全部|ぜんぶ}まとめて{燃|も}えるごみ{袋|ふくろ}に入れた。ルールを知っていたのに『{少|すこ}しくらいいい』と{思|おも}った。"
+          - text: イブキ
+            correct: false
+            feedback: "イブキは{理科室|りかしつ}・{家庭科|かていか}{室|しつ}{担当|たんとう}。{廊下|ろうか}のごみには{関|かか}わっていない。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは{体育館|たいいくかん}・グラウンド{担当|たんとう}。ハルキが{袋|ふくろ}を{縛|しば}っているのを{目撃|もくげき}した{側|がわ}。"
+          - text: カナ
+            correct: false
+            feedback: "カナは{図書室|としょしつ}・{音楽室|おんがくしつ}{担当|たんとう}。火曜の{資源|しげん}ごみを{正|ただ}しく{回収|かいしゅう}した。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-03/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: きれいにしたかっただけ
+
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruki
+        text: "……ぼくがやりました。{廊下|ろうか}に{散|ち}らかったペットボトルと{缶|かん}が{見苦|みぐる}しくて、きれいにしたかった。"
+      - type: dialog
+        character: haruki
+        text: "でも{分別|ぶんべつ}するのが{面倒|めんどう}で、{全部|ぜんぶ}まとめて{燃|も}えるごみ{袋|ふくろ}に入れちゃった。ルールは知ってたけど、『{少|すこ}しくらいいいだろう』って……。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "『きれいにしたい』って{気持|きも}ちは分かる。でも{片付|かたづ}ける{場所|ばしょ}を{間違|まちが}えた。{資源|しげん}ごみは{青|あお}い{回収|かいしゅう}ボックスに入れるべきだった。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        expression: determined
+        position: center
+      - type: dialog
+        character: kana
+        text: "{因果|いんが}{連鎖|れんさ}で{考|かんが}えると——{分別|ぶんべつ}を{間違|まちが}えた → {燃|も}えるごみに{混入|こんにゅう} → リサイクルできない → CO2{増加|ぞうか}。1つの{行動|こうどう}が{連鎖的|れんさてき}に{影響|えいきょう}する。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-03/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "3R——Reduce（{減|へ}らす）、Reuse（{再利用|さいりよう}する）、Recycle（{資源化|しげんか}する）。{分別|ぶんべつ}はリサイクルの{入口|いりぐち}。ここを{間違|まちが}えると{全|すべ}てが{無駄|むだ}になる。"
+      - type: dialog
+        character: sensei
+        text: "『{少|すこ}しくらいいい』は{思|おも}い{込|こ}み。ペットボトル1本でも{分別|ぶんべつ}を{間違|まちが}えると、{袋|ふくろ}ごとリサイクルできなくなるんだ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: haruki
+        expression: determined
+        position: center
+      - type: dialog
+        character: haruki
+        text: "次からは{散|ち}らかりを見つけたら、{正|ただ}しい{場所|ばしょ}に{分別|ぶんべつ}して{片付|かたづ}ける。{面倒|めんどう}でも{正|ただ}しい{方法|ほうほう}でやる。それが{本当|ほんとう}の『きれいにする』ってことだ。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: ibuki, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: kana, expression: happy }
+      - type: narration
+        text: "ごみの{分別|ぶんべつ}は{小|ちい}さな{行動|こうどう}。でもその{小|ちい}さな{行動|こうどう}が、リサイクル→CO2{削減|さくげん}→{地球|ちきゅう}{環境|かんきょう}の{保全|ほぜん}へとつながっている。"
+      - type: narration
+        speed: slow
+        text: "{因果|いんが}{連鎖|れんさ}——AがBを{引|ひ}き{起|お}こし、BがCを{引|ひ}き{起|お}こす。{自分|じぶん}の{行動|こうどう}が{連鎖|れんさ}の{始|はじ}まりであることを{忘|わす}れない。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——ごみ{袋|ふくろ}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

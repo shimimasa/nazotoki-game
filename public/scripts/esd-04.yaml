@@ -1,0 +1,351 @@
+meta:
+  id: esd-04
+  title: 気温記録の嘘
+  series: ESD探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-04/opening
+    steps:
+      - type: narration
+        text: "あおば小学校の『{気候|きこう}{変動|へんどう}{観測|かんそく}プロジェクト』。4人が{毎日|まいにち}{午前|ごぜん}9時に{気温|きおん}を{測定|そくてい}・{記録|きろく}している。"
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: haruki
+        text: "8月のデータをまとめたら、8月3日だけ{異様|いよう}に{低|ひく}い。26.4℃。{他|ほか}の日は{全部|ぜんぶ}33〜35℃なのに。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "{気象庁|きしょうちょう}の{公式|こうしき}{記録|きろく}では8月3日は34.2℃。{学校|がっこう}の{記録|きろく}と7.8℃も{違|ちが}う。{百葉箱|ひゃくようばこ}は{正常|せいじょう}だって先生が{点検|てんけん}{済|ず}み。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "タイムラインを{再構成|さいこうせい}して、{誰|だれ}がいつ{測定|そくてい}し、{何|なに}を{記録|きろく}したか{照合|しょうごう}しよう。ESD{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-04/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 測定データのタイムラインを照合
+
+      # --- 気温データ比較 ---
+      - type: narration
+        text: "8月の{観測|かんそく}ノートと{気象庁|きしょうちょう}のデータを{比較|ひかく}。8/1ハルキ＝33.8℃（{気象庁|きしょうちょう}33.9℃）、8/2ソウタ＝35.1℃（35.0℃）——{誤差|ごさ}±0.1℃。{正常|せいじょう}。"
+      - type: narration
+        text: "8/3イブキ＝26.4℃（{気象庁|きしょうちょう}34.2℃）——{誤差|ごさ}-7.8℃！ 8/4カナ＝33.5℃（33.6℃）、8/5ハルキ＝34.7℃（34.8℃）——{正常|せいじょう}。"
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: haruki
+        text: "8月3日だけ-7.8℃の{誤差|ごさ}。{他|ほか}は{全部|ぜんぶ}±0.1℃{以内|いない}。{百葉箱|ひゃくようばこ}が{壊|こわ}れたなら{前後|ぜんご}の日も{狂|くる}うはず。8月3日の{担当|たんとう}はイブキ。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+      # --- 7月との比較 ---
+      - type: narration
+        text: "7月と8月の{同|おな}じ{日付|ひづけ}の{比較|ひかく}。{他|ほか}の日は8月が7月より3〜4℃{高|たか}い。でも3日だけ{差|さ}が0.3℃しかない。『8月3日の{記録|きろく}が7月3日の{値|あたい}に{近|ちか}すぎる』。"
+      - type: sprite
+        character: kana
+        expression: determined
+        position: center
+      - type: dialog
+        character: kana
+        text: "イブキの{観測|かんそく}ノートの8月3日のページ。{余白|よはく}に{小|ちい}さく『7月3日＝26.1℃』と書いてある。なぜ{測定|そくてい}した日に{前月|ぜんげつ}のデータを？"
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- ソウタの目撃 ---
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "8月3日はグラウンドで{作業|さぎょう}してた。{超|ちょう}{暑|あつ}かった。{陽炎|かげろう}が見えるくらい。イブキが{百葉箱|ひゃくようばこ}で{温度計|おんどけい}を見た後、{少|すこ}し{考|かんが}えてからノートに書いてたのが見えた。"
+      - type: dialog
+        character: souta
+        text: "{普通|ふつう}はすぐ書くのに、なぜ{考|かんが}えた？"
+        expression: surprised
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-04/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 温暖化の証拠を作りたかった
+
+      - type: narration
+        text: "ソウタがイブキに{直接|ちょくせつ}{聞|き}いた。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "イブキから{聞|き}いた。{温度計|おんどけい}を見たら34.2℃だった。でも{温暖化|おんだんか}のデータを{揃|そろ}えたくて、7月3日の26.1℃より{少|すこ}し{高|たか}い26.4℃に書き{換|か}えたって。"
+      - type: dialog
+        character: souta
+        text: "『7月と{比|くら}べて8月が{暑|あつ}いことを{証明|しょうめい}したかった』って。でも{計算|けいさん}{間違|まちが}いで、{逆|ぎゃく}に『{涼|すず}しかった{年|とし}』みたいに見えてしまった。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-04/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 気温データを改ざんしたのは
+
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: haruki
+        text: "8月3日の{担当|たんとう}はイブキ。{気象庁|きしょうちょう}のデータと7.8℃の{差|さ}。{観測|かんそく}ノートの{余白|よはく}に7月のデータ。{測定後|そくていご}に{考|かんが}えてから書いた{目撃|もくげき}{証言|しょうげん}。"
+      - type: dialog
+        character: kana
+        text: "そしてイブキ{本人|ほんにん}が{認|みと}めた。34.2℃を26.4℃に書き{換|か}えた。{温暖化|おんだんか}の{証拠|しょうこ}を{作|つく}ろうとした。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{気温|きおん}データを{改|かい}ざんしたのは{誰|だれ}？"
+      - type: choice
+        question: "気温データを改ざんしたのは？"
+        options:
+          - text: ハルキ
+            correct: false
+            feedback: "ハルキは{気温|きおん}グラフ{担当|たんとう}。8月3日の{異常値|いじょうち}を{最初|さいしょ}に{発見|はっけん}した{側|がわ}。{自分|じぶん}の{担当|たんとう}日（8/1,8/5）は{正常|せいじょう}。"
+          - text: イブキ
+            correct: true
+            feedback: "正解。イブキは{温暖化|おんだんか}の{証拠|しょうこ}を{作|つく}りたくて、34.2℃を26.4℃に書き{換|か}えた。{良|よ}い{目的|もくてき}でもデータ{改|かい}ざんは{科学|かがく}の{信頼性|しんらいせい}を{壊|こわ}す。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは8/2{担当|たんとう}で{正常|せいじょう}な{値|あたい}を{記録|きろく}。イブキの{不審|ふしん}な{行動|こうどう}を{目撃|もくげき}した{側|がわ}。"
+          - text: カナ
+            correct: false
+            feedback: "カナは8/4{担当|たんとう}で{正常|せいじょう}な{値|あたい}を{記録|きろく}。{気象庁|きしょうちょう}データとの{比較|ひかく}{分析|ぶんせき}を{担当|たんとう}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-04/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 信じたいデータを作ることの問題
+
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "わたしが書き{換|か}えました。{温暖化|おんだんか}の{証拠|しょうこ}を{揃|そろ}えたかった。みんなに{地球|ちきゅう}が{暑|あつ}くなっていることを{信|しん}じてほしかった。"
+      - type: dialog
+        character: ibuki
+        text: "でも{計算|けいさん}を{間違|まちが}えて、{逆|ぎゃく}に『{涼|すず}しかった{年|とし}』みたいになっちゃった。そもそもデータを{変|か}えること{自体|じたい}が{間違|まちが}いだった……。"
+        expression: determined
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "{気候|きこう}{変動|へんどう}は30年{以上|いじょう}のデータの{積|つ}み{重|かさ}ねで{証明|しょうめい}するもの。1日の{値|あたい}を{変|か}えても{温暖化|おんだんか}は{証明|しょうめい}できない。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{科学|かがく}データは『{信|しん}じたい{結果|けっか}に合わせる』ものじゃない。{事実|じじつ}をありのまま{記録|きろく}して、{積|つ}み{重|かさ}ねることが{大事|だいじ}なんだ。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-04/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{科学|かがく}データの{正確|せいかく}さは{科学|かがく}の{命|いのち}だ。1つのデータ{改|かい}ざんが{全体|ぜんたい}の{信頼性|しんらいせい}を{失|うしな}わせる。"
+      - type: dialog
+        character: sensei
+        text: "イブキの『{温暖化|おんだんか}を{広|ひろ}めたい』という{気持|きも}ちは{正|ただ}しい。でも{方法|ほうほう}が{間違|まちが}っていた。{正確|せいかく}なデータを{積|つ}み{重|かさ}ねることが、{本当|ほんとう}の{温暖化|おんだんか}の{証明|しょうめい}になるんだ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: determined
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "次からは{測定値|そくていち}をそのまま{正確|せいかく}に{記録|きろく}する。{正|ただ}しいデータを{何年|なんねん}も{積|つ}み{重|かさ}ねることが、{本当|ほんとう}の{温暖化|おんだんか}の{証拠|しょうこ}になる。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: ibuki, expression: determined }
+          - { id: souta, expression: happy }
+          - { id: kana, expression: happy }
+      - type: narration
+        text: "{科学|かがく}データは{事実|じじつ}の{記録|きろく}。『{信|しん}じたい{結果|けっか}』に合わせてはいけない。{正確|せいかく}な{観測|かんそく}の{積|つ}み{重|かさ}ねだけが、{真実|しんじつ}を{語|かた}る。"
+      - type: narration
+        speed: slow
+        text: "タイムライン{再構成|さいこうせい}——{誰|だれ}が・いつ・{何|なに}を{記録|きろく}したか、{時系列|じけいれつ}で{照合|しょうごう}する。データの{矛盾|むじゅん}は、{時間|じかん}の{流|なが}れの中に{隠|かく}れている。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——{気温|きおん}{記録|きろく}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

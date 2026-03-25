@@ -1,0 +1,382 @@
+meta:
+  id: esd-02
+  title: 魚が消えた謎
+  series: ESD探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-02/opening
+    steps:
+      - type: narration
+        text: "あおば{池|いけ}の{観察|かんさつ}プロジェクト。{春|はる}まで{元気|げんき}だったフナとコイが、{夏|なつ}になって{急激|きゅうげき}に{減|へ}った。"
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "フナが50{匹|ぴき}いたのに、もう8{匹|ぴき}しかいない！ コイも30{匹|ぴき}から4{匹|ぴき}に……何が{起|お}きたの？"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "{池|いけ}の{岸辺|きしべ}に、{最近|さいきん}ブラックバスらしい{影|かげ}が見えるんだ。{外来種|がいらいしゅ}がいるかもしれない。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{食物|しょくもつ}{連鎖|れんさ}のどの{段階|だんかい}で{何|なに}が{起|お}きたか、{情報|じょうほう}を{整理|せいり}して{突|つ}き{止|と}めよう。ESD{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-02/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 食物連鎖の崩壊を追え
+
+      # --- 個体数変化 ---
+      - type: narration
+        text: "あおば{池|いけ}の{生|い}き物の{個体数|こたいすう}{変化|へんか}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "{小型|こがた}{甲殻類|こうかくるい}（エビ{類|るい}）：4月{約|やく}2,000→8月{約|やく}200。{激減|げきげん}。タナゴ（{小魚|こざかな}）：4月{約|やく}80{匹|ぴき}→8月{約|やく}3{匹|ぴき}。{激減|げきげん}。"
+      - type: narration
+        text: "フナ：4月{約|やく}50{匹|ぴき}→8月{約|やく}8{匹|ぴき}。{大幅|おおはば}{減|げん}。コイ：4月{約|やく}30{匹|ぴき}→8月{約|やく}4{匹|ぴき}。{大幅|おおはば}{減|げん}。"
+      - type: narration
+        text: "ブラックバス：4月0{匹|ぴき}→6月{目撃|もくげき}2→7月{目撃|もくげき}5→8月{目撃|もくげき}8。{増加|ぞうか}。"
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{時系列|じけいれつ}を{整理|せいり}すると、{小型|こがた}{甲殻類|こうかくるい}が5月から{減|へ}り{始|はじ}め、タナゴが6月から{減|へ}り、フナ・コイが7月から{減|へ}った。{下|した}から{順番|じゅんばん}に{崩|くず}れてる。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+      # --- 食物連鎖の整理 ---
+      - type: narration
+        text: "{食物|しょくもつ}{連鎖|れんさ}：プランクトン→{小型|こがた}{甲殻類|こうかくるい}→{小魚|こざかな}（タナゴ）→{大魚|たいぎょ}（フナ・コイ）。ブラックバスは{段階|だんかい}2・3・4すべてを食べる{捕食者|ほしょくしゃ}。"
+      - type: sprite
+        character: haruki
+        expression: determined
+        position: center
+      - type: dialog
+        character: haruki
+        text: "ブラックバスが4月{以降|いこう}に{池|いけ}に入ったとしたら、この{崩|くず}れ方と{完全|かんぜん}に{一致|いっち}する。{下|した}から{食|た}べていったんだ。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+      # --- 東エリアの証拠 ---
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "ブラックバスは{東|ひがし}エリアの{観察|かんさつ}{禁止|きんし}区域から{出現|しゅつげん}してる。{東|ひがし}フェンスの{隙間|すきま}から{覗|のぞ}くと、{池|いけ}の{底|そこ}にペットショップの{袋|ふくろ}が{沈|しず}んでた。『AQUA SHOP みなと』のロゴ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "おじいさんから{聞|き}いた{話|はなし}。4月の{夜|よる}、{東側|ひがしがわ}の{池|いけ}でバケツを{持|も}った{子|こ}どもが{懐中|かいちゅう}{電灯|でんとう}をつけていたって。{夜|よる}の9時ごろ。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: narration
+        text: "ペットショップ『AQUA SHOP みなと』の{記録|きろく}：4月14日にブラックバス{幼魚|ようぎょ}×3、{計|けい}450{円|えん}の{購入|こうにゅう}{記録|きろく}あり。『学校の{池|いけ}に{放|はな}してあげる』と{言|い}っていた。"
+      - type: sprite
+        character: kana
+        expression: worried
+        position: center
+      - type: dialog
+        character: kana
+        text: "{東|ひがし}フェンスはわたしの{担当|たんとう}エリア。でも{禁止|きんし}エリアだから入れなかった……。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-02/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 観察禁止エリアの真実
+
+      - type: narration
+        text: "{池|いけ}の{管理|かんり}{委員|いいん}が{東|ひがし}フェンスの{内側|うちがわ}を{点検|てんけん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "フェンスを{乗|の}り{越|こ}えた{形跡|けいせき}（フェンス{上部|じょうぶ}に{泥|どろ}の{跡|あと}）。{池|いけ}の{底|そこ}の{泥|どろ}から『AQUA SHOP みなと』のブラックバス{用|よう}{飼育|しいく}タグが1{枚|まい}。"
+      - type: narration
+        text: "4月{購入|こうにゅう}の{幼魚|ようぎょ}が{東|ひがし}エリアに{放流|ほうりゅう}されたことが{確定|かくてい}。4ヶ月で30〜40cmに{成長|せいちょう}。{食物|しょくもつ}{連鎖|れんさ}を{破壊|はかい}した。"
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "カナが『{禁止|きんし}エリアに入れなかった』と言ってたのに、フェンスを{乗|の}り{越|こ}えた{形跡|けいせき}がある。{東|ひがし}エリア{担当|たんとう}はカナだけ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-02/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 外来種を放流したのは
+
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: haruki
+        text: "{食物|しょくもつ}{連鎖|れんさ}の{崩壊|ほうかい}パターン、{東|ひがし}エリアからの{出現|しゅつげん}、ペットショップの{購入|こうにゅう}{記録|きろく}、フェンスの{乗|の}り{越|こ}え{痕跡|こんせき}——{全|すべ}てが{東|ひがし}エリア{担当|たんとう}を{指|さ}している。"
+      - type: dialog
+        character: ibuki
+        text: "4月の{夜|よる}に{東側|ひがしがわ}でバケツを{持|も}った{子|こ}ども。ブラックバスを{買|か}って『{池|いけ}に{放|はな}す』と言った{子|こ}ども。{東|ひがし}フェンス{担当|たんとう}は……。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "ブラックバスをあおば{池|いけ}に{放流|ほうりゅう}したのは{誰|だれ}？"
+      - type: choice
+        question: "外来種を放流したのは？"
+        options:
+          - text: ハルキ
+            correct: false
+            feedback: "ハルキは{西|にし}エリアで{計測|けいそく}{担当|たんとう}。4月に{夜間|やかん}に{池|いけ}に来ていない。{個体数|こたいすう}データで{異変|いへん}を{発見|はっけん}した{側|がわ}。"
+          - text: イブキ
+            correct: false
+            feedback: "イブキは{北|きた}エリアでフナ{観察|かんさつ}{担当|たんとう}。{春|はる}に{新|あたら}しいペットを{飼|か}い{始|はじ}めていない。おじいさんの{証言|しょうげん}を{聞|き}いた{側|がわ}。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは{南|みなみ}エリアの{環境|かんきょう}{調査|ちょうさ}{担当|たんとう}。{東|ひがし}フェンス{近|ちか}くに{近|ちか}づいたが{越|こ}えていない。ペットショップの{袋|ふくろ}を{発見|はっけん}した{側|がわ}。"
+          - text: カナ
+            correct: true
+            feedback: "正解。カナは4月に『{珍|めずら}しい{魚|さかな}を{放|はな}してあげよう』とブラックバスを{放流|ほうりゅう}した。{外来種|がいらいしゅ}が{食物|しょくもつ}{連鎖|れんさ}を{崩壊|ほうかい}させることを知らなかった。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-02/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 知らないことが最大のリスク
+
+      - type: sprite
+        character: kana
+        expression: worried
+        position: center
+      - type: dialog
+        character: kana
+        text: "……わたしが{放流|ほうりゅう}しました。4月にペットショップでブラックバスの{幼魚|ようぎょ}を{買|か}って、{夜|よる}にフェンスを{越|こ}えて{池|いけ}に入れた。"
+      - type: dialog
+        character: kana
+        text: "『{珍|めずら}しい{魚|さかな}を{自然|しぜん}に{返|かえ}してあげよう』って{思|おも}った。{小|ちい}さな{魚|さかな}を3{匹|びき}{放|はな}しただけで、こんなことになるなんて……。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "カナに{悪気|わるぎ}はなかった。でも{結果|けっか}として、{池|いけ}の{生|い}き物が{激減|げきげん}した。フナもコイもタナゴも……。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{食物|しょくもつ}{連鎖|れんさ}は{全|すべ}てつながっている。ブラックバスが{小型|こがた}{甲殻類|こうかくるい}を食べ→タナゴの{餌|えさ}が{減|へ}り→フナ・コイの{餌|えさ}も{減|へ}り→{全体|ぜんたい}が{崩壊|ほうかい}した。1つの{段階|だんかい}が{崩|くず}れると{全体|ぜんたい}に{影響|えいきょう}する。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: "ブラックバスは{特定|とくてい}{外来|がいらい}{生物|せいぶつ}。{無許可|むきょか}の{放流|ほうりゅう}は{法律|ほうりつ}{違反|いはん}なんだ。『かわいそうだから{放|はな}す』『{珍|めずら}しいから{放|はな}す』——{善意|ぜんい}でも{生態系|せいたいけい}への{影響|えいきょう}は{実際|じっさい}に{起|お}きる。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-02/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{食物|しょくもつ}{連鎖|れんさ}——プランクトンから{大型|おおがた}{魚|さかな}まで、{全|すべ}てがつながっている。1つの{段階|だんかい}が{崩|くず}れると{全体|ぜんたい}に{影響|えいきょう}する。"
+      - type: dialog
+        character: sensei
+        text: "{外来種|がいらいしゅ}の{問題|もんだい}は『知らなかった』では{済|す}まない。{行動|こうどう}する前に{調|しら}べること。{自分|じぶん}の{行動|こうどう}が{生|い}き物に{影響|えいきょう}するかもしれないと{考|かんが}えること。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kana
+        expression: determined
+        position: center
+      - type: dialog
+        character: kana
+        text: "{池|いけ}の{生態系|せいたいけい}を{元|もと}に{戻|もど}す{方法|ほうほう}を{調|しら}べる。ブラックバスの{駆除|くじょ}と、{在来種|ざいらいしゅ}の{保護|ほご}。{壊|こわ}したのはわたしだから、{直|なお}すのもわたしの{責任|せきにん}。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: kana, expression: determined }
+      - type: narration
+        text: "{食物|しょくもつ}{連鎖|れんさ}は{目|め}に見えないつながり。1{匹|ぴき}の{外来種|がいらいしゅ}が、{池|いけ}{全体|ぜんたい}を{変|か}えてしまう。"
+      - type: narration
+        speed: slow
+        text: "{情報|じょうほう}{整理|せいり}——{時系列|じけいれつ}と{食物|しょくもつ}{連鎖|れんさ}の{段階|だんかい}を{表|ひょう}にまとめれば、『いつ・どこから{崩|くず}れたか』が見える。{目|め}に見えないつながりを見える{化|か}する{力|ちから}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——{魚|さかな}が{消|き}えた{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
