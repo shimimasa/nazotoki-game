@@ -1,0 +1,504 @@
+meta:
+  id: math2-08
+  title: 変わり方の落とし穴
+  series: 数学深化探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: math2-08/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}4{年|ねん}1{組|くみ}のお{楽|たの}しみ{会|かい}{準備|じゅんび}。{折|お}り{紙|がみ}の{星|ほし}を5{日間|にちかん}で100{個|こ}作る{計画|けいかく}だ。"
+      - type: narration
+        text: "4人が{毎日|まいにち}5{個|こ}ずつ作れば、1{日|にち}20{個|こ}×5{日間|にちかん}＝100{個|こ}。{進捗|しんちょく}{表|ひょう}には{毎日|まいにち}「{合計|ごうけい}20{個|こ}」と{記録|きろく}されている。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{水曜日|すいようび}の{品質|ひんしつ}チェックをしたわ。{合格|ごうかく}した{星|ほし}は54{個|こ}——{予定|よてい}の60{個|こ}に6{個|こ}{足|た}りないの。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "{進捗|しんちょく}{表|ひょう}は{合計|ごうけい}60{個|こ}。でも{合格|ごうかく}{品|ひん}は54{個|こ}。{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、「{変|か}わり{方|かた}のきまり」を{使|つか}って{原因|げんいん}を{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.8
+        subtitle: 変わり方の落とし穴
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: math2-08/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{毎日|まいにち}5{個|こ}ずつ{丁寧|ていねい}に作ってる。{進捗|しんちょく}{表|ひょう}の{合計|ごうけい}は{毎日|まいにち}20{個|こ}で{計画|けいかく}{通|どお}り。"
+      - type: dialog
+        character: riku
+        text: "でもヒナの{作成|さくせい}{数|すう}が{日|ひ}に{日|ひ}に{増|ふ}えてるのは気になってた。{合計|ごうけい}が{合|あ}ってるから{大丈夫|だいじょうぶ}だと思ったけど……。"
+        expression: thinking
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。{飾|かざ}り{付|つ}け{係|がかり}のまとめ{役|やく}。{月曜|げつよう}は5{個|こ}、{火曜|かよう}は7{個|こ}、{水曜|すいよう}は9{個|こ}作ったよ。"
+      - type: dialog
+        character: hina
+        text: "ちょっと{多|おお}めに作っただけ。{進捗|しんちょく}{表|ひょう}にも{正直|しょうじき}に{書|か}いてる。"
+        expression: worried
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。{毎日|まいにち}5{個|こ}。{水曜日|すいようび}にヒナの{折|お}り{方|かた}が{雑|ざつ}になってるのを{見|み}たけど、「{頑張|がんば}ってるから」って{声|こえ}をかけなかった。"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{月曜|げつよう}は5{個|こ}だったけど、{火曜|かよう}から「もっとキレイに{折|お}りたい」って{丁寧|ていねい}にしたら……{数|かず}が{減|へ}っちゃった。"
+      - type: dialog
+        character: kotoha
+        text: "{火曜|かよう}3{個|こ}、{水曜|すいよう}は1{個|こ}しか作れなかった。ヒナちゃんに{申|もう}し{訳|わけ}ない……。"
+        expression: worried
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 進捗表 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: math2-08/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 進捗表の詳細
+      - type: narration
+        text: "{黒板|こくばん}に{書|か}かれた{進捗|しんちょく}{表|ひょう}——"
+      - type: narration
+        text: "{月曜|げつよう}：リク5、ヒナ5、タクミ5、コトハ5 → {合計|ごうけい}20"
+      - type: narration
+        text: "{火曜|かよう}：リク5、ヒナ7、タクミ5、コトハ3 → {合計|ごうけい}20"
+      - type: narration
+        text: "{水曜|すいよう}：リク5、ヒナ9、タクミ5、コトハ1 → {合計|ごうけい}20"
+      - type: narration
+        text: "{変|か}わり{方|かた}を{調|しら}べよう——ヒナ：5→7→9（2ずつ{増|ふ}えている）。コトハ：5→3→1（2ずつ{減|へ}っている）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒナが{増|ふ}えた{分|ぶん}＝コトハが{減|へ}った{分|ぶん}。だから{合計|ごうけい}は{毎日|まいにち}20{個|こ}のまま——{計画|けいかく}{通|どお}りに{見|み}える。でも{本当|ほんとう}に{大丈夫|だいじょうぶ}？"
+
+  # ===== 証拠カード2: 品質チェック =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 品質チェック記録
+      - type: narration
+        text: "先生の{品質|ひんしつ}チェック{結果|けっか}——{基準|きじゅん}：「5つの{角|かど}がすべてとがっていること」"
+      - type: narration
+        text: "{月曜|げつよう}：{合格|ごうかく}20{個|こ}、{不合格|ふごうかく}0{個|こ}"
+      - type: narration
+        text: "{火曜|かよう}：{合格|ごうかく}18{個|こ}、{不合格|ふごうかく}2{個|こ}"
+      - type: narration
+        text: "{水曜|すいよう}：{合格|ごうかく}16{個|こ}、{不合格|ふごうかく}4{個|こ}"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "{合格|ごうかく}{品|ひん}の{変|か}わり{方|かた}：20→18→16（2ずつ{減|へ}っている！）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{不合格|ふごうかく}{品|ひん}の{変|か}わり{方|かた}：0→2→4（2ずつ{増|ふ}えている！）——ヒナの{追加|ついか}{分|ぶん}（0→2→4）と{完全|かんぜん}に{一致|いっち}する。"
+
+  # ===== 証拠カード3: 不合格品の特徴 =====
+  - id: evidence-3
+    bgm: math2-08/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 不合格品のクセ
+      - type: narration
+        text: "先生が{不合格|ふごうかく}の{星|ほし}6{個|こ}を{調|しら}べた{記録|きろく}——"
+      - type: narration
+        text: "6{個|こ}とも{同|おな}じ{折|お}り{方|かた}のクセ：{角|かど}の{折|お}り{返|かえ}しが{浅|あさ}い。{特|とく}に{水曜日|すいようび}の4{個|こ}は「{急|いそ}いで{折|お}った」{特徴|とくちょう}が{目立|めだ}つ。"
+      - type: narration
+        text: "{月曜日|げつようび}の{星|ほし}20{個|こ}には{不合格|ふごうかく}{品|ひん}はゼロ。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "6{個|こ}とも{同|おな}じ人が{作|つく}った。{進捗|しんちょく}{表|ひょう}で「{増|ふ}えている」人——ヒナの{追加|ついか}{分|ぶん}が{不合格|ふごうかく}{品|ひん}ではないか？"
+
+  # ===== 証拠カード4: コトハのメモ =====
+  - id: evidence-4
+    bgm: math2-08/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: コトハの折り紙記録
+      - type: narration
+        text: "コトハが{使|つか}った{折|お}り{紙|がみ}の{記録|きろく}——"
+      - type: narration
+        text: "{月曜|げつよう}：5{枚|まい}（5{個|こ}{完成|かんせい}）。{火曜|かよう}：4{枚|まい}（やり{直|なお}し1{枚|まい}、3{個|こ}{完成|かんせい}）。{水曜|すいよう}：3{枚|まい}（やり{直|なお}し2{枚|まい}、1{個|こ}{完成|かんせい}）。"
+      - type: narration
+        text: "コトハのメモ：「{角|かど}をもっとキレイに{折|お}りたくて{丁寧|ていねい}にした。でも{時間|じかん}がかかって{全然|ぜんぜん}{間|ま}に{合|あ}わなくなった。ヒナちゃんに{申|もう}し{訳|わけ}ない……」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "コトハの{完成|かんせい}{数|すう}：5→3→1（2ずつ{減少|げんしょう}）。ヒナの{作成|さくせい}{数|すう}：5→7→9（2ずつ{増加|ぞうか}）。{減|へ}った{分|ぶん}＝{増|ふ}えた{分|ぶん}——ヒナがコトハの{不足|ふそく}{分|ぶん}を{代|か}わりに{作|つく}っていた？"
+
+  # ===== 証拠カード5: ヒナのメモ帳 =====
+  - id: evidence-5
+    bgm: math2-08/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ヒナのメモ帳
+      - type: narration
+        text: "ヒナの{机|つくえ}の{引|ひ}き{出|だ}しから{見|み}つかったメモ{帳|ちょう}——"
+      - type: narration
+        text: "{火曜日|かようび}：「コトハちゃんが3{個|こ}しか{作|つく}れなかった。2{個|こ}{足|た}りない。まとめ{役|やく}のわたしがなんとかしなきゃ。{自分|じぶん}の5{個|こ}＋{追加|ついか}2{個|こ}＝7{個|こ}作った」"
+      - type: narration
+        text: "「でも{急|いそ}いで{作|つく}った2{個|こ}は{角|かど}がちゃんと{折|お}れなかった……。{数|かず}は{合|あ}ってるから{平気|へいき}だよね」"
+      - type: narration
+        text: "{水曜日|すいようび}：「コトハちゃんが1{個|こ}しか{作|つく}れなかった。4{個|こ}も{足|た}りない。{自分|じぶん}の5{個|こ}＋{追加|ついか}4{個|こ}＝9{個|こ}作った。でも{追加|ついか}の4{個|こ}、{角|かど}がぐちゃぐちゃ」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「{品質|ひんしつ}チェックで6{個|こ}{不合格|ふごうかく}って{言|い}われた。{全部|ぜんぶ}、わたしが{急|いそ}いで{作|つく}った{星|ほし}だ……。コトハちゃんを{助|たす}けたかっただけなのに」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ヒナは{嘘|うそ}をついていなかった。{進捗|しんちょく}{表|ひょう}の{数字|すうじ}は{正|ただ}しい。でも「{数|かず}が{合|あ}っている＝{品質|ひんしつ}も{大丈夫|だいじょうぶ}」は{思|おも}い{込|こ}みだった——{認知|にんち}バイアスだ。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: math2-08/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{変|か}わり{方|かた}のきまりで{原因|げんいん}が{見|み}えたわね。{品質|ひんしつ}{基準|きじゅん}を{満|み}たさない{星|ほし}を{作|つく}ったのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 品質基準を満たさない星を作ったのは誰？
+        options:
+          - text: リク（毎日5個ずつ作った）
+            value: riku
+            feedback: リクは毎日5個を丁寧に作り、全て合格だったよ。不合格品はリクのものではない。
+          - text: ヒナ（火曜7個、水曜9個作った）
+            value: hina
+            feedback: 正解！ ヒナはコトハの不足分を代わりに作ったが、追加分は急いだため角がつぶれて不合格に。不合格の6個は全てヒナの追加分だった。
+          - text: タクミ（毎日5個ずつ作った）
+            value: takumi
+            feedback: タクミは毎日5個を作り、全て合格だったよ。ヒナの折り方が雑なのは見ていたけど。
+          - text: コトハ（作成数が減った）
+            value: kotoha
+            feedback: コトハは丁寧に折ったため数が減ったけど、作った星は全て合格だったよ。不合格品はコトハのものではない。
+      - type: choice
+        id: q2
+        question: 「合計20個＝計画通り」という思い込みの問題点は？
+        options:
+          - text: 数だけ見て品質を確認しなかった（認知バイアス）
+            value: bias
+            feedback: 正解！ 「合計が合っている＝問題ない」という思い込みが認知バイアス。数と品質は別の問題。変わり方のきまりを調べれば「不合格品が2ずつ増えている」と気づけた。
+          - text: 進捗表の数字が嘘だった
+            value: lie
+            feedback: ヒナは嘘をついていないよ。本当に7個、9個作った。問題は「数が合っていても品質が伴っていない」ことに誰も気づかなかったこと。
+          - text: コトハの作業ペースが落ちたこと
+            value: kotoha-pace
+            feedback: コトハのペースが落ちたのはきっかけだけど、本当の問題は「ヒナが1人で抱え込んで急いで作った」こと。「手伝おうか？」と聞ければ別の方法があった。
+          - text: 先生の品質基準が厳しすぎた
+            value: standard
+            feedback: 品質基準は「5つの角がすべてとがっていること」で妥当な基準だよ。問題は基準ではなく、急いで作ったために品質が下がったこと。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: math2-08/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 数は合っても品質は合わない
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの後ろめたさ
+  - id: truth-riku
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼく、ヒナの{作成|さくせい}{数|すう}が{増|ふ}えてるのに「{合計|ごうけい}が{合|あ}ってるから{大丈夫|だいじょうぶ}」って思ってた。"
+      - type: dialog
+        character: riku
+        text: "「なんで{増|ふ}えてるの？」って{理由|りゆう}を{聞|き}けばよかった。{数字|すうじ}だけ{見|み}て{安心|あんしん}したのがダメだった。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # タクミの後ろめたさ
+  - id: truth-takumi
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: takumi
+        text: "おれ、{水曜日|すいようび}にヒナの{折|お}り{方|かた}が{雑|ざつ}になってるのを{見|み}てた。「{頑張|がんば}ってるから」って{声|こえ}をかけなかった。"
+      - type: dialog
+        character: takumi
+        text: "「{大丈夫|だいじょうぶ}？ {手伝|てつだ}おうか？」って{一言|ひとこと}あれば{違|ちが}ったかもしれない。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # コトハの後ろめたさ
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "わたしのペースが{落|お}ちたのが{全|すべ}てのきっかけ。「{丁寧|ていねい}に{作|つく}りたい」は{悪|わる}いことじゃないけど、{誰|だれ}にも{相談|そうだん}しなかった。"
+      - type: dialog
+        character: kotoha
+        text: "「{時間|じかん}がかかっちゃってるんだけど、どうしよう？」って{言|い}えば、みんなで{考|かんが}えられたのに。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ヒナの真実（クライマックス）
+  - id: truth-hina
+    bgm: math2-08/truth
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "……わたしが{不合格|ふごうかく}の{星|ほし}を{作|つく}った。コトハちゃんの{分|ぶん}も{代|か}わりに{作|つく}ろうとして。"
+      - type: narration
+        speed: slow
+        text: "ヒナがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: hina
+        text: "コトハちゃんが{火曜日|かようび}から{数|かず}が{減|へ}ったのを{見|み}て、「まとめ{役|やく}のわたしがなんとかしなきゃ」って思った。"
+        expression: worried
+      - type: dialog
+        character: hina
+        text: "だから{自分|じぶん}の5{個|こ}に{加|くわ}えて、{不足|ふそく}{分|ぶん}も{作|つく}った。{火曜|かよう}2{個|こ}、{水曜|すいよう}4{個|こ}。{進捗|しんちょく}{表|ひょう}に{嘘|うそ}は{書|か}いてない。"
+      - type: dialog
+        character: hina
+        text: "でも{急|いそ}いで{作|つく}ったから{角|かど}がつぶれちゃった。「{数|かず}さえ{合|あ}っていれば{大丈夫|だいじょうぶ}」って思ってたけど……{品質|ひんしつ}は{大丈夫|だいじょうぶ}じゃなかった。"
+        expression: worried
+      - type: dialog
+        character: hina
+        text: "コトハちゃんに「{手伝|てつだ}おうか？」って{聞|き}けばよかった。1人で{抱|かか}え{込|こ}まなくてもよかったんだ。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ヒナに{悪意|あくい}はなかった。「まとめ{役|やく}だから」という{責任感|せきにんかん}でコトハを{助|たす}けようとした。でも「{数|かず}が{合|あ}っている＝{問題|もんだい}ない」という{思|おも}い{込|こ}みが、{品質|ひんしつ}の{低下|ていか}を{見逃|みのが}させた。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: math2-08/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "「{変|か}わり{方|かた}のきまり」を{表|ひょう}で{調|しら}べると、{隠|かく}れた{関係|かんけい}が{見|み}えてくる。{合格|ごうかく}{品|ひん}が2ずつ{減|へ}り、{不合格|ふごうかく}{品|ひん}が2ずつ{増|ふ}える——このきまりが{続|つづ}くと5{日間|にちかん}で80{個|こ}しか{合格|ごうかく}しない。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして「{合計|ごうけい}が{合|あ}っている＝{問題|もんだい}ない」は{思|おも}い{込|こ}み。{数|かず}だけでなく{品質|ひんしつ}も{確認|かくにん}すること。{困|こま}ったら「{手伝|てつだ}おうか？」と{聞|き}ける{関係|かんけい}が{一番|いちばん}大切ね。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hina
+        expression: worried
+        position: left
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "ヒナちゃん、{助|たす}けようとしてくれてありがとう。でも次からは一緒に{考|かんが}えよう。わたしも{相談|そうだん}するね。"
+      - type: dialog
+        character: hina
+        text: "うん。1人で{抱|かか}え{込|こ}まない。「{手伝|てつだ}って」って{言|い}う。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "4人は{残|のこ}りの{星|ほし}を{全員|ぜんいん}で{分担|ぶんたん}し{直|なお}した。コトハは{丁寧|ていねい}な{折|お}り{方|かた}をみんなに{教|おし}え、{全員|ぜんいん}が{品質|ひんしつ}{基準|きじゅん}を{満|み}たす{星|ほし}を作れるようになった。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "「{合計|ごうけい}が{合|あ}っている」は「{大丈夫|だいじょうぶ}」とは{限|かぎ}らない。{変|か}わり{方|かた}のきまりを{調|しら}べれば、{数字|すうじ}の{裏|うら}に{隠|かく}れた{問題|もんだい}が{見|み}えてくる。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{変|か}わり{方|かた}の{落|お}とし{穴|あな}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
