@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 17:04
+- Add math2-05 game script: combination trap committee mystery
+
 ## 2026-03-25 16:58
 - Add math2-02 to math2-04 game scripts: ratio recipe, circle area, congruent alibi
 

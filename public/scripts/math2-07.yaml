@@ -1,0 +1,517 @@
+meta:
+  id: math2-07
+  title: 体積パズル
+  series: 数学深化探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: math2-07/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}6{年|ねん}1{組|くみ}の{理科|りか}の{授業|じゅぎょう}。{自分|じぶん}たちで{設計|せっけい}した{容器|ようき}に{水|みず}を{入|い}れて{容積|ようせき}を{確|たし}かめる{実験|じっけん}だ。"
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "{水槽|すいそう}は1440mL、{花瓶|かびん}Aは1570mL——リクの{計算|けいさん}{通|どお}りだ！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: takumi
+        text: "えっ！ {花瓶|かびん}Bに{入|はい}った{水|みず}は1256mLしかない。リクの{計算|けいさん}では1600cm³のはずなのに——344mLも{少|すく}ない！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "3{回|かい}{計測|けいそく}しても{同|おな}じ{値|あたい}ね。{測定|そくてい}ミスではなさそう。{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、{計算|けいさん}の{前提|ぜんてい}に{間違|まちが}いがないか{確認|かくにん}して！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.7
+        subtitle: 体積パズル
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: math2-07/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{計算|けいさん}{担当|たんとう}で3つの{容器|ようき}の{体積|たいせき}を{計算|けいさん}した。{水槽|すいそう}と{花瓶|かびん}Aは{実測|じっそく}と{合|あ}ってるんだけど……。"
+      - type: dialog
+        character: riku
+        text: "{花瓶|かびん}Bだけ{合|あ}わない。えっと……{前日|ぜんじつ}の{夜|よる}に{急|いそ}いで{計算|けいさん}したから、どこか{間違|まちが}えたのかも。"
+        expression: worried
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。{前日|ぜんじつ}の{夜|よる}、リクから「{計算|けいさん}{終|お}わった！ {疲|つか}れた……」ってメッセージが来てた。"
+      - type: dialog
+        character: hina
+        text: "「ちゃんと{確認|かくにん}した？」って{聞|き}けばよかったな……。"
+        expression: worried
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。{計測|けいそく}{担当|たんとう}で3{回|かい}{計|はか}ったけど、{花瓶|かびん}Bは{毎回|まいかい}1256mL。{測定|そくてい}ミスじゃない。"
+      - type: dialog
+        character: takumi
+        text: "リクの{計算|けいさん}が1600cm³なのに{実測|じっそく}が1256mL。どっちかが{間違|まちが}ってるんだけど……。"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{花瓶|かびん}Bの{体積|たいせき}を{逆算|ぎゃくさん}してみたの。1600÷25＝64cm²が{底面積|ていめんせき}。"
+      - type: dialog
+        character: kotoha
+        text: "でも{正|ただ}しい{底面積|ていめんせき}は3.14×4×4＝50.24cm²のはず。64cm²ってどうやって{出|だ}した{数字|すうじ}？"
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 体積計算表 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: math2-07/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: リクの体積計算表
+      - type: narration
+        text: "リクが{提出|ていしゅつ}した{体積|たいせき}{計算|けいさん}{表|ひょう}——"
+      - type: narration
+        text: "{水槽|すいそう}（{角柱|かくちゅう}）：{底面|ていめん}12×8cm、{高|たか}さ15cm → 1440cm³"
+      - type: narration
+        text: "{花瓶|かびん}A（{円柱|えんちゅう}）：{半径|はんけい}5cm、{高|たか}さ20cm → 1570cm³"
+      - type: narration
+        text: "{花瓶|かびん}B（{円柱|えんちゅう}）：{直径|ちょっけい}8cm、{高|たか}さ25cm → 1600cm³"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{実測|じっそく}では{花瓶|かびん}Bに{入|はい}った{水|みず}は1256mL。リクの{計算|けいさん}1600cm³との{差|さ}は344cm³——{花瓶|かびん}Bだけ大きくずれている。"
+
+  # ===== 証拠カード2: 実験記録 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: タクミの実験記録
+      - type: narration
+        text: "タクミが{計量|けいりょう}カップで{計測|けいそく}した{結果|けっか}——"
+      - type: narration
+        text: "{水槽|すいそう}：{約|やく}1440mL → リクの{計算|けいさん}1440cm³と{一致|いっち} ✓"
+      - type: narration
+        text: "{花瓶|かびん}A：{約|やく}1570mL → リクの{計算|けいさん}1570cm³と{一致|いっち} ✓"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{花瓶|かびん}B：1256mL → リクの{計算|けいさん}1600cm³と{合|あ}わない ✗（{差|さ}344mL）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "3{回|かい}{計測|けいそく}して{毎回|まいかい}1256mL。{測定|そくてい}ミスではない——{計算|けいさん}のどこかに{間違|まちが}いがある。"
+
+  # ===== 証拠カード3: 体積計算の確認 =====
+  - id: evidence-3
+    bgm: math2-07/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 体積を計算して確認しよう
+      - type: narration
+        text: "{角柱|かくちゅう}の{体積|たいせき}＝{底面積|ていめんせき}×{高|たか}さ。{円柱|えんちゅう}の{体積|たいせき}＝π×r²×h。"
+      - type: narration
+        text: "{水槽|すいそう}：12×8＝96cm²、96×15＝1440cm³ → リクの{計算|けいさん}と{一致|いっち} ✓"
+      - type: narration
+        text: "{花瓶|かびん}A：3.14×5×5＝78.5cm²、78.5×20＝1570cm³ → {一致|いっち} ✓"
+      - type: narration
+        text: "{花瓶|かびん}B：3.14×4×4＝50.24cm²、50.24×25＝1256cm³"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{正|ただ}しい{体積|たいせき}は1256cm³。リクの{計算|けいさん}は1600cm³——{底面積|ていめんせき}を{逆算|ぎゃくさん}すると1600÷25＝64cm²。{正|ただ}しい{底面積|ていめんせき}50.24cm²と{違|ちが}う。64cm²はどこから？"
+
+  # ===== 証拠カード4: 理科の指示メモ =====
+  - id: evidence-4
+    bgm: math2-07/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 先生の指示メモ
+      - type: narration
+        text: "{理科|りか}の先生からの{指示|しじ}メモ——"
+      - type: narration
+        text: "「{円柱|えんちゅう}の{体積|たいせき}＝π×r²×h（π＝3.14）」"
+      - type: narration
+        text: "{花瓶|かびん}B：{半径|はんけい}4cm、{高|たか}さ25cm。{正|ただ}しい{底面積|ていめんせき}＝3.14×4×4＝50.24cm²。"
+      - type: narration
+        text: "でもリクの{計算|けいさん}では{底面積|ていめんせき}が64cm²。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "64＝8×8。8は{花瓶|かびん}Bの{直径|ちょっけい}——リクは{円|えん}の{底面積|ていめんせき}（π×r²）ではなく、{直径|ちょっけい}を1{辺|ぺん}とする{正方形|せいほうけい}の{面積|めんせき}（d²）で{計算|けいさん}した？"
+
+  # ===== 証拠カード5: リクの計算メモ =====
+  - id: evidence-5
+    bgm: math2-07/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: リクの計算メモ
+      - type: narration
+        text: "リクが{前日|ぜんじつ}の{夜|よる}に{書|か}いた{計算|けいさん}メモ——"
+      - type: narration
+        text: "{水槽|すいそう}：12×8＝96cm²、96×15＝1440cm³ ✓"
+      - type: narration
+        text: "{花瓶|かびん}A：3.14×5×5＝78.5cm²、78.5×20＝1570cm³ ✓"
+      - type: narration
+        text: "{花瓶|かびん}B：{直径|ちょっけい}8cmだから…… {底面積|ていめんせき}：8×8＝64cm² → {体積|たいせき}：64×25＝1600cm³"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "{余白|よはく}に{薄|うす}く書き{消|け}した{字|じ}——"
+      - type: narration
+        speed: slow
+        text: "「3.14×4×4＝…{計算|けいさん}が{面倒|めんどう}くさい。8×8でいっか。どうせ{似|に}たような{値|あたい}になるだろう……もう{眠|ねむ}い。{今夜|こんや}{中|じゅう}に{終|お}わらせないと」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "リクは{円|えん}の{底面積|ていめんせき}（π×r²＝50.24cm²）を「{正方形|せいほうけい}（d²＝64cm²）」で{近似|きんじ}した。{締|し}め{切|き}りの{焦|あせ}りから{公式|こうしき}を{自己流|じこりゅう}に{変|か}えてしまった。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: math2-07/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{計算|けいさん}の{前提|ぜんてい}ミスが{見|み}つかったわね。{花瓶|かびん}Bの{体積|たいせき}{計算|けいさん}を{間違|まちが}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 花瓶Bの体積計算を間違えたのは誰？
+        options:
+          - text: リク（計算担当）
+            value: riku
+            feedback: 正解！ リクは花瓶B（円柱）の底面積を「π×r²＝50.24cm²」ではなく「直径×直径＝64cm²」で計算した。締め切りの焦りから公式を自己流に変えてしまった。
+          - text: ヒナ（リクにメッセージした）
+            value: hina
+            feedback: ヒナは計算には関わっていないよ。リクが「疲れた」と言っていたのを知っていたけど、計算を変えたのはリク自身。
+          - text: タクミ（計測担当）
+            value: takumi
+            feedback: タクミの計測は3回とも1256mLで正確だったよ。実測の方が正しい値。計算を間違えたのは計算担当のリク。
+          - text: コトハ（逆算で気づいた）
+            value: kotoha
+            feedback: コトハは底面積を逆算して64cm²という異常に気づいた側。計算ミスを発見した重要な役割を果たしたよ。
+      - type: choice
+        id: q2
+        question: リクはなぜ「正方形で近似」してしまった？
+        options:
+          - text: 締め切りの焦りで、面倒な計算を省略したかったから
+            value: deadline
+            feedback: 正解！ リクは前日夜に「3.14×4×4の計算が面倒。8×8でいいや」と焦って判断した。計算前提を変えてはいけないのに、時間切れのプレッシャーで自己流にしてしまった。
+          - text: 円の面積の公式を知らなかったから
+            value: ignorance
+            feedback: リクは花瓶Aの計算では正しく「3.14×5×5＝78.5cm²」と計算できていたよ。公式は知っていたけど、焦りから花瓶Bでは省略してしまった。
+          - text: 正方形と円の面積が同じだと思ったから
+            value: same-area
+            feedback: リクのメモには「どうせ似たような値になるだろう」と書いてあるよ。「同じ」ではなく「似ている」と思い込んだ。実際は円は正方形の約78.5%の面積しかない。
+          - text: わざと計算を間違えたかったから
+            value: intentional
+            feedback: リクに悪意はなかったよ。「もう眠い。今夜中に終わらせないと」——締め切りのプレッシャーから焦って判断を誤った。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: math2-07/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 締め切りの焦りが公式を変えた
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ヒナの後ろめたさ
+  - id: truth-hina
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "リクから「{疲|つか}れた」ってメッセージが来たのに、「ちゃんと{確認|かくにん}した？」って{聞|き}かなかった。"
+      - type: dialog
+        character: hina
+        text: "あのとき{少|すこ}し{話|はなし}を{聞|き}いていれば、一緒に{計算|けいさん}を{確認|かくにん}できたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # タクミの後ろめたさ
+  - id: truth-takumi
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれ、{計測|けいそく}で1256mLって{出|で}たとき「リクの{計算|けいさん}が{間違|まちが}ってるかも」って{一瞬|いっしゅん}思った。でも「3{回|かい}とも{同|おな}じだし、おれの{計測|けいそく}が{正|ただ}しいはず」って{言|い}い{出|だ}せなかった。"
+      - type: dialog
+        character: takumi
+        text: "{疑問|ぎもん}に思ったらすぐ{声|こえ}に{出|だ}すべきだった。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # コトハの後ろめたさ
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "{逆算|ぎゃくさん}で64cm²って{出|で}たとき、「これ{正方形|せいほうけい}の{面積|めんせき}では？」って{直感|ちょっかん}があったの。"
+      - type: dialog
+        character: kotoha
+        text: "もっと{早|はや}く{声|こえ}に{出|だ}していれば、リクも{助|たす}かったはず。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # リクの真実（クライマックス）
+  - id: truth-riku
+    bgm: math2-07/truth
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: center
+      - type: dialog
+        character: riku
+        text: "……ぼくのミスだ。{花瓶|かびん}Bの{底面積|ていめんせき}を{正方形|せいほうけい}で{計算|けいさん}した。"
+      - type: narration
+        speed: slow
+        text: "リクがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: riku
+        text: "{前日|ぜんじつ}の{夜|よる}10{時|じ}すぎ。{水槽|すいそう}と{花瓶|かびん}Aは{計算|けいさん}できたけど、{花瓶|かびん}Bの{番|ばん}で{眠|ねむ}くて。「3.14×4×4……{面倒|めんどう}だ。8×8でいいや」って。"
+        expression: worried
+      - type: dialog
+        character: riku
+        text: "「どうせ{似|に}たような{値|あたい}になるだろう」って思った。でも{正方形|せいほうけい}の64cm²と{円|えん}の50.24cm²は{全然|ぜんぜん}{違|ちが}った。344cm³もずれた。"
+      - type: dialog
+        character: riku
+        text: "{実験|じっけん}で1256mLって{出|で}たとき、「やっぱり{間違|まちが}ってた……」って分かってたのに{言|い}い{出|だ}せなかった。「{計算|けいさん}ミスが{許|ゆる}せない」って{自分|じぶん}が、{一番|いちばん}ミスしてた。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+      - type: narration
+        speed: slow
+        text: "リクに{悪意|あくい}はなかった。{締|し}め{切|き}りの{焦|あせ}りから{公式|こうしき}の{前提|ぜんてい}を{変|か}えてしまった。「{面倒|めんどう}だから{省略|しょうりゃく}」は、{数学|すうがく}では{許|ゆる}されない。{正方形|せいほうけい}の{面積|めんせき}と{円|えん}の{面積|めんせき}は{違|ちが}うものだ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: math2-07/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "{円柱|えんちゅう}の{体積|たいせき}はπ×r²×h。{底面|ていめん}が{円|えん}なら{底面積|ていめんせき}はπ×r²で{計算|けいさん}する。{直径|ちょっけい}×{直径|ちょっけい}は{正方形|せいほうけい}の{面積|めんせき}で、{円|えん}の{面積|めんせき}とは{約|やく}27%も{違|ちが}うの。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして「まだ{確認|かくにん}していない{前提|ぜんてい}は何か？」と{自分|じぶん}に{問|と}いかける——{情報|じょうほう}{欠落|けつらく}の{認識|にんしき}が大切ね。{時間|じかん}がなくても{前提|ぜんてい}は{変|か}えちゃダメよ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: riku
+        expression: determined
+        position: left
+      - type: dialog
+        character: riku
+        text: "次からは「{面倒|めんどう}でも{公式|こうしき}は{省略|しょうりゃく}しない」。{時間|じかん}がないなら「{助|たす}けて」と{言|い}う。{前提|ぜんてい}を{変|か}えるのは{一番|いちばん}やっちゃいけないことだった。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "{花瓶|かびん}Bの{体積|たいせき}は{正|ただ}しく1256cm³に{修正|しゅうせい}された。{実験|じっけん}{結果|けっか}と{計算|けいさん}が{一致|いっち}した——{今度|こんど}こそ{正|ただ}しい{前提|ぜんてい}で。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "「{面倒|めんどう}だから{近似|きんじ}しよう」は{数学|すうがく}では{通用|つうよう}しない。{公式|こうしき}の{前提|ぜんてい}を{守|まも}ること。{困|こま}ったら「{助|たす}けて」と{言|い}うこと。それが{正確|せいかく}な{計算|けいさん}への{一番|いちばん}の{近道|ちかみち}だ。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{体積|たいせき}パズル、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

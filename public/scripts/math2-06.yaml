@@ -1,0 +1,511 @@
+meta:
+  id: math2-06
+  title: 平均のうそ
+  series: 数学深化探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: math2-06/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}6{年|ねん}1{組|くみ}。{体力|たいりょく}テストの50m{走|そう}の{記録|きろく}を{学級|がっきゅう}{通信|つうしん}に{載|の}せるための{集計|しゅうけい}が{行|おこな}われた。"
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "{集計|しゅうけい}{完了|かんりょう}。{平均|へいきん}タイムは8.70{秒|びょう}、{中央値|ちゅうおうち}8.50{秒|びょう}、{最頻値|さいひんち}8.5{秒|びょう}よ。"
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite
+        character: riku
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: riku
+        text: "ちょっと{待|ま}って！ ぼくが{元|もと}{記録票|きろくひょう}から{計算|けいさん}したら{平均|へいきん}は8.80{秒|びょう}だった。0.10{秒|びょう}ずれてる！"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{平均|へいきん}が0.10{秒|びょう}ずれているということは、{合計|ごうけい}で1.0{秒|びょう}{分|ぶん}のずれ。{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、{全|ぜん}{探索|たんさく}で{誰|だれ}のデータが{変|か}わっているか{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.6
+        subtitle: 平均のうそ
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: math2-06/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{元|もと}{記録票|きろくひょう}から{計算|けいさん}し{直|なお}したら{平均|へいきん}8.80{秒|びょう}。コトハの{集計|しゅうけい}と0.10{秒|びょう}ずれてる。{合計|ごうけい}で1.0{秒|びょう}の{差|さ}だ。"
+      - type: dialog
+        character: riku
+        text: "ぼくの{記録|きろく}は9.5{秒|びょう}。{正直|しょうじき}あまり{速|はや}くないけど、データは{正確|せいかく}であるべきだと思う。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。コトハが{集計|しゅうけい}を{頑張|がんば}ってたのは知ってる。{計算|けいさん}ミスかな？ でもコトハが{間違|まちが}えるなんてちょっと{不思議|ふしぎ}。"
+      - type: dialog
+        character: hina
+        text: "コトハが{席|せき}を{離|はな}れてたとき、{教室|きょうしつ}にいたのはタクミだけだったって{聞|き}いたけど……。"
+        expression: thinking
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。コトハが{席|せき}を{離|はな}れたとき{教室|きょうしつ}にいたのは{確|たし}かだけど……{集計|しゅうけい}{表|ひょう}は{見|み}てないよ。"
+      - type: dialog
+        character: takumi
+        text: "……{多分|たぶん}。"
+        expression: worried
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{集計|しゅうけい}は{元|もと}{記録票|きろくひょう}を{見|み}ながらやったの。{途中|とちゅう}で{少|すこ}し{席|せき}を{離|はな}れたけど、{戻|もど}ってきてそのまま{黒板|こくばん}に書いた。"
+      - type: dialog
+        character: kotoha
+        text: "{戻|もど}ったとき{教室|きょうしつ}にいたのはタクミだけだった。{集計|しゅうけい}{表|ひょう}は{机|つくえ}の{上|うえ}に{置|お}いたままだったわ。"
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: コトハの集計表 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: math2-06/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: コトハの集計表
+      - type: narration
+        text: "コトハが{黒板|こくばん}に書いた{集計|しゅうけい}{結果|けっか}——"
+      - type: narration
+        text: "{平均|へいきん}タイム：8.70{秒|びょう}　{中央値|ちゅうおうち}：8.50{秒|びょう}　{最頻値|さいひんち}：8.5{秒|びょう}"
+      - type: narration
+        text: "リクが{元|もと}{記録票|きろくひょう}から{計算|けいさん}した{結果|けっか}：{平均|へいきん}8.80{秒|びょう}（{合計|ごうけい}88.0{秒|びょう}）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "コトハの{集計|しゅうけい}（{合計|ごうけい}87.0{秒|びょう}）とリクの{計算|けいさん}（{合計|ごうけい}88.0{秒|びょう}）——1.0{秒|びょう}のずれ。{誰|だれ}か1人のデータが1.0{秒|びょう}{分|ぶん}書き{換|か}えられた？"
+
+  # ===== 証拠カード2: リクの再計算 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 元記録票の10人のデータ
+      - type: narration
+        text: "リクが{元|もと}{記録票|きろくひょう}から{書|か}き{写|うつ}した10人のタイム——"
+      - type: narration
+        text: "リョウ9.0、ミホ8.0、サクラ8.5、ケン9.5、アオイ8.0"
+      - type: narration
+        text: "ハルカ9.0、ユウ8.5、マナ9.5、ナオ8.5、リク9.5"
+      - type: narration
+        text: "{合計|ごうけい}：88.0{秒|びょう}。{平均|へいきん}：88.0÷10＝8.80{秒|びょう}"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "コトハの{集計|しゅうけい}{表|ひょう}の{合計|ごうけい}は87.0{秒|びょう}。88.0−87.0＝1.0{秒|びょう}のずれ。{誰|だれ}か1人のデータが1.0{秒|びょう}{減|へ}っている。"
+
+  # ===== 証拠カード3: 全員計算タイム =====
+  - id: evidence-3
+    bgm: math2-06/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 平均値・中央値・最頻値
+      - type: narration
+        text: "コトハの{集計|しゅうけい}{表|ひょう}のデータを{並|なら}べ{替|か}え——"
+      - type: narration
+        text: "8.0, 8.0, 8.5, 8.5, 8.5, 8.5, 9.0, 9.0, 9.5, 9.5"
+      - type: narration
+        text: "{平均|へいきん}：87.0÷10＝8.70{秒|びょう} ✓  {中央値|ちゅうおうち}：（8.5＋8.5）÷2＝8.50{秒|びょう} ✓"
+      - type: narration
+        text: "{最頻値|さいひんち}：8.5{秒|びょう}（4{回|かい}） ✓ ——コトハの{計算|けいさん}{自体|じたい}は{正|ただ}しい。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "でも{元|もと}{記録票|きろくひょう}のデータとコトハの{集計|しゅうけい}{表|ひょう}のデータが{違|ちが}う！ {誰|だれ}かのデータが{元|もと}{記録票|きろくひょう}から{変|か}わっている。"
+
+  # ===== 証拠カード4: 集計作業の状況 =====
+  - id: evidence-4
+    bgm: math2-06/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 集計中の教室
+      - type: narration
+        text: "{元|もと}{記録票|きろくひょう}には{担任|たんにん}が{計測|けいそく}{直後|ちょくご}にまとめた{一次|いちじ}{記録|きろく}——"
+      - type: narration
+        text: "10{番|ばん}リク：9.5{秒|びょう}。{合計|ごうけい}：88.0{秒|びょう}。{平均|へいきん}：8.80{秒|びょう}。"
+      - type: narration
+        text: "コトハの{証言|しょうげん}：「{集計|しゅうけい}の{途中|とちゅう}で{少|すこ}し{席|せき}を{離|はな}れた。{戻|もど}ったとき{教室|きょうしつ}にいたのはタクミだけ。{集計|しゅうけい}{表|ひょう}は{机|つくえ}の{上|うえ}に{置|お}いたまま」"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{元|もと}{記録票|きろくひょう}の10{番|ばん}リクは9.5{秒|びょう}。コトハの{集計|しゅうけい}{表|ひょう}では8.5{秒|びょう}——1.0{秒|びょう}の{差|さ}。コトハが{席|せき}を{離|はな}れた{間|あいだ}に{集計|しゅうけい}{表|ひょう}に{触|さわ}れたのは——タクミだけ。"
+
+  # ===== 証拠カード5: 全探索の結果 =====
+  - id: evidence-5
+    bgm: math2-06/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 全探索——10人を1人ずつ確認
+      - type: narration
+        text: "10人{全員|ぜんいん}のデータを{元|もと}{記録票|きろくひょう}と{集計|しゅうけい}{表|ひょう}で1人ずつ{照合|しょうごう}した{結果|けっか}——"
+      - type: narration
+        text: "1{番|ばん}リョウ：9.0＝9.0 ✓ 2{番|ばん}ミホ：8.0＝8.0 ✓ 3{番|ばん}サクラ：8.5＝8.5 ✓"
+      - type: narration
+        text: "4{番|ばん}ケン：9.5＝9.5 ✓ 5{番|ばん}アオイ：8.0＝8.0 ✓ 6{番|ばん}ハルカ：9.0＝9.0 ✓"
+      - type: narration
+        text: "7{番|ばん}ユウ：8.5＝8.5 ✓ 8{番|ばん}マナ：9.5＝9.5 ✓ 9{番|ばん}ナオ：8.5＝8.5 ✓"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "10{番|ばん}リク：{元|もと}9.5 → {集計|しゅうけい}{表|ひょう}8.5 ✗ ——ここだけ1.0{秒|びょう}{減|へ}っている！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{全|ぜん}{探索|たんさく}{完了|かんりょう}。{変化|へんか}があったのは10{番|ばん}リクのみ。9.5{秒|びょう}→8.5{秒|びょう}。コトハが{席|せき}を{離|はな}れた{間|あいだ}に{教室|きょうしつ}にいたのはタクミだけ——タクミがリクの{記録|きろく}を書き{換|か}えた。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: math2-06/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{全|ぜん}{探索|たんさく}で{特定|とくてい}できたわね。{集計|しゅうけい}{表|ひょう}のデータを書き{換|か}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 集計表のデータを書き換えたのは誰？
+        options:
+          - text: リク（記録が書き換えられた当事者）
+            value: riku
+            feedback: リクは書き換えられた側。自分のデータのずれに気づいて報告した人だよ。書き換える動機がない。
+          - text: ヒナ（コトハの作業を知っていた）
+            value: hina
+            feedback: ヒナはコトハが席を離れた時間帯に教室にいなかったよ。書き換えるチャンスがなかった。
+          - text: タクミ（コトハ不在中に教室にいた）
+            value: takumi
+            feedback: 正解！ タクミはコトハが席を離れた間に集計表を見て、リクの9.5秒を8.5秒に書き換えた。リクをかばう気持ちからだったが、データの正確さを壊してしまった。
+          - text: コトハ（集計担当）
+            value: kotoha
+            feedback: コトハの計算自体は正確だった。コトハは集計表のデータをそのまま計算しただけ。データが変わっていたのは席を離れた間に誰かが書き換えたから。
+      - type: choice
+        id: q2
+        question: 1つのデータを書き換えると統計にどんな影響が出る？
+        options:
+          - text: 平均値は少し変わるが、中央値は大きく変わることがある
+            value: median-shift
+            feedback: 正解！ 平均は0.10秒しか変わらなかったが、中央値は0.25秒も変わった（8.75→8.50）。1つの値が真ん中付近に移動すると、中央値の「境目」が大きくずれることがある。
+          - text: 平均値だけが変わり、中央値と最頻値は変わらない
+            value: only-mean
+            feedback: 実は中央値も最頻値も変わったよ。中央値は8.75→8.50（0.25秒の差！）、最頻値は「8.5と9.5の両方」→「8.5のみ」に変化した。
+          - text: データを1つ変えても統計はほとんど変わらない
+            value: no-change
+            feedback: 平均は少しの変化（0.10秒）だけど、中央値は大きく変わった（0.25秒）。1つのデータの変化でも、統計の「全体像」は大きく変わることがある。
+          - text: 全員のデータが変わるので平均も大きく変わる
+            value: all-change
+            feedback: 変わったのは1人分だけ。でもその1人分で合計が1.0秒ずれ、平均・中央値・最頻値すべてに影響が出た。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: math2-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 友だちをかばった1.0秒
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの後ろめたさ
+  - id: truth-riku
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼく、{体力|たいりょく}テストの{前日|ぜんじつ}に{練習|れんしゅう}をサボってた。9.5{秒|びょう}って{結果|けっか}にちょっと{後|うし}ろめたさがある。"
+      - type: dialog
+        character: riku
+        text: "でもデータは{正確|せいかく}であるべきだ。タクミの{気持|きも}ちは分かるけど、{記録|きろく}を{変|か}えちゃダメだと思う。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # ヒナの後ろめたさ
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "タクミがリクのことを{心配|しんぱい}してたのは知ってた。でも「まさか{記録|きろく}を{変|か}えるなんて」って思ってなくて。"
+      - type: dialog
+        character: hina
+        text: "タクミに「{大丈夫|だいじょうぶ}？ 何か{悩|なや}んでる？」って{聞|き}いてればよかった。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # コトハの後ろめたさ
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "{集計|しゅうけい}{表|ひょう}を{机|つくえ}の{上|うえ}に{出|だ}したまま{席|せき}を{離|はな}れたのはわたしの{不注意|ふちゅうい}。{大事|だいじ}なデータは{管理|かんり}しなきゃいけなかった。"
+      - type: dialog
+        character: kotoha
+        text: "{戻|もど}ったとき「{何|なに}も{変|か}わってないかな」って{確認|かくにん}すべきだった。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # タクミの真実（クライマックス）
+  - id: truth-takumi
+    bgm: math2-06/truth
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "……おれがやった。リクの9.5{秒|びょう}を8.5{秒|びょう}に書き{換|か}えた。"
+      - type: narration
+        speed: slow
+        text: "タクミがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: takumi
+        text: "コトハが{席|せき}を{離|はな}れたとき{集計|しゅうけい}{表|ひょう}が{目|め}に{入|はい}った。リクの{記録|きろく}が9.5{秒|びょう}。{学級|がっきゅう}{通信|つうしん}に{載|の}ったら、からかわれるかもしれないって思った。"
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "リクはいつも{体育|たいいく}{頑張|がんば}ってるのに。だから8.5{秒|びょう}に{変|か}えた。{友|とも}だちを{守|まも}りたかった。"
+      - type: dialog
+        character: takumi
+        text: "でも{平均|へいきん}が{変|か}わるだけじゃなくて、{中央値|ちゅうおうち}まで大きく{変|か}わっちゃうなんて知らなかった。クラス{全体|ぜんたい}のデータを{歪|ゆが}めてしまった。"
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "{友|とも}だちを{守|まも}りたいなら、データを{変|か}えるんじゃなくて、「{記録|きろく}は{記録|きろく}。でもリクは{頑張|がんば}ってるよ」って{言|い}ってあげるべきだった。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: narration
+        speed: slow
+        text: "タクミに{悪意|あくい}はなかった。リクへの{友情|ゆうじょう}から{行動|こうどう}した。でも「データを{変|か}える」ことと「{友|とも}だちを{応援|おうえん}する」ことは{別|べつ}の{問題|もんだい}だった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: math2-06/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "1つのデータを{変|か}えるだけで、{平均|へいきん}も{中央値|ちゅうおうち}も{最頻値|さいひんち}も{変|か}わる。{統計|とうけい}は「{正確|せいかく}なデータ」があってこそ{意味|いみ}がある。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして{全|ぜん}{探索|たんさく}——1つずつ{全部|ぜんぶ}{確認|かくにん}する——が{不正|ふせい}を{見抜|みぬ}く{力|ちから}になったわね。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: takumi
+        text: "{友|とも}だちを{守|まも}りたいなら、データを{変|か}えるんじゃない。「{一緒|いっしょ}に{練習|れんしゅう}しよう」って{言|い}えばいい。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "{集計|しゅうけい}{表|ひょう}は{正|ただ}しいデータで作り{直|なお}された。{平均|へいきん}8.80{秒|びょう}、{中央値|ちゅうおうち}8.75{秒|びょう}——{今度|こんど}こそクラスの{本当|ほんとう}の{姿|すがた}が{学級|がっきゅう}{通信|つうしん}に{載|の}る。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{統計|とうけい}は{正確|せいかく}なデータでなければ{意味|いみ}がない。そして{友|とも}だちを{守|まも}る{本当|ほんとう}の{方法|ほうほう}は、{数字|すうじ}を{変|か}えることではなく、{一緒|いっしょ}に{頑張|がんば}ることだ。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{平均|へいきん}のうそ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
