@@ -1,0 +1,442 @@
+meta:
+  id: science-07
+  title: 電磁石の記録と4つの疑惑
+  series: サイエンス捜査班
+  volume: 7
+  estimatedMinutes: 22
+
+characters:
+  aki:
+    name: アキ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  nao:
+    name: ナオ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yui:
+    name: ユイ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  ken:
+    name: ケン
+    color: "#FF8C00"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: science-lab
+    bgm: science-07/opening
+    steps:
+      - type: narration
+        text: "{今日|きょう}は{理科室|りかしつ}で「{電磁石|でんじしゃく}{競技|きょうぎ}{実験|じっけん}」の{日|ひ}。"
+      - type: narration
+        text: "{各班|かくはん}がコイルの{巻|ま}き{数|すう}を{変|か}えて{電磁石|でんじしゃく}を{作|つく}り、どれだけ{重|おも}いものを{持|も}ち{上|あ}げられるかを{競争|きょうそう}する{実験|じっけん}だ。"
+      - type: sprite_group
+        characters:
+          - { id: aki, expression: happy }
+          - { id: nao, expression: happy }
+          - { id: yui, expression: happy }
+          - { id: ken, expression: happy }
+      - type: narration
+        text: "「30{回|かい}{巻|ま}き{班|はん}が{一番|いちばん}！」「20{回|かい}{巻|ま}き{班|はん}の{方|ほう}が{効率|こうりつ}がいい！」と{楽|たの}しく{実験|じっけん}していた。"
+      - type: sprite_group
+        characters:
+          - { id: aki, expression: normal }
+          - { id: nao, expression: normal }
+          - { id: yui, expression: normal }
+          - { id: ken, expression: normal }
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{実験|じっけん}が{終|お}わり、データをまとめていた{先生|せんせい}が——{突然|とつぜん}{言|い}った。"
+      - type: sprite
+        id: aki
+        action: hide
+      - type: sprite
+        id: nao
+        action: hide
+      - type: sprite
+        id: yui
+        action: hide
+      - type: sprite
+        id: ken
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-07/tension
+      - type: dialog
+        character: sensei
+        text: "ちょっと{待|ま}ちなさい。この{記録|きろく}おかしくない？ 20{回|かい}{巻|ま}きで{電流|でんりゅう}0.5A、{持|も}ち{上|あ}げ{重|おも}さ450グラム……ありえない{数字|すうじ}だよ。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "450グラムは{物理的|ぶつりてき}に{不可能|ふかのう}。{誰|だれ}かが{記録|きろく}を{書|か}き{換|か}えた。{誰|だれ}が、なぜ{改|かい}ざんしたか——{解|と}き{明|あ}かしてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "電磁石の記録と4つの疑惑"
+        subtitle: "サイエンス捜査班 Vol.7"
+
+  # ===== 証拠カード1: 問題の記録用紙 =====
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-07/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 問題の記録用紙"
+      - type: narration
+        text: "3{班|はん}の{実験|じっけん}{記録|きろく}{用紙|ようし}。コイルの{巻|ま}き{数|すう}：20{回|かい}。{電流|でんりゅう}：0.5A。"
+      - type: narration
+        text: "{測定値|そくていち}（3{回|かい}の{平均|へいきん}）——1{回目|かいめ}：82g、2{回目|かいめ}：87g、3{回目|かいめ}：86g、{平均|へいきん}：85g。ユイの{字|じ}で{記入|きにゅう}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{計算|けいさん}{欄|らん}（{理論値|りろんち}との{比較|ひかく}）——{実験|じっけん}{結果|けっか}：450g。ケンの{字|じ}で{記入|きにゅう}。{消|け}しゴムの{痕跡|こんせき}あり。"
+      - type: narration
+        text: "{測定値|そくていち}{欄|らん}は「85g」。{計算|けいさん}{欄|らん}は「450g」。{数値|すうち}が{一致|いっち}しない。「{計算|けいさん}{間違|まちが}い」で85gが450gになる{計算|けいさん}はありえるか？"
+
+  # ===== 証拠カード2: 全班データと電磁石の原理 =====
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 全班のデータ"
+      - type: narration
+        text: "{全班|ぜんはん}の{実験|じっけん}{結果|けっか}。1{班|はん}：10{回|かい}{巻|ま}き→40g。2{班|はん}：30{回|かい}{巻|ま}き→120g。3{班|はん}：20{回|かい}{巻|ま}き→450g（{問題|もんだい}の{値|あたい}）。4{班|はん}：15{回|かい}{巻|ま}き→60g。"
+      - type: narration
+        text: "{電磁石|でんじしゃく}の{原理|げんり}——{磁力|じりょく}はコイルの{巻|ま}き{数|すう}に{比例|ひれい}する。{巻|ま}き{数|すう}が2{倍|ばい}になると{磁力|じりょく}も{約|やく}2{倍|ばい}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{計算|けいさん}してみよう。1{班|はん}（10{回|かい}）＝40g。{比例|ひれい}なら20{回|かい}は{約|やく}80g。30{回|かい}は120g——{合|あ}っている！ でも3{班|はん}の450gは{予測値|よそくち}の{約|やく}5.6{倍|ばい}。{物理的|ぶつりてき}に{不可能|ふかのう}！"
+
+  # ===== 証拠カード3: ケンのメモ =====
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — ケンのメモ"
+      - type: narration
+        text: "{記録|きろく}{用紙|ようし}の{裏|うら}に、ケンが{書|か}いたメモが{見|み}つかった。"
+      - type: narration
+        text: "「{電池|でんち}を2{個|こ}に{増|ふ}やしたら{磁力|じりょく}は3{倍|ばい}になるはず」「{電池|でんち}1{個|こ}で450g→{電池|でんち}2{個|こ}なら1350g！？」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{電磁石|でんじしゃく}の{原理|げんり}——{磁力|じりょく}は{電流|でんりゅう}の{大|おお}きさにも{比例|ひれい}する。{電池|でんち}2{個|こ}なら{電流|でんりゅう}が{約|やく}2{倍|ばい}→{磁力|じりょく}も{約|やく}2{倍|ばい}。"
+      - type: narration
+        text: "ケンは「3{倍|ばい}」と{書|か}いているが、{正|ただ}しくは「2{倍|ばい}」。{比例|ひれい}{関係|かんけい}を{誤解|ごかい}している！ 1+2＝3{倍|ばい}？ {正|ただ}しくは×2＝2{倍|ばい}。"
+
+  # ===== 証拠カード4: 鉄芯メモ＋目撃情報 =====
+  - id: evidence-4
+    bg: science-lab
+    bgm: science-07/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 鉄芯メモと目撃情報"
+      - type: narration
+        text: "ケンが{書|か}いたもう1つのメモ。「{鉄芯|てっしん}なしでも200gぐらいは{持|も}ち{上|あ}がるだろう」。"
+      - type: narration
+        text: "{電磁石|でんじしゃく}の{原理|げんり}——{磁力|じりょく}の{大部分|だいぶぶん}は{鉄芯|てっしん}が{生|う}み{出|だ}す。{鉄芯|てっしん}なしだと{磁力|じりょく}はほぼゼロ（{数|すう}g{程度|ていど}）。ケンの「200g」はありえない！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{後片付|あとかたづ}けの{目撃|もくげき}{情報|じょうほう}——アキ：「ケンが{記録|きろく}{用紙|ようし}を{手|て}に{取|と}っているのを{見|み}た。『{計算|けいさん}の{見直|みなお}し』と{言|い}っていた」。"
+      - type: narration
+        text: "ユイ：「{片付|かたづ}けの{途中|とちゅう}に{記録|きろく}{用紙|ようし}を{見|み}たとき、{計算|けいさん}{欄|らん}に450と{書|か}かれていた」。"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: science-lab
+    bgm: science-07/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: aki
+        position: left
+        expression: worried
+      - type: dialog
+        character: aki
+        text: "{班長|はんちょう}{代理|だいり}として、みんなの{記録|きろく}を{管理|かんり}するべきだった。{改|かい}ざんに{気|き}づけなかったのは、ぼくの{管理|かんり}{不足|ふそく}かも……。"
+      - type: sprite
+        id: aki
+        action: hide
+      - type: sprite
+        id: nao
+        position: right
+        expression: determined
+      - type: dialog
+        character: nao
+        text: "{電磁石|でんじしゃく}の{公式|こうしき}を{使|つか}えば、450gが{不可能|ふかのう}だって{計算|けいさん}で{証明|しょうめい}できる！ 10{回|かい}で40g。{比例|ひれい}なら20{回|かい}は{約|やく}80g。450gは{絶対|ぜったい}ありえないわ。"
+      - type: sprite
+        id: nao
+        action: hide
+      - type: sprite
+        id: yui
+        position: left
+        expression: worried
+      - type: dialog
+        character: yui
+        text: "わたしが{測定|そくてい}した{値|あたい}は85gだった。それは{確|たし}か。{後片付|あとかたづ}けのときに{記録|きろく}{用紙|ようし}を{見|み}たら「450」って{書|か}いてあって「{変|へん}だな」って{思|おも}ったけど、{言|い}い{出|だ}せなかった……。"
+      - type: sprite
+        id: yui
+        action: hide
+      - type: sprite
+        id: ken
+        position: right
+        expression: normal
+      - type: dialog
+        character: ken
+        text: "おれは{計算|けいさん}{担当|たんとう}として{数値|すうち}を{記録|きろく}{用紙|ようし}に{書|か}いたぜ。{後片付|あとかたづ}けのときも{計算|けいさん}の{見直|みなお}しをしてただけ。{何|なん}か{文句|もんく}ある？"
+      - type: sprite
+        id: ken
+        action: hide
+
+  # ===== 証拠カード5: 3つの矛盾（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-07/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 3つの矛盾と1つの原理"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{電磁石|でんじしゃく}には3つの{基本|きほん}{原理|げんり}がある。{原理|げんり}①：{磁力|じりょく}はコイルの{巻|ま}き{数|すう}に{比例|ひれい}。{原理|げんり}②：{磁力|じりょく}は{電流|でんりゅう}に{比例|ひれい}。{原理|げんり}③：{磁力|じりょく}の{大部分|だいぶぶん}は{鉄芯|てっしん}が{生|う}む。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{矛盾|むじゅん}①：{巻|ま}き{数|すう}の{比例|ひれい}から20{回|かい}の{予測値|よそくち}は{約|やく}80g。450gは{約|やく}5.6{倍|ばい}——{不可能|ふかのう}！"
+      - type: narration
+        text: "{矛盾|むじゅん}②：{電池|でんち}2{個|こ}→{磁力|じりょく}は「2{倍|ばい}」が{正|ただ}しい。ケンのメモは「3{倍|ばい}」——{比例|ひれい}{関係|かんけい}を{誤解|ごかい}！"
+      - type: narration
+        text: "{矛盾|むじゅん}③：{鉄芯|てっしん}なしの{磁力|じりょく}はほぼゼロ。ケンのメモは「200g」——{物理的|ぶつりてき}にありえない！"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "3つの{矛盾|むじゅん}の{共通点|きょうつうてん}——すべて「{電磁石|でんじしゃく}の{比例|ひれい}{関係|かんけい}を{正|ただ}しく{理解|りかい}していない{人|ひと}」の{誤|あやま}り。そして3つの{記録|きろく}・メモはすべてケンの{字|じ}で{書|か}かれている。"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: science-lab
+    bgm: science-07/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "20{回|かい}{巻|ま}き、0.5Aの{電磁石|でんじしゃく}で{持|も}ち{上|あ}げられる{最大|さいだい}{重|おも}さは？"
+        options:
+          - text: "約80g"
+            feedback: "そのとおり！ {比例|ひれい}{関係|かんけい}から10{回|かい}で40g→20{回|かい}で{約|やく}80g。450gの{約|やく}5{分|ぶん}の1だね。"
+          - text: "約200g"
+            feedback: "200gは{高|たか}すぎるよ。{比例|ひれい}{関係|かんけい}を{使|つか}うと、10{回|かい}で40g→20{回|かい}で{約|やく}80gが{正解|せいかい}。"
+          - text: "約450g"
+            feedback: "450gは{物理的|ぶつりてき}に{不可能|ふかのう}！ 30{回|かい}{巻|ま}きでも120gなのに、20{回|かい}で450gはありえないよ。"
+      - type: choice
+        id: q2
+        text: "{記録|きろく}を{書|か}き{換|か}えたのは{誰|だれ}？"
+        options:
+          - text: "アキ"
+            feedback: "アキは{実験|じっけん}{装置|そうち}の{片付|かたづ}けをしていた。{記録|きろく}{用紙|ようし}には{触|さわ}っていないよ。"
+          - text: "ナオ"
+            feedback: "ナオは{薬品|やくひん}ビンの{片付|かたづ}けをしていた。{電磁石|でんじしゃく}の{原理|げんり}を{正|ただ}しく{理解|りかい}しているから、450gなんて{書|か}かないはず。"
+          - text: "ユイ"
+            feedback: "ユイは{測定値|そくていち}85gを{正確|せいかく}に{覚|おぼ}えていた。450gとの{食|く}い{違|ちが}いに{気|き}づいていたぐらいだよ。"
+          - text: "ケン"
+            feedback: "3つの{矛盾|むじゅん}はすべてケンの{字|じ}。{電磁石|でんじしゃく}の{比例|ひれい}{関係|かんけい}を{誤解|ごかい}していた{証拠|しょうこ}もある。{後片付|あとかたづ}け{中|ちゅう}に{記録|きろく}{用紙|ようし}に{触|さわ}っていた{目撃|もくげき}{情報|じょうほう}も……。"
+
+  # ===== 真実: ケンの告白 =====
+  - id: truth-ken
+    bg: science-lab
+    bgm: science-07/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{実験|じっけん}{記録|きろく}を{改|かい}ざんした{人物|じんぶつ}を{発表|はっぴょう}します。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{記録|きろく}を{書|か}き{換|か}えたのは——ケンだった。"
+      - type: sprite
+        id: ken
+        position: center
+        expression: worried
+      - type: narration
+        text: "{後片付|あとかたづ}けの{時間|じかん}、ケンは{計算|けいさん}{欄|らん}に{書|か}いてあった「85g」を{消|け}しゴムで{消|け}し、「450g」と{書|か}き{直|なお}した。"
+      - type: dialog
+        character: ken
+        expression: worried
+        text: "20{回|かい}{巻|ま}きの{自分|じぶん}たちの{班|はん}が、2{班|はん}（30{回|かい}{巻|ま}き・120g）に{負|ま}けるって{分|わ}かって……「{記録|きろく}だけなら{変|か}えられる」って{思|おも}っちゃったんだ。"
+      - type: narration
+        text: "さらにケンは{電磁石|でんじしゃく}の{比例|ひれい}{関係|かんけい}を{正|ただ}しく{理解|りかい}していなかった。{比例|ひれい}を「{掛|か}け{算|ざん}」ではなく「{足|た}し{算|ざん}」で{考|かんが}えていたため、450gという{値|あたい}もケンの{誤|あやま}った{計算|けいさん}では「ありえる」と{思|おも}ってしまった。"
+      - type: dialog
+        character: ken
+        text: "{絶対|ぜったい}1{番|ばん}になりたかったんだ。でも{記録|きろく}を{書|か}き{換|か}えるのは{間違|まちが}いだった……ごめん。"
+      - type: sprite
+        id: ken
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなにも{隠|かく}していたことがあった。"
+      - type: sprite
+        id: aki
+        position: left
+        expression: worried
+      - type: dialog
+        character: aki
+        text: "{後片付|あとかたづ}け{中|ちゅう}にケンが{記録|きろく}{用紙|ようし}を{手|て}に{取|と}ってるのを{見|み}てた。「{計算|けいさん}の{見直|みなお}し」って{言|い}われて{信|しん}じちゃった。ぼくがちゃんと{確認|かくにん}してれば……。"
+      - type: sprite
+        id: aki
+        action: hide
+      - type: sprite
+        id: nao
+        position: right
+        expression: thinking
+      - type: dialog
+        character: nao
+        text: "ケンが{実験|じっけん}{前|まえ}から「{絶対|ぜったい}1{番|ばん}になりたい」って{言|い}ってたのを{知|し}ってた。この{動機|どうき}の{証言|しょうげん}が、{犯人|はんにん}{特定|とくてい}の{最後|さいご}のピースだったの。"
+      - type: sprite
+        id: nao
+        action: hide
+      - type: sprite
+        id: yui
+        position: left
+        expression: worried
+      - type: dialog
+        character: yui
+        text: "{測定|そくてい}した{値|あたい}は85g、それは{確|たし}か。{後片付|あとかたづ}け{中|ちゅう}に「450」を{見|み}て「{変|へん}だ」って{思|おも}ったのに、{言|い}い{出|だ}せなかった……ごめんなさい。"
+      - type: sprite
+        id: yui
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{演繹法|えんえきほう}で{犯人|はんにん}を{特定|とくてい}しましたね。「{電磁石|でんじしゃく}の{磁力|じりょく}は{巻|ま}き{数|すう}に{比例|ひれい}する」という{一般|いっぱん}{原理|げんり}から、「20{回|かい}で450gは{不可能|ふかのう}」と{証明|しょうめい}できました。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{電磁石|でんじしゃく}の{磁力|じりょく}は{巻|ま}き{数|すう}と{電流|でんりゅう}に{比例|ひれい}します。{鉄芯|てっしん}も{重要|じゅうよう}——{鉄芯|てっしん}がなければ{磁力|じりょく}はほぼゼロです。"
+      - type: dialog
+        character: sensei
+        text: "{科学|かがく}では「{正確|せいかく}な{測定|そくてい}」と「{正直|しょうじき}な{記録|きろく}」がすべての{基礎|きそ}です。1つの{改|かい}ざんが{科学|かがく}{全体|ぜんたい}の{信頼|しんらい}を{損|そこ}ないます。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "ケンの「{負|ま}けたくない」という{気持|きも}ちは{自然|しぜん}な{感情|かんじょう}です。でもその{気持|きも}ちの{表現|ひょうげん}{方法|ほうほう}が{問題|もんだい}だった。{競争心|きょうそうしん}と{誠実|せいじつ}さを{両立|りょうりつ}させるにはどうすればいいか、{考|かんが}えてみましょう。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: science-lab
+    bgm: science-07/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: ken
+        position: left
+        expression: worried
+      - type: dialog
+        character: ken
+        text: "ごめん……{正直|しょうじき}に85gって{書|か}いておけばよかった。{負|ま}けるのが{怖|こわ}かったんだ。"
+      - type: sprite
+        id: ken
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。{実|じつ}は、{正確|せいかく}に85gを{記録|きろく}した{方|ほう}が{価値|かち}があるんだよ。なぜなら——85gは{理論値|りろんち}の80gに{近|ちか}い。{精度|せいど}の{高|たか}い{実験|じっけん}ができた{証拠|しょうこ}なんだ。"
+      - type: dialog
+        character: sensei
+        text: "{科学|かがく}では「1{番|ばん}になること」より「{正確|せいかく}に{測|はか}ること」が{大切|たいせつ}。{正直|しょうじき}なデータこそ、{本当|ほんとう}の{価値|かち}がありますよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "3{班|はん}の{記録|きろく}は{正|ただ}しい{値|あたい}——85gに{戻|もど}された。そして「{電磁石|でんじしゃく}の{比例|ひれい}{関係|かんけい}を{実験|じっけん}で{確認|かくにん}できた」という{結論|けつろん}が、{本当|ほんとう}のレポートになった。"
+      - type: effect
+        name: fade-out
