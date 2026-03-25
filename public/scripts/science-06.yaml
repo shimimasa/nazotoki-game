@@ -1,0 +1,453 @@
+meta:
+  id: science-06
+  title: 書きかえられた星座早見盤
+  series: サイエンス捜査班
+  volume: 6
+  estimatedMinutes: 22
+
+characters:
+  sora:
+    name: ソラ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  haru:
+    name: ハル
+    color: "#2E8B57"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  tsuki:
+    name: ツキ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: night-sky
+    bgm: science-06/opening
+    steps:
+      - type: narration
+        text: "{理科|りか}クラブの{天体|てんたい}{観測|かんそく}{合宿|がっしゅく}、2{日目|にちめ}の{朝|あさ}。"
+      - type: narration
+        text: "{昨夜|さくや}20:00に{全員|ぜんいん}で{冬|ふゆ}の{夜空|よぞら}を{観測|かんそく}し、コンクール{出品|しゅっぴん}用の「{星座|せいざ}{早見盤|はやみばん}」を4{人|にん}で{協力|きょうりょく}して{制作|せいさく}していた。"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: normal }
+          - { id: haru, expression: normal }
+          - { id: hikaru, expression: normal }
+          - { id: tsuki, expression: normal }
+      - type: narration
+        text: "{観測|かんそく}データを{早見盤|はやみばん}に{書|か}き{込|こ}み、22:00に{就寝|しゅうしん}。{順調|じゅんちょう}なはずだった。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "ところが{今朝|けさ}、{顧問|こもん}の{先生|せんせい}が{早見盤|はやみばん}を{確認|かくにん}すると——"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: surprised }
+          - { id: haru, expression: surprised }
+          - { id: hikaru, expression: worried }
+          - { id: tsuki, expression: worried }
+      - type: narration
+        text: "3{か所|かしょ}のデータが{書|か}きかえられていた。しかも、{書|か}きかえ{後|ご}のデータは{科学|かがく}的に「{間違|まちが}い」だった！"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: hikaru
+        action: hide
+      - type: sprite
+        id: tsuki
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-06/tension
+      - type: dialog
+        character: sensei
+        text: "コンクール{提出|ていしゅつ}まであと2{日|にち}。{誰|だれ}が、なぜ、{正|ただ}しいデータをわざわざ{間違|まちが}いに{変|か}えたのか？ {解|と}き{明|あ}かしてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "書きかえられた星座早見盤"
+        subtitle: "サイエンス捜査班 Vol.6"
+
+  # ===== 証拠カード1: 書きかえ箇所 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: science-06/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 書きかえ箇所"
+      - type: narration
+        text: "{星座|せいざ}{早見盤|はやみばん}の3{か所|かしょ}が{書|か}きかえられていた。"
+      - type: narration
+        text: "1つ{目|め}：オリオン{座|ざ}の{位置|いち}。{元|もと}のデータ「{南東|なんとう}の{空|そら}・{高度|こうど}{約|やく}30{度|ど}」→{書|か}きかえ{後|ご}「{真南|まみなみ}の{空|そら}・{高度|こうど}{約|やく}55{度|ど}」。{西|にし}に{約|やく}45{度|ど}ずれ、{高度|こうど}が{上|あ}がった。"
+      - type: narration
+        text: "2つ{目|め}：{北斗七星|ほくとしちせい}の{柄杓|ひしゃく}の{向|む}き。{元|もと}「{柄|え}が{右上|みぎうえ}（{北東|ほくとう}{方向|ほうこう}）」→{書|か}きかえ{後|ご}「{柄|え}が{右下|みぎした}（{東|ひがし}{方向|ほうこう}）」。{約|やく}45{度|ど}、{反時計回|はんとけいまわ}りに{回転|かいてん}。"
+      - type: narration
+        text: "3つ{目|め}：{冬|ふゆ}の{大三角|だいさんかく}の{方位|ほうい}。{元|もと}「{南東|なんとう}〜{南|みなみ}」→{書|か}きかえ{後|ご}「{南|みなみ}〜{南西|なんせい}」。{方位|ほうい}が{西|にし}に{約|やく}45{度|ど}ずれた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "3{か所|かしょ}{全部|ぜんぶ}、{同|おな}じ{方向|ほうこう}（{西側|にしがわ}）に{約|やく}45{度|ど}ずれている。このパターンには{意味|いみ}があるはず……。"
+
+  # ===== 証拠カード2: 星の動きのルール =====
+  - id: evidence-2
+    bg: night-sky
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 星の動きのルール"
+      - type: narration
+        text: "{地球|ちきゅう}は1{日|にち}（24{時間|じかん}）に1{回転|かいてん}する。これを「{自転|じてん}」という。"
+      - type: narration
+        text: "{地球|ちきゅう}が{回|まわ}ることで、{空|そら}の{星|ほし}は{東|ひがし}から{西|にし}へ{動|うご}いて{見|み}える。{星|ほし}が{動|うご}く{速|はや}さ——1{時間|じかん}に{約|やく}15{度|ど}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{計算|けいさん}してみよう。20:00に{南東|なんとう}の{空|そら}にあった{星|ほし}は、23:00にはどこにある？ 3{時間|じかん}×15{度|ど}＝{約|やく}45{度|ど}、{西|にし}{方向|ほうこう}に{移動|いどう}。つまり{真南|まみなみ}に{近|ちか}い{位置|いち}まで{動|うご}く。"
+      - type: narration
+        text: "{北極星|ほっきょくせい}はほぼ{動|うご}かない。{地球|ちきゅう}の{自転軸|じてんじく}の{延長線上|えんちょうせんじょう}にあるから。{他|ほか}の{星|ほし}は{北極星|ほっきょくせい}の{周|まわ}りを{反時計回|はんとけいまわ}りに{回|まわ}って{見|み}える。"
+      - type: narration
+        text: "{証拠|しょうこ}カード1の「{書|か}きかえ{後|ご}のデータ」は、{何時|なんじ}の{空|そら}と{合|あ}っている？ 45{度|ど}のずれは3{時間|じかん}分。20:00の3{時間|じかん}{後|ご}は——23:00！"
+
+  # ===== 証拠カード3: 4人の観測ノート比較 =====
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 観測ノート比較"
+      - type: narration
+        text: "4{人|にん}がそれぞれ20:00に{記録|きろく}したデータを{比較|ひかく}する。"
+      - type: narration
+        text: "ソラ、ハル、ツキの{記録|きろく}は{一致|いっち}——オリオン{座|ざ}は{南東|なんとう}・{高度|こうど}{約|やく}30{度|ど}。{北斗七星|ほくとしちせい}の{柄|え}は{右上|みぎうえ}。{冬|ふゆ}の{大三角|だいさんかく}は{南東|なんとう}〜{南|みなみ}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ヒカルの{個人|こじん}メモだけ、{詳|くわ}しいデータが{記録|きろく}されていない。「{後|あと}で{確認|かくにん}」とだけ{書|か}いてある。"
+      - type: narration
+        text: "ソラの{記録|きろく}{用紙|ようし}には{星座|せいざ}{名|めい}の{修正|しゅうせい}{跡|あと}がある（「こいぬ{座|ざ}」→「おおいぬ{座|ざ}」に{訂正|ていせい}）。{数値|すうち}データは{正確|せいかく}だった。"
+
+  # ===== 証拠カード4: 行動記録と証言 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: science-06/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 行動記録と証言"
+      - type: narration
+        text: "{昨夜|さくや}の{行動|こうどう}{記録|きろく}。20:00に{観測|かんそく}、21:00に{作業室|さぎょうしつ}で{書|か}き{込|こ}み、22:00に{就寝|しゅうしん}。ツキだけ22:30にトイレに{起|お}きている。"
+      - type: narration
+        text: "{作業室|さぎょうしつ}の{鍵|かぎ}は{施設|しせつ}の{受付|うけつけ}にあり、{誰|だれ}でも{取|と}れる。{共用|きょうよう}の{鉛筆|えんぴつ}・{消|け}しゴムが{置|お}いてある。{今朝|けさ}の{確認|かくにん}では{鍵|かぎ}はかかっていなかった。"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: classroom
+    bgm: science-06/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: sora
+        position: left
+        expression: normal
+      - type: dialog
+        character: sora
+        text: "20:00の{観測|かんそく}データは{正確|せいかく}に{記録|きろく}したわ。{今朝|けさ}{確認|かくにん}したら3{か所|かしょ}が{違|ちが}っていて{驚|おどろ}いた。わたしは{夜中|よなか}に{起|お}きていません。"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: haru
+        position: right
+        expression: normal
+      - type: dialog
+        character: haru
+        text: "{望遠鏡|ぼうえんきょう}でしっかり{観察|かんさつ}した。ベテルギウスは{赤|あか}、シリウスは{青白|あおじろ}。22:00に{寝|ね}て、{朝|あさ}まで{起|お}きてないよ。"
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: hikaru
+        position: left
+        expression: normal
+      - type: dialog
+        character: hikaru
+        text: "20:00の{観測|かんそく}は{楽|たの}しかった！ コンクールが{楽|たの}しみだ。22:00に{寝|ね}て……{朝|あさ}まで{起|お}きていません。"
+      - type: sprite
+        id: hikaru
+        action: hide
+      - type: sprite
+        id: tsuki
+        position: right
+        expression: thinking
+      - type: dialog
+        character: tsuki
+        text: "スケッチは{方位磁針|ほういじしん}で{方角|ほうがく}を{確認|かくにん}しながら{描|えが}いたよ。22:00に{寝|ね}たけど、22:30ごろトイレに{起|お}きたの。"
+      - type: sprite
+        id: tsuki
+        action: hide
+
+  # ===== 証拠カード5: ヒカルのスマホ写真（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: night-sky
+    bgm: science-06/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — ヒカルのスマホの写真"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{作業室|さぎょうしつ}の{机|つくえ}の{上|うえ}に、ヒカルのスマホが{置|お}いてあった。{写真|しゃしん}フォルダを{確認|かくにん}すると——"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{冬|ふゆ}の{夜空|よぞら}の{写真|しゃしん}。{撮影|さつえい}{時刻|じこく}：23:02。{撮影|さつえい}{場所|ばしょ}：{観測|かんそく}{広場|ひろば}（GPSデータから{確認|かくにん}）。"
+      - type: narration
+        text: "{写真|しゃしん}に{写|うつ}っている{内容|ないよう}——オリオン{座|ざ}が{真南|まみなみ}の{空|そら}・{高度|こうど}{約|やく}55{度|ど}に{見|み}える。{冬|ふゆ}の{大三角|だいさんかく}が{南|みなみ}〜{南西|なんせい}の{空|そら}に{見|み}える。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{書|か}きかえ{後|ご}のデータと{写真|しゃしん}を{比|くら}べると——{完全|かんぜん}に{一致|いっち}！ つまり{書|か}きかえ{後|ご}のデータは「23:00ごろの{空|そら}」に{合|あ}っている。"
+      - type: narration
+        text: "スマホには22:58にライトをON、23:15にOFFにした{記録|きろく}もある。ヒカルは{夜中|よなか}に{外|そと}に{出|で}ていた。"
+      - type: narration
+        text: "ヒカルは23:00の{空|そら}を{見|み}て、20:00のデータと{違|ちが}うことに{気|き}づいた。でも{星|ほし}は{時間|じかん}とともに{動|うご}くから、3{時間後|じかんご}に{位置|いち}が{違|ちが}うのは{当|あ}たり{前|まえ}。ヒカルは{何|なに}を{間違|まちが}えた？"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: classroom
+    bgm: science-06/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "20:00と23:00で{星|ほし}の{位置|いち}が{違|ちが}うのはなぜ？"
+        options:
+          - text: "誰かが星座を動かした"
+            feedback: "{星|ほし}を{動|うご}かすことはできないよ。{地球|ちきゅう}の{自転|じてん}で{星|ほし}は1{時間|じかん}に{約|やく}15{度|ど}、{東|ひがし}から{西|にし}へ{動|うご}いて{見|み}えるんだ。"
+          - text: "地球の自転で星が動いて見えるから"
+            feedback: "そのとおり！ {地球|ちきゅう}が{回|まわ}るから{星|ほし}が{動|うご}いて{見|み}える。3{時間|じかん}で{約|やく}45{度|ど}。20:00と23:00で{違|ちが}って{当然|とうぜん}だね。"
+          - text: "天気が変わったから"
+            feedback: "{天気|てんき}ではなく、{地球|ちきゅう}の{自転|じてん}が{原因|げんいん}だよ。{星|ほし}は1{時間|じかん}に15{度|ど}、{東|ひがし}→{西|にし}に{動|うご}いて{見|み}える。"
+      - type: choice
+        id: q2
+        text: "{星座|せいざ}{早見盤|はやみばん}のデータを{書|か}きかえたのは{誰|だれ}？"
+        options:
+          - text: "ソラ"
+            feedback: "ソラの{記録|きろく}には{星座名|せいざめい}の{修正|しゅうせい}{跡|あと}があるけど、{数値|すうち}データは{正確|せいかく}だったよ。{夜中|よなか}にも{起|お}きていない。"
+          - text: "ハル"
+            feedback: "ハルは{望遠鏡|ぼうえんきょう}で{観察|かんさつ}したデータは{正確|せいかく}。22:00に{寝|ね}てから{起|お}きていないと{言|い}っている。"
+          - text: "ヒカル"
+            feedback: "ヒカルのスマホに23:02の{写真|しゃしん}がある。{夜中|よなか}に{外|そと}に{出|で}ていた{証拠|しょうこ}。{書|か}きかえデータと{写真|しゃしん}が{完全|かんぜん}{一致|いっち}……。"
+          - text: "ツキ"
+            feedback: "ツキは22:30にトイレに{起|お}きたけど、{観測|かんそく}{広場|ひろば}には{出|で}ていない。スケッチの{方位|ほうい}データも{正確|せいかく}だよ。"
+
+  # ===== 真実: ヒカルの告白 =====
+  - id: truth-hikaru
+    bg: night-sky
+    bgm: science-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "みんな、{調査|ちょうさ}おつかれさまでした。{星座|せいざ}{早見盤|はやみばん}の{真相|しんそう}をお{話|はな}しします。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "データを{書|か}きかえたのは——ヒカルだった。でも、{壊|こわ}そうとしたのではない。「{正|ただ}しく{直|なお}したつもり」だった。"
+      - type: sprite
+        id: hikaru
+        position: center
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "22:00に{寝|ね}たんだけど、23{時|じ}ごろ{目|め}が{覚|さ}めたんだ。コンクールが{気|き}になって、「もう{一度|いちど}{確認|かくにん}しよう」って{思|おも}って{外|そと}に{出|で}た。"
+      - type: narration
+        text: "23:00の{夜空|よぞら}を{見|み}たヒカルは{驚|おどろ}いた。オリオン{座|ざ}の{位置|いち}が{早見盤|はやみばん}に{書|か}いたデータと{全然|ぜんぜん}{違|ちが}う！"
+      - type: dialog
+        character: hikaru
+        expression: surprised
+        text: "「データが{間違|まちが}ってる！ コンクールに{出|だ}すのにこのままじゃダメだ！」って{焦|あせ}って、{自分|じぶん}の{目|め}で{見|み}た{今|いま}の{空|そら}に{合|あ}わせて3{か所|かしょ}を『{修正|しゅうせい}』しちゃったんだ……。"
+      - type: narration
+        text: "しかし{実際|じっさい}には——{星|ほし}は{地球|ちきゅう}の{自転|じてん}で1{時間|じかん}に{約|やく}15{度|ど}、{東|ひがし}から{西|にし}へ{動|うご}く。3{時間|じかん}で{約|やく}45{度|ど}。20:00と23:00で{星|ほし}の{位置|いち}が{違|ちが}うのは{当|あ}たり{前|まえ}だった。"
+      - type: sprite
+        id: hikaru
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "{元|もと}の20:00のデータが{正|ただ}しかったんだ……。{星|ほし}が{時間|じかん}で{動|うご}くってこと、ちゃんと{分|わ}かってなかった。よかれと{思|おも}ってやったのに、{逆|ぎゃく}に{壊|こわ}しちゃった……ごめん。"
+      - type: sprite
+        id: hikaru
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: narration
+        text: "みんなにも{隠|かく}していたことがあった。"
+      - type: sprite
+        id: sora
+        position: left
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "わたし、{記録|きろく}{用紙|ようし}に{星座名|せいざめい}を{間違|まちが}えて{書|か}いちゃったの。「こいぬ{座|ざ}」って{書|か}いて{後|あと}で「おおいぬ{座|ざ}」に{直|なお}した。{実|じつ}は{星座|せいざ}にあまり{詳|くわ}しくなくて、{図鑑|ずかん}を{見|み}ながら{記録|きろく}してたの……。でも{数値|すうち}データは{正確|せいかく}だったよ。"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: haru
+        position: right
+        expression: worried
+      - type: dialog
+        character: haru
+        text: "{望遠鏡|ぼうえんきょう}の{倍率|ばいりつ}{設定|せってい}を{途中|とちゅう}で{間違|まちが}えてたんだ。5{分間|ふんかん}くらい。{色|いろ}の{記録|きろく}が{少|すこ}し{不正確|ふせいかく}になったかもしれない。でも{星|ほし}の{位置|いち}や{方位|ほうい}には{影響|えいきょう}しないよ。{報告|ほうこく}しなくて……ごめん。"
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: tsuki
+        position: left
+        expression: worried
+      - type: dialog
+        character: tsuki
+        text: "22:30にトイレに{起|お}きたとき、{廊下|ろうか}でヒカルが{外|そと}に{出|で}ていくのを{見|み}たの。でも{友達|ともだち}のことを{言|い}いたくなくて{黙|だま}ってた……ごめんね。"
+      - type: sprite
+        id: tsuki
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: night-sky
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{地球|ちきゅう}の{自転|じてん}によって、{星|ほし}は1{時間|じかん}に{約|やく}15{度|ど}、{東|ひがし}から{西|にし}へ{動|うご}いて{見|み}えます。{同|おな}じ{場所|ばしょ}でも{時刻|じこく}が{違|ちが}えば{星|ほし}の{位置|いち}も{違|ちが}う。これが{天文学|てんもんがく}の{基本|きほん}ルールです。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{星座|せいざ}{早見盤|はやみばん}は「{日付|ひづけ}×{時刻|じこく}」を{合|あ}わせて{使|つか}う{道具|どうぐ}。{時刻|じこく}を{合|あ}わせ{直|なお}さないと{正|ただ}しい{星|ほし}の{位置|いち}は{読|よ}めません。"
+      - type: dialog
+        character: sensei
+        text: "ヒカルは「{自分|じぶん}の{目|め}で{見|み}たものが{正|ただ}しい」と{思|おも}い{込|こ}んだ。でも{科学|かがく}では、{自分|じぶん}の{感覚|かんかく}よりも{データとルール|でーたとるーる}で{判断|はんだん}することが{大切|たいせつ}です。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "そして{科学|かがく}の{比較|ひかく}では、{条件|じょうけん}を{揃|そろ}えることが{一番|いちばん}{大事|だいじ}。20:00のデータと23:00の{空|そら}を{比|くら}べても{意味|いみ}がない。{条件|じょうけん}（{時刻|じこく}）が{違|ちが}うからです。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: night-sky
+    bgm: science-06/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "ヒカルの{行動|こうどう}は「{悪|わる}いこと」ではなく「{間違|まちが}い」だった。{知識|ちしき}{不足|ふそく}による{善意|ぜんい}の{間違|まちが}い。{知|し}らなかったことと、わざとやったことは{違|ちが}います。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: sprite
+        id: hikaru
+        position: left
+        expression: thinking
+      - type: dialog
+        character: hikaru
+        text: "{星|ほし}が{時間|じかん}で{動|うご}くってこと、{今日|きょう}やっと{本当|ほんとう}に{分|わ}かった。20:00のデータを{元|もと}に{戻|もど}して、もう{一度|いちど}{早見盤|はやみばん}を{完成|かんせい}させたい！"
+      - type: sprite
+        id: hikaru
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "ヒカルの{失敗|しっぱい}のおかげで、みんなは{星|ほし}の{動|うご}きを{自分|じぶん}の{力|ちから}で{発見|はっけん}できた。コンクールのレポートに「{星|ほし}は{時間|じかん}で{動|うご}く」という{発見|はっけん}を{書|か}き{加|くわ}えたら、もっといい{作品|さくひん}になりますよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
