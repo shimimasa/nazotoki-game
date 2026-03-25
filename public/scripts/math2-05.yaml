@@ -1,0 +1,506 @@
+meta:
+  id: math2-05
+  title: 組み合わせのわな
+  series: 数学深化探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: math2-05/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}6{年|ねん}1{組|くみ}。{今朝|けさ}、リクが{廊下|ろうか}の{掲示板|けいじばん}を{見|み}て{驚|おどろ}いた。"
+      - type: sprite
+        character: riku
+        expression: surprised
+        position: center
+      - type: dialog
+        character: riku
+        text: "えっ！？ {掲示板|けいじばん}の{体育|たいいく}{係|がかり}が「タクミ・コトハ」になってる！ {昨日|きのう}のくじの{結果|けっか}は「リク・コトハ」だったはずなのに！"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "わたしのノートにも「リク・コトハ」と{記録|きろく}してあるわ。{掲示板|けいじばん}の「リク」の{部分|ぶぶん}に{修正|しゅうせい}テープの{跡|あと}がある……{誰|だれ}かが書き{換|か}えた？"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、{組|く}み{合|あ}わせを{全部|ぜんぶ}{調|しら}べて、{誰|だれ}が書き{換|か}えたか{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.5
+        subtitle: 組み合わせのわな
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: math2-05/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{昨日|きのう}のくじで{体育|たいいく}{係|がかり}に{選|えら}ばれたはずなのに、{今朝|けさ}{掲示板|けいじばん}を{見|み}たら{名前|なまえ}が{消|け}されてた。"
+      - type: dialog
+        character: riku
+        text: "{昨日|きのう}は15:40に{早退|そうたい}したから、{放課後|ほうかご}に{掲示板|けいじばん}には{触|さわ}ってない。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。{昨日|きのう}の{放課後|ほうかご}、タクミが{別|べつ}クラスのユキちゃんと{話|はな}しているのを{見|み}たの。ユキちゃん、{泣|な}いてたみたい。"
+      - type: dialog
+        character: hina
+        text: "わたしは15:45から16:15まで{図書室|としょしつ}にいたから、{掲示板|けいじばん}には{近|ちか}づいてないよ。"
+        expression: thinking
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。えっと……{昨日|きのう}の{放課後|ほうかご}はちょっと{用事|ようじ}があって{学校|がっこう}に{残|のこ}ってたんだけど。"
+      - type: dialog
+        character: takumi
+        text: "……{特|とく}に{何|なに}もしてないよ。"
+        expression: worried
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{昨日|きのう}15:55に{廊下|ろうか}を{通|とお}ったとき{掲示板|けいじばん}を{確認|かくにん}したの。あのときはまだ「リク・コトハ」のままだった。"
+      - type: dialog
+        character: kotoha
+        text: "それと……タクミが{備品|びひん}{棚|だな}をゴソゴソしているのを{見|み}かけたわ。"
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 掲示板 =====
+  - id: evidence-1
+    bg: hallway-sunset
+    bgm: math2-05/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 係長配属表
+      - type: narration
+        text: "{廊下|ろうか}の{掲示板|けいじばん}に{貼|は}られた{配属表|はいぞくひょう}——"
+      - type: narration
+        text: "{体育|たいいく}{係|がかり}：タクミ・コトハ"
+      - type: narration
+        text: "※「タクミ」の{文字|もじ}の{下|した}に{修正|しゅうせい}テープの{跡|あと}がある。{透|す}けて{見|み}える{元|もと}の{文字|もじ}は「リク」。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{掲示板|けいじばん}では「タクミ・コトハ」。{担任|たんにん}のノートでは「リク・コトハ」。1か{所|しょ}だけ{違|ちが}う——「リク」が「タクミ」に書き{換|か}えられている。"
+
+  # ===== 証拠カード2: 担任のノート =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 担任先生のノート
+      - type: narration
+        text: "{担任|たんにん}の先生が{昨日|きのう}、くじ{引|び}きの{結果|けっか}をその{場|ば}で{記録|きろく}したノート——"
+      - type: narration
+        text: "{体育|たいいく}{係|がかり}（2{名|めい}）：リク・コトハ ← くじの{結果|けっか}"
+      - type: narration
+        text: "くじ{引|び}きは4人（リク・ヒナ・タクミ・コトハ）の中から{体育|たいいく}{係|がかり}2{名|めい}を{選|えら}ぶ{方法|ほうほう}で{実施|じっし}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{担任|たんにん}のノートは「その{場|ば}で{記録|きろく}した」{一次|いちじ}{資料|しりょう}。{掲示板|けいじばん}よりこちらが{正確|せいかく}——つまり{掲示板|けいじばん}が書き{換|か}えられた。"
+
+  # ===== 証拠カード3: 組み合わせ確認 =====
+  - id: evidence-3
+    bgm: math2-05/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 全組み合わせを調べよう
+      - type: narration
+        text: "4人から2人を{選|えら}ぶ{組|く}み{合|あ}わせ——C(4,2)＝6{通|とお}り。"
+      - type: narration
+        text: "① リク・ヒナ  ② リク・タクミ  ③ リク・コトハ ← {担任|たんにん}ノートの{結果|けっか}"
+      - type: narration
+        text: "④ ヒナ・タクミ  ⑤ ヒナ・コトハ  ⑥ タクミ・コトハ ← {掲示板|けいじばん}の{表示|ひょうじ}"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "タクミが{含|ふく}まれる{組|く}み{合|あ}わせ：②④⑥（3{通|とお}り）。{含|ふく}まれない{組|く}み{合|あ}わせ：①③⑤（3{通|とお}り）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{担任|たんにん}{記録|きろく}③「リク・コトハ」→ {掲示板|けいじばん}⑥「タクミ・コトハ」。「リク」を「タクミ」に{変|か}えれば③が⑥になる——1{名|めい}の{置|お}き{換|か}えだ。"
+
+  # ===== 証拠カード4: 放課後のタイムライン =====
+  - id: evidence-4
+    bgm: math2-05/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 放課後の廊下
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}のタイムライン——"
+      - type: narration
+        text: "13:30 くじ{引|び}き{終了|しゅうりょう}。{担任|たんにん}が{掲示板|けいじばん}に{配属表|はいぞくひょう}を{貼|は}る。"
+      - type: narration
+        text: "14:30 ヒナが{目撃|もくげき}：タクミが{別|べつ}クラスのユキちゃんと{話|はな}していた。ユキちゃんは{泣|な}いていた。"
+      - type: narration
+        text: "15:40 リク{早退|そうたい}。15:45 ヒナが{図書室|としょしつ}へ（16:15まで）。"
+      - type: narration
+        text: "15:50 コトハが{目撃|もくげき}：タクミが{備品|びひん}{棚|だな}をゴソゴソしていた。{備品|びひん}{棚|だな}には{修正|しゅうせい}テープとマジックが{入|はい}っている。"
+      - type: narration
+        text: "15:55 コトハが{掲示板|けいじばん}を{確認|かくにん}：まだ「リク・コトハ」のままだった。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "16:10 {教員|きょういん}がタクミに「まだいるの？」。——15:55{以降|いこう}、{廊下|ろうか}にいたのはタクミだけ。{備品|びひん}{棚|だな}の{修正|しゅうせい}テープを{使|つか}えた{唯一|ゆいいつ}の{人物|じんぶつ}。"
+
+  # ===== 証拠カード5: タクミのメモ帳 =====
+  - id: evidence-5
+    bgm: math2-05/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タクミのメモ帳
+      - type: narration
+        text: "タクミのメモ{帳|ちょう}から{見|み}つかった1ページ——"
+      - type: narration
+        text: "「{体育|たいいく}{係|がかり}のくじの{全|ぜん}パターンを{調|しら}べてみた。4人から2人を{選|えら}ぶ → C(4,2)＝6{通|とお}り」"
+      - type: narration
+        text: "「③ リク・コトハ ★ ← これが{当|あ}たった」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "「コトハはそのまま、リクを{変|か}える{方法|ほうほう}は？ → ③の『リク』を『タクミ』にすれば⑥になる」"
+      - type: narration
+        text: "「ユキちゃんは……ちょっと{待|ま}って。ユキちゃんって何{組|くみ}？」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "タクミは{全|ぜん}{組|く}み{合|あ}わせを{計算|けいさん}し、書き{換|か}え{方法|ほうほう}まで{計画|けいかく}していた。「ユキちゃんのため」——でも{最後|さいご}の{一行|いちぎょう}「何{組|くみ}？」で{気|き}づきかけていた。ユキちゃんは6{年|ねん}1{組|くみ}ではなかったのだ。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: math2-05/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}がそろったわね。{掲示板|けいじばん}の{配属表|はいぞくひょう}を書き{換|か}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 掲示板の配属表を書き換えたのは誰？
+        options:
+          - text: リク（体育係から外された当事者）
+            value: riku
+            feedback: リクは15:40に早退していて、書き換えが起きた時間帯にはもう学校にいなかったよ。アリバイがある。
+          - text: ヒナ（タクミの行動を目撃した）
+            value: hina
+            feedback: ヒナは15:45から16:15まで図書室にいて、掲示板には近づいていないよ。アリバイがある。
+          - text: タクミ（放課後に廊下にいた）
+            value: takumi
+            feedback: 正解！ タクミは全組み合わせを計算して書き換え方法を計画し、備品棚の修正テープを使って「リク」を「タクミ」に書き換えた。友だちのユキちゃんのためだったが、ユキちゃんは1組ではなかった。
+          - text: コトハ（15:55に掲示板を確認した）
+            value: kotoha
+            feedback: コトハは15:55に掲示板を確認して「リク・コトハ」のままだったと証言しているよ。書き換えはそれ以降に起きた。
+      - type: choice
+        id: q2
+        question: タクミの行動の問題点は何だった？
+        options:
+          - text: 友だちのためと思い込んで、確認せずに行動したこと
+            value: assumption
+            feedback: 正解！ タクミはユキちゃんが6年1組ではないことを確認しなかった。「正義感」で行動したつもりが、くじの公正さを壊してしまった。確認なしの行動は善意でも問題を起こす。
+          - text: 組み合わせの計算を間違えたこと
+            value: math-error
+            feedback: 実はタクミの計算自体は正しかった（C(4,2)=6通り、書き換え方法も正確）。問題は「計算力」ではなく「確認せずに行動した」こと。
+          - text: リクに相談しなかったこと
+            value: no-consult
+            feedback: リクに相談しなかったのも問題だけど、一番の問題は「ユキちゃんが1組ではない」ことを確認しなかったこと。そもそも実現できない計画だった。
+          - text: 証拠を残してしまったこと
+            value: evidence
+            feedback: 証拠を残したことが問題ではないよ。そもそも「掲示板を書き換える」という行動自体が間違い。確認せずに正義感で行動したことが本当の問題。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: math2-05/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 正義感の暴走
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの後ろめたさ
+  - id: truth-riku
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくも{反省|はんせい}しなきゃ。くじの{後|あと}、{掲示板|けいじばん}の{内容|ないよう}を{全員|ぜんいん}で{確認|かくにん}しなかった。「書いておいてくれた」って{信頼|しんらい}しすぎた。"
+      - type: dialog
+        character: riku
+        text: "{大事|だいじ}なことは「{全員|ぜんいん}で{確認|かくにん}する」。それが{公正|こうせい}さを{守|まも}る{方法|ほうほう}だった。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # ヒナの後ろめたさ
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたし、タクミがユキちゃんと{話|はな}してるのを{見|み}てたの。「もしかして……」って思ったのに、{直接|ちょくせつ}{確認|かくにん}しなかった。"
+      - type: dialog
+        character: hina
+        text: "タクミが{悩|なや}んでいるサインに気づいてたのに、{相談|そうだん}に{乗|の}れなかった。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # コトハの後ろめたさ
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "わたし、タクミが{備品|びひん}{棚|だな}をゴソゴソしているのが気になったの。でも{黙|だま}って{帰|かえ}っちゃった。"
+      - type: dialog
+        character: kotoha
+        text: "{早|はや}く{伝|つた}えていれば、書き{換|か}えを{止|と}められたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # タクミの真実（クライマックス）
+  - id: truth-takumi
+    bgm: math2-05/truth
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "……おれがやった。{掲示板|けいじばん}の「リク」を「タクミ」に書き{換|か}えた。"
+      - type: narration
+        speed: slow
+        text: "タクミがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: takumi
+        text: "{昨日|きのう}の{放課後|ほうかご}、ユキちゃんが「{体育|たいいく}{係|がかり}になりたかったのに{外|はず}れちゃった」って{泣|な}いてて。{何|なん}とかしてあげたかった。"
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "「おれが{体育|たいいく}{係|がかり}に{入|はい}って、ユキちゃんに{席|せき}を{渡|わた}せばいい」って思った。だから{全|ぜん}{組|く}み{合|あ}わせを{計算|けいさん}して、{掲示板|けいじばん}を書き{換|か}えた。"
+      - type: dialog
+        character: takumi
+        text: "でもメモを書いてるとき「ユキちゃんって何{組|くみ}？」って気づいて……ユキちゃんは2{組|くみ}で、1{組|くみ}の{係|かかり}{長|ちょう}にはなれなかったんだ。"
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "{友|とも}だちのためだと思ったけど、{確認|かくにん}しないで{行動|こうどう}した。くじの{公正|こうせい}さも{壊|こわ}しちゃった。ごめん。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: narration
+        speed: slow
+        text: "タクミに{悪意|あくい}はなかった。「{友|とも}だちのため」という{正義感|せいぎかん}から{行動|こうどう}した。でも「{本当|ほんとう}にそれで{解決|かいけつ}するのか」を{確認|かくにん}しなかった。{確認|かくにん}なしの{正義感|せいぎかん}は、かえって{問題|もんだい}を起こす。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: math2-05/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "{組|く}み{合|あ}わせを{全部|ぜんぶ}{調|しら}べれば、書き{換|か}えは{必|かなら}ず{見|み}つかる。C(4,2)＝6{通|とお}りを{樹形図|じゅけいず}で{全部|ぜんぶ}書き{出|だ}すことが、{不正|ふせい}を{見抜|みぬ}く{力|ちから}よ。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして「{友|とも}だちのため」でも、{確認|かくにん}しないで{行動|こうどう}するのは{危|あぶ}ない。タクミの{計算力|けいさんりょく}は{素晴|すば}らしいけど、{使|つか}い{方|かた}が{大切|たいせつ}ね。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: takumi
+        text: "次からは{行動|こうどう}する{前|まえ}に{確認|かくにん}する。「{本当|ほんとう}にそれで{解決|かいけつ}するか？」って。{計算力|けいさんりょく}は{正|ただ}しいことに{使|つか}う。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "{掲示板|けいじばん}は{元|もと}の「リク・コトハ」に{戻|もど}された。くじの{公正|こうせい}さが{守|まも}られた——6{通|とお}りの{組|く}み{合|あ}わせが、{正|ただ}しい{結果|けっか}を{証明|しょうめい}した。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{全部|ぜんぶ}の{選択肢|せんたくし}を{調|しら}べれば、{不正|ふせい}は{必|かなら}ず{見|み}つかる。そして{正義感|せいぎかん}は、{確認|かくにん}してから{行動|こうどう}に{変|か}えよう。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{組|く}み{合|あ}わせのわな、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

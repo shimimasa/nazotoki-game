@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 16:58
+- Add math2-02 to math2-04 game scripts: ratio recipe, circle area, congruent alibi
+
 ## 2026-03-25 16:36
 - Add career-09 to career-10 game scripts: complete Career Detective series
 
