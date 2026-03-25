@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 17:45
+- Add math2-10 game script: complete Math Detective series (10/10)
+
 ## 2026-03-25 17:41
 - Add math2-09 game script: composite area induction mystery
 

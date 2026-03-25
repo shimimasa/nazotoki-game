@@ -1,0 +1,515 @@
+meta:
+  id: geography-02
+  title: 消えた都道府県カルタと東北のひみつ
+  series: 地図探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  haruka:
+    name: ハルカ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  keita:
+    name: ケイタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  misaki:
+    name: ミサキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuuto:
+    name: ユウト
+    color: "#2E8B57"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-02/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}4{年|ねん}1{組|くみ}。{社会科|しゃかいか}で{作|つく}った「{都道府県|とどうふけん}かるた」の大会が{今日|きょう}のはずだった。"
+      - type: sprite
+        character: haruka
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: haruka
+        text: "大変！ 47{枚|まい}の{札|ふだ}のうち4{枚|まい}がなくなってる！ {青森|あおもり}・{秋田|あきた}・{山形|やまがた}・{岩手|いわて}——"
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "消えた4{枚|まい}に{共通点|きょうつうてん}はないかな？ {地図|ちず}{探偵団|たんていだん}、{情報|じょうほう}を{整理|せいり}して{犯人|はんにん}を{突|つ}き{止|と}めてくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.2
+        subtitle: 消えた都道府県カルタと東北のひみつ
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-02/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: haruka
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruka
+        text: "わたしはハルカ。かるた作りのリーダーで、{関東|かんとう}{地方|ちほう}の7{枚|まい}を{担当|たんとう}したよ。{関東|かんとう}の{札|ふだ}は{全部|ぜんぶ}{残|のこ}ってる。"
+      - type: dialog
+        character: haruka
+        text: "{火曜日|かようび}に47{枚|まい}{全部|ぜんぶ}あるのを{確認|かくにん}した。{水曜日|すいようび}の{放課後|ほうかご}に{消|き}えたみたい。"
+        expression: thinking
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: keita
+        expression: normal
+        position: right
+      - type: dialog
+        character: keita
+        text: "おれはケイタ。{東北|とうほく}{地方|ちほう}の6{枚|まい}を{担当|たんとう}したぜ。{水曜日|すいようび}の{放課後|ほうかご}はすぐ{帰|かえ}ったよ。"
+      - type: dialog
+        character: keita
+        text: "かるた大会、{楽|たの}しみにしてたのに。{誰|だれ}かのいたずらじゃないか？"
+        expression: normal
+      - type: sprite
+        character: keita
+        action: hide
+      - type: sprite
+        character: misaki
+        expression: normal
+        position: left
+      - type: dialog
+        character: misaki
+        text: "わたしはミサキ。{近畿|きんき}{地方|ちほう}の7{枚|まい}を{担当|たんとう}したわ。{近畿|きんき}の{札|ふだ}は{全部|ぜんぶ}{残|のこ}ってる。"
+      - type: dialog
+        character: misaki
+        text: "{水曜日|すいようび}の{放課後|ほうかご}は{図書室|としょしつ}にいたの。15:20に{教室|きょうしつ}に{戻|もど}ったとき、かるた{箱|ばこ}のフタが{少|すこ}し{開|あ}いてた気がする……。"
+        expression: thinking
+      - type: sprite
+        character: misaki
+        action: hide
+      - type: sprite
+        character: yuuto
+        expression: normal
+        position: right
+      - type: dialog
+        character: yuuto
+        text: "ぼくはユウト。{九州|きゅうしゅう}{地方|ちほう}の8{枚|まい}を{担当|たんとう}したよ。{九州|きゅうしゅう}の{札|ふだ}は{全部|ぜんぶ}{残|のこ}ってる。"
+      - type: dialog
+        character: yuuto
+        text: "{水曜日|すいようび}の{放課後|ほうかご}はおなかが{痛|いた}くて{保健室|ほけんしつ}にいた。{教室|きょうしつ}には{行|い}ってないよ。"
+        expression: worried
+      - type: sprite
+        character: yuuto
+        action: hide
+
+  # ===== 証拠カード1: 消えた札リスト =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-02/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 消えたかるた札リスト
+      - type: narration
+        text: "かるた{箱|ばこ}の中身を{確認|かくにん}。47{枚|まい}のうち4{枚|まい}がない——"
+      - type: narration
+        text: "① {青森県|あおもりけん}（りんご）② {秋田県|あきたけん}（きりたんぽ）③ {山形県|やまがたけん}（さくらんぼ）④ {岩手県|いわてけん}（わんこそば）"
+      - type: narration
+        text: "{残|のこ}りの43{枚|まい}は{全部|ぜんぶ}{残|のこ}っている。{東北|とうほく}{地方|ちほう}は「{宮城|みやぎ}」と「{福島|ふくしま}」だけ{残|のこ}っている。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "消えた4{枚|まい}は{全部|ぜんぶ}{東北|とうほく}{地方|ちほう}の{県|けん}——{共通点|きょうつうてん}{発見|はっけん}！ でも{宮城|みやぎ}と{福島|ふくしま}は{残|のこ}っている。なぜこの4{枚|まい}だけ？"
+
+  # ===== 証拠カード2: 担当表 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: かるた担当表
+      - type: narration
+        text: "4人の{担当|たんとう}{地方|ちほう}と{札|ふだ}の{状況|じょうきょう}——"
+      - type: narration
+        text: "ハルカ（{関東|かんとう}）：7{枚|まい} → {全部|ぜんぶ}ある ✓"
+      - type: narration
+        text: "ケイタ（{東北|とうほく}）：6{枚|まい} → 4{枚|まい}{消|き}えた ✗（{宮城|みやぎ}・{福島|ふくしま}は{残|のこ}っている）"
+      - type: narration
+        text: "ミサキ（{近畿|きんき}）：7{枚|まい} → {全部|ぜんぶ}ある ✓"
+      - type: narration
+        text: "ユウト（{九州|きゅうしゅう}）：8{枚|まい} → {全部|ぜんぶ}ある ✓"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "消えた{地方|ちほう}＝{東北|とうほく}。{東北|とうほく}{担当|たんとう}＝ケイタ。ケイタの{担当|たんとう}{地方|ちほう}の{札|ふだ}だけが消えている。"
+
+  # ===== 証拠カード3: 教室の見取り図 =====
+  - id: evidence-3
+    bgm: geography-02/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 教室の見取り図
+      - type: narration
+        text: "{教室|きょうしつ}の{配置|はいち}——かるた{箱|ばこ}は{教室|きょうしつ}の{後|うし}ろの{棚|たな}にある。"
+      - type: narration
+        text: "ハルカとミサキの{席|せき}は{前|まえ}のほう。ケイタとユウトの{席|せき}は{後|うし}ろのほう。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ケイタの{席|せき}が{棚|たな}に{一番|いちばん}{近|ちか}い。かるた{箱|ばこ}に{一番|いちばん}{触|さわ}りやすい{位置|いち}だ。"
+
+  # ===== 証拠カード4: 放課後の行動記録 =====
+  - id: evidence-4
+    bgm: geography-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 水曜日の放課後
+      - type: narration
+        text: "{水曜日|すいようび}の{放課後|ほうかご}の{行動|こうどう}{記録|きろく}——"
+      - type: narration
+        text: "ハルカ：15:00〜15:30{教室|きょうしつ}（{日直|にっちょく}）→{音楽室|おんがくしつ}。{音楽|おんがく}の先生が{証人|しょうにん} ✓"
+      - type: narration
+        text: "ミサキ：15:00〜15:20{図書室|としょしつ}→{教室|きょうしつ}→15:30{下校|げこう}。{図書|としょ}の先生が{証人|しょうにん} ✓"
+      - type: narration
+        text: "ユウト：15:00〜15:40{保健室|ほけんしつ}。{保健|ほけん}の先生が{証人|しょうにん} ✓"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "ケイタ：「15:00にすぐ{帰|かえ}った」と{言|い}っているが——{証人|しょうにん}なし ✗"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ハルカが15:25に{棚|たな}のあたりで「ガサガサ」{音|おと}を{聞|き}いた。そのとき{教室|きょうしつ}に{誰|だれ}かいた——{証人|しょうにん}がないのはケイタだけ。"
+
+  # ===== 証拠カード5: テスト成績 =====
+  - id: evidence-5
+    bgm: geography-02/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 都道府県テストの成績
+      - type: narration
+        text: "{担任|たんにん}の先生から{情報|じょうほう}——{先月|せんげつ}の{都道府県|とどうふけん}テストの{結果|けっか}。"
+      - type: narration
+        text: "ハルカ：{関東|かんとう}95、{東北|とうほく}80、{近畿|きんき}85、{九州|きゅうしゅう}90 → {合計|ごうけい}350"
+      - type: narration
+        text: "ミサキ：{関東|かんとう}90、{東北|とうほく}85、{近畿|きんき}100、{九州|きゅうしゅう}80 → {合計|ごうけい}355"
+      - type: narration
+        text: "ユウト：{関東|かんとう}95、{東北|とうほく}90、{近畿|きんき}85、{九州|きゅうしゅう}100 → {合計|ごうけい}370"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "ケイタ：{関東|かんとう}65、{東北|とうほく}30 ❗、{近畿|きんき}55、{九州|きゅうしゅう}60 → {合計|ごうけい}210"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ケイタの{東北|とうほく}{地方|ちほう}は30{点|てん}——ダントツに{低|ひく}い。消えたのは{東北|とうほく}の{札|ふだ}。ケイタは{東北|とうほく}{担当|たんとう}。かるた大会で{東北|とうほく}の{札|ふだ}が{出|で}たら{答|こた}えられない——{札|ふだ}を{隠|かく}す{動機|どうき}がある。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{情報|じょうほう}がそろったな。かるた{札|ふだ}を{隠|かく}したのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: かるた札を隠したのは誰？
+        options:
+          - text: ハルカ（関東担当・かるたリーダー）
+            value: haruka
+            feedback: ハルカの関東の札は全部残っているよ。消えたのは東北の札。ハルカは日直で教室にいたけど、棚のガサガサ音を聞いた側。
+          - text: ケイタ（東北担当・証人なし）
+            value: keita
+            feedback: 正解！ ケイタは東北担当なのに東北テストが30点。かるた大会で答えられないのが恥ずかしくて、覚えられなかった4枚を隠した。宮城と福島は覚えていたから残した。
+          - text: ミサキ（近畿担当・図書室にいた）
+            value: misaki
+            feedback: ミサキは図書室にいたことを図書の先生が証言しているよ。近畿の札も全部残っている。消えた東北の札とは関係がない。
+          - text: ユウト（九州担当・保健室にいた）
+            value: yuuto
+            feedback: ユウトは保健室にいたことを保健の先生が証言しているよ。九州の札も全部残っている。教室に行っていない。
+      - type: choice
+        id: q2
+        question: ケイタはなぜ宮城と福島の札は隠さなかった？
+        options:
+          - text: 宮城と福島は覚えていたから
+            value: remembered
+            feedback: 正解！ ケイタは宮城（牛タン）と福島（もも）は覚えていた。覚えられなかった4県だけ隠した。つまり「かるた大会を台無しにしたかった」のではなく「自分が答えられない札だけ消したかった」。
+          - text: 6枚全部隠すと目立つから
+            value: conspicuous
+            feedback: それも一理あるけど、一番の理由は「覚えていた札は隠す必要がなかった」から。ケイタは宮城と福島の特産品は答えられたんだ。
+          - text: 宮城と福島は簡単だから
+            value: easy
+            feedback: 「簡単」というより「ケイタが覚えていた」ことがポイント。覚えていない4県だけが恥ずかしくて隠した。苦手の程度が県ごとに違ったんだね。
+          - text: 間違えて残してしまった
+            value: mistake
+            feedback: 間違いではないよ。ケイタは意図的に「覚えられなかった4枚」だけを隠した。宮城と福島は答えられるから残したんだ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 苦手を隠したかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルカの後ろめたさ
+  - id: truth-haruka
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruka
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruka
+        text: "15:25に{棚|たな}のあたりでガサガサ{音|おと}がしたのに、{確認|かくにん}しなかった。{自分|じぶん}が{日直|にっちょく}{中|ちゅう}に{盗|ぬす}まれたことになるのが{言|い}い{出|だ}しにくくて。"
+      - type: dialog
+        character: haruka
+        text: "あのとき「{誰|だれ}かいるの？」って{声|こえ}をかけていれば……。"
+        expression: determined
+      - type: sprite
+        character: haruka
+        action: hide
+
+  # ミサキの後ろめたさ
+  - id: truth-misaki
+    steps:
+      - type: sprite
+        character: misaki
+        expression: worried
+        position: right
+      - type: dialog
+        character: misaki
+        text: "かるたを作るとき、ケイタが{東北|とうほく}の{特産品|とくさんひん}をなかなか書けなくて{困|こま}ってたのを{見|み}てたの。「{青森|あおもり}って何が{有名|ゆうめい}だっけ？」って{何度|なんど}も{聞|き}いてきた。"
+      - type: dialog
+        character: misaki
+        text: "「ケイタが{苦手|にがて}」って{言|い}うのはケイタの{気持|きも}ちを{傷|きず}つけそうで、{言|い}い{出|だ}せなかった。"
+        expression: determined
+      - type: sprite
+        character: misaki
+        action: hide
+
+  # ユウトの後ろめたさ
+  - id: truth-yuuto
+    steps:
+      - type: sprite
+        character: yuuto
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuuto
+        text: "ぼく、テストのとき、ケイタが「{東北|とうほく}むずい……」ってつぶやいてるのを{聞|き}いてた。テスト{用紙|ようし}もすぐランドセルにしまってたし。"
+      - type: dialog
+        character: yuuto
+        text: "{転校生|てんこうせい}の{自分|じぶん}が{言|い}うのは「{告|つ}げ{口|ぐち}」みたいで気が{引|ひ}けた。でも{早|はや}く{言|い}えばケイタを{助|たす}けられたかも。"
+        expression: determined
+      - type: sprite
+        character: yuuto
+        action: hide
+
+  # ケイタの真実（クライマックス）
+  - id: truth-keita
+    bgm: geography-02/truth
+    steps:
+      - type: sprite
+        character: keita
+        expression: worried
+        position: center
+      - type: dialog
+        character: keita
+        text: "……おれがやった。{東北|とうほく}の{札|ふだ}4{枚|まい}を{隠|かく}した。"
+      - type: narration
+        speed: slow
+        text: "ケイタがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: keita
+        text: "{社会科|しゃかいか}が{苦手|にがて}なんだ。{特|とく}に{東北|とうほく}{地方|ちほう}の{特産品|とくさんひん}がぜんぜん{覚|おぼ}えられなくて。テストも30{点|てん}で……。"
+        expression: worried
+      - type: dialog
+        character: keita
+        text: "かるた大会で{東北|とうほく}の{札|ふだ}が{出|で}たら、{自分|じぶん}が{担当|たんとう}した{県|けん}なのに{答|こた}えられない。みんなの{前|まえ}で{恥|はじ}をかく。"
+      - type: dialog
+        character: keita
+        text: "だから{水曜日|すいようび}の{放課後|ほうかご}にこっそり{戻|もど}って、{覚|おぼ}えられなかった4{枚|まい}を{抜|ぬ}き{取|と}った。{宮城|みやぎ}の{牛|ぎゅう}タンと{福島|ふくしま}のももは{覚|おぼ}えてたから{残|のこ}した。"
+        expression: worried
+      - type: dialog
+        character: keita
+        text: "大会を{台無|だいな}しにしたかったんじゃない。ただ……{苦手|にがて}が{恥|は}ずかしかっただけなんだ。"
+        expression: determined
+      - type: sprite
+        character: keita
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ケイタに{悪意|あくい}はなかった。「{苦手|にがて}が{恥|は}ずかしい」——ただそれだけ。でも{苦手|にがて}は{隠|かく}さなくていい。{友|とも}だちに{聞|き}いたり、一緒に{勉強|べんきょう}すればいいんだ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-02/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったな。"
+      - type: dialog
+        character: sensei
+        text: "47{都道府県|とどうふけん}を{地方|ちほう}ごとに{分類|ぶんるい}すると{共通点|きょうつうてん}が{見|み}えてくる。バラバラの{情報|じょうほう}を{表|ひょう}にまとめる{力|ちから}が、{犯人|はんにん}{特定|とくてい}の{鍵|かぎ}になった。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして{苦手|にがて}なことは{恥|は}ずかしくない。{隠|かく}すより「{教|おし}えて」と{言|い}えるほうがずっと{強|つよ}いぞ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: keita
+        expression: worried
+        position: left
+      - type: sprite
+        character: misaki
+        expression: normal
+        position: right
+      - type: dialog
+        character: misaki
+        text: "ケイタ、{東北|とうほく}の{特産品|とくさんひん}、一緒に{覚|おぼ}えよう。りんごは{青森|あおもり}、さくらんぼは{山形|やまがた}、きりたんぽは{秋田|あきた}、わんこそばは{岩手|いわて}。"
+      - type: dialog
+        character: keita
+        text: "……うん。{隠|かく}すのはもうやめる。{教|おし}えてくれてありがとう、ミサキ。"
+        expression: determined
+      - type: sprite
+        character: keita
+        action: hide
+      - type: sprite
+        character: misaki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruka, expression: happy }
+          - { id: keita, expression: happy }
+          - { id: misaki, expression: happy }
+          - { id: yuuto, expression: happy }
+      - type: narration
+        text: "かるた{札|ふだ}は{元|もと}に{戻|もど}された。{青森|あおもり}のりんご、{秋田|あきた}のきりたんぽ、{山形|やまがた}のさくらんぼ、{岩手|いわて}のわんこそば——47{枚|まい}{全部|ぜんぶ}そろって、大会が{始|はじ}まった。"
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: keita
+        action: hide
+      - type: sprite
+        character: misaki
+        action: hide
+      - type: sprite
+        character: yuuto
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{苦手|にがて}なことがあるのは{当|あ}たり{前|まえ}。{隠|かく}すより「{教|おし}えて」と{言|い}えること。それが{一番|いちばん}の{地図|ちず}{探偵|たんてい}の{力|ちから}だ。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——消えた{都道府県|とどうふけん}カルタと{東北|とうほく}のひみつ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
