@@ -1,0 +1,409 @@
+meta:
+  id: science-12
+  title: 氷のメッセージ
+  series: サイエンス捜査班
+  volume: 12
+  estimatedMinutes: 22
+
+characters:
+  akira:
+    name: アキラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  haru:
+    name: ハル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yuki:
+    name: ユキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: science-lab
+    bgm: science-12/opening
+    steps:
+      - type: narration
+        text: "{金曜日|きんようび}の{朝|あさ}、{理科室|りかしつ}の{先生|せんせい}の{机|つくえ}の{上|うえ}で——{授業|じゅぎょう}ノートがびしょ{濡|ぬ}れになっていた。"
+      - type: narration
+        text: "ノートの{上|うえ}に{四角|しかく}い{形|かたち}の{水|みず}たまりが{広|ひろ}がっている。{紙|かみ}がふやけて{文字|もじ}が{読|よ}めなくなっている。"
+      - type: sprite_group
+        characters:
+          - { id: akira, expression: surprised }
+          - { id: haru, expression: thinking }
+          - { id: yuki, expression: worried }
+          - { id: kenta, expression: surprised }
+      - type: narration
+        text: "{蛇口|じゃぐち}は{閉|し}まっている。{天井|てんじょう}に{雨漏|あまも}りの{跡|あと}もない。ノートの{隣|となり}のプリントは{全|まった}く{濡|ぬ}れていない——{水|みず}はノートの{真上|まうえ}から{来|き}た。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{水|みず}はどこから{来|き}た？"
+      - type: sprite
+        id: akira
+        action: hide
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: yuki
+        action: hide
+      - type: sprite
+        id: kenta
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-12/tension
+      - type: dialog
+        character: sensei
+        text: "{昨日|きのう}の{放課後|ほうかご}、4{人|にん}が{理科室|りかしつ}で{片付|かたづ}けをしていました。{水|みず}の{三態変化|さんたいへんか}の{知識|ちしき}を{使|つか}って、{真相|しんそう}を{解|と}き{明|あ}かしてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "氷のメッセージ"
+        subtitle: "サイエンス捜査班 Vol.12"
+
+  # ===== 証拠カード1: 三態変化チャート =====
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-12/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 水の三態変化"
+      - type: narration
+        text: "{水|みず}は{温度|おんど}によって3つの{状態|じょうたい}に{変|か}わる。{氷|こおり}（{固体|こたい}）→{水|みず}（{液体|えきたい}）→{水蒸気|すいじょうき}（{気体|きたい}）。"
+      - type: narration
+        text: "{融解|ゆうかい}：{氷|こおり}→{水|みず}。0℃{以上|いじょう}で{起|お}きる。{蒸発|じょうはつ}：{水|みず}→{水蒸気|すいじょうき}。{温度|おんど}が{高|たか}いほど{早|はや}い。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{結露|けつろ}：{水蒸気|すいじょうき}→{水滴|すいてき}。{冷|つめ}たい{物|もの}の{表面|ひょうめん}に{空気中|くうきちゅう}の{水蒸気|すいじょうき}が{触|ふ}れたときに{起|お}きる。{冷|つめ}たいコップの{外側|そとがわ}に{水滴|すいてき}がつくのと{同|おな}じ{仕組|しく}み。"
+
+  # ===== 証拠カード2: 現場の状況 =====
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 現場の状況"
+      - type: narration
+        text: "{先生|せんせい}の{机|つくえ}の{上|うえ}。ノートはびしょ{濡|ぬ}れ。{水|みず}たまりの{形|かたち}は{四角|しかく}い（{約|やく}15cm×15cm）。{水|みず}の{温度|おんど}は{室温|しつおん}と{同|おな}じ（{約|やく}20℃）。{冷|つめ}たくない。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ノートの{横|よこ}に{水滴|すいてき}の{跡|あと}が{点々|てんてん}と{続|つづ}いている——{冷凍庫|れいとうこ}の{方向|ほうこう}に{向|む}かっている。"
+      - type: narration
+        text: "「{四角|しかく}い{水|みず}たまり」——{普通|ふつう}に{水|みず}をこぼしたら{丸|まる}く{広|ひろ}がるはず。{何|なに}が{溶|と}けたら{四角|しかく}い{形|かたち}の{水|みず}になる？ {水滴|すいてき}の{跡|あと}が{冷凍庫|れいとうこ}の{方向|ほうこう}に{続|つづ}いているのはなぜ？"
+
+  # ===== 証拠カード3: 冷凍庫の記録 =====
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 冷凍庫の記録"
+      - type: narration
+        text: "{理科室|りかしつ}の{冷凍庫|れいとうこ}。{実験用|じっけんよう}の{氷|こおり}ブロック（{約|やく}15cm×15cm×10cm・{四角|しかく}い）が{保管|ほかん}されている。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{木曜|もくよう}{朝|あさ}：5{個|こ}。{金曜|きんよう}{朝|あさ}：4{個|こ}。1{個|こ}なくなっている！ {氷|こおり}ブロックの{大|おお}きさは15cm×15cm——ノートの{水|みず}たまりの{大|おお}きさとぴったり{一致|いっち}！"
+      - type: narration
+        text: "{昨日|きのう}16:20ごろ、アキラが{冷凍庫|れいとうこ}のドアが{少|すこ}し{開|あ}いているのを{発見|はっけん}→{閉|し}めた。{誰|だれ}かが{氷|こおり}を{取|と}り{出|だ}した。{氷|こおり}が{溶|と}けたらノートの{水|みず}たまりと{同|おな}じ{量|りょう}になる。"
+
+  # ===== 証拠カード4: 持ち物検査 =====
+  - id: evidence-4
+    bg: science-lab
+    bgm: science-12/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 持ち物検査"
+      - type: narration
+        text: "{先生|せんせい}が4{人|にん}の{持|も}ち{物|もの}を{確認|かくにん}した。アキラ：カバン・{筆箱|ふでばこ}→{乾|かわ}いている。ハル：カバン・{筆箱|ふでばこ}→{乾|かわ}いている。ケンタ：カバン・{筆箱|ふでばこ}→{乾|かわ}いている。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ユキ：カバン→{乾|かわ}いている。{筆箱|ふでばこ}→{内側|うちがわ}が{少|すこ}し{湿|しめ}っている！ なぜ{筆箱|ふでばこ}が{湿|しめ}っている？"
+      - type: narration
+        text: "もし{冷|つめ}たい{氷|こおり}をユキの{筆箱|ふでばこ}の{近|ちか}くで{持|も}っていたら——{氷|こおり}の{表面|ひょうめん}で{結露|けつろ}が{起|お}きる。{結露|けつろ}した{水滴|すいてき}が{筆箱|ふでばこ}に{落|お}ちた？"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: science-lab
+    bgm: science-12/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: akira
+        position: left
+        expression: determined
+      - type: dialog
+        character: akira
+        text: "ぼくは{理科室|りかしつ}の{鍵|かぎ}{係|がかり}。16:20ごろに{冷凍庫|れいとうこ}のドアが{少|すこ}し{開|あ}いてたのを{見|み}つけて{閉|し}めた。16:30に{鍵|かぎ}を{閉|し}めたよ。"
+      - type: sprite
+        id: akira
+        action: hide
+      - type: sprite
+        id: haru
+        position: right
+        expression: thinking
+      - type: dialog
+        character: haru
+        text: "ぼくは{実験|じっけん}{道具|どうぐ}の{片付|かたづ}けをしてた。16:15ごろに{終|お}わった。そのとき、ユキが{冷凍庫|れいとうこ}の{近|ちか}くにいるのが{見|み}えたんだ。{声|こえ}をかけたらびっくりして{離|はな}れた。ユキの{手|て}が{赤|あか}くなってた。"
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: yuki
+        position: left
+        expression: worried
+      - type: dialog
+        character: yuki
+        text: "{片付|かたづ}けは{普通|ふつう}にやったよ。{冷凍庫|れいとうこ}の{近|ちか}くにいたのは……ちょっと{気|き}になったことがあっただけ。{手|て}が{赤|あか}いのは……{寒|さむ}かったから。"
+      - type: sprite
+        id: yuki
+        action: hide
+      - type: sprite
+        id: kenta
+        position: right
+        expression: normal
+      - type: dialog
+        character: kenta
+        text: "おれは16:10に{片付|かたづ}け{終|お}わったぜ。{実|じつ}は{片付|かたづ}け{中|ちゅう}にビーカーを{割|わ}っちゃったんだ。それを{隠|かく}してた……でもノートとは{関係|かんけい}ないよな？"
+      - type: sprite
+        id: kenta
+        action: hide
+
+  # ===== 証拠カード5: 演繹法で犯人特定（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-12/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 演繹法で犯人を特定"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{演繹法|えんえきほう}で{前提|ぜんてい}を{積|つ}み{重|かさ}ねよう。{前提|ぜんてい}①：{水|みず}たまりは{四角|しかく}い（15cm{角|かく}）。{冷凍庫|れいとうこ}の{氷|こおり}ブロックも15cm{角|かく}。{形|かたち}がぴったり{一致|いっち}。→{水|みず}たまり＝{氷|こおり}が{溶|と}けた{水|みず}！"
+      - type: narration
+        text: "{前提|ぜんてい}②：{水|みず}の{温度|おんど}は{室温|しつおん}→{何時間|なんじかん}も{前|まえ}から{溶|と}けている→{昨日|きのう}の{放課後|ほうかご}に{置|お}かれた。{前提|ぜんてい}③：16:20に{冷凍庫|れいとうこ}のドアが{開|あ}いていた。{氷|こおり}が5{個|こ}→4{個|こ}に{減少|げんしょう}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{前提|ぜんてい}④：ユキの{筆箱|ふでばこ}が{湿|しめ}っている。{冷|つめ}たい{氷|こおり}を{持|も}つと{結露|けつろ}で{水滴|すいてき}ができる。{水滴|すいてき}の{跡|あと}も{冷凍庫|れいとうこ}→ノートの{方向|ほうこう}に{続|つづ}いている。"
+      - type: narration
+        text: "{前提|ぜんてい}⑤：ハルが16:20ごろにユキが{冷凍庫|れいとうこ}の{近|ちか}くにいるのを{目撃|もくげき}。ユキの{手|て}が{赤|あか}くなっていた——{冷|つめ}たいものを{触|さわ}った{証拠|しょうこ}。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{結論|けつろん}：ユキが{冷凍庫|れいとうこ}から{氷|こおり}を{取|と}り{出|だ}し、{先生|せんせい}のノートの{上|うえ}に{置|お}いた。{夜|よる}のうちに{氷|こおり}が{溶|と}けて（{融解|ゆうかい}）ノートがびしょ{濡|ぬ}れに。{結露|けつろ}の{水滴|すいてき}が{筆箱|ふでばこ}に{落|お}ちた。{三態変化|さんたいへんか}がすべてを{説明|せつめい}する。"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: science-lab
+    bgm: science-12/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "ノートの「{四角|しかく}い{水|みず}たまり」の{正体|しょうたい}は？"
+        options:
+          - text: "蛇口からこぼれた水"
+            feedback: "{蛇口|じゃぐち}は{閉|し}まっていたよ。しかも{蛇口|じゃぐち}の{水|みず}なら{丸|まる}く{広|ひろ}がるはず。{四角|しかく}い{形|かたち}にはならない。"
+          - text: "氷が溶けた水"
+            feedback: "そのとおり！ {四角|しかく}い{氷|こおり}ブロックが{溶|と}けたから、{水|みず}たまりも{四角|しかく}い{形|かたち}になった。{氷|こおり}の{大|おお}きさと{水|みず}たまりがぴったり{一致|いっち}するね。"
+          - text: "雨漏りの水"
+            feedback: "{天井|てんじょう}に{雨漏|あまも}りの{跡|あと}はなかったよ。それに{雨|あめ}の{水|みず}は{四角|しかく}い{形|かたち}にはならない。"
+      - type: choice
+        id: q2
+        text: "ノートを{濡|ぬ}らした{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "アキラ"
+            feedback: "アキラは{冷凍庫|れいとうこ}のドアが{開|あ}いてるのを{見|み}つけて{閉|し}めただけ。{持|も}ち{物|もの}も{乾|かわ}いている。"
+          - text: "ハル"
+            feedback: "ハルはユキが{冷凍庫|れいとうこ}の{近|ちか}くにいるのを{目撃|もくげき}した{証人|しょうにん}。{持|も}ち{物|もの}も{乾|かわ}いている。"
+          - text: "ユキ"
+            feedback: "{筆箱|ふでばこ}が{湿|しめ}っている（{結露|けつろ}の{証拠|しょうこ}）。{手|て}が{赤|あか}い（{冷|つめ}たいものを{触|さわ}った）。{冷凍庫|れいとうこ}の{近|ちか}くにいた（{目撃|もくげき}）。すべてがユキを{指|さ}している。"
+          - text: "ケンタ"
+            feedback: "ケンタはビーカーを{割|わ}ったことを{隠|かく}してたけど、ノートとは{関係|かんけい}ない。{持|も}ち{物|もの}も{乾|かわ}いている。"
+
+  # ===== 真実: ユキの告白 =====
+  - id: truth-yuki
+    bg: science-lab
+    bgm: science-12/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: narration
+        speed: slow
+        text: "{先生|せんせい}のノートを{濡|ぬ}らしたのは——ユキだった。"
+      - type: sprite
+        id: yuki
+        position: center
+        expression: worried
+      - type: dialog
+        character: yuki
+        text: "ごめんなさい。{片付|かたづ}けが{終|お}わったあと、{先生|せんせい}のノートがちょっと{開|あ}いてて……つい{見|み}ちゃった。そしたら「{明日|あした}の{実験|じっけん}{発表者|はっぴょうしゃ}：ユキ」って{書|か}いてあった。"
+      - type: dialog
+        character: yuki
+        expression: worried
+        text: "{発表|はっぴょう}が{怖|こわ}かった。みんなの{前|まえ}で{話|はな}すと{頭|あたま}が{真|ま}っ{白|しろ}になって{声|こえ}が{出|で}なくなるの。ノートが{読|よ}めなくなったら{指名|しめい}されないって{思|おも}って……。"
+      - type: dialog
+        character: yuki
+        text: "{氷|こおり}を{置|お}いたら{夜|よる}のうちに{溶|と}けて、{自然|しぜん}に{濡|ぬ}れたように{見|み}えるって{思|おも}ったの。でも{水|みず}たまりが{四角|しかく}い{形|かたち}になるなんて{知|し}らなかった。{氷|こおり}の{形|かたち}がそのまま{残|のこ}るんだね……ごめんなさい。"
+      - type: sprite
+        id: yuki
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなが{知|し}っていたことも{明|あ}かされた。"
+      - type: sprite
+        id: akira
+        position: left
+        expression: thinking
+      - type: dialog
+        character: akira
+        text: "16:20に{冷凍庫|れいとうこ}のドアが{開|あ}いてたのを{見|み}つけた。{誰|だれ}が{開|あ}けたのかは{分|わ}からなかったけど、{犯行|はんこう}の{時間|じかん}を{特定|とくてい}する{手|て}がかりになったんだね。"
+      - type: sprite
+        id: akira
+        action: hide
+      - type: sprite
+        id: haru
+        position: right
+        expression: determined
+      - type: dialog
+        character: haru
+        text: "ユキが{冷凍庫|れいとうこ}の{近|ちか}くにいるのを{見|み}た。{声|こえ}をかけたらびっくりして{離|はな}れた。{手|て}が{赤|あか}くなってたのは、{冷|つめ}たい{氷|こおり}を{触|さわ}った{証拠|しょうこ}だったんだ。"
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: kenta
+        position: left
+        expression: worried
+      - type: dialog
+        character: kenta
+        text: "{片付|かたづ}け{中|ちゅう}にビーカーを{割|わ}っちゃって{隠|かく}してた。ノートとは{関係|かんけい}なかったけど、{正直|しょうじき}に{言|い}うべきだった。ごめん。"
+      - type: sprite
+        id: kenta
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{水|みず}の{三態変化|さんたいへんか}がすべてを{説明|せつめい}しましたね。{融解|ゆうかい}（{氷|こおり}→{水|みず}）でノートが{濡|ぬ}れた。{結露|けつろ}（{水蒸気|すいじょうき}→{水滴|すいてき}）で{筆箱|ふでばこ}が{湿|しめ}った。{蒸発|じょうはつ}（{水|みず}→{水蒸気|すいじょうき}）で{水|みず}の{量|りょう}が{減|へ}った。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{演繹法|えんえきほう}で{前提|ぜんてい}を{積|つ}み{重|かさ}ねて、{論理的|ろんりてき}に{結論|けつろん}を{導|みちび}きました。{前提|ぜんてい}が{正|ただ}しければ、{結論|けつろん}も{必|かなら}ず{正|ただ}しい。これが{科学的|かがくてき}{推理|すいり}の{力|ちから}です。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "ユキ、{発表|はっぴょう}が{怖|こわ}い{気持|きも}ちは{分|わ}かります。でも{困|こま}ったときは{相談|そうだん}してね。{先生|せんせい}が{一緒|いっしょ}に{練習|れんしゅう}するから。{逃|に}げるより{向|む}き{合|あ}う{方|ほう}が、きっと{楽|らく}になるよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: science-lab
+    bgm: science-12/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: yuki
+        position: left
+        expression: worried
+      - type: dialog
+        character: yuki
+        text: "ごめんなさい。{発表|はっぴょう}が{怖|こわ}くて{逃|に}げようとした……でも{逃|に}げても{何|なに}も{解決|かいけつ}しないよね。"
+      - type: sprite
+        id: yuki
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。ノートは{書|か}き{直|なお}せます。{発表|はっぴょう}の{練習|れんしゅう}は{放課後|ほうかご}に{一緒|いっしょ}にやろう。{三態変化|さんたいへんか}のこと、ユキは{今日|きょう}の{事件|じけん}で{誰|だれ}より{詳|くわ}しくなったんだから。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "{氷|こおり}が{残|のこ}した「メッセージ」——{四角|しかく}い{水|みず}たまりと{結露|けつろ}の{水滴|すいてき}が、{三態変化|さんたいへんか}の{科学|かがく}で{真実|しんじつ}を{語|かた}っていた。"
+      - type: effect
+        name: fade-out
