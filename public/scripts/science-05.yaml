@@ -1,0 +1,519 @@
+meta:
+  id: science-05
+  title: 嵐の観測所と消えた気象データ
+  series: サイエンス捜査班
+  volume: 5
+  estimatedMinutes: 22
+
+characters:
+  sora:
+    name: ソラ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  haru:
+    name: ハル
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  kaze:
+    name: カゼ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  tsuyu:
+    name: ツユ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: nature-outdoor
+    bgm: science-05/opening
+    steps:
+      - type: narration
+        text: "{理科|りか}クラブの4{人|にん}——ソラ、ハル、カゼ、ツユは、「{丘|おか}の{上|うえ}の{気象|きしょう}{観測所|かんそくしょ}」で{天気|てんき}を{観察|かんさつ}している。"
+      - type: narration
+        text: "{来月|らいげつ}の{理科|りか}コンクールに{出|だ}す「1{日|にち}の{天気|てんき}{変化|へんか}レポート」を{作|つく}るため、{朝|あさ}9{時|じ}からずっと{観測|かんそく}してきた。"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: happy }
+          - { id: haru, expression: happy }
+          - { id: kaze, expression: happy }
+          - { id: tsuyu, expression: happy }
+      - type: narration
+        text: "{観測|かんそく}ノートには、4{人|にん}の{汗|あせ}と{努力|どりょく}が{詰|つ}まった1{日分|にちぶん}のデータがぎっしり。"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: normal }
+          - { id: haru, expression: normal }
+          - { id: kaze, expression: normal }
+          - { id: tsuyu, expression: normal }
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "ところが——14{時|じ}ごろ、{西|にし}から{急|きゅう}な{嵐|あらし}がやってきた。{激|はげ}しい{雨|あめ}と{強|つよ}い{風|かぜ}に、みんなは{観測|かんそく}テントに{駆|か}け{込|こ}んだ。"
+      - type: narration
+        speed: slow
+        text: "1{時間後|じかんご}の15{時|じ}、{嵐|あらし}が{過|す}ぎ{去|さ}って{外|そと}に{出|で}ると——"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: surprised }
+          - { id: haru, expression: surprised }
+          - { id: kaze, expression: worried }
+          - { id: tsuyu, expression: worried }
+      - type: narration
+        text: "{記録|きろく}{台|だい}の{上|うえ}に{観測|かんそく}ノートがない！ まわりにも{落|お}ちていない！"
+      - type: narration
+        text: "{風|かぜ}で{飛|と}ばされた？ {雨|あめ}で{流|なが}された？ それとも——{誰|だれ}かがノートを{持|も}ち{出|だ}した？"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: kaze
+        action: hide
+      - type: sprite
+        id: tsuyu
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-05/tension
+      - type: dialog
+        character: sensei
+        text: "コンクールは{来週|らいしゅう}。ノートがなければ{出場|しゅつじょう}できません。みんなの{力|ちから}で、{消|き}えたノートのなぞを{解|と}き{明|あ}かしてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "嵐の観測所と消えた気象データ"
+        subtitle: "サイエンス捜査班 Vol.5"
+
+  # ===== 証拠カード1: 観測所マップ =====
+  - id: evidence-1
+    bg: nature-outdoor
+    bgm: science-05/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 観測所マップ"
+      - type: narration
+        text: "{観測所|かんそくしょ}の{配置図|はいちず}だ。みんなの{持|も}ち{場|ば}と{大切|たいせつ}な{場所|ばしょ}が{書|か}いてある。"
+      - type: narration
+        text: "{丘|おか}のてっぺんに{風向計|ふうこうけい}・{風速計|ふうそくけい}（カゼの{持|も}ち{場|ば}）。{記録|きろく}{台|だい}は{百葉箱|ひゃくようばこ}のとなり（ソラの{持|も}ち{場|ば}のすぐそば）。"
+      - type: narration
+        text: "{観測|かんそく}テントは{記録|きろく}{台|だい}から10メートル。{雨量計|うりょうけい}はテントの{近|ちか}く（ツユの{持|も}ち{場|ば}）。{自動|じどう}{風向計|ふうこうけい}は{記録|きろく}{台|だい}のそば。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "カゼの{持|も}ち{場|ば}（{丘|おか}のてっぺん）は{記録|きろく}{台|だい}から{歩|ある}いて3{分|ぷん}（{走|はし}れば1〜2{分|ふん}）。{他|ほか}のみんなは{記録|きろく}{台|だい}のすぐ{近|ちか}くにいる。"
+
+  # ===== 証拠カード2: 午後の天気データ =====
+  - id: evidence-2
+    bg: nature-outdoor
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 午後の天気データ"
+      - type: narration
+        text: "{百葉箱|ひゃくようばこ}の{自動|じどう}{記録|きろく}{計|けい}と{自動|じどう}{風向計|ふうこうけい}が30{分|ぷん}ごとにデータを{記録|きろく}していた。{機械|きかい}が{自動|じどう}で{記録|きろく}したデータなので{正確|せいかく}だ。"
+      - type: narration
+        text: "13:00——{気温|きおん}25℃、{湿度|しつど}65%、{風向|ふうこう}（{自動|じどう}）：{北|きた}、{風速|ふうそく}5m/s。くもり。"
+      - type: narration
+        text: "13:30——{気温|きおん}22℃、{湿度|しつど}80%、{風向|ふうこう}：{北|きた}、{風速|ふうそく}8m/s。くもり（{暗|くら}い）。"
+      - type: narration
+        text: "14:00——{気温|きおん}18℃、{湿度|しつど}95%、{風向|ふうこう}：{北|きた}、{風速|ふうそく}15m/s。{嵐|あらし}！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "そしてカゼがノートに{書|か}いた{風向|ふうこう}データと{比|くら}べてみると——{午前中|ごぜんちゅう}は{全部|ぜんぶ}{一致|いっち}。でも13:00だけ{不一致|ふいっち}！"
+      - type: narration
+        text: "カゼの{記録|きろく}：「{南風|みなみかぜ}」。{自動|じどう}{風向計|ふうこうけい}：「{北風|きたかぜ}」。{機械|きかい}は{嘘|うそ}をつかない。なぜカゼの{記録|きろく}だけ{違|ちが}う？"
+
+  # ===== 証拠カード3: ハルの雲観察ノート =====
+  - id: evidence-3
+    bg: nature-outdoor
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 雲の観察記録"
+      - type: narration
+        text: "ハルが{別|べつ}のメモ{帳|ちょう}に{記録|きろく}していた{雲|くも}の{観察|かんさつ}{記録|きろく}だ（{観測|かんそく}ノートとは{別|べつ}）。"
+      - type: narration
+        text: "9:00——{巻雲|まきぐも}（すじ{雲|くも}）。{高|たか}い{空|そら}に{白|しろ}い{筋|すじ}。10:00——{変|か}わらず。11:00——{高積雲|こうせきうん}（ひつじ{雲|くも}）。{雲|くも}が{低|ひく}くなってきた。"
+      - type: narration
+        text: "12:00——{乱層雲|らんそううん}。{灰色|はいいろ}の{厚|あつ}い{雲|くも}。{空|そら}が{暗|くら}くなってきた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "13:00——{積乱雲|せきらんうん}（{入道雲|にゅうどうぐも}）！ {西|にし}の{空|そら}に{巨大|きょだい}な{黒|くろ}い{雲|くも}！ もくもくと{高|たか}く{発達|はったつ}。{嵐|あらし}を{連|つ}れてくる{雲|くも}だ！"
+      - type: narration
+        text: "{積乱雲|せきらんうん}は{激|はげ}しい{雨|あめ}・{雷|かみなり}・{強風|きょうふう}をもたらす{雲|くも}。{丘|おか}のてっぺんからは{西|にし}の{空|そら}がよく{見|み}える。もしカゼが13:00に{丘|おか}の{上|うえ}にいたなら、この{巨大|きょだい}な{雲|くも}が{見|み}えたはず。"
+
+  # ===== 証拠カード4: 13:00〜14:00の行動 =====
+  - id: evidence-4
+    bg: nature-outdoor
+    bgm: science-05/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 午後の行動記録"
+      - type: narration
+        text: "{先生|せんせい}が{嵐|あらし}のあとにみんなに{聞|き}き{取|と}りした、{午後|ごご}の{行動|こうどう}{記録|きろく}だ。"
+      - type: narration
+        text: "13:00——4{人|にん}{全員|ぜんいん}が{記録|きろく}{台|だい}に{集合|しゅうごう}してノートに{記録|きろく}した。"
+      - type: narration
+        text: "13:00〜13:30——ソラは{百葉箱|ひゃくようばこ}のそばでデータ{整理|せいり}。ハルは{空|そら}の{観察|かんさつ}。ツユはテントで{道具|どうぐ}{整理|せいり}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "カゼは「{記録|きろく}{台|だい}を{出|で}て、{丘|おか}のてっぺんで{追加|ついか}{測定|そくてい}していた」と{証言|しょうげん}。13:30にも「まだ{丘|おか}の{上|うえ}。{南風|みなみかぜ}が{吹|ふ}いていて{暖|あたた}かかった」と{言|い}っている。"
+      - type: narration
+        text: "13:50——ツユが{記録|きろく}{台|だい}に{行|い}ったが、ノートがなかった。14:00——{嵐|あらし}。{全員|ぜんいん}テントに{避難|ひなん}。"
+      - type: narration
+        text: "カゼの{発言|はつげん}と{証拠|しょうこ}カード2の{自動|じどう}{記録|きろく}を{見比|みくら}べてみよう。13:30の{気温|きおん}は{何|なん}℃？ {風向|ふうこう}は？ カゼの{言|い}っていることと{合|あ}っている？"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: nature-outdoor
+    bgm: science-05/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: sora
+        position: left
+        expression: normal
+      - type: dialog
+        character: sora
+        text: "わたしは{百葉箱|ひゃくようばこ}のそばで{気温|きおん}と{湿度|しつど}を{測|はか}ってた。{記録|きろく}{台|だい}のすぐ{近|ちか}くが{持|も}ち{場|ば}。13{時|じ}は{気温|きおん}25℃、{湿度|しつど}65%を{記録|きろく}したよ。"
+      - type: dialog
+        character: sora
+        expression: thinking
+        text: "{嵐|あらし}が{来|き}たとき、{記録|きろく}{台|だい}からテントに{走|はし}って{避難|ひなん}した。ノートがないと{分|わ}かったときはびっくりしたわ。"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: haru
+        position: right
+        expression: normal
+      - type: dialog
+        character: haru
+        text: "ぼくは{空|そら}を{見上|みあ}げて{雲|くも}の{種類|しゅるい}を{記録|きろく}してた。{午前中|ごぜんちゅう}は{高|たか}いところの{薄|うす}い{雲|くも}から、だんだん{低|ひく}くて{厚|あつ}い{雲|くも}に{変|か}わっていったんだ。"
+      - type: dialog
+        character: haru
+        expression: thinking
+        text: "13{時|じ}の{観測|かんそく}では、{雲|くも}が{急|きゅう}に{変|か}わり{始|はじ}めたと{感|かん}じた。{嵐|あらし}のあと{空|そら}が{一気|いっき}に{晴|は}れたのを{見|み}て「{寒冷前線|かんれいぜんせん}が{通過|つうか}したんだ」と{思|おも}ったよ。"
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: kaze
+        position: left
+        expression: normal
+      - type: dialog
+        character: kaze
+        text: "おれは{丘|おか}のてっぺんの{風向計|ふうこうけい}で{風|かぜ}を{測|はか}ってたぜ。{午前中|ごぜんちゅう}はずっと{南風|みなみかぜ}。コンクールのために{絶対|ぜったい}いいデータを{出|だ}したいと{思|おも}ってた。"
+      - type: dialog
+        character: kaze
+        expression: happy
+        text: "13{時|じ}の{直前|ちょくぜん}に{丘|おか}で{風向|ふうこう}を{測|はか}って、{記録|きろく}{台|だい}に{戻|もど}ってノートに{書|か}いた。そのあとすぐ{丘|おか}に{戻|もど}って{追加|ついか}{測定|そくてい}してたんだ。13:30にもまだ{丘|おか}の{上|うえ}にいて、{南風|みなみかぜ}で{暖|あたた}かかったぜ。"
+      - type: sprite
+        id: kaze
+        action: hide
+      - type: sprite
+        id: tsuyu
+        position: right
+        expression: worried
+      - type: dialog
+        character: tsuyu
+        text: "わたしは{雨量計|うりょうけい}で{雨|あめ}の{量|りょう}を{記録|きろく}してたの。{午前中|ごぜんちゅう}は{雨|あめ}が{降|ふ}ってなかったから0mmが{続|つづ}いてた。"
+      - type: dialog
+        character: tsuyu
+        expression: worried
+        text: "{嵐|あらし}のあとの{雨量|うりょう}は35mm。かなり{激|はげ}しい{雨|あめ}だったの。ノートがなくなって、すごく{悲|かな}しい……。"
+      - type: sprite
+        id: tsuyu
+        action: hide
+
+  # ===== 証拠カード5: 寒冷前線（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: nature-outdoor
+    bgm: science-05/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 寒冷前線のしくみ"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{今日|きょう}の{嵐|あらし}は{寒冷前線|かんれいぜんせん}が{西|にし}から{通過|つうか}したために{起|お}きました。{前線|ぜんせん}が{通|とお}るとき、{天気|てんき}が{大|おお}きく{変|か}わります。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "{寒冷前線|かんれいぜんせん}{通過|つうか}のとき{起|お}きること——{風向|ふうこう}が{南風|みなみかぜ}から{北風|きたかぜ}に{急変|きゅうへん}！ {気温|きおん}が{急|きゅう}に{下|さ}がる！ {湿度|しつど}が{急|きゅう}に{上|あ}がる！ {積乱雲|せきらんうん}が{発達|はったつ}！ {激|はげ}しい{雨|あめ}が{降|ふ}る！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{今日|きょう}のデータに{当|あ}てはめると——12:00は{気温|きおん}25℃、{南風|みなみかぜ}（まだ{前線|ぜんせん}の{前|まえ}）。13:00は{気温|きおん}25℃、{北風|きたかぜ}（{前線|ぜんせん}{通過中|つうかちゅう}！ {風向|ふうこう}が{変|か}わった）。"
+      - type: narration
+        text: "13:30は{気温|きおん}22℃、{北風|きたかぜ}（{前線|ぜんせん}{通過後|つうかご}。{冷|つめ}たい{空気|くうき}が{入|はい}ってきた）。14:00は{気温|きおん}18℃——{嵐|あらし}のピーク。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "カゼは「13:00に{南風|みなみかぜ}」「13:30にもまだ{南風|みなみかぜ}で{暖|あたた}かかった」と{言|い}っている。でも{寒冷前線|かんれいぜんせん}の{通過|つうか}で、13:00にはもう{北風|きたかぜ}に{変|か}わっていた。{気温|きおん}も13:30には3℃{下|さ}がっていた。"
+      - type: narration
+        text: "カゼは{本当|ほんとう}に13:00〜13:30に{丘|おか}の{上|うえ}にいた？ もし{丘|おか}にいなかったなら——どこにいた？ そしてなぜ{嘘|うそ}をついた？"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: nature-outdoor
+    bgm: science-05/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{天気|てんき}のデータをよく{読|よ}んで、{考|かんが}えてみましょう。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "{今日|きょう}の{嵐|あらし}の{原因|げんいん}は？"
+        options:
+          - text: "台風が来た"
+            feedback: "{台風|たいふう}ではないよ。{風向|ふうこう}が{南|みなみ}から{北|きた}に{急変|きゅうへん}し、{気温|きおん}が{急|きゅう}に{下|さ}がったのは、{寒冷前線|かんれいぜんせん}が{通過|つうか}したサインだね。"
+          - text: "寒冷前線が通過した"
+            feedback: "そのとおり！ {風向|ふうこう}の{急変|きゅうへん}、{気温|きおん}の{低下|ていか}、{積乱雲|せきらんうん}——{全部|ぜんぶ}{寒冷前線|かんれいぜんせん}{通過|つうか}のサインだね。"
+          - text: "偶然の雨"
+            feedback: "{風向|ふうこう}の{急変|きゅうへん}と{気温|きおん}の{低下|ていか}は、{寒冷前線|かんれいぜんせん}が{通過|つうか}した{証拠|しょうこ}。{偶然|ぐうぜん}ではなく、{天気|てんき}の{法則|ほうそく}だよ。"
+      - type: choice
+        id: q2
+        text: "{観測|かんそく}ノートを{持|も}ち{出|だ}したのは{誰|だれ}だと{思|おも}う？"
+        options:
+          - text: "ソラ"
+            feedback: "ソラは{百葉箱|ひゃくようばこ}のそばにいて、{記録|きろく}{台|だい}のすぐ{近|ちか}く。でも{動機|どうき}がないかも？"
+          - text: "ハル"
+            feedback: "ハルは{空|そら}を{観察|かんさつ}していた。ノートを{持|も}ち{出|だ}す{理由|りゆう}があったかな？"
+          - text: "カゼ"
+            feedback: "カゼは「{丘|おか}の{上|うえ}にいた」と{言|い}っているけど、{天気|てんき}データと{矛盾|むじゅん}している。{本当|ほんとう}はどこにいた？"
+          - text: "ツユ"
+            feedback: "ツユはテントの{近|ちか}くにいた。13:50に{記録|きろく}{台|だい}に{行|い}ったとき、もうノートがなかったんだ。"
+
+  # ===== 真実: カゼの告白 =====
+  - id: truth-kaze
+    bg: nature-outdoor
+    bgm: science-05/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "みんな、{調査|ちょうさ}おつかれさまでした。{消|き}えた{観測|かんそく}ノートの{真相|しんそう}をお{話|はな}しします。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ノートを{隠|かく}したのは——カゼだった。でも、いたずらではない。{焦|あせ}りからの{失敗|しっぱい}だった。"
+      - type: sprite
+        id: kaze
+        position: center
+        expression: worried
+      - type: narration
+        text: "カゼは13:00の{直前|ちょくぜん}に{丘|おか}のてっぺんで{風向計|ふうこうけい}を{読|よ}んだ。ちょうど{寒冷前線|かんれいぜんせん}が{通過|つうか}して{風向|ふうこう}が{変|か}わる{瞬間|しゅんかん}だったので、{針|はり}がゆれていた。"
+      - type: dialog
+        character: kaze
+        expression: worried
+        text: "パッと{見|み}て「{南風|みなみかぜ}」だと{思|おも}って、{記録|きろく}{台|だい}に{戻|もど}ってノートに{書|か}いたんだ。でも{本当|ほんとう}はもう{北風|きたかぜ}に{変|か}わり{始|はじ}めてたんだ……。"
+      - type: narration
+        text: "13:30ごろ、カゼは{記録|きろく}{台|だい}のそばの{自動|じどう}{風向計|ふうこうけい}のデータを{見|み}た。「13:00 {北風|きたかぜ}」と{表示|ひょうじ}されていた。{自分|じぶん}の{記録|きろく}と{食|く}い{違|ちが}っている！"
+      - type: se
+        sound: common/tension
+      - type: dialog
+        character: kaze
+        expression: worried
+        text: "コンクールに{出|だ}すデータに{間違|まちが}いがある！ パニックになって、ノートの13{時|じ}のページを{破|やぶ}り{取|と}ろうとした。でも{焦|あせ}って{前後|ぜんご}のページまで{破|やぶ}れちゃったんだ……。"
+      - type: narration
+        text: "ノートに{破|やぶ}れた{跡|あと}が{残|のこ}ったら{犯人|はんにん}がバレる。カゼはノートごとリュックに{隠|かく}して、「{嵐|あらし}で{飛|と}ばされた」ことにしようとした。"
+      - type: dialog
+        character: kaze
+        text: "ごめん……コンクールのデータを{間違|まちが}えちゃって、{焦|あせ}って{隠|かく}しちゃった。{正直|しょうじき}に{言|い}えばよかったのに……。"
+      - type: sprite
+        id: kaze
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: nature-outdoor
+    steps:
+      - type: narration
+        text: "みんなにも{隠|かく}していたことがあった。"
+      - type: sprite
+        id: sora
+        position: left
+        expression: worried
+      - type: dialog
+        character: sora
+        text: "わたし、13{時|じ}にカゼが「{南風|みなみかぜ}」って{書|か}いたのを{見|み}てたの。「{風向|ふうこう}が{違|ちが}う{気|き}がする……」って{感|かん}じたのに、カゼの{担当|たんとう}だからって{口|くち}を{出|だ}さなかった。あのとき{聞|き}いていれば……。"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: haru
+        position: right
+        expression: worried
+      - type: dialog
+        character: haru
+        text: "ぼく、13{時|じ}に{西|にし}の{空|そら}に{巨大|きょだい}な{積乱雲|せきらんうん}を{見|み}つけてた。「{嵐|あらし}が{来|く}るかも」って{思|おも}ったのに、「まだ{大丈夫|だいじょうぶ}」って{判断|はんだん}しちゃった。{警告|けいこく}してれば{早|はや}く{片付|かたづ}けられたかも……ごめん。"
+      - type: sprite
+        id: haru
+        action: hide
+      - type: sprite
+        id: tsuyu
+        position: left
+        expression: worried
+      - type: dialog
+        character: tsuyu
+        text: "わたし、13:50に{記録|きろく}{台|だい}に{行|い}ったとき、もうノートがなかったの。{嵐|あらし}が{近|ちか}づいてたから{確認|かくにん}できなくて、すぐ{言|い}えなかった……。"
+      - type: sprite
+        id: tsuyu
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: nature-outdoor
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{天気|てんき}データの{読解|どっかい}でカゼのアリバイを{崩|くず}しましたね。{風向|ふうこう}の{急変|きゅうへん}、{気温|きおん}の{低下|ていか}、{積乱雲|せきらんうん}——3つの{証拠|しょうこ}が{全部|ぜんぶ}{矛盾|むじゅん}を{指|さ}していました。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{寒冷前線|かんれいぜんせん}が{通過|つうか}すると、{風向|ふうこう}が{南|みなみ}から{北|きた}に{急変|きゅうへん}し、{気温|きおん}が{急|きゅう}に{下|さ}がり、{激|はげ}しい{雨|あめ}が{降|ふ}ります。これが{今日|きょう}の{嵐|あらし}の{正体|しょうたい}です。"
+      - type: dialog
+        character: sensei
+        text: "{自動|じどう}{記録|きろく}{計|けい}は{正確|せいかく}にデータを{記録|きろく}します。{人間|にんげん}の{観察|かんさつ}と{機械|きかい}のデータを{比|くら}べることで、{間違|まちが}いを{見|み}つけることができます。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "{間違|まちが}いは{誰|だれ}にでもあります。{大事|だいじ}なのは、{間違|まちが}いに{気|き}づいたとき、{隠|かく}さずに{訂正|ていせい}すること。それが{科学|かがく}の{基本|きほん}ですよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: nature-outdoor
+    bgm: science-05/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "カゼが{正直|しょうじき}に{話|はな}してくれたあと、リュックからノートが{出|で}てきた。3ページ{破|やぶ}れていたが、{他|ほか}のページのデータは{無事|ぶじ}だった。"
+      - type: sprite
+        id: kaze
+        position: left
+        expression: worried
+      - type: dialog
+        character: kaze
+        text: "ごめん……コンクールのデータを{間違|まちが}えちゃって、{焦|あせ}って{隠|かく}しちゃった。"
+      - type: sprite
+        id: kaze
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。{風向|ふうこう}の{記録|きろく}を{間違|まちが}えたのは、ちょうど{寒冷前線|かんれいぜんせん}が{通過|つうか}して{風向|ふうこう}が{変|か}わる{瞬間|しゅんかん}だったからだね。{難|むずか}しいタイミングだった。"
+      - type: dialog
+        character: sensei
+        text: "それに、カゼの{記録|きろく}ミスのおかげで、みんなは{寒冷前線|かんれいぜんせん}が{風向|ふうこう}を{変|か}えることを{自分|じぶん}の{力|ちから}で{発見|はっけん}できた。{失敗|しっぱい}から{学|まな}べることもあるんだよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: sprite
+        id: kaze
+        position: center
+        expression: happy
+      - type: dialog
+        character: kaze
+        text: "ノートの13{時|じ}のデータ、みんなで{書|か}き{直|なお}していい？ {今度|こんど}は{自動|じどう}{風向計|ふうこうけい}のデータと{合|あ}わせて、{正|ただ}しい{記録|きろく}にしたいんだ！"
+      - type: sprite
+        id: kaze
+        action: hide
+      - type: narration
+        text: "こうして{理科|りか}クラブの{天気|てんき}{観測|かんそく}は、{寒冷前線|かんれいぜんせん}について{一番|いちばん}くわしいレポートを{完成|かんせい}させたのだった。"
+      - type: effect
+        name: fade-out
