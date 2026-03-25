@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 18:16
+- Add geography-06 game script: fishery ocean current causal chain mystery
+
 ## 2026-03-25 18:13
 - Add geography-05 game script: climate witness fake report mystery
 

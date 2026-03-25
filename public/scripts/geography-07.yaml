@@ -1,0 +1,522 @@
+meta:
+  id: geography-07
+  title: きえたクイズカードと世界地図のわな
+  series: 地図探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  shinji:
+    name: シンジ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  tetsuya:
+    name: テツヤ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  fuuka:
+    name: フウカ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-07/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5{年|ねん}3{組|くみ}。「{世界|せかい}の{国|くに}あてクイズ」大会の{前日|ぜんじつ}。"
+      - type: sprite
+        character: shinji
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: shinji
+        text: "ぼくのアジアのクイズカードが1{枚|まい}{消|き}えてる！ 代わりに{見|み}{慣|な}れない{偽|にせ}のカードが{混|ま}ざってる！"
+      - type: sprite
+        character: shinji
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{偽|にせ}カードのヒントに「{大西洋|たいせいよう}に面している」と{書|か}いてあるが……アジアの{国|くに}で{大西洋|たいせいよう}に面しているのはないぞ。{地図|ちず}{探偵団|たんていだん}、{世界|せかい}{地図|ちず}の{知識|ちしき}で{偽|にせ}カードを{見破|みやぶ}ってくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.7
+        subtitle: きえたクイズカードと世界地図のわな
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-07/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: shinji
+        expression: normal
+        position: left
+      - type: dialog
+        character: shinji
+        text: "ぼくはシンジ。アジア{担当|たんとう}。インド・{中国|ちゅうごく}・タイ・{韓国|かんこく}の5{枚|まい}を{作|つく}った。でもインドのカードが{消|き}えて{偽|にせ}カードが{入|はい}ってた。"
+      - type: dialog
+        character: shinji
+        text: "{偽|にせ}カードに「{大西洋|たいせいよう}に面している」って{書|か}いてある。アジアの{国|くに}は{太平洋|たいへいよう}かインド{洋|よう}に面してるのに……。"
+        expression: thinking
+      - type: sprite
+        character: shinji
+        action: hide
+      - type: sprite
+        character: emma
+        expression: normal
+        position: right
+      - type: dialog
+        character: emma
+        text: "わたしはエマ。ヨーロッパ{担当|たんとう}。フランス・イタリア・ドイツのカードを{作|つく}ったよ。"
+      - type: dialog
+        character: emma
+        text: "……わたしのクイズ、{難|むずか}しすぎないかな。みんなに{解|と}いてもらえるか{不安|ふあん}で。"
+        expression: worried
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: tetsuya
+        expression: normal
+        position: left
+      - type: dialog
+        character: tetsuya
+        text: "おれはテツヤ。アフリカ{担当|たんとう}。エジプト・ナイジェリア・ケニアのカードを{作|つく}ったぜ。"
+      - type: dialog
+        character: tetsuya
+        text: "きのうの{放課後|ほうかご}、サッカーボールを{取|と}りに{教室|きょうしつ}に{戻|もど}ったとき、エマがシンジの{引|ひ}き{出|だ}しの{近|ちか}くにいたんだけど。"
+        expression: thinking
+      - type: sprite
+        character: tetsuya
+        action: hide
+      - type: sprite
+        character: fuuka
+        expression: normal
+        position: right
+      - type: dialog
+        character: fuuka
+        text: "わたしはフウカ。{南|みなみ}アメリカ{担当|たんとう}。ブラジル・アルゼンチン・ペルーのカードを{作|つく}ったわ。"
+      - type: dialog
+        character: fuuka
+        text: "先生がカードの{枚数|まいすう}を{確認|かくにん}したら、エマだけ6{枚|まい}あったの。{予定|よてい}は5{枚|まい}のはずなのに……。"
+        expression: thinking
+      - type: sprite
+        character: fuuka
+        action: hide
+
+  # ===== 証拠カード1: 偽カード =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-07/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 偽のクイズカード
+      - type: narration
+        text: "シンジのカードセットに{混|ま}ざっていた{偽|にせ}のクイズカード——"
+      - type: narration
+        text: "ヒント1：{人口|じんこう}がとても{多|おお}い{国|くに}。ヒント2：この{国|くに}は「{大西洋|たいせいよう}」に面している。ヒント3：カレーが{有名|ゆうめい}な{国|くに}。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒント2に{注目|ちゅうもく}！ アジアの{国|くに}で{大西洋|たいせいよう}に面している{国|くに}はない。アジアが面しているのは{太平洋|たいへいよう}とインド{洋|よう}だ。"
+
+  # ===== 証拠カード2: 枚数チェック =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: カードの枚数チェック
+      - type: narration
+        text: "先生が4人のカード{枚数|まいすう}を{確認|かくにん}——"
+      - type: narration
+        text: "シンジ（アジア）：5{枚|まい}（1{枚|まい}{消|き}えて{偽|にせ}カードが{入|はい}った）"
+      - type: narration
+        text: "テツヤ（アフリカ）：5{枚|まい} ✓　フウカ（{南|みなみ}アメリカ）：5{枚|まい} ✓"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "エマ（ヨーロッパ）：6{枚|まい} ❓ {予定|よてい}は5{枚|まい}のはず——1{枚|まい}{多|おお}い！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "シンジのカードが1{枚|まい}{消|き}えた。エマのカードが1{枚|まい}{多|おお}い。消えたインドのカードはエマのセットに？"
+
+  # ===== 証拠カード3: 大陸と大洋の対応 =====
+  - id: evidence-3
+    bgm: geography-07/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 大陸と大洋の対応表
+      - type: narration
+        text: "どの{大陸|たいりく}がどの{大洋|たいよう}に面しているか——"
+      - type: narration
+        text: "アジア：{太平洋|たいへいよう}・インド{洋|よう}（{大西洋|たいせいよう}には面していない）"
+      - type: narration
+        text: "ヨーロッパ：{大西洋|たいせいよう}。アフリカ：{大西洋|たいせいよう}・インド{洋|よう}。{南|みなみ}アメリカ：{大西洋|たいせいよう}・{太平洋|たいへいよう}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{偽|にせ}カードに「{大西洋|たいせいよう}」と{書|か}いた{人|ひと}は、{大西洋|たいせいよう}が{身近|みぢか}な{大陸|たいりく}の{担当|たんとう}者——エマ・テツヤ・フウカの3人に{絞|しぼ}れる。"
+      - type: narration
+        speed: slow
+        text: "でもまだ{確認|かくにん}していないことがある——消えた{本物|ほんもの}のインドのカードは{今|いま}どこに？"
+
+  # ===== 証拠カード4: 放課後の目撃 =====
+  - id: evidence-4
+    bgm: geography-07/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: きのうの放課後
+      - type: narration
+        text: "3{日前|にちまえ}のカード{作成|さくせい}{日|び}——"
+      - type: narration
+        text: "エマが「わたしのヨーロッパのクイズ、{難|むずか}しすぎるかも……みんな{解|と}けないかも」と{不安|ふあん}そうだった。"
+      - type: narration
+        text: "シンジは「アジアのクイズは{分|わ}かりやすいのが{大事|だいじ}」と{楽|たの}しそうに{作|つく}っていた。"
+      - type: narration
+        text: "きのうの{放課後|ほうかご}——"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "テツヤがサッカーボールを{取|と}りに{戻|もど}ったとき、エマがシンジの{引|ひ}き{出|だ}しの{近|ちか}くにいた。「{最終|さいしゅう}チェックしてるの」と{言|い}っていた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「クイズが{難|むずか}しすぎて{不安|ふあん}」なエマが、「{分|わ}かりやすいクイズ」を{持|も}つシンジの{引|ひ}き{出|だ}しの{近|ちか}くに——何をしていた？"
+
+  # ===== 証拠カード5: エマのセット確認 =====
+  - id: evidence-5
+    bgm: geography-07/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: エマのカードセット
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{全員|ぜんいん}のカードセットをもう{一度|いちど}{確認|かくにん}した。エマのセットに{気|き}になるものがあったぞ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "エマのヨーロッパのカード（{赤|あか}ペン）5{枚|まい}に{加|くわ}えて、{青|あお}ペンで{書|か}かれたカードが1{枚|まい}——"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "「{国|くに}あてクイズ・アジアの{国|くに}。ヒント2：インド{洋|よう}に面している。{答|こた}え：インド」——{青|あお}ペン＝シンジの{筆跡|ひっせき}！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "シンジの消えたインドのカードがエマのセットの中にあった！ {偽|にせ}カードの「{大西洋|たいせいよう}」は、ヨーロッパ{担当|たんとう}のエマにとって{身近|みぢか}な{海|うみ}だったから{書|か}いてしまった。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-07/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}がそろったな。{偽|にせ}カードを作り、{本物|ほんもの}を{盗|ぬす}んだのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 偽カードを作り、本物のインドのカードを盗んだのは誰？
+        options:
+          - text: シンジ（アジア担当・カードが消えた被害者）
+            value: shinji
+            feedback: シンジはカードを盗まれた被害者側。偽カードの「大西洋」がアジアに合わないと気づいた人だよ。
+          - text: エマ（ヨーロッパ担当・カードが1枚多い）
+            value: emma
+            feedback: 正解！ エマはクイズが難しすぎる不安からシンジの簡単なインドカードを盗み、偽カードで穴埋めした。ヨーロッパの感覚で「大西洋」と書いてしまった。
+          - text: テツヤ（アフリカ担当・目撃者）
+            value: tetsuya
+            feedback: テツヤはエマがシンジの引き出しの近くにいたのを目撃した側。カード枚数も5枚で正常。
+          - text: フウカ（南アメリカ担当・枚数の異常に気づいた）
+            value: fuuka
+            feedback: フウカはエマの枚数が多いことに気づいた観察者側。カード枚数も5枚で正常。
+      - type: choice
+        id: q2
+        question: 偽カードの「大西洋」がなぜアジアの国に合わない？
+        options:
+          - text: アジアは太平洋とインド洋に面していて、大西洋には面していないから
+            value: ocean-mismatch
+            feedback: 正解！ アジアが面しているのは太平洋とインド洋。大西洋に面しているのはヨーロッパ・アフリカ・南北アメリカ。エマはヨーロッパ担当で大西洋が身近だったから、つい書いてしまった。
+          - text: 大西洋は世界で一番小さい海だから
+            value: smallest
+            feedback: 大西洋は小さくないよ（世界で2番目に大きい大洋）。問題は「アジアの国が大西洋に面していない」こと。大陸と大洋の位置関係が鍵。
+          - text: インドは島国だから海に面していないため
+            value: landlocked
+            feedback: インドは島国ではなく、インド洋に面しているよ。問題は「大西洋」と書いたこと。インドが面しているのは「インド洋」であって「大西洋」ではない。
+          - text: 偽カードの字が汚かったから
+            value: messy
+            feedback: 字の問題ではないよ。6大陸と3大洋の位置関係を知っていれば、「アジアの国が大西洋に面している」は矛盾だと分かる。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-07/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 難しすぎる不安
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # シンジの後ろめたさ
+  - id: truth-shinji
+    bg: classroom
+    steps:
+      - type: sprite
+        character: shinji
+        expression: worried
+        position: left
+      - type: dialog
+        character: shinji
+        text: "ぼく、エマが「クイズが{難|むずか}しすぎる」って{不安|ふあん}そうだったのに「{大丈夫|だいじょうぶ}だよ」って{言|い}えなかった。"
+      - type: dialog
+        character: shinji
+        text: "一緒に{問題|もんだい}の{難易度|なんいど}を{調整|ちょうせい}すればよかった。"
+        expression: determined
+      - type: sprite
+        character: shinji
+        action: hide
+
+  # テツヤの後ろめたさ
+  - id: truth-tetsuya
+    steps:
+      - type: sprite
+        character: tetsuya
+        expression: worried
+        position: right
+      - type: dialog
+        character: tetsuya
+        text: "おれ、きのうエマがシンジの{引|ひ}き{出|だ}しの{近|ちか}くにいたのを{見|み}たのに、「{最終|さいしゅう}チェックか」って{流|なが}しちゃった。"
+      - type: dialog
+        character: tetsuya
+        text: "「{何|なに}してるの？」って{聞|き}けばよかった。"
+        expression: determined
+      - type: sprite
+        character: tetsuya
+        action: hide
+
+  # フウカの後ろめたさ
+  - id: truth-fuuka
+    steps:
+      - type: sprite
+        character: fuuka
+        expression: worried
+        position: left
+      - type: dialog
+        character: fuuka
+        text: "エマが「{難|むずか}しすぎる」って{言|い}ってたの、3{日前|にちまえ}から{覚|おぼ}えてた。でも「{大丈夫|だいじょうぶ}じゃない？」って{軽|かる}く{言|い}っただけだった。"
+      - type: dialog
+        character: fuuka
+        text: "「一緒に{考|かんが}えよう」って{言|い}えばよかった。{不安|ふあん}を{聞|き}いてあげるべきだった。"
+        expression: determined
+      - type: sprite
+        character: fuuka
+        action: hide
+
+  # エマの真実（クライマックス）
+  - id: truth-emma
+    bgm: geography-07/truth
+    steps:
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "……わたしがやった。シンジのインドのカードを{盗|ぬす}んで、{偽|にせ}カードを{置|お}いた。"
+      - type: narration
+        speed: slow
+        text: "エマがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: emma
+        text: "わたしのヨーロッパのクイズ、{難|むずか}しすぎて{誰|だれ}にも{解|と}いてもらえないと思った。シンジのアジアのクイズは{分|わ}かりやすくて{楽|たの}しそうで……。"
+        expression: worried
+      - type: dialog
+        character: emma
+        text: "つい、インドのカードを{盗|ぬす}んで{自分|じぶん}のセットに{混|ま}ぜちゃった。{穴|あな}{埋|う}めに{偽|にせ}カードを{作|つく}ったけど、ヒントに「{大西洋|たいせいよう}」って{書|か}いちゃった。ヨーロッパは{大西洋|たいせいよう}に面してるから、つい……。"
+      - type: dialog
+        character: emma
+        text: "でもアジアの{国|くに}は{大西洋|たいせいよう}に面してない。{自分|じぶん}の{担当|たんとう}{大陸|たいりく}の{感覚|かんかく}で{書|か}いたから{矛盾|むじゅん}が{出|で}ちゃった。"
+        expression: worried
+      - type: dialog
+        character: emma
+        text: "「{難|むずか}しすぎる」って{不安|ふあん}なら、みんなに{相談|そうだん}すればよかった。{盗|ぬす}む{必要|ひつよう}なんてなかった。"
+        expression: determined
+      - type: sprite
+        character: emma
+        action: hide
+      - type: narration
+        speed: slow
+        text: "エマに{悪意|あくい}はなかった。「みんなに{楽|たの}しんでほしい」という{気持|きも}ちと「{難|むずか}しすぎる」という{不安|ふあん}から{行動|こうどう}した。でも{盗|ぬす}むことは{解決|かいけつ}{策|さく}ではない。{相談|そうだん}すれば、一緒に{調整|ちょうせい}できたはずだ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-07/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったな。"
+      - type: dialog
+        character: sensei
+        text: "6{大陸|たいりく}と3{大洋|たいよう}の{位置|いち}{関係|かんけい}を{知|し}ることが、{偽|にせ}カードの{矛盾|むじゅん}を{見抜|みぬ}く{力|ちから}になった。アジアは{太平洋|たいへいよう}とインド{洋|よう}に面していて、{大西洋|たいせいよう}には面していない。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして「まだ{分|わ}かっていないことは何？」と{問|と}いかける{力|ちから}——{情報|じょうほう}{欠落|けつらく}の{認識|にんしき}——が{消|き}えた{本物|ほんもの}カードの{行方|ゆくえ}を{見|み}つけたんだ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: emma
+        expression: worried
+        position: left
+      - type: sprite
+        character: shinji
+        expression: normal
+        position: right
+      - type: dialog
+        character: shinji
+        text: "エマ、ヨーロッパのクイズ、一緒に{見直|みなお}そうよ。ヒントを{少|すこ}し{簡単|かんたん}にすれば{楽|たの}しいクイズになるよ。"
+      - type: dialog
+        character: emma
+        text: "……ありがとう、シンジ。{次|つぎ}からは{盗|ぬす}むんじゃなくて「{助|たす}けて」って{言|い}う。"
+        expression: determined
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: shinji
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shinji, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: tetsuya, expression: happy }
+          - { id: fuuka, expression: happy }
+      - type: narration
+        text: "インドのカードは{元|もと}に{戻|もど}された。エマのヨーロッパクイズは4人で{難易度|なんいど}を{調整|ちょうせい}し、{楽|たの}しいクイズ大会が{始|はじ}まった。"
+      - type: sprite
+        character: shinji
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: tetsuya
+        action: hide
+      - type: sprite
+        character: fuuka
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{世界|せかい}{地図|ちず}の{知識|ちしき}は{嘘|うそ}を{見抜|みぬ}く{力|ちから}になる。そして「{不安|ふあん}なら{相談|そうだん}する」——{盗|ぬす}むより、一緒に{考|かんが}えるほうがずっといい{解決|かいけつ}{策|さく}だ。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——きえたクイズカードと{世界|せかい}{地図|ちず}のわな、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
