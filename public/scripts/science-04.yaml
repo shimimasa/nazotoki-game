@@ -1,0 +1,534 @@
+meta:
+  id: science-04
+  title: 消えたアンモナイトと地層のひみつ
+  series: サイエンス捜査班
+  volume: 4
+  estimatedMinutes: 22
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-d-normal.webp
+      happy: girl-d-happy.webp
+      thinking: girl-d-thinking.webp
+      worried: girl-d-worried.webp
+      surprised: girl-d-surprised.webp
+      determined: girl-d-determined.webp
+  hayate:
+    name: ハヤテ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  koharu:
+    name: コハル
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: nature-outdoor
+    bgm: science-04/opening
+    steps:
+      - type: narration
+        text: "{理科|りか}クラブの4{人|にん}——リク、ツムギ、ハヤテ、コハルは、{先生|せんせい}と{一緒|いっしょ}に{川岸|かわぎし}の{崖|がけ}に{来|き}ている。"
+      - type: narration
+        text: "{今日|きょう}は「{地層|ちそう}{観察|かんさつ}」のフィールドワーク！ {崖|がけ}には{長|なが}い{時間|じかん}をかけて{積|つ}み{重|かさ}なった{地層|ちそう}が{見|み}えている。"
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: tsumugi, expression: happy }
+          - { id: hayate, expression: happy }
+          - { id: koharu, expression: happy }
+      - type: narration
+        text: "{先生|せんせい}は{理科室|りかしつ}から{大切|たいせつ}なアンモナイトの{化石|かせき}を{持|も}ってきて、{崖|がけ}の{地層|ちそう}と{見比|みくら}べる{授業|じゅぎょう}をしてくれた。"
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: normal }
+          - { id: tsumugi, expression: normal }
+          - { id: hayate, expression: normal }
+          - { id: koharu, expression: normal }
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "ところが——11{時|じ}ごろ、{急|きゅう}に{雨|あめ}が{降|ふ}り{出|だ}した。みんなが{避難所|ひなんじょ}に{逃|に}げ{込|こ}むと、{雨|あめ}はかなり{強|つよ}く{降|ふ}り{続|つづ}けた。"
+      - type: narration
+        speed: slow
+        text: "30{分後|ぷんご}、{雨|あめ}が{止|や}んで{崖|がけ}に{戻|もど}ると——"
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: surprised }
+          - { id: tsumugi, expression: worried }
+          - { id: hayate, expression: surprised }
+          - { id: koharu, expression: worried }
+      - type: narration
+        text: "{崖|がけ}の{上|うえ}の{方|ほう}（{砂|すな}の{層|そう}）が{一部崩|いちぶくず}れていた！ そして——{先生|せんせい}のアンモナイトの{化石|かせき}が、なくなっていた！"
+      - type: sprite
+        id: riku
+        action: hide
+      - type: sprite
+        id: tsumugi
+        action: hide
+      - type: sprite
+        id: hayate
+        action: hide
+      - type: sprite
+        id: koharu
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-04/tension
+      - type: dialog
+        character: sensei
+        text: "{化石|かせき}ケースが{置|お}いてあった{岩|いわ}の{上|うえ}には、{何|なに}もありません。{崖|がけ}も{崩|くず}れている……いったい{何|なに}が{起|お}きたのでしょう？"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "消えたアンモナイトと地層のひみつ"
+        subtitle: "サイエンス捜査班 Vol.4"
+
+  # ===== 証拠カード1: リクの地層スケッチ =====
+  - id: evidence-1
+    bg: nature-outdoor
+    bgm: science-04/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 地層スケッチ"
+      - type: narration
+        text: "リクが{描|えが}いた{崖|がけ}のスケッチ。{雨|あめ}の{前|まえ}と{後|あと}の2{枚|まい}を{比|くら}べてみよう。"
+      - type: narration
+        text: "{雨|あめ}の{前|まえ}（10:30ごろ）——A{層|そう}：{砂|すな}の{層|そう}（やわらかい）。B{層|そう}：{泥|どろ}の{層|そう}（ねばねば）。C{層|そう}：{小石|こいし}の{層|そう}。D{層|そう}：かたい{岩|いわ}の{層|そう}。きれいに4{層|そう}{見|み}えている。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{雨|あめ}のあと（11:39ごろ）——A{層|そう}の{右側|みぎがわ}が{崩|くず}れている！ そして{崩|くず}れた{部分|ぶぶん}の{下|した}に、B{層|そう}がむき{出|だ}しになっている。"
+      - type: narration
+        text: "むき{出|だ}しになったB{層|そう}には——{小|ちい}さな{貝|かい}の{化石|かせき}が{見|み}えている！ これに{気|き}づいた{人|ひと}はいるかな？"
+
+  # ===== 証拠カード2: ツムギの岩石サンプル記録 =====
+  - id: evidence-2
+    bg: nature-outdoor
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 岩石サンプル記録"
+      - type: narration
+        text: "ツムギが{集|あつ}めた{岩石|がんせき}サンプルのリストだ。"
+      - type: narration
+        text: "サンプル1：A{層|そう}の{黄色|きいろ}い{砂|すな}（さらさら）。サンプル2：B{層|そう}の{黒|くろ}い{泥|どろ}（ねばねば）。サンプル3：C{層|そう}の{丸|まる}い{小石|こいし}（{川|かわ}で{丸|まる}くなった{石|いし}）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "サンプル4——{記録|きろく}なし。でも{先生|せんせい}がツムギのリュックの{中|なか}を{調|しら}べると、4つ{目|め}のサンプル{袋|ぶくろ}があった。"
+      - type: narration
+        text: "{中身|なかみ}は——B{層|そう}の{泥|どろ}と{同|おな}じ{黒|くろ}い{泥|どろ}。しかも、{中|なか}に{小|ちい}さな{貝|かい}の{化石|かせき}のかけらが{混|ま}ざっている！"
+      - type: narration
+        text: "4つ{目|め}のサンプルはなぜ{記録|きろく}されていない？ そしてB{層|そう}の{泥|どろ}に{化石|かせき}のかけら……{崩|くず}れた{場所|ばしょ}のB{層|そう}に{近|ちか}づいて{採|と}ったサンプル？"
+
+  # ===== 証拠カード3: ハヤテのエリアマップ =====
+  - id: evidence-3
+    bg: nature-outdoor
+    steps:
+      - type: title_card
+        text: "証拠カード3 — エリアマップ"
+      - type: narration
+        text: "ハヤテが{描|えが}いた{崖|がけ}のまわりのマップ。{雨|あめ}が{降|ふ}り{始|はじ}める{直前|ちょくぜん}（11:00ごろ）の{位置|いち}を{記録|きろく}している。"
+      - type: narration
+        text: "{避難所|ひなんじょ}は{崖|がけ}から{約|やく}30メートル{離|はな}れた{大|おお}きな{木|き}の{下|した}。ハヤテは{避難所|ひなんじょ}の{近|ちか}く。リクは{崖|がけ}から10メートル。コハルは{崖|がけ}の{反対側|はんたいがわ}の{木|き}の{下|した}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "そしてツムギは——{崖|がけ}のC{層|そう}の{下|した}あたり。{化石|かせき}ケースが{置|お}いてある{平|たい}らな{岩|いわ}に{一番近|いちばんちか}い{位置|いち}にいた。"
+      - type: narration
+        text: "{雨|あめ}が{降|ふ}り{始|はじ}めたとき、{化石|かせき}ケースの{一番近|いちばんちか}くにいたのは{誰|だれ}？ そして、その{人|ひと}は{避難所|ひなんじょ}まで{一番遠|いちばんとお}い{場所|ばしょ}にいたということ……。"
+
+  # ===== 証拠カード4: コハルの写真記録 =====
+  - id: evidence-4
+    bg: nature-outdoor
+    bgm: science-04/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 写真記録"
+      - type: narration
+        text: "コハルが{撮|と}った{写真|しゃしん}4{枚|まい}。{時刻|じこく}つきだ。"
+      - type: narration
+        text: "{写真|しゃしん}1（10:30）：{崖|がけ}の{全体像|ぜんたいぞう}。A{層|そう}〜D{層|そう}がきれいに{見|み}える。"
+      - type: narration
+        text: "{写真|しゃしん}2（10:45）：{化石|かせき}ケースのアップ。{岩|いわ}の{上|うえ}に{置|お}かれている。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "よく{見|み}ると——ケースの{蓋|ふた}が{少|すこ}し{開|あ}いている！"
+      - type: narration
+        text: "{写真|しゃしん}3（10:50）：ツムギが{崖|がけ}のC{層|そう}の{下|した}あたりで{小石|こいし}を{拾|ひろ}っている。"
+      - type: narration
+        text: "{写真|しゃしん}4（11:39）：{雨上|あめあ}がりの{崖|がけ}。A{層|そう}が{崩|くず}れている。そして——{岩|いわ}の{上|うえ}に{化石|かせき}ケースがない！"
+      - type: narration
+        text: "{化石|かせき}は10:45〜11:39の{間|あいだ}になくなった。{蓋|ふた}が{開|あ}いていたから{中身|なかみ}が{落|お}ちた？ それとも、{誰|だれ}かがケースを……？"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: nature-outdoor
+    bgm: science-04/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: narration
+        text: "4{人|にん}に{話|はなし}を{聞|き}いてみよう。"
+      - type: sprite
+        id: riku
+        position: left
+        expression: normal
+      - type: dialog
+        character: riku
+        text: "ぼくは{崖|がけ}の{正面|しょうめん}からスケッチを{描|えが}いてた。{雨|あめ}の{前|まえ}と{後|あと}で2{枚|まい}{描|えが}いたよ。{雨|あめ}が{降|ふ}り{始|はじ}めたとき、{崖|がけ}から10メートルくらいの{場所|ばしょ}にいたからすぐ{避難|ひなん}できた。"
+      - type: dialog
+        character: riku
+        expression: thinking
+        text: "{化石|かせき}ケースは{崖|がけ}の{近|ちか}くの{平|たい}らな{岩|いわ}の{上|うえ}に{置|お}いてあったのを{覚|おぼ}えてるよ。"
+      - type: sprite
+        id: riku
+        action: hide
+      - type: sprite
+        id: tsumugi
+        position: right
+        expression: normal
+      - type: dialog
+        character: tsumugi
+        text: "わたしは{崖|がけ}のC{層|そう}の{下|した}で{岩石|がんせき}サンプルを{集|あつ}めてたの。A{層|そう}の{砂|すな}、B{層|そう}の{泥|どろ}、C{層|そう}の{小石|こいし}の3{種類|しゅるい}。"
+      - type: dialog
+        character: tsumugi
+        expression: worried
+        text: "{雨|あめ}が{降|ふ}り{始|はじ}めたとき{崖|がけ}の{近|ちか}くにいて、サンプル{袋|ぶくろ}をしまってから{走|はし}ったから{避難|ひなん}が{少|すこ}し{遅|おく}れちゃった。{雨|あめ}が{止|や}んだあと、サンプルが{心配|しんぱい}で{崖|がけ}に{向|む}かったんだ。"
+      - type: sprite
+        id: tsumugi
+        action: hide
+      - type: sprite
+        id: hayate
+        position: left
+        expression: normal
+      - type: dialog
+        character: hayate
+        text: "おれは{崖|がけ}のまわりのエリアマップを{描|えが}いてた。{崖|がけ}・{川|かわ}・{避難所|ひなんじょ}・みんなの{位置|いち}を{記録|きろく}したぜ。"
+      - type: dialog
+        character: hayate
+        expression: determined
+        text: "{雨|あめ}が{止|や}んだあとはみんなと{一緒|いっしょ}に{崖|がけ}に{戻|もど}った。{化石|かせき}がなくなってると{聞|き}いて「{絶対|ぜったい}{見|み}つけてやる！」って{思|おも}ったよ。"
+      - type: sprite
+        id: hayate
+        action: hide
+      - type: sprite
+        id: koharu
+        position: right
+        expression: worried
+      - type: dialog
+        character: koharu
+        text: "わたしは{写真撮影|しゃしんさつえい}{担当|たんとう}。{崖|がけ}の{写真|しゃしん}を{何枚|なんまい}も{撮|と}ったよ。{時刻|じこく}も{記録|きろく}してるの。"
+      - type: dialog
+        character: koharu
+        expression: worried
+        text: "{先生|せんせい}のアンモナイト、{大好|だいす}きだったのに……なくなったって{聞|き}いてすごく{悲|かな}しい。"
+      - type: sprite
+        id: koharu
+        action: hide
+
+  # ===== 証拠カード5: 避難の記録（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: nature-outdoor
+    bgm: science-04/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 避難の記録"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}が{記録|きろく}していた、{雨|あめ}のときの{避難|ひなん}{記録|きろく}だ。"
+      - type: narration
+        text: "{避難所|ひなんじょ}への{到着|とうちゃく}{時間|じかん}——リク：11:00（すぐに{来|き}た）。コハル：11:01（すぐに{来|き}た）。ハヤテ：11:03（{少|すこ}し{遅|おく}れた）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ツムギ：11:05。{一番遅|いちばんおそ}い。{崖|がけ}の{近|ちか}くにいたから。"
+      - type: narration
+        text: "{雨|あめ}が{止|や}んだあと（11:30）の{行動|こうどう}——ツムギ：11:31に「サンプルが{心配|しんぱい}！」と{真|ま}っ{先|さき}に{飛|と}び{出|だ}した。リク・コハル・ハヤテ：11:38に{先生|せんせい}と{一緒|いっしょ}に{戻|もど}った。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "11:31〜11:38の7{分間|ふんかん}、ツムギだけが{崖|がけ}の{近|ちか}くにいた。{避難|ひなん}に{一番遅|いちばんおそ}く{来|き}て、{戻|もど}りは{一番早|いちばんはや}い。その{間|あいだ}に{何|なに}が{起|お}きた？"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: nature-outdoor
+    bgm: science-04/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}がそろいました。4つの{視点|してん}——スケッチ、サンプル、マップ、{写真|しゃしん}を{組|く}み{合|あ}わせて{考|かんが}えてみましょう。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: choice
+        id: q1
+        text: "{崖|がけ}のA{層|そう}（{砂|すな}の{層|そう}）が{崩|くず}れた{原因|げんいん}は？"
+        options:
+          - text: "誰かが崩した"
+            feedback: "A{層|そう}は{砂|すな}でやわらかい。{雨|あめ}の{水|みず}を{吸|す}うと{崩|くず}れやすくなる。これは{自然|しぜん}の{力|ちから}——{侵食|しんしょく}だよ。"
+          - text: "雨の侵食で崩れた"
+            feedback: "そのとおり！ {砂|すな}の{層|そう}はやわらかくて、{雨|あめ}の{水|みず}で{削|けず}られて{崩|くず}れた。これを{侵食|しんしょく}というんだ。"
+          - text: "地震で崩れた"
+            feedback: "{地震|じしん}ではなく、{雨|あめ}の{水|みず}が{原因|げんいん}だよ。やわらかい{砂|すな}の{層|そう}が{水|みず}を{吸|す}って{崩|くず}れた——{侵食|しんしょく}だね。"
+      - type: choice
+        id: q2
+        text: "{化石|かせき}を{失|な}くしてしまったのは{誰|だれ}だと{思|おも}う？"
+        options:
+          - text: "リク"
+            feedback: "リクは{崖|がけ}から10メートル{離|はな}れていて、{避難|ひなん}も{一番早|いちばんはや}かった。{化石|かせき}ケースに{近|ちか}づく{機会|きかい}は{少|すく}ないかも。"
+          - text: "ツムギ"
+            feedback: "ツムギは{化石|かせき}ケースに{一番近|いちばんちか}い{位置|いち}にいて、{避難|ひなん}が{一番遅|いちばんおそ}く、{戻|もど}りは{一番早|いちばんはや}い。7{分間|ふんかん}{一人|ひとり}で{崖|がけ}にいた……。"
+          - text: "ハヤテ"
+            feedback: "ハヤテは{避難所|ひなんじょ}の{近|ちか}くにいて、{戻|もど}りは{先生|せんせい}と{一緒|いっしょ}だった。{崖|がけ}には{近|ちか}づいていないかも。"
+          - text: "コハル"
+            feedback: "コハルは{崖|がけ}の{反対側|はんたいがわ}にいて、{避難|ひなん}もすぐだった。ケースには{触|さわ}っていないと{思|おも}うけど……。"
+
+  # ===== 真実: ツムギの告白 =====
+  - id: truth-tsumugi
+    bg: nature-outdoor
+    bgm: science-04/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "みんな、{調査|ちょうさ}おつかれさまでした。アンモナイトが{消|き}えたなぞの{真相|しんそう}をお{話|はな}しします。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{化石|かせき}を{失|な}くしてしまったのは——ツムギだった。でも、わざとではない。{事故|じこ}だった。"
+      - type: sprite
+        id: tsumugi
+        position: center
+        expression: worried
+      - type: narration
+        text: "{雨|あめ}で{崖|がけ}のA{層|そう}（{砂|すな}の{層|そう}）が{崩|くず}れた。{砂|すな}はやわらかくて、{雨|あめ}の{水|みず}を{吸|す}うと{崩|くず}れやすい。これを{侵食|しんしょく}という。"
+      - type: narration
+        text: "A{層|そう}が{崩|くず}れたあと、その{下|した}のB{層|そう}（{泥|どろ}の{層|そう}）がむき{出|だ}しになった。そこに{小|ちい}さな{貝|かい}の{化石|かせき}が{見|み}えていた！"
+      - type: dialog
+        character: tsumugi
+        expression: surprised
+        text: "{雨|あめ}が{止|や}んで{真|ま}っ{先|さき}に{崖|がけ}に{戻|もど}ったの。そしたら{崩|くず}れた{場所|ばしょ}のB{層|そう}に、{新|あたら}しい{化石|かせき}が{見|み}えて……すごい！って{興奮|こうふん}して{近|ちか}づいたんだ。"
+      - type: narration
+        text: "そのとき、{肩|かた}にかけていたサンプル{袋|ぶくろ}が{岩|いわ}の{上|うえ}の{化石|かせき}ケースにぶつかった。ケースの{蓋|ふた}は{少|すこ}し{開|あ}いていたので、{中|なか}のアンモナイトが{飛|と}び{出|だ}して——"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{泥水|どろみず}の{中|なか}に{沈|しず}んでしまった。"
+      - type: sprite
+        id: tsumugi
+        expression: worried
+      - type: dialog
+        character: tsumugi
+        text: "{慌|あわ}てて{拾|ひろ}おうとしたけど、{泥水|どろみず}の{中|なか}からアンモナイトが{見|み}つからなくて……ケースを{岩|いわ}の{下|した}に{隠|かく}しちゃった。{先生|せんせい}の{大切|たいせつ}な{化石|かせき}を{失|な}くして、{怖|こわ}くて{言|い}えなかったの……。"
+      - type: sprite
+        id: tsumugi
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: nature-outdoor
+    steps:
+      - type: narration
+        text: "みんなが{隠|かく}していた{秘密|ひみつ}も{公開|こうかい}しよう。"
+      - type: sprite
+        id: riku
+        position: left
+        expression: worried
+      - type: dialog
+        character: riku
+        text: "ぼく、10:30ごろに{崖|がけ}のA{層|そう}にヒビが{入|はい}ってるのに{気|き}づいてたんだ。「{崩|くず}れるかも？」って{思|おも}ったのに、みんなに{言|い}わなかった……。"
+      - type: sprite
+        id: riku
+        expression: thinking
+      - type: dialog
+        character: riku
+        text: "でも{崩落|ほうらく}と{化石|かせき}の{消失|しょうしつ}は{直接|ちょくせつ}{関係|かんけい}なかったんだな。"
+      - type: sprite
+        id: riku
+        action: hide
+      - type: sprite
+        id: hayate
+        position: right
+        expression: thinking
+      - type: dialog
+        character: hayate
+        text: "おれ、{避難|ひなん}に3{分|ぷん}{遅|おく}れたんだ。マップの{仕上|しあ}げに{夢中|むちゅう}で。その{途中|とちゅう}、{振|ふ}り{返|かえ}ったら{崖|がけ}の{方|ほう}に{人影|ひとかげ}が{見|み}えた。"
+      - type: sprite
+        id: hayate
+        expression: determined
+      - type: dialog
+        character: hayate
+        text: "あれは{避難|ひなん}に{遅|おく}れてたツムギだったんだな。"
+      - type: sprite
+        id: hayate
+        action: hide
+      - type: sprite
+        id: koharu
+        position: left
+        expression: worried
+      - type: dialog
+        character: koharu
+        text: "わたし、10:45に{化石|かせき}ケースの{蓋|ふた}が{少|すこ}し{開|あ}いてるのに{気|き}づいてたの。{閉|し}めた{方|ほう}がいいかなって{思|おも}ったのに、{何|なに}もしないまま……。"
+      - type: sprite
+        id: koharu
+        expression: thinking
+      - type: dialog
+        character: koharu
+        text: "{蓋|ふた}を{閉|し}めておけば、{落|お}ちたときに{中身|なかみ}が{出|で}なかったかもしれない……ごめんね。"
+      - type: sprite
+        id: koharu
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: nature-outdoor
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "4つの{視点|してん}——スケッチ・サンプル・マップ・{写真|しゃしん}を{組|く}み{合|あ}わせて、{初|はじ}めて{全体像|ぜんたいぞう}が{見|み}えましたね。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{地層|ちそう}は{下|した}が{古|ふる}く、{上|うえ}が{新|あたら}しい。A{層|そう}（{砂|すな}）が{一番上|いちばんうえ}で{新|あたら}しく、D{層|そう}（{岩|いわ}）が{一番下|いちばんした}で{古|ふる}い。アンモナイトはD{層|そう}の{時代|じだい}の{生|い}き{物|もの}です。"
+      - type: dialog
+        character: sensei
+        text: "{雨|あめ}の{水|みず}が{地面|じめん}を{削|けず}ることを{侵食|しんしょく}といいます。やわらかいA{層|そう}は{特|とく}に{崩|くず}れやすい。でも{侵食|しんしょく}のおかげで、{隠|かく}れていたB{層|そう}の{化石|かせき}が{見|み}つかったんですね。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "{化石|かせき}は{地層|ちそう}の「タイムカプセル」。{見|み}つけた{地層|ちそう}の{年代|ねんだい}から、その{生|い}き{物|もの}がいつ{生|い}きていたか{分|わ}かります。{観察|かんさつ}したことを{正確|せいかく}に{記録|きろく}して{共有|きょうゆう}することが、{科学|かがく}ではとても{大切|たいせつ}ですよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: nature-outdoor
+    bgm: science-04/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。アンモナイトは{泥水|どろみず}の{中|なか}にあるから、あとで{探|さが}しましょう。それより——B{層|そう}に{新|あたら}しい{化石|かせき}が{見|み}つかったんだね？"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "みんなで{崖|がけ}のB{層|そう}を{見|み}に{行|い}くと、{確|たし}かに{小|ちい}さな{貝|かい}の{化石|かせき}が{泥|どろ}の{中|なか}に{見|み}えていた。"
+      - type: sprite
+        id: riku
+        position: left
+        expression: worried
+      - type: dialog
+        character: riku
+        text: "ぼくもヒビに{気|き}づいてたのに{言|い}えなくて……ごめん。"
+      - type: sprite
+        id: riku
+        action: hide
+      - type: sprite
+        id: koharu
+        position: right
+        expression: worried
+      - type: dialog
+        character: koharu
+        text: "わたしも{蓋|ふた}が{開|あ}いてるの{気|き}づいてたのに……ごめんね。"
+      - type: sprite
+        id: koharu
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "みんな{正直|しょうじき}に{言|い}ってくれてありがとう。{大切|たいせつ}なのは、{観察|かんさつ}したことを{正確|せいかく}に{記録|きろく}して、みんなと{共有|きょうゆう}すること。{科学者|かがくしゃ}はそうやって{発見|はっけん}をつないでいくんだよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "こうして{理科|りか}クラブの{地層|ちそう}{観察|かんさつ}は、{予想外|よそうがい}の{大発見|だいはっけん}で{幕|まく}を{閉|と}じた。"
+      - type: effect
+        name: fade-out
