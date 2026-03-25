@@ -1,0 +1,353 @@
+meta:
+  id: esd-06
+  title: 外来種のわな
+  series: ESD探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-06/opening
+    steps:
+      - type: narration
+        text: "あおば{公園|こうえん}の『{在来|ざいらい}{生物|せいぶつ}{保護|ほご}プロジェクト』。4人が{草原|そうげん}・{池|いけ}・{林|はやし}の{各|かく}エリアで{生|い}き物{調査|ちょうさ}を{実施|じっし}している。"
+      - type: sprite
+        character: kana
+        expression: worried
+        position: center
+      - type: dialog
+        character: kana
+        text: "D{区画|くかく}とE{区画|くかく}のニホンタンポポが{去年|きょねん}より{大幅|おおはば}に{減|へ}ってる！ {代|か}わりにセイヨウタンポポが{爆増|ばくぞう}！"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: haruki
+        text: "しかもD{区画|くかく}の{土|つち}が{人工的|じんこうてき}にかき{混|ま}ぜられた{跡|あと}がある。{誰|だれ}かが{外来種|がいらいしゅ}を{植|う}えた？"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "5エリア{全部|ぜんぶ}のデータを{全探索|ぜんたんさく}して、どこで{何|なに}が{起|お}きたか{特定|とくてい}しよう。ESD{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-06/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 5エリアを全探索せよ
+
+      # --- データ比較 ---
+      - type: narration
+        text: "5エリアの{今年|ことし}と{去年|きょねん}の{比較|ひかく}。A{区画|くかく}：ニホン15本→15本、セイヨウ1→2本。{正常|せいじょう}。B{区画|くかく}：ニホン13→12本、セイヨウ2→3本。{正常|せいじょう}。C{区画|くかく}：ニホン8→8本、セイヨウ1→1本。{正常|せいじょう}。"
+      - type: narration
+        text: "D{区画|くかく}：ニホン12→3本、セイヨウ3→18本。{急変|きゅうへん}！ E{区画|くかく}：ニホン10→2本、セイヨウ1→21本。{急変|きゅうへん}！"
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{全探索|ぜんたんさく}の{結果|けっか}。A・B・Cは{正常|せいじょう}。D・Eだけ{急激|きゅうげき}に{変化|へんか}。『{自然|しぜん}な{拡大|かくだい}』なら{全|ぜん}エリアに{影響|えいきょう}するはず。D・Eだけ{変|か}わったのは『{誰|だれ}かが{植|う}えた』{可能性|かのうせい}が{高|たか}い。"
+      - type: sprite
+        character: haruki
+        action: hide
+
+      # --- 現地証拠 ---
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "D{区画|くかく}には{土|つち}が{人工的|じんこうてき}にかき{混|ま}ぜられた{跡|あと}が2{箇所|かしょ}。E{区画|くかく}にも{同|おな}じ{掘|ほ}り{起|お}こし{跡|あと}が3{箇所|かしょ}。A{区画|くかく}に{種苗|しゅびょう}{店|てん}の{袋|ふくろ}の{破片|はへん}。"
+      - type: dialog
+        character: kana
+        text: "それと{先々月|せんせんげつ}、ソウタがD・E{区画|くかく}の{近|ちか}くでしゃがんでいたのを見た。"
+        expression: determined
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- 種苗店の記録 ---
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "{種苗|しゅびょう}{店|てん}『あおば{種苗|しゅびょう}』の{先月|せんげつ}の{販売|はんばい}{記録|きろく}。タンポポの{種|たね}を1{件|けん}{販売|はんばい}。{小学生|しょうがくせい}くらいの{子|こ}ども。{種|たね}の{名前|なまえ}は『{欧州|おうしゅう}系タンポポ』——つまりセイヨウタンポポ。"
+      - type: dialog
+        character: ibuki
+        text: "{先月|せんげつ}、ソウタが『{花壇|かだん}をきれいにしたい』って言って{種苗|しゅびょう}{店|てん}でタンポポの{種|たね}を{買|か}ったって{話|はな}してた。"
+        expression: surprised
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-06/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 『まあいいか』の罠
+
+      - type: narration
+        text: "先生がソウタの{作業|さぎょう}メモを{確認|かくにん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『D{区画|くかく}とE{区画|くかく}の{花壇|かだん}がさみしかったから、タンポポの{種|たね}をまいた。{黄色|きいろ}い{花|はな}がたくさん{咲|さ}けば{華|はな}やかになる。みんなが{喜|よろこ}ぶと{思|おも}って。』"
+      - type: narration
+        text: "『{欧州|おうしゅう}系と書いてあったけど{外来種|がいらいしゅ}かな？ まあいいか、タンポポなんだし。』"
+      - type: sprite
+        character: ibuki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "『{外来種|がいらいしゅ}かな？ まあいいか』——{気|き}づいていたのに！ でも『タンポポだから大丈夫』と{思|おも}い{込|こ}んだ。これが{認知|にんち}バイアス。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-06/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: セイヨウタンポポを植えたのは
+
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: haruki
+        text: "{全探索|ぜんたんさく}：D・Eだけ{急変|きゅうへん}。{掘|ほ}り{起|お}こし{跡|あと}。{種苗|しゅびょう}{店|てん}の{購入|こうにゅう}{記録|きろく}。ソウタの{作業|さぎょう}メモ。"
+      - type: dialog
+        character: kana
+        text: "カナが{先々月|せんせんげつ}にソウタがD・E{区画|くかく}でしゃがんでいたのを{目撃|もくげき}。{全|すべ}ての{証拠|しょうこ}がソウタを{指|さ}す。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "セイヨウタンポポの{種|たね}をD・E{区画|くかく}にまいたのは{誰|だれ}？"
+      - type: choice
+        question: "外来種を植えたのは？"
+        options:
+          - text: ハルキ
+            correct: false
+            feedback: "ハルキはA・B{区画|くかく}{担当|たんとう}。{両|りょう}エリアとも{正常|せいじょう}。{全探索|ぜんたんさく}データで{異変|いへん}を{発見|はっけん}した{側|がわ}。"
+          - text: イブキ
+            correct: false
+            feedback: "イブキはC{区画|くかく}{担当|たんとう}で{正常|せいじょう}。ソウタの{種苗|しゅびょう}{店|てん}{購入|こうにゅう}を{証言|しょうげん}した{側|がわ}。"
+          - text: ソウタ
+            correct: true
+            feedback: "正解。ソウタは『{花壇|かだん}をきれいにしたい』と{種苗|しゅびょう}{店|てん}でセイヨウタンポポの{種|たね}を{購入|こうにゅう}。{外来種|がいらいしゅ}と{気|き}づきながら『まあいいか』と{植|う}えた。"
+          - text: カナ
+            correct: false
+            feedback: "カナはD・E{区画|くかく}の{調査|ちょうさ}{担当|たんとう}。ニホンタンポポの{減少|げんしょう}を{発見|はっけん}し、ソウタの{目撃|もくげき}{情報|じょうほう}を{提供|ていきょう}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-06/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: きれいにしたかっただけ
+
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "おれが{種|たね}をまいた。{花壇|かだん}がさみしくて、{黄色|きいろ}い{花|はな}がたくさん{咲|さ}けばみんなが{喜|よろこ}ぶと{思|おも}った。"
+      - type: dialog
+        character: souta
+        text: "『{欧州|おうしゅう}系』って書いてあったから{外来種|がいらいしゅ}かなって{思|おも}った。でも『タンポポなんだし、まあいいか』って……。ニホンタンポポが{減|へ}るなんて{知|し}らなかった。"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "セイヨウタンポポは{受粉|じゅふん}なしで{種|たね}を作れる。ニホンタンポポは{虫|むし}が{必要|ひつよう}。{繁殖力|はんしょくりょく}の{差|さ}でニホンタンポポが{負|ま}けてしまう。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: normal
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "ニホンタンポポが{減|へ}ると、ニホンタンポポに{依存|いぞん}する{在来|ざいらい}の{昆虫|こんちゅう}も{減|へ}る。その{昆虫|こんちゅう}を食べる{鳥|とり}も{減|へ}る。{食物|しょくもつ}{連鎖|れんさ}で{全体|ぜんたい}に{影響|えいきょう}する。Vol.2で{学|まな}んだことと同じだ。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-06/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『まあいいか』の{蓄積|ちくせき}が{生態系|せいたいけい}を{変|か}える。1人が{外来種|がいらいしゅ}を{植|う}えるだけで、{在来種|ざいらいしゅ}が{数年|すうねん}で{激減|げきげん}する。"
+      - type: dialog
+        character: sensei
+        text: "Vol.2のブラックバスと{同|おな}じ{構造|こうぞう}だ。{外来種|がいらいしゅ}は{水|みず}の中でも{草原|そうげん}でも、{在来|ざいらい}の{生態系|せいたいけい}を{壊|こわ}す。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: "D・E{区画|くかく}のセイヨウタンポポを{全部|ぜんぶ}{除去|じょきょ}する。そしてニホンタンポポの{種|たね}を{正|ただ}しく{育|そだ}て{直|なお}す。『まあいいか』はもう{言|い}わない。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: souta, expression: determined }
+          - { id: kana, expression: happy }
+      - type: narration
+        text: "{生物|せいぶつ}{多様性|たようせい}は{目|め}に見えにくいけれど、1つの{行動|こうどう}で{崩|くず}れる。{在来種|ざいらいしゅ}を{守|まも}ることは、{生態系|せいたいけい}{全体|ぜんたい}を{守|まも}ること。"
+      - type: narration
+        speed: slow
+        text: "{全探索|ぜんたんさく}——{全|すべ}てのエリアのデータを{並|なら}べて{比|くら}べる。1つだけ{違|ちが}うパターンを見つけたとき、そこに{人|ひと}の{行動|こうどう}がある。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——{外来種|がいらいしゅ}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
