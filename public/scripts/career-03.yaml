@@ -1,0 +1,517 @@
+meta:
+  id: career-03
+  title: 農場の秘密
+  series: キャリア探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  encho:
+    name: 園長
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: park
+    bgm: career-03/opening
+    steps:
+      - type: narration
+        text: "「みどり{農園|のうえん}」。{地域|ちいき}のみんなが{食|た}べる{野菜|やさい}を大切に{育|そだ}てている{農場|のうじょう}だ。"
+      - type: narration
+        text: "ところが{今日|きょう}、{帳簿|ちょうぼ}を{確認|かくにん}していたミナが{大変|たいへん}なことに気づいた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: encho
+        expression: normal
+        position: center
+      - type: bgm
+        track: career-03/investigation
+      - type: dialog
+        character: encho
+        text: "{先月|せんげつ}15日の{農薬|のうやく}{使用|しよう}{記録|きろく}が{空白|くうはく}になっている！ {農薬|のうやく}の{記録|きろく}は{法律|ほうりつ}で{義務|ぎむ}づけられた大事なものだぞ。"
+        expression: thinking
+      - type: dialog
+        character: encho
+        text: "{農薬|のうやく}を使ったのに{記録|きろく}がなければ、{食|しょく}の{安全|あんぜん}に関わる{問題|もんだい}になる。"
+      - type: dialog
+        character: encho
+        text: "キャリア{探偵団|たんていだん}、なぜ{記録|きろく}がないのか{調|しら}べてくれ！"
+        expression: normal
+      - type: sprite
+        character: encho
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.3
+        subtitle: 農場の秘密
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: park
+    bgm: career-03/investigation
+    steps:
+      - type: narration
+        text: "{農場|のうじょう}の{仕事|しごと}には、{農薬|のうやく}{散布|さんぷ}・{記録|きろく}{管理|かんり}・{収穫|しゅうかく}・{在庫|ざいこ}{管理|かんり}がある。それぞれの{担当者|たんとうしゃ}に話を{聞|き}こう。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。{農場|のうじょう}の{作業|さぎょう}{担当|たんとう}で、{農薬|のうやく}の{散布|さんぷ}もしてる。{先月|せんげつ}15日も{散布|さんぷ}したよ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。{記録|きろく}{管理|かんり}{担当|たんとう}。{毎月|まいつき}{帳簿|ちょうぼ}を{確認|かくにん}してるの。{今日|きょう}、15日だけ{空白|くうはく}なのを見つけたの。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。{収穫|しゅうかく}{担当|たんとう}！ {野菜|やさい}を{摘|つ}む{仕事|しごと}。15日も{午後|ごご}に{収穫|しゅうかく}{作業|さぎょう}をしたよ。"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。{農薬|のうやく}の{在庫|ざいこ}{管理|かんり}{担当|たんとう}。{農薬|のうやく}の{残量|ざんりょう}を{毎週|まいしゅう}{記録|きろく}してるの。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 農薬使用記録帳 =====
+  - id: evidence-1
+    bg: park
+    bgm: career-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 農薬使用記録帳
+      - type: narration
+        text: "{農薬|のうやく}{使用|しよう}{記録帳|きろくちょう}（{先月分|せんげつぶん}）——"
+      - type: narration
+        text: "13日：A{農薬|のうやく} 30ml / {散布者|さんぷしゃ}：ハルト / {天候|てんこう}：{晴|は}れ"
+      - type: narration
+        text: "14日：{散布|さんぷ}なし"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "15日：★{空白|くうはく}★（ページが{折|お}り{込|こ}まれていた{痕跡|こんせき}あり）"
+      - type: narration
+        text: "16日：{散布|さんぷ}なし"
+      - type: narration
+        text: "17日：A{農薬|のうやく} 30ml / {散布者|さんぷしゃ}：ハルト / {天候|てんこう}：{晴|は}れ"
+      - type: narration
+        text: "15日だけ{記録|きろく}がない。しかもページが{折|お}り{込|こ}まれていた——{意図的|いとてき}に{隠|かく}された？"
+
+  # ===== 証拠カード2: 農薬記録の書き方ルール =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 農薬記録のルール
+      - type: narration
+        text: "{農薬|のうやく}{使用|しよう}{記録|きろく} {記入|きにゅう}ルール（{農薬|のうやく}{取締法|とりしまりほう}）——"
+      - type: narration
+        text: "{農薬|のうやく}を{使用|しよう}したときは{以下|いか}を{記録|きろく}する{義務|ぎむ}がある："
+      - type: narration
+        text: "・{使用|しよう}した日付　・{農薬|のうやく}の{種類|しゅるい}　・{使用量|しようりょう}（ml）"
+      - type: narration
+        text: "・{散布|さんぷ}した{場所|ばしょ}　・{作業者|さぎょうしゃ}の名前"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{記録|きろく}がない{場合|ばあい}、{法律|ほうりつ}{違反|いはん}になる{可能性|かのうせい}がある。{食|しょく}の{安全|あんぜん}を{守|まも}るための大事なルールだ。"
+
+  # ===== 証拠カード3: ケイの目撃メモ =====
+  - id: evidence-3
+    bgm: career-03/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ケイの目撃メモ
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれ、{先月|せんげつ}15日の{午後|ごご}2時ごろ、ハルトが{第|だい}2{畑|はたけ}でA{農薬|のうやく}を{散布|さんぷ}しているのを{見|み}たんだ。"
+      - type: dialog
+        character: kei
+        text: "{散布|さんぷ}のあと、ハルトが「あ、メモ書き{忘|わす}れた……」って{小声|こごえ}でつぶやいてた。"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ケイは{午後|ごご}3時から{第|だい}2{畑|はたけ}で{収穫|しゅうかく}{作業|さぎょう}をした。{農薬|のうやく}{散布|さんぷ}後1時間{以上|いじょう}{経|た}ってから{収穫|しゅうかく}するルール。"
+      - type: narration
+        text: "{散布|さんぷ}はあった。でも{記録|きろく}が{空白|くうはく}——ハルトが「書き{忘|わす}れた」とつぶやいていた。"
+
+  # ===== 証拠カード4: 農薬在庫記録 =====
+  - id: evidence-4
+    bgm: career-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 農薬在庫記録
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしの{在庫|ざいこ}{記録|きろく}を見てほしいの。"
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "A{農薬|のうやく}の{残量|ざんりょう}——"
+      - type: narration
+        text: "14日：500ml（取り出しなし）"
+      - type: narration
+        text: "15日：470ml（−30ml）取り出し{担当|たんとう}：ハルト"
+      - type: narration
+        text: "16日：470ml（{変化|へんか}なし）"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "A{農薬|のうやく}の1回{散布量|さんぷりょう}：25〜35ml（{標準|ひょうじゅん}30ml）。15日に30ml{減少|げんしょう}——{散布|さんぷ}は{間違|まちが}いなく{行|おこな}われた。"
+      - type: narration
+        text: "{散布|さんぷ}したのに{記録|きろく}がない。{在庫|ざいこ}{記録|きろく}には「取り出し{担当|たんとう}：ハルト」。ハルトが{散布|さんぷ}して{記録|きろく}を書かなかった{証拠|しょうこ}だ。"
+
+  # ===== 証拠カード5: 作業スケジュール（反転） =====
+  - id: evidence-5
+    bgm: career-03/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 農場の作業スケジュール
+      - type: sprite
+        character: encho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: encho
+        text: "{農場|のうじょう}の{作業|さぎょう}スケジュールを{確認|かくにん}しよう。15日の{予定|よてい}がはっきりわかるぞ。"
+      - type: sprite
+        character: encho
+        action: hide
+      - type: narration
+        text: "{先月|せんげつ}15日の{作業|さぎょう}スケジュール——"
+      - type: narration
+        text: "{午前|ごぜん}：{収穫|しゅうかく}（ケイ{担当|たんとう}）"
+      - type: narration
+        text: "{午後|ごご}2時：{農薬|のうやく}{散布|さんぷ}（ハルト{担当|たんとう}）← {予定|よてい}通り{実施|じっし}済み"
+      - type: narration
+        text: "{午後|ごご}3時：{収穫|しゅうかく}{再開|さいかい}（ケイ{担当|たんとう}）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{散布|さんぷ}は{予定|よてい}通り{実施|じっし}された。ケイの{目撃|もくげき}、{在庫|ざいこ}の{減少|げんしょう}、スケジュール。{全|すべ}ての{証拠|しょうこ}が「{散布|さんぷ}はあった」と{示|しめ}している。"
+      - type: narration
+        text: "{散布|さんぷ}はあったのに{記録|きろく}だけがない——なぜ？ ハルトが「書き{忘|わす}れた」あと、{何|なに}をしたのか。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: park
+    bgm: career-03/tension
+    steps:
+      - type: sprite
+        character: encho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: encho
+        text: "15日の{農薬|のうやく}{記録|きろく}が{空白|くうはく}なのは、{誰|だれ}がなぜそうしたのか。みんなの{推理|すいり}を{聞|き}かせてくれ。"
+      - type: sprite
+        character: encho
+        action: hide
+      - type: choice
+        id: q1
+        question: 15日の記録が空白なのは誰の責任？
+        options:
+          - text: ハルト（散布したのに記録を書かなかった）
+            value: haruto
+            feedback: 正解！ ハルトは散布後に記録を書き忘れ、翌日気づいたが「怒られる」と思って空白ページを折り込んで隠した。
+          - text: ミナ（記録管理として確認が遅れた）
+            value: mina
+            feedback: ミナは記録管理担当だけど、記録を書くのは散布者の責任。ミナは空白を発見して問題を明らかにした側だよ。
+          - text: ケイ（ハルトの「書き忘れた」を黙っていた）
+            value: kei
+            feedback: ケイは目撃していたけど声をかけなかった後ろめたさがある。でも記録を書く責任はハルトにあるよ。
+          - text: サキ（在庫管理から気づくべきだった）
+            value: saki
+            feedback: サキの在庫記録は正確で、むしろ証拠になった。在庫記録から使用記録の問題に気づくのは難しい。
+      - type: choice
+        id: q2
+        question: ハルトの行動で一番問題なのはどこ？
+        options:
+          - text: 書き忘れたこと自体
+            value: forgot
+            feedback: 書き忘れはミスだけど、翌日に気づいて正直に言えば簡単に解決できた。ミスそのものよりも、その後の対応が問題。
+          - text: 書き忘れを隠したこと
+            value: hid
+            feedback: そうだね。書き忘れは事故だけど、隠すのは意図的な行動。「隠す」ことで問題がどんどん大きくなった。
+          - text: 散布を正しくやらなかったこと
+            value: wrong-spray
+            feedback: 実はハルトは散布を正しく行っていた。仕事自体は問題なし。記録の書き忘れと隠蔽が問題だよ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: park
+    bgm: career-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 書き忘れた、そして隠した
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ミナの秘密
+  - id: truth-mina
+    bg: park
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: left
+      - type: dialog
+        character: mina
+        text: "{空白|くうはく}ページを見つけたとき、{最初|さいしょ}はハルトを{疑|うたが}いたくなかった。ハルトはいつも{真面目|まじめ}に{仕事|しごと}してるから。"
+      - type: dialog
+        character: mina
+        text: "でも……{食|しょく}の{安全|あんぜん}に関わることだから、{黙|だま}っていられなかった。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "おれ、ハルトが「書き{忘|わす}れた」ってつぶやくのを{聞|き}いたのに、その{場|ば}で{声|こえ}をかけなかった。"
+      - type: dialog
+        character: kei
+        text: "「ハルトが{後|あと}で書くだろう」って思って{黙|だま}ってた。あのとき{言|い}えばよかった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # サキの秘密
+  - id: truth-saki
+    steps:
+      - type: sprite
+        character: saki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: saki
+        text: "{在庫|ざいこ}{記録|きろく}には15日にハルトが{農薬|のうやく}を取り出した{記録|きろく}がちゃんとある。{散布|さんぷ}は{行|おこな}われていた。"
+      - type: dialog
+        character: saki
+        text: "{記録|きろく}があるからこそ、「{散布|さんぷ}したのに{使用|しよう}{記録|きろく}がない」と{証明|しょうめい}できた。{記録|きろく}の力ってすごい。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ハルトの告白（クライマックス）
+  - id: truth-haruto
+    bgm: career-03/truth
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruto
+        text: "……ぼくのせいです。15日に{農薬|のうやく}を{散布|さんぷ}したあと、{記録|きろく}を書こうとしたけど、{急|きゅう}な{収穫|しゅうかく}{作業|さぎょう}が入って後回しにした。"
+      - type: narration
+        speed: slow
+        text: "ハルトがゆっくり話し{始|はじ}めた。"
+      - type: dialog
+        character: haruto
+        text: "{次|つぎ}の日に気づいたんだ。「15日の{記録|きろく}、書いてない」って。"
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: "でも……{怒|おこ}られると{思|おも}って。{空白|くうはく}のページを{折|お}り{込|こ}んで{隠|かく}しちゃった。"
+      - type: dialog
+        character: haruto
+        text: "{散布|さんぷ}はちゃんとやった。{仕事|しごと}は正しくした。でも{記録|きろく}を書き{忘|わす}れて、{隠|かく}した。それがいけなかった。"
+        expression: determined
+      - type: dialog
+        character: haruto
+        text: "「書き{忘|わす}れました、すみません」って言えばよかったのに。{隠|かく}したから{問題|もんだい}がもっと大きくなった。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: narration
+        speed: slow
+        text: "書き{忘|わす}れ→{隠|かく}す→さらに{問題|もんだい}が大きくなる——これが{因果|いんが}の{連鎖|れんさ}だ。小さなミスを{隠|かく}すことで、{問題|もんだい}はどんどん{大|おお}きくなっていく。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: park
+    bgm: career-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: encho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: encho
+        text: "{今回|こんかい}の{事件|じけん}で大事なことが分かったね。"
+      - type: dialog
+        character: encho
+        text: "{農薬|のうやく}の{使用|しよう}{記録|きろく}は{法律|ほうりつ}で{義務|ぎむ}づけられている。それは{食|た}べる人の{安全|あんぜん}を{守|まも}るためだ。"
+        expression: normal
+      - type: dialog
+        character: encho
+        text: "そしてもうひとつ——ミスをしたとき「{隠|かく}す」のではなく「正直に言う」。それが{一番|いちばん}早い{解決|かいけつ}{方法|ほうほう}だ。"
+        expression: thinking
+      - type: sprite
+        character: encho
+        action: hide
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "次からは{散布|さんぷ}したらすぐ{記録|きろく}を書く。{忘|わす}れそうなときは{声|こえ}に出して「{記録|きろく}！」ってリマインドする。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "15日の{記録|きろく}は正しく書き{直|なお}された。{農薬|のうやく}A 30ml、{散布者|さんぷしゃ}：ハルト。{食|しょく}の{安全|あんぜん}を{守|まも}る{記録|きろく}が、ちゃんとつながった。"
+      - type: narration
+        speed: slow
+        text: "ミスは{誰|だれ}でもする。大事なのは、ミスをしたあとどうするか。{隠|かく}すのではなく、正直に言う——それが{信頼|しんらい}を{守|まも}る{方法|ほうほう}だ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——{農場|のうじょう}の{秘密|ひみつ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
