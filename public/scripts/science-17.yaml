@@ -1,0 +1,392 @@
+meta:
+  id: science-17
+  title: 溶けた証拠と白い結晶
+  series: サイエンス捜査班
+  volume: 17
+  estimatedMinutes: 22
+
+characters:
+  shiori:
+    name: シオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  takumi:
+    name: タクミ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  mei:
+    name: メイ
+    color: "#FF8C00"
+    sprites:
+      normal: girl-d-normal.webp
+      happy: girl-d-happy.webp
+      thinking: girl-d-thinking.webp
+      worried: girl-d-worried.webp
+      surprised: girl-d-surprised.webp
+      determined: girl-d-determined.webp
+  ryuu:
+    name: リュウ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: science-lab
+    bgm: science-17/opening
+    steps:
+      - type: narration
+        text: "{結晶|けっしょう}{作|づく}りコンテスト。{各班|かくはん}がミョウバンの{飽和水溶液|ほうわすいようえき}を60℃で{作|つく}り、{一晩|ひとばん}{冷|ひ}やして{結晶|けっしょう}を{育|そだ}てる{実験|じっけん}。"
+      - type: narration
+        text: "{翌朝|よくあさ}——1{班|はん}と3{班|はん}は{美|うつく}しい{結晶|けっしょう}。4{班|はん}は{小|ちい}さめの{結晶|けっしょう}。でも2{班|はん}は——"
+      - type: sprite_group
+        characters:
+          - { id: shiori, expression: surprised }
+          - { id: takumi, expression: thinking }
+          - { id: mei, expression: worried }
+          - { id: ryuu, expression: worried }
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "2{班|はん}のビーカーにはほとんど{結晶|けっしょう}がない！ {先生|せんせい}が{調|しら}べると、2{班|はん}の{溶液|ようえき}はなぜか{食塩水|しょくえんすい}に{入|い}れ{替|か}えられていた！"
+      - type: sprite
+        id: shiori
+        action: hide
+      - type: sprite
+        id: takumi
+        action: hide
+      - type: sprite
+        id: mei
+        action: hide
+      - type: sprite
+        id: ryuu
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-17/tension
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}かが{放課後|ほうかご}にミョウバン{溶液|ようえき}を{捨|す}てて{食塩水|しょくえんすい}にすり{替|か}えた。「{溶解度|ようかいど}」の{科学|かがく}で{犯人|はんにん}を{追|お}い{詰|つ}めてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "溶けた証拠と白い結晶"
+        subtitle: "サイエンス捜査班 Vol.17"
+
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-17/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 溶解度の科学"
+      - type: narration
+        text: "{溶解度|ようかいど}＝{水|みず}100mLに{溶|と}ける{最大量|さいだいりょう}。ミョウバン：20℃で10g→60℃で55g。{温度|おんど}が{上|あ}がると{大|おお}きく{増|ふ}える。"
+      - type: narration
+        text: "{食塩|しょくえん}：20℃で35g→60℃で37g。{温度|おんど}が{変|か}わってもほとんど{変|か}わらない。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "60℃の{飽和水溶液|ほうわすいようえき}を20℃に{冷|ひ}やすと？ ミョウバン：55g−10g＝45gが{結晶|けっしょう}に！ {食塩|しょくえん}：37g−35g＝2gしか{結晶|けっしょう}にならない。この{差|さ}が{事件|じけん}の{鍵|かぎ}！"
+
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 2班の溶液分析"
+      - type: narration
+        text: "2{班|はん}のビーカーの{溶液|ようえき}を{調|しら}べた。{見|み}た{目|め}：{透明|とうめい}な{液体|えきたい}（{昨日|きのう}と{同|おな}じに{見|み}える）。{味|あじ}：しょっぱい（ミョウバンは{酸|す}っぱくて{渋|しぶ}い）。{結晶|けっしょう}の{量|りょう}：ほぼゼロ。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{加熱|かねつ}テスト：60℃に{加熱|かねつ}しても{溶|と}ける{量|りょう}がほとんど{変|か}わらない→{食塩水|しょくえんすい}の{特徴|とくちょう}！ ミョウバンなら60℃で55gまで{溶|と}けるはず。2{班|はん}の{溶液|ようえき}は{食塩水|しょくえんすい}に{入|い}れ{替|か}えられていた！"
+
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — シンクの白い粉"
+      - type: narration
+        text: "{理科室|りかしつ}のシンク（{流|なが}し{台|だい}）の{排水口|はいすいこう}の{周|まわ}りに{白|しろ}い{粉|こな}がこびりついていた。"
+      - type: narration
+        text: "{冷水|れいすい}（20℃）に{入|い}れる→あまり{溶|と}けない。{温水|おんすい}（60℃）に{入|い}れる→たくさん{溶|と}ける！ {味|あじ}：{酸|す}っぱくて{少|すこ}し{渋|しぶ}い。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{冷水|れいすい}に{溶|と}けにくく{温水|おんすい}に{溶|と}けやすい→ミョウバンの{特徴|とくちょう}！ {犯人|はんにん}は2{班|はん}のミョウバン{溶液|ようえき}をシンクに{流|なが}した。{水|みず}が{蒸発|じょうはつ}して、ミョウバンが{白|しろ}い{粉|こな}として{残|のこ}った——「{消|け}された{証拠|しょうこ}」の{跡|あと}！"
+
+  - id: evidence-4
+    bg: science-lab
+    bgm: science-17/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — アリバイと証言"
+      - type: narration
+        text: "{放課後|ほうかご}（15:00〜16:00）。シオリ：{図書室|としょしつ}。タクミ：{委員会|いいんかい}（15:20に{理科室|りかしつ}{前|まえ}を{通過|つうか}——{水|みず}を{流|なが}す{音|おと}と{白衣|はくい}の{人|ひと}を{目撃|もくげき}）。リュウ：{下校|げこう}{済|ず}み。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "メイ：15:15〜15:30の{行動|こうどう}がはっきりしない。「{忘|わす}れ{物|もの}を{取|と}りに{理科室|りかしつ}に{行|い}った」と{言|い}っている。シオリが15:30にメイと{理科室|りかしつ}{前|まえ}ですれ{違|ちが}った。15:15〜15:30の{空白|くうはく}{時間|じかん}——{本当|ほんとう}に{忘|わす}れ{物|もの}だけ？"
+
+  - id: testimony
+    bg: science-lab
+    bgm: science-17/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: shiori
+        position: left
+        expression: thinking
+      - type: dialog
+        character: shiori
+        text: "{溶解度|ようかいど}の{計算|けいさん}で{分|わ}かったの。2{班|はん}の{溶液|ようえき}は{食塩水|しょくえんすい}。ミョウバンじゃない。15:30に{理科室|りかしつ}の{前|まえ}でメイとすれ{違|ちが}った。「{忘|わす}れ{物|もの}を{取|と}りに{来|き}た」って{言|い}ってたけど……。"
+      - type: sprite
+        id: shiori
+        action: hide
+      - type: sprite
+        id: takumi
+        position: right
+        expression: determined
+      - type: dialog
+        character: takumi
+        text: "15:20に{理科室|りかしつ}の{前|まえ}を{通|とお}ったら{水|みず}を{流|なが}す{音|おと}がした。{小窓|こまど}から{白衣|はくい}の{人|ひと}がビーカーの{中身|なかみ}を{流|なが}しているのが{見|み}えた。それとシンクの{白|しろ}い{粉|こな}も{見|み}つけた。"
+      - type: sprite
+        id: takumi
+        action: hide
+      - type: sprite
+        id: mei
+        position: left
+        expression: normal
+      - type: dialog
+        character: mei
+        text: "{教室|きょうしつ}で{宿題|しゅくだい}をしてた。{途中|とちゅう}で{忘|わす}れ{物|もの}を{取|と}りに{理科室|りかしつ}に{行|い}ったけど、すぐ{戻|もど}ったよ。{溶液|ようえき}のことは{知|し}らない。"
+      - type: sprite
+        id: mei
+        action: hide
+      - type: sprite
+        id: ryuu
+        position: right
+        expression: worried
+      - type: dialog
+        character: ryuu
+        text: "ぼくは{放課後|ほうかご}すぐ{帰|かえ}った。{今朝|けさ}{溶液|ようえき}をなめたらしょっぱかった。ミョウバンは{酸|す}っぱいはずなのに……。{授業中|じゅぎょうちゅう}、{先生|せんせい}が2{班|はん}を{褒|ほ}めたとき、メイがつらそうな{顔|かお}をしてたのを{覚|おぼ}えてる。"
+      - type: sprite
+        id: ryuu
+        action: hide
+
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-17/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 仮説検証で犯人を追い詰めろ"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{仮説検証|かせつけんしょう}——「こうではないか？」（{仮説|かせつ}）を{立|た}てて、{証拠|しょうこ}で{確|たし}かめる（{検証|けんしょう}）{方法|ほうほう}。"
+      - type: narration
+        text: "{仮説|かせつ}A「2{班|はん}の{作|つく}り{方|かた}がまずかった」→{先生|せんせい}が{褒|ほ}めた。{手順|てじゅん}は{正|ただ}しい→❌{却下|きゃっか}。{仮説|かせつ}B「{溶液|ようえき}が{自然|しぜん}に{変|か}わった」→ミョウバンは{安定|あんてい}。一{晩|ばん}で{食塩|しょくえん}に{変|か}わらない→❌{却下|きゃっか}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{仮説|かせつ}C「{誰|だれ}かが{入|い}れ{替|か}えた」→①シンクにミョウバンの{白|しろ}い{粉|こな}✅ ②2{班|はん}の{溶液|ようえき}は{食塩水|しょくえんすい}✅ ③タクミの{目撃|もくげき}・シオリの{遭遇|そうぐう}✅→3つの{予測|よそく}すべて{一致|いっち}→✅{採用|さいよう}！"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{犯人|はんにん}の{特定|とくてい}——15:20に{白衣|はくい}の{人|ひと}が{液体|えきたい}を{流|なが}した（タクミ）。15:30にメイが{理科室|りかしつ}{前|まえ}に（シオリ）。メイの15:15〜15:30が{空白|くうはく}。4{班|はん}の{結晶|けっしょう}が{小|ちい}さい（{温度管理|おんどかんり}{失敗|しっぱい}）。2{班|はん}が{褒|ほ}められたときメイがつらそう。{仮説検証|かせつけんしょう}で{犯人|はんにん}はメイ！"
+
+  - id: questions
+    bg: science-lab
+    bgm: science-17/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "2{班|はん}の{溶液|ようえき}が{食塩水|しょくえんすい}だと{分|わ}かった{決|き}め{手|て}は？"
+        options:
+          - text: "見た目が違った"
+            feedback: "{食塩水|しょくえんすい}もミョウバン{溶液|ようえき}も{透明|とうめい}。{見|み}た{目|め}だけでは{区別|くべつ}できない。"
+          - text: "加熱しても溶ける量が変わらなかった"
+            feedback: "そのとおり！ ミョウバンなら60℃で55gまで{溶|と}けるが、{食塩|しょくえん}は{温度|おんど}が{変|か}わってもほぼ{同|おな}じ。{加熱|かねつ}テストが{科学的|かがくてき}{証明|しょうめい}になった。"
+          - text: "色が変わった"
+            feedback: "どちらも{透明|とうめい}で{色|いろ}は{変|か}わらない。{加熱|かねつ}テストと{味|あじ}で{区別|くべつ}したんだ。"
+      - type: choice
+        id: q2
+        text: "{溶液|ようえき}をすり{替|か}えたのは{誰|だれ}？"
+        options:
+          - text: "シオリ"
+            feedback: "シオリは{図書室|としょしつ}にいた。15:30にメイとすれ{違|ちが}った{証人|しょうにん}。{溶解度|ようかいど}の{分析|ぶんせき}で{事件|じけん}{解明|かいめい}に{貢献|こうけん}した。"
+          - text: "タクミ"
+            feedback: "タクミは{委員会|いいんかい}で、15:20に{理科室|りかしつ}{前|まえ}を{通|とお}っただけ。{白衣|はくい}の{人|ひと}を{目撃|もくげき}した{証人|しょうにん}。"
+          - text: "メイ"
+            feedback: "15:15〜15:30の{空白|くうはく}{時間|じかん}。{白衣|はくい}の{人物|じんぶつ}。4{班|はん}の{結晶|けっしょう}が{小|ちい}さい{動機|どうき}。{仮説検証|かせつけんしょう}ですべてがメイを{指|さ}している。"
+          - text: "リュウ"
+            feedback: "リュウは{放課後|ほうかご}すぐ{帰宅|きたく}。{被害者|ひがいしゃ}の2{班|はん}。{溶液|ようえき}をなめて{食塩水|しょくえんすい}だと{気|き}づいた{証人|しょうにん}。"
+
+  - id: truth-mei
+    bg: science-lab
+    bgm: science-17/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: narration
+        speed: slow
+        text: "2{班|はん}の{溶液|ようえき}をすり{替|か}えたのは——メイだった。"
+      - type: sprite
+        id: mei
+        position: center
+        expression: worried
+      - type: dialog
+        character: mei
+        text: "ごめんなさい。{授業中|じゅぎょうちゅう}、まだ50℃くらいだったのにミョウバンを{入|い}れちゃった。{先生|せんせい}に{注意|ちゅうい}された。50℃だと60℃より{溶|と}ける{量|りょう}が{少|すく}ない。4{班|はん}の{結晶|けっしょう}は{小|ちい}さくなる……。"
+      - type: dialog
+        character: mei
+        expression: worried
+        text: "そのあと{先生|せんせい}が2{班|はん}を「お{手本|てほん}」って{褒|ほ}めた。{悔|くや}しかった。コンテストで{最下位|さいかい}になったら{班|はん}のみんなにがっかりされる。リーダーとして{認|みと}めてもらえない……。"
+      - type: dialog
+        character: mei
+        text: "「2{班|はん}の{結晶|けっしょう}もダメにすれば{最下位|さいかい}にならない」——そう{思|おも}って、{放課後|ほうかご}に2{班|はん}のミョウバン{溶液|ようえき}をシンクに{流|なが}して{食塩水|しょくえんすい}に{入|い}れ{替|か}えた。{食塩水|しょくえんすい}は{冷|ひ}やしても{結晶|けっしょう}がほとんどできないから。"
+      - type: dialog
+        character: mei
+        text: "でも、シンクに{流|なが}したミョウバンが{白|しろ}い{粉|こな}として{残|のこ}るなんて……。{溶解度|ようかいど}の{知識|ちしき}で{追|お}い{詰|つ}められるなんて{思|おも}わなかった。{最下位|さいかい}でもいいから{正々堂々|せいせいどうどう}と{勝負|しょうぶ}すればよかった。ごめんなさい。"
+      - type: sprite
+        id: mei
+        action: hide
+
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなが{知|し}っていたことも{明|あ}かされた。"
+      - type: sprite
+        id: shiori
+        position: left
+        expression: determined
+      - type: dialog
+        character: shiori
+        text: "4{班|はん}の{温度管理|おんどかんり}ミスを{観察|かんさつ}してた。15:30にメイと{理科室|りかしつ}{前|まえ}ですれ{違|ちが}った。{溶解度|ようかいど}の{計算|けいさん}で{食塩水|しょくえんすい}だと{特定|とくてい}できたわ。"
+      - type: sprite
+        id: shiori
+        action: hide
+      - type: sprite
+        id: takumi
+        position: right
+        expression: thinking
+      - type: dialog
+        character: takumi
+        text: "15:20に{白衣|はくい}の{人|ひと}がビーカーの{中身|なかみ}を{流|なが}しているのを{目撃|もくげき}した。シンクの{白|しろ}い{粉|こな}も{見|み}つけた。{温水|おんすい}に{溶|と}けやすかったからミョウバンだと{分|わ}かった。"
+      - type: sprite
+        id: takumi
+        action: hide
+      - type: sprite
+        id: ryuu
+        position: left
+        expression: thinking
+      - type: dialog
+        character: ryuu
+        text: "{今朝|けさ}{溶液|ようえき}をなめたらしょっぱかった。ミョウバンは{酸|す}っぱいはずなのに。{授業中|じゅぎょうちゅう}にメイがつらそうな{顔|かお}をしてたのも{覚|おぼ}えてる。"
+      - type: sprite
+        id: ryuu
+        action: hide
+
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "ミョウバンは{温度|おんど}で{溶解度|ようかいど}が{大|おお}きく{変|か}わる。{食塩|しょくえん}はほとんど{変|か}わらない。この{違|ちが}いが{再結晶|さいけっしょう}の{原理|げんり}であり、{犯行|はんこう}トリックの{核心|かくしん}でした。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{仮説検証|かせつけんしょう}で3つの{仮説|かせつ}を{立|た}て、{証拠|しょうこ}で{検証|けんしょう}して{絞|しぼ}り{込|こ}みましたね。{仮説|かせつ}A・Bは{却下|きゃっか}、Cが{採用|さいよう}。これが{科学者|かがくしゃ}の{推理|すいり}{方法|ほうほう}です。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "メイの「{認|みと}められたい」{気持|きも}ちは{分|わ}かります。でも{他|ほか}の{班|はん}の{実験|じっけん}を{台無|だいな}しにするのは{間違|まちが}い。{最下位|さいかい}でも{正々堂々|せいせいどうどう}と{勝負|しょうぶ}することが{大切|たいせつ}です。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  - id: epilogue
+    bg: science-lab
+    bgm: science-17/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: mei
+        position: left
+        expression: worried
+      - type: dialog
+        character: mei
+        text: "2{班|はん}のみんな、ごめんなさい。{結晶|けっしょう}コンテスト、もう{一度|いちど}やり{直|なお}させてほしい。{今度|こんど}は{正々堂々|せいせいどうどう}と。"
+      - type: sprite
+        id: mei
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "コンテストは{来週|らいしゅう}やり{直|なお}しましょう。2{班|はん}のミョウバン{溶液|ようえき}も{作|つく}り{直|なお}します。メイの{班|はん}も{今度|こんど}は60℃をしっかり{守|まも}れば、きれいな{結晶|けっしょう}ができますよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "{溶解度|ようかいど}の{科学|かがく}が「{溶|と}けた{証拠|しょうこ}」と「{白|しろ}い{結晶|けっしょう}」から{真実|しんじつ}を{導|みちび}いた。{仮説検証|かせつけんしょう}——{科学者|かがくしゃ}の{推理|すいり}が{事件|じけん}を{解|と}いた。"
+      - type: effect
+        name: fade-out
