@@ -1,0 +1,530 @@
+meta:
+  id: geography-04
+  title: 消えた写真と谷のひみつ
+  series: 地図探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  yuuki:
+    name: ユウキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hinata:
+    name: ヒナタ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  makoto:
+    name: マコト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  akari:
+    name: アカリ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-04/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5{年|ねん}1{組|くみ}の「{地形|ちけい}フィールドワーク{発表会|はっぴょうかい}」の{朝|あさ}。"
+      - type: narration
+        text: "{月曜日|げつようび}の{遠足|えんそく}で{川|かわ}の{上流|じょうりゅう}から{下流|かりゅう}まで4つの{地形|ちけい}を{調|しら}べ、ポスターにまとめたはずだった。"
+      - type: sprite
+        character: yuuki
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: yuuki
+        text: "ポスターからV{字|じ}{谷|たに}の{写真|しゃしん}がなくなってる！ しかも{説明|せつめい}カードの{内容|ないよう}がなんか{変|へん}だ！"
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{写真|しゃしん}が1{枚|まい}{消|き}えて、{説明|せつめい}が書きかえられている。{地図|ちず}{探偵団|たんていだん}、{地形|ちけい}の{知識|ちしき}でこの{矛盾|むじゅん}を{見抜|みぬ}いてくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.4
+        subtitle: 消えた写真と谷のひみつ
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-04/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: yuuki
+        expression: normal
+        position: left
+      - type: dialog
+        character: yuuki
+        text: "ぼくはユウキ。{班長|はんちょう}で{三角州|さんかくす}を{担当|たんとう}した。{火曜日|かようび}に4人でポスターを{完成|かんせい}させたとき、{写真|しゃしん}も{説明|せつめい}も{全部|ぜんぶ}あった。"
+      - type: dialog
+        character: yuuki
+        text: "{水曜日|すいようび}の{放課後|ほうかご}は{図書室|としょしつ}にいた。15:30に{廊下|ろうか}でヒナタとすれ{違|ちが}ったんだけど、{手|て}に{何|なに}か{持|も}ってた。"
+        expression: thinking
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: normal
+        position: right
+      - type: dialog
+        character: hinata
+        text: "わたしはヒナタ。V{字|じ}{谷|たに}を{担当|たんとう}したよ。{遠足|えんそく}で{写真|しゃしん}を{撮|と}るのが{大変|たいへん}だった……。"
+      - type: dialog
+        character: hinata
+        text: "{水曜日|すいようび}は{教室|きょうしつ}で{片付|かたづ}けしてて、15:30に{忘|わす}れ{物|もの}を{取|と}りに{行|い}ったの。"
+        expression: worried
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: makoto
+        expression: normal
+        position: left
+      - type: dialog
+        character: makoto
+        text: "おれはマコト。{扇状地|せんじょうち}を{担当|たんとう}した。{山|やま}のふもとで{川|かわ}が{扇|おうぎ}みたいに{広|ひろ}がってて{砂利|じゃり}がたくさんあったぞ。"
+      - type: dialog
+        character: makoto
+        text: "{水曜日|すいようび}の{放課後|ほうかご}は{校庭|こうてい}でサッカー。15:30ごろ{教室|きょうしつ}の{窓|まど}を{見|み}たら{電気|でんき}がついてたけど。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: akari
+        expression: normal
+        position: right
+      - type: dialog
+        character: akari
+        text: "わたしはアカリ。{河岸段丘|かがんだんきゅう}を{担当|たんとう}した。{川|かわ}の{横|よこ}に{階段|かいだん}みたいな{平|たい}らな{土地|とち}が{何段|なんだん}もあったよ。"
+      - type: dialog
+        character: akari
+        text: "{遠足|えんそく}のとき、ヒナタがV{字|じ}{谷|たに}の{斜面|しゃめん}で{滑|すべ}って{転|ころ}んだのを{見|み}たの。「{大丈夫|だいじょうぶ}」って{言|い}ってたけど……。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ===== 証拠カード1: ポスターの状態 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-04/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 発表会のポスター
+      - type: narration
+        text: "ポスターの{状態|じょうたい}——"
+      - type: narration
+        text: "ユウキ（{三角州|さんかくす}）：{写真|しゃしん} ✓ {説明|せつめい} ✓　アカリ（{河岸段丘|かがんだんきゅう}）：{写真|しゃしん} ✓ {説明|せつめい} ✓"
+      - type: narration
+        text: "マコト（{扇状地|せんじょうち}）：{写真|しゃしん} ✓ {説明|せつめい} ✓"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "ヒナタ（V{字|じ}{谷|たに}）：{写真|しゃしん} ✗ ない！ {説明|せつめい} ✓ あるが{内容|ないよう}が{変|へん}？"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "V{字|じ}{谷|たに}の{写真|しゃしん}だけがなくなり、{説明|せつめい}カードが書きかえられている。"
+
+  # ===== 証拠カード2: 書きかえられた説明 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: V字谷の説明カード
+      - type: narration
+        text: "ポスターに{貼|は}ってあるV{字|じ}{谷|たに}の{説明|せつめい}カード——"
+      - type: narration
+        text: "「{川|かわ}の{力|ちから}で{地面|じめん}がけずられてできた{地形|ちけい}」"
+      - type: narration
+        text: "「{山|やま}から{平野|へいや}に{出|で}るところで{川|かわ}が{扇形|おうぎがた}に{広|ひろ}がる」← ？？？"
+      - type: narration
+        text: "「{川|かわ}の{両側|りょうがわ}にひろい{砂利|じゃり}の{土地|とち}がある」← ？？？"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "2{行目|ぎょうめ}と3{行目|ぎょうめ}はV{字|じ}{谷|たに}ではなく{扇状地|せんじょうち}の{特徴|とくちょう}だ！ V{字|じ}{谷|たに}は「{上流|じょうりゅう}の{深|ふか}い{谷|たに}で{両側|りょうがわ}が{急|きゅう}な{崖|がけ}」。書きかえた人はV{字|じ}{谷|たに}と{扇状地|せんじょうち}の{違|ちが}いを{分|わ}かっていない。"
+
+  # ===== 証拠カード3: 放課後の行動 =====
+  - id: evidence-3
+    bgm: geography-04/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 水曜日の放課後
+      - type: narration
+        text: "{水曜日|すいようび}の{放課後|ほうかご}の{行動|こうどう}——"
+      - type: narration
+        text: "15:00　ユウキ＝{図書室|としょしつ}、ヒナタ＝{教室|きょうしつ}で{片付|かたづ}け、マコト＝{校庭|こうてい}、アカリ＝{音楽室|おんがくしつ}"
+      - type: narration
+        text: "15:30　ヒナタ「{忘|わす}れ{物|もの}を{取|と}りに{行|い}く」と{言|い}って{出|で}た。ユウキが{廊下|ろうか}でヒナタとすれ{違|ちが}った。"
+      - type: narration
+        text: "{証人|しょうにん}：ユウキ＝{図書室|としょしつ}（先生） ✓  マコト＝{校庭|こうてい}（先生） ✓  アカリ＝{音楽室|おんがくしつ}（先生） ✓"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒナタ＝{証人|しょうにん}なし ✗。15:30に「{忘|わす}れ{物|もの}」を{口実|こうじつ}に{教室|きょうしつ}へ{戻|もど}った？ マコトが15:30に{教室|きょうしつ}の{電気|でんき}がついていたのを{目撃|もくげき}。"
+
+  # ===== 証拠カード4: 遠足の記録 =====
+  - id: evidence-4
+    bgm: geography-04/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 遠足のフィールドノート
+      - type: narration
+        text: "{月曜日|げつようび}の{遠足|えんそく}で4人が{書|か}いたフィールドワーク{記録|きろく}——"
+      - type: narration
+        text: "ユウキ（{三角州|さんかくす}）：「{河口|かこう}で{川|かわ}が{枝分|えだわ}かれして{三角形|さんかくけい}の{平|たい}らな{土地|とち}ができていた」"
+      - type: narration
+        text: "マコト（{扇状地|せんじょうち}）：「{山|やま}のふもとで{川|かわ}が{急|きゅう}に{広|ひろ}がって{扇|おうぎ}みたい。{砂利|じゃり}がたくさん」"
+      - type: narration
+        text: "アカリ（{河岸段丘|かがんだんきゅう}）：「{川|かわ}の{横|よこ}に{階段|かいだん}みたいな{平|たい}らな{土地|とち}が{何段|なんだん}もあった」"
+      - type: narration
+        text: "ヒナタ（V{字|じ}{谷|たに}）：「{両側|りょうがわ}が{急|きゅう}な{崖|がけ}で{怖|こわ}かった。{足元|あしもと}がすべりやすかった。{写真|しゃしん}を{撮|と}るとき{大変|たいへん}だった」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "アカリの{証言|しょうげん}：「{遠足|えんそく}のとき、ヒナタがV{字|じ}{谷|たに}の{斜面|しゃめん}で{滑|すべ}って{転|ころ}んだのを{見|み}た」。ヒナタの「{写真|しゃしん}を{撮|と}るとき{大変|たいへん}だった」と{関係|かんけい}がある？"
+
+  # ===== 証拠カード5: 守り桜の写真 =====
+  - id: evidence-5
+    bgm: geography-04/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 守り桜の写真
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{遠足|えんそく}のときに{撮|と}った{全体|ぜんたい}{写真|しゃしん}が{見|み}つかった。V{字|じ}{谷|たに}エリアの{写真|しゃしん}だ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "{写真|しゃしん}に{写|うつ}っているもの——V{字|じ}{谷|たに}の{手前|てまえ}に{大|おお}きな{桜|さくら}の{木|き}。「{守|まも}り{桜|ざくら}」と{呼|よ}ばれ、{地域|ちいき}の{人|ひと}が100{年|ねん}{大切|たいせつ}にしてきた{木|き}。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{木|き}の{下|した}の{方|ほう}の{枝|えだ}が1{本|ぽん}、{不自然|ふしぜん}に{折|お}れている。{折|お}れた{部分|ぶぶん}は{新|あたら}しい{傷|きず}で、{白|しろ}い{木|き}の{中身|なかみ}が{見|み}えている。"
+      - type: narration
+        text: "先生のメモ：「{遠足|えんそく}の{後|あと}、{地域|ちいき}の{方|かた}から『{枝|えだ}が{折|お}れている』と{連絡|れんらく}がありました。{心当|こころあ}たりがある人は{教|おし}えてください」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ヒナタはV{字|じ}{谷|たに}の{斜面|しゃめん}で{滑|すべ}った。{守|まも}り{桜|ざくら}の{枝|えだ}を{折|お}ってしまった？ {写真|しゃしん}にそれが{写|うつ}っている——{発表会|はっぴょうかい}で{使|つか}われたらバレる。だから{写真|しゃしん}を{消|け}した。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-04/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{地形|ちけい}{知識|ちしき}とタイムラインで{絞|しぼ}り{込|こ}めたな。ポスターを{改|かい}ざんしたのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: ポスターからV字谷の写真を消し、説明を書きかえたのは誰？
+        options:
+          - text: ユウキ（班長・三角州担当）
+            value: yuuki
+            feedback: ユウキは図書室にいて先生が証人。V字谷の写真を消す動機もないよ。むしろポスターを完成させた側。
+          - text: ヒナタ（V字谷担当・証人なし）
+            value: hinata
+            feedback: 正解！ ヒナタは遠足でV字谷の斜面で滑り、守り桜の枝を折ってしまった。写真にそれが写っているため、発表会で使われる前に消した。説明を書きかえたが、V字谷と扇状地の区別がつかず矛盾が出た。
+          - text: マコト（扇状地担当・校庭にいた）
+            value: makoto
+            feedback: マコトは校庭にいて先生が証人。扇状地担当なので、V字谷の説明に扇状地の特徴が混ざった理由にはならないよ。
+          - text: アカリ（河岸段丘担当・音楽室にいた）
+            value: akari
+            feedback: アカリは音楽室にいて先生が証人。ヒナタが転んだことを見ていた目撃者側だよ。
+      - type: choice
+        id: q2
+        question: 書きかえた説明カードの矛盾はどこ？
+        options:
+          - text: V字谷の説明に扇状地の特徴（扇形に広がる・砂利）が混ざっている
+            value: terrain-mix
+            feedback: 正解！ V字谷は「上流の深い谷・両側が急な崖」。扇状地は「山から平野に出る場所・扇形に広がる・砂利」。ヒナタはV字谷と扇状地の違いを正確に覚えていなかったため、書きかえた説明に扇状地の特徴が漏れた——「認知的指紋」。
+          - text: 説明の文字数が少なすぎる
+            value: too-short
+            feedback: 文字数の問題ではないよ。内容に注目しよう。「山から平野に出るところで川が扇形に広がる」はV字谷ではなく扇状地の特徴。地形知識で矛盾を見抜くのがポイント。
+          - text: 写真がないこと自体が矛盾
+            value: no-photo
+            feedback: 写真がないのは証拠の一つだけど、「説明カードの内容の矛盾」が地形知識で見抜けるポイント。V字谷の説明に扇状地の特徴が混ざっていることが決め手。
+          - text: 字が汚い
+            value: messy
+            feedback: 字の綺麗さではなく、説明の内容に注目しよう。V字谷と扇状地の特徴を比べてみて。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-04/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 大切な木を傷つけた罪悪感
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ユウキの後ろめたさ
+  - id: truth-yuuki
+    bg: classroom
+    steps:
+      - type: sprite
+        character: yuuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuuki
+        text: "ぼく、15:30に{廊下|ろうか}でヒナタとすれ{違|ちが}ったのに「{忘|わす}れ{物|もの}かな」って{深|ふか}く{考|かんが}えなかった。"
+      - type: dialog
+        character: yuuki
+        text: "{班長|はんちょう}として、ポスターの{管理|かんり}をもっとちゃんとすべきだった。"
+        expression: determined
+      - type: sprite
+        character: yuuki
+        action: hide
+
+  # マコトの後ろめたさ
+  - id: truth-makoto
+    steps:
+      - type: sprite
+        character: makoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: makoto
+        text: "おれ、15:30に{教室|きょうしつ}の{電気|でんき}がついてるのを{見|み}たのに{確認|かくにん}しなかった。「{誰|だれ}かいるんだな」で{済|す}ませちゃった。"
+      - type: dialog
+        character: makoto
+        text: "{違和感|いわかん}に気づいたら{声|こえ}をかけるべきだった。"
+        expression: determined
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # アカリの後ろめたさ
+  - id: truth-akari
+    steps:
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "{遠足|えんそく}のとき、ヒナタが{転|ころ}んで「{大丈夫|だいじょうぶ}」って{言|い}ったの、{信|しん}じちゃった。{本当|ほんとう}は{何|なに}かあったんじゃないかって{気|き}になってたのに。"
+      - type: dialog
+        character: akari
+        text: "「{本当|ほんとう}に{大丈夫|だいじょうぶ}？ {何|なに}かあった？」って{聞|き}いてあげればよかった。"
+        expression: determined
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ヒナタの真実（クライマックス）
+  - id: truth-hinata
+    bgm: geography-04/truth
+    steps:
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: center
+      - type: dialog
+        character: hinata
+        text: "……わたしがやった。ポスターからV{字|じ}{谷|たに}の{写真|しゃしん}を{剥|は}がして、{説明|せつめい}カードを書きかえた。"
+      - type: narration
+        speed: slow
+        text: "ヒナタがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: hinata
+        text: "{遠足|えんそく}でV{字|じ}{谷|たに}の{斜面|しゃめん}を{歩|ある}いてたとき、{足|あし}を{滑|すべ}らせて{転|ころ}んだの。そのとき「{守|まも}り{桜|ざくら}」の{枝|えだ}をつかんだら……{枝|えだ}が{折|お}れちゃった。"
+        expression: worried
+      - type: dialog
+        character: hinata
+        text: "{地域|ちいき}の{人|ひと}が100{年|ねん}も{大切|たいせつ}にしてきた{木|き}。{写真|しゃしん}には{折|お}れた{枝|えだ}がはっきり{写|うつ}ってる。{発表会|はっぴょうかい}で{使|つか}われたら、わたしがやったって{分|わ}かっちゃう。"
+      - type: dialog
+        character: hinata
+        text: "{怖|こわ}くて{写真|しゃしん}を{消|け}した。{説明|せつめい}も書きかえたけど、V{字|じ}{谷|たに}の{特徴|とくちょう}をちゃんと{覚|おぼ}えてなくて……{扇状地|せんじょうち}の{特徴|とくちょう}が{混|ま}ざっちゃった。"
+        expression: worried
+      - type: dialog
+        character: hinata
+        text: "{大切|たいせつ}な{木|き}を{傷|きず}つけたのが{一番|いちばん}{辛|つら}い。でも{隠|かく}したことで、もっと{大|おお}きな{問題|もんだい}になっちゃった。{最初|さいしょ}から{正直|しょうじき}に{言|い}えばよかった。"
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ヒナタは{悪|わる}い{人|ひと}ではなかった。{大切|たいせつ}な{木|き}を{傷|きず}つけた{罪悪感|ざいあくかん}と、みんなに{知|し}られる{恐怖|きょうふ}。でも{隠|かく}そうとしたことで{説明|せつめい}に{矛盾|むじゅん}が{生|う}まれた——{知識|ちしき}の{不足|ふそく}が「{認知的|にんちてき}{指紋|しもん}」になった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-04/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったな。"
+      - type: dialog
+        character: sensei
+        text: "V{字|じ}{谷|たに}は{上流|じょうりゅう}の{侵食|しんしょく}でできた{深|ふか}い{谷|たに}。{扇状地|せんじょうち}は{山|やま}から{平野|へいや}に{出|で}る{場所|ばしょ}で{堆積|たいせき}した{砂利|じゃり}の{土地|とち}。{同|おな}じ{川|かわ}でも{場所|ばしょ}によって{地形|ちけい}がまったく{違|ちが}う。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{知識|ちしき}が{不正確|ふせいかく}だと、{説明|せつめい}に{間違|まちが}いが{出|で}る。その{間違|まちが}いが{犯人|はんにん}を{指|さ}し{示|しめ}す——「{認知的|にんちてき}{指紋|しもん}」だ。そして{困|こま}ったら{正直|しょうじき}に{言|い}おう。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: left
+      - type: sprite
+        character: akari
+        expression: normal
+        position: right
+      - type: dialog
+        character: akari
+        text: "ヒナタ、{守|まも}り{桜|ざくら}のこと、一緒に{地域|ちいき}の人に{謝|あやま}りに{行|い}こう。きっと{分|わ}かってくれるよ。"
+      - type: dialog
+        character: hinata
+        text: "……うん。{隠|かく}さないで{正直|しょうじき}に{言|い}う。ありがとう、アカリ。"
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: akari
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yuuki, expression: happy }
+          - { id: hinata, expression: happy }
+          - { id: makoto, expression: happy }
+          - { id: akari, expression: happy }
+      - type: narration
+        text: "ヒナタは{地域|ちいき}の{人|ひと}に{正直|しょうじき}に{謝|あやま}り、一緒に{守|まも}り{桜|ざくら}の{手入|てい}れを{手伝|てつだ}うことになった。ポスターはV{字|じ}{谷|たに}の{正|ただ}しい{説明|せつめい}と{新|あたら}しい{写真|しゃしん}で{完成|かんせい}した。"
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: akari
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{地形|ちけい}を{正|ただ}しく{知|し}ること。{間違|まちが}えたら{正直|しょうじき}に{言|い}うこと。{知識|ちしき}は{隠|かく}すためではなく、{正|ただ}しく{伝|つた}えるためにある。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——消えた{写真|しゃしん}と{谷|たに}のひみつ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

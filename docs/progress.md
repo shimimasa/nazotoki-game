@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 18:01
+- Add geography-03 game script: hazard map evacuation route mystery
+
 ## 2026-03-25 17:55
 - Add geography-02 game script: prefecture karuta mystery
 
