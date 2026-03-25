@@ -1,0 +1,390 @@
+meta:
+  id: homeec-03
+  title: 食品表示のトリック
+  series: 家庭科探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: cooking-room
+    bgm: homeec-03/opening
+    steps:
+      - type: narration
+        text: "さくら小学校5年1{組|くみ}の{調理|ちょうり}クラブ。今日は『{手作|てづく}りクッキー大会』！ ユイが{出品|しゅっぴん}したクッキーは{大好評|だいこうひょう}だった。"
+      - type: narration
+        text: "ところが——"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "クッキーを食べたクラスメートが{体|からだ}の{不調|ふちょう}を{訴|うった}えた。かゆみと{発疹|ほっしん}。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{使|つか}った{材料|ざいりょう}を{確認|かくにん}しましょう。ユイさん、いちごジャムは{何|なに}を{使|つか}った？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: yui
+        expression: normal
+        position: center
+      - type: dialog
+        character: yui
+        text: "いつもの『フレッシュいちごジャム』だよ。{同|おな}じ{商品名|しょうひんめい}のを{買|か}ったから。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "でも{調理室|ちょうりしつ}に2{種類|しゅるい}のジャムがあるの。{同|おな}じ{商品名|しょうひんめい}なのに{原材料|げんざいりょう}の{記載順|きさいじゅん}が{違|ちが}う。"
+      - type: dialog
+        character: sensei
+        text: "{食品|しょくひん}{表示|ひょうじ}を読み{解|と}いて、{何|なに}が{起|お}きたか{突|つ}き{止|と}めましょう。{家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: cooking-room
+    bgm: homeec-03/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 2枚のラベルを比較しよう
+
+      # --- 食品表示のルール ---
+      - type: narration
+        text: "まず、{食品|しょくひん}{表示|ひょうじ}のルールを{確認|かくにん}しよう。{原材料|げんざいりょう}は『{多|おお}い{順|じゅん}』に{記載|きさい}される。{先頭|せんとう}のものが{最|もっと}も{多|おお}い{成分|せいぶん}。"
+      - type: narration
+        text: "そしてアレルゲン{表示|ひょうじ}——{特定|とくてい}{原材料|げんざいりょう}8{品目|ひんもく}（{卵|たまご}・{乳|にゅう}・{小麦|こむぎ}など）は{必|かなら}ず{記載|きさい}される。"
+
+      # --- 2種類のジャム比較 ---
+      - type: narration
+        text: "ジャムA（○○{食品|しょくひん}）の{原材料|げんざいりょう}：いちご、{砂糖|さとう}、ゲル{化|か}{剤|ざい}、{酸味料|さんみりょう}。アレルゲン：{小麦|こむぎ}・{乳製品|にゅうせいひん}は{含|ふく}まれません。"
+      - type: narration
+        text: "ジャムB（△△フード）の{原材料|げんざいりょう}：{砂糖|さとう}、いちご、{卵白|らんぱく}（{鶏卵|けいらん}）、ゲル{化|か}{剤|ざい}、{酸味料|さんみりょう}。アレルゲン：{卵|たまご}（{鶏卵|けいらん}）を{含|ふく}みます。"
+      - type: sprite
+        character: aki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: aki
+        text: "{商品名|しょうひんめい}は{同|おな}じ『フレッシュいちごジャム』なのに！ ジャムAは{先頭|せんとう}が『いちご』、ジャムBは{先頭|せんとう}が『{砂糖|さとう}』——{中身|なかみ}が{違|ちが}う！"
+      - type: dialog
+        character: aki
+        text: "しかもジャムBには『{卵白|らんぱく}（{鶏卵|けいらん}）』が入ってる！ ジャムAにはない{成分|せいぶん}だ！"
+        expression: determined
+      - type: sprite
+        character: aki
+        action: hide
+
+      # --- 購入経緯 ---
+      - type: sprite
+        character: yui
+        expression: worried
+        position: center
+      - type: dialog
+        character: yui
+        text: "いつも{買|か}うジャムと{同|おな}じ{棚|たな}にあって、{値引|ねび}きシールが{貼|は}ってあったから{買|か}ったの。{同|おな}じ{商品名|しょうひんめい}だから{同|おな}じものだと{思|おも}って……。"
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- 証言 ---
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hana
+        text: "{調理|ちょうり}の前に、{材料棚|ざいりょうだな}に2{種類|しゅるい}のジャムがあるのに{気|き}づいたの。ラベルが{少|すこ}し{違|ちが}う{感|かん}じがしたけど、{商品名|しょうひんめい}が{同|おな}じだったから{確認|かくにん}しなかった。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souta
+        text: "おれは{調理|ちょうり}{担当|たんとう}だったから、ジャムの{表示|ひょうじ}{確認|かくにん}は{気|き}にしてなかった。ユイが{選|えら}んだジャムをそのまま使った。"
+      - type: dialog
+        character: aki
+        text: "いつもは{食品|しょくひん}{表示|ひょうじ}を{確認|かくにん}するんだけど、今日はデコレーション{担当|たんとう}で{忙|いそが}しかった。ユイが{確認|かくにん}してると{思|おも}ってた……。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: cooking-room
+    bgm: homeec-03/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: アレルギーの正体
+
+      - type: narration
+        text: "{不調|ふちょう}を{訴|うった}えた子の{保護者|ほごしゃ}から{連絡|れんらく}が来た。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『{息子|むすこ}は{鶏卵|けいらん}アレルギーを{持|も}っています。{卵|たまご}を{含|ふく}む{食品|しょくひん}を食べるとかゆみや{発疹|ほっしん}が出ることがあります。』"
+      - type: sprite
+        character: yui
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yui
+        text: "{卵|たまご}アレルギー……！ ジャムBには『{卵白|らんぱく}（{鶏卵|けいらん}）』が入ってた……！"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: aki
+        expression: determined
+        position: center
+      - type: dialog
+        character: aki
+        text: "{因果|いんが}{連鎖|れんさ}が見えた。ユイがジャムBを{使|つか}った → ジャムBに{卵白|らんぱく}が{含|ふく}まれていた → {卵|たまご}アレルギーの子が食べた → {不調|ふちょう}が{起|お}きた。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: cooking-room
+    bgm: homeec-03/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 不調の原因を作ったのは
+
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "ジャムを{選|えら}んで{購入|こうにゅう}したのはユイ。{値引|ねび}き品のジャムBを『{同|おな}じもの』と{思|おも}い{込|こ}んで使った。"
+      - type: dialog
+        character: souta
+        text: "{食品|しょくひん}{表示|ひょうじ}を{確認|かくにん}していれば、{卵白|らんぱく}が入ってることに{気|き}づけた。{思|おも}い{込|こ}みで{確認|かくにん}を{省|はぶ}いたのが{原因|げんいん}だ。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{不調|ふちょう}の{原因|げんいん}となったジャムBを{使|つか}ったのは{誰|だれ}？"
+      - type: choice
+        question: "ジャムBを使ったのは？"
+        options:
+          - text: ユイ
+            correct: true
+            feedback: "正解。ユイは『{同|おな}じ{商品名|しょうひんめい}だから{同|おな}じもの』と{思|おも}い{込|こ}み、{食品|しょくひん}{表示|ひょうじ}を{確認|かくにん}せずにジャムBを{使|つか}った。{悪意|あくい}はなかったが{確認|かくにん}{不足|ぶそく}。"
+          - text: ハナ
+            correct: false
+            feedback: "ハナは2{種類|しゅるい}のジャムに{気|き}づいたが{確認|かくにん}しなかった。{使|つか}ったのはハナではない。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは{調理|ちょうり}{担当|たんとう}。ユイが{選|えら}んだジャムをそのまま{使|つか}った。ジャムの{選択|せんたく}には{関|かか}わっていない。"
+          - text: アキ
+            correct: false
+            feedback: "アキは{食品|しょくひん}{表示|ひょうじ}チェック{担当|たんとう}だが、今日はデコレーションで{忙|いそが}しく{確認|かくにん}をユイに{任|まか}せていた。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: cooking-room
+    bgm: homeec-03/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 同じ名前でも中身は違う
+
+      - type: sprite
+        character: yui
+        expression: worried
+        position: center
+      - type: dialog
+        character: yui
+        text: "わたしが{確認|かくにん}しなかったのが{原因|げんいん}です。{同|おな}じ{商品名|しょうひんめい}だから{同|おな}じものだって{思|おも}い{込|こ}んだ。ラベルを読めば{分|わ}かったのに……。"
+      - type: dialog
+        character: yui
+        text: "{値引|ねび}き品で{安|やす}かったから『お{得|とく}！』って{思|おも}っちゃった。でも{製造元|せいぞうもと}が{違|ちが}ったし、{原材料|げんざいりょう}も{違|ちが}った。{食品|しょくひん}{表示|ひょうじ}を読んでいれば……。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "わたしもジャムが2{種類|しゅるい}あることに{気|き}づいてたのに、{確認|かくにん}しなかった。{声|こえ}をかけていれば{防|ふせ}げたかも……。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: aki
+        expression: determined
+        position: center
+      - type: dialog
+        character: aki
+        text: "わたしも{反省|はんせい}。{食品|しょくひん}{表示|ひょうじ}チェック{担当|たんとう}なのに、『ユイが{確認|かくにん}してるだろう』って{任|まか}せきりにした。{担当|たんとう}の{責任|せきにん}を{果|は}たさなかった。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: cooking-room
+    bgm: homeec-03/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{食品|しょくひん}{表示|ひょうじ}は{命|いのち}に{関|かか}わるもの。{特|とく}にアレルゲン{表示|ひょうじ}は{必|かなら}ず{確認|かくにん}すること。"
+      - type: dialog
+        character: sensei
+        text: "{原材料|げんざいりょう}は『{多|おお}い{順|じゅん}に{記載|きさい}』。{先頭|せんとう}が{違|ちが}えば{中身|なかみ}が{違|ちが}う。{同|おな}じ{商品名|しょうひんめい}でも{製造元|せいぞうもと}が{違|ちが}えば{別物|べつもの}よ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: yui
+        expression: determined
+        position: center
+      - type: dialog
+        character: yui
+        text: "次からは{必|かなら}ず{食品|しょくひん}{表示|ひょうじ}を読む。{商品名|しょうひんめい}だけで{判断|はんだん}しない。{特|とく}にアレルゲンは{絶対|ぜったい}{確認|かくにん}する！"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: determined }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: "{食品|しょくひん}{表示|ひょうじ}は{小|ちい}さな{文字|もじ}だけど、{大|おお}きな{意味|いみ}がある。{原材料|げんざいりょう}の{順番|じゅんばん}、アレルゲン{表示|ひょうじ}、{製造元|せいぞうもと}——{確認|かくにん}する{習慣|しゅうかん}が、{自分|じぶん}と{友達|ともだち}を{守|まも}る。"
+      - type: narration
+        speed: slow
+        text: "{因果|いんが}{連鎖|れんさ}——{原因|げんいん}と{結果|けっか}のつながりを{追|お}う{力|ちから}。ジャムの{選択|せんたく}から{不調|ふちょう}まで、1つずつたどれば{真相|しんそう}が見える。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——{食品|しょくひん}{表示|ひょうじ}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

@@ -1,0 +1,409 @@
+meta:
+  id: homeec-02
+  title: 栄養素の謎
+  series: 家庭科探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-02/opening
+    steps:
+      - type: narration
+        text: "さくら小学校5年1{組|くみ}の『1{週間|しゅうかん}の{食事|しょくじ}{記録|きろく}プロジェクト』。4人がそれぞれの{食事|しょくじ}を3色{食品群|しょくひんぐん}（{赤|あか}・{黄|き}・{緑|みどり}）で{分類|ぶんるい}して{提出|ていしゅつ}した。"
+      - type: narration
+        text: "{赤|あか} ＝ たんぱく{質|しつ}（{肉|にく}・{魚|さかな}・{卵|たまご}・{牛乳|ぎゅうにゅう}）。{黄|き} ＝ エネルギー（ごはん・パン）。{緑|みどり} ＝ ビタミン（{野菜|やさい}・{果物|くだもの}）。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんなの{記録|きろく}を{確認|かくにん}していたら、アキさんの{記録|きろく}に{不自然|ふしぜん}な{部分|ぶぶん}があったの。{赤|あか}の{食品群|しょくひんぐん}——たんぱく{質|しつ}が{実際|じっさい}の{食事|しょくじ}と{一致|いっち}しないの。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: aki
+        expression: worried
+        position: center
+      - type: dialog
+        character: aki
+        text: "{間違|まちが}えただけだよ……。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "4人の{視点|してん}を{照合|しょうごう}して、{記録|きろく}の{矛盾|むじゅん}を{解|と}き{明|あ}かしましょう。{家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-02/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 3色食品群で情報整理しよう
+
+      # --- アキの記録確認 ---
+      - type: narration
+        text: "まず、アキが{提出|ていしゅつ}した月曜日の{食事|しょくじ}{記録|きろく}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "ごはん（{茶碗|ちゃわん}1{杯|ぱい}）＝ {黄|き}・{普通|ふつう}。{鶏肉|とりにく}のから{揚|あ}げ（3{個|こ}）＝ {赤|あか}・{普通|ふつう}。ブロッコリーのサラダ ＝ {緑|みどり}・{少|すこ}し。"
+      - type: narration
+        text: "わかめのみそ{汁|しる} ＝ {緑|みどり}・{普通|ふつう}。{牛乳|ぎゅうにゅう}（1本）＝ {赤|あか}・{飲|の}んだ。"
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "{記録|きろく}だけ見ると、{赤|あか}の{食品群|しょくひんぐん}は{鶏肉|とりにく}80gと{牛乳|ぎゅうにゅう}で、たんぱく{質|しつ}{約|やく}38g。{目安|めやす}45gの84%。まあまあの{数値|すうち}に見えるけど……。"
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- 目撃証言 ---
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hana
+        text: "月曜の{給食|きゅうしょく}のとき、アキが{鶏肉|とりにく}のから{揚|あ}げをお{皿|さら}の{端|はし}に{押|お}しやって、あまり食べてなかったの。2{個|こ}くらい{食|た}べ{残|のこ}してたと{思|おも}う。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "{隣|となり}に{座|すわ}ってたから分かるよ。アキ、から{揚|あ}げを1{個|こ}食べて、{残|のこ}り2{個|こ}は{一口|ひとくち}ずつかじって{残|のこ}してた。{食器|しょっき}を{返|かえ}すとき2{個|こ}{以上|いじょう}{残|のこ}ってたのを見た。"
+      - type: dialog
+        character: souta
+        text: "アキは『今日おなかが{痛|いた}い』って言ってた。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+
+      # --- ユイの栄養計算 ---
+      - type: sprite
+        character: yui
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yui
+        text: "わたしも{隣|となり}から見てた。アキは1{個|こ}食べて、2{個|こ}目を2口かじって{残|のこ}した。3{個|こ}目はほぼ{手|て}をつけてなかった。"
+      - type: dialog
+        character: yui
+        text: "{実際|じっさい}の{摂取量|せっしゅりょう}は{約|やく}20g。{記録|きろく}の80gとは{大|おお}きな{差|さ}がある。たんぱく{質|しつ}を{再計算|さいけいさん}すると……{約|やく}23g。{目安|めやす}の51%しかない！"
+        expression: determined
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-02/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 給食室の食べ残し記録
+
+      - type: narration
+        text: "先生が{給食室|きゅうしょくしつ}の{食|た}べ{残|のこ}し{記録|きろく}を{確認|かくにん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "月曜5年1{組|くみ}の{鶏肉|とりにく}から{揚|あ}げ——クラス{全体|ぜんたい}で7{個|こ}{残|のこ}し。{主|おも}な{食|た}べ{残|のこ}し：アキ——{推定|すいてい}2{個|こ}{以上|いじょう}{残|のこ}し。"
+      - type: narration
+        text: "{給食室|きゅうしょくしつ}の{担当|たんとう}{教諭|きょうゆ}のコメント：『アキさんは{先週|せんしゅう}から{鶏肉|とりにく}のメニューのときによく{残|のこ}しています。{毎回|まいかい}2〜3{個|こ}{残|のこ}している{様子|ようす}です。』"
+      - type: sprite
+        character: yui
+        expression: determined
+        position: center
+      - type: dialog
+        character: yui
+        text: "1回の{間違|まちが}いじゃない。{先週|せんしゅう}から{継続的|けいぞくてき}に{残|のこ}してる。でも{記録|きろく}にはいつも『{普通|ふつう}に食べた』って書いてあった……。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-02/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 記録を書き換えたのは誰か
+
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "ハナもソウタもユイも、アキがから{揚|あ}げをあまり食べてなかったと{証言|しょうげん}してる。{給食室|きゅうしょくしつ}の{記録|きろく}も{一致|いっち}。"
+      - type: dialog
+        character: souta
+        text: "でもアキの{食事|しょくじ}{記録|きろく}には『{普通|ふつう}（3{個|こ}）食べた』って書いてある。{誰|だれ}かが{記録|きろく}を書き{換|か}えた。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{食事|しょくじ}{記録|きろく}を書き{換|か}えたのは{誰|だれ}？"
+      - type: choice
+        question: "記録を書き換えたのは？"
+        options:
+          - text: ユイ
+            correct: false
+            feedback: "ユイは{栄養|えいよう}{計算|けいさん}アプリでアキの{食事|しょくじ}を{正確|せいかく}に{記録|きろく}していた。書き{換|か}える{理由|りゆう}がない。"
+          - text: ハナ
+            correct: false
+            feedback: "ハナはアキがから{揚|あ}げを{残|のこ}しているのを{目撃|もくげき}した。アキの{記録|きろく}には{触|さわ}っていない。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは{隣|となり}の{席|せき}からアキの{食事量|しょくじりょう}を{観察|かんさつ}していた。{記録|きろく}を{操作|そうさ}する{理由|りゆう}がない。"
+          - text: アキ
+            correct: true
+            feedback: "正解！ アキは{自分|じぶん}の{食事|しょくじ}{記録|きろく}を書き{換|か}えた。{鶏肉|とりにく}をほとんど食べなかったのに『{普通|ふつう}に食べた』と{記入|きにゅう}。{偏食|へんしょく}を先生に{注意|ちゅうい}されるのが{怖|こわ}かった。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-02/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 記録は自分のために
+
+      - type: sprite
+        character: aki
+        expression: worried
+        position: center
+      - type: dialog
+        character: aki
+        text: "……わたしが書き{換|か}えました。{鶏肉|とりにく}のから{揚|あ}げ、{苦手|にがて}で……ほとんど食べられなかった。"
+      - type: dialog
+        character: aki
+        text: "でも{記録|きろく}に『食べなかった』って書くと、たんぱく{質|しつ}が{全然|ぜんぜん}{足|た}りないのが分かっちゃう。先生に『{偏食|へんしょく}を{直|なお}しなさい』って言われると{思|おも}って……。"
+      - type: dialog
+        character: aki
+        text: "食べたことにしておけば{問題|もんだい}ないと{思|おも}ったの。"
+        expression: determined
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: hana
+        expression: normal
+        position: center
+      - type: dialog
+        character: hana
+        text: "アキの{気持|きも}ち、分かるよ。『ちゃんと食べなきゃ』ってプレッシャー、あるよね。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "でもさ、{記録|きろく}を{変|か}えても{実際|じっさい}に食べてないのは{変|か}わらないぜ。{栄養|えいよう}が{足|た}りないままだ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "{記録|きろく}の{数字|すうじ}で{計算|けいさん}すると、アキの{実際|じっさい}のたんぱく{質|しつ}は{目安|めやす}の51%。{半分|はんぶん}しか{取|と}れてない。これは{体|からだ}に{良|よ}くないよ。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-02/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "アキさん、{食事|しょくじ}{記録|きろく}は先生に見せるための{書類|しょるい}じゃないの。{自分|じぶん}の{栄養|えいよう}バランスを知るためのもの。"
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に書くから{意味|いみ}がある。{偏|かたよ}りが分かれば{改善|かいぜん}できる。{隠|かく}したら{改善|かいぜん}のチャンスを{逃|のが}しちゃうわ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "それと、{苦手|にがて}な{食|た}べ物があるのは{恥|は}ずかしいことじゃない。先生に{相談|そうだん}してくれたら、{少|すこ}しずつ食べられるように{一緒|いっしょ}に{考|かんが}えられるわ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: aki
+        expression: determined
+        position: center
+      - type: dialog
+        character: aki
+        text: "次からは{正直|しょうじき}に書く。{苦手|にがて}なものは{苦手|にがて}って書く。それで先生に{相談|そうだん}する。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: souta
+        expression: happy
+        position: left
+      - type: sprite
+        character: hana
+        expression: happy
+        position: right
+      - type: dialog
+        character: souta
+        text: "から{揚|あ}げが{苦手|にがて}なら、おれが{代|か}わりに食べるぜ！ ……じゃなくて、{少|すこ}しずつ{練習|れんしゅう}しようぜ。"
+      - type: dialog
+        character: hana
+        text: "わたしが{美味|おい}しい食べ方を{教|おし}えてあげる！ レモンをかけるとか、{小|ちい}さく{切|き}るとか。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: "{食事|しょくじ}{記録|きろく}は{自分|じぶん}のためにある。{正直|しょうじき}に書くことで{初|はじ}めて、{栄養|えいよう}バランスの{偏|かたよ}りに{気|き}づける。"
+      - type: narration
+        speed: slow
+        text: "{情報|じょうほう}{整理|せいり}——3色{食品群|しょくひんぐん}で{分類|ぶんるい}し、{複数|ふくすう}の{視点|してん}を{照合|しょうごう}して{矛盾|むじゅん}を見つける。それは{推理|すいり}の{基本|きほん}であり、{生活|せいかつ}の{基本|きほん}でもある。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——{栄養素|えいようそ}の{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

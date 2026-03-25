@@ -1,0 +1,384 @@
+meta:
+  id: homeec-04
+  title: 洗濯の失敗
+  series: 家庭科探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-04/opening
+    steps:
+      - type: narration
+        text: "さくら小学校5年1{組|くみ}の{家庭科|かていか}クラブ。4人が{交代|こうたい}で{洗濯|せんたく}{当番|とうばん}を{担当|たんとう}している。"
+      - type: narration
+        text: "金曜の朝——"
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "わたしのセーター……{縮|ちぢ}んでる！ おばあちゃんの{手作|てづく}りの{形見|かたみ}なのに！"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "ハナの{大切|たいせつ}なウール100%のセーターが、{洗濯後|せんたくご}に{縮|ちぢ}んで{使|つか}えなくなっていた。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{洗濯|せんたく}{当番表|とうばんひょう}と{洗濯|せんたく}{表示|ひょうじ}マークを{照合|しょうごう}して、{誰|だれ}がいつ{縮|ちぢ}む{洗|あら}い方をしたのか{特定|とくてい}しましょう。"
+      - type: dialog
+        character: sensei
+        text: "{家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-04/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 洗濯表示とタイムラインを確認
+
+      # --- 洗濯表示確認 ---
+      - type: narration
+        text: "まず、セーターの{洗濯|せんたく}{表示|ひょうじ}タグを{確認|かくにん}しよう。"
+      - type: narration
+        text: "{素材|そざい}：ウール100%。{洗濯|せんたく}{表示|ひょうじ}：{手洗|てあら}いのみ（30℃{以下|いか}）。{洗濯機|せんたくき}{禁止|きんし}。{乾燥機|かんそうき}{禁止|きんし}。"
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: aki
+        text: "『{洗濯機|せんたくき}{禁止|きんし}』——{機械|きかい}{洗|あら}い{全般|ぜんぱん}が{禁止|きんし}。『{手洗|てあら}いコース』も{使|つか}えない。ウールは{機械|きかい}の{振動|しんどう}と{熱|ねつ}で{縮|ちぢ}むの。"
+      - type: sprite
+        character: aki
+        action: hide
+
+      # --- 当番表確認 ---
+      - type: narration
+        text: "次に、{洗濯|せんたく}{当番表|とうばんひょう}と{記録|きろく}ノートを{確認|かくにん}。"
+      - type: sprite
+        character: yui
+        expression: normal
+        position: center
+      - type: dialog
+        character: yui
+        text: "月曜＝アキ。{手洗|てあら}いコース30℃。{問題|もんだい}なし。火曜＝ユイ（わたし）。セーターはなかった。水曜＝ソウタ。{手洗|てあら}いコース30℃。{問題|もんだい}なし。"
+      - type: dialog
+        character: yui
+        text: "木曜＝ハナ。……{記録|きろく}が書かれていない。ハナだけ{洗濯機|せんたくき}の{設定|せってい}を{記入|きにゅう}していないの。"
+        expression: surprised
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- アキ・ソウタの証言 ---
+      - type: sprite
+        character: aki
+        expression: normal
+        position: left
+      - type: sprite
+        character: souta
+        expression: normal
+        position: right
+      - type: dialog
+        character: aki
+        text: "月曜にわたしが{担当|たんとう}したとき、タグを{確認|かくにん}して『{洗濯機|せんたくき}{禁止|きんし}』だったから、{手|て}で{洗|あら}ったよ。30℃{以下|いか}のぬるま{湯|ゆ}で。{問題|もんだい}なかった。"
+      - type: dialog
+        character: souta
+        text: "おれも水曜にアキと{同|おな}じやり方で{手|て}で{洗|あら}った。アキから『ウールは{機械|きかい}{禁止|きんし}』って{教|おし}えてもらってたから。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+
+      # --- ハナの証言 ---
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "木曜はわたしが{担当|たんとう}だった。でも……{洗濯機|せんたくき}に入れたのはわたしじゃないと{思|おも}う。{誰|だれ}かが{後|あと}で{機械|きかい}に入れたんじゃないかな……。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "でも{当番表|とうばんひょう}では木曜はハナ1人の{担当|たんとう}だ。{放課後|ほうかご}、ハナだけが{家庭科|かていか}{室|しつ}に{残|のこ}ってたってアキが言ってたし……。"
+      - type: dialog
+        character: souta
+        text: "ハナ、{正直|しょうじき}に{話|はな}して。{責|せ}めたいんじゃない。{何|なに}があったか知りたいんだ。"
+        expression: normal
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-04/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 手洗いコースと手で洗う
+
+      - type: narration
+        text: "ソウタとハナが2人で{話|はな}した。そしてソウタがみんなに{共有|きょうゆう}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "ハナから{聞|き}いた。ハナは木曜に{洗濯機|せんたくき}の『{手洗|てあら}いコース・40℃』でセーターを{洗|あら}ったんだ。"
+      - type: dialog
+        character: souta
+        text: "『{手洗|てあら}いコースなら{優|やさ}しく{洗|あら}えるから大丈夫』と{思|おも}ってたって。でも『{手洗|てあら}いコース』は{機械|きかい}で{洗|あら}うことには{変|か}わりない。ウールには{使|つか}えない{設定|せってい}だった。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: aki
+        text: "『{手洗|てあら}いコース』と『{手|て}で{洗|あら}う』は{違|ちが}うもの！ {手洗|てあら}いコースは{洗濯機|せんたくき}の{優|やさ}しい{回転|かいてん}モード。でも{機械|きかい}{洗|あら}いであることには{変|か}わりない。タグの『{洗濯機|せんたくき}{禁止|きんし}』は{機械|きかい}{洗|あら}い{全部|ぜんぶ}がダメという{意味|いみ}。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-04/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: セーターを縮ませたのは
+
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "タイムラインを{整理|せいり}すると——月曜アキ＝{手|て}で{洗|あら}って{問題|もんだい}なし。火曜ユイ＝セーターなし。水曜ソウタ＝{手|て}で{洗|あら}って{問題|もんだい}なし。木曜ハナ＝{洗濯機|せんたくき}の{手洗|てあら}いコース40℃。金曜＝{縮|ちぢ}み{発見|はっけん}。"
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "セーターを{縮|ちぢ}ませたのは{誰|だれ}？"
+      - type: choice
+        question: "セーターを縮ませたのは？"
+        options:
+          - text: ユイ
+            correct: false
+            feedback: "ユイの{担当|たんとう}は火曜。その日はセーターが{洗濯物|せんたくもの}に入っていなかった。"
+          - text: ハナ
+            correct: true
+            feedback: "正解。ハナは木曜に{洗濯機|せんたくき}の『{手洗|てあら}いコース・40℃』で{洗|あら}った。『{手洗|てあら}いコース＝{手|て}で{洗|あら}う』と{誤解|ごかい}していた。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは水曜に{手|て}で{洗|あら}った。アキから『ウールは{機械|きかい}{禁止|きんし}』と{教|おし}えてもらっていた。"
+          - text: アキ
+            correct: false
+            feedback: "アキは月曜に{洗濯|せんたく}{表示|ひょうじ}を{確認|かくにん}し、{正|ただ}しく{手|て}で{洗|あら}った。{問題|もんだい}なし。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-04/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 大切だからこそ
+
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "……わたしが{縮|ちぢ}ませました。{洗濯機|せんたくき}の『{手洗|てあら}いコース』なら{優|やさ}しいから大丈夫だと{思|おも}った。{温度|おんど}も40℃で……タグの30℃{以下|いか}を{超|こ}えてた。"
+      - type: dialog
+        character: hana
+        text: "おばあちゃんの{形見|かたみ}を{自分|じぶん}で{壊|こわ}しちゃった。{大切|たいせつ}にしてたのに……。{認|みと}めるのが{怖|こわ}かった。{大切|たいせつ}にしてなかったみたいで。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "ハナは{大切|たいせつ}にしてたんだよ。{大切|たいせつ}だからこそ、{正|ただ}しい{洗|あら}い方を知ることが{本当|ほんとう}の『{大切|たいせつ}にする』ってことだ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        expression: normal
+        position: center
+      - type: dialog
+        character: aki
+        text: "『{手洗|てあら}いコース』と『{手|て}で{洗|あら}う』は{言葉|ことば}が{似|に}てるけど{全然|ぜんぜん}{違|ちが}う。{洗濯|せんたく}{表示|ひょうじ}マークを読めば{間違|まちが}えない。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-04/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{洗濯|せんたく}{表示|ひょうじ}は{衣服|いふく}の『{取|と}り{扱|あつか}い{説明書|せつめいしょ}』。読まないと{大事|だいじ}なものを{壊|こわ}してしまうわ。"
+      - type: dialog
+        character: sensei
+        text: "{特|とく}にウールは{熱|ねつ}と{摩擦|まさつ}に{弱|よわ}い。{洗濯機|せんたくき}の{手洗|てあら}いコースでも{機械|きかい}の{振動|しんどう}は{避|さ}けられない。タグの『{洗濯機|せんたくき}{禁止|きんし}』は{絶対|ぜったい}よ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hana
+        expression: determined
+        position: center
+      - type: dialog
+        character: hana
+        text: "次からは{必|かなら}ず{洗濯|せんたく}{表示|ひょうじ}を{確認|かくにん}する。{大切|たいせつ}なものほど、{正|ただ}しい{方法|ほうほう}で{手入|てい}れする。それが『{大切|たいせつ}にする』ってこと。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: determined }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: "{洗濯|せんたく}{表示|ひょうじ}マークは{小|ちい}さなイラストだけど、{衣服|いふく}を{守|まも}る{大切|たいせつ}な{情報|じょうほう}。読む{習慣|しゅうかん}が、{大事|だいじ}なものを{長持|ながも}ちさせる。"
+      - type: narration
+        speed: slow
+        text: "タイムライン{再構成|さいこうせい}——いつ・{誰|だれ}が・{何|なに}をしたか、{時系列|じけいれつ}で{並|なら}べれば{真相|しんそう}が見える。そして{言葉|ことば}の{意味|いみ}を{正確|せいかく}に{理解|りかい}すること。それが{推理|すいり}の{基本|きほん}。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——{洗濯|せんたく}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

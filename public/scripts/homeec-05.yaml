@@ -1,0 +1,345 @@
+meta:
+  id: homeec-05
+  title: 献立の矛盾
+  series: 家庭科探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-05/opening
+    steps:
+      - type: narration
+        text: "さくら小学校6年1{組|くみ}の{家庭科|かていか}{授業|じゅぎょう}。『{理想|りそう}の1{食|しょく}分を{考|かんが}えよう』コンテスト。ソウタが{提出|ていしゅつ}した『{和風|わふう}ランチセット』が1{位|い}に。"
+      - type: sprite
+        character: souta
+        expression: happy
+        position: center
+      - type: dialog
+        character: souta
+        text: "{主食|しゅしょく}・{主菜|しゅさい}・{副菜|ふくさい}・{汁物|しるもの}が{揃|そろ}ってる。{栄養|えいよう}{計算|けいさん}もした。{完璧|かんぺき}だぜ！"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "ちょっと{待|ま}って。この{献立|こんだて}、{本当|ほんとう}に{栄養|えいよう}バランスが{整|ととの}ってる？ {計算|けいさん}してみたら、たんぱく{質|しつ}と{緑|みどり}の{食品群|しょくひんぐん}が{基準|きじゅん}を{満|み}たしてないんだけど。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ソウタくんの{献立|こんだて}は{本当|ほんとう}に『{完璧|かんぺき}』？ {仮説|かせつ}{検証|けんしょう}で{確|たし}かめましょう。{家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-05/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 献立を仮説検証しよう
+
+      # --- 献立の確認 ---
+      - type: narration
+        text: "ソウタの『{和風|わふう}ランチセット』を{確認|かくにん}。ごはん150g（{黄|き}）、{豚|ぶた}の{生姜焼|しょうがや}き・{豚|ぶた}もも{肉|にく}60g（{赤|あか}）、ほうれん{草|そう}の{炒|いた}め物30g（{緑|みどり}）、わかめのみそ{汁|しる}（{緑|みどり}+{赤|あか}）。"
+
+      # --- 仮説検証 ---
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "{仮説|かせつ}を{立|た}てよう。『もしソウタの{献立|こんだて}が{栄養|えいよう}{基準|きじゅん}を{満|み}たすなら、たんぱく{質|しつ}20〜25g、{野菜|やさい}100g{以上|いじょう}のはず』。"
+      - type: dialog
+        character: yui
+        text: "{計算|けいさん}してみる。{豚|ぶた}もも60gのたんぱく{質|しつ}は{約|やく}11g。みそ{汁|しる}のとうふ{小|しょう}が{約|やく}3g。ほうれん{草|そう}1g。ごはん4g。わかめ0.5g。{合計|ごうけい}{約|やく}19.5g。"
+        expression: determined
+      - type: dialog
+        character: yui
+        text: "{目安|めやす}20〜25gの{下限|かげん}ギリギリか{未達|みたつ}。{野菜|やさい}はほうれん{草|そう}30g+わかめ5g＝{約|やく}35g。{目安|めやす}100gの35%しかない！"
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- 基準との照合 ---
+      - type: sprite
+        character: aki
+        expression: determined
+        position: center
+      - type: dialog
+        character: aki
+        text: "{基準|きじゅん}と{比|くら}べよう。{主食|しゅしょく}＝100%、たんぱく{質|しつ}＝78〜98%（ギリギリ）、{副菜|ふくさい}＝35%（{大幅|おおはば}に{不足|ぶそく}）。"
+      - type: dialog
+        character: aki
+        text: "ほうれん{草|そう}30gだけだと{副菜|ふくさい}が{全然|ぜんぜん}{足|た}りない。ブロッコリーや{人参|にんじん}を{追加|ついか}するか、{量|りょう}を{増|ふ}やさないと100gには{届|とど}かない。"
+        expression: thinking
+      - type: sprite
+        character: aki
+        action: hide
+
+      # --- ハナの証言 ---
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hana
+        text: "{締|し}め{切|き}りの{前日|ぜんじつ}に、ソウタが『{明日|あした}{提出|ていしゅつ}なのにまだ{全然|ぜんぜん}{考|かんが}えてない』って言ってたのを{聞|き}いたの。{計算|けいさん}する{時間|じかん}、あった？"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-05/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: ソウタのメモに計算がない
+
+      - type: narration
+        text: "先生がソウタの{提出物|ていしゅつぶつ}の{裏|うら}に{控|ひか}え用メモを{発見|はっけん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "メモには{料理名|りょうりめい}の{羅列|られつ}と、『{主食|しゅしょく}○ {主菜|しゅさい}○ {副菜|ふくさい}○ {汁物|しるもの}○ → 4つ{揃|そろ}った！ {完璧|かんぺき}！』とだけ書いてある。"
+      - type: narration
+        text: "{計算式|けいさんしき}が{一切|いっさい}ない。たんぱく{質|しつ}のグラム{数|すう}も、{野菜|やさい}の{重量|じゅうりょう}も。『{肉|にく}入り＝たんぱく{質|しつ}OK』『{野菜|やさい}入り＝{緑|みどり}OK』という{感覚的|かんかくてき}な{判断|はんだん}しかない。"
+      - type: sprite
+        character: yui
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yui
+        text: "ソウタは『{計算|けいさん}した』って言ったけど、メモに{計算|けいさん}の{痕跡|こんせき}がない！ 『4つ{揃|そろ}えば{完璧|かんぺき}』は{間違|まちが}い。{量|りょう}が{基準|きじゅん}を{満|み}たしていないと{意味|いみ}がない。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-05/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 計算したと嘘をついたのは
+
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: aki
+        text: "{仮説|かせつ}1：『ソウタは{本当|ほんとう}に{計算|けいさん}した。ユイの{計算|けいさん}が{間違|まちが}い』→ ユイとアキの2通りの{計算|けいさん}で{両方|りょうほう}{基準|きじゅん}{未達|みたつ}。{仮説|かせつ}1は{否定|ひてい}。"
+      - type: dialog
+        character: hana
+        text: "{仮説|かせつ}2：『ソウタは{計算|けいさん}していない。{感覚|かんかく}で作った』→ メモに{計算式|けいさんしき}なし。{仮説|かせつ}2が{正|ただ}しい。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{栄養|えいよう}{計算|けいさん}をせずに『{計算|けいさん}した』と{嘘|うそ}をついたのは{誰|だれ}？"
+      - type: choice
+        question: "計算したと嘘をついたのは？"
+        options:
+          - text: ユイ
+            correct: false
+            feedback: "ユイは{栄養|えいよう}{計算|けいさん}アプリで{実際|じっさい}に{計算|けいさん}し、{基準|きじゅん}{未達|みたつ}を{発見|はっけん}した{側|がわ}。"
+          - text: ハナ
+            correct: false
+            feedback: "ハナは{締|し}め{切|き}り{前日|ぜんじつ}のソウタの{発言|はつげん}を{聞|き}いていた{証人|しょうにん}。{献立|こんだて}には{関|かか}わっていない。"
+          - text: ソウタ
+            correct: true
+            feedback: "正解。ソウタは{締|し}め{切|き}りに{焦|あせ}り、{感覚|かんかく}で{献立|こんだて}を作った。メモに{計算式|けいさんしき}はなく、『{計算|けいさん}した』は{嘘|うそ}だった。"
+          - text: アキ
+            correct: false
+            feedback: "アキは{食品群|しょくひんぐん}の{基準|きじゅん}{表|ひょう}を{持|も}っていて、ソウタの{献立|こんだて}を{正確|せいかく}に{検証|けんしょう}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-05/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 感覚と計算は違う
+
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "……{計算|けいさん}してなかった。{締|し}め{切|き}りに{間|ま}に合わなくて、{感覚|かんかく}で作った。'{肉|にく}が入ってればたんぱく{質|しつ}OK'、'{野菜|やさい}があれば{緑|みどり}OK'って{思|おも}い{込|こ}んだ。"
+      - type: dialog
+        character: souta
+        text: "『{計算|けいさん}した』って言えば{誰|だれ}も{疑|うたが}わないと{思|おも}った。{嘘|うそ}ついてごめん。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: yui
+        expression: normal
+        position: center
+      - type: dialog
+        character: yui
+        text: "ソウタの{献立|こんだて}、{構成|こうせい}は{悪|わる}くないよ。{副菜|ふくさい}にブロッコリーや{人参|にんじん}を{足|た}して、{豚肉|ぶたにく}を80gに{増|ふ}やせば{基準|きじゅん}を{満|み}たせる。{計算|けいさん}すれば{直|なお}せたの。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: "次からは{感覚|かんかく}じゃなくてちゃんと{計算|けいさん}する。そして{嘘|うそ}はつかない！"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-05/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{献立|こんだて}は{主食|しゅしょく}・{主菜|しゅさい}・{副菜|ふくさい}・{汁物|しるもの}を{揃|そろ}えるだけでは{不十分|ふじゅうぶん}。{各|かく}{食品群|しょくひんぐん}の『{量|りょう}の{基準|きじゅん}』を{計算|けいさん}して{確認|かくにん}することが{大事|だいじ}。"
+      - type: dialog
+        character: sensei
+        text: "『{肉|にく}が入っている ＝ たんぱく{質|しつ}OK』は{感覚|かんかく}。{計算|けいさん}すると{実|じつ}は{不足|ぶそく}してることもある。{数字|すうじ}で{確認|かくにん}する{習慣|しゅうかん}をつけましょう。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: determined }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: "{感覚|かんかく}と{計算|けいさん}は{違|ちが}う。『{揃|そろ}えた ＝ {完璧|かんぺき}』ではなく、『{計算|けいさん}して{基準|きじゅん}を{満|み}たした ＝ {完璧|かんぺき}』。"
+      - type: narration
+        speed: slow
+        text: "{仮説|かせつ}{検証|けんしょう}——『もし○○なら△△のはず』と{予想|よそう}して、{数字|すうじ}で{確|たし}かめる。{感覚|かんかく}に{頼|たよ}らず{証拠|しょうこ}で{判断|はんだん}する{力|ちから}が、{推理|すいり}でも{生活|せいかつ}でも{武器|ぶき}になる。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——{献立|こんだて}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
