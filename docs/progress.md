@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 18:20
+- Add geography-07 game script: world nations quiz card mystery
+
 ## 2026-03-25 18:16
 - Add geography-06 game script: fishery ocean current causal chain mystery
 

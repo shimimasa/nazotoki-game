@@ -1,0 +1,504 @@
+meta:
+  id: geography-08
+  title: 書きかえられたサミット宣言
+  series: 地図探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  makoto:
+    name: マコト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  chihiro:
+    name: チヒロ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  ryoma:
+    name: リョウマ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  airi:
+    name: アイリ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-08/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}6{年|ねん}2{組|くみ}の「子ども{国際|こくさい}サミット」の{朝|あさ}。"
+      - type: narration
+        text: "4人がそれぞれアメリカ・フランス・ブラジル・{中国|ちゅうごく}の{代表|だいひょう}{役|やく}を{務|つと}め、「{世界|せかい}の{国|くに}々が{協力|きょうりょく}するための{宣言文|せんげんぶん}」を作った。"
+      - type: sprite
+        character: makoto
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: makoto
+        text: "{宣言文|せんげんぶん}の{最後|さいご}に{知|し}らない1{行|ぎょう}が{書|か}き{加|くわ}えられてる！ 「{日本|にほん}が{一番|いちばん}すばらしい{国|くに}である」——{国際|こくさい}{協力|きょうりょく}の{宣言文|せんげんぶん}なのに！"
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{宣言文|せんげんぶん}に「{一番|いちばん}」と{書|か}くのは{国際|こくさい}{協力|きょうりょく}の{精神|せいしん}に{合|あ}わない。{地図|ちず}{探偵団|たんていだん}、4カ{国|こく}の{位置|いち}と{文化|ぶんか}の{知識|ちしき}で{犯人|はんにん}を{突|つ}き{止|と}めてくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.8
+        subtitle: 書きかえられたサミット宣言
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-08/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: makoto
+        expression: normal
+        position: left
+      - type: dialog
+        character: makoto
+        text: "ぼくはマコト。アメリカ{代表|だいひょう}。{宣言文|せんげんぶん}は「どの{国|くに}も{対等|たいとう}に」って{提案|ていあん}して{全員|ぜんいん}{賛成|さんせい}したはず。"
+      - type: dialog
+        character: makoto
+        text: "書き{加|くわ}えた{文言|もんごん}に「{太平洋|たいへいよう}に面していて」ってあるけど、アメリカも{太平洋|たいへいよう}に面してる。この{表現|ひょうげん}を{特別|とくべつ}に感じるのは{太平洋|たいへいよう}に面していない人では？"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: chihiro
+        expression: normal
+        position: right
+      - type: dialog
+        character: chihiro
+        text: "わたしはチヒロ。フランス{代表|だいひょう}。フランスの{芸術|げいじゅつ}や{文化|ぶんか}を{調|しら}べたよ。"
+      - type: dialog
+        character: chihiro
+        text: "……{日本|にほん}のことも{調|しら}べたんだけど、{宣言文|せんげんぶん}に{日本|にほん}のことが{書|か}いてなくて、ちょっと{残念|ざんねん}だったな。"
+        expression: worried
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite
+        character: ryoma
+        expression: normal
+        position: left
+      - type: dialog
+        character: ryoma
+        text: "おれはリョウマ。ブラジル{代表|だいひょう}。サッカーと{自然|しぜん}のことを{調|しら}べたぜ。"
+      - type: dialog
+        character: ryoma
+        text: "きのうの{放課後|ほうかご}、サッカーの{前|まえ}に{教室|きょうしつ}に{戻|もど}ったとき、チヒロが{宣言文|せんげんぶん}の{保管|ほかん}ロッカーの{近|ちか}くで{何|なに}か{書|か}いてたんだけど。"
+        expression: thinking
+      - type: sprite
+        character: ryoma
+        action: hide
+      - type: sprite
+        character: airi
+        expression: normal
+        position: right
+      - type: dialog
+        character: airi
+        text: "わたしはアイリ。{中国|ちゅうごく}{代表|だいひょう}。データを{使|つか}って{調|しら}べるのが{好|す}き。"
+      - type: dialog
+        character: airi
+        text: "書き{加|くわ}えた{文言|もんごん}を{分析|ぶんせき}すると「{太平洋|たいへいよう}に面していない」かつ「{四季|しき}を{特別|とくべつ}と感じる」{人|ひと}が{書|か}いた{可能性|かのうせい}が{高|たか}いわ。"
+        expression: thinking
+      - type: sprite
+        character: airi
+        action: hide
+
+  # ===== 証拠カード1: 宣言文 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-08/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 書きかえられた宣言文
+      - type: narration
+        text: "4人が作った{宣言文|せんげんぶん}——「{世界|せかい}の{国|くに}々が{手|て}をつないで、よりよい{未来|みらい}をつくることを{宣言|せんげん}します」"
+      - type: narration
+        text: "その{最後|さいご}に{書|か}き{加|くわ}えられた{文言|もんごん}——"
+      - type: narration
+        text: "「★ {日本|にほん}が{一番|いちばん}すばらしい{国|くに}である。{太平洋|たいへいよう}に面していて、{四季|しき}がある。{漫画|まんが}やアニメ、{和食|わしょく}など、{世界|せかい}に{誇|ほこ}れる{文化|ぶんか}がたくさんある」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{国際|こくさい}{協力|きょうりょく}の{宣言文|せんげんぶん}に「{一番|いちばん}」は{不自然|ふしぜん}。そして「{太平洋|たいへいよう}に面していて{四季|しき}がある」——これを{特別|とくべつ}に感じるのは{誰|だれ}？"
+
+  # ===== 証拠カード2: 4カ国の位置比較 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4カ国の位置と海洋
+      - type: narration
+        text: "4カ{国|こく}と{日本|にほん}の{位置|いち}・面する{海洋|かいよう}——"
+      - type: narration
+        text: "アメリカ（マコト）：{大西洋|たいせいよう}＋{太平洋|たいへいよう}。{中国|ちゅうごく}（アイリ）：{太平洋|たいへいよう}。{日本|にほん}：{太平洋|たいへいよう}＋{日本海|にほんかい}"
+      - type: narration
+        text: "フランス（チヒロ）：{大西洋|たいせいよう}＋{地中海|ちちゅうかい}。ブラジル（リョウマ）：{大西洋|たいせいよう}"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{太平洋|たいへいよう}に面していない{国|くに}：フランスとブラジル。「{太平洋|たいへいよう}に面していて」を{特別|とくべつ}と{書|か}いた人は——{容疑者|ようぎしゃ}はチヒロとリョウマの2人に{絞|しぼ}れる。"
+
+  # ===== 証拠カード3: 四季の比較 =====
+  - id: evidence-3
+    bgm: geography-08/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 『四季』の比較データ
+      - type: narration
+        text: "{世界|せかい}の{国|くに}の「{四季|しき}」について——"
+      - type: narration
+        text: "{日本|にほん}：はっきりした{四季|しき}。{桜|さくら}・{花火|はなび}・{紅葉|こうよう}・{雪|ゆき}の「{四季|しき}の{文化|ぶんか}」が{強|つよ}い"
+      - type: narration
+        text: "フランス：{四季|しき}あり。アメリカ：{地域|ちいき}による。{中国|ちゅうごく}：{四季|しき}あり。ブラジル：{北部|ほくぶ}は{熱帯|ねったい}（{四季|しき}なし）"
+      - type: narration
+        text: "「{四季|しき}がある」は{日本|にほん}だけの{特徴|とくちょう}ではない。フランスにも{中国|ちゅうごく}にもある。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{仮説|かせつ}を{比較|ひかく}：仮説A（チヒロ）＝フランスにも{四季|しき}あるのに「{特別|とくべつ}」と{書|か}いた → {日本|にほん}{文化|ぶんか}へのあこがれ？ 仮説B（リョウマ）＝ブラジル{北部|ほくぶ}は{熱帯|ねったい} → でも「{日本|にほん}が{一番|いちばん}」と{書|か}く{動機|どうき}が{弱|よわ}い。"
+
+  # ===== 証拠カード4: 放課後の行動と発言 =====
+  - id: evidence-4
+    bgm: geography-08/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 放課後の行動と発言
+      - type: narration
+        text: "おとといの{宣言文|せんげんぶん}{作成|さくせい}日——"
+      - type: narration
+        text: "チヒロが「{日本|にほん}のことは{書|か}かないの？ {日本|にほん}もすごい{国|くに}なのに」と{発言|はつげん}。マコトが「{日本|にほん}の{代表|だいひょう}はいないから{書|か}かない{方|ほう}がいい」と{答|こた}えた。チヒロは{少|すこ}し{残念|ざんねん}そうだった。"
+      - type: narration
+        text: "きのうの{放課後|ほうかご}——"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "リョウマが{教室|きょうしつ}に{戻|もど}ったとき、チヒロが{宣言文|せんげんぶん}の{保管|ほかん}ロッカーの{近|ちか}くで{何|なに}か{書|か}いていた。「{確認|かくにん}してるだけ」と{答|こた}えた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「{日本|にほん}のことを{書|か}きたかった」チヒロが、ロッカーの{近|ちか}くで{何|なに}か{書|か}いていた——{動機|どうき}と{機会|きかい}が{揃|そろ}った。"
+
+  # ===== 証拠カード5: チヒロのノート =====
+  - id: evidence-5
+    bgm: geography-08/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: チヒロの調べ学習ノート
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "4人の{調|しら}べ学習ノートを{確認|かくにん}した。チヒロのノートの{最後|さいご}のページにメモがあったぞ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "チヒロのメモ——「{日本|にほん}のすごいところ：{太平洋|たいへいよう}に面していて{四季|しき}がある。{漫画|まんが}やアニメは{世界中|せかいじゅう}で{大人気|だいにんき}。{和食|わしょく}はユネスコ{無形|むけい}{文化|ぶんか}{遺産|いさん}」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "そして——「{宣言文|せんげんぶん}に{日本|にほん}のことも{書|か}きたかったのに…… {日本|にほん}が{一番|いちばん}って{書|か}いたらダメなのかな？」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "チヒロのメモと{書|か}き{加|くわ}えられた{文言|もんごん}がほぼ{一致|いっち}。チヒロは{善意|ぜんい}から{書|か}いた——でも{国際|こくさい}{協力|きょうりょく}の{宣言文|せんげんぶん}に「{一番|いちばん}」は、ほかの{国|くに}の{文化|ぶんか}を{尊重|そんちょう}しない{行為|こうい}。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-08/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{仮説|かせつ}{検証|けんしょう}で{絞|しぼ}り{込|こ}めたな。{宣言文|せんげんぶん}に{書|か}き{加|くわ}えたのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 宣言文に「日本が一番」と書き加えたのは誰？
+        options:
+          - text: マコト（アメリカ代表）
+            value: makoto
+            feedback: マコトは「どの国も対等に」と提案した人。アメリカも太平洋に面しているから「太平洋に面していて」を特別に感じる理由がない。
+          - text: チヒロ（フランス代表）
+            value: chihiro
+            feedback: 正解！ チヒロは日本が好きで善意から書き加えた。フランスは太平洋に面していないから「太平洋」を特別に感じ、四季がある国なのに「四季が特別」と書いたのは日本文化への認知バイアス。
+          - text: リョウマ（ブラジル代表）
+            value: ryoma
+            feedback: リョウマは太平洋に面していないけど、「日本のことを書きたい」という発言がなく動機が弱い。きのうチヒロを目撃した側でもある。
+          - text: アイリ（中国代表）
+            value: airi
+            feedback: アイリは中国代表で太平洋に面している。「太平洋に面していて」を特別に感じる理由がない。データ分析でチヒロの矛盾に気づいた側。
+      - type: choice
+        id: q2
+        question: チヒロの行動の問題点は何？
+        options:
+          - text: 善意でも「自国が一番」と書くのは他国の文化を尊重しない
+            value: respect
+            feedback: 正解！ 日本が好きなのは素敵。でも国際協力の宣言文に「一番」と書くのは他の国のよさを否定することになる。自分の国が好きなことと、他の国を認めることは両立できる。
+          - text: 字が汚くてバレたこと
+            value: handwriting
+            feedback: 字の問題ではないよ。「国際協力の宣言文に『一番』と書くことが他国の文化を尊重しない行為になる」という点が本質。
+          - text: 先生の許可を取らなかったこと
+            value: permission
+            feedback: 許可の問題もあるけど、一番大切なのは「国際協力の場で『一番』と書くことの意味」。どの国も対等であることがサミットの精神。
+          - text: 日本のことを調べたこと自体が問題
+            value: research
+            feedback: 日本のことを調べるのは全く問題ないよ！ 問題は「宣言文に勝手に書き加えた」こと。知識は発表や感想で共有すればよかった。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-08/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 日本が好きだから
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # マコトの後ろめたさ
+  - id: truth-makoto
+    bg: classroom
+    steps:
+      - type: sprite
+        character: makoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: makoto
+        text: "ぼく、チヒロが「{日本|にほん}のことも{書|か}きたい」って{言|い}ったとき、「{書|か}かない{方|ほう}がいい」って{即|そく}{答|こた}えちゃった。"
+      - type: dialog
+        character: makoto
+        text: "「{日本|にほん}のよさは{別|べつ}の{形|かたち}で{発表|はっぴょう}しよう」って{提案|ていあん}すればよかった。チヒロの{気持|きも}ちをもっと{聞|き}くべきだった。"
+        expression: determined
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # リョウマの後ろめたさ
+  - id: truth-ryoma
+    steps:
+      - type: sprite
+        character: ryoma
+        expression: worried
+        position: right
+      - type: dialog
+        character: ryoma
+        text: "おれ、きのうチヒロがロッカーの{近|ちか}くで{書|か}いてるのを{見|み}たのに「{準備|じゅんび}してるんだな」って{流|なが}しちゃった。"
+      - type: dialog
+        character: ryoma
+        text: "「{何|なに}{書|か}いてるの？」って{聞|き}けばよかった。"
+        expression: determined
+      - type: sprite
+        character: ryoma
+        action: hide
+
+  # アイリの後ろめたさ
+  - id: truth-airi
+    steps:
+      - type: sprite
+        character: airi
+        expression: worried
+        position: left
+      - type: dialog
+        character: airi
+        text: "チヒロが「{日本|にほん}のことを{書|か}きたい」って{言|い}ったとき、データ{分析|ぶんせき}で「{各国|かっこく}のよさをグラフにしよう」って{提案|ていあん}すればよかった。"
+      - type: dialog
+        character: airi
+        text: "チヒロの{気持|きも}ちを{別|べつ}の{形|かたち}で{活|い}かす{方法|ほうほう}はあったはず。"
+        expression: determined
+      - type: sprite
+        character: airi
+        action: hide
+
+  # チヒロの真実（クライマックス）
+  - id: truth-chihiro
+    bgm: geography-08/truth
+    steps:
+      - type: sprite
+        character: chihiro
+        expression: worried
+        position: center
+      - type: dialog
+        character: chihiro
+        text: "……わたしが{書|か}き{加|くわ}えた。"
+      - type: narration
+        speed: slow
+        text: "チヒロがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: chihiro
+        text: "フランスのことを{調|しら}べるうちに、「{日本|にほん}ってすごい{国|くに}だな」って{思|おも}うようになった。{四季|しき}の{文化|ぶんか}も、{漫画|まんが}やアニメも、{和食|わしょく}も。"
+        expression: worried
+      - type: dialog
+        character: chihiro
+        text: "{宣言文|せんげんぶん}にアメリカ・フランス・ブラジル・{中国|ちゅうごく}のことは{書|か}いてあるのに、{日本|にほん}のことがない。{残念|ざんねん}で……「みんなに{知|し}ってほしい」と思って{書|か}き{加|くわ}えちゃった。"
+      - type: dialog
+        character: chihiro
+        text: "でも「{一番|いちばん}」って{書|か}くのは、ほかの{国|くに}のよさを{否定|ひてい}することだって{気|き}づかなかった。{自分|じぶん}の{国|くに}が{好|す}きなことと、ほかの{国|くに}を{認|みと}めることは{両立|りょうりつ}できるのに。"
+        expression: determined
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: narration
+        speed: slow
+        text: "チヒロに{悪意|あくい}はなかった。「{日本|にほん}のよさを{伝|つた}えたい」という{善意|ぜんい}。でも{国際|こくさい}{協力|きょうりょく}の{場|ば}で「{一番|いちばん}」と{書|か}くのは、{他|ほか}の{国|くに}の{文化|ぶんか}を{尊重|そんちょう}しない{行為|こうい}——{善意|ぜんい}が{裏目|うらめ}に{出|で}ることがある。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-08/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったな。"
+      - type: dialog
+        character: sensei
+        text: "4カ{国|こく}の{位置|いち}（{大陸|たいりく}・{半球|はんきゅう}・面する{海洋|かいよう}）の{知識|ちしき}が{犯人|はんにん}{特定|とくてい}の{武器|ぶき}になった。そして{複数|ふくすう}の{仮説|かせつ}を{比較|ひかく}して{最|もっと}も{整合的|せいごうてき}なものを{選|えら}ぶ「{仮説|かせつ}{検証|けんしょう}の{高度化|こうどか}」を{学|まな}んだ。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{自分|じぶん}の{国|くに}が{好|す}きなのは{素敵|すてき}なことだ。でも「{一番|いちばん}」と{書|か}くのではなく、「それぞれの{国|くに}のよさを{認|みと}め{合|あ}う」のが{国際|こくさい}{協力|きょうりょく}の{精神|せいしん}だぞ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: chihiro
+        expression: determined
+        position: left
+      - type: dialog
+        character: chihiro
+        text: "{日本|にほん}が{好|す}きな{気持|きも}ちは{変|か}わらない。でも「{一番|いちばん}」じゃなくて「それぞれ{素敵|すてき}」って{伝|つた}え{方|かた}を{変|か}える。"
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: makoto, expression: happy }
+          - { id: chihiro, expression: happy }
+          - { id: ryoma, expression: happy }
+          - { id: airi, expression: happy }
+      - type: narration
+        text: "{宣言文|せんげんぶん}は{元|もと}に{戻|もど}された。チヒロは「{日本|にほん}のよさ」を{宣言文|せんげんぶん}ではなく、サミットの{感想|かんそう}{発表|はっぴょう}で{伝|つた}えることにした。「{日本|にほん}も、フランスも、みんなすてき」——それが{国際|こくさい}{協力|きょうりょく}の{形|かたち}だ。"
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite
+        character: ryoma
+        action: hide
+      - type: sprite
+        character: airi
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{自分|じぶん}の{国|くに}を{好|す}きでいること。{他|ほか}の{国|くに}を{認|みと}めること。この2つは「{一番|いちばん}」を{決|き}めなくても{両立|りょうりつ}できる。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——書きかえられたサミット{宣言|せんげん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
