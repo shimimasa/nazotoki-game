@@ -1,0 +1,341 @@
+meta:
+  id: esd-08
+  title: 節電の思い込み
+  series: ESD探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-08/opening
+    steps:
+      - type: narration
+        text: "あおば小学校の『{節電|せつでん}チャレンジ』。4人が{各|かく}{担当|たんとう}エリアの{電力|でんりょく}{消費量|しょうひりょう}を{毎週|まいしゅう}{記録|きろく}している。"
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{今週|こんしゅう}の{電力|でんりょく}{消費|しょうひ}、{全体|ぜんたい}で{目標|もくひょう}の-10%に{届|とど}いてない。おれとソウタは{達成|たっせい}してるのに、イブキのエリアだけ+5%で{増|ふ}えてる。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "えっ……わたしのエリア、{太陽光|たいようこう}パネルが{発電|はつでん}してるから{使|つか}っても大丈夫だと{思|おも}ってたのに……。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『{発電|はつでん}してるから{使|つか}っていい』は{本当|ほんとう}か？ {認知|にんち}バイアスを{疑|うたが}おう。ESD{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-08/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 節電データと発電量を照合
+
+      # --- 電力データ ---
+      - type: narration
+        text: "{電力|でんりょく}{消費|しょうひ}{記録|きろく}。ハルキ{担当|たんとう}（{図書室|としょしつ}・PC{室|しつ}）：{先週|せんしゅう}18kWh→{今週|こんしゅう}15.8kWh。-12%。✅{達成|たっせい}。"
+      - type: narration
+        text: "イブキ{担当|たんとう}（{理科室|りかしつ}・{家庭科|かていか}{室|しつ}）：{先週|せんしゅう}22kWh→{今週|こんしゅう}23kWh（{記録値|きろくち}）。+5%。❌{増加|ぞうか}。ソウタ{担当|たんとう}（{体育館|たいいくかん}・{廊下|ろうか}）：{先週|せんしゅう}15kWh→{今週|こんしゅう}13kWh。-13%。✅{達成|たっせい}。"
+
+      # --- 太陽光の仕組み ---
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "{太陽光|たいようこう}パネルの{発電量|はつでんりょう}は{最大|さいだい}3kW。学校{全体|ぜんたい}の{消費|しょうひ}は{約|やく}15kW。{発電|はつでん}は{消費|しょうひ}の20%しかカバーできない。"
+      - type: dialog
+        character: kana
+        text: "『{発電|はつでん}中だから{使|つか}っていい』は{間違|まちが}い。{発電|はつでん}中でも{消費|しょうひ}の{方|ほう}がずっと{多|おお}い。{残|のこ}り80%は{電力|でんりょく}{会社|がいしゃ}から{購入|こうにゅう}してる。"
+        expression: determined
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- エアコン設定 ---
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: left
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: right
+      - type: dialog
+        character: haruki
+        text: "{木曜|もくよう}に{理科室|りかしつ}を{確認|かくにん}したら、エアコンが18℃！ {通常|つうじょう}は26℃なのに{冷房|れいぼう}{最強|さいきょう}。"
+      - type: dialog
+        character: souta
+        text: "{家庭科|かていか}{室|しつ}も19℃。イブキ{担当|たんとう}のエリアだけ{異常|いじょう}に{低|ひく}い{設定|せってい}。これは{節電|せつでん}じゃなく{増費|ぞうひ}だ。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-08/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 記録操作の発覚
+
+      - type: narration
+        text: "カナがイブキに{発電量|はつでんりょう}と{消費量|しょうひりょう}を{計算|けいさん}して{説明|せつめい}した。そしてイブキが{全員|ぜんいん}に{話|はな}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "カナに{計算|けいさん}してもらって分かった。{太陽光|たいようこう}が{発電|はつでん}してる{間|あいだ}でも、{消費|しょうひ}の{方|ほう}がずっと{多|おお}い。『{発電|はつでん}中だから{使|つか}っていい』は{完全|かんぜん}に{間違|まちが}ってた。"
+      - type: dialog
+        character: ibuki
+        text: "しかも……{節電|せつでん}チャレンジで一番になりたくて、23kWhって書いたけど、{本当|ほんとう}は26kWhだった。{記録|きろく}を{操作|そうさ}してた……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: narration
+        text: "{実際|じっさい}の{全体|ぜんたい}{消費|しょうひ}：54.8kWh。{先週|せんしゅう}55kWhからほぼ{変化|へんか}なし。{節電|せつでん}{達成率|たっせいりつ}わずか0.4%。{目標|もくひょう}10%には{程遠|ほどとお}い。"
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-08/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 節電に失敗したのは
+
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: haruki
+        text: "イブキのエリアだけ+5%。エアコン{設定|せってい}18℃。『{太陽光|たいようこう}で{発電|はつでん}してるから大丈夫』という{認知|にんち}バイアス。そして{記録|きろく}の{操作|そうさ}。"
+      - type: dialog
+        character: kana
+        text: "{思|おも}い{込|こ}みが{行動|こうどう}を{誤|あやま}らせ、{競争心|きょうそうしん}が{記録|きろく}を{歪|ゆが}めた。2つの{問題|もんだい}が{重|かさ}なっている。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{節電|せつでん}チャレンジの{電力|でんりょく}{増加|ぞうか}と{記録|きろく}{操作|そうさ}の{原因|げんいん}は{誰|だれ}？"
+      - type: choice
+        question: "節電に失敗した原因は？"
+        options:
+          - text: ハルキ
+            correct: false
+            feedback: "ハルキは-12%で{目標|もくひょう}{達成|たっせい}。イブキのエリアの{異常|いじょう}{設定|せってい}を{発見|はっけん}した{側|がわ}。"
+          - text: イブキ
+            correct: true
+            feedback: "正解。イブキは『{太陽光|たいようこう}{発電|はつでん}中は{使|つか}っていい』という{認知|にんち}バイアスでエアコンを{最強|さいきょう}{設定|せってい}。さらに{競争心|きょうそうしん}から{記録|きろく}を{操作|そうさ}した。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは-13%で{目標|もくひょう}{達成|たっせい}。{家庭科|かていか}{室|しつ}の{異常|いじょう}{設定|せってい}を{確認|かくにん}した{側|がわ}。"
+          - text: カナ
+            correct: false
+            feedback: "カナは{太陽光|たいようこう}パネルの{発電量|はつでんりょう}{記録|きろく}{担当|たんとう}。イブキに{発電量|はつでんりょう}と{消費量|しょうひりょう}の{計算|けいさん}を{説明|せつめい}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-08/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 思い込みと競争
+
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "2つ{間違|まちが}えた。1つは{思|おも}い{込|こ}み——{太陽光|たいようこう}が{発電|はつでん}してるから{使|つか}っていいと{信|しん}じた。{実際|じっさい}は{消費|しょうひ}の20%しかカバーできない。"
+      - type: dialog
+        character: ibuki
+        text: "もう1つは{記録|きろく}{操作|そうさ}。1{位|い}になりたくて{数字|すうじ}を{変|か}えた。{節電|せつでん}チャレンジのために{嘘|うそ}をつくって、{本末転倒|ほんまつてんとう}だった。"
+        expression: determined
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "{認知|にんち}バイアスは{無意識|むいしき}の{誤解|ごかい}。{記録|きろく}{操作|そうさ}は{意識的|いしきてき}な{操作|そうさ}。{種類|しゅるい}が{違|ちが}うけど、{結果|けっか}はどちらも{全員|ぜんいん}の{努力|どりょく}を{無意味|むいみ}にした。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-08/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『{再生可能|さいせいかのう}エネルギーがあれば{使|つか}い{放題|ほうだい}』は{誤|あやま}り。{発電量|はつでんりょう}と{消費量|しょうひりょう}のバランスが{大事|だいじ}。{省|しょう}エネと{創|そう}エネの{両方|りょうほう}が{必要|ひつよう}なんだ。"
+      - type: dialog
+        character: sensei
+        text: "そして『たぶん大丈夫』を『{実際|じっさい}にどうなの？』に{変|か}える{習慣|しゅうかん}。{思|おも}い{込|こ}みを{疑|うたが}い、データで{確認|かくにん}すること。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: determined
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "エアコンを26℃に{戻|もど}す。{発電量|はつでんりょう}のデータを{毎日|まいにち}{確認|かくにん}する。そして{記録|きろく}は{正直|しょうじき}に書く。{競争|きょうそう}に{勝|か}つより、{地球|ちきゅう}の{環境|かんきょう}を{守|まも}る方が{大事|だいじ}。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: ibuki, expression: determined }
+          - { id: souta, expression: happy }
+          - { id: kana, expression: happy }
+      - type: narration
+        text: "{太陽光|たいようこう}{発電|はつでん}は{未来|みらい}のエネルギー。でも{魔法|まほう}ではない。{発電|はつでん}{量|りょう}と{消費|しょうひ}{量|りょう}の{数字|すうじ}を{見|み}て、{両方|りょうほう}を{意識|いしき}することが{本当|ほんとう}の{省|しょう}エネ。"
+      - type: narration
+        speed: slow
+        text: "{認知|にんち}バイアスの{認識|にんしき}——『こうに{違|ちが}いない』を{疑|うたが}い、データで{確認|かくにん}する。{思|おも}い{込|こ}みを{超|こ}えた{先|さき}に、{真実|しんじつ}と{正|ただ}しい{行動|こうどう}がある。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——{節電|せつでん}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

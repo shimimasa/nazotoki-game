@@ -1,0 +1,349 @@
+meta:
+  id: esd-07
+  title: プラスチックの浜
+  series: ESD探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-07/opening
+    steps:
+      - type: narration
+        text: "あおば{浜|はま}の『{海岸|かいがん}{清掃|せいそう}プロジェクト』。4人がプラスチックごみを{調査|ちょうさ}・{回収|かいしゅう}している。"
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "今年のマイクロプラスチック、{去年|きょねん}の19{倍|ばい}！ AQ{工場|こうじょう}のロゴ入り{欠片|かけら}が437{個|こ}も！ {去年|きょねん}は23{個|こ}だったのに！"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "でもAQ{工場|こうじょう}の{公式|こうしき}{廃水|はいすい}{記録|きろく}はプラスチック{粉塵|ふんじん}の{排出|はいしゅつ}{量|りょう}『ゼロ』。{記録|きろく}がゼロなのに437{個|こ}見つかった。この{矛盾|むじゅん}は何？"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『{記録|きろく}にないこと』が{実際|じっさい}には{起|お}きている{可能性|かのうせい}がある。{情報|じょうほう}{欠落|けつらく}を見つけよう。ESD{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-07/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 記録にない排出を見つけろ
+
+      # --- データの矛盾 ---
+      - type: narration
+        text: "{海岸|かいがん}{調査|ちょうさ}データ。AQロゴ入り{欠片|かけら}：{去年|きょねん}23{個|こ}→{今年|ことし}437{個|こ}（19{倍|ばい}）。{他社|たしゃ}ロゴ：5→12{個|こ}（2.4{倍|ばい}・{自然|しぜん}{増|ぞう}）。プラスチック{全体|ぜんたい}：285→312{個|こ}（10%{増|ぞう}・{通常|つうじょう}{範囲|はんい}）。"
+      - type: narration
+        text: "{全体|ぜんたい}は10%しか{増|ふ}えていないのに、AQ{欠片|かけら}だけ19{倍|ばい}。{欠片|かけら}の{形状|けいじょう}は『バリ{型|がた}』——{工場|こうじょう}の{成形|せいけい}時に出る{削|けず}りかす。"
+      - type: sprite
+        character: kana
+        expression: determined
+        position: center
+      - type: dialog
+        character: kana
+        text: "あおば{川|がわ}の{観測|かんそく}{記録|きろく}。{今年|ことし}、{川|かわ}が{白|しろ}っぽく{濁|にご}ることが{何度|なんど}もあった。3月に2回、5月に1回、7月に2回、9月に3回。"
+      - type: dialog
+        character: kana
+        text: "{川|かわ}が{白|しろ}く{濁|にご}るのはプラスチック{粉塵|ふんじん}を{含|ふく}む{廃水|はいすい}が{流入|りゅうにゅう}したときの{典型的|てんけいてき}な{見|み}た{目|め}。でも{工場|こうじょう}の{記録|きろく}は{全|ぜん}月ゼロ。"
+        expression: thinking
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- ハルキの実習記録 ---
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "ハルキの{工場|こうじょう}{実習|じっしゅう}{記録|きろく}を見て。{廃水|はいすい}{処理|しょり}{設備|せつび}の{見学|けんがく}で『フィルターが1{台|だい}しかなく、メンテナンス{中|ちゅう}は{別|べつ}のラインで{処理|しょり}。{担当者|たんとうしゃ}が"{修理費|しゅうりひ}が出なくて…"と{言|い}っていた』。"
+      - type: dialog
+        character: ibuki
+        text: "そしてページの{余白|よはく}に——『{担当者|たんとうしゃ}から"{秘密|ひみつ}にして"と言われた{件|けん}については書かない』。……{書|か}かなかった{情報|じょうほう}って{何|なに}？"
+        expression: surprised
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruki
+        text: "……。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-07/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 記録にない事実
+
+      - type: narration
+        text: "先生がAQ{工場|こうじょう}に{直接|ちょくせつ}{問|と}い{合|あ}わせた。{別|べつ}の{担当者|たんとうしゃ}が{認|みと}めた。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『{春|はる}から{秋|あき}にかけて、フィルター1{号機|ごうき}の{故障|こしょう}{修理|しゅうり}の{間|あいだ}、バックアップフィルターが{追|お}いつかず、プラスチック{粉塵|ふんじん}を{含|ふく}む{廃水|はいすい}が{基準値|きじゅんち}の{数倍|すうばい}の{濃度|のうど}で{川|かわ}に{流出|りゅうしゅつ}していた。{記録|きろく}にはゼロと書いていた。{実習|じっしゅう}に来た{小学生|しょうがくせい}の子に{秘密|ひみつ}にするよう{頼|たの}んでいた。』"
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "{記録|きろく}にないのに{排出|はいしゅつ}があった！ 『{記録|きろく}がゼロ ＝ {問題|もんだい}なし』じゃなかった。{記録|きろく}への{信頼|しんらい}が{崩|くず}れた。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-07/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 秘密を守ったのは誰か
+
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ibuki
+        text: "AQ{工場|こうじょう}の{廃水|はいすい}{記録|きろく}{改|かい}ざんを知っていて、{報告|ほうこく}しなかった人がいる。{工場|こうじょう}{実習|じっしゅう}に{参加|さんか}したのは——"
+      - type: dialog
+        character: kana
+        text: "{実習|じっしゅう}{記録|きろく}の{余白|よはく}に『{秘密|ひみつ}にするよう言われた{件|けん}については書かない』と書いてあった。その{人物|じんぶつ}は——"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{工場|こうじょう}の{廃水|はいすい}{記録|きろく}{改|かい}ざんを知りながら{報告|ほうこく}しなかったのは{誰|だれ}？"
+      - type: choice
+        question: "秘密を守ったのは？"
+        options:
+          - text: ハルキ
+            correct: true
+            feedback: "正解。ハルキは{工場|こうじょう}{実習|じっしゅう}で{廃水|はいすい}{記録|きろく}の{改|かい}ざんを知ったが、『{秘密|ひみつ}にして』という{約束|やくそく}を{守|まも}り{報告|ほうこく}しなかった。{結果|けっか}、{海|うみ}にマイクロプラスチックが{流|なが}れ{続|つづ}けた。"
+          - text: イブキ
+            correct: false
+            feedback: "イブキは{海岸|かいがん}の{生|い}き物{観察|かんさつ}{担当|たんとう}。ハルキの{実習|じっしゅう}{記録|きろく}の{余白|よはく}の{異変|いへん}に{気|き}づいた{側|がわ}。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは{海岸|かいがん}{清掃|せいそう}の{現場|げんば}{担当|たんとう}。AQロゴ入り{欠片|かけら}を{回収|かいしゅう}した{側|がわ}。"
+          - text: カナ
+            correct: false
+            feedback: "カナは{浜|はま}の{地図|ちず}と{流|なが}れの{分析|ぶんせき}{担当|たんとう}。{川|かわ}の{濁|にご}り{記録|きろく}と{工場|こうじょう}{記録|きろく}の{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-07/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 約束を守ることと報告すること
+
+      - type: sprite
+        character: haruki
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruki
+        text: "……ぼくが知ってた。{工場|こうじょう}の{実習|じっしゅう}で、フィルターが{壊|こわ}れてるのに{廃水|はいすい}を{川|かわ}に{流|なが}してるのを見た。{担当者|たんとうしゃ}に『{秘密|ひみつ}にして』と言われて、{約束|やくそく}した。"
+      - type: dialog
+        character: haruki
+        text: "でもその{廃水|はいすい}が{川|かわ}を{伝|つた}って{海|うみ}に{行|い}って、マイクロプラスチックになった。ぼくが{報告|ほうこく}していれば{止|と}められたのに……。"
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "ハルキの{気持|きも}ちは分かる。{約束|やくそく}を{守|まも}りたかった。でも{環境|かんきょう}{問題|もんだい}は{約束|やくそく}より{大|おお}きい。{海|うみ}の{生|い}き物がプラスチックを食べてしまう。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        expression: determined
+        position: center
+      - type: dialog
+        character: kana
+        text: "{情報|じょうほう}{欠落|けつらく}の{認識|にんしき}。『{記録|きろく}にないから{存在|そんざい}しない』は{誤|あやま}り。{記録|きろく}されていない{行為|こうい}が{環境|かんきょう}{問題|もんだい}を{起|お}こしている。{疑|うたが}う{姿勢|しせい}が{大切|たいせつ}。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-07/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "マイクロプラスチックの{経路|けいろ}は{工場|こうじょう}→{川|かわ}→{海|うみ}→{海岸|かいがん}。{目|め}に見えない{経路|けいろ}を{追|お}うことで{問題|もんだい}の{源|みなもと}が見える。"
+      - type: dialog
+        character: sensei
+        text: "そして{約束|やくそく}と{報告|ほうこく}の{問題|もんだい}。{環境|かんきょう}や{健康|けんこう}に{関|かか}わることは、{秘密|ひみつ}にするより{報告|ほうこく}する{勇気|ゆうき}が{必要|ひつよう}だ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: haruki
+        expression: determined
+        position: center
+      - type: dialog
+        character: haruki
+        text: "次は{報告|ほうこく}する。{環境|かんきょう}{問題|もんだい}を知ったら、{秘密|ひみつ}にしないで{大人|おとな}に{伝|つた}える。それが{本当|ほんとう}に{約束|やくそく}を{守|まも}ることだ——{海|うみ}との{約束|やくそく}を。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: determined }
+          - { id: ibuki, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: kana, expression: happy }
+      - type: narration
+        text: "マイクロプラスチックは{目|め}に見えないほど{小|ちい}さい。でもその{影響|えいきょう}は{海|うみ}{全体|ぜんたい}に{広|ひろ}がる。{記録|きろく}にないことが{現実|げんじつ}には{起|お}きている。"
+      - type: narration
+        speed: slow
+        text: "{情報|じょうほう}{欠落|けつらく}の{認識|にんしき}——『あるはずなのにない』に{気|き}づく{力|ちから}。{記録|きろく}を{信|しん}じすぎず、{現実|げんじつ}と{照合|しょうごう}する{姿勢|しせい}が{真実|しんじつ}を{明|あき}らかにする。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——プラスチックの{浜|はま}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

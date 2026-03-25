@@ -1,0 +1,348 @@
+meta:
+  id: esd-10
+  title: 地球の未来を選ぶ日
+  series: ESD探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-10/opening
+    steps:
+      - type: narration
+        text: "あおば小学校の『{未来|みらい}の{地球|ちきゅう}プロジェクト』。{環境|かんきょう}アクション{計画|けいかく}を{策定|さくてい}中。"
+      - type: narration
+        text: "{先週|せんしゅう}の{審議|しんぎ}で{可決|かけつ}されるはずだった『コンポスト{設備|せつび}{導入|どうにゅう}案』が、{提案|ていあん}{直前|ちょくぜん}に{資料|しりょう}から{削除|さくじょ}されていた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "わたしが{作|つく}ったコンポスト{導入|どうにゅう}案が{消|き}えてる！ {月曜|げつよう}に{追加|ついか}したのに、{火曜|かよう}の{審議|しんぎ}{資料|しりょう}にはない！"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}が{資料|しりょう}を{削除|さくじょ}した？ そしてなぜ？ これがESD{探偵団|たんていだん}、{最後|さいご}の{事件|じけん}だ。{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-10/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 編集ログと動機を追え
+
+      # --- 編集ログ ---
+      - type: narration
+        text: "{審議|しんぎ}{資料|しりょう}の{編集|へんしゅう}{履歴|りれき}。月曜14:00にイブキが{資料|しりょう}{作成|さくせい}。月曜16:30にコンポスト{案|あん}{追加|ついか}。火曜08:15に——コンポスト{案|あん}{削除|さくじょ}。{操作者|そうさしゃ}{不明|ふめい}。"
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: haruki
+        text: "火曜のアクセスログ。ぼくは09:00から。イブキは07:30〜07:50（{終了|しゅうりょう}後）。ソウタは09:15から。{削除|さくじょ}は08:15。"
+      - type: dialog
+        character: haruki
+        text: "08:14〜08:20にアクセスしていたのは——カナだけ。"
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+
+      # --- 動機 ---
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souta
+        text: "火曜の朝8時10分ごろ、{図書室|としょしつ}でカナがタブレットを{操作|そうさ}してるのを見かけた。{早|はや}いなと{思|おも}った。"
+      - type: dialog
+        character: haruki
+        text: "月曜の{放課後|ほうかご}、カナが『コンポストって{電力|でんりょく}を{使|つか}うんでしょ。{省|しょう}エネの{方針|ほうしん}と{矛盾|むじゅん}する』と言ってた。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: haruki
+        action: hide
+
+      # --- コンポストの効果データ ---
+      - type: sprite
+        character: ibuki
+        expression: determined
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "コンポスト{設備|せつび}の{効果|こうか}を{計算|けいさん}したの。{学校|がっこう}の{年間|ねんかん}{食品|しょくひん}{廃棄|はいき}{量|りょう}120kg。CO2{換算|かんさん}で{年間|ねんかん}96kg{削減|さくげん}。"
+      - type: dialog
+        character: ibuki
+        text: "{設備|せつび}の{年間|ねんかん}{消費|しょうひ}{電力|でんりょく}は0.3kWh。CO2{換算|かんさん}でたった0.15kg。{削減|さくげん}{効果|こうか}は{消費|しょうひ}の640{倍|ばい}！ 『{電力|でんりょく}を{使|つか}うからダメ』は{全体|ぜんたい}を見ていない。"
+        expression: surprised
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート（1回目投票） =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-10/tension
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 資料を削除したのは
+
+      - type: narration
+        text: "{編集|へんしゅう}ログ。{目撃|もくげき}{証言|しょうげん}。『{省|しょう}エネと{矛盾|むじゅん}する』という{発言|はつげん}。{全|すべ}てがカナを{指|さ}す。"
+      - type: choice
+        question: "コンポスト案を削除したのは？"
+        options:
+          - text: ハルキ
+            correct: false
+            feedback: "ハルキは09:00からアクセス。{削除|さくじょ}は08:15で、ハルキのアクセス前。{議事録|ぎじろく}{管理|かんり}{担当|たんとう}として{削除|さくじょ}に{気|き}づいた{側|がわ}。"
+          - text: イブキ
+            correct: false
+            feedback: "イブキは07:30〜07:50にアクセス{終了|しゅうりょう}。{削除|さくじょ}は08:15で、イブキの{操作|そうさ}後。コンポスト{案|あん}を{作|つく}った{本人|ほんにん}。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは09:15からアクセス。{削除|さくじょ}は08:15で、ソウタのアクセス前。カナの{目撃|もくげき}{証言|しょうげん}を{提供|ていきょう}した{側|がわ}。"
+          - text: カナ
+            correct: true
+            feedback: "正解。カナは08:14〜08:20にアクセス。{削除|さくじょ}は08:15。『{省|しょう}エネと{矛盾|むじゅん}する』という{信念|しんねん}から{削除|さくじょ}した。でも——なぜそれが{間違|まちが}いだったのか？"
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-10/truth
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 省エネだけが持続可能性ではない
+
+      - type: sprite
+        character: kana
+        expression: worried
+        position: center
+      - type: dialog
+        character: kana
+        text: "{削除|さくじょ}したのはわたしです。{省|しょう}エネが{持続|じぞく}{可能性|かのうせい}の{最優先|さいゆうせん}{事項|じこう}だと{思|おも}ってた。{電力|でんりょく}を{消費|しょうひ}する{設備|せつび}を入れる{意味|いみ}がないと。"
+      - type: dialog
+        character: kana
+        text: "でも……{証拠|しょうこ}カードの{計算|けいさん}を見て。コンポストの{電力|でんりょく}{消費|しょうひ}が0.15kgで、{食品|しょくひん}{廃棄|はいき}{削減|さくげん}が96kg。640{倍|ばい}の{差|さ}。{計算|けいさん}したことなかった。"
+        expression: determined
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "パラダイムシフト——『{省|しょう}エネ{最優先|さいゆうせん} ＝ {持続|じぞく}{可能性|かのうせい}』ではなかった。{持続|じぞく}{可能性|かのうせい}は{環境|かんきょう}・{社会|しゃかい}・{経済|けいざい}の3つのバランス。{省|しょう}エネは{環境|かんきょう}の一{部分|ぶぶん}に{過|す}ぎない。"
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "コンポストの{価値|かち}は{省|しょう}エネの{視点|してん}だけでは{測|はか}れない。CO2{削減|さくげん}+{土壌|どじょう}{改善|かいぜん}+{食品|しょくひん}{廃棄|はいき}{意識|いしき}+{循環型|じゅんかんがた}{思考|しこう}の{教育|きょういく}——{複合的|ふくごうてき}な{価値|かち}がある。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-10/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 誰のために持続可能にするのか
+
+      - type: sprite
+        character: kana
+        expression: determined
+        position: center
+      - type: dialog
+        character: kana
+        text: "わたしは『{地球|ちきゅう}を{守|まも}りたい』と{思|おも}って{行動|こうどう}した。でも{省|しょう}エネだけが{持続|じぞく}{可能性|かのうせい}じゃなかった。"
+      - type: dialog
+        character: kana
+        text: "そして{一番|いちばん}の{間違|まちが}いは、{議論|ぎろん}せずに{独断|どくだん}で{削除|さくじょ}したこと。みんなの{意見|いけん}を{聞|き}かずに『{自分|じぶん}が{正|ただ}しい』と{決|き}めつけた。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "カナの{気持|きも}ちは分かる。{省|しょう}エネは{大事|だいじ}だ。でも『{自分|じぶん}の{信念|しんねん}が{正|ただ}しい』と{思|おも}い{込|こ}むと、{他|ほか}の{情報|じょうほう}を{排除|はいじょ}してしまう。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{持続|じぞく}{可能|かのう}な{社会|しゃかい}は{民主的|みんしゅてき}な{議論|ぎろん}から{生|う}まれる。{多様|たよう}な{価値観|かちかん}を{議論|ぎろん}で{統合|とうごう}すること。{独断|どくだん}ではなく{話|はな}し{合|あ}いで。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-10/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{持続|じぞく}{可能|かのう}な{開発|かいはつ}とは、『{将来|しょうらい}の{世代|せだい}が{自|みずか}らのニーズを{満|み}たす{能力|のうりょく}を{損|そこ}なうことなく、{現在|げんざい}のニーズを{満|み}たす{開発|かいはつ}』。"
+      - type: dialog
+        character: sensei
+        text: "{省|しょう}エネも{大事|だいじ}。でも{環境|かんきょう}・{社会|しゃかい}・{経済|けいざい}の3つのバランスが『{持続|じぞく}{可能性|かのうせい}』。1つだけ{最大化|さいだいか}することは{持続|じぞく}{可能|かのう}ではない。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kana
+        expression: determined
+        position: center
+      - type: dialog
+        character: kana
+        text: "コンポスト{案|あん}を{資料|しりょう}に{戻|もど}す。そして{今度|こんど}こそ、みんなで{議論|ぎろん}して{決|き}める。わたしの{信念|しんねん}も{大事|だいじ}だけど、{他|ほか}の人の{情報|じょうほう}や{意見|いけん}も{聞|き}く。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: kana, expression: determined }
+
+      # --- シリーズ振り返り ---
+      - type: narration
+        text: "Vol.1——{川|かわ}の{汚|よご}れの{謎|なぞ}。{消去法|しょうきょほう}を{覚|おぼ}えた。Vol.2——{魚|さかな}が{消|き}えた{謎|なぞ}。{食物|しょくもつ}{連鎖|れんさ}の{情報|じょうほう}{整理|せいり}を{学|まな}んだ。"
+      - type: narration
+        text: "Vol.3——ごみ{袋|ふくろ}のトリック。{因果|いんが}{連鎖|れんさ}で{原因|げんいん}を{追|お}った。Vol.4——{気温|きおん}{記録|きろく}の{嘘|うそ}。タイムラインを{再構成|さいこうせい}した。"
+      - type: narration
+        text: "Vol.5——{土|つち}の{秘密|ひみつ}。{仮説|かせつ}{検証|けんしょう}で{矛盾|むじゅん}を{暴|あば}いた。Vol.6——{外来種|がいらいしゅ}のわな。{全探索|ぜんたんさく}で{異変|いへん}を見つけた。"
+      - type: narration
+        text: "Vol.7——プラスチックの{浜|はま}。{情報|じょうほう}{欠落|けつらく}に{気|き}づいた。Vol.8——{節電|せつでん}の{思|おも}い{込|こ}み。{認知|にんち}バイアスを{疑|うたが}った。"
+      - type: narration
+        text: "Vol.9——{森|もり}のデータ。{帰納法|きのうほう}でパターンを{証明|しょうめい}した。そしてVol.10——{地球|ちきゅう}の{未来|みらい}を{選|えら}ぶ日。{全|すべ}てのスキルを{使|つか}い、メタ{認知|にんち}に{辿|たど}り{着|つ}いた。"
+      - type: narration
+        speed: slow
+        text: "{環境|かんきょう}{問題|もんだい}に『{正解|せいかい}は1つ』ではない。{省|しょう}エネもコンポストも{間伐|かんばつ}も、{全|すべ}てが{持続|じぞく}{可能|かのう}な{未来|みらい}のピース。{大事|だいじ}なのは{議論|ぎろん}し、{学|まな}び、{行動|こうどう}すること。"
+      - type: narration
+        speed: slow
+        text: "『{誰|だれ}のために{節約|せつやく}する？ {未来|みらい}の人のために、今を{考|かんが}える。』——それがESDの{本質|ほんしつ}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——シリーズ{完結|かんけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
