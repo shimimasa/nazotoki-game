@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 18:33
+- Add geography-09 game script: factory data card induction mystery
+
 ## 2026-03-25 18:27
 - Add geography-08 game script: global summit declaration mystery
 

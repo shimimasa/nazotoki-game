@@ -1,0 +1,510 @@
+meta:
+  id: geography-10
+  title: 汚された川の調査
+  series: 地図探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  makoto:
+    name: マコト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  chihiro:
+    name: チヒロ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  ryouma:
+    name: リョウマ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  airi:
+    name: アイリ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-10/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5{年|ねん}1{組|くみ}の「あおば{川|がわ}」{水質|すいしつ}{調査|ちょうさ}プロジェクト。4人がそれぞれ{川|かわ}の4{地点|ちてん}を{担当|たんとう}してデータを{集|あつ}めた。"
+      - type: sprite
+        character: makoto
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: makoto
+        text: "リョウマの{地点|ちてん}C（{工業|こうぎょう}{地域|ちいき}）のにごりデータが{変|か}わってる！ {先週|せんしゅう}は「{高|たか}い」だったのに「{低|ひく}い」になってる！"
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{他|ほか}の3{地点|ちてん}は{変|か}わっていない。{地図|ちず}{探偵団|たんていだん}、{最後|さいご}の{事件|じけん}だ。データの{矛盾|むじゅん}を{解|と}き{明|あ}かしてくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.10
+        subtitle: 汚された川の調査
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-10/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: makoto
+        expression: normal
+        position: left
+      - type: dialog
+        character: makoto
+        text: "ぼくはマコト。{地点|ちてん}A（{上流|じょうりゅう}・{森林|しんりん}）{担当|たんとう}。にごり「{非常|ひじょう}に{低|ひく}い」、サワガニやイワナがいたよ。"
+      - type: dialog
+        character: makoto
+        text: "{地点|ちてん}Cのにごりだけ{変|か}わっているのが{気|き}になる。それと、{地点|ちてん}Bの{窒素|ちっそ}データが{異常|いじょう}に{高|たか}いんだ……。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: chihiro
+        expression: normal
+        position: right
+      - type: dialog
+        character: chihiro
+        text: "わたしはチヒロ。{地点|ちてん}B（{中流|ちゅうりゅう}・{農業|のうぎょう}{地域|ちいき}）{担当|たんとう}。にごり「やや{高|たか}い」。ドジョウやフナがいたわ。"
+      - type: dialog
+        character: chihiro
+        text: "{地点|ちてん}Bの{川|かわ}べに{肥料|ひりょう}の{袋|ふくろ}が{落|お}ちていたの……。{窒素|ちっそ}が{非常|ひじょう}に{高|たか}かった。"
+        expression: worried
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite
+        character: ryouma
+        expression: normal
+        position: left
+      - type: dialog
+        character: ryouma
+        text: "おれはリョウマ。{地点|ちてん}C（{下流|かりゅう}・{工業|こうぎょう}{地域|ちいき}）{担当|たんとう}。にごりは……{低|ひく}い、と思う。"
+      - type: dialog
+        character: ryouma
+        text: "おじいちゃんがこの{工場|こうじょう}で30{年|ねん}{働|はたら}いてるんだ。{排水|はいすい}{基準|きじゅん}はちゃんと{守|まも}ってるって{言|い}ってた。"
+        expression: worried
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: sprite
+        character: airi
+        expression: normal
+        position: right
+      - type: dialog
+        character: airi
+        text: "わたしはアイリ。{地点|ちてん}D（{河口|かこう}・{住宅|じゅうたく}{地域|ちいき}）{担当|たんとう}。にごり「{非常|ひじょう}に{高|たか}い」。ボラやクラゲがいたよ。"
+      - type: dialog
+        character: airi
+        text: "{日曜|にちよう}{参観|さんかん}のとき、リョウマが{教室|きょうしつ}に{入|はい}っていくのを{見|み}たの。「{忘|わす}れ{物|もの}を{取|と}りに来た」って{言|い}ってたけど。"
+        expression: thinking
+      - type: sprite
+        character: airi
+        action: hide
+
+  # ===== 証拠カード1: 事件の記録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-10/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 書き換えられたデータ
+      - type: narration
+        text: "{地点|ちてん}Cのにごりデータだけが{変|か}わっている——"
+      - type: narration
+        text: "{木曜|もくよう}にまとめたとき：{地点|ちてん}C「{高|たか}い」。{金曜|きんよう}に先生が{確認|かくにん}：「{高|たか}い」。{月曜|げつよう}の{朝|あさ}：「{低|ひく}い」に{変化|へんか}。"
+      - type: narration
+        text: "{変|か}わっているのはにごりの{数値|すうち}だけ。{水温|すいおん}や{生|い}き{物|もの}のデータはそのまま。{他|ほか}の3{地点|ちてん}は{変化|へんか}なし。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ファイルは{理科室|りかしつ}の{棚|たな}に{置|お}いてあり、{誰|だれ}でも{手|て}に{取|と}れた。{金曜|きんよう}{放課後|ほうかご}〜{月曜|げつよう}{朝|あさ}の{間|あいだ}に書き{換|か}えられた。"
+
+  # ===== 証拠カード2: 4地点の水質データ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4地点の水質データ
+      - type: narration
+        text: "{元|もと}のデータ（書き{換|か}え{前|まえ}）——"
+      - type: narration
+        text: "{地点|ちてん}A（{森林|しんりん}）：にごり{非常|ひじょう}に{低|ひく}い、サワガニ・イワナ"
+      - type: narration
+        text: "{地点|ちてん}B（{農業|のうぎょう}）：にごりやや{高|たか}い、ドジョウ・フナ"
+      - type: narration
+        text: "{地点|ちてん}C（{工業|こうぎょう}）：にごり{高|たか}い → 今は「{低|ひく}い」に書き{換|か}え ✗　{生|い}き{物|もの}はコイ・フナ"
+      - type: narration
+        text: "{地点|ちてん}D（{住宅|じゅうたく}）：にごり{非常|ひじょう}に{高|たか}い、ボラ・クラゲ"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{矛盾|むじゅん}：にごり「{低|ひく}い」なのに{生|い}き{物|もの}はコイ・フナ（{汚|よご}れた{水|みず}に{強|つよ}い{種類|しゅるい}）。データと{生|い}き{物|もの}が{合|あ}わない——にごりデータが書き{換|か}えられた{証拠|しょうこ}。"
+
+  # ===== 証拠カード3: 窒素データ =====
+  - id: evidence-3
+    bgm: geography-10/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 窒素データと土地利用
+      - type: narration
+        text: "{窒素|ちっそ}は{肥料|ひりょう}に{多|おお}く{含|ふく}まれる{成分|せいぶん}。{川|かわ}に{窒素|ちっそ}が{多|おお}いと{藻|も}が{増|ふ}えてにごる{原因|げんいん}になる。"
+      - type: narration
+        text: "{地点|ちてん}A（{森林|しんりん}）：{窒素|ちっそ}{非常|ひじょう}に{低|ひく}い。{地点|ちてん}B（{農業|のうぎょう}）：{窒素|ちっそ}{非常|ひじょう}に{高|たか}い ⭐"
+      - type: narration
+        text: "{地点|ちてん}C（{工業|こうぎょう}）：{窒素|ちっそ}{高|たか}い。{地点|ちてん}D（{住宅|じゅうたく}）：{窒素|ちっそ}{高|たか}い"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{窒素|ちっそ}が{一番|いちばん}{高|たか}いのは{地点|ちてん}B（{農業|のうぎょう}{地域|ちいき}）——{工業|こうぎょう}{地域|ちいき}より{高|たか}い！ {川|かわ}はA→B→C→Dと{流|なが}れるから、{地点|ちてん}Bの{汚|よご}れが{地点|ちてん}Cに{蓄積|ちくせき}する。"
+
+  # ===== 証拠カード4: 目撃情報と工場データ =====
+  - id: evidence-4
+    bgm: geography-10/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 日曜参観と工場の情報
+      - type: narration
+        text: "アイリの{証言|しょうげん}：「{日曜|にちよう}{参観|さんかん}のとき、リョウマが{教室|きょうしつ}に{入|はい}っていくのを{見|み}た。14{時|じ}ごろ。{理科室|りかしつ}の{棚|たな}の{近|ちか}くを{通|とお}っていた」"
+      - type: narration
+        text: "{工場|こうじょう}の{情報|じょうほう}：{地点|ちてん}Cの{工場|こうじょう}3つは{全|すべ}て{排水|はいすい}{基準|きじゅん}を{満|み}たしている。{月|つき}1{回|かい}{市|し}の{検査|けんさ}を{受|う}けていて、{排水|はいすい}のにごりは「{基準内|きじゅんない}」。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "アイリのメモ：「{地点|ちてん}Cの{工場|こうじょう}の{排水口|はいすいこう}の{水|みず}は{透明|とうめい}だった。でも{不思議|ふしぎ}なことに、{工場|こうじょう}の{上流|じょうりゅう}側（{地点|ちてん}B{寄|よ}り）で、もう{川|かわ}がにごっていた」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{工場|こうじょう}は{基準|きじゅん}を{守|まも}っている。{排水|はいすい}も{透明|とうめい}。でも{地点|ちてん}Cのにごりは{高|たか}い。{工場|こうじょう}の{上流|じょうりゅう}側ですでにに{濁|ご}っていた——{本当|ほんとう}の{原因|げんいん}は{工場|こうじょう}じゃない？"
+
+  # ===== 証拠カード5: 環境センターの追加調査 =====
+  - id: evidence-5
+    bgm: geography-10/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 環境センターの追加調査
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{市|し}の{環境|かんきょう}センターに{問|と}い{合|あ}わせた{結果|けっか}が{届|とど}いた。"
+      - type: dialog
+        character: sensei
+        text: "「{地点|ちてん}Cのにごりが{高|たか}い{原因|げんいん}は、{上流|じょうりゅう}の{農業|のうぎょう}{地域|ちいき}から{流|なが}れ{出|で}た{肥料|ひりょう}と{農薬|のうやく}が{主因|しゅいん}。{工場|こうじょう}3{社|しゃ}は{排水|はいすい}{基準|きじゅん}を{満|み}たしており、{汚染|おせん}にはほとんど{影響|えいきょう}していない」"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{地点|ちてん}Cのにごりの{本当|ほんとう}の{原因|げんいん}＝{地点|ちてん}B（{農業|のうぎょう}{地域|ちいき}）の{肥料|ひりょう}{流出|りゅうしゅつ}。{工場|こうじょう}は{無実|むじつ}。{川|かわ}の{汚|よご}れは{上流|じょうりゅう}から{下流|かりゅう}へ{蓄積|ちくせき}する——1つの{地点|ちてん}だけの{問題|もんだい}ではない。"
+      - type: narration
+        text: "リョウマは「おじいちゃんの{工場|こうじょう}を{守|まも}りたかった」。でも{工場|こうじょう}は{最初|さいしょ}から{無実|むじつ}だった——「{工場|こうじょう}＝{汚染|おせん}の{原因|げんいん}」は{先入観|せんにゅうかん}だったのだ。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-10/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "2つの{謎|なぞ}がある。まず——データを書き{換|か}えたのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 地点Cのにごりデータを書き換えたのは誰？
+        options:
+          - text: マコト（地点A・森林担当）
+            value: makoto
+            feedback: マコトは地点Aのデータが変わっていないし、地点Cのデータを変える動機がない。窒素データの異常に気づいた分析者側。
+          - text: チヒロ（地点B・農業地域担当）
+            value: chihiro
+            feedback: チヒロは地点Bのデータが変わっていない。むしろ肥料の袋を見つけた証人。地点Cのデータを変える理由がない。
+          - text: リョウマ（地点C・工業地域担当）
+            value: ryouma
+            feedback: 正解！ リョウマはおじいちゃんの工場を守りたくて、にごりデータを「高い」→「低い」に書き換えた。日曜参観でファイルに触れた。でも工場は本当に無実だった。
+          - text: アイリ（地点D・住宅地域担当）
+            value: airi
+            feedback: アイリは地点Dのデータが変わっていないし、リョウマを目撃した証人側。工場の排水口が透明だったことに気づいた重要な観察者。
+      - type: choice
+        id: q2
+        question: 地点Cのにごりが高い本当の原因は何？
+        options:
+          - text: 上流の農業地域（地点B）から流れ出た肥料が蓄積したから
+            value: agriculture
+            feedback: 正解！ 地点Bの窒素が非常に高く、肥料が川に流れ込んでいた。川はA→B→C→Dと流れるから、地点Bの汚れが地点Cで蓄積した。工場は排水基準を守っており無実。
+          - text: 地点Cの工場が排水基準を守っていなかったから
+            value: factory
+            feedback: 工場は3社とも排水基準を満たしていて、月1回の市の検査でも「基準内」。排水口の水も透明だった。「工場＝汚染の原因」は先入観だった。
+          - text: 地点Dの住宅地域から逆流したから
+            value: reverse
+            feedback: 川は上流から下流に流れる（A→B→C→D）。下流から上流には逆流しないよ。地点Cのにごりは上流の地点Bから蓄積したもの。
+          - text: リョウマがデータを書き換えたから
+            value: data-change
+            feedback: リョウマがデータを書き換えたのは事実。でもそれは「見かけの値」を変えただけ。川のにごりの「本当の原因」は地点Bの肥料流出。データを変えても川の状態は変わらない。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-10/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: おじいちゃんの工場は無実だった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # マコトの後ろめたさ
+  - id: truth-makoto
+    bg: classroom
+    steps:
+      - type: sprite
+        character: makoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{地点|ちてん}Bの{窒素|ちっそ}データが{異常|いじょう}に{高|たか}いって気づいてた。でもチヒロの{担当|たんとう}{範囲|はんい}だから{言|い}い{出|だ}せなかった。"
+      - type: dialog
+        character: makoto
+        text: "{全体|ぜんたい}を{見渡|みわた}す{力|ちから}が{足|た}りなかった。{担当|たんとう}に{関|かか}わらず「おかしいな」と思ったら{声|こえ}に{出|だ}すべきだった。"
+        expression: determined
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # チヒロの後ろめたさ
+  - id: truth-chihiro
+    steps:
+      - type: sprite
+        character: chihiro
+        expression: worried
+        position: right
+      - type: dialog
+        character: chihiro
+        text: "{地点|ちてん}Bの{川|かわ}べに{肥料|ひりょう}の{袋|ふくろ}が{落|お}ちてたのを{見|み}てた。おばあちゃんの{農業|のうぎょう}が{原因|げんいん}かもって{不安|ふあん}で{言|い}えなかった。"
+      - type: dialog
+        character: chihiro
+        text: "でも{環境|かんきょう}の{問題|もんだい}は{隠|かく}しても{解決|かいけつ}しない。{正直|しょうじき}にデータを{出|だ}して、一緒に{考|かんが}えるべきだった。"
+        expression: determined
+      - type: sprite
+        character: chihiro
+        action: hide
+
+  # アイリの後ろめたさ
+  - id: truth-airi
+    steps:
+      - type: sprite
+        character: airi
+        expression: worried
+        position: left
+      - type: dialog
+        character: airi
+        text: "{工場|こうじょう}の{上流|じょうりゅう}側ですでに{川|かわ}がにごっていたのに気づいてた。「{工場|こうじょう}じゃないかも」って思ったのに、すぐ{報告|ほうこく}しなかった。"
+      - type: dialog
+        character: airi
+        text: "「おかしいな」と思った{観察|かんさつ}を{早|はや}く{共有|きょうゆう}すれば、リョウマも{安心|あんしん}できたはず。"
+        expression: determined
+      - type: sprite
+        character: airi
+        action: hide
+
+  # リョウマの真実（クライマックス）
+  - id: truth-ryouma
+    bgm: geography-10/truth
+    steps:
+      - type: sprite
+        character: ryouma
+        expression: worried
+        position: center
+      - type: dialog
+        character: ryouma
+        text: "……おれがデータを書き{換|か}えた。{地点|ちてん}Cのにごりを「{高|たか}い」から「{低|ひく}い」に。"
+      - type: narration
+        speed: slow
+        text: "リョウマがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: ryouma
+        text: "おじいちゃんが{地点|ちてん}Cの{工場|こうじょう}で30{年|ねん}{働|はたら}いてるんだ。「にごりが{高|たか}い」って{出|で}たら、おじいちゃんの{工場|こうじょう}が{悪者|わるもの}にされると思った。"
+        expression: worried
+      - type: dialog
+        character: ryouma
+        text: "おじいちゃんは「{排水|はいすい}{基準|きじゅん}は{守|まも}ってるよ」って{言|い}ってた。だから「にごりが{高|たか}いデータは{間違|まちが}いだ」って思い{込|こ}んで、書き{換|か}えちゃった。"
+      - type: dialog
+        character: ryouma
+        text: "でも……{工場|こうじょう}は{本当|ほんとう}に{基準|きじゅん}を{守|まも}ってた。にごりの{原因|げんいん}は{上流|じょうりゅう}の{肥料|ひりょう}だった。おじいちゃんの{工場|こうじょう}は{最初|さいしょ}から{無実|むじつ}だったんだ。"
+        expression: worried
+      - type: dialog
+        character: ryouma
+        text: "データを{変|か}えなくても、おじいちゃんは{守|まも}れた。「{工場|こうじょう}＝{汚|よご}している」って{思|おも}い{込|こ}んでたのは——おれ{自身|じしん}だった。"
+        expression: determined
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: narration
+        speed: slow
+        text: "リョウマに{悪意|あくい}はなかった。おじいちゃんの{工場|こうじょう}を{守|まも}りたかった。でも{工場|こうじょう}は{最初|さいしょ}から{無実|むじつ}——「{工場|こうじょう}＝{汚染源|おせんげん}」は{先入観|せんにゅうかん}だった。{川|かわ}の{汚|よご}れは1つの{地点|ちてん}だけの{問題|もんだい}ではなく、{上流|じょうりゅう}から{下流|かりゅう}へ{蓄積|ちくせき}する。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-10/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{最終巻|さいしゅうかん}の{事件|じけん}、よく{解|と}き{明|あ}かしたな。"
+      - type: dialog
+        character: sensei
+        text: "Vol.1の{消去法|しょうきょほう}、Vol.4のタイムライン、Vol.5の{仮説|かせつ}{検証|けんしょう}、Vol.9の{帰納法|きのうほう}——{全|すべ}てを{組|く}み{合|あ}わせて{犯人|はんにん}を{特定|とくてい}し、さらに「{本当|ほんとう}の{原因|げんいん}」まで{突|つ}き{止|と}めた。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして{一番|いちばん}大切な{学|まな}び——「{工場|こうじょう}＝{悪者|わるもの}」は{先入観|せんにゅうかん}だった。データを{正|ただ}しく{読|よ}み、{上流|じょうりゅう}から{下流|かりゅう}までの{全体|ぜんたい}を{見|み}ることが、{環境|かんきょう}を{守|まも}る{第一歩|だいいっぽ}だ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ryouma
+        expression: determined
+        position: left
+      - type: dialog
+        character: ryouma
+        text: "おじいちゃんの{工場|こうじょう}は{無実|むじつ}だった。データを{変|か}えるんじゃなくて、{正|ただ}しく{調|しら}べれば{守|まも}れたんだ。{先入観|せんにゅうかん}に{負|ま}けない。"
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: makoto, expression: happy }
+          - { id: chihiro, expression: happy }
+          - { id: ryouma, expression: happy }
+          - { id: airi, expression: happy }
+      - type: narration
+        text: "データは{元|もと}に{戻|もど}され、{正|ただ}しい{水質|すいしつ}{調査|ちょうさ}レポートが{完成|かんせい}した。{川|かわ}の{汚|よご}れの{本当|ほんとう}の{原因|げんいん}は{地域|ちいき}{全体|ぜんたい}で{取|と}り{組|く}む{課題|かだい}になった。"
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: sprite
+        character: airi
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{環境|かんきょう}の{問題|もんだい}は「{犯人|はんにん}{探|さが}し」では{解決|かいけつ}しない。{上流|じょうりゅう}から{下流|かりゅう}まで、{全体|ぜんたい}を{見|み}て、{正|ただ}しいデータで{考|かんが}える——それが{本当|ほんとう}の「{地図|ちず}{探偵|たんてい}」の{力|ちから}だ。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——{汚|よご}された{川|かわ}の{調査|ちょうさ}、{解決|かいけつ}！ シリーズ{完結|かんけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
