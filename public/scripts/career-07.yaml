@@ -1,0 +1,509 @@
+meta:
+  id: career-07
+  title: 記者の情報源
+  series: キャリア探偵団
+  volume: 7
+  estimatedMinutes: 22
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: career-07/opening
+    steps:
+      - type: narration
+        text: "さくら{小学校|しょうがっこう}の{新聞|しんぶん}{委員会|いいんかい}「さくらタイムズ」。{今月|こんげつ}の{特集|とくしゅう}は「みどり{消防署|しょうぼうしょ}のお{仕事|しごと}」。みんなで{取材|しゅざい}した{自信作|じしんさく}だ。"
+      - type: narration
+        text: "ところが{記事|きじ}が{載|の}った{翌日|よくじつ}、{消防署|しょうぼうしょ}の{山田|やまだ}{署長|しょちょう}から{連絡|れんらく}が入った。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: bgm
+        track: career-07/investigation
+      - type: dialog
+        character: sensei
+        text: "{署長|しょちょう}から{連絡|れんらく}よ。「{記事|きじ}の{年間|ねんかん}{出動|しゅつどう}{回数|かいすう}380{回|かい}は、{取材|しゅざい}ではお{伝|つた}えしていない」って。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "{実際|じっさい}のみどり{消防署|しょうぼうしょ}の{出動|しゅつどう}{回数|かいすう}は{約|やく}520{回|かい}。380{回|かい}という数字はどこから来たの？"
+      - type: dialog
+        character: sensei
+        text: "キャリア{探偵団|たんていだん}、{取材|しゅざい}していない{情報|じょうほう}がなぜ{記事|きじ}に{載|の}ったのか{調|しら}べて！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.7
+        subtitle: 記者の情報源
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: career-07/investigation
+    steps:
+      - type: narration
+        text: "{新聞|しんぶん}づくりの{流|なが}れ——{取材|しゅざい}→メモ→{記事|きじ}{執筆|しっぴつ}→{校正|こうせい}→{掲載|けいさい}。それぞれの{担当者|たんとうしゃ}に話を{聞|き}こう。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。{記事|きじ}の{執筆|しっぴつ}{担当|たんとう}。{取材|しゅざい}メモをまとめて{記事|きじ}を書いたよ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。{写真|しゃしん}{撮影|さつえい}{担当|たんとう}。{消防署|しょうぼうしょ}の{写真|しゃしん}を15{枚|まい}撮ったよ。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。インタビュー{担当|たんとう}！ {署長|しょちょう}への{質問|しつもん}を{考|かんが}えて{聞|き}いた。{取材|しゅざい}メモも書いたよ。"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。{資料|しりょう}{確認|かくにん}・{校正|こうせい}{担当|たんとう}。{記事|きじ}の{最終|さいしゅう}チェックをする{役割|やくわり}。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 活動記録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: career-07/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 新聞委員会 活動記録
+      - type: narration
+        text: "さくらタイムズ {活動|かつどう}{記録|きろく}——"
+      - type: narration
+        text: "{特集|とくしゅう}：みどり{消防署|しょうぼうしょ}のお{仕事|しごと}"
+      - type: narration
+        text: "{取材|しゅざい}日：10月15日（火）15:30〜15:50"
+      - type: narration
+        text: "※{予定|よてい}は16:00まで。{出動|しゅつどう}コールのため10分早く{終了|しゅうりょう}"
+      - type: narration
+        text: "{締|し}め切り：10月16日（{水|すい}）{朝|あさ}"
+      - type: narration
+        text: "{取材|しゅざい}は20分間しかできなかった。{予定|よてい}より10分短い。この10分で何が{聞|き}けなかった？"
+
+  # ===== 証拠カード2: 取材メモ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 取材メモ（ケイ記録）
+      - type: narration
+        text: "{取材|しゅざい}メモ {記録者|きろくしゃ}：ケイ——"
+      - type: narration
+        text: "{質問|しつもん}1：{消防車|しょうぼうしゃ}にはどんな{種類|しゅるい}がある？"
+      - type: narration
+        text: "→ 5{種類|しゅるい}、みどり{消防署|しょうぼうしょ}には{全部|ぜんぶ}で12{台|だい} ✅ {回答|かいとう}あり"
+      - type: narration
+        text: "{質問|しつもん}2：{訓練|くんれん}はどのくらいやる？"
+      - type: narration
+        text: "→ {毎日|まいにち}30分 + {月|つき}1回の{合同|ごうどう}{訓練|くんれん} ✅ {回答|かいとう}あり"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "{質問|しつもん}3：{年間|ねんかん}の{出動|しゅつどう}{回数|かいすう}は？ → ✕ {出動|しゅつどう}コールが入り、{聞|き}けなかった"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{出動|しゅつどう}{回数|かいすう}は{取材|しゅざい}で{聞|き}けていない。なのに{記事|きじ}には「{約|やく}380{回|かい}」と書いてある——この数字はどこから？"
+
+  # ===== 証拠カード3: 完成記事 =====
+  - id: evidence-3
+    bgm: career-07/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 完成記事の抜粋
+      - type: narration
+        text: "さくらタイムズ 10月号 {特集|とくしゅう}{記事|きじ}——"
+      - type: narration
+        text: "「みどり{消防署|しょうぼうしょ}には、ポンプ{車|しゃ}やはしご{車|しゃ}など{全部|ぜんぶ}で12{台|だい}の{消防車|しょうぼうしゃ}があります」"
+      - type: narration
+        text: "「{署員|しょいん}のみなさんは{毎日|まいにち}30分の{訓練|くんれん}を{欠|か}かさず、{月|つき}に1{回|かい}は{合同|ごうどう}{訓練|くんれん}も{行|おこな}っています」"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "「みどり{消防署|しょうぼうしょ}は{年間|ねんかん}{約|やく}380{回|かい}{出動|しゅつどう}しています」"
+      - type: narration
+        text: "{取材|しゅざい}・文：ハルト　{写真|しゃしん}：ミナ"
+      - type: narration
+        text: "{取材|しゅざい}メモにないのに{記事|きじ}にある「380{回|かい}」。{記事|きじ}を書いたのはハルト。この数字はどこから来た？"
+
+  # ===== 証拠カード4: 消防署からの連絡 =====
+  - id: evidence-4
+    bgm: career-07/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 消防署からの連絡
+      - type: narration
+        text: "みどり{消防署|しょうぼうしょ} {山田|やまだ}{署長|しょちょう}からのメール——"
+      - type: narration
+        text: "「{記事|きじ}もとても{丁寧|ていねい}にまとめていただき、うれしく読みました。」"
+      - type: narration
+        text: "「ただ1点、気になることがあります。」"
+      - type: narration
+        text: "「{記事|きじ}に『{年間|ねんかん}{約|やく}380{回|かい}{出動|しゅつどう}』と書かれていますが、この数字は{取材|しゅざい}ではお{伝|つた}えしていません。」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「{正確|せいかく}には、みどり{消防署|しょうぼうしょ}の{年間|ねんかん}{出動|しゅつどう}{回数|かいすう}は{約|やく}520{回|かい}です。」"
+      - type: narration
+        text: "「380{回|かい}という数字がどこから来たのか、{確認|かくにん}していただけますか？」"
+      - type: narration
+        text: "380{回|かい} ≠ 520{回|かい}。{取材|しゅざい}では{伝|つた}えていない。{記事|きじ}を書いたのはハルト——ハルトはどこから380{回|かい}を{手|て}に入れた？"
+
+  # ===== 証拠カード5: ハルトのノート（反転） =====
+  - id: evidence-5
+    bgm: career-07/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ハルトのノートの断片
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ハルトの{机|つくえ}の中から、こんなメモが見つかったわ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "ハルトのノート——10月15日 パソコン{室|しつ}にて 16:30ごろ"
+      - type: narration
+        text: "{検索|けんさく}：「{消防署|しょうぼうしょ} {年間|ねんかん} {出動|しゅつどう}{回数|かいすう}」"
+      - type: narration
+        text: "→ あおい{市|し}{消防署|しょうぼうしょ}（みどり{市|し}のとなり）"
+      - type: narration
+        text: "「{年間|ねんかん}{約|やく}380{回|かい}の{出動|しゅつどう}{実績|じっせき}」※あおい{市|し}のホームページより"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "（{欄外|らんがい}メモ）「{出動|しゅつどう}{回数|かいすう}、{聞|き}けなかった…… でも{記事|きじ}に数字がないとさまにならない。となりの{市|し}だから大体{同|おな}じはず…」"
+      - type: narration
+        text: "ハルトは{取材|しゅざい}で{聞|き}けなかった数字を、{別|べつ}の{消防署|しょうぼうしょ}のデータで{補|おぎな}っていた。{一次|いちじ}{情報|じょうほう}（{取材|しゅざい}）ではなく{二次|にじ}{情報|じょうほう}（ネット{検索|けんさく}）を{確認|かくにん}せずに使った。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: career-07/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{記事|きじ}に{間違|まちが}った数字が{載|の}った{原因|げんいん}は？ そしてどうすれば{防|ふせ}げた？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 記事に間違った数字が載った原因は？
+        options:
+          - text: ハルト（取材で聞けなかった数字をネットで補った）
+            value: haruto
+            feedback: 正解！ ハルトは締め切りに焦って、別の消防署のデータを確認せずに使ってしまった。
+          - text: ケイ（質問の順番を間違えた）
+            value: kei
+            feedback: ケイが出動回数を最後にしたのは判断ミスだけど、記事に間違った数字を書いたのはハルト。
+          - text: サキ（校正で数字の出典を確認しなかった）
+            value: saki
+            feedback: サキが出典を確認していれば防げたかもしれない。でも数字を書いたのはハルトだよ。
+          - text: ミナ（署長に「まだ質問がある」と言えなかった）
+            value: mina
+            feedback: ミナが一言言えていたら聞けたかもしれない。でも記事に書いたのはハルト。
+      - type: choice
+        id: q2
+        question: ハルトはなぜ確認せずに書いた？
+        options:
+          - text: 締め切りに間に合わせたかった
+            value: deadline
+            feedback: そう。締め切りが翌朝で「数字がないと記事にならない」と焦った。時間切れの焦りが原因。
+          - text: 嘘を書いてやろうと思った
+            value: lie
+            feedback: ハルトに悪意はなかった。「隣の市だから大体同じだろう」と本気で思っていた。
+          - text: 「分からない」と書くべきだったのに書けなかった
+            value: couldnt-admit
+            feedback: するどい。「分からない」は正直な答え。でも「数字がない記事は物足りない」と思ってしまった。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: career-07/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 聞けなかった、だから調べた
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ミナの秘密
+  - id: truth-mina
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: left
+      - type: dialog
+        character: mina
+        text: "{署長|しょちょう}が{帰|かえ}るとき、「まだ{質問|しつもん}が{残|のこ}っているんですが……」って言おうとした。でも{急|いそ}いでいるのを見て{遠慮|えんりょ}しちゃった。"
+      - type: dialog
+        character: mina
+        text: "{一言|ひとこと}言えていたら、ハルトが{困|こま}ることはなかったかもしれない。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+      - type: dialog
+        character: kei
+        text: "{質問|しつもん}の{順番|じゅんばん}を{決|き}めたのはおれだ。「{出動|しゅつどう}{回数|かいすう}は{最後|さいご}に取っておこう」って。もし{最初|さいしょ}に{聞|き}いてたら{答|こた}えをもらえてた。"
+      - type: dialog
+        character: kei
+        text: "{順番|じゅんばん}を{間違|まちが}えたのはおれのせいだ。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # サキの秘密
+  - id: truth-saki
+    steps:
+      - type: sprite
+        character: saki
+        expression: worried
+        position: left
+      - type: dialog
+        character: saki
+        text: "{翌朝|よくあさ}ハルトから{記事|きじ}のチェックを{頼|たの}まれたとき、{時間|じかん}がなくて数字の{出典|しゅってん}を{確認|かくにん}しなかった。"
+      - type: dialog
+        character: saki
+        text: "「380{回|かい}ってどこで{聞|き}いたの？」って{一言|ひとこと}{確認|かくにん}していれば……。{校正|こうせい}{担当|たんとう}として{出典|しゅってん}を{確認|かくにん}しなかったわたしにも{責任|せきにん}がある。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ハルトの告白（クライマックス）
+  - id: truth-haruto
+    bgm: career-07/truth
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruto
+        text: "……ぼくです。{取材|しゅざい}が{途中|とちゅう}で{終|お}わって、{出動|しゅつどう}{回数|かいすう}が{聞|き}けなかったんです。"
+      - type: narration
+        speed: slow
+        text: "ハルトがゆっくり話し{始|はじ}めた。"
+      - type: dialog
+        character: haruto
+        text: "でも{締|し}め切りが{明日|あした}の{朝|あさ}で、数字がないと{記事|きじ}にならないと{思|おも}って……。パソコン{室|しつ}で{検索|けんさく}したんです。"
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: "見つけたのはとなりのあおい{市|し}{消防署|しょうぼうしょ}の{出動|しゅつどう}{回数|かいすう}「{年間|ねんかん}{約|やく}380{回|かい}」。「{消防署|しょうぼうしょ}ならどこも{同|おな}じくらいだろう」って{思|おも}ったんです。"
+      - type: dialog
+        character: haruto
+        text: "{確認|かくにん}もしないで、そのまま書きました。{一次|いちじ}{情報|じょうほう}（{取材|しゅざい}）じゃなくて{二次|にじ}{情報|じょうほう}（ネット{検索|けんさく}）を{確認|かくにん}なしに使ってしまった。"
+        expression: worried
+      - type: dialog
+        character: haruto
+        text: "「分からないなら分からないと書けばよかった」。それが分かっていたのに、{焦|あせ}って{間違|まちが}った{判断|はんだん}をした。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ハルトに{悪意|あくい}はなかった。「{締|し}め切りに{間|ま}に{合|あ}わせたい」という{焦|あせ}りが、{情報|じょうほう}の{出典|しゅってん}{確認|かくにん}をスキップさせた。{一次|いちじ}{情報|じょうほう}と{二次|にじ}{情報|じょうほう}の{区別|くべつ}——それが{記事|きじ}の{信頼|しんらい}を{守|まも}る{鍵|かぎ}だった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: career-07/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大事なことが分かったね。"
+      - type: dialog
+        character: sensei
+        text: "{一次|いちじ}{情報|じょうほう}は{自分|じぶん}が{直接|ちょくせつ}{確認|かくにん}した{情報|じょうほう}。{二次|にじ}{情報|じょうほう}は{間接的|かんせつてき}に{得|え}た{情報|じょうほう}。{記事|きじ}には{出典|しゅってん}——「どこから来た{情報|じょうほう}か」が{大切|たいせつ}。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして「分からない」は正直な{答|こた}え。{間違|まちが}った{情報|じょうほう}を書くよりずっといい。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{署長|しょちょう}にお{詫|わ}びして、正しい{出動|しゅつどう}{回数|かいすう}で{訂正|ていせい}{記事|きじ}を出します。次からは分からないことは「分からない」と書く。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "{訂正|ていせい}{記事|きじ}が{発行|はっこう}された。「みどり{消防署|しょうぼうしょ}は{年間|ねんかん}{約|やく}520{回|かい}{出動|しゅつどう}しています」。{山田|やまだ}{署長|しょちょう}は{笑顔|えがお}で「正直でいいね」と言ってくれた。"
+      - type: narration
+        speed: slow
+        text: "{情報|じょうほう}には{出典|しゅってん}がある。「どこから来た{情報|じょうほう}か」を{確認|かくにん}する——それが{記事|きじ}の{信頼|しんらい}を、そして{人|ひと}の{信頼|しんらい}を{守|まも}る。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——{記者|きしゃ}の{情報源|じょうほうげん}の{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
