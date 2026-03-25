@@ -1,0 +1,330 @@
+meta:
+  id: homeec-10
+  title: 本当の豊かさ
+  series: 家庭科探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-10/opening
+    steps:
+      - type: narration
+        text: "さくら小学校6年1{組|くみ}の『{理想|りそう}の{家庭|かてい}{生活|せいかつ}プレゼン大会』。{各|かく}{班|はん}が『{豊|ゆた}かな{家庭|かてい}{生活|せいかつ}を{実現|じつげん}するための{家事|かじ}{分担|ぶんたん}{計画|けいかく}』を{発表|はっぴょう}する。"
+      - type: narration
+        text: "{審査|しんさ}の{直前|ちょくぜん}——"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "おれの{班|はん}の{記録|きろく}が{変|か}わってる！ {夕食|ゆうしょく}{準備|じゅんび}の{所要|しょよう}時間が45分から30分に書き{換|か}えられてる！"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{記録|きろく}が{改|かい}ざんされている。{誰|だれ}が、なぜ書き{換|か}えた？ これが{家庭科|かていか}{探偵団|たんていだん}、{最後|さいご}の{事件|じけん}よ。{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-10/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 記録改ざんの犯人を追え
+
+      # --- タイムライン確認 ---
+      - type: narration
+        text: "大会{前日|ぜんじつ}の{放課後|ほうかご}、15:45にソウタ{班|はん}が{記録|きろく}を{確認|かくにん}——45分で{正常|せいじょう}。15:50に{全員|ぜんいん}{下校|げこう}。"
+      - type: narration
+        text: "16:14に{記録|きろく}システムにアクセスあり。16:30に先生が{施錠|せじょう}{確認|かくにん}。{翌朝|よくあさ}——30分に書き{換|か}えられていた。"
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "16:14〜16:30の{間|あいだ}に{教室|きょうしつ}のPCにアクセスした{人物|じんぶつ}を{特定|とくてい}しよう。ソウタは{体育館|たいいくかん}で{部活|ぶかつ}。わたしとハナは{図書室|としょしつ}。"
+      - type: dialog
+        character: yui
+        text: "アキだけ{行動|こうどう}{記録|きろく}がない。そしてPCのアクセスログには……『aki_2026』がソウタ{班|はん}のファイルを{編集|へんしゅう}した{記録|きろく}が{残|のこ}ってる。"
+        expression: surprised
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- アキの背景 ---
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hana
+        text: "アキは{家事|かじ}の{数値化|すうちか}にすごくこだわっていた。『{感情的|かんじょうてき}な{時間|じかん}は{評価|ひょうか}に入れるべきじゃない。{時間|じかん}と{頻度|ひんど}だけで{公平|こうへい}に{比|くら}べるべき』って。"
+      - type: dialog
+        character: hana
+        text: "でもソウタ{班|はん}の{夕食|ゆうしょく}{準備|じゅんび}45分には、{子|こ}どもと{一緒|いっしょ}に{料理|りょうり}を{覚|おぼ}える{時間|じかん}が{含|ふく}まれてる。ソウタはその{時間|じかん}がすごく{大切|たいせつ}だって{言|い}ってたの。"
+        expression: worried
+      - type: sprite
+        character: hana
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート（1回目投票） =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-10/tension
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 記録を書き換えたのは
+
+      - type: narration
+        text: "PCアクセスログ『aki_2026』。{行動|こうどう}{記録|きろく}なし。{家事|かじ}の{数値化|すうちか}へのこだわり。{全|すべ}てがアキを{指|さ}している。"
+      - type: choice
+        question: "記録を書き換えたのは？"
+        options:
+          - text: ユイ
+            correct: false
+            feedback: "ユイは16:14に{図書室|としょしつ}にいた。{図書室|としょしつ}{記録|きろく}で{確認|かくにん}{済|ず}み。"
+          - text: ハナ
+            correct: false
+            feedback: "ハナもユイと{一緒|いっしょ}に{図書室|としょしつ}にいた。{図書室|としょしつ}{記録|きろく}で{確認|かくにん}{済|ず}み。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは{体育館|たいいくかん}で{部活|ぶかつ}。{自分|じぶん}の{班|はん}の{記録|きろく}を{低|ひく}くする{理由|りゆう}がない。"
+          - text: アキ
+            correct: true
+            feedback: "正解。PCログ『aki_2026』が{証拠|しょうこ}。でも——アキはなぜ書き{換|か}えた？ {悪意|あくい}ではなく、ある{確信|かくしん}があった。"
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-10/truth
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 正義感の暴走
+
+      - type: narration
+        text: "先生がアキの{自筆|じひつ}メモを{発見|はっけん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『ソウタ{班|はん}の{夕食|ゆうしょく}{準備|じゅんび}45分には、{子|こ}どもが{料理|りょうり}を{覚|おぼ}えるための{時間|じかん}が{含|ふく}まれている。それは{教育的|きょういくてき}{価値|かち}であって、{家事|かじ}の{所要|しょよう}時間ではない。{正確|せいかく}な{家事|かじ}時間は30分のはず。{記録|きろく}を{修正|しゅうせい}した。{正|ただ}しい{評価|ひょうか}のために。』"
+      - type: sprite
+        character: aki
+        expression: worried
+        position: center
+      - type: dialog
+        character: aki
+        text: "{公平|こうへい}に{評価|ひょうか}するためにやった。{感情的|かんじょうてき}な{時間|じかん}を{数値|すうち}に{混|ま}ぜたら、{正確|せいかく}な{比較|ひかく}ができない。わたしは{正|ただ}しいことをしたと{思|おも}っていた。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "おれの{家|いえ}の{夕食|ゆうしょく}{準備|じゅんび}は、{母|かあ}さんと{一緒|いっしょ}に作る{時間|じかん}。{子|こ}どもが{料理|りょうり}を{覚|おぼ}える{時間|じかん}。{効率|こうりつ}が{悪|わる}くても、その{時間|じかん}がうちの{家族|かぞく}にとって{一番|いちばん}{大切|たいせつ}なんだ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: "アキが{測|はか}ろうとした『{効率的|こうりつてき}で{公平|こうへい}な{家事|かじ}{分担|ぶんたん}』も、ソウタが{大切|たいせつ}にした『{一緒|いっしょ}に作る{文化的|ぶんかてき}な{時間|じかん}』も、どちらも{豊|ゆた}かな{家庭|かてい}{生活|せいかつ}の{本物|ほんもの}の{価値|かち}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-10/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 豊かさは数値だけで測れない
+
+      - type: sprite
+        character: aki
+        expression: worried
+        position: center
+      - type: dialog
+        character: aki
+        text: "わたしは{自分|じぶん}の{基準|きじゅん}が{正|ただ}しいと{信|しん}じて、{確認|かくにん}なしにソウタ{班|はん}の{記録|きろく}を{変|か}えた。それは{改|かい}ざんだった。"
+      - type: dialog
+        character: aki
+        text: "『{正|ただ}しい{評価|ひょうか}のため』って{思|おも}ったけど……{自分|じぶん}の『{正義|せいぎ}』を{疑|うたが}わなかった。ソウタに{聞|き}くべきだった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hana
+        text: "アキの{考|かんが}えも分かる。{効率的|こうりつてき}な{分担|ぶんたん}は{大事|だいじ}。でもソウタの『{一緒|いっしょ}に作る{時間|じかん}』も{豊|ゆた}かさの一部。"
+      - type: dialog
+        character: hana
+        text: "{豊|ゆた}かな{家庭|かてい}{生活|せいかつ}は{数値|すうち}だけでは{測|はか}れない。でも{数値|すうち}で{測|はか}れるものも{大切|たいせつ}にする。{両方|りょうほう}{必要|ひつよう}。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "そして{今日|きょう}、わたしたちも{無意識|むいしき}に『{数値|すうち}で{比|くら}べること』をしていなかった？ それ{自体|じたい}は{悪|わる}くない。でも{数値|すうち}に{換算|かんさん}できない{価値|かち}もある——それがメタ{認知|にんち}。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-10/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{豊|ゆた}かな{家庭|かてい}{生活|せいかつ}は{数値|すうち}だけでは{測|はか}れない。でも{数値|すうち}で{測|はか}れるものも{大切|たいせつ}にする。"
+      - type: dialog
+        character: sensei
+        text: "{効率的|こうりつてき}な{分担|ぶんたん}（アキ）、{一緒|いっしょ}に作る{時間|じかん}（ソウタ）、{栄養|えいよう}と{清潔|せいけつ}さ（ユイ）——どれも{必要|ひつよう}で、{優劣|ゆうれつ}はないの。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: determined }
+
+      # --- シリーズ振り返り ---
+      - type: narration
+        text: "Vol.1——{消|き}えた{料理|りょうり}。{消去法|しょうきょほう}を{覚|おぼ}えた。Vol.2——{栄養素|えいようそ}の{謎|なぞ}。{情報|じょうほう}{整理|せいり}を{学|まな}んだ。"
+      - type: narration
+        text: "Vol.3——{食品|しょくひん}{表示|ひょうじ}のトリック。{因果|いんが}{連鎖|れんさ}で{原因|げんいん}を{追|お}った。Vol.4——{洗濯|せんたく}の{失敗|しっぱい}。タイムラインを{再構成|さいこうせい}した。"
+      - type: narration
+        text: "Vol.5——{献立|こんだて}の{矛盾|むじゅん}。{仮説|かせつ}{検証|けんしょう}で{嘘|うそ}を{暴|あば}いた。Vol.6——{買|か}い物のわな。{全探索|ぜんたんさく}で{最適解|さいてきかい}を見つけた。"
+      - type: narration
+        text: "Vol.7——{家計|かけい}の{秘密|ひみつ}。{情報|じょうほう}{欠落|けつらく}に{気|き}づいた。Vol.8——{布|ぬの}の{偽装|ぎそう}。{認知|にんち}バイアスを{疑|うたが}った。"
+      - type: narration
+        text: "Vol.9——そうじデータの{謎|なぞ}。{帰納法|きのうほう}でパターンを{証明|しょうめい}した。"
+      - type: narration
+        text: "そしてVol.10——{本当|ほんとう}の{豊|ゆた}かさ。{全|すべ}てのスキルを{使|つか}い、メタ{認知|にんち}に{辿|たど}り{着|つ}いた。"
+      - type: narration
+        speed: slow
+        text: "{推理|すいり}の{力|ちから}と{家庭科|かていか}の{知識|ちしき}。10の{事件|じけん}を{通|とお}じて{育|そだ}てた{両方|りょうほう}が、{日々|ひび}の{暮|く}らしを{豊|ゆた}かにする。"
+      - type: narration
+        speed: slow
+        text: "そして今日、{豊|ゆた}かな{家庭|かてい}{生活|せいかつ}について{真剣|しんけん}に{話|はな}し{合|あ}ったこと——その{時間|じかん}{自体|じたい}が、{豊|ゆた}かな{家庭|かてい}{生活|せいかつ}の{実践|じっせん}だった。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——シリーズ{完結|かんけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

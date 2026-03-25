@@ -1,0 +1,341 @@
+meta:
+  id: homeec-08
+  title: 布の偽装
+  series: 家庭科探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-08/opening
+    steps:
+      - type: narration
+        text: "さくら小学校6年1{組|くみ}の{手芸|しゅげい}クラブ。ハナが{弟|おとうと}のために{手作|てづく}りした{布|ぬの}のぬいぐるみが{問題|もんだい}に。"
+      - type: narration
+        text: "{弟|おとうと}が{毎晩|まいばん}ぬいぐるみと{一緒|いっしょ}に{寝|ね}ていたら、{肌|はだ}に{赤|あか}みが出た。{病院|びょういん}では『{素材|そざい}の{接触性|せっしょくせい}{皮膚炎|ひふえん}の{可能性|かのうせい}』と{診断|しんだん}。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "{弟|おとうと}のために{一生懸命|いっしょうけんめい}作ったの。タグにも『{綿|めん}100%』って書いてある。{安全|あんぜん}なはず……。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "タグの{表示|ひょうじ}と{実際|じっさい}の{素材|そざい}が{本当|ほんとう}に{一致|いっち}しているか{調|しら}べましょう。『{手作|てづく}り＝{安全|あんぜん}』は{本当|ほんとう}？ {家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-08/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 布の素材を確認しよう
+
+      # --- 布の在庫確認 ---
+      - type: narration
+        text: "{手芸|しゅげい}クラブの{端切|はぎ}れボックスを{確認|かくにん}。A{布|ぬの}（{白|しろ}・{柔|やわ}らかい）＝{綿|めん}100%。B{布|ぬの}（{白|しろ}・{少|すこ}し{光沢|こうたく}）＝ポリエステル60%・{綿|めん}40%。"
+      - type: narration
+        text: "ハナは『A{布|ぬの}だけを{使|つか}った』と{主張|しゅちょう}。でも{両方|りょうほう}とも{白|しろ}い{布|ぬの}で、{見|み}た{目|め}が{似|に}ている。"
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: aki
+        text: "ぬいぐるみの{縫|ぬ}い{目|め}を{確認|かくにん}したの。{内側|うちがわ}に{白|しろ}い{布|ぬの}が2{枚|まい}{重|かさ}なっている{部分|ぶぶん}がある。{外側|そとがわ}はA{布|ぬの}のマットな{質感|しつかん}だけど……{内側|うちがわ}の1{枚|まい}は{光沢|こうたく}があってB{布|ぬの}に見える。"
+      - type: sprite
+        character: aki
+        action: hide
+
+      # --- 燃焼テスト ---
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "{家庭科|かていか}の{実験|じっけん}で{燃焼|ねんしょう}テストをやった。A{布|ぬの}はゆっくり{燃|も}えて{灰|はい}になる——{綿|めん}100%の{特徴|とくちょう}。"
+      - type: dialog
+        character: souta
+        text: "B{布|ぬの}はすぐに{溶|と}けるように{燃|も}えて{黒|くろ}い{固|かた}まりになる——ポリエステルの{特徴|とくちょう}。ぬいぐるみの{内側|うちがわ}の{端切|はぎ}れは……Bに{近|ちか}い{燃|も}え方だった。"
+        expression: surprised
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "ポリエステル60%の{布|ぬの}を{幼児|ようじ}の{肌|はだ}に{長時間|ちょうじかん}{触|ふ}れさせると、{通気性|つうきせい}の{低下|ていか}と{皮膚|ひふ}{刺激|しげき}の{可能性|かのうせい}がある。{特|とく}に{夜間|やかん}8{時間|じかん}{以上|いじょう}の{接触|せっしょく}は{注意|ちゅうい}が{必要|ひつよう}。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-08/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 手作りだから安全？
+
+      - type: narration
+        text: "アキとハナが2人で{話|はな}した。そしてアキがみんなに{共有|きょうゆう}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: aki
+        expression: normal
+        position: center
+      - type: dialog
+        character: aki
+        text: "ハナから{聞|き}いた。{白|しろ}いA{布|ぬの}を{切|き}っているとき、{似|に}たような{見|み}た{目|め}のB{布|ぬの}も{一緒|いっしょ}に{切|き}ってしまったそう。{区別|くべつ}しないまま{使|つか}ってしまった。"
+      - type: dialog
+        character: aki
+        text: "ハナは『{手作|てづく}りで{丁寧|ていねい}に作ったから大丈夫と{思|おも}ってた。{弟|おとうと}のために{最高|さいこう}のものを作りたかったから、{確認|かくにん}する{必要|ひつよう}はないと{思|おも}ってしまった』って。"
+        expression: thinking
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "『{手作|てづく}り ＝ {安全|あんぜん}』『{愛情|あいじょう}がある ＝ {確認|かくにん}{不要|ふよう}』——これが{認知|にんち}バイアス（{思|おも}い{込|こ}み）だった。"
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-08/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 素材確認を怠ったのは
+
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: left
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: yui
+        text: "{燃焼|ねんしょう}テストで{内側|うちがわ}がポリエステル{混合|こんごう}と{判明|はんめい}。タグの『{綿|めん}100%』はA{布|ぬの}のタグをそのまま{使|つか}っただけ。"
+      - type: dialog
+        character: souta
+        text: "ハナは{似|に}た{見|み}た{目|め}のA{布|ぬの}とB{布|ぬの}を{区別|くべつ}せずに{使|つか}った。『{手作|てづく}りだから{安全|あんぜん}』という{思|おも}い{込|こ}みが{確認|かくにん}を{省|はぶ}かせた。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "ぬいぐるみの{素材|そざい}{確認|かくにん}を{怠|おこた}り、{弟|おとうと}の{皮膚炎|ひふえん}の{原因|げんいん}を作ったのは{誰|だれ}？"
+      - type: choice
+        question: "素材確認を怠ったのは？"
+        options:
+          - text: ユイ
+            correct: false
+            feedback: "ユイは{素材|そざい}データを{調|しら}べてポリエステルの{皮膚|ひふ}への{影響|えいきょう}を{確認|かくにん}した{側|がわ}。"
+          - text: ハナ
+            correct: true
+            feedback: "正解。ハナは『{手作|てづく}り＝{安全|あんぜん}』と{思|おも}い{込|こ}み、{似|に}た{見|み}た{目|め}のA{布|ぬの}とB{布|ぬの}を{区別|くべつ}せず{使|つか}った。{愛情|あいじょう}はあったが{確認|かくにん}が{足|た}りなかった。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタは{燃焼|ねんしょう}テストを{実施|じっし}して{素材|そざい}の{違|ちが}いを{確認|かくにん}した{側|がわ}。"
+          - text: アキ
+            correct: false
+            feedback: "アキはぬいぐるみの{内側|うちがわ}にB{布|ぬの}が{混|ま}ざっていることに{気|き}づいた{側|がわ}。ハナから{真相|しんそう}を{聞|き}き{出|だ}した。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-08/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 愛情と知識の両方が必要
+
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "わたしが{確認|かくにん}しなかったのが{原因|げんいん}です。{白|しろ}い{布|ぬの}が2{種類|しゅるい}あるって{気|き}づかなかった。{同|おな}じに見えたから……。"
+      - type: dialog
+        character: hana
+        text: "{弟|おとうと}のために{最高|さいこう}のものを作りたかった。{愛情|あいじょう}を{込|こ}めたから{安全|あんぜん}だって{思|おも}い{込|こ}んでた。でも{愛情|あいじょう}があっても、{素材|そざい}を{確認|かくにん}しなければ{安全|あんぜん}じゃなかった。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "ハナの{気持|きも}ちは{分|わ}かる。{弟|おとうと}のことが{大好|だいす}きなんだよな。でも『{大好|だいす}き ＝ {大丈夫|だいじょうぶ}』じゃない。{知識|ちしき}で{守|まも}ることも{大事|だいじ}だ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        expression: normal
+        position: center
+      - type: dialog
+        character: aki
+        text: "『{似|に}た{見|み}た{目|め} ＝ {同|おな}じ{素材|そざい}』も{思|おも}い{込|こ}み。{布|ぬの}を{使|つか}う前に{素材|そざい}タグを{必|かなら}ず{確認|かくにん}。{怪|あや}しいときは{燃焼|ねんしょう}テストで{確|たし}かめる。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-08/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『{手作|てづく}り ＝ {安全|あんぜん}』は{思|おも}い{込|こ}み。{市販品|しはんひん}は{素材|そざい}{検査|けんさ}{済|ず}み。{手作|てづく}り品は{自分|じぶん}で{確認|かくにん}が{必要|ひつよう}。"
+      - type: dialog
+        character: sensei
+        text: "{布|ぬの}の{素材|そざい}（{綿|めん}・ポリエステル・ウール）にはそれぞれ{特性|とくせい}がある。{使|つか}う{人|ひと}（{特|とく}に{幼児|ようじ}）に合った{素材|そざい}を{選|えら}ぶこと。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hana
+        expression: determined
+        position: center
+      - type: dialog
+        character: hana
+        text: "{弟|おとうと}を{本当|ほんとう}に{守|まも}るには、{愛情|あいじょう}と{知識|ちしき}の{両方|りょうほう}が{必要|ひつよう}。次からは{布|ぬの}を{使|つか}う前に{素材|そざい}タグを{必|かなら}ず{確認|かくにん}する。{見|み}た{目|め}だけで{判断|はんだん}しない。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: determined }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: "{手作|てづく}りの{温|あたた}かさは{素敵|すてき}。でも{安全|あんぜん}は{気持|きも}ちだけでは{守|まも}れない。{素材|そざい}を知り、{確認|かくにん}する——それが{本当|ほんとう}に{大切|たいせつ}な人を{守|まも}る{方法|ほうほう}。"
+      - type: narration
+        speed: slow
+        text: "{認知|にんち}バイアスの{認識|にんしき}——『こうに{違|ちが}いない』を{疑|うたが}い、{証拠|しょうこ}で{確認|かくにん}する。{思|おも}い{込|こ}みを{超|こ}えた{先|さき}に、{真実|しんじつ}と{安全|あんぜん}がある。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——{布|ぬの}の{偽装|ぎそう}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

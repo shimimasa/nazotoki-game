@@ -1,0 +1,356 @@
+meta:
+  id: homeec-07
+  title: 家計の秘密
+  series: 家庭科探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-07/opening
+    steps:
+      - type: narration
+        text: "さくら小学校6年1{組|くみ}の『{家計簿|かけいぼ}プロジェクト』。4人がクラブ{活動|かつどう}{費用|ひよう}を{分担|ぶんたん}{管理|かんり}している。ユイが{家計簿|かけいぼ}{担当|たんとう}。"
+      - type: narration
+        text: "月末の{締|し}め——"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ユイさんの{家計簿|かけいぼ}を{確認|かくにん}したら、1,200{円|えん}の{差額|さがく}があるの。{帳簿|ちょうぼ}の{残高|ざんだか}は1,200{円|えん}なのに、{実際|じっさい}の{残高|ざんだか}は0{円|えん}。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: yui
+        expression: worried
+        position: center
+      - type: dialog
+        character: yui
+        text: "{全部|ぜんぶ}{記録|きろく}したはず……。{計算|けいさん}が{合|あ}わないなんて……。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『{記録|きろく}されていない{支出|ししゅつ}がある』——{情報|じょうほう}{欠落|けつらく}を見つけましょう。{家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-07/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 記録されていない支出を見つけよう
+
+      # --- 家計簿確認 ---
+      - type: narration
+        text: "ユイの{家計簿|かけいぼ}を{確認|かくにん}。{収入|しゅうにゅう}5,000{円|えん}。{固定費|こていひ}：コピー代1,000{円|えん}＋{材料費|ざいりょうひ}1,000{円|えん}＋{光熱費|こうねつひ}400{円|えん}＝2,400{円|えん}。"
+      - type: narration
+        text: "{変動費|へんどうひ}：{交通費|こうつうひ}600{円|えん}＋{外食|がいしょく}800{円|えん}＝1,400{円|えん}。{支出|ししゅつ}{合計|ごうけい}3,800{円|えん}。{帳簿|ちょうぼ}{残高|ざんだか}1,200{円|えん}。でも{実際|じっさい}は0{円|えん}。"
+
+      # --- 活動記録との照合 ---
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: aki
+        text: "{活動|かつどう}{記録|きろく}と{家計簿|かけいぼ}を{照合|しょうごう}しよう。{第|だい}1{週|しゅう}のコピー代——{記録|きろく}あり。{第|だい}2{週|しゅう}の{材料費|ざいりょうひ}と{交通費|こうつうひ}——{記録|きろく}あり。"
+      - type: dialog
+        character: aki
+        text: "{第|だい}3{週|しゅう}の『クラブ{紹介|しょうかい}ポスター{作成|さくせい}・{印刷|いんさつ}』——{費用|ひよう}の{記録|きろく}が……ない！ {第|だい}4{週|しゅう}の{外食費|がいしょくひ}——{記録|きろく}あり。"
+        expression: surprised
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{第|だい}3{週|しゅう}にポスター{印刷|いんさつ}をしたのに、その{費用|ひよう}が{家計簿|かけいぼ}にない！ これが{情報|じょうほう}{欠落|けつらく}。"
+
+      # --- 証言 ---
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "ポスター{印刷|いんさつ}はおれが{担当|たんとう}した。{写真屋|しゃしんや}さんでA2サイズ×4{枚|まい}。1{枚|まい}300{円|えん}×4{枚|まい}＝1,200{円|えん}。レシートをユイに{渡|わた}したよ。"
+      - type: dialog
+        character: souta
+        text: "ユイは『{後|あと}で{記録|きろく}するから大丈夫』って言ってた。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hana
+        text: "{先月|せんげつ}わたしが{担当|たんとう}したとき、ポスター{印刷|いんさつ}費は{必|かなら}ず{変動費|へんどうひ}に{記録|きろく}するようにユイに{伝|つた}えた。でも{今月|こんげつ}は{確認|かくにん}しなかった……。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: narration
+        text: "{差額|さがく}1,200{円|えん} ＝ ポスター{印刷|いんさつ}費1,200{円|えん}。ぴったり{一致|いっち}！"
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-07/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: レシートの発見
+
+      - type: narration
+        text: "先生がユイの{教材|きょうざい}入れの{底|そこ}から、しわくちゃになったレシートを{発見|はっけん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『△△{写真屋|しゃしんや}。A2サイズポスター{印刷|いんさつ}。300{円|えん}×4{枚|まい}＝1,200{円|えん}。』——レシートの{裏|うら}にユイの{手書|てが}きで『{後|あと}で{家計簿|かけいぼ}に書く』。"
+      - type: sprite
+        character: aki
+        expression: determined
+        position: center
+      - type: dialog
+        character: aki
+        text: "レシートは{持|も}っていた。『{後|あと}で{記録|きろく}する』と{書|か}いてある。でも{記録|きろく}しないまま{忘|わす}れてしまった。これが{差額|さがく}の{正体|しょうたい}。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-07/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 記録漏れの責任者は
+
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "{家計簿|かけいぼ}{担当|たんとう}はユイ。ソウタからレシートを{受|う}け{取|と}って、『{後|あと}で{記録|きろく}する』と言ったまま{忘|わす}れた。"
+      - type: dialog
+        character: souta
+        text: "{差額|さがく}1,200{円|えん}とポスター代1,200{円|えん}がぴったり{一致|いっち}。{変動費|へんどうひ}として{記録|きろく}すべきだった{支出|ししゅつ}が{欠落|けつらく}してる。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{家計簿|かけいぼ}に1,200{円|えん}の{記録|きろく}{漏|も}れを{起|お}こしたのは{誰|だれ}？"
+      - type: choice
+        question: "記録漏れの責任者は？"
+        options:
+          - text: ユイ
+            correct: true
+            feedback: "正解。ユイは{家計簿|かけいぼ}{担当|たんとう}。ポスター{印刷|いんさつ}費1,200{円|えん}のレシートを{受|う}け{取|と}りながら『{後|あと}で』と{先送|さきおく}りし、{記録|きろく}を{忘|わす}れた。"
+          - text: ハナ
+            correct: false
+            feedback: "ハナは{先月|せんげつ}の{担当|たんとう}。ユイに{記録|きろく}の{注意|ちゅうい}を{伝|つた}えていたが、{今月|こんげつ}の{確認|かくにん}はしなかった。{直接|ちょくせつ}の{責任|せきにん}はない。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタはポスター{印刷|いんさつ}を{担当|たんとう}し、レシートをユイに{渡|わた}した。{記録|きろく}はユイの{役割|やくわり}。"
+          - text: アキ
+            correct: false
+            feedback: "アキは{監査|かんさ}{担当|たんとう}。{家計簿|かけいぼ}と{活動|かつどう}{記録|きろく}を{照合|しょうごう}して{欠落|けつらく}を{発見|はっけん}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-07/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 後でと思ったまま
+
+      - type: sprite
+        character: yui
+        expression: worried
+        position: center
+      - type: dialog
+        character: yui
+        text: "わたしが{記録|きろく}を{忘|わす}れました。ソウタからレシートをもらったとき、{忙|いそが}しくて『{後|あと}で書こう』と{思|おも}ったまま……。"
+      - type: dialog
+        character: yui
+        text: "ずっと{正確|せいかく}につけてきたプライドがあって、『{記録|きろく}{忘|わす}れ』を{認|みと}めるのが{恥|は}ずかしかった。{信頼|しんらい}を{失|うしな}うと{思|おも}った。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: souta
+        expression: normal
+        position: center
+      - type: dialog
+        character: souta
+        text: "{忘|わす}れることは{誰|だれ}にでもある。{大事|だいじ}なのは{気|き}づいたときに{正直|しょうじき}に{言|い}うこと。ユイのプライドは分かるけど、{隠|かく}しても{数字|すうじ}は{合|あ}わないぜ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        expression: normal
+        position: center
+      - type: dialog
+        character: aki
+        text: "{変動費|へんどうひ}は{不定期|ふていき}だから{記録|きろく}{漏|も}れしやすい。レシートをもらったら、その{場|ば}で{記録|きろく}する{習慣|しゅうかん}が{必要|ひつよう}ね。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-07/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{家計簿|かけいぼ}は{収入|しゅうにゅう}・{固定費|こていひ}・{変動費|へんどうひ}の3つに{分類|ぶんるい}。{変動費|へんどうひ}は{不定期|ふていき}だから{記録|きろく}{漏|も}れしやすい。レシートをもらったらその{場|ば}で{記録|きろく}が{鉄則|てっそく}。"
+      - type: dialog
+        character: sensei
+        text: "そして{活動|かつどう}{記録|きろく}と{家計簿|かけいぼ}を{照合|しょうごう}する{監査|かんさ}の{習慣|しゅうかん}。アキさんがやったように、『あるはずなのにない』に{気|き}づく{力|ちから}が{大切|たいせつ}よ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: yui
+        expression: determined
+        position: center
+      - type: dialog
+        character: yui
+        text: "次からはレシートをもらったら{絶対|ぜったい}その{場|ば}で{記録|きろく}する。『{後|あと}で』は{禁止|きんし}。そして{間違|まちが}えたら{正直|しょうじき}に{言|い}う。プライドより{正確|せいかく}さ。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: determined }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: "{家計簿|かけいぼ}は{お金|おかね}の{流|なが}れを見える{化|か}する{道具|どうぐ}。{記録|きろく}が{正確|せいかく}でなければ、{見|み}える{化|か}は{成立|せいりつ}しない。"
+      - type: narration
+        speed: slow
+        text: "{情報|じょうほう}{欠落|けつらく}の{認識|にんしき}——『あるはずなのにない』に{気|き}づく{力|ちから}。{家計簿|かけいぼ}でも{推理|すいり}でも、{記録|きろく}と{事実|じじつ}を{照合|しょうごう}することが{真相|しんそう}への{道|みち}。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——{家計|かけい}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

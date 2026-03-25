@@ -1,0 +1,368 @@
+meta:
+  id: homeec-09
+  title: そうじデータの謎
+  series: 家庭科探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-09/opening
+    steps:
+      - type: narration
+        text: "さくら小学校6年1{組|くみ}の{教室|きょうしつ}{清掃|せいそう}{記録|きろく}コンテスト。2{週間|しゅうかん}（10{日間|にちかん}）、{毎日|まいにち}の{清掃|せいそう}データを{記録|きろく}して『{最|もっと}も{清潔|せいけつ}な{環境|かんきょう}を{維持|いじ}した{班|はん}』を{競|きそ}う。"
+      - type: narration
+        text: "{審査|しんさ}の{結果|けっか}——"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ソウタ{班|はん}の{記録|きろく}に{不審|ふしん}な{点|てん}があるわ。7{日目|にちめ}の{翌日|よくじつ}だけ、{換気|かんき}スリットの{汚|よご}れ{測定値|そくていち}が4.2。{正常|せいじょう}は1.0〜1.5なのに。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "{全部|ぜんぶ}やった！ {記録|きろく}は{正確|せいかく}だ！ {測定器|そくていき}がおかしいんじゃないか？"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "10{日間|にちかん}のデータを{並|なら}べてパターンを{探|さが}しましょう。{帰納法|きのうほう}で{真相|しんそう}が見えるはず。{家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-09/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 10日間のデータでパターンを探せ
+
+      # --- データ確認 ---
+      - type: narration
+        text: "10{日間|にちかん}の{換気|かんき}スリット{測定値|そくていち}を{確認|かくにん}。1{日目|にちめ}＝1.1、2{日目|にちめ}＝1.2、3{日目|にちめ}＝1.0、4{日目|にちめ}＝1.3、5{日目|にちめ}＝1.1、6{日目|にちめ}＝1.2。"
+      - type: narration
+        text: "7{日目|にちめ}＝4.2（{異常値|いじょうち}！）、8{日目|にちめ}＝1.4、9{日目|にちめ}＝1.1、10{日目|にちめ}＝1.2。"
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "7{日目|にちめ}だけ4.2。{他|ほか}の9{日間|にちかん}は{全|すべ}て1.0〜1.4の{範囲|はんい}。しかも{他|ほか}の5{箇所|かしょ}（{床|ゆか}・{黒板|こくばん}・{棚|たな}・{窓|まど}・ゴミ{箱|ばこ}）は7{日目|にちめ}も{正常|せいじょう}。"
+      - type: dialog
+        character: yui
+        text: "つまり7{日目|にちめ}だけ、{換気|かんき}スリットだけが{異常|いじょう}——これはパターンだ。"
+        expression: determined
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- 換気スリットの科学 ---
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "{換気|かんき}スリットの{汚|よご}れは『ほこり＋{油分|ゆぶん}』の{混合|こんごう}。{専用|せんよう}ブラシでないと{除去|じょきょ}できない。"
+      - type: dialog
+        character: yui
+        text: "{清掃|せいそう}しないと{翌日|よくじつ}の{測定値|そくていち}が3.5〜5.0に{上昇|じょうしょう}。{清掃|せいそう}した{場合|ばあい}は1.0〜1.5。{測定値|そくていち}4.2 ＝ 『{清掃|せいそう}していない』{状態|じょうたい}。"
+        expression: determined
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- ブラシ記録 ---
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: aki
+        text: "{備品棚|びひんだな}のブラシ{貸出|かしだし}{記録|きろく}を{確認|かくにん}した。6{日目|にちめ}は{貸出|かしだし}{記録|きろく}あり。8{日目|にちめ}も{貸出|かしだし}{記録|きろく}あり。"
+      - type: dialog
+        character: aki
+        text: "でも7{日目|にちめ}だけ——{貸出|かしだし}{記録|きろく}がない！ {専用|せんよう}ブラシなしで{換気|かんき}スリット{清掃|せいそう}はできない。"
+        expression: surprised
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hana
+        text: "7{日目|にちめ}の{火曜日|かようび}、ソウタが『今日は{早|はや}くやらないといけない』って{慌|あわ}てていた{気|き}がする。{部活|ぶかつ}の{準備|じゅんび}があるって。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-09/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: ソウタのメモが語る真実
+
+      - type: narration
+        text: "先生が{備品棚|びひんだな}の{奥|おく}から、ソウタの{個別|こべつ}{作業|さぎょう}メモを{発見|はっけん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『7{日目|にちめ} {火曜日|かようび}。{放課後|ほうかご}、{部活|ぶかつ}の{道具|どうぐ}を{体育館|たいいくかん}に{取|と}りに{行|い}く{時間|じかん}がなくなりそうだった。{換気|かんき}スリットだけ今日は{省略|しょうりゃく}した。5分あれば{終|お}わるけど、今日だけは{無理|むり}。』"
+      - type: narration
+        text: "『{記録|きろく}には書いちゃったけど……{明日|あした}は{絶対|ぜったい}やる。{班|はん}のみんなには{内緒|ないしょ}で。』"
+      - type: sprite
+        character: yui
+        expression: determined
+        position: center
+      - type: dialog
+        character: yui
+        text: "{帰納法|きのうほう}の{結論|けつろん}——9{日間|にちかん}のデータは1.0〜1.4。7{日目|にちめ}だけ4.2。パターンから『7{日目|にちめ}だけ{清掃|せいそう}していない』。ブラシ{記録|きろく}とメモが{裏|うら}づけ。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-09/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 清掃を省略したのは
+
+      - type: sprite
+        character: aki
+        expression: thinking
+        position: left
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: aki
+        text: "データのパターン：7{日目|にちめ}だけ{換気|かんき}スリットが{異常|いじょう}。ブラシの{貸出|かしだし}{記録|きろく}もない。メモにも『{省略|しょうりゃく}した』と書いてある。"
+      - type: dialog
+        character: hana
+        text: "7{日目|にちめ}の{担当|たんとう}はソウタ。{部活|ぶかつ}の{準備|じゅんび}で{慌|あわ}てていた。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{換気|かんき}スリット{清掃|せいそう}を{省略|しょうりゃく}し、{記録|きろく}に{虚偽|きょぎ}{記入|きにゅう}したのは{誰|だれ}？"
+      - type: choice
+        question: "清掃を省略したのは？"
+        options:
+          - text: ユイ
+            correct: false
+            feedback: "ユイはデータ{分析|ぶんせき}{担当|たんとう}。{清掃|せいそう}データのパターンから{異常|いじょう}を{発見|はっけん}した{側|がわ}。"
+          - text: ハナ
+            correct: false
+            feedback: "ハナはソウタが{慌|あわ}てていたことを{証言|しょうげん}した。{清掃|せいそう}を{省|はぶ}いたのはハナではない。"
+          - text: ソウタ
+            correct: true
+            feedback: "正解。ソウタは7{日目|にちめ}に{部活|ぶかつ}の{準備|じゅんび}で{時間|じかん}がなく、{換気|かんき}スリット{清掃|せいそう}を{省略|しょうりゃく}。{記録|きろく}には『{実施|じっし}{済|ず}み』と{虚偽|きょぎ}{記入|きにゅう}した。"
+          - text: アキ
+            correct: false
+            feedback: "アキは{備品|びひん}の{貸出|かしだし}{記録|きろく}を{確認|かくにん}し、ブラシが{使|つか}われていないことを{発見|はっけん}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-09/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: データは嘘をつかない
+
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "……{認|みと}める。7{日目|にちめ}だけ{換気|かんき}スリットの{清掃|せいそう}を{省|はぶ}いた。{部活|ぶかつ}の{道具|どうぐ}を{取|と}りに{行|い}く{時間|じかん}がなくて、5分を{惜|お}しんだ。"
+      - type: dialog
+        character: souta
+        text: "『1{日|にち}くらい大丈夫。{明日|あした}やればいい』って{思|おも}った。{班|はん}のみんなが{頑張|がんば}ってるのに……{申|もう}し{訳|わけ}なかった。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: yui
+        expression: normal
+        position: center
+      - type: dialog
+        character: yui
+        text: "データは{嘘|うそ}をつかない。9{日間|にちかん}は1.0〜1.4。7{日目|にちめ}だけ4.2。このパターンから『7{日目|にちめ}だけ{省|はぶ}いた』と{帰納法|きのうほう}で{証明|しょうめい}できた。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: aki
+        expression: normal
+        position: center
+      - type: dialog
+        character: aki
+        text: "{時間|じかん}がないときにできたことは？ 『{今日|きょう}は{時間|じかん}がないから、{誰|だれ}か{代|か}わってほしい』って{頼|たの}めばよかった。{記録|きろく}を{偽|いつわ}るより、{正直|しょうじき}に{言|い}うべきだった。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-09/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{清掃|せいそう}には{汚|よご}れの{種類|しゅるい}に合った{方法|ほうほう}が{必要|ひつよう}。{換気|かんき}スリットは{専用|せんよう}ブラシでないと{取|と}れない。{手順|てじゅん}を{省|はぶ}くと{必|かなら}ずデータに{現|あらわ}れるわ。"
+      - type: dialog
+        character: sensei
+        text: "そして『1{日|にち}くらい大丈夫』は{思|おも}い{込|こ}み。{住|す}まいの{清潔|せいけつ}は{方法|ほうほう}・{頻度|ひんど}・{手順|てじゅん}の3つが{揃|そろ}って{維持|いじ}できるの。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: "次からは{省|はぶ}かない。{時間|じかん}がないときは{正直|しょうじき}に{言|い}って{助|たす}けを{求|もと}める。{記録|きろく}を{偽|いつわ}っても、データに{全部|ぜんぶ}{出|で}るんだから。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: determined }
+          - { id: aki, expression: happy }
+      - type: narration
+        text: "データは{嘘|うそ}をつかない。10{日間|にちかん}のパターンから、たった1{日|にち}の{省略|しょうりゃく}が見えた。{帰納法|きのうほう}の{力|ちから}。"
+      - type: narration
+        speed: slow
+        text: "{清掃|せいそう}も{推理|すいり}も、{手順|てじゅん}を{省|はぶ}けば{結果|けっか}に{出|で}る。{毎日|まいにち}の{積|つ}み{重|かさ}ねがデータになり、データがパターンになり、パターンが{真実|しんじつ}を{語|かた}る。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——そうじデータ{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

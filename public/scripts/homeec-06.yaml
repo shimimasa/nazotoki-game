@@ -1,0 +1,353 @@
+meta:
+  id: homeec-06
+  title: 買い物のわな
+  series: 家庭科探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  aki:
+    name: アキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: homeec-06/opening
+    steps:
+      - type: narration
+        text: "さくら小学校6年1{組|くみ}の{家庭科|かていか}『{比較|ひかく}{購買|こうばい}プロジェクト』。{家庭科|かていか}{室|しつ}の{醤油|しょうゆ}がなくなり、3人がそれぞれ{別|べつ}のお{店|みせ}で{買|か}ってきた。"
+      - type: sprite
+        character: aki
+        expression: happy
+        position: center
+      - type: dialog
+        character: aki
+        text: "わたしが一番お{得|とく}に{買|か}えた！ 1mlあたり0.21{円|えん}。{誰|だれ}よりも{安|やす}い！"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yui
+        text: "ちょっと{待|ま}って。{品質|ひんしつ}{表示|ひょうじ}と{単価|たんか}を{全部|ぜんぶ}{計算|けいさん}すると、{実|じつ}はアキの{買|か}い方が一番{損|そん}してるんだけど。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "3つの{商品|しょうひん}を{全探索|ぜんたんさく}——{全部|ぜんぶ}{並|なら}べて{比|くら}べて、{本当|ほんとう}にお{得|とく}なのはどれか{確|たし}かめましょう。{家庭科|かていか}{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: homeec-06/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 3商品を全探索で比較しよう
+
+      # --- レシート比較 ---
+      - type: narration
+        text: "3人の{購入品|こうにゅうひん}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "ユイ：{超|ちょう}{特選|とくせん}{醤油|しょうゆ} 500ml・298{円|えん}。{単価|たんか}0.60{円|えん}/ml。{賞味|しょうみ}{期限|きげん}12ヶ月。"
+      - type: narration
+        text: "ソウタ：{業務用|ぎょうむよう}{醤油|しょうゆ} 1,800ml・456{円|えん}。{単価|たんか}0.25{円|えん}/ml。{賞味|しょうみ}{期限|きげん}24ヶ月。"
+      - type: narration
+        text: "アキ：{大容量|だいようりょう}{醤油|しょうゆ} 1,800ml・380{円|えん}。{単価|たんか}0.21{円|えん}/ml。{賞味|しょうみ}{期限|きげん}……あと2ヶ月！"
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "アキの{商品|しょうひん}、{賞味|しょうみ}{期限|きげん}が2ヶ月しかない！ 1,800mlもあるのに！"
+      - type: sprite
+        character: souta
+        action: hide
+
+      # --- 使用量との照合 ---
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{家庭科|かていか}{室|しつ}の{醤油|しょうゆ}{使用量|しようりょう}は月{約|やく}50ml。{年間|ねんかん}{約|やく}600ml。1,800mlを{使|つか}い{切|き}るには36ヶ月——3年もかかるわ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: yui
+        expression: determined
+        position: center
+      - type: dialog
+        character: yui
+        text: "アキの{商品|しょうひん}は{賞味|しょうみ}{期限|きげん}2ヶ月。月50ml × 2ヶ月 ＝ {使|つか}える{量|りょう}は{最大|さいだい}100ml。{残|のこ}り1,700mlは{期限切|きげんぎ}れになる。"
+      - type: dialog
+        character: yui
+        text: "{実質|じっしつ}コストを{計算|けいさん}すると——380{円|えん} ÷ 100ml ＝ 3.80{円|えん}/ml！ {単価|たんか}{最安|さいやす}のはずが、{実質|じっしつ}{最高値|さいたかね}！"
+        expression: surprised
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- ソウタの気づき ---
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "おれの{業務用|ぎょうむよう}も{量|りょう}が{多|おお}すぎるな。1,800mlを{使|つか}い{切|き}るのに3年。{保管|ほかん}{場所|ばしょ}も{必要|ひつよう}だし。{単価|たんか}は{安|やす}いけど、学校で{使|つか}うにはデカすぎる。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: homeec-06/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 『安い』は3種類ある
+
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "先生が{問|と}いかけた。『{安|やす}い』って、1つの{意味|いみ}しかないと{思|おも}ってない？ {実|じつ}は{少|すく}なくとも3つの『{安|やす}い』がある。"
+      - type: narration
+        text: "①{単価|たんか}——1mlあたりの{値段|ねだん}。②{実質|じっしつ}コスト——{使|つか}い{切|き}れる{量|りょう}あたりの{値段|ねだん}。③{適量|てきりょう}コスト——{必要|ひつよう}な{量|りょう}にちょうどいい{値段|ねだん}。"
+      - type: narration
+        text: "①{単価|たんか}：アキ（0.21{円|えん}）が{最安|さいやす}。②{実質|じっしつ}コスト：アキ（3.80{円|えん}）が{最高値|さいたかね}！ ③{適量|てきりょう}コスト：ユイ（500ml）が学校の{使用量|しようりょう}にピッタリ。"
+      - type: sprite
+        character: aki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: aki
+        text: "えっ……わたしが一番{損|そん}してたの……？ {安|やす}いから{得|とく}だと{思|おも}ったのに……。"
+      - type: sprite
+        character: aki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: homeec-06/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 一番損をした買い物は
+
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "{全探索|ぜんたんさく}の{結果|けっか}——3つの『{安|やす}い』で{比|くら}べると、アキの{商品|しょうひん}は{単価|たんか}{最安|さいやす}だけど{実質|じっしつ}{最高値|さいたかね}。"
+      - type: dialog
+        character: yui
+        text: "{賞味|しょうみ}{期限|きげん}が2ヶ月しかない{大容量|だいようりょう}を{買|か}ったから、100mlしか{使|つか}えない。380{円|えん}で100ml＝{最|もっと}も{割高|わりだか}。"
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: yui
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "『{安|やす}い＝お{得|とく}』の{思|おも}い{込|こ}みで一番{損|そん}をした{買|か}い物をしたのは{誰|だれ}？"
+      - type: choice
+        question: "一番損をした買い物は？"
+        options:
+          - text: ユイ
+            correct: false
+            feedback: "ユイの500mlは{家庭科|かていか}{室|しつ}の{使用量|しようりょう}にちょうどいい。{品質|ひんしつ}も{高|たか}く、{適量|てきりょう}コストで{最良|さいりょう}。"
+          - text: ハナ
+            correct: false
+            feedback: "ハナは{今回|こんかい}{購入|こうにゅう}を{見送|みおく}った。{比較|ひかく}{購買|こうばい}の{判断|はんだん}として{正|ただ}しい。"
+          - text: ソウタ
+            correct: false
+            feedback: "ソウタの{業務用|ぎょうむよう}は{単価|たんか}{最安|さいやす}で{全部|ぜんぶ}{使|つか}い{切|き}れるが、{量|りょう}が{多|おお}すぎて{保管|ほかん}が{大変|たいへん}。{損|そん}ではないが{最適|さいてき}でもない。"
+          - text: アキ
+            correct: true
+            feedback: "正解。アキは{単価|たんか}{最安|さいやす}0.21{円|えん}/mlに{飛|と}びついたが、{賞味|しょうみ}{期限|きげん}2ヶ月で100mlしか{使|つか}えない。{実質|じっしつ}コスト3.80{円|えん}/mlで{最高値|さいたかね}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: homeec-06/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 安いだけでは選べない
+
+      - type: sprite
+        character: aki
+        expression: worried
+        position: center
+      - type: dialog
+        character: aki
+        text: "わたし、一番{安|やす}く{買|か}えたって{思|おも}われたかった。{節約|せつやく}{上手|じょうず}って{認|みと}めてもらいたかった。"
+      - type: dialog
+        character: aki
+        text: "でも{単価|たんか}だけ見て、{賞味|しょうみ}{期限|きげん}を{確認|かくにん}しなかった。{使|つか}い{切|き}れない{量|りょう}を{買|か}っても{意味|いみ}がない……。"
+        expression: determined
+      - type: sprite
+        character: aki
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: center
+      - type: dialog
+        character: souta
+        text: "おれも{反省|はんせい}。{業務用|ぎょうむよう}は{安|やす}いけど{量|りょう}が{多|おお}すぎた。学校の{使用量|しようりょう}を{考|かんが}えてなかった。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: yui
+        expression: happy
+        position: center
+      - type: dialog
+        character: yui
+        text: "『お{得|とく}』は{値段|ねだん}だけじゃ{決|き}まらない。{量|りょう}・{品質|ひんしつ}・{使|つか}い{切|き}れるか——{全部|ぜんぶ}{比|くら}べて{初|はじ}めて『{本当|ほんとう}にお{得|とく}』が分かる。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: homeec-06/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "『{安|やす}い＝お{得|とく}』は{思|おも}い{込|こ}み。{比較|ひかく}{購買|こうばい}では{単価|たんか}・{実質|じっしつ}コスト・{適量|てきりょう}コストの3つで{比|くら}べましょう。"
+      - type: dialog
+        character: sensei
+        text: "{賞味|しょうみ}{期限|きげん}、{使用量|しようりょう}、{保管|ほかん}{場所|ばしょ}——{値段|ねだん}の{裏|うら}にある{条件|じょうけん}を{確認|かくにん}することが、{賢|かしこ}い{消費者|しょうひしゃ}の{第一歩|だいいっぽ}よ。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: happy }
+          - { id: hana, expression: happy }
+          - { id: souta, expression: happy }
+          - { id: aki, expression: determined }
+      - type: narration
+        text: "『{安|やす}い』には3つの{意味|いみ}がある。{単価|たんか}、{実質|じっしつ}コスト、{適量|てきりょう}コスト。{全部|ぜんぶ}{比|くら}べて{初|はじ}めて、{本当|ほんとう}にお{得|とく}な{選択|せんたく}ができる。"
+      - type: narration
+        speed: slow
+        text: "{全探索|ぜんたんさく}——{選択肢|せんたくし}を{全部|ぜんぶ}{並|なら}べて{比|くら}べる。1つだけ見て{飛|と}びつかない。それは{買|か}い物でも、{推理|すいり}でも、{人生|じんせい}の{選択|せんたく}でも{同|おな}じ。"
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: aki
+        action: hide
+      - type: narration
+        text: "{家庭科|かていか}{探偵団|たんていだん}——{買|か}い物{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
