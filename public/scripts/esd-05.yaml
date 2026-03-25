@@ -1,0 +1,359 @@
+meta:
+  id: esd-05
+  title: 土の秘密
+  series: ESD探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  haruki:
+    name: ハルキ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: イブキ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  souta:
+    name: ソウタ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kana:
+    name: カナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: esd-05/opening
+    steps:
+      - type: narration
+        text: "あおば小学校の『{有機|ゆうき}{農園|のうえん}プロジェクト』。{農薬|のうやく}・{化学|かがく}{肥料|ひりょう}を{使|つか}わないルールで{菜園|さいえん}を{管理|かんり}している。"
+      - type: narration
+        text: "{木曜|もくよう}の朝——{菜園|さいえん}のホウレンソウとコマツナが{虫|むし}に食べられて{全滅|ぜんめつ}していた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "ホウレンソウが{全滅|ぜんめつ}！ {木曜|もくよう}の{発表|はっぴょう}に{間|ま}に合わない……！"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "でも{左端|ひだりはし}のエリアだけ{農薬|のうやく}の{臭|にお}いがする。{虫|むし}はゼロなのに{被害|ひがい}が{最大|さいだい}……{矛盾|むじゅん}してない？"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{農薬|のうやく}を{使|つか}ったのか{使|つか}わなかったのか。{仮説|かせつ}{検証|けんしょう}で{真実|しんじつ}を{暴|あば}こう。ESD{探偵団|たんていだん}、{出動|しゅつどう}！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: esd-05/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 仮説検証で農薬の真相を追え
+
+      # --- 被害状況 ---
+      - type: narration
+        text: "{農園|のうえん}の{被害|ひがい}{状況|じょうきょう}。{右端|みぎはし}（ハルキ{担当|たんとう}）：コマツナ30%{食害|しょくがい}。{虫|むし}{少数|しょうすう}。{農薬|のうやく}{臭|しゅう}なし。"
+      - type: narration
+        text: "{中央|ちゅうおう}（イブキ{担当|たんとう}）：ホウレンソウ80%{食害|しょくがい}。{虫|むし}{多数|たすう}。{農薬|のうやく}{臭|しゅう}なし。{左端|ひだりはし}（ソウタ{担当|たんとう}）：ホウレンソウ95%{食害|しょくがい}。{農薬|のうやく}{臭|しゅう}あり。{虫|むし}ゼロ。"
+
+      # --- 虫の移動データ ---
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "{虫|むし}の{移動|いどう}{記録|きろく}を見て。月曜は{全|ぜん}エリアに{均等|きんとう}。火曜も{均等|きんとう}。でも水曜朝——{左端|ひだりはし}の{虫|むし}がゼロに。{中央|ちゅうおう}と{右|みぎ}に10{匹|ぴき}{以上|いじょう}{集中|しゅうちゅう}。"
+      - type: dialog
+        character: kana
+        text: "{火曜|かよう}の{夕方|ゆうがた}に{何|なに}かが{左端|ひだりはし}で{起|お}きた。{虫|むし}が{逃|に}げたんだ。"
+        expression: determined
+      - type: sprite
+        character: kana
+        action: hide
+
+      # --- 仮説検証 ---
+      - type: sprite
+        character: haruki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{仮説|かせつ}を{立|た}てよう。『{左端|ひだりはし}に{農薬|のうやく}が{使|つか}われた』なら、{左端|ひだりはし}の{虫|むし}が{急減|きゅうげん}するはず → ✅ 水曜朝にゼロ。"
+      - type: dialog
+        character: haruki
+        text: "『{農薬|のうやく}で{虫|むし}が{他|ほか}に{移動|いどう}した』なら、{中央|ちゅうおう}・{右|みぎ}に{虫|むし}が{集中|しゅうちゅう}するはず → ✅ {中央|ちゅうおう}・{右|みぎ}に{急増|きゅうぞう}。{仮説|かせつ}{支持|しじ}！"
+        expression: determined
+      - type: sprite
+        character: haruki
+        action: hide
+
+      # --- タイムライン ---
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "火曜16:40〜55に{農園|のうえん}{付近|ふきん}にいた{可能性|かのうせい}があるのは……ソウタだけ。16:55まで学校にいた。わたしは16:40に{帰宅|きたく}。{農園|のうえん}の{方向|ほうこう}からスプレーの{音|おと}が{聞|き}こえた{気|き}がした。"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: esd-05/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: ソウタの栽培記録ノート
+
+      - type: narration
+        text: "先生がソウタの{栽培|さいばい}{記録|きろく}ノートを{確認|かくにん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "月曜：『{虫|むし}10{匹|ぴき}{以上|いじょう}。{手|て}{取|ど}りしたが{全然|ぜんぜん}{追|お}いつかない。{木曜|もくよう}の{発表|はっぴょう}まで{時間|じかん}がない。{何|なに}か{対策|たいさく}しなきゃ。』"
+      - type: narration
+        text: "火曜：【{空白|くうはく}】。水曜：『今朝、{少|すこ}し{臭|にお}いが{残|のこ}ってた？』（{記録|きろく}{中断|ちゅうだん}）。"
+      - type: narration
+        text: "ノートの{最後|さいご}のページ：『コンビニで{殺虫|さっちゅう}スプレーを{買|か}った。198{円|えん}。でも{使|つか}ったら{全部|ぜんぶ}{逃|に}げて{他|ほか}に{行|い}って{全滅|ぜんめつ}した。{最悪|さいあく}。{意味|いみ}なかった。』"
+      - type: sprite
+        character: haruki
+        expression: surprised
+        position: center
+      - type: dialog
+        character: haruki
+        text: "ソウタのノートに{殺虫|さっちゅう}スプレーの{購入|こうにゅう}{記録|きろく}。{使|つか}ったのは火曜{夕方|ゆうがた}——ノートの{空白|くうはく}の日。{仮説|かせつ}{検証|けんしょう}{完了|かんりょう}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: esd-05/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 農薬を使ったのは
+
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: left
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kana
+        text: "{仮説|かせつ}{検証|けんしょう}の{結果|けっか}：{左端|ひだりはし}に{農薬|のうやく}{使用|しよう}→{虫|むし}ゼロ→{中央|ちゅうおう}・{右|みぎ}に{移動|いどう}→{全滅|ぜんめつ}。火曜{夕方|ゆうがた}に{農園|のうえん}にいたのはソウタだけ。ノートに{購入|こうにゅう}{記録|きろく}。"
+      - type: dialog
+        character: ibuki
+        text: "{農薬|のうやく}は{問題|もんだい}を『{解決|かいけつ}』ではなく『{移動|いどう}させた』だけだった。{皮肉|ひにく}にも、{農薬|のうやく}を{使|つか}ったエリアの{被害|ひがい}が{最大|さいだい}。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{有機|ゆうき}{農園|のうえん}のルールを{破|やぶ}って{農薬|のうやく}を{使|つか}ったのは{誰|だれ}？"
+      - type: choice
+        question: "農薬を使ったのは？"
+        options:
+          - text: ハルキ
+            correct: false
+            feedback: "ハルキは{右端|みぎはし}エリア{担当|たんとう}。{農薬|のうやく}{臭|しゅう}なし。火曜16:30に{帰宅|きたく}{済|ず}み。"
+          - text: イブキ
+            correct: false
+            feedback: "イブキは{中央|ちゅうおう}エリア{担当|たんとう}。{農薬|のうやく}{臭|しゅう}なし。火曜16:40に{帰宅|きたく}。スプレーの{音|おと}を{聞|き}いた{側|がわ}。"
+          - text: ソウタ
+            correct: true
+            feedback: "正解。ソウタは{木曜|もくよう}の{発表|はっぴょう}に{焦|あせ}り、火曜{夕方|ゆうがた}に{殺虫|さっちゅう}スプレーを{左端|ひだりはし}に{使用|しよう}。{虫|むし}が{逃|に}げて{中央|ちゅうおう}・{右|みぎ}に{集中|しゅうちゅう}し、{被害|ひがい}が{拡大|かくだい}した。"
+          - text: カナ
+            correct: false
+            feedback: "カナは{虫|むし}の{観察|かんさつ}{記録|きろく}{担当|たんとう}。火曜16:20に{帰宅|きたく}{済|ず}み。{虫|むし}の{移動|いどう}データを{正確|せいかく}に{記録|きろく}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: esd-05/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 問題を移動させただけ
+
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "おれが{殺虫|さっちゅう}スプレーを{使|つか}った。{木曜|もくよう}の{発表|はっぴょう}に{間|ま}に合わない、このままじゃ{全滅|ぜんめつ}するって{焦|あせ}って。"
+      - type: dialog
+        character: souta
+        text: "『{少|すこ}しだけなら大丈夫』って{思|おも}った。でも{虫|むし}が{逃|に}げて{他|ほか}のエリアに{集中|しゅうちゅう}して、{結局|けっきょく}{全滅|ぜんめつ}した。{農薬|のうやく}は{問題|もんだい}を{移動|いどう}させただけだった。"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kana
+        text: "{農薬|のうやく}は{害虫|がいちゅう}だけじゃなく{天敵|てんてき}（{益虫|えきちゅう}）も{殺|ころ}す。{天敵|てんてき}がいなくなると{害虫|がいちゅう}が{爆発的|ばくはつてき}に{増|ふ}える。これが『{農薬|のうやく}サイクル』。"
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: haruki
+        expression: normal
+        position: center
+      - type: dialog
+        character: haruki
+        text: "{有機|ゆうき}{農業|のうぎょう}でできる{虫|むし}{対策|たいさく}はある。ネットで{物理的|ぶつりてき}に{防|ふせ}ぐ。テントウムシやクモなどの{天敵|てんてき}を{活用|かつよう}する。{焦|あせ}らず{正|ただ}しい{方法|ほうほう}を{選|えら}ぶべきだった。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: esd-05/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{農薬|のうやく}は{問題|もんだい}を『{解決|かいけつ}』するのではなく『{移動|いどう}させる』だけのことがある。{環境|かんきょう}{問題|もんだい}の{多|おお}くは『{移|うつ}す』だけでは{解決|かいけつ}しない。{根本的|こんぽんてき}な{対策|たいさく}が{必要|ひつよう}だ。"
+      - type: dialog
+        character: sensei
+        text: "そして{焦|あせ}りは{判断|はんだん}を{誤|あやま}らせる。{時間|じかん}がないときこそ、{正|ただ}しい{方法|ほうほう}を{選|えら}ぶ{冷静|れいせい}さが{大切|たいせつ}だ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: "次からは{焦|あせ}らない。{有機|ゆうき}{農業|のうぎょう}のルールを{守|まも}る。ネットやコンパニオンプランツで{虫|むし}を{防|ふせ}ぐ。{農薬|のうやく}に{頼|たよ}らない{方法|ほうほう}を{学|まな}ぶ。"
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruki, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: souta, expression: determined }
+          - { id: kana, expression: happy }
+      - type: narration
+        text: "{農薬|のうやく}は{便利|べんり}な{道具|どうぐ}。でも{使|つか}い方を{間違|まちが}えると、{問題|もんだい}を{解決|かいけつ}するどころか{悪化|あっか}させる。{虫|むし}も{土|つち}も{植物|しょくぶつ}もつながっている。"
+      - type: narration
+        speed: slow
+        text: "{仮説|かせつ}{検証|けんしょう}——『もし○○なら△△のはず』と{予測|よそく}して、{証拠|しょうこ}で{確|たし}かめる。{焦|あせ}りに{負|ま}けず、データに{基|もと}づいて{判断|はんだん}する{力|ちから}。"
+      - type: sprite
+        character: haruki
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+      - type: narration
+        text: "ESD{探偵団|たんていだん}——{土|つち}の{秘密|ひみつ}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
