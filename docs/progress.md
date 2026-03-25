@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 17:55
+- Add geography-02 game script: prefecture karuta mystery
+
 ## 2026-03-25 17:45
 - Add math2-10 game script: complete Math Detective series (10/10)
 

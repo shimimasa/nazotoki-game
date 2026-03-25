@@ -1,0 +1,522 @@
+meta:
+  id: geography-03
+  title: 書きかえられたひなんルートと守りたかった家
+  series: 地図探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  takeru:
+    name: タケル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manami:
+    name: マナミ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  sakura:
+    name: サクラ
+    color: "#FF8C00"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  shun:
+    name: シュン
+    color: "#2E8B57"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-03/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}4{年|ねん}2{組|くみ}の{防災|ぼうさい}{授業|じゅぎょう}。ハザードマップに{従|したが}って{高台|たかだい}の「みどり{公園|こうえん}」に{避難|ひなん}するはずだった。"
+      - type: narration
+        text: "ところが——クラスが{着|つ}いた{場所|ばしょ}は{低地|ていち}の「さくら{広場|ひろば}」。{浸水|しんすい}{予想|よそう}エリアだ。"
+      - type: sprite
+        character: takeru
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: takeru
+        text: "ここ、さくら{広場|ひろば}だ！ {標高|ひょうこう}5mで{浸水|しんすい}する{場所|ばしょ}じゃないか！ みどり{公園|こうえん}に{行|い}くはずだったのに！"
+      - type: sprite
+        character: takeru
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{避難|ひなん}{経路|けいろ}の{案内板|あんないばん}が書きかえられていたようだ。{地図|ちず}{探偵団|たんていだん}、ハザードマップと{避難|ひなん}ルートを{照|て}らし{合|あ}わせて、{犯人|はんにん}を{突|つ}き{止|と}めてくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.3
+        subtitle: 書きかえられたひなんルートと守りたかった家
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-03/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: takeru
+        expression: normal
+        position: left
+      - type: dialog
+        character: takeru
+        text: "ぼくはタケル。{防災|ぼうさい}リーダーで{避難|ひなん}ルートを{設計|せっけい}した。分岐A・B・C{全部|ぜんぶ}「右」に{曲|ま}がればみどり{公園|こうえん}に{着|つ}くはずだった。"
+      - type: dialog
+        character: takeru
+        text: "{水曜日|すいようび}15:15に分岐Cを{確認|かくにん}したとき、{案内板|あんないばん}は{正|ただ}しかった。そのあと{体育館|たいいくかん}にいた。"
+        expression: thinking
+      - type: sprite
+        character: takeru
+        action: hide
+      - type: sprite
+        character: manami
+        expression: normal
+        position: right
+      - type: dialog
+        character: manami
+        text: "わたしはマナミ。{水曜日|すいようび}の{放課後|ほうかご}は{花|はな}の{水|みず}やりをしてたよ。{避難|ひなん}{訓練|くんれん}、うまくいくといいなって思ってた。"
+      - type: dialog
+        character: manami
+        text: "……みんなが{間違|まちが}った{場所|ばしょ}に{行|い}っちゃって、ごめんね。"
+        expression: worried
+      - type: sprite
+        character: manami
+        action: hide
+      - type: sprite
+        character: sakura
+        expression: normal
+        position: left
+      - type: dialog
+        character: sakura
+        text: "わたしはサクラ。{体育|たいいく}{委員|いいん}で{訓練|くんれん}のとき{引率|いんそつ}したの。分岐Cで{案内板|あんないばん}に{従|したが}って「左」に{曲|ま}がったんだけど……。"
+      - type: dialog
+        character: sakura
+        text: "あのとき{案内板|あんないばん}の{字|じ}の{色|いろ}が{違|ちが}うのに気づいた。{他|ほか}は{青|あお}ペンなのに、分岐Cだけ{赤|あか}ペンだった。"
+        expression: thinking
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: shun
+        expression: normal
+        position: right
+      - type: dialog
+        character: shun
+        text: "ぼくはシュン。{地図|ちず}が{好|す}きでハザードマップに{詳|くわ}しい。さくら{広場|ひろば}は{標高|ひょうこう}5mで{浸水|しんすい}{最大|さいだい}2m——{本当|ほんとう}の{災害|さいがい}なら{危|あぶ}なかった。"
+      - type: dialog
+        character: shun
+        text: "{水曜日|すいようび}は15:00から15:30まで{図書室|としょしつ}にいた。先生が{証人|しょうにん}。"
+        expression: normal
+      - type: sprite
+        character: shun
+        action: hide
+
+  # ===== 証拠カード1: ハザードマップ =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: ハザードマップ
+      - type: narration
+        text: "学校のまわりのハザードマップ——"
+      - type: narration
+        text: "みどり{公園|こうえん}：{標高|ひょうこう}25m（{高台|たかだい}）、{浸水|しんすい}{予想|よそう}なし → 🟢 {正|ただ}しい{避難|ひなん}{場所|ばしょ}"
+      - type: narration
+        text: "さくら{広場|ひろば}：{標高|ひょうこう}5m（{低地|ていち}）、{浸水|しんすい}{最大|さいだい}2m → 🔴 {危険|きけん}！"
+      - type: narration
+        text: "{住宅街|じゅうたくがい}（みどり{公園|こうえん}{方面|ほうめん}）：{標高|ひょうこう}20m、{浸水|しんすい}なし → 安全"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "みどり{公園|こうえん}は{高台|たかだい}で安全。さくら{広場|ひろば}は{低地|ていち}で{危険|きけん}。なぜ{危険|きけん}な{場所|ばしょ}に{誘導|ゆうどう}されたのか？"
+
+  # ===== 証拠カード2: 避難ルート設計図 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 避難ルート設計図
+      - type: narration
+        text: "タケルが作った{正|ただ}しい{避難|ひなん}ルート——分岐A：右 ✓ 分岐B：右 ✓ 分岐C：右 → みどり{公園|こうえん} 🟢"
+      - type: narration
+        text: "{実際|じっさい}に{歩|ある}いたルート——分岐A：右 ✓ 分岐B：右 ✓ 分岐C：左 ✗ → さくら{広場|ひろば} 🔴"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "分岐Cだけ{間違|まちが}っている。{案内板|あんないばん}が「右→みどり{公園|こうえん}」から「左→さくら{広場|ひろば}」に書きかえられていた。"
+
+  # ===== 証拠カード3: 案内板チェック =====
+  - id: evidence-3
+    bgm: geography-03/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 案内板の調査
+      - type: narration
+        text: "3つの{分岐点|ぶんきてん}の{案内板|あんないばん}を{調|しら}べた——"
+      - type: narration
+        text: "分岐A：🔵 {青|あお}ペン「右→{住宅街|じゅうたくがい}→みどり{公園|こうえん}{方面|ほうめん}」✓"
+      - type: narration
+        text: "分岐B：🔵 {青|あお}ペン「右→{坂道|さかみち}→{高台|たかだい}{方面|ほうめん}」✓"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "分岐C：🔴 {赤|あか}ペン「左→さくら{広場|ひろば}」✗——ここだけ{赤|あか}ペンで書き{直|なお}されている！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "分岐Cの{位置|いち}はみどり{公園|こうえん}への{道|みち}の{入|い}り{口|ぐち}。この{道|みち}{沿|ぞ}いには{住宅街|じゅうたくがい}がある。みどり{公園|こうえん}への{道|みち}を{避|さ}けたかった{理由|りゆう}は？"
+
+  # ===== 証拠カード4: 行動記録 =====
+  - id: evidence-4
+    bgm: geography-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 水曜日の放課後
+      - type: narration
+        text: "{水曜日|すいようび}の{放課後|ほうかご}の{行動|こうどう}{記録|きろく}——"
+      - type: narration
+        text: "タケル：15:15に分岐Cを{確認|かくにん}（{案内板|あんないばん}は{正|ただ}しかった）→ 15:20から{体育館|たいいくかん}。先生が{証人|しょうにん} ✓"
+      - type: narration
+        text: "サクラ：15:00〜16:00{校庭|こうてい}。先生が{証人|しょうにん} ✓"
+      - type: narration
+        text: "シュン：15:00〜15:30{図書室|としょしつ}。先生が{証人|しょうにん} ✓"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "マナミ：「{花|はな}の{水|みず}やり」と{言|い}っているが——{証人|しょうにん}なし ✗"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "タケルが15:15に{確認|かくにん}した{後|あと}、分岐Cに{行|い}けたのは{誰|だれ}？ {証人|しょうにん}がいないのはマナミだけ。"
+
+  # ===== 証拠カード5: みどり公園への道の情報 =====
+  - id: evidence-5
+    bgm: geography-03/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: みどり公園への道の秘密
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{防災|ぼうさい}{担当|たんとう}の先生から{新|あたら}しい{情報|じょうほう}だ。みどり{公園|こうえん}への{道|みち}には、{市|し}の「{要注意|ようちゅうい}{建物|たてもの}リスト」に{載|の}っている{家|いえ}が1{軒|けん}ある。"
+      - type: dialog
+        character: sensei
+        text: "その{家|いえ}は——マナミさんの{家|いえ}だ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "マナミの{家|いえ}はみどり{公園|こうえん}への{道|みち}{沿|ぞ}いにある。{避難|ひなん}{訓練|くんれん}でクラス{全員|ぜんいん}がこの{道|みち}を{通|とお}ると、マナミの{家|いえ}が「{要注意|ようちゅうい}{建物|たてもの}」だとみんなに{知|し}られてしまう。"
+      - type: narration
+        speed: slow
+        text: "マナミには、みどり{公園|こうえん}ルートを{避|さ}けたい{理由|りゆう}があった——{家族|かぞく}の{住|す}む{家|いえ}を{守|まも}りたかったのだ。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{逆算|ぎゃくさん}と{消去法|しょうきょほう}で{絞|しぼ}り{込|こ}めたな。{避難|ひなん}ルートの{案内板|あんないばん}を書きかえたのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 避難ルートの案内板を書きかえたのは誰？
+        options:
+          - text: タケル（防災リーダー）
+            value: takeru
+            feedback: タケルは避難ルートを設計した本人。15:15に分岐Cが正しいことを確認し、その後は体育館にいた（証人あり）。書き換える動機もない。
+          - text: マナミ（花の水やりと言っていた）
+            value: manami
+            feedback: 正解！ マナミの家はみどり公園への道沿いの要注意建物。クラス全員に知られるのを避けるために分岐Cの案内板を書きかえた。証人もいない。
+          - text: サクラ（体育委員・引率した）
+            value: sakura
+            feedback: サクラは15:00から校庭にいて先生が証人。分岐Cに行くチャンスがなかったよ。
+          - text: シュン（地図好き・ハザードマップに詳しい）
+            value: shun
+            feedback: シュンは図書室にいて先生が証人。ハザードマップに詳しいから、危険な場所に誘導する理由もないよ。
+      - type: choice
+        id: q2
+        question: マナミはなぜ避難ルートを変えた？
+        options:
+          - text: 家族の家が要注意建物だと知られたくなかったから
+            value: protect-home
+            feedback: 正解！ マナミのおばあちゃんとの思い出の家が「危ない建物」と知られたら、引っ越しになるかもしれない。家族を守りたい一心だった。でも浸水区域に誘導する結果になってしまった。
+          - text: さくら広場のほうが近いと思ったから
+            value: closer
+            feedback: 距離の問題ではないよ。マナミはみどり公園への道を通ると自分の家が見られることを避けたかったんだ。
+          - text: 避難訓練を中止にしたかったから
+            value: cancel
+            feedback: マナミは訓練を中止にしたかったわけではないよ。ただ「みどり公園への道を通らないルート」にしたかっただけ。家族を守りたかった。
+          - text: タケルの設計に不満があったから
+            value: dissatisfied
+            feedback: タケルの設計への不満ではないよ。マナミは自分の家がみどり公園への道沿いにあること——それだけが理由だった。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 守りたかった家
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # タケルの後ろめたさ
+  - id: truth-takeru
+    bg: classroom
+    steps:
+      - type: sprite
+        character: takeru
+        expression: worried
+        position: left
+      - type: dialog
+        character: takeru
+        text: "ぼく、15:15に分岐Cの{近|ちか}くでマナミを{見|み}かけたのに{確認|かくにん}しなかった。「{花|はな}の{水|みず}やりかな」って思っただけで。"
+      - type: dialog
+        character: takeru
+        text: "ルートを{設計|せっけい}する{前|まえ}に「みんなの{家|いえ}の{近|ちか}くを{通|とお}らないか」{確認|かくにん}すべきだった。"
+        expression: determined
+      - type: sprite
+        character: takeru
+        action: hide
+
+  # サクラの後ろめたさ
+  - id: truth-sakura
+    steps:
+      - type: sprite
+        character: sakura
+        expression: worried
+        position: right
+      - type: dialog
+        character: sakura
+        text: "{引率|いんそつ}のとき、分岐Cの{案内板|あんないばん}の{字|じ}の{色|いろ}が{違|ちが}うのに気づいたのに、そのまま{進|すす}んじゃった。"
+      - type: dialog
+        character: sakura
+        text: "「おかしいな」って思ったら{立|た}ち{止|ど}まるべきだった。{防災|ぼうさい}では{違和感|いわかん}を{無視|むし}しちゃダメだ。"
+        expression: determined
+      - type: sprite
+        character: sakura
+        action: hide
+
+  # シュンの後ろめたさ
+  - id: truth-shun
+    steps:
+      - type: sprite
+        character: shun
+        expression: worried
+        position: left
+      - type: dialog
+        character: shun
+        text: "ぼく、ハザードマップでマナミの{家|いえ}が{要注意|ようちゅうい}{建物|たてもの}だって{知|し}ってた。でもマナミに{言|い}えなかった。"
+      - type: dialog
+        character: shun
+        text: "{事前|じぜん}に「この{道|みち}を{通|とお}るけど{大丈夫|だいじょうぶ}？」って{聞|き}いていれば、{別|べつ}の{方法|ほうほう}を{考|かんが}えられたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: shun
+        action: hide
+
+  # マナミの真実（クライマックス）
+  - id: truth-manami
+    bgm: geography-03/truth
+    steps:
+      - type: sprite
+        character: manami
+        expression: worried
+        position: center
+      - type: dialog
+        character: manami
+        text: "……わたしが書きかえた。分岐Cの{案内板|あんないばん}を。"
+      - type: narration
+        speed: slow
+        text: "マナミがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: manami
+        text: "わたしの{家|いえ}は、みどり{公園|こうえん}への{道|みち}{沿|ぞ}いにある。おばあちゃんが{若|わか}いころから{住|す}んでいる、{家族|かぞく}の{思|おも}い{出|で}がつまった{大切|たいせつ}な{家|いえ}。"
+        expression: worried
+      - type: dialog
+        character: manami
+        text: "でも{市|し}の「{要注意|ようちゅうい}{建物|たてもの}リスト」に{載|の}ってるの。{避難|ひなん}{訓練|くんれん}でクラスのみんながこの{道|みち}を{通|とお}ったら、「マナミの{家|いえ}は{危|あぶ}ない{建物|たてもの}だ」って{知|し}られちゃう。"
+      - type: dialog
+        character: manami
+        text: "「{引|ひ}っ{越|こ}したほうがいい」って{言|い}われるかもしれない。おばあちゃんとの{思|おも}い{出|で}の{家|いえ}がなくなっちゃう。だから……{道|みち}を{変|か}えた。"
+        expression: worried
+      - type: dialog
+        character: manami
+        text: "でもさくら{広場|ひろば}が{浸水|しんすい}する{場所|ばしょ}だなんて{知|し}らなかった。ハザードマップをちゃんと{読|よ}んでなかった。みんなを{危険|きけん}な{場所|ばしょ}に{連|つ}れて{行|い}っちゃった……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: manami
+        action: hide
+      - type: narration
+        speed: slow
+        text: "マナミは{悪|わる}い人ではなかった。{家族|かぞく}を{守|まも}りたかっただけ。でも{防災|ぼうさい}は{命|いのち}に{関|かか}わること。「{避|さ}けたい{気持|きも}ち」と「みんなの{安全|あんぜん}」——どちらが{大切|たいせつ}か。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったな。"
+      - type: dialog
+        character: sensei
+        text: "ハザードマップは{命|いのち}を{守|まも}るための{地図|ちず}だ。{標高|ひょうこう}・{浸水|しんすい}{予想|よそう}・{避難|ひなん}{場所|ばしょ}——これを{読|よ}み{取|と}る{力|ちから}がないと、{正|ただ}しい{判断|はんだん}ができない。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そしてマナミの{気持|きも}ちも分かる。でも{困|こま}ったときは「{助|たす}けて」と{言|い}おう。{一緒|いっしょ}に{考|かんが}えれば、マナミの{家|いえ}を{通|とお}らない{別|べつ}の{安全|あんぜん}ルートも{見|み}つかったはずだ。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: manami
+        expression: worried
+        position: left
+      - type: sprite
+        character: takeru
+        expression: normal
+        position: right
+      - type: dialog
+        character: takeru
+        text: "マナミ、{次|つぎ}はルートを{一緒|いっしょ}に{考|かんが}えよう。マナミの{家|いえ}を{通|とお}らない{安全|あんぜん}な{道|みち}を{探|さが}せるよ。"
+      - type: dialog
+        character: manami
+        text: "……うん。{隠|かく}すんじゃなくて、{相談|そうだん}する。ありがとう、タケル。"
+        expression: determined
+      - type: sprite
+        character: manami
+        action: hide
+      - type: sprite
+        character: takeru
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: takeru, expression: happy }
+          - { id: manami, expression: happy }
+          - { id: sakura, expression: happy }
+          - { id: shun, expression: happy }
+      - type: narration
+        text: "{避難|ひなん}ルートは{全員|ぜんいん}で{見直|みなお}された。マナミの{家|いえ}を{通|とお}らない{別|べつ}の{安全|あんぜん}な{道|みち}が{見|み}つかり、{新|あたら}しいルートがハザードマップに{記入|きにゅう}された。"
+      - type: sprite
+        character: takeru
+        action: hide
+      - type: sprite
+        character: manami
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: shun
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{防災|ぼうさい}は{命|いのち}を{守|まも}ること。{困|こま}ったことがあれば{隠|かく}さず{相談|そうだん}する。みんなで{考|かんが}えれば、{誰|だれ}も{犠牲|ぎせい}にしない{方法|ほうほう}が{見|み}つかる。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——書きかえられたひなんルートと{守|まも}りたかった{家|いえ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
