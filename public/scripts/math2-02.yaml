@@ -1,0 +1,577 @@
+meta:
+  id: math2-02
+  title: 比のレシピ
+  series: 数学深化探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: kitchen
+    bgm: math2-02/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}6{年|ねん}1{組|くみ}の{家庭科|かていか}の{調理|ちょうり}{実習|じっしゅう}。"
+      - type: narration
+        text: "今日は{班|はん}ごとに「{照|て}り{焼|や}きのたれ」を作る日だ。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "レシピは{黒板|こくばん}に{書|か}きました。しょうゆ：{砂糖|さとう}：みりん：{酢|す}＝5：2：3：2。{全体|ぜんたい}で120ml。1人1{種類|しゅるい}を{担当|たんとう}してください。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "じゃあ{分担|ぶんたん}を{決|き}めよう。ぼくは{砂糖|さとう}をやるよ。"
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはみりん！"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれは{酢|す}だな。"
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "じゃあわたしはしょうゆね。{比|ひ}が5で{一番|いちばん}大きいから、{一番|いちばん}多い{量|りょう}になるはず。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        text: "4人はそれぞれ{計算|けいさん}して{材料|ざいりょう}を{計量|けいりょう}した。"
+      - type: narration
+        text: "しばらくして、先生が{確認|かくにん}に来た——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "ちょっと{待|ま}って。{味|あじ}がおかしくなりそう。{誰|だれ}かの{分量|ぶんりょう}がレシピの{比|ひ}と{合|あ}っていないわ。"
+      - type: dialog
+        character: sensei
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、{比|ひ}の{計算|けいさん}を{確認|かくにん}して{真相|しんそう}を{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.2
+        subtitle: 比のレシピ
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: kitchen
+    bgm: math2-02/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{砂糖|さとう}を{担当|たんとう}したよ。120×2÷12＝20mlで、20mlを{用意|ようい}した。"
+      - type: dialog
+        character: riku
+        text: "先生に{指摘|してき}されて「4人の{分量|ぶんりょう}をまとめて{確認|かくにん}しよう」って{提案|ていあん}したんだけど……コトハの24mlにちょっと{違和感|いわかん}があるんだ。"
+        expression: thinking
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。みりんを{担当|たんとう}して、120×3÷12＝30mlを{用意|ようい}したよ。"
+      - type: dialog
+        character: hina
+        text: "コトハが{計量|けいりょう}してたとき「なんか{少|すく}なくない？」って思ったんだけど……{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。{酢|す}を{担当|たんとう}して、120×2÷12＝20mlを{量|はか}ったぞ。"
+      - type: dialog
+        character: takumi
+        text: "コトハのしょうゆが24mlって{聞|き}いて「{少|すく}ない気がする……」って思ったけど、{計算|けいさん}が{苦手|にがて}だから{自信|じしん}がなくて。"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。しょうゆを{担当|たんとう}して、24mlを{用意|ようい}したわ。レシピの{比|ひ}を{使|つか}って{計算|けいさん}したから{正|ただ}しいはず。"
+      - type: dialog
+        character: kotoha
+        text: "「{間違|まちが}い」って{言|い}われても……わたしの{計算|けいさん}は{合|あ}ってると思う。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 黒板のレシピ =====
+  - id: evidence-1
+    bg: kitchen
+    bgm: math2-02/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 黒板のレシピ
+      - type: narration
+        text: "{黒板|こくばん}に{書|か}かれたレシピ——"
+      - type: narration
+        text: "【{照|て}り{焼|や}きのたれ レシピ（1{班|はん}{分|ぶん}）】"
+      - type: narration
+        text: "しょうゆ：{砂糖|さとう}：みりん：{酢|す}＝5：2：3：2"
+      - type: narration
+        text: "{合計|ごうけい}：5＋2＋3＋2＝12"
+      - type: narration
+        text: "{全体|ぜんたい}の{量|りょう}：120ml"
+      - type: narration
+        text: "{担当|たんとう}：リク→{砂糖|さとう}、ヒナ→みりん、タクミ→{酢|す}、コトハ→しょうゆ"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{比|ひ}の{合計|ごうけい}は12。{全体|ぜんたい}120mlを{比|ひ}の{通|とお}りに{分|わ}けるには、まず{合計|ごうけい}の12で{割|わ}って「1あたりの{量|りょう}」を{求|もと}める。"
+
+  # ===== 証拠カード2: 4人の分量確認表 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4人の分量を確認しよう
+      - type: narration
+        text: "4人が{用意|ようい}した{量|りょう}——"
+      - type: narration
+        text: "リク（{砂糖|さとう}）：20ml"
+      - type: narration
+        text: "ヒナ（みりん）：30ml"
+      - type: narration
+        text: "タクミ（{酢|す}）：20ml"
+      - type: narration
+        text: "コトハ（しょうゆ）：24ml"
+      - type: narration
+        text: "{合計|ごうけい}：20＋30＋20＋24＝94ml"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{全体|ぜんたい}は120mlのはずなのに、{合計|ごうけい}が94ml——26mlも{足|た}りない！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{正|ただ}しい{計算|けいさん}：120÷12＝10（1あたりの{量|りょう}）。しょうゆ＝10×5＝50ml、{砂糖|さとう}＝10×2＝20ml、みりん＝10×3＝30ml、{酢|す}＝10×2＝20ml。"
+      - type: narration
+        text: "コトハの24mlだけが{正|ただ}しい{値|あたい}（50ml）と{大|おお}きくずれている。"
+
+  # ===== 証拠カード3: リクの観察 =====
+  - id: evidence-3
+    bgm: math2-02/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: リクが見たもの
+      - type: narration
+        text: "リクが{授業|じゅぎょう}{開始|かいし}{前|まえ}に{見|み}かけた{光景|こうけい}——"
+      - type: narration
+        text: "コトハが{手帳|てちょう}に何かを{計算|けいさん}していた。"
+      - type: narration
+        text: "ちらりと{見|み}えた{計算|けいさん}{式|しき}：「120÷5＝24」"
+      - type: narration
+        text: "「あれ？ なんで5で{割|わ}るんだろう」と思ったが、{授業|じゅぎょう}が{始|はじ}まって{確認|かくにん}できなかった。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "コトハが{用意|ようい}したしょうゆは24ml。{計算|けいさん}{式|しき}の{答|こた}えも24——{一致|いっち}している。コトハは「120÷5」という{計算|けいさん}でしょうゆの{量|りょう}を{決|き}めた？"
+
+  # ===== 証拠カード4: ヒナの観察 =====
+  - id: evidence-4
+    bgm: math2-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ヒナが聞いたこと
+      - type: narration
+        text: "ヒナが{計量|けいりょう}{中|ちゅう}に{聞|き}いたこと——"
+      - type: narration
+        text: "コトハが{計量|けいりょう}を{始|はじ}める{前|まえ}、「しょうゆは{比|ひ}が5で{一番|いちばん}大きいから、{一番|いちばん}多い{量|りょう}になるはず」とつぶやいていた。"
+      - type: narration
+        text: "そのあと「120÷5＝24ml。{計算|けいさん}{通|どお}り！」とひとりごとを{言|い}いながら24mlを{量|はか}った。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "ヒナは「24ml？」と思った。ヒナのみりんは30ml（{比|ひ}が3）。しょうゆ（{比|ひ}が5）がみりんより{少|すく}ない？"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{比|ひ}が5のしょうゆは、{比|ひ}が3のみりんより多いはずなのに——24ml＜30ml。これはおかしい。"
+
+  # ===== 証拠カード5: コトハのノート =====
+  - id: evidence-5
+    bgm: math2-02/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: コトハのノート
+      - type: narration
+        text: "コトハが{授業|じゅぎょう}{前|まえ}に{書|か}いたメモ——"
+      - type: narration
+        text: "{担当|たんとう}：しょうゆ（{比|ひ}の{数字|すうじ}：5）"
+      - type: narration
+        text: "{全体|ぜんたい}の{量|りょう}：120ml"
+      - type: narration
+        text: "{計算|けいさん}：120÷5＝24ml"
+      - type: narration
+        text: "※{比|ひ}が5（{一番|いちばん}大きい）だから{一番|いちばん}多い{量|りょう}のはず。24mlか。ちょっと{少|すく}ない気がするけど{計算|けいさん}{通|どお}りだから{大丈夫|だいじょうぶ}。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "{正|ただ}しい{計算|けいさん}：{比|ひ}の{合計|ごうけい}＝5＋2＋3＋2＝12。120÷12＝10。10×5＝50ml。"
+      - type: narration
+        speed: slow
+        text: "コトハの{計算|けいさん}：120÷5＝24ml——{比|ひ}の{合計|ごうけい}（12）で{割|わ}らずに、{担当|たんとう}の{比|ひ}の{数字|すうじ}（5）で{直接|ちょくせつ}{割|わ}ってしまった！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{消去法|しょうきょほう}で{確認|かくにん}：リク（20ml）＝120×2÷12＝20 ✓ ヒナ（30ml）＝120×3÷12＝30 ✓ タクミ（20ml）＝120×2÷12＝20 ✓"
+      - type: narration
+        speed: slow
+        text: "コトハ（24ml）＝120×5÷12＝50 ≠ 24 ✗ ——コトハの{計算|けいさん}だけがレシピの{比|ひ}と{合|あ}っていない。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: kitchen
+    bgm: math2-02/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{比|ひ}の{計算|けいさん}を{確認|かくにん}できたわね。レシピの{比|ひ}と{合|あ}わない{分量|ぶんりょう}を{用意|ようい}したのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: レシピの比と合わない分量を用意したのは誰？
+        options:
+          - text: リク（砂糖20mlを用意した）
+            value: riku
+            feedback: リクの砂糖20mlは正しい計算（120×2÷12＝20ml）と一致しているよ。レシピの比と合っている。
+          - text: ヒナ（みりん30mlを用意した）
+            value: hina
+            feedback: ヒナのみりん30mlは正しい計算（120×3÷12＝30ml）と一致しているよ。レシピの比と合っている。
+          - text: タクミ（酢20mlを用意した）
+            value: takumi
+            feedback: タクミの酢20mlは正しい計算（120×2÷12＝20ml）と一致しているよ。レシピの比と合っている。
+          - text: コトハ（しょうゆ24mlを用意した）
+            value: kotoha
+            feedback: 正解！ コトハは「120÷5＝24ml」と計算したが、正しくは「120×5÷12＝50ml」。比の合計（12）で割るステップを飛ばしていた。
+      - type: choice
+        id: q2
+        question: コトハはなぜ24mlという答えを出してしまった？
+        options:
+          - text: 比の合計（12）で割らずに、担当の比（5）で直接割ったから
+            value: skip-total
+            feedback: 正解！ 正しくは「120÷12×5＝50ml」だが、コトハは「120÷5＝24ml」と計算した。「比の合計で割る」という一番大切なステップを飛ばしてしまった。
+          - text: かけ算と割り算を間違えたから
+            value: wrong-op
+            feedback: かけ算と割り算の間違いではないよ。「120÷5」は計算としては正しいけど、「比を使った分配」の正しい手順（比の合計で割ってから担当の比をかける）とは違う方法。
+          - text: 比の意味を知らなかったから
+            value: ignorance
+            feedback: コトハは比の意味は知っていたよ。「比が5で一番大きいから一番多いはず」と正しい直感も持っていた。「比を使った分配の計算方法」の手順を誤解していたのが原因。
+          - text: わざと少ない量にしたから
+            value: intentional
+            feedback: コトハにわざとの意思はなかったよ。「計算通りだから大丈夫」と自分を信じていた。「比の合計で割る」ステップを知らなかったことが原因。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: kitchen
+    bgm: math2-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 比の合計で割るのを忘れた
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの後ろめたさ
+  - id: truth-riku
+    bg: kitchen
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくも{反省|はんせい}しなきゃ。「みんなで{計算|けいさん}を{確認|かくにん}し{合|あ}おう」って{言|い}いかけたのに、「コトハが{得意|とくい}だから{大丈夫|だいじょうぶ}」って思ってやめた。"
+      - type: dialog
+        character: riku
+        text: "コトハの{手帳|てちょう}に「120÷5＝24」って{見|み}えたとき、「なんで5で{割|わ}るの？」って{聞|き}いてればよかった。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # ヒナの後ろめたさ
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたし、コトハの24mlを{見|み}て「{少|すく}なくない？」って思ったの。しょうゆの{比|ひ}（5）がわたしのみりん（{比|ひ}3）より大きいのに、{量|りょう}が{少|すく}ないって。"
+      - type: dialog
+        character: hina
+        text: "でも「コトハが{得意|とくい}なんだから{正|ただ}しいはず」って{言|い}えなかった。{直感|ちょっかん}を{信|しん}じて{声|こえ}をかければよかった。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # タクミの後ろめたさ
+  - id: truth-takumi
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれも「しょうゆの{比|ひ}は5なのに、{酢|す}（{比|ひ}2）と{同|おな}じくらいの{量|りょう}しかない？」って思ったんだ。"
+      - type: dialog
+        character: takumi
+        text: "「どうせ{計算|けいさん}{苦手|にがて}だから」って{諦|あきら}めないで、{自分|じぶん}でも{計算|けいさん}して{確|たし}かめるべきだった。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # コトハの真実（クライマックス）
+  - id: truth-kotoha
+    bgm: math2-02/truth
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "……わたしのミスだった。「{比|ひ}を{使|つか}った{分配|ぶんぱい}」の{計算|けいさん}{方法|ほうほう}を{間違|まちが}えていたの。"
+      - type: narration
+        speed: slow
+        text: "コトハがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: kotoha
+        text: "「しょうゆの{比|ひ}は5だから、{全体|ぜんたい}の120mlを5で{割|わ}ればいい」って{考|かんが}えた。120÷5＝24ml。"
+        expression: worried
+      - type: dialog
+        character: kotoha
+        text: "でも{正|ただ}しくは「まず{比|ひ}の{合計|ごうけい}（12）で{割|わ}って、{担当|たんとう}の{比|ひ}（5）をかける」——120÷12×5＝50ml。"
+      - type: dialog
+        character: kotoha
+        text: "「ちょっと{少|すく}ない気がする」って{直感|ちょっかん}もあったのに、「{計算|けいさん}{通|どお}りだから{大丈夫|だいじょうぶ}」って{自分|じぶん}を{納得|なっとく}させちゃった。"
+        expression: worried
+      - type: dialog
+        character: kotoha
+        text: "{算数|さんすう}が{得意|とくい}だから{確認|かくにん}しなくても{大丈夫|だいじょうぶ}——その{思|おも}い{込|こ}みが{一番|いちばん}の{原因|げんいん}だった。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "コトハに{悪意|あくい}はなかった。「{比|ひ}を{使|つか}った{分配|ぶんぱい}の{計算|けいさん}{手順|てじゅん}」を{誤解|ごかい}していただけ。でも{直感|ちょっかん}が「おかしい」とサインを{出|だ}していたのに、{計算|けいさん}{式|しき}を{信頼|しんらい}しすぎた。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: kitchen
+    bgm: math2-02/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "「{比|ひ}を{使|つか}った{分配|ぶんぱい}」の{正|ただ}しい{手順|てじゅん}は、①{比|ひ}の{合計|ごうけい}を{求|もと}める → ②{全体|ぜんたい}÷{合計|ごうけい}＝1あたりの{量|りょう} → ③1あたり×{担当|たんとう}の{比|ひ}＝{担当|たんとう}の{量|りょう}。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "「{担当|たんとう}の{比|ひ}で{全体|ぜんたい}を{割|わ}る」のと「{比|ひ}の{合計|ごうけい}で{全体|ぜんたい}を{割|わ}ってから{担当|たんとう}の{比|ひ}をかける」のは{全|まった}く{違|ちが}う{計算|けいさん}よ。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "そして「ちょっとおかしいな？」と{感|かん}じた{直感|ちょっかん}は大切にしてね。{計算|けいさん}{式|しき}が{出|で}ても「{本当|ほんとう}に{正|ただ}しいか？」と{確認|かくにん}する{習慣|しゅうかん}を{身|み}につけましょう。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "次からは{絶対|ぜったい}に{比|ひ}の{合計|ごうけい}を{最初|さいしょ}に{確認|かくにん}する。{得意|とくい}だからって{確認|かくにん}を{省略|しょうりゃく}しない。"
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "{照|て}り{焼|や}きのたれは{正|ただ}しい{分量|ぶんりょう}で作り{直|なお}された。しょうゆ50ml、{砂糖|さとう}20ml、みりん30ml、{酢|す}20ml——{合計|ごうけい}120ml。{今度|こんど}こそ{完璧|かんぺき}な{味|あじ}だ。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{計算|けいさん}{式|しき}が{出|で}ても、{直感|ちょっかん}が「おかしい」と{言|い}ったら{立|た}ち{止|ど}まれ。{確認|かくにん}こそが、{一番|いちばん}{確|たし}かな{計算|けいさん}だ。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{比|ひ}のレシピ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

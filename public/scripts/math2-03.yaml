@@ -1,0 +1,528 @@
+meta:
+  id: math2-03
+  title: 円の秘密
+  series: 数学深化探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: artroom
+    bgm: math2-03/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}の「{花壇|かだん}デザインコンテスト」。"
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人は、それぞれ{円形|えんけい}{花壇|かだん}の{設計図|せっけいず}を1つずつ{提出|ていしゅつ}した。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{設計図|せっけいず}には「{半径|はんけい}」と「{面積|めんせき}」を{記入|きにゅう}してください。{面積|めんせき}は「{円周率|えんしゅうりつ}（3.14）×{半径|はんけい}×{半径|はんけい}」で{計算|けいさん}すること。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "4人が{設計図|せっけいず}を{提出|ていしゅつ}{台|だい}に{並|なら}べた。先生が{確認|かくにん}を{始|はじ}めた——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "ちょっと{待|ま}って。この4{枚|まい}の{設計図|せっけいず}の中に、1つだけ{面積|めんせき}の{計算|けいさん}が{間違|まちが}っているものがあるわ。"
+      - type: dialog
+        character: sensei
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、{円|えん}の{面積|めんせき}を{計算|けいさん}して、どの{設計図|せっけいず}が{間違|まちが}っているか{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.3
+        subtitle: 円の秘密
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: artroom
+    bgm: math2-03/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{花壇|かだん}B（{半径|はんけい}3m）を{担当|たんとう}したよ。{面積|めんせき}は18.84m²って書いた。"
+      - type: dialog
+        character: riku
+        text: "……ほかの{設計図|せっけいず}を先に{確認|かくにん}したほうがいいんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。{花壇|かだん}C（{半径|はんけい}1.5m）で、{面積|めんせき}は7.07m²。3.14×1.5×1.5＝7.065で、{小数|しょうすう}{第|だい}2{位|い}まで7.07にしたよ。"
+      - type: dialog
+        character: hina
+        text: "{提出|ていしゅつ}{前|まえ}にリクが{急|いそ}いで何かを書き{直|なお}していたのが気になるんだけど……。"
+        expression: worried
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。{花壇|かだん}D（{半径|はんけい}2.5m）で、{面積|めんせき}は19.63m²だ。3.14×2.5×2.5＝19.625で、19.63にした。"
+      - type: dialog
+        character: takumi
+        text: "4{枚|まい}の{設計図|せっけいず}を{並|なら}べたとき、リクの{花壇|かだん}Bだけ{半径|はんけい}のわりに{面積|めんせき}が{小|ちい}さい気がするんだよな……。"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{花壇|かだん}A（{半径|はんけい}2m）で、{面積|めんせき}は12.56m²。3.14×2×2＝12.56。"
+      - type: dialog
+        character: kotoha
+        text: "{花壇|かだん}Bの{面積|めんせき}の{数字|すうじ}だけ、{計算|けいさん}{式|しき}のパターンが{合|あ}わない気がする。それと……{設計図|せっけいず}に{消|け}しゴムの{跡|あと}があるのよ。"
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 設計図一覧 =====
+  - id: evidence-1
+    bg: artroom
+    bgm: math2-03/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 4つの設計図
+      - type: narration
+        text: "{花壇|かだん}デザインコンテスト {設計図|せっけいず}{一覧|いちらん}——"
+      - type: narration
+        text: "{公式|こうしき}：{面積|めんせき}＝{円周率|えんしゅうりつ}（3.14）×{半径|はんけい}×{半径|はんけい}"
+      - type: narration
+        text: "{花壇|かだん}A（コトハ）：{半径|はんけい}2m、{面積|めんせき}12.56m²"
+      - type: narration
+        text: "{花壇|かだん}B（リク）：{半径|はんけい}3m、{面積|めんせき}18.84m²"
+      - type: narration
+        text: "{花壇|かだん}C（ヒナ）：{半径|はんけい}1.5m、{面積|めんせき}7.07m²"
+      - type: narration
+        text: "{花壇|かだん}D（タクミ）：{半径|はんけい}2.5m、{面積|めんせき}19.63m²"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "この4つの{面積|めんせき}を、{公式|こうしき}「3.14×{半径|はんけい}×{半径|はんけい}」で{計算|けいさん}して{確認|かくにん}しよう。どれかが{合|あ}わないはず。"
+
+  # ===== 証拠カード2: 計算確認表 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 面積を計算して確認しよう
+      - type: narration
+        text: "{面積|めんせき}の{正|ただ}しい{計算|けいさん}（{公式|こうしき}：3.14×r×r）——"
+      - type: narration
+        text: "{花壇|かだん}A（r＝2m）：3.14×2×2＝3.14×4＝12.56m² → {設計図|せっけいず}12.56m² ✓"
+      - type: narration
+        text: "{花壇|かだん}B（r＝3m）：3.14×3×3＝3.14×9＝28.26m²"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{設計図|せっけいず}は18.84m² → 28.26 ≠ 18.84 ✗ {合|あ}わない！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{花壇|かだん}C（r＝1.5m）：3.14×1.5×1.5＝3.14×2.25＝7.065→7.07m² ✓"
+      - type: narration
+        text: "{花壇|かだん}D（r＝2.5m）：3.14×2.5×2.5＝3.14×6.25＝19.625→19.63m² ✓"
+      - type: narration
+        text: "リクの{花壇|かだん}B（18.84m²）だけが、{正|ただ}しい{計算|けいさん}（28.26m²）と{大|おお}きくずれている。"
+
+  # ===== 証拠カード3: 計算式メモ =====
+  - id: evidence-3
+    bgm: math2-03/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 設計図の計算メモ
+      - type: narration
+        text: "4つの{設計図|せっけいず}の{余白|よはく}に{書|か}いてあった{計算|けいさん}メモ——"
+      - type: narration
+        text: "{花壇|かだん}A（コトハ）：3.14×2×2＝12.56 ← {半径|はんけい}を2{回|かい}かけている"
+      - type: narration
+        text: "{花壇|かだん}B（リク）：3.14×6＝18.84 ← 何を1{回|かい}だけかけている？"
+      - type: narration
+        text: "{花壇|かだん}C（ヒナ）：3.14×1.5×1.5＝7.065 ← {半径|はんけい}を2{回|かい}かけている"
+      - type: narration
+        text: "{花壇|かだん}D（タクミ）：3.14×2.5×2.5＝19.625 ← {半径|はんけい}を2{回|かい}かけている"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{花壇|かだん}Bだけ「3.14×6」。6は{半径|はんけい}3mの2{倍|ばい}——つまり{直径|ちょっけい}。「π×{直径|ちょっけい}」は{面積|めんせき}ではなく{円周|えんしゅう}の{公式|こうしき}だ！"
+
+  # ===== 証拠カード4: ヒナの観察 =====
+  - id: evidence-4
+    bgm: math2-03/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ヒナが見たもの
+      - type: narration
+        text: "ヒナが{設計図|せっけいず}{提出|ていしゅつ}{前|まえ}に{目撃|もくげき}したこと——"
+      - type: narration
+        text: "リクが{提出|ていしゅつ}{台|だい}に{設計図|せっけいず}を{置|お}く{直前|ちょくぜん}、{消|け}しゴムで何かを{消|け}して書き{直|なお}していた。"
+      - type: narration
+        text: "リクはいつもより{口数|くちかず}が{少|すく}なく、{少|すこ}し{不安|ふあん}そうに{見|み}えた。"
+      - type: narration
+        text: "「何を{直|なお}しているの？」と{聞|き}こうとしたが、リクが{急|いそ}いでいたので{聞|き}けなかった。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "リクの{設計図|せっけいず}の{花壇|かだん}B{欄|らん}、{面積|めんせき}「18.84」の{部分|ぶぶん}に、うっすらと{消|け}しゴムの{跡|あと}がある——何を書き{直|なお}した？"
+
+  # ===== 証拠カード5: 消しゴム跡の下の数字 =====
+  - id: evidence-5
+    bgm: math2-03/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 設計図の下書き
+      - type: narration
+        text: "コトハが{強|つよ}い{光|ひかり}に{設計図|せっけいず}をかざして{確認|かくにん}したところ——"
+      - type: narration
+        text: "{消|け}しゴム{跡|あと}の下に、うっすらと{元|もと}の{数字|すうじ}が{残|のこ}っていた。"
+      - type: narration
+        text: "{元|もと}の{数字|すうじ}（{消|け}された）：28.26"
+      - type: narration
+        text: "{現在|げんざい}の{数字|すうじ}（書き{直|なお}し{後|ご}）：18.84"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "さらに{余白|よはく}の{計算|けいさん}{式|しき}メモも2{行|ぎょう}あった——"
+      - type: narration
+        text: "{消|け}された{計算|けいさん}{式|しき}：3.14×3×3＝28.26"
+      - type: narration
+        text: "{現在|げんざい}の{計算|けいさん}{式|しき}：3.14×6＝18.84"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "リクは{最初|さいしょ}「3.14×3×3＝28.26」と{正|ただ}しく{計算|けいさん}していた。それを「3.14×6＝18.84」に書き{換|か}えた——{正|ただ}しい{答|こた}えから{間違|まちが}った{答|こた}えに！"
+      - type: narration
+        text: "{因果|いんが}{連鎖|れんさ}：{面積|めんせき}が{合|あ}わない → π×{直径|ちょっけい}で{計算|けいさん}した → {最初|さいしょ}は{正|ただ}しかったのに書き{換|か}えた → なぜ書き{換|か}えた？"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: artroom
+    bgm: math2-03/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{計算|けいさん}と{証拠|しょうこ}を{確認|かくにん}できたわね。{面積|めんせき}の{計算|けいさん}が{間違|まちが}っている{設計図|せっけいず}を{出|だ}したのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 面積の計算が間違っている設計図を出したのは誰？
+        options:
+          - text: コトハ（花壇A：12.56m²）
+            value: kotoha
+            feedback: コトハの花壇A（半径2m）は3.14×2×2＝12.56m²で正しいよ。設計図の値と一致している。
+          - text: リク（花壇B：18.84m²）
+            value: riku
+            feedback: 正解！ リクの花壇B（半径3m）の正しい面積は3.14×3×3＝28.26m²。18.84は「3.14×直径(6)」の計算で、円周の公式と面積の公式を混同していた。
+          - text: ヒナ（花壇C：7.07m²）
+            value: hina
+            feedback: ヒナの花壇C（半径1.5m）は3.14×1.5×1.5＝7.065→7.07m²で正しいよ。設計図の値と一致している。
+          - text: タクミ（花壇D：19.63m²）
+            value: takumi
+            feedback: タクミの花壇D（半径2.5m）は3.14×2.5×2.5＝19.625→19.63m²で正しいよ。設計図の値と一致している。
+      - type: choice
+        id: q2
+        question: リクはなぜ正しい計算（28.26）から間違った計算（18.84）に書き換えた？
+        options:
+          - text: 円周の公式と面積の公式を混同して、書き換えた方が正しいと思ったから
+            value: confusion
+            feedback: 正解！ リクは「π×直径が面積の公式かもしれない」と不安になり、正しい28.26を消して18.84に書き換えた。さらに「ばれるのが怖い」という気持ちもあった。
+          - text: 面積を小さく見せたかったから
+            value: smaller
+            feedback: リクは面積を小さく見せたかったわけではないよ。「円周の公式」と「面積の公式」を混同して、書き換えた方が正しいと思い込んだことが原因。
+          - text: 計算が面倒だったから適当に書いたため
+            value: lazy
+            feedback: リクは最初ちゃんと3.14×3×3＝28.26と計算していたよ。手を抜いたのではなく、公式が不安になって書き換えてしまった。
+          - text: 他の人の設計図と数字を揃えたかったから
+            value: match
+            feedback: 他の人と揃えようとしたわけではないよ。リクは「円周の公式（π×直径）」を「面積の公式」だと思い込んで書き換えた。公式の混同が原因。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: artroom
+    bgm: math2-03/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 正しい答えを消してしまった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ヒナの後ろめたさ
+  - id: truth-hina
+    bg: artroom
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたし、リクが書き{直|なお}しているのを{見|み}てたの。「何を{直|なお}しているの？」って{聞|き}こうとしたけど、{聞|き}けなかった。"
+      - type: dialog
+        character: hina
+        text: "あのとき{一声|ひとこえ}かけていれば、一緒に{確認|かくにん}できたかもしれない。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # タクミの後ろめたさ
+  - id: truth-takumi
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれ、{花壇|かだん}Bだけ{半径|はんけい}のわりに{面積|めんせき}が{小|ちい}さいって{直感|ちょっかん}があったんだ。「{比|くら}べてみよう」って{言|い}いかけたけど……。"
+      - type: dialog
+        character: takumi
+        text: "「コンテストで人の{設計図|せっけいず}を見るのは{失礼|しつれい}かな」って思ってやめた。{直感|ちょっかん}を{信|しん}じて{行動|こうどう}すべきだった。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # コトハの後ろめたさ
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたし、{設計図|せっけいず}を{並|なら}べたとき「18.84は{円|えん}の{面積|めんせき}の{計算|けいさん}{式|しき}と{合|あ}わない」って{直感|ちょっかん}があったの。"
+      - type: dialog
+        character: kotoha
+        text: "でも「リクが{計算|けいさん}したんだから{正|ただ}しいはず」って思って{確認|かくにん}しなかった。{数字|すうじ}の{異常|いじょう}に気づいたら、すぐ{声|こえ}に出すべきだった。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # リクの真実（クライマックス）
+  - id: truth-riku
+    bgm: math2-03/truth
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: center
+      - type: dialog
+        character: riku
+        text: "……ぼくのミスだ。{円|えん}の{面積|めんせき}の{公式|こうしき}を{間違|まちが}えた。"
+      - type: narration
+        speed: slow
+        text: "リクがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: riku
+        text: "{最初|さいしょ}は「3.14×3×3＝28.26」って{正|ただ}しく{計算|けいさん}してたんだ。でも{提出|ていしゅつ}する{前|まえ}に「{公式|こうしき}は『{円周率|えんしゅうりつ}×{直径|ちょっけい}』だったかも」って{不安|ふあん}になって。"
+        expression: worried
+      - type: dialog
+        character: riku
+        text: "それで「3.14×6＝18.84」に書き{換|か}えちゃった。{正|ただ}しい{答|こた}えを{消|け}して、{間違|まちが}った{答|こた}えに。"
+      - type: dialog
+        character: riku
+        text: "書き{換|か}えたあと「やっぱり{元|もと}のほうが{正|ただ}しかったかも」って思ったけど……「{今|いま}さら{直|なお}すと{計算|けいさん}がブレてると思われる」って{怖|こわ}くなって、そのまま{出|だ}しちゃった。"
+        expression: worried
+      - type: dialog
+        character: riku
+        text: "ばれるのが{怖|こわ}かった。{正直|しょうじき}に「{自信|じしん}がない」って{言|い}えばよかった。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+      - type: narration
+        speed: slow
+        text: "リクに{悪意|あくい}はなかった。「{円周|えんしゅう}の{公式|こうしき}（π×{直径|ちょっけい}）」と「{面積|めんせき}の{公式|こうしき}（π×r²）」を{混同|こんどう}し、{不安|ふあん}から{正|ただ}しい{答|こた}えを{消|け}してしまった。「ばれるのが{怖|こわ}い」という気持ちが、{問題|もんだい}をさらに大きくした。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: artroom
+    bgm: math2-03/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "{円|えん}の{面積|めんせき}は「π×r²（{半径|はんけい}×{半径|はんけい}×{円周率|えんしゅうりつ}）」。{円周|えんしゅう}は「π×{直径|ちょっけい}」。この2つは{全|まった}く{違|ちが}う{公式|こうしき}よ。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして{計算|けいさん}ミスは{正直|しょうじき}に{言|い}えば{確認|かくにん}するだけで{済|す}む。でも{隠|かく}すと、かえって{問題|もんだい}が大きくなる。{困|こま}ったときは「一緒に{確認|かくにん}しよう」って{言|い}える{勇気|ゆうき}が大切ね。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: riku
+        expression: determined
+        position: left
+      - type: dialog
+        character: riku
+        text: "次からは{公式|こうしき}に{自信|じしん}がないときは{正直|しょうじき}に「{確認|かくにん}したい」って{言|い}う。{面積|めんせき}はπ×r²、{円周|えんしゅう}はπ×{直径|ちょっけい}——もう{混同|こんどう}しない。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "リクの{設計図|せっけいず}は{正|ただ}しい{面積|めんせき}28.26m²に{修正|しゅうせい}された。4{枚|まい}の{設計図|せっけいず}はすべて{正|ただ}しい{計算|けいさん}で——コンテストは{無事|ぶじ}{再開|さいかい}した。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{公式|こうしき}に{迷|まよ}ったら{立|た}ち{止|ど}まって{確認|かくにん}する。{間違|まちが}いを{隠|かく}すより、「一緒に{考|かんが}えよう」と{言|い}える{勇気|ゆうき}のほうがずっと{強|つよ}い。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{円|えん}の{秘密|ひみつ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

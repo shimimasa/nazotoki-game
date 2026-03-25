@@ -1,0 +1,525 @@
+meta:
+  id: math2-04
+  title: 合同のアリバイ
+  series: 数学深化探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: artroom
+    bgm: math2-04/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}の{図工|ずこう}の{時間|じかん}。"
+      - type: narration
+        text: "今日の{課題|かだい}は「{合同|ごうどう}な{三角形|さんかっけい}を{使|つか}った{模様|もよう}づくり」。{型紙|かたがみ}を{使|つか}って{三角形|さんかっけい}を6{枚|まい}{切|き}り{出|だ}し、きれいな{模様|もよう}を作る。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{型紙|かたがみ}の{三角形|さんかっけい}は{辺|へん}a＝6cm、{辺|へん}b＝5cm、{辺|へん}c＝4cm。{丁寧|ていねい}に{切|き}り{出|だ}せば、6{枚|まい}とも{合同|ごうどう}になるはずよ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "4人はそれぞれの{作業台|さぎょうだい}で{三角形|さんかっけい}を{切|き}り{出|だ}し、{模様|もよう}を{完成|かんせい}させた。"
+      - type: narration
+        text: "先生が{完成|かんせい}した{作品|さくひん}を{確認|かくにん}すると——"
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "ちょっと{待|ま}って。コトハの{三角形|さんかっけい}セットの中に、1{枚|まい}だけ{型紙|かたがみ}と{辺|へん}の{長|なが}さが{違|ちが}う{三角形|さんかっけい}が{混|ま}じっているわ。"
+      - type: dialog
+        character: sensei
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、{合同|ごうどう}{条件|じょうけん}を{使|つか}って{調|しら}べて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.4
+        subtitle: 合同のアリバイ
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: artroom
+    bgm: math2-04/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{型紙|かたがみ}{通|どお}りに{丁寧|ていねい}に6{枚|まい}{切|き}り{出|だ}したよ。{全部|ぜんぶ}{辺|へん}a＝6cm、{辺|へん}b＝5cm、{辺|へん}c＝4cmで{合同|ごうどう}のはず。"
+      - type: dialog
+        character: riku
+        text: "……ヒナが{何|なに}かを{焦|あせ}っている{様子|ようす}だったのが気になるけど。"
+        expression: thinking
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。{三角形|さんかっけい}はちゃんと{切|き}り{出|だ}したよ。ずっと{自分|じぶん}の{作業台|さぎょうだい}で{作業|さぎょう}してた。"
+      - type: dialog
+        character: hina
+        text: "えっと……うん、{特|とく}に何もなかったよ。"
+        expression: worried
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。{定規|じょうぎ}で{全員|ぜんいん}の{三角形|さんかっけい}を{測|はか}り{直|なお}してみたんだけど……ヒナの{手元|てもと}の{三角形|さんかっけい}が5{枚|まい}しかないんだよな。"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{自分|じぶん}の{三角形|さんかっけい}を{確認|かくにん}したら、5{枚|まい}は{型紙|かたがみ}と{完全|かんぜん}に{一致|いっち}。でも{問題|もんだい}の1{枚|まい}は{切|き}り口がギザギザしてて、{急|いそ}いで{切|き}ったように{見|み}えるの。"
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 先生のメモ =====
+  - id: evidence-1
+    bg: artroom
+    bgm: math2-04/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 先生のメモ
+      - type: narration
+        text: "先生の{授業|じゅぎょう}{記録|きろく}——"
+      - type: narration
+        text: "35{分|ぷん}{時点|じてん}：コトハの{三角形|さんかっけい}セットに1{枚|まい}だけ、{型紙|かたがみ}と{辺|へん}の{長|なが}さが{違|ちが}う{三角形|さんかっけい}が{混|ま}じっていた。"
+      - type: narration
+        text: "{問題|もんだい}の{三角形|さんかっけい}を{計測|けいそく}：{辺|へん}a＝6.0cm、{辺|へん}b＝5.0cm、{辺|へん}c＝3.6cm。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{型紙|かたがみ}の{三角形|さんかっけい}（{基準値|きじゅんち}）：{辺|へん}a＝6.0cm、{辺|へん}b＝5.0cm、{辺|へん}c＝4.0cm。"
+      - type: narration
+        speed: slow
+        text: "{辺|へん}cだけが{違|ちが}う。3.6cm ≠ 4.0cm——0.4cmの{差|さ}がある。"
+
+  # ===== 証拠カード2: 計測データ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 合同条件で確認しよう
+      - type: narration
+        text: "4人の{三角形|さんかっけい}の{計測|けいそく}データ——"
+      - type: narration
+        text: "リク・ヒナ・タクミ・コトハ（{通常|つうじょう}5{枚|まい}）：{辺|へん}a＝6.0、{辺|へん}b＝5.0、{辺|へん}c＝4.0 → {型紙|かたがみ}と{一致|いっち} ✓"
+      - type: narration
+        text: "コトハの{問題|もんだい}の1{枚|まい}：{辺|へん}a＝6.0、{辺|へん}b＝5.0、{辺|へん}c＝3.6"
+      - type: narration
+        text: "【3{辺|ぺん}{相等|そうとう}で{確認|かくにん}】{辺|へん}a：6.0＝6.0 ✓ {辺|へん}b：5.0＝5.0 ✓ {辺|へん}c：3.6 ≠ 4.0 ✗"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "3{辺|ぺん}{相等|そうとう}の{条件|じょうけん}を{満|み}たさない → {合同|ごうどう}ではない！ {辺|へん}cが0.4cm{短|みじか}い{三角形|さんかっけい}は、{急|いそ}いで{切|き}り{出|だ}したのか？"
+
+  # ===== 証拠カード3: 作業台の記録 =====
+  - id: evidence-3
+    bgm: math2-04/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 作業台の配置
+      - type: narration
+        text: "{図工室|ずこうしつ}の{作業台|さぎょうだい}の{位置|いち}——"
+      - type: narration
+        text: "{作業台|さぎょうだい}A（リク）と{作業台|さぎょうだい}B（ヒナ）が{黒板|こくばん}{側|がわ}。{作業台|さぎょうだい}C（タクミ）と{作業台|さぎょうだい}D（コトハ）が{出入|でいり}り{口|ぐち}{側|がわ}。"
+      - type: narration
+        text: "ヒナ（B）からコトハ（D）まで：{約|やく}2メートル。{立|た}てば{歩|ある}いてすぐの{距離|きょり}。"
+      - type: narration
+        text: "先生の{観察|かんさつ}メモ：「{作業|さぎょう}{時間|じかん}{中|ちゅう}に{少|すく}なくとも1人が、{別|べつ}の{机|つくえ}の{方向|ほうこう}に{短|たん}{時間|じかん}{移動|いどう}した」。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{誰|だれ}がコトハの{作業台|さぎょうだい}Dに{近|ちか}づいた？ ヒナの{作業台|さぎょうだい}Bからなら{約|やく}2メートル——{立|た}ち{上|あ}がれば{行|い}ける{距離|きょり}だ。"
+
+  # ===== 証拠カード4: ヒナの枚数とコトハの切り口 =====
+  - id: evidence-4
+    bgm: math2-04/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 枚数と切り口の謎
+      - type: narration
+        text: "タクミが{定規|じょうぎ}で{全員|ぜんいん}の{三角形|さんかっけい}を{測|はか}り{直|なお}して{気|き}づいたこと——"
+      - type: narration
+        text: "ヒナの{手元|てもと}には{三角形|さんかっけい}が5{枚|まい}しかない。{全員|ぜんいん}6{枚|まい}のはずなのに、1{枚|まい}{足|た}りない。"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        text: "コトハが{自分|じぶん}の{三角形|さんかっけい}を{並|なら}べ{直|なお}すと——5{枚|まい}は{切|き}り口がすっきり。でも{問題|もんだい}の1{枚|まい}（{辺|へん}c＝3.6cm）だけ{切|き}り口がギザギザ。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒナが1{枚|まい}{少|すく}ない。コトハのセットに「{急|いそ}いで{切|き}られた{三角形|さんかっけい}」がある。——{誰|だれ}かがコトハのために{急|いそ}いで{代|か}わりの{三角形|さんかっけい}を{用意|ようい}した？"
+
+  # ===== 証拠カード5: タクミの目撃証言 =====
+  - id: evidence-5
+    bgm: math2-04/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タクミの目撃証言
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "……{実|じつ}は、{言|い}わなきゃいけないことがある。"
+      - type: dialog
+        character: takumi
+        text: "{作業|さぎょう}の{途中|とちゅう}、20{分|ぷん}すぎくらいに、ヒナが{立|た}ち{上|あ}がってコトハの{机|つくえ}の{方向|ほうこう}に{向|む}かっていくのを{見|み}たんだ。"
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "すぐ{戻|もど}ってきたけど……何かを{置|お}いてきたように{見|み}えた。気のせいかと思ったけど、やっぱり{言|い}わないといけない。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒナが{立|た}ち{上|あ}がった → コトハの{机|つくえ}に{向|む}かった → 何かを{置|お}いた。ヒナが1{枚|まい}{少|すく}ないこと、コトハの{急|いそ}いで{切|き}られた{三角形|さんかっけい}——{全|すべ}てがつながった。"
+      - type: narration
+        text: "タイムライン：T1 {全員|ぜんいん}{作業|さぎょう}{中|ちゅう} → T2 ヒナがコトハの{三角形|さんかっけい}に{触|ふ}れて{変形|へんけい} → T3 {急|いそ}いで{予備|よび}を{切|き}り{出|だ}す → T4 コトハの{机|つくえ}にすり{替|か}え → T5 先生が{発見|はっけん}"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: artroom
+    bgm: math2-04/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}がそろったわね。{合同|ごうどう}でない{三角形|さんかっけい}をコトハのセットに{混|ま}ぜたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 合同でない三角形をコトハのセットに混ぜたのは誰？
+        options:
+          - text: リク（情報を整理していた）
+            value: riku
+            feedback: リクはずっと自分の作業台で作業していたよ。コトハの机に近づいた証拠もない。
+          - text: ヒナ（コトハの机の方向に動いた）
+            value: hina
+            feedback: 正解！ ヒナはコトハの三角形を誤って変形させてしまい、急いで予備を切り出してすり替えた。でも急いだため辺cが3.6cmになり、合同条件を満たさなかった。
+          - text: タクミ（目撃証言をした）
+            value: takumi
+            feedback: タクミはヒナが動くのを目撃した側。コトハの机には近づいていないよ。
+          - text: コトハ（自分の三角形に混ざっていた）
+            value: kotoha
+            feedback: コトハは自分で切った5枚は全て型紙と一致。問題の1枚は急いで切られた切り口で、コトハの作業スタイルとは違うよ。
+      - type: choice
+        id: q2
+        question: ヒナはなぜコトハの三角形をすり替えた？
+        options:
+          - text: コトハの作品を壊してしまい、守りたかったから
+            value: protect
+            feedback: 正解！ ヒナはコトハの三角形を誤って変形させてしまった。「コトハに迷惑をかけたくない」という気持ちから、自分の予備をすり替えた。でも急いだため合同でない三角形になった。
+          - text: コトハのコンテストを妨害したかったから
+            value: sabotage
+            feedback: ヒナに悪意はなかったよ。むしろ「コトハを守りたかった」という善意から行動した。でも急いで確認しなかったことが問題を起こした。
+          - text: 自分の三角形が足りなくなったから
+            value: shortage
+            feedback: 順序が逆だよ。ヒナは「コトハの三角形を壊してしまった」のが先。その後、自分の予備を切り出してコトハの分を補おうとした結果、自分が1枚少なくなった。
+          - text: 先生に怒られたくなかったから
+            value: fear
+            feedback: 先生への恐れよりも「コトハの作品を壊してしまった」ことへの後悔と、「コトハに迷惑をかけたくない」という気持ちが動機だったよ。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: artroom
+    bgm: math2-04/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 守りたかったのに
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの後ろめたさ
+  - id: truth-riku
+    bg: artroom
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼく、ヒナが{焦|あせ}っている{様子|ようす}に気づいてたのに{声|こえ}をかけなかった。「コンテスト{気分|きぶん}を{壊|こわ}したくない」って。"
+      - type: dialog
+        character: riku
+        text: "あのとき「どうしたの？」って{聞|き}いてれば、一緒に{解決|かいけつ}できたのに。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # タクミの後ろめたさ
+  - id: truth-takumi
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: takumi
+        text: "おれ、ヒナが{立|た}ち{上|あ}がった{瞬間|しゅんかん}を{見|み}てたのに「気のせいかも」って{流|なが}しちゃった。"
+      - type: dialog
+        character: takumi
+        text: "{早|はや}めに{言|い}えばよかった。{言|い}い{出|だ}すのに{迷|まよ}ったこと、{後悔|こうかい}してる。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # コトハの後ろめたさ
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "わたし、{自分|じぶん}の{三角形|さんかっけい}が{少|すこ}し{動|うご}いた{感覚|かんかく}があったの。でも「気のせいかも」って{思|おも}い{込|こ}んでた。"
+      - type: dialog
+        character: kotoha
+        text: "ヒナが{困|こま}っているサインを{見逃|みのが}してた。もっと{周|まわ}りを{見|み}ていれば……。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ヒナの真実（クライマックス）
+  - id: truth-hina
+    bgm: math2-04/truth
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "……ごめんなさい。{全部|ぜんぶ}わたしがやったことなの。"
+      - type: narration
+        speed: slow
+        text: "ヒナがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: hina
+        text: "{消|け}しゴムを{取|と}りに{立|た}ち{上|あ}がったとき、コトハの{作業台|さぎょうだい}の{端|はし}にあった{三角形|さんかっけい}1{枚|まい}に{触|ふ}れちゃって……{紙|かみ}が{折|お}れて{変形|へんけい}しちゃったの。"
+        expression: worried
+      - type: dialog
+        character: hina
+        text: "パニックになった。「コトハの{作品|さくひん}を{壊|こわ}しちゃった。どうしよう」って。"
+      - type: dialog
+        character: hina
+        text: "だから{急|いそ}いで{予備|よび}の{三角形|さんかっけい}を{切|き}り{出|だ}して、コトハの{変形|へんけい}した{三角形|さんかっけい}とすり{替|か}えた。「コトハを{守|まも}らなきゃ」って思ったの。"
+        expression: worried
+      - type: dialog
+        character: hina
+        text: "でも{急|いそ}いだから{辺|へん}cが3.6cmになっちゃって……{合同|ごうどう}じゃなかったんだ。{守|まも}ろうとして、{逆|ぎゃく}に{迷惑|めいわく}をかけちゃった。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ヒナに{悪意|あくい}はなかった。「コトハの{作品|さくひん}を{守|まも}りたい」という{気持|きも}ちから{行動|こうどう}した。でも{急|いそ}いで{切|き}った{三角形|さんかっけい}は{合同|ごうどう}{条件|じょうけん}を{満|み}たしていなかった。{正直|しょうじき}に{言|い}えば、みんなで{解決|かいけつ}できたはずだった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: artroom
+    bgm: math2-04/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "{合同|ごうどう}は「{大体|だいたい}同じ」ではダメ。{辺|へん}の{長|なが}さが1つでも{違|ちが}えば{合同|ごうどう}ではない。3{辺|ぺん}{相等|そうとう}・2{辺|へん}{夾角|きょうかく}・1{辺|ぺん}{両端角|りょうたんかく}の{条件|じょうけん}で{確認|かくにん}することが大切よ。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして{友|とも}だちを{守|まも}りたい{気持|きも}ちは{素敵|すてき}。でも{困|こま}ったときは1人で{解決|かいけつ}しようとせず、「{正直|しょうじき}に{言|い}って一緒に{考|かんが}えよう」が{一番|いちばん}いい{方法|ほうほう}ね。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hina
+        expression: worried
+        position: left
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "ヒナ、{守|まも}ろうとしてくれたのは分かるよ。でも次からは{正直|しょうじき}に{言|い}ってね。一緒に{直|なお}せるから。"
+      - type: dialog
+        character: hina
+        text: "……うん。ごめんね、コトハ。次は{正直|しょうじき}に{言|い}う。{困|こま}ったら{相談|そうだん}する。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "コトハの{三角形|さんかっけい}は{型紙|かたがみ}{通|どお}りに{切|き}り{直|なお}された。{全|すべ}ての{辺|へん}が{一致|いっち}した{合同|ごうどう}な{三角形|さんかっけい}で——{模様|もよう}は{完璧|かんぺき}に{完成|かんせい}した。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{友|とも}だちを{守|まも}りたい{気持|きも}ちは{大切|たいせつ}だ。でも{困|こま}ったときは「{助|たす}けて」と{言|い}える{勇気|ゆうき}がもっと大切。{正直|しょうじき}に{言|い}えば、みんなで{解決|かいけつ}できる。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{合同|ごうどう}のアリバイ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
