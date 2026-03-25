@@ -1,0 +1,526 @@
+meta:
+  id: geography-09
+  title: 入れ替わったデータカード
+  series: 地図探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  makoto:
+    name: マコト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  chihiro:
+    name: チヒロ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  ryouma:
+    name: リョウマ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  airi:
+    name: アイリ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-09/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5{年|ねん}1{組|くみ}の「{日本|にほん}の{工業|こうぎょう}マップ」プロジェクト。4人がそれぞれ{工業|こうぎょう}{地帯|ちたい}を{担当|たんとう}し、{壁|かべ}の大きな{地図|ちず}にデータカードを{貼|は}っていた。"
+      - type: sprite
+        character: chihiro
+        expression: surprised
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: chihiro
+        text: "{火曜日|かようび}の{朝|あさ}——わたしの{阪神|はんしん}エリアのデータカードが{全部|ぜんぶ}{入|い}れ{替|か}わってる！ わたしが{作|つく}ったカードじゃない！"
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{月曜|げつよう}の{朝|あさ}は{正|ただ}しかった。{月曜|げつよう}の{放課後|ほうかご}に{誰|だれ}かが{入|い}れ{替|か}えた。{地図|ちず}{探偵団|たんていだん}、{工業|こうぎょう}データの{法則|ほうそく}で{犯人|はんにん}を{突|つ}き{止|と}めてくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.9
+        subtitle: 入れ替わったデータカード
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-09/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: makoto
+        expression: normal
+        position: left
+      - type: dialog
+        character: makoto
+        text: "ぼくはマコト。{京浜|けいひん}{工業|こうぎょう}{地帯|ちたい}（{東京|とうきょう}・{神奈川|かながわ}）{担当|たんとう}。{印刷|いんさつ}・{出版|しゅっぱん}、{化学|かがく}、{機械|きかい}が{中心|ちゅうしん}。ぼくのカードは{無事|ぶじ}。"
+      - type: dialog
+        character: makoto
+        text: "{偽|にせ}カードのデータを{見|み}ると、{自動車|じどうしゃ}{関連|かんれん}が{多|おお}い。これは{阪神|はんしん}の{特色|とくしょく}じゃない気がする……。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: chihiro
+        expression: normal
+        position: right
+      - type: dialog
+        character: chihiro
+        text: "わたしはチヒロ。{阪神|はんしん}{工業|こうぎょう}{地帯|ちたい}（{大阪|おおさか}・{兵庫|ひょうご}）{担当|たんとう}。{金属|きんぞく}と{化学|かがく}がバランスいいのが{特色|とくしょく}。"
+      - type: dialog
+        character: chihiro
+        text: "{土曜日|どようび}に{図書館|としょかん}で{調|しら}べて{作|つく}ったカードがなくなった……{悲|かな}しい。"
+        expression: worried
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite
+        character: ryouma
+        expression: normal
+        position: left
+      - type: dialog
+        character: ryouma
+        text: "おれはリョウマ。{中京|ちゅうきょう}{工業|こうぎょう}{地帯|ちたい}（{愛知|あいち}・{三重|みえ}）{担当|たんとう}。{輸送|ゆそう}{機械|きかい}——{自動車|じどうしゃ}が{圧倒的|あっとうてき}1{位|い}の{地帯|ちたい}だ！"
+      - type: dialog
+        character: ryouma
+        text: "おれのカードは{無事|ぶじ}。……うん、{特|とく}に{何|なに}もないよ。"
+        expression: worried
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: sprite
+        character: airi
+        expression: normal
+        position: right
+      - type: dialog
+        character: airi
+        text: "わたしはアイリ。{北九州|きたきゅうしゅう}{工業|こうぎょう}{地帯|ちたい}（{福岡|ふくおか}）{担当|たんとう}。{鉄鋼|てっこう}・{金属|きんぞく}・セメントの{素材型|そざいがた}が{中心|ちゅうしん}。"
+      - type: dialog
+        character: airi
+        text: "{月曜|げつよう}の{放課後|ほうかご}16:20ごろ、{校舎|こうしゃ}の{入|い}り{口|ぐち}でリョウマとすれ{違|ちが}ったの。ランドセルを{持|も}ってて「やっぱ{帰|かえ}るわ」って{走|はし}って{行|い}った。"
+        expression: thinking
+      - type: sprite
+        character: airi
+        action: hide
+
+  # ===== 証拠カード1: 事件の記録 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-09/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 事件の記録
+      - type: narration
+        text: "{火曜日|かようび}の{朝|あさ}、チヒロが{発見|はっけん}——"
+      - type: narration
+        text: "{壁|かべ}の{工業|こうぎょう}マップの{阪神|はんしん}エリアに{貼|は}ってあったデータカード4{枚|まい}が、{全|すべ}て{別|べつ}のカードに{入|い}れ{替|か}わっていた。"
+      - type: narration
+        text: "マコト（{京浜|けいひん}）・リョウマ（{中京|ちゅうきょう}）・アイリ（{北九州|きたきゅうしゅう}）のカードは{無事|ぶじ}。"
+      - type: narration
+        text: "{月曜|げつよう}の{朝|あさ}は{正|ただ}しかった（先生{確認|かくにん}{済|ず}み）。{教室|きょうしつ}は{月曜|げつよう}17{時|じ}に{施錠|せじょう}、{火曜|かよう}7:50に{解錠|かいじょう}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{月曜|げつよう}の{放課後|ほうかご}（15:30〜17:00）の{間|あいだ}に{誰|だれ}かが{教室|きょうしつ}に{入|はい}り、カードを{入|い}れ{替|か}えた。"
+
+  # ===== 証拠カード2: 工業地帯の基本データ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 四大工業地帯の特色
+      - type: narration
+        text: "4つの{工業|こうぎょう}{地帯|ちたい}の{特色|とくしょく}——"
+      - type: narration
+        text: "{京浜|けいひん}（{東京|とうきょう}・{神奈川|かながわ}）：{印刷|いんさつ}・{出版|しゅっぱん}、{化学|かがく}、{機械|きかい}。バランス{型|がた}"
+      - type: narration
+        text: "{中京|ちゅうきょう}（{愛知|あいち}・{三重|みえ}）：{輸送|ゆそう}{機械|きかい}（{自動車|じどうしゃ}）が{圧倒的|あっとうてき}1{位|い}"
+      - type: narration
+        text: "{阪神|はんしん}（{大阪|おおさか}・{兵庫|ひょうご}）：{金属|きんぞく}・{化学|かがく}がバランスよい"
+      - type: narration
+        text: "{北九州|きたきゅうしゅう}（{福岡|ふくおか}）：{鉄鋼|てっこう}・{金属|きんぞく}・セメント。{素材型|そざいがた}"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{太平洋|たいへいよう}ベルトの{並|なら}び{順|じゅん}（{東|ひがし}から{西|にし}）：{京浜|けいひん}→{中京|ちゅうきょう}→{阪神|はんしん}→{北九州|きたきゅうしゅう}。それぞれ{得意|とくい}な{工業|こうぎょう}が{違|ちが}う。"
+
+  # ===== 証拠カード3: 偽カードの内容 =====
+  - id: evidence-3
+    bgm: geography-09/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 偽カードの内容
+      - type: narration
+        text: "{阪神|はんしん}エリアに{貼|は}ってあった{偽|にせ}カード4{枚|まい}——"
+      - type: narration
+        text: "{偽|にせ}A：みなと{自動車|じどうしゃ}{部品|ぶひん}{工場|こうじょう}（エンジン{部品|ぶひん}）{約|やく}700{億|おく}{円|えん}"
+      - type: narration
+        text: "{偽|にせ}B：さくら{機械|きかい}{工場|こうじょう}（{産業用|さんぎょうよう}ロボット）{約|やく}450{億|おく}{円|えん}"
+      - type: narration
+        text: "{偽|にせ}C：あおぞら{輸送|ゆそう}{機械|きかい}{工場|こうじょう}（トラック・バス）{約|やく}600{億|おく}{円|えん}"
+      - type: narration
+        text: "{偽|にせ}D：はまかぜ{金属|きんぞく}{加工|かこう}{工場|こうじょう}（{自動車用|じどうしゃよう}{鋼板|こうはん}）{約|やく}300{億|おく}{円|えん}"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "4{枚|まい}中3{枚|まい}が{自動車|じどうしゃ}・{輸送|ゆそう}{機械|きかい}{関連|かんれん}。{阪神|はんしん}の{特色|とくしょく}（{金属|きんぞく}・{化学|かがく}）じゃない——これは{中京|ちゅうきょう}のパターンだ！"
+
+  # ===== 証拠カード4: 放課後の目撃 =====
+  - id: evidence-4
+    bgm: geography-09/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 月曜の放課後
+      - type: narration
+        text: "{月曜|げつよう}の{放課後|ほうかご}の{目撃|もくげき}{情報|じょうほう}——"
+      - type: narration
+        text: "チヒロ：16:35ごろ{教室|きょうしつ}の{前|まえ}を{通|とお}ったとき、ドアが{少|すこ}し{開|あ}いていた"
+      - type: narration
+        text: "アイリ：16:15ごろ{教室|きょうしつ}の{窓|まど}から{明|あ}かりがチカチカしていた"
+      - type: narration
+        text: "アイリ：16:20ごろ{校舎|こうしゃ}の{入|い}り{口|ぐち}でリョウマとすれ{違|ちが}った。ランドセルを{持|も}っていて「やっぱ{帰|かえ}るわ」と{言|い}った"
+      - type: narration
+        text: "マコト：16:10ごろリョウマが{廊下|ろうか}を{走|はし}っているのを{見|み}た。{教室|きょうしつ}の{方|ほう}に{向|む}かっていた"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "リョウマが16:10に{教室|きょうしつ}に{向|む}かい、16:20にランドセルを{持|も}って{出|で}てきた——{約|やく}10{分間|ぷんかん}、{教室|きょうしつ}にいた。"
+
+  # ===== 証拠カード5: リョウマのカードの裏 =====
+  - id: evidence-5
+    bgm: geography-09/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: リョウマのカードの裏
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{中京|ちゅうきょう}エリアのリョウマのカードを{確認|かくにん}したところ、カードの{裏|うら}に{修正|しゅうせい}メモが{残|のこ}っていた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "メモ：「750おく → 7ちょう5000おく。{月曜|げつよう}にまちがいにきづいた。ごめん」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "さらにリョウマのランドセルのポケットから——チヒロが{作|つく}った{本物|ほんもの}の{阪神|はんしん}データカード4{枚|まい}が{見|み}つかった。きれいな{状態|じょうたい}で{残|のこ}っていた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "リョウマは{自分|じぶん}の{桁|けた}{間違|まちが}いを{直|なお}しに{教室|きょうしつ}へ{行|い}き、{暗|くら}い{教室|きょうしつ}で{隣|となり}のチヒロのカードを{間違|まちが}えてはがした。{翌朝|よくあさ}、{慌|あわ}てて作り{直|なお}したが{中京|ちゅうきょう}のデータになってしまった。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-09/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{帰納法|きのうほう}で{法則|ほうそく}が{見|み}えたな。{阪神|はんしん}エリアのカードを{入|い}れ{替|か}えたのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 阪神エリアのデータカードを入れ替えたのは誰？
+        options:
+          - text: マコト（京浜担当・図書室にいた）
+            value: makoto
+            feedback: マコトは図書室にいて、16:10にリョウマが廊下を走るのを目撃した側。京浜のカードは無事だし、阪神のカードを入れ替える動機もない。
+          - text: チヒロ（阪神担当・カードの被害者）
+            value: chihiro
+            feedback: チヒロはカードを盗まれた被害者。委員会活動で別の教室にいて、16:35に戻ったときはドアが開いていたのを見ただけ。
+          - text: リョウマ（中京担当・放課後に教室にいた）
+            value: ryouma
+            feedback: 正解！ リョウマは自分の桁間違いを直しに教室へ行き、暗い教室で隣のチヒロのカードを間違えてはがした。翌朝作り直したカードは中京の特色（自動車関連）になってしまった。
+          - text: アイリ（北九州担当・リョウマを目撃した）
+            value: airi
+            feedback: アイリは校庭で水やりをしていて、リョウマとすれ違ったことを証言した目撃者側。北九州のカードも無事。
+      - type: choice
+        id: q2
+        question: 帰納法でどうやって偽カードの正体を見抜いた？
+        options:
+          - text: 偽カード4枚のデータから「自動車関連が中心＝中京のパターン」と帰納した
+            value: induction
+            feedback: 正解！ 偽カード4枚中3枚が自動車・輸送機械関連→「これは中京のパターン」と帰納。阪神の特色は金属・化学。中京に詳しい人＝リョウマが作ったと特定できた。
+          - text: カードの枚数が合わなかったから
+            value: count
+            feedback: 枚数は4枚で合っている。問題は「中身」。偽カードのデータのパターンが阪神ではなく中京の特色だったことが帰納法のポイント。
+          - text: カードの字が汚かったから
+            value: handwriting
+            feedback: 字の問題ではないよ。工場データの内容——「自動車・輸送機械が中心」というパターンが、阪神ではなく中京の特色だと気づくことが帰納法の核心。
+          - text: リョウマが怪しい行動をしていたから
+            value: suspicious
+            feedback: リョウマの行動は状況証拠。決め手は「偽カードのデータパターンが中京の特色と一致する」という帰納法での発見。データから法則を導き出すのがポイント。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-09/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: わざとじゃなかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # マコトの後ろめたさ
+  - id: truth-makoto
+    bg: classroom
+    steps:
+      - type: sprite
+        character: makoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: makoto
+        text: "ぼく、リョウマの{生産額|せいさんがく}の{桁|けた}{間違|まちが}いに{月曜|げつよう}の{朝|あさ}から気づいてた。でも{傷|きず}つけたくなくて{指摘|してき}しなかった。"
+      - type: dialog
+        character: makoto
+        text: "あのとき「750{億|おく}じゃなくて7{兆|ちょう}5000{億|おく}だよ」って{言|い}ってれば、リョウマが{放課後|ほうかご}に{慌|あわ}てて{直|なお}しに{行|い}くこともなかった。"
+        expression: determined
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # チヒロの後ろめたさ
+  - id: truth-chihiro
+    steps:
+      - type: sprite
+        character: chihiro
+        expression: worried
+        position: right
+      - type: dialog
+        character: chihiro
+        text: "{偽|にせ}カードを{見|み}て「{自動車|じどうしゃ}{関連|かんれん}が{多|おお}い。{阪神|はんしん}じゃないかも」って{感|かん}じてた。でもすぐ{声|こえ}に{出|だ}せなかった。"
+      - type: dialog
+        character: chihiro
+        text: "「この{工場|こうじょう}、{阪神|はんしん}にしては{変|へん}だよ」って{言|い}えてたら、もっと{早|はや}く{解決|かいけつ}できたのに。"
+        expression: determined
+      - type: sprite
+        character: chihiro
+        action: hide
+
+  # アイリの後ろめたさ
+  - id: truth-airi
+    steps:
+      - type: sprite
+        character: airi
+        expression: worried
+        position: left
+      - type: dialog
+        character: airi
+        text: "16:20にリョウマとすれ{違|ちが}ったとき「やっぱ{帰|かえ}るわ」って{言|い}ってた。{何|なに}か{急|いそ}いでる{感|かん}じだった。"
+      - type: dialog
+        character: airi
+        text: "「{教室|きょうしつ}で{何|なに}してたの？」って{聞|き}いてればよかった。"
+        expression: determined
+      - type: sprite
+        character: airi
+        action: hide
+
+  # リョウマの真実（クライマックス）
+  - id: truth-ryouma
+    bgm: geography-09/truth
+    steps:
+      - type: sprite
+        character: ryouma
+        expression: worried
+        position: center
+      - type: dialog
+        character: ryouma
+        text: "……おれがやった。でも、わざとじゃないんだ。"
+      - type: narration
+        speed: slow
+        text: "リョウマがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: ryouma
+        text: "{月曜|げつよう}の{放課後|ほうかご}、{自分|じぶん}のカードの{生産額|せいさんがく}が{桁|けた}{違|ちが}いだって気づいて、{慌|あわ}てて{教室|きょうしつ}に{直|なお}しに{行|い}った。"
+        expression: worried
+      - type: dialog
+        character: ryouma
+        text: "{暗|くら}くなりかけた{教室|きょうしつ}で{壁|かべ}のカードをはがそうとしたとき、{隣|となり}にはってあったチヒロの{阪神|はんしん}カードを{間違|まちが}えてはがしちゃった。{中京|ちゅうきょう}と{阪神|はんしん}は{地図|ちず}で{隣|となり}どうしだから。"
+      - type: dialog
+        character: ryouma
+        text: "{家|いえ}に{帰|かえ}ってから気づいた。「チヒロのカードだ……」って。{返|かえ}さなきゃって思ったけど、チヒロが{悲|かな}しむ{顔|かお}を{想像|そうぞう}したら{怖|こわ}くて。"
+      - type: dialog
+        character: ryouma
+        text: "だから{翌朝|よくあさ}{早|はや}く来て、{自分|じぶん}の{記憶|きおく}で{阪神|はんしん}のカードを作り{直|なお}した。でもおれが{詳|くわ}しいのは{中京|ちゅうきょう}だから……{自動車|じどうしゃ}{関連|かんれん}のデータばっかりになっちゃった。"
+        expression: worried
+      - type: dialog
+        character: ryouma
+        text: "{最初|さいしょ}から「ごめん、{間違|まちが}えてはがしちゃった」って{言|い}えばよかった。{隠|かく}そうとして{余計|よけい}に大きな{問題|もんだい}にしちゃった。"
+        expression: determined
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: narration
+        speed: slow
+        text: "リョウマに{悪意|あくい}はなかった。{自分|じぶん}のミスを{直|なお}しに{行|い}って、{暗|くら}い{教室|きょうしつ}で{隣|となり}のカードをはがしてしまった。「ごめん」の{一言|ひとこと}が{言|い}えなかったことが、{問題|もんだい}を大きくした。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-09/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったな。"
+      - type: dialog
+        character: sensei
+        text: "{帰納法|きのうほう}——{複数|ふくすう}のデータから{共通|きょうつう}パターンを{見|み}つけて{法則|ほうそく}を{導|みちび}く{力|ちから}。{偽|にせ}カードのデータが「{自動車|じどうしゃ}{中心|ちゅうしん}」だと気づけば、それは{阪神|はんしん}ではなく{中京|ちゅうきょう}のパターンだと分かる。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そしてミスは{隠|かく}すより「ごめん」と{言|い}う{方|ほう}が{早|はや}く{解決|かいけつ}する。チヒロの{本物|ほんもの}のカードはきれいなまま{見|み}つかったんだ。{最初|さいしょ}から{正直|しょうじき}に{言|い}えば{何|なに}も{問題|もんだい}なかった。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ryouma
+        expression: worried
+        position: left
+      - type: sprite
+        character: chihiro
+        expression: normal
+        position: right
+      - type: dialog
+        character: chihiro
+        text: "リョウマ、{本物|ほんもの}のカードが{見|み}つかってよかった。{次|つぎ}からは「ごめん」って{言|い}ってね。一緒に{直|なお}せるから。"
+      - type: dialog
+        character: ryouma
+        text: "……うん。ごめん、チヒロ。{次|つぎ}は{正直|しょうじき}に{言|い}う。"
+        expression: determined
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: makoto, expression: happy }
+          - { id: chihiro, expression: happy }
+          - { id: ryouma, expression: happy }
+          - { id: airi, expression: happy }
+      - type: narration
+        text: "チヒロの{本物|ほんもの}の{阪神|はんしん}データカードは{元|もと}の{場所|ばしょ}に{戻|もど}された。{金属|きんぞく}・{化学|かがく}がバランスよい{阪神|はんしん}の{特色|とくしょく}——4つの{工業|こうぎょう}{地帯|ちたい}が{正|ただ}しく{並|なら}んだ{工業|こうぎょう}マップが{完成|かんせい}した。"
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: chihiro
+        action: hide
+      - type: sprite
+        character: ryouma
+        action: hide
+      - type: sprite
+        character: airi
+        action: hide
+      - type: narration
+        speed: slow
+        text: "データの{法則|ほうそく}を{見|み}つける{力|ちから}——{帰納法|きのうほう}。そして「ごめん」の{一言|ひとこと}は、どんな{隠|かく}し{方|かた}よりも{問題|もんだい}を{小|ちい}さくする。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——{入|い}れ{替|か}わったデータカード、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

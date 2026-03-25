@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 18:27
+- Add geography-08 game script: global summit declaration mystery
+
 ## 2026-03-25 18:20
 - Add geography-07 game script: world nations quiz card mystery
 
