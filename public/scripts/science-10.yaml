@@ -1,0 +1,424 @@
+meta:
+  id: science-10
+  title: 音の証言と割れたトロフィー
+  series: サイエンス捜査班
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  yui:
+    name: ユイ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kanata:
+    name: カナタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mai:
+    name: マイ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  ryou:
+    name: リョウ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: science-10/opening
+    steps:
+      - type: narration
+        text: "{音楽室|おんがくしつ}のグランドピアノの{蓋|ふた}の{上|うえ}に{飾|かざ}ってあった{合唱|がっしょう}コンクールの{優勝|ゆうしょう}トロフィーが{落|お}ちて{壊|こわ}れた。"
+      - type: narration
+        text: "{昼休|ひるやす}みに{音楽室|おんがくしつ}の{近|ちか}くにいた4{人|にん}に{話|はなし}を{聞|き}いたが——{証言|しょうげん}がバラバラだ。"
+      - type: sprite_group
+        characters:
+          - { id: yui, expression: determined }
+          - { id: kanata, expression: thinking }
+          - { id: mai, expression: worried }
+          - { id: ryou, expression: surprised }
+      - type: narration
+        text: "ユイ：「ドンドンと{強|つよ}い{音|おと}のあとにバリン」。カナタ：「かすかに{何|なに}か{聞|き}こえた{気|き}がする」。マイ：「{普通|ふつう}に{練習|れんしゅう}していたら{突然|とつぜん}{落|お}ちた」。リョウ：「{音|おと}は{聞|き}こえないけど{足元|あしもと}にドスンと{振動|しんどう}」。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "4{人|にん}が{違|ちが}う{場所|ばしょ}で{違|ちが}うことを{言|い}っている。{誰|だれ}が{本当|ほんとう}？ なぜ{聞|き}こえ{方|かた}が{違|ちが}うのか？"
+      - type: sprite
+        id: yui
+        action: hide
+      - type: sprite
+        id: kanata
+        action: hide
+      - type: sprite
+        id: mai
+        action: hide
+      - type: sprite
+        id: ryou
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-10/tension
+      - type: dialog
+        character: sensei
+        text: "{音|おと}の{伝|つた}わり{方|かた}の{科学|かがく}で、4つの{証言|しょうげん}の{矛盾|むじゅん}を{解|と}き{明|あ}かしてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "音の証言と割れたトロフィー"
+        subtitle: "サイエンス捜査班 Vol.10"
+
+  # ===== 証拠カード1: 壊れたトロフィー =====
+  - id: evidence-1
+    bg: classroom
+    bgm: science-10/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 壊れたトロフィー"
+      - type: narration
+        text: "ガラス{製|せい}の{優勝|ゆうしょう}トロフィー。{重|おも}さ{約|やく}800g。ピアノの{蓋|ふた}の{上|うえ}から{床|ゆか}に{落|お}ちて3つに{割|わ}れていた。"
+      - type: narration
+        text: "グランドピアノの{蓋|ふた}は{大|おお}きな{板|いた}。ピアノを{強|つよ}く{弾|ひ}くと{蓋|ふた}が{振動|しんどう}する。{普通|ふつう}の{演奏|えんそう}では{蓋|ふた}の{上|うえ}のものは{落|お}ちない。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{非常|ひじょう}に{強|つよ}い{衝撃|しょうげき}があれば、{蓋|ふた}の{上|うえ}のものが{滑|すべ}り{落|お}ちる{可能性|かのうせい}がある。トロフィーは「{勝手|かって}に」{落|お}ちた？ それとも{何|なに}かの{衝撃|しょうげき}で？"
+
+  # ===== 証拠カード2: 4人の証言比較 =====
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 証言の比較"
+      - type: narration
+        text: "4{人|にん}の{証言|しょうげん}を{比較|ひかく}しよう。ユイ（{窓|まど}の{外|そと}）はガラス{窓越|まどご}し——「ドンドンと{強|つよ}い{音|おと}→バリン」とはっきり{聞|き}こえた。"
+      - type: narration
+        text: "カナタ（{廊下|ろうか}）は{防音|ぼうおん}ドア{越|ご}し——「かすかに{何|なに}か{聞|き}こえた{気|き}がする」。ほとんど{聞|き}こえなかった。"
+      - type: narration
+        text: "マイ（{音楽室|おんがくしつ}の{中|なか}）は{直接|ちょくせつ}——「{普通|ふつう}に{練習|れんしゅう}していたら{突然|とつぜん}{落|お}ちた」。リョウ（2{階|かい}・{真上|まうえ}）は{床|ゆか}（コンクリート）{越|ご}し——「{音|おと}は{聞|き}こえないが{振動|しんどう}を{感|かん}じた」。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ユイは{聞|き}こえたのにカナタは{聞|き}こえない。リョウは{音|おと}ではなく{振動|しんどう}。マイは「{普通|ふつう}」と{言|い}うが{本当|ほんとう}？ {場所|ばしょ}と「{間|あいだ}にあるもの」に{関係|かんけい}がありそう。"
+
+  # ===== 証拠カード3: 音楽室の防音構造 =====
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 防音構造"
+      - type: narration
+        text: "{音楽室|おんがくしつ}の{防音|ぼうおん}の{仕組|しく}み。ドア：{防音材|ぼうおんざい}{入|い}りの{厚|あつ}い{扉|とびら}（{防音|ぼうおん}★★★★★・とても{強|つよ}い）。{壁|かべ}：{防音材|ぼうおんざい}{入|い}り（★★★★）。"
+      - type: narration
+        text: "{窓|まど}：{普通|ふつう}のガラス（★★・{弱|よわ}い）。{床|ゆか}：コンクリート＋{防振|ぼうしん}ゴム（★★★・{音|おと}は{防|ふせ}ぐが{振動|しんどう}は{一部|いちぶ}{通|とお}る）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{防音材|ぼうおんざい}は{空気中|くうきちゅう}の{音|おと}を{吸収|きゅうしゅう}する。ガラスは{薄|うす}いので{音|おと}を{止|と}めにくい。そして{固体|こたい}を{通|とお}じた{振動|しんどう}は{防音材|ぼうおんざい}では{止|と}められない。"
+
+  # ===== 証拠カード4: マイの練習事情 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: science-10/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — マイの練習事情"
+      - type: narration
+        text: "マイは{音楽|おんがく}{発表会|はっぴょうかい}でピアノのソロパートを{担当|たんとう}。{曲|きょく}は{難|むずか}しく、{毎日|まいにち}{昼休|ひるやす}みに{練習|れんしゅう}している。"
+      - type: narration
+        text: "{最近|さいきん}、{同|おな}じフレーズで{何度|なんど}も{間違|まちが}える「スランプ」{状態|じょうたい}。クラスメイトによると、マイは「もう{弾|ひ}けない……」と{落|お}ち{込|こ}んでいたらしい。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "マイの{主張|しゅちょう}：「12:00〜12:05まで{普通|ふつう}に{練習|れんしゅう}していた。トロフィーには{触|さわ}っていない。{突然|とつぜん}{落|お}ちてビックリした」。"
+      - type: narration
+        text: "でも——「{普通|ふつう}に{練習|れんしゅう}していた」のに、ユイには「ドンドンと{強|つよ}い{音|おと}」が{聞|き}こえた。{普通|ふつう}のピアノ{練習|れんしゅう}で2{階|かい}のリョウに{振動|しんどう}が{伝|つた}わるだろうか？"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: classroom
+    bgm: science-10/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: yui
+        position: left
+        expression: determined
+      - type: dialog
+        character: yui
+        text: "{窓|まど}の{外|そと}から{聞|き}いてたの。12:03ごろから{音|おと}が{変|か}わった。{丁寧|ていねい}な{練習|れんしゅう}から{雑|ざつ}になって、{最後|さいご}に「ドンドンドン」って{叩|たた}くような{音|おと}がして、そのすぐ{後|あと}に「バリン」。"
+      - type: sprite
+        id: yui
+        action: hide
+      - type: sprite
+        id: kanata
+        position: right
+        expression: thinking
+      - type: dialog
+        character: kanata
+        text: "{廊下|ろうか}にいたけど、かすかに{何|なに}か{聞|き}こえた{気|き}がするだけ。{防音|ぼうおん}ドアが{閉|し}まってたから{当然|とうぜん}だと{思|おも}う。{音|おと}の{伝|つた}わり{方|かた}は{素材|そざい}によって{全然|ぜんぜん}{違|ちが}うんだ。"
+      - type: sprite
+        id: kanata
+        action: hide
+      - type: sprite
+        id: mai
+        position: left
+        expression: worried
+      - type: dialog
+        character: mai
+        text: "{普通|ふつう}に{練習|れんしゅう}してたの。そしたら{突然|とつぜん}トロフィーが{落|お}ちて{割|わ}れた。わたしは{触|さわ}ってない。{勝手|かって}に{落|お}ちたんだよ……。"
+      - type: sprite
+        id: mai
+        action: hide
+      - type: sprite
+        id: ryou
+        position: right
+        expression: surprised
+      - type: dialog
+        character: ryou
+        text: "2{階|かい}で{弁当|べんとう}を{食|た}べてたら、{足元|あしもと}にドスンって{振動|しんどう}が{来|き}たんだ。{音|おと}は{聞|き}こえなかったけど、{床|ゆか}が{揺|ゆ}れた{感|かん}じ。{何|なに}だったんだろう？"
+      - type: sprite
+        id: ryou
+        action: hide
+
+  # ===== 証拠カード5: 音の伝わり方の科学（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: classroom
+    bgm: science-10/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 音の伝わり方の科学"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{音|おと}の3つの{伝|つた}わり{方|かた}。①{空気|くうき}{伝搬|でんぱん}——{空気|くうき}の{振動|しんどう}として{伝|つた}わる。{壁|かべ}や{防音材|ぼうおんざい}で{大|おお}きく{弱|よわ}まる。"
+      - type: narration
+        text: "②ガラス{越|ご}し——ガラスは{薄|うす}いので{防音材|ぼうおんざい}ほど{音|おと}を{止|と}められない。{窓|まど}の{外|そと}でもかなりはっきり{聞|き}こえる。"
+      - type: narration
+        text: "③{固体|こたい}{伝搬|でんぱん}——{音|おと}は{床|ゆか}や{壁|かべ}の{中|なか}も{振動|しんどう}として{伝|つた}わる。{速|はや}さは{空気中|くうきちゅう}の{約|やく}15{倍|ばい}！ {防音材|ぼうおんざい}では{止|と}められない。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "この{科学|かがく}で4{人|にん}の{証言|しょうげん}を{検証|けんしょう}すると——ユイ（{窓越|まどご}し）：ガラスは{音|おと}を{通|とお}す→{聞|き}こえて{当然|とうぜん}。カナタ（ドア{越|ご}し）：{防音材|ぼうおんざい}が{吸収|きゅうしゅう}→かすかで{当然|とうぜん}。リョウ（2{階|かい}・{床越|ゆかご}し）：{固体|こたい}{伝搬|でんぱん}→{振動|しんどう}は{伝|つた}わる。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "★{決定的|けっていてき}な{矛盾|むじゅん}★ マイは「{普通|ふつう}に{練習|れんしゅう}していた」と{言|い}う。でもユイは「ドンドンと{強|つよ}い{音|おと}」——{普通|ふつう}ではない{強|つよ}い{打鍵|だけん}。リョウは「2{階|かい}で{振動|しんどう}」——{普通|ふつう}の{練習|れんしゅう}では{床|ゆか}に{伝|つた}わるほどの{衝撃|しょうげき}は{起|お}きない！"
+      - type: narration
+        text: "マイの「{普通|ふつう}に{練習|れんしゅう}していた」は{事実|じじつ}と{矛盾|むじゅん}する。マイはピアノを{非常|ひじょう}に{強|つよ}く{叩|たた}いた。その{衝撃|しょうげき}でトロフィーが{振動|しんどう}で{落|お}ちたんだ。"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: classroom
+    bgm: science-10/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "ユイにはっきり{聞|き}こえたのにカナタに{聞|き}こえなかったのはなぜ？"
+        options:
+          - text: "ユイの耳がいいから"
+            feedback: "{耳|みみ}の{良|よ}さではなく、「{間|あいだ}にあるもの」が{違|ちが}うから。ガラス{窓|まど}は{音|おと}を{通|とお}しやすく、{防音|ぼうおん}ドアは{音|おと}を{吸収|きゅうしゅう}する。"
+          - text: "間にある素材が違うから"
+            feedback: "そのとおり！ ユイの{前|まえ}はガラス{窓|まど}（{音|おと}を{通|とお}す）、カナタの{前|まえ}は{防音|ぼうおん}ドア（{音|おと}を{吸収|きゅうしゅう}）。{素材|そざい}の{違|ちが}いで{聞|き}こえ{方|かた}が{変|か}わるんだ。"
+          - text: "カナタが聞いていなかったから"
+            feedback: "カナタは「かすかに{聞|き}こえた」と{言|い}っている。{防音|ぼうおん}ドアが{音|おと}を{大|おお}きく{吸収|きゅうしゅう}したから{小|ちい}さくなったんだ。"
+      - type: choice
+        id: q2
+        text: "トロフィーが{落|お}ちた{原因|げんいん}を{作|つく}ったのは{誰|だれ}？"
+        options:
+          - text: "ユイ"
+            feedback: "ユイは{窓|まど}の{外|そと}から{聞|き}いていただけ。{音楽室|おんがくしつ}には{入|はい}っていないよ。"
+          - text: "カナタ"
+            feedback: "カナタは{廊下|ろうか}にいた。{音|おと}の{科学|かがく}を{知|し}っていて{解明|かいめい}に{貢献|こうけん}した{証人|しょうにん}だよ。"
+          - text: "マイ"
+            feedback: "マイは「{普通|ふつう}に{練習|れんしゅう}」と{言|い}うが、ユイの「ドンドン」とリョウの「{振動|しんどう}」は{普通|ふつう}ではない{強|つよ}い{衝撃|しょうげき}を{示|しめ}している。マイはピアノを{強|つよ}く{叩|たた}いた……。"
+          - text: "リョウ"
+            feedback: "リョウは2{階|かい}で{弁当|べんとう}を{食|た}べていた。{振動|しんどう}を{感|かん}じた{証人|しょうにん}だよ。"
+
+  # ===== 真実: マイの告白 =====
+  - id: truth-mai
+    bg: classroom
+    bgm: science-10/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "トロフィーが{壊|こわ}れた{真相|しんそう}を{発表|はっぴょう}します。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "トロフィーが{落|お}ちた{原因|げんいん}を{作|つく}ったのは——マイだった。わざとではない。{事故|じこ}だった。"
+      - type: sprite
+        id: mai
+        position: center
+        expression: worried
+      - type: dialog
+        character: mai
+        text: "{練習|れんしゅう}がうまくいかなくて、{同|おな}じフレーズで{何度|なんど}も{間違|まちが}えて……イライラして、{最後|さいご}に{鍵盤|けんばん}を{両手|りょうて}で{強|つよ}く{叩|たた}いちゃったの。"
+      - type: narration
+        text: "その{衝撃|しょうげき}がピアノの{蓋|ふた}に{伝|つた}わり、{蓋|ふた}の{上|うえ}のトロフィーが{振動|しんどう}で{滑|すべ}り{落|お}ちて{割|わ}れた。"
+      - type: dialog
+        character: mai
+        expression: worried
+        text: "{八|や}つ{当|あ}たりで{壊|こわ}したなんて{恥|は}ずかしくて……「{普通|ふつう}に{練習|れんしゅう}してた」って{言|い}っちゃった。ごめんなさい。"
+      - type: sprite
+        id: mai
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: narration
+        text: "みんなが{知|し}っていたことも{明|あ}かされた。"
+      - type: sprite
+        id: yui
+        position: left
+        expression: thinking
+      - type: dialog
+        character: yui
+        text: "マイの{音|おと}が12:03ごろから{変|か}わったのに{気|き}づいてた。{丁寧|ていねい}な{練習|れんしゅう}→{雑|ざつ}→{最後|さいご}に「ドンドンドン」って{叩|たた}く{音|おと}→すぐ{後|あと}に「バリン」。マイが{最近|さいきん}「ソロが{弾|ひ}けない」って{悩|なや}んでたのも{知|し}ってた。"
+      - type: sprite
+        id: yui
+        action: hide
+      - type: sprite
+        id: kanata
+        position: right
+        expression: determined
+      - type: dialog
+        character: kanata
+        text: "{理科|りか}の{授業|じゅぎょう}で{習|なら}った{音|おと}の{伝搬|でんぱん}の{知識|ちしき}で、4{人|にん}の{聞|き}こえ{方|かた}の{違|ちが}いを{全部|ぜんぶ}{科学的|かがくてき}に{説明|せつめい}できた。{防音材|ぼうおんざい}は{空気|くうき}の{音|おと}を{吸収|きゅうしゅう}するけど、ガラスは{通|とお}しやすい。{固体|こたい}は{振動|しんどう}を{伝|つた}える。"
+      - type: sprite
+        id: kanata
+        action: hide
+      - type: sprite
+        id: ryou
+        position: left
+        expression: thinking
+      - type: dialog
+        character: ryou
+        text: "{振動|しんどう}の{直後|ちょくご}に2{階|かい}の{窓|まど}から{下|した}を{見|み}たら、マイが{頭|あたま}を{抱|かか}えてた。ピアノの{近|ちか}くにキラキラしたもの——ガラスの{破片|はへん}も{見|み}えたんだ。"
+      - type: sprite
+        id: ryou
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: classroom
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{音|おと}の{伝|つた}わり{方|かた}は3{種類|しゅるい}。{空気|くうき}{伝搬|でんぱん}（{壁|かべ}で{減衰|げんすい}）、ガラス{越|ご}し（{比較的|ひかくてき}{通|とお}る）、{固体|こたい}{伝搬|でんぱん}（{振動|しんどう}として{伝|つた}わる）。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{防音材|ぼうおんざい}は{空気中|くうきちゅう}の{音|おと}を{吸収|きゅうしゅう}しますが、{固体|こたい}の{振動|しんどう}は{防|ふせ}げません。{同|おな}じ{音|おと}でも{場所|ばしょ}によって{聞|き}こえ{方|かた}が{違|ちが}う——{証言|しょうげん}が「{矛盾|むじゅん}」しているのではなく、{科学的|かがくてき}に{異|こと}なって{知覚|ちかく}されるのです。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "{失敗|しっぱい}してイライラするのは{誰|だれ}にでもあること。{恥|は}ずかしいことじゃない。でも{隠|かく}すと{周|まわ}りが{困|こま}ってしまいます。{正直|しょうじき}に{言|い}えばよかったんです。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: science-10/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: mai
+        position: left
+        expression: worried
+      - type: dialog
+        character: mai
+        text: "ごめんなさい。{練習|れんしゅう}がうまくいかなくてイライラして{叩|たた}いちゃった。トロフィーも{壊|こわ}しちゃって……{本当|ほんとう}にごめん。"
+      - type: sprite
+        id: mai
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。トロフィーは{直|なお}せるか{確認|かくにん}しましょう。{練習|れんしゅう}がつらいときは、{先生|せんせい}や{友達|ともだち}に{相談|そうだん}してね。1{人|ひとり}で{抱|かか}え{込|こ}まなくていいんだよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "{音|おと}の{科学|かがく}が4つの{証言|しょうげん}の{矛盾|むじゅん}を{解|と}き{明|あ}かし、{真実|しんじつ}を{導|みちび}いた。サイエンス{捜査班|そうさはん}の{冒険|ぼうけん}は、まだまだ{続|つづ}く——。"
+      - type: effect
+        name: fade-out
