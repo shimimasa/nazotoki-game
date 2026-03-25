@@ -1,0 +1,513 @@
+meta:
+  id: career-04
+  title: 消防士の記録
+  series: キャリア探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shocho:
+    name: 署長
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: office
+    bgm: career-04/opening
+    steps:
+      - type: narration
+        text: "「さくら{消防署|しょうぼうしょ}」。火事や{救助|きゅうじょ}の{通報|つうほう}があると、{消防士|しょうぼうし}がすばやく{出動|しゅつどう}する。"
+      - type: narration
+        text: "ところが{今日|きょう}、{出動|しゅつどう}{記録|きろく}を{確認|かくにん}していたハルトが{大変|たいへん}なことに気づいた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: shocho
+        expression: normal
+        position: center
+      - type: bgm
+        track: career-04/investigation
+      - type: dialog
+        character: shocho
+        text: "先週の火事の{出動|しゅつどう}{記録|きろく}に「{到着|とうちゃく}時刻が2つのバージョン」があるぞ。{公式|こうしき}{記録|きろく}は10:25、{別|べつ}のメモには10:30。"
+        expression: thinking
+      - type: dialog
+        character: shocho
+        text: "{消防|しょうぼう}の{記録|きろく}は{正確|せいかく}でなければならない。なぜ2つの{記録|きろく}があるのか{調|しら}べてくれ！"
+        expression: normal
+      - type: sprite
+        character: shocho
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.4
+        subtitle: 消防士の記録
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: office
+    bgm: career-04/investigation
+    steps:
+      - type: narration
+        text: "{消防|しょうぼう}の{仕事|しごと}の{流|なが}れ——{通報|つうほう}→{指令|しれい}→{出動|しゅつどう}→{到着|とうちゃく}→{記録|きろく}。それぞれの{担当者|たんとうしゃ}に話を{聞|き}こう。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。{出動|しゅつどう}{記録|きろく}の{管理|かんり}{担当|たんとう}。先週の{記録|きろく}を見直していたら、{到着|とうちゃく}時刻に2つのバージョンがあることに気づいたんだ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。{出動|しゅつどう}{記録|きろく}の{記入|きにゅう}{担当|たんとう}。{現場|げんば}から{帰|かえ}ったあとに{記録|きろく}を書くの。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。先週の火事に{消防車|しょうぼうしゃ}で{出動|しゅつどう}した{消防士|しょうぼうし}。{現場|げんば}に{一番|いちばん}乗りで{到着|とうちゃく}した{担当|たんとう}だ。"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。{指令|しれい}{担当|たんとう}。{通報|つうほう}を{受|う}けて「{出動|しゅつどう}せよ」という{命令|めいれい}を出す{役割|やくわり}。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 公式出動記録 =====
+  - id: evidence-1
+    bg: office
+    bgm: career-04/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 公式出動記録
+      - type: narration
+        text: "さくら{消防署|しょうぼうしょ} {出動|しゅつどう}{記録|きろく}——"
+      - type: narration
+        text: "日付：先週{火曜日|かようび}"
+      - type: narration
+        text: "{通報|つうほう}時刻：10:00　{出発|しゅっぱつ}時刻：10:01"
+      - type: narration
+        text: "{現場|げんば}{到着|とうちゃく}時刻：10:25 ★"
+      - type: narration
+        text: "{担当|たんとう}{消防士|しょうぼうし}：ケイ　{記録|きろく}{担当|たんとう}：ミナ"
+      - type: narration
+        text: "これが{公式|こうしき}として{提出|ていしゅつ}された{記録|きろく}。{通報|つうほう}から{到着|とうちゃく}まで25分。"
+
+  # ===== 証拠カード2: 内部メモ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 内部メモ（初稿）
+      - type: narration
+        text: "{出動|しゅつどう}メモ（{後|あと}から見つかった{別|べつ}のメモ）——"
+      - type: narration
+        text: "日付：先週{火曜日|かようび}"
+      - type: narration
+        text: "{到着|とうちゃく}時刻：10:30 ★"
+      - type: narration
+        text: "{担当|たんとう}：ケイ　メモ{作成|さくせい}：ミナ"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "「10:30」の上に{薄|うす}く「10:25」と{上書|うわが}きした{跡|あと}がある。"
+      - type: narration
+        text: "{公式|こうしき}{記録|きろく}は10:25、この{初稿|しょこう}メモは10:30。どちらが正しい？ なぜ書き{換|か}えた{跡|あと}がある？"
+
+  # ===== 証拠カード3: 消防の仕事の流れ =====
+  - id: evidence-3
+    bgm: career-04/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 消防の仕事の手順
+      - type: narration
+        text: "{消防|しょうぼう}の{仕事|しごと}の{手順|てじゅん}——"
+      - type: narration
+        text: "1. {通報|つうほう}を{受|う}ける（{指令|しれい}{担当|たんとう}）"
+      - type: narration
+        text: "2. {出動|しゅつどう}{指令|しれい}を出す"
+      - type: narration
+        text: "3. {消防車|しょうぼうしゃ}が{出発|しゅっぱつ}する"
+      - type: narration
+        text: "4. {現場|げんば}に{到着|とうちゃく}する"
+      - type: narration
+        text: "5. {活動|かつどう}を{終|お}えて{帰署|きしょ}する"
+      - type: narration
+        text: "6. {出動|しゅつどう}{記録|きろく}を{記入|きにゅう}する（{記録|きろく}{担当|たんとう}）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "★{出動|しゅつどう}{記録|きろく}は「{正確|せいかく}な{記録|きろく}」が{義務|ぎむ}。{到着|とうちゃく}時刻は次の{出動|しゅつどう}への{改善|かいぜん}{資料|しりょう}になる。"
+
+  # ===== 証拠カード4: 現場周辺地図 =====
+  - id: evidence-4
+    bgm: career-04/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 現場周辺地図
+      - type: narration
+        text: "さくら{消防署|しょうぼうしょ} → 火事{現場|げんば}のルート——"
+      - type: narration
+        text: "{最短|さいたん}ルート（A）：{消防署|しょうぼうしょ}→{大通|おおどお}り→{現場|げんば}　{約|やく}25分"
+      - type: narration
+        text: "{遠回|とおまわ}りルート（B）：{消防署|しょうぼうしょ}→{住宅地|じゅうたくち}→{国道|こくどう}→{現場|げんば}　{約|やく}30分"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "先週の{出動|しゅつどう}時、{消防車|しょうぼうしゃ}はルート(B)を{通|とお}った{記録|きろく}がある。{走行|そうこう}ログで{確認|かくにん}{済|ず}み。"
+      - type: narration
+        text: "{遠回|とおまわ}りルートなら{約|やく}30分。10:01{出発|しゅっぱつ}→{到着|とうちゃく}は10:31ごろ。{公式|こうしき}{記録|きろく}の「10:25」は{合|あ}わない。"
+
+  # ===== 証拠カード5: 通報センター記録（反転） =====
+  - id: evidence-5
+    bgm: career-04/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 通報センターの自動記録
+      - type: sprite
+        character: saki
+        expression: determined
+        position: center
+      - type: dialog
+        character: saki
+        text: "{通報|つうほう}センターの{受付|うけつけ}{記録|きろく}があるの。これは{自動|じどう}で{記録|きろく}されるから、書き{換|か}えは{不可能|ふかのう}。"
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "{通報|つうほう}センター {受付|うけつけ}{記録|きろく}——"
+      - type: narration
+        text: "{通報|つうほう}時刻：10:00:00"
+      - type: narration
+        text: "{指令|しれい}{送信|そうしん}：10:00:42"
+      - type: narration
+        text: "{消防署|しょうぼうしょ}{出発|しゅっぱつ}：10:01:15"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "【{自動|じどう}タイムスタンプ{記録|きろく}】——書き{換|か}え{不可能|ふかのう}。"
+      - type: narration
+        speed: slow
+        text: "{出発|しゅっぱつ}10:01 + {遠回|とおまわ}りルート30分 = {到着|とうちゃく}10:31ごろ。「10:30{到着|とうちゃく}」が正しく、「10:25」は書き{換|か}えられた{記録|きろく}だ。"
+      - type: narration
+        text: "{記録|きろく}{担当|たんとう}はミナ。ミナが{到着|とうちゃく}時刻を5分早く書き{換|か}えた——なぜ？"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: office
+    bgm: career-04/tension
+    steps:
+      - type: sprite
+        character: shocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: shocho
+        text: "{出動|しゅつどう}{記録|きろく}を書き{換|か}えたのは{誰|だれ}か。そしてなぜそうしたのか。みんなの{推理|すいり}を{聞|き}かせてくれ。"
+      - type: sprite
+        character: shocho
+        action: hide
+      - type: choice
+        id: q1
+        question: 出動記録を書き換えたのは誰？
+        options:
+          - text: ハルト（管理担当として記録を修正した）
+            value: haruto
+            feedback: ハルトは記録の矛盾を発見した側。書き換えたのはハルトではないよ。
+          - text: ミナ（記入担当として到着時刻を変えた）
+            value: mina
+            feedback: 正解！ ミナが到着時刻を「10:30」から「10:25」に5分早く書き換えた。ケイをかばうためだった。
+          - text: ケイ（自分の到着が遅かったのを隠した）
+            value: kei
+            feedback: ケイは到着が遅れた当事者だけど、記録を書くのはミナの担当。ケイ自身は書き換えていないよ。
+          - text: サキ（指令記録を操作した）
+            value: saki
+            feedback: サキの通報センター記録は自動タイムスタンプで書き換え不可能。サキは正確な記録を持っていた側。
+      - type: choice
+        id: q2
+        question: ミナの行動は正しかった？
+        options:
+          - text: 間違い。記録の改ざんは絶対にやってはいけない
+            value: wrong
+            feedback: 消防の記録は次の出動の改善資料。書き換えが許されると全ての記録への信頼が崩れてしまう。
+          - text: 仕方なかった。ケイをかばいたかった気持ちは分かる
+            value: understandable
+            feedback: ケイを思う気持ちは分かる。でもケイの問題（遠回り）はケイ自身が解決すべきことだった。
+          - text: どちらとも言えない。動機は優しいが方法が間違い
+            value: both
+            feedback: するどい見方だね。「なぜそうしたか」と「何をしたか」は分けて考える必要がある。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: office
+    bgm: career-04/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 大切な人をかばうために
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: office
+    steps:
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼく、ミナが先週の{記録|きろく}を2{回|かい}書き{直|なお}したことに気づいてた。でも、なぜかは分からなくて{黙|だま}ってた。"
+      - type: dialog
+        character: haruto
+        text: "{通報|つうほう}センターの{記録|きろく}と{照合|しょうごう}して、やっと{全体|ぜんたい}が見えた。"
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # サキの秘密
+  - id: truth-saki
+    steps:
+      - type: sprite
+        character: saki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: saki
+        text: "{通報|つうほう}センターの{記録|きろく}は{自動|じどう}で{記録|きろく}されるから、{絶対|ぜったい}に正しい。{出発|しゅっぱつ}10:01で{遠回|とおまわ}りルート30分なら、{到着|とうちゃく}は10:31ごろ。"
+      - type: dialog
+        character: saki
+        text: "{正確|せいかく}な{記録|きろく}は{消防|しょうぼう}の{仕事|しごと}の{根幹|こんかん}。これがなかったら、次の{出動|しゅつどう}の{改善|かいぜん}ができない。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: left
+      - type: dialog
+        character: kei
+        text: "……おれのせいだ。{出動前|しゅつどうまえ}に{地図|ちず}をちゃんと{確認|かくにん}しなくて、{遠回|とおまわ}りルートを{走|はし}っちゃった。"
+      - type: dialog
+        character: kei
+        text: "本来25分で着けるところを30分かかった。「{評価|ひょうか}が{下|さ}がる」って{心配|しんぱい}になって、ミナに{相談|そうだん}しちゃったんだ。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "ミナが{記録|きろく}を直してくれたのは、おれをかばうためだった。おれが{弱音|よわね}を{吐|は}かなければ、ミナはこんなことしなかった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # ミナの告白（クライマックス）
+  - id: truth-mina
+    bgm: career-04/truth
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: center
+      - type: dialog
+        character: mina
+        text: "……ケイが{落|お}ち{込|こ}んでいたんです。「{地図|ちず}を見{忘|わす}れて{遠回|とおまわ}りしてしまった。{評価|ひょうか}が{下|さ}がる」って。"
+      - type: narration
+        speed: slow
+        text: "ミナがゆっくり話し{始|はじ}めた。"
+      - type: dialog
+        character: mina
+        text: "ケイは{一生懸命|いっしょうけんめい}なのに、たった5分のことで{評価|ひょうか}が{下|さ}がるなんて{不公平|ふこうへい}だと{思|おも}って……。"
+        expression: worried
+      - type: dialog
+        character: mina
+        text: "だからわたしが、{記録|きろく}を少し{直|なお}せばいいかなって……。「10:30」を「10:25」に。たった5分。"
+      - type: dialog
+        character: mina
+        text: "でも、本当はいけないことだって分かってた。{消防|しょうぼう}の{記録|きろく}はみんなの{安全|あんぜん}を{守|まも}るためにある。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ミナの{動機|どうき}は「大切な人をかばいたい」という{優|やさ}しさだった。でも、{記録|きろく}の{改|かい}ざんは{消防|しょうぼう}の{仕事|しごと}の{信頼|しんらい}を{壊|こわ}してしまう。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: office
+    bgm: career-04/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: shocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: shocho
+        text: "{今回|こんかい}の{事件|じけん}で大事なことが分かったね。"
+      - type: dialog
+        character: shocho
+        text: "{消防|しょうぼう}の{記録|きろく}は「次をもっと良くするため」にある。{遠回|とおまわ}りした{記録|きろく}があれば、次は{最短|さいたん}ルートを{確認|かくにん}する{改善|かいぜん}ができる。"
+        expression: normal
+      - type: dialog
+        character: shocho
+        text: "ミナの{気持|きも}ちは分かる。でもケイの{問題|もんだい}はケイ{自身|じしん}が{解決|かいけつ}すべきだった。{記録|きろく}を{変|か}えても{問題|もんだい}は{解決|かいけつ}しない。"
+        expression: thinking
+      - type: sprite
+        character: shocho
+        action: hide
+      - type: sprite
+        character: kei
+        expression: determined
+        position: left
+      - type: dialog
+        character: kei
+        text: "次からは{出動前|しゅつどうまえ}に{必|かなら}ず{地図|ちず}を{確認|かくにん}する。{遅|おく}れたら正直に言う。それがおれの{責任|せきにん}だ。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: mina
+        expression: determined
+        position: right
+      - type: dialog
+        character: mina
+        text: "{記録|きろく}は正直に書く。{誰|だれ}かをかばうために{記録|きろく}を{変|か}えるのは、その人のためにもならないって分かった。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "{出動|しゅつどう}{記録|きろく}は正しく書き{直|なお}された。{到着|とうちゃく}10:30。5分の{遅|おく}れは、次の{出動|しゅつどう}で{改善|かいぜん}するための大事な{記録|きろく}になった。"
+      - type: narration
+        speed: slow
+        text: "{記録|きろく}は「{過去|かこ}の{失敗|しっぱい}を{責|せ}めるため」ではなく「{未来|みらい}をもっと良くするため」にある。正直な{記録|きろく}が、みんなの{安全|あんぜん}を{守|まも}る{力|ちから}になる。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——{消防士|しょうぼうし}の{記録|きろく}の{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
