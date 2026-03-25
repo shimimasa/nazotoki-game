@@ -1,0 +1,500 @@
+meta:
+  id: geography-06
+  title: まちがいポスターと海流のなぞ
+  series: 地図探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  ryou:
+    name: リョウ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hikari:
+    name: ヒカリ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  gaku:
+    name: ガク
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  yukina:
+    name: ユキナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: geography-06/opening
+    steps:
+      - type: narration
+        text: "あおば{小学校|しょうがっこう}5{年|ねん}2{組|くみ}。「{水産業|すいさんぎょう}と{海流|かいりゅう}」のポスター{発表会|はっぴょうかい}の{日|ひ}。"
+      - type: narration
+        text: "4人がそれぞれ{日本|にほん}の{主|おも}な{漁場|ぎょじょう}と{海流|かいりゅう}の{関係|かんけい}を{調|しら}べ、ポスターにまとめた。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "1人のポスターに{書|か}いてある「{漁場|ぎょじょう}と{海流|かいりゅう}の{関係|かんけい}」がおかしい。{因果|いんが}の{連鎖|れんさ}が{途中|とちゅう}で切れているぞ。"
+      - type: dialog
+        character: sensei
+        text: "{地図|ちず}{探偵団|たんていだん}、{海流|かいりゅう}と{漁場|ぎょじょう}の{因果|いんが}{連鎖|れんさ}をたどって「{間違|まちが}いポスター」を{見破|みやぶ}ってくれ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 地図探偵団 Vol.6
+        subtitle: まちがいポスターと海流のなぞ
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: geography-06/investigation
+    steps:
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: ryou
+        expression: normal
+        position: left
+      - type: dialog
+        character: ryou
+        text: "ぼくはリョウ。{三陸沖|さんりくおき}を{調|しら}べた。{黒潮|くろしお}と{親潮|おやしお}がぶつかる{潮目|しおめ}でプランクトンが{増|ふ}えて{魚|さかな}が{集|あつ}まるから{好漁場|こうぎょじょう}なんだ。"
+      - type: dialog
+        character: ryou
+        text: "ヒカリのポスター、「{黒潮|くろしお}だけで{好漁場|こうぎょじょう}」って{書|か}いてあるけど……{親潮|おやしお}と{潮目|しおめ}が{抜|ぬ}けてない？"
+        expression: thinking
+      - type: sprite
+        character: ryou
+        action: hide
+      - type: sprite
+        character: hikari
+        expression: normal
+        position: right
+      - type: dialog
+        character: hikari
+        text: "わたしはヒカリ。{三陸沖|さんりくおき}を{調|しら}べたよ。{漁港|ぎょこう}{見学|けんがく}にも{行|い}って、{黒潮|くろしお}が流れてて{魚|さかな}がたくさん{獲|と}れるのを{見|み}た！"
+      - type: dialog
+        character: hikari
+        text: "……{間違|まちが}ってないと思うけど。"
+        expression: worried
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: gaku
+        expression: normal
+        position: left
+      - type: dialog
+        character: gaku
+        text: "おれはガク。{北海道|ほっかいどう}を{調|しら}べた。{親潮|おやしお}が{栄養|えいよう}{豊|ゆた}かな{水|みず}を{運|はこ}ぶからプランクトンが{多|おお}くて{魚|さかな}が{育|そだ}つんだ。"
+      - type: dialog
+        character: gaku
+        text: "{漁港|ぎょこう}{見学|けんがく}のとき、ヒカリが{漁師|りょうし}さんの{話|はなし}の{途中|とちゅう}でメモを{止|や}めてたのを{覚|おぼ}えてる。"
+        expression: thinking
+      - type: sprite
+        character: gaku
+        action: hide
+      - type: sprite
+        character: yukina
+        expression: normal
+        position: right
+      - type: dialog
+        character: yukina
+        text: "わたしはユキナ。{日本海側|にほんかいがわ}を{調|しら}べた。{対馬|つしま}{海流|かいりゅう}が流れていてブリやイカが{獲|と}れるの。"
+      - type: dialog
+        character: yukina
+        text: "ヒカリのポスターの{因果|いんが}{連鎖|れんさ}、{途中|とちゅう}のステップが{抜|ぬ}けてるわ。{黒潮|くろしお}から{好漁場|こうぎょじょう}まで{一気|いっき}に{飛|と}んでる。"
+        expression: thinking
+      - type: sprite
+        character: yukina
+        action: hide
+
+  # ===== 証拠カード1: 4人のポスター =====
+  - id: evidence-1
+    bg: classroom
+    bgm: geography-06/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 4人のポスター要約
+      - type: narration
+        text: "4人のポスターの{説明|せつめい}——"
+      - type: narration
+        text: "リョウ（{三陸沖|さんりくおき}）：「{黒潮|くろしお}と{親潮|おやしお}がぶつかる{潮目|しおめ}でプランクトンが{増|ふ}えて{魚|さかな}が{集|あつ}まる{好漁場|こうぎょじょう}」"
+      - type: narration
+        text: "ヒカリ（{三陸沖|さんりくおき}）：「{黒潮|くろしお}（{暖流|だんりゅう}）が流れているから{一番|いちばん}いい{漁場|ぎょじょう}。あたたかい{海流|かいりゅう}に{魚|さかな}が{集|あつ}まる」"
+      - type: narration
+        text: "ガク（{北海道|ほっかいどう}）：「{親潮|おやしお}が{栄養|えいよう}{豊|ゆた}かな{水|みず}を{運|はこ}ぶからプランクトンが{多|おお}い」"
+      - type: narration
+        text: "ユキナ（{日本海側|にほんかいがわ}）：「{対馬|つしま}{海流|かいりゅう}が流れていてブリやイカが{獲|と}れる」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒカリの{説明|せつめい}には「{親潮|おやしお}」「{潮目|しおめ}」「プランクトン」がない。{因果|いんが}の{連鎖|れんさ}が{途中|とちゅう}で切れている。"
+
+  # ===== 証拠カード2: 因果連鎖の比較 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 好漁場ができるしくみ
+      - type: narration
+        text: "{漁師|りょうし}さんが{教|おし}えてくれた{正|ただ}しい{因果|いんが}{連鎖|れんさ}——"
+      - type: narration
+        text: "{黒潮|くろしお}（{暖流|だんりゅう}）＋{親潮|おやしお}（{寒流|かんりゅう}）→ ぶつかる → {潮目|しおめ}ができる → プランクトンが{増|ふ}える → {魚|さかな}が{集|あつ}まる → {好漁場|こうぎょじょう}"
+      - type: narration
+        text: "ヒカリのポスターの{説明|せつめい}——"
+      - type: narration
+        text: "{黒潮|くろしお}（{暖流|だんりゅう}）が流れている → ……あれ？ → {魚|さかな}が{集|あつ}まる？ → {好漁場|こうぎょじょう}？"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒカリの{説明|せつめい}には{親潮|おやしお}・{潮目|しおめ}・プランクトンが{抜|ぬ}けている！ {因果|いんが}の{連鎖|れんさ}の{途中|とちゅう}が{欠落|けつらく}している。"
+
+  # ===== 証拠カード3: 漁獲量データ =====
+  - id: evidence-3
+    bgm: geography-06/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 漁獲量データで検証
+      - type: narration
+        text: "{漁港|ぎょこう}{見学|けんがく}でもらった{漁獲量|ぎょかくりょう}データ——"
+      - type: narration
+        text: "{三陸沖|さんりくおき}（{黒潮|くろしお}＋{親潮|おやしお}・{潮目|しおめ}あり）：とても{多|おお}い ⭐"
+      - type: narration
+        text: "{四国|しこく}沖（{黒潮|くろしお}のみ・{潮目|しおめ}なし）：ふつう"
+      - type: narration
+        text: "{北海道|ほっかいどう}沖（{親潮|おやしお}＋{千島|ちしま}{海流|かいりゅう}・{一部|いちぶ}{潮目|しおめ}あり）：{多|おお}い"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{黒潮|くろしお}だけの{四国|しこく}沖は「ふつう」。{黒潮|くろしお}＋{親潮|おやしお}の{三陸沖|さんりくおき}は「とても{多|おお}い」——{違|ちが}いは{潮目|しおめ}があるかどうか！"
+
+  # ===== 証拠カード4: ヒカリの見学メモ =====
+  - id: evidence-4
+    bgm: geography-06/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ヒカリの見学メモ
+      - type: narration
+        text: "ヒカリが{漁港|ぎょこう}{見学|けんがく}で{取|と}ったメモ——"
+      - type: narration
+        text: "「{海|うみ}が{暖|あたた}かった！ {漁師|りょうし}さんが『この{辺|あた}りは{黒潮|くろしお}が流れてて{魚|さかな}がたくさん{獲|と}れるんだよ』って{言|い}ってた。{船|ふね}がたくさんあった。{市場|いちば}で{新鮮|しんせん}な{魚|さかな}を{見|み}た」"
+      - type: narration
+        text: "「→ {黒潮|くろしお}が流れている{場所|ばしょ}は{一番|いちばん}いい{漁場|ぎょじょう}なんだ！」"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "メモに{書|か}いてあるのは「{黒潮|くろしお}」と「{魚|さかな}がたくさん」だけ。「{親潮|おやしお}」「{潮目|しおめ}」「プランクトン」が{一切|いっさい}メモされていない！"
+
+  # ===== 証拠カード5: ヒカリの下書きノート =====
+  - id: evidence-5
+    bgm: geography-06/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 観察と推論のギャップ
+      - type: narration
+        text: "ヒカリの{下書|したが}きノート——"
+      - type: narration
+        text: "「{見学|けんがく}で分かったこと：{黒潮|くろしお}が流れている → {暖|あたた}かい。{魚|さかな}がたくさん{獲|と}れる」"
+      - type: narration
+        text: "「{自分|じぶん}の{考|かんが}え：{暖|あたた}かい{海|うみ}＝{魚|さかな}が{集|あつ}まる。だから{黒潮|くろしお}の{場所|ばしょ}＝{一番|いちばん}いい{漁場|ぎょじょう}」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "そして{端|はし}に{小|ちい}さく——「※ {親潮|おやしお}って何だろう？ → あとで{調|しら}べよう → {結局|けっきょく}{調|しら}べなかった」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "ヒカリは{見学|けんがく}に{行|い}った。{観察|かんさつ}は{正|ただ}しかった。でも「{目|め}に{見|み}える{部分|ぶぶん}」だけメモして「{目|め}に{見|み}えない{仕組|しく}み」を{聞|き}き{逃|のが}した。{観察|かんさつ}から{推論|すいろん}への{飛躍|ひやく}が{間違|まちが}っていた。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: geography-06/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{因果|いんが}{連鎖|れんさ}の{欠落|けつらく}が{見|み}えたな。{間違|まちが}いポスターを{作|つく}ったのは{誰|だれ}だ？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 間違いポスターを作ったのは誰？
+        options:
+          - text: リョウ（三陸沖・潮目の仕組みを正しく説明）
+            value: ryou
+            feedback: リョウの説明は「黒潮＋親潮→潮目→プランクトン→魚→好漁場」と因果連鎖が正しい。漁港の息子で漁業に詳しい。
+          - text: ヒカリ（三陸沖・黒潮だけで好漁場と主張）
+            value: hikari
+            feedback: 正解！ ヒカリは見学に行ったが、因果連鎖の途中（親潮・潮目・プランクトン）を聞き逃した。「黒潮だけで好漁場」は観察から推論への飛躍。
+          - text: ガク（北海道・親潮とプランクトンを説明）
+            value: gaku
+            feedback: ガクの説明は「親潮が栄養豊かな水を運ぶ→プランクトンが多い」と因果が正しい。釣り好きで海に詳しい。
+          - text: ユキナ（日本海側・対馬海流を説明）
+            value: yukina
+            feedback: ユキナの説明は「対馬海流が流れている→ブリやイカが獲れる」と正しい。データ分析でヒカリの欠落に気づいた側。
+      - type: choice
+        id: q2
+        question: ヒカリの間違いの本質は何？
+        options:
+          - text: 観察は正しいが、因果連鎖の途中を飛ばして推論した
+            value: causal-gap
+            feedback: 正解！ 「黒潮が流れている」「魚がたくさんいる」は正しい観察。でも「だから黒潮＝好漁場」は因果の飛び越え。潮目とプランクトンという途中ステップが抜けていた。
+          - text: 漁港見学に行っていなかったから
+            value: not-visited
+            feedback: ヒカリは見学に行っている。問題は「行ったけど因果を理解しきれなかった」こと。観察したが推論を間違えた——Vol.5の「行っていない」とは違うパターン。
+          - text: 黒潮と親潮の名前を間違えたから
+            value: name-mix
+            feedback: 名前の間違いではないよ。ヒカリは「親潮」の存在自体を聞き逃した。「目に見える部分」だけメモして「目に見えない仕組み」を飛ばしたことが問題。
+          - text: ポスターの絵が下手だったから
+            value: drawing
+            feedback: 絵の問題ではないよ。因果連鎖の内容が不完全だったことが問題。「黒潮→好漁場」の間に必要な3ステップが抜けていた。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: geography-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 見えたけど分からなかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リョウの後ろめたさ
+  - id: truth-ryou
+    bg: classroom
+    steps:
+      - type: sprite
+        character: ryou
+        expression: worried
+        position: left
+      - type: dialog
+        character: ryou
+        text: "ぼく、ヒカリのポスターを{見|み}たとき「{親潮|おやしお}が{抜|ぬ}けてる」ってすぐ気づいた。でも{指摘|してき}しなかった。"
+      - type: dialog
+        character: ryou
+        text: "「ポスター{提出|ていしゅつ}{前|まえ}にお{互|たが}いの{内容|ないよう}を{確認|かくにん}し{合|あ}おう」って{提案|ていあん}すべきだった。"
+        expression: determined
+      - type: sprite
+        character: ryou
+        action: hide
+
+  # ガクの後ろめたさ
+  - id: truth-gaku
+    steps:
+      - type: sprite
+        character: gaku
+        expression: worried
+        position: right
+      - type: dialog
+        character: gaku
+        text: "{漁港|ぎょこう}{見学|けんがく}のとき、ヒカリが{漁師|りょうし}さんの{話|はなし}の{途中|とちゅう}でメモを{止|や}めてたのに気づいてた。でも「{自分|じぶん}のメモで{忙|いそが}しい」って{声|こえ}をかけなかった。"
+      - type: dialog
+        character: gaku
+        text: "「ここ{大事|だいじ}だよ！ メモして！」って{言|い}えばよかった。"
+        expression: determined
+      - type: sprite
+        character: gaku
+        action: hide
+
+  # ユキナの後ろめたさ
+  - id: truth-yukina
+    steps:
+      - type: sprite
+        character: yukina
+        expression: worried
+        position: left
+      - type: dialog
+        character: yukina
+        text: "データを{見比|みくら}べたとき「{因果|いんが}{連鎖|れんさ}が{途中|とちゅう}で切れてる」って分かった。でもヒカリに{直接|ちょくせつ}{言|い}えなかった。"
+      - type: dialog
+        character: yukina
+        text: "「ここの{説明|せつめい}、もう{少|すこ}し{詳|くわ}しくしたほうがいいよ」って{言|い}えるタイミングがあったのに。"
+        expression: determined
+      - type: sprite
+        character: yukina
+        action: hide
+
+  # ヒカリの真実（クライマックス）
+  - id: truth-hikari
+    bgm: geography-06/truth
+    steps:
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: center
+      - type: dialog
+        character: hikari
+        text: "……わたしのポスターが{間違|まちが}ってた。"
+      - type: narration
+        speed: slow
+        text: "ヒカリがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: hikari
+        text: "{漁港|ぎょこう}{見学|けんがく}に{行|い}った。{海|うみ}が{暖|あたた}かくて、{魚|さかな}がたくさん{獲|と}れるのを{見|み}た。「{黒潮|くろしお}が流れてるから{好漁場|こうぎょじょう}なんだ！」って{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: hikari
+        text: "でも{漁師|りょうし}さんが「{親潮|おやしお}がぶつかって{潮目|しおめ}ができて……」って{話|はな}してたのを{聞|き}き{逃|のが}しちゃった。メモにも「{親潮|おやしお}って何だろう？」って{書|か}いたのに、{調|しら}べなかった。"
+      - type: dialog
+        character: hikari
+        text: "{見|み}たことだけでポスターを{作|つく}った。{目|め}に{見|み}える{部分|ぶぶん}は{合|あ}ってたけど、{目|め}に{見|み}えない{仕組|しく}みを{飛|と}ばしちゃった。"
+        expression: worried
+      - type: dialog
+        character: hikari
+        text: "「{観察|かんさつ}した＝{理解|りかい}した」じゃなかった。{因果|いんが}の{途中|とちゅう}を{飛|と}ばしたら{推論|すいろん}が{間違|まちが}える。"
+        expression: determined
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ヒカリの{観察|かんさつ}は{正|ただ}しかった。でも「AとBが{同時|どうじ}にある」≠「AがBの{原因|げんいん}」。{因果|いんが}の{連鎖|れんさ}の{途中|とちゅう}を{飛|と}ばすと、{正|ただ}しい{観察|かんさつ}から{間違|まちが}った{推論|すいろん}が{生|う}まれる。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: geography-06/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったな。"
+      - type: dialog
+        character: sensei
+        text: "{好漁場|こうぎょじょう}ができるのは「{黒潮|くろしお}＋{親潮|おやしお} → {潮目|しおめ} → プランクトン → {魚|さかな}」という{因果|いんが}{連鎖|れんさ}があるから。{黒潮|くろしお}だけでは{説明|せつめい}できない。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{観察|かんさつ}は大切だ。でも「見たこと」と「{仕組|しく}み」は{別物|べつもの}。{因果|いんが}の{連鎖|れんさ}を1つずつたどって、{途中|とちゅう}を{飛|と}ばさないこと。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hikari
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikari
+        text: "「見た＝分かった」じゃない。{因果|いんが}の{連鎖|れんさ}を{最後|さいご}までたどる。{分|わ}からないことは「あとで」じゃなく「{今|いま}」{調|しら}べる。"
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ryou, expression: happy }
+          - { id: hikari, expression: happy }
+          - { id: gaku, expression: happy }
+          - { id: yukina, expression: happy }
+      - type: narration
+        text: "ヒカリのポスターは{正|ただ}しい{因果|いんが}{連鎖|れんさ}で作り{直|なお}された。「{黒潮|くろしお}＋{親潮|おやしお} → {潮目|しおめ} → プランクトン → {魚|さかな} → {好漁場|こうぎょじょう}」——{途中|とちゅう}を{飛|と}ばさない{完全|かんぜん}な{説明|せつめい}になった。"
+      - type: sprite
+        character: ryou
+        action: hide
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: gaku
+        action: hide
+      - type: sprite
+        character: yukina
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{観察|かんさつ}は{推論|すいろん}の{出発点|しゅっぱつてん}。でも{因果|いんが}の{連鎖|れんさ}を{途中|とちゅう}で{飛|と}ばすと、{正|ただ}しい{観察|かんさつ}から{間違|まちが}った{結論|けつろん}が{生|う}まれる——{最後|さいご}までたどることが大切だ。"
+      - type: narration
+        text: "{地図|ちず}{探偵団|たんていだん}——まちがいポスターと{海流|かいりゅう}のなぞ、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

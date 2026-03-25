@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 18:13
+- Add geography-05 game script: climate witness fake report mystery
+
 ## 2026-03-25 18:08
 - Add geography-04 game script: terrain alibi V-valley mystery
 
