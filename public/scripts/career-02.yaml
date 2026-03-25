@@ -1,0 +1,523 @@
+meta:
+  id: career-02
+  title: 届かない荷物
+  series: キャリア探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shocho:
+    name: 所長
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: office
+    bgm: career-02/opening
+    steps:
+      - type: narration
+        text: "{宅配便|たくはいびん}会社「はやぶさ{便|びん}」。{毎日|まいにち}たくさんの{荷物|にもつ}を、{正確|せいかく}にみんなの{家|いえ}に{届|とど}けている。"
+      - type: narration
+        text: "ところが{今日|きょう}、{困|こま}ったことが起きた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: career-02/phone
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: shocho
+        expression: normal
+        position: center
+      - type: bgm
+        track: career-02/investigation
+      - type: dialog
+        character: shocho
+        text: "さとうさんから「{頼|たの}んだ{荷物|にもつ}が{届|とど}いていない」とクレームの{電話|でんわ}だ！"
+        expression: thinking
+      - type: dialog
+        character: shocho
+        text: "{追跡|ついせき}番号で{確認|かくにん}したら、{配送|はいそう}センターには{入荷|にゅうか}済み。でも{配達|はいたつ}{完了|かんりょう}の{記録|きろく}がない。"
+      - type: dialog
+        character: shocho
+        text: "キャリア{探偵団|たんていだん}、{荷物|にもつ}が{届|とど}かなかった{原因|げんいん}を{調|しら}べてくれ！"
+        expression: normal
+      - type: sprite
+        character: shocho
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.2
+        subtitle: 届かない荷物
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: office
+    bgm: career-02/investigation
+    steps:
+      - type: narration
+        text: "{宅配|たくはい}の{仕事|しごと}の{流|なが}れ——{荷物|にもつ}が{届|とど}くまでに「{仕分|しわ}け→{担当|たんとう}エリアの{配達員|はいたついん}が持ち出し→{配達|はいたつ}」の{工程|こうてい}がある。それぞれの{担当者|たんとうしゃ}に話を{聞|き}こう。"
+      - type: sprite
+        character: mina
+        expression: normal
+        position: left
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。クレーム{対応|たいおう}{担当|たんとう}。さとうさんから{電話|でんわ}を{受|う}けたの。{荷物|にもつ}の{宛先|あてさき}は「さくら通り3{丁目|ちょうめ}」だよ。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: right
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。エリアAの{配達員|はいたついん}。みどり通りとかえで通りが{担当|たんとう}。{今日|きょう}も{棚|たな}Aの{荷物|にもつ}を{全部|ぜんぶ}{届|とど}けたよ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。エリアBの{配達員|はいたついん}！ さくら通りともみじ通りが{担当|たんとう}。{棚|たな}Bの{荷物|にもつ}は{全部|ぜんぶ}{届|とど}けたよ。"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。{仕分|しわ}け{担当|たんとう}。{荷物|にもつ}の{伝票|でんぴょう}を見て、エリアAかBかを{判断|はんだん}して{棚|たな}に入れるの。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: クレーム記録 =====
+  - id: evidence-1
+    bg: office
+    bgm: career-02/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: クレーム記録
+      - type: narration
+        text: "クレーム{受付|うけつけ}{記録|きろく}——"
+      - type: narration
+        text: "{受付|うけつけ}日時：{今日|きょう} 10:30　{担当|たんとう}：ミナ"
+      - type: narration
+        text: "お{客|きゃく}様：さとうさん　{宛先|あてさき}住所：さくら通り3{丁目|ちょうめ}"
+      - type: narration
+        text: "{内容|ないよう}：「{午前中|ごぜんちゅう}に{届|とど}くはずの{荷物|にもつ}が{届|とど}いていない」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{追跡|ついせき}番号で{確認|かくにん}→「{配送|はいそう}センター{入荷|にゅうか}済み」の{記録|きろく}あり。しかし「{配達|はいたつ}{完了|かんりょう}」の{記録|きろく}はない。"
+      - type: narration
+        text: "{荷物|にもつ}はセンターに{届|とど}いているのに、{配達|はいたつ}されていない——どこで止まった？"
+
+  # ===== 証拠カード2: エリア担当表 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: エリア担当表
+      - type: narration
+        text: "はやぶさ{便|びん} {担当|たんとう}エリア{一覧|いちらん}——"
+      - type: narration
+        text: "エリアA（ハルト{担当|たんとう}）：みどり通り{全丁目|ぜんちょうめ}、かえで通り{全丁目|ぜんちょうめ}"
+      - type: narration
+        text: "エリアB（ケイ{担当|たんとう}）：さくら通り{全丁目|ぜんちょうめ}、もみじ通り{全丁目|ぜんちょうめ}"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "さとうさんの住所「さくら通り3{丁目|ちょうめ}」は——エリアB、ケイの{担当|たんとう}だ。"
+      - type: narration
+        text: "{仕分|しわ}け{担当|たんとう}：サキ。{棚|たな}A（エリアA{用|よう}）と{棚|たな}B（エリアB{用|よう}）の2つの{棚|たな}がある。"
+
+  # ===== 証拠カード3: ケイの配達記録 =====
+  - id: evidence-3
+    bgm: career-02/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: ケイの配達記録
+      - type: narration
+        text: "ケイの{配達|はいたつ}{記録|きろく}（{本日|ほんじつ}）——"
+      - type: narration
+        text: "{出発|しゅっぱつ}：9:15　{担当|たんとう}：エリアB（{棚|たな}Bから持ち出した{荷物|にもつ}を{全|すべ}て{配達|はいたつ}）"
+      - type: narration
+        text: "もみじ通り1{丁目|ちょうめ} ×1{件|けん}、もみじ通り3{丁目|ちょうめ} ×2{件|けん}"
+      - type: narration
+        text: "さくら通り1{丁目|ちょうめ} ×1{件|けん}、さくら通り2{丁目|ちょうめ} ×1{件|けん}"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "さくら通り3{丁目|ちょうめ}（さとうさん{宅|たく}）は{棚|たな}Bになかったので{配達|はいたつ}リストになし。"
+      - type: narration
+        text: "ケイは{棚|たな}Bの{荷物|にもつ}を{全部|ぜんぶ}{配達|はいたつ}した。でもさとうさんの{荷物|にもつ}は{棚|たな}Bに入っていなかった——{荷物|にもつ}はどこへ？"
+
+  # ===== 証拠カード4: ハルトの配達記録 =====
+  - id: evidence-4
+    bgm: career-02/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: ハルトの配達記録
+      - type: narration
+        text: "ハルトの{配達|はいたつ}{記録|きろく}（{本日|ほんじつ}）——"
+      - type: narration
+        text: "{出発|しゅっぱつ}：9:15　{担当|たんとう}：エリアA（{棚|たな}Aから持ち出した{荷物|にもつ}を{全|すべ}て{配達|はいたつ}）"
+      - type: narration
+        text: "みどり通り1{丁目|ちょうめ} ×2{件|けん}、みどり通り2{丁目|ちょうめ} ×1{件|けん}"
+      - type: narration
+        text: "かえで通り1{丁目|ちょうめ} ×1{件|けん}"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "その{他|ほか}に「さくら通り3{丁目|ちょうめ}」の{荷物|にもつ}があったが、「エリアAではないはず」と{思|おも}い、持って行かなかった。"
+      - type: narration
+        text: "さとうさんの{荷物|にもつ}は{棚|たな}Aに入っていた！ エリアBの{荷物|にもつ}なのになぜ{棚|たな}Aに？ {仕分|しわ}けで{間違|まちが}いが起きた？"
+
+  # ===== 証拠カード5: サキの仕分けメモ（反転） =====
+  - id: evidence-5
+    bgm: career-02/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: サキの仕分けメモ
+      - type: sprite
+        character: shocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: shocho
+        text: "サキ、{仕分|しわ}けのとき{作業|さぎょう}{記録|きろく}をつけていたね。見せてもらえるか？"
+      - type: sprite
+        character: shocho
+        action: hide
+      - type: sprite
+        character: saki
+        expression: worried
+        position: center
+      - type: dialog
+        character: saki
+        text: "……はい。これが{仕分|しわ}けメモです。"
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "{仕分|しわ}けメモ（{本日|ほんじつ}の{作業|さぎょう}{記録|きろく}）——"
+      - type: narration
+        text: "{作業者|さぎょうしゃ}：サキ　{完了|かんりょう}時刻：9:00"
+      - type: narration
+        text: "もみじ通り1{丁目|ちょうめ} → {棚|たな}B ✓"
+      - type: narration
+        text: "みどり通り2{丁目|ちょうめ} → {棚|たな}A ✓"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "さくら通り3{丁目|ちょうめ}（さとうさん{宅|たく}）→ {棚|たな}A ← ★{間違|まちが}い！（正しくは{棚|たな}B）"
+      - type: narration
+        text: "かえで通り1{丁目|ちょうめ} → {棚|たな}A ✓"
+      - type: narration
+        text: "さくら通り1{丁目|ちょうめ} → {棚|たな}B ✓"
+      - type: narration
+        text: "「さくら通り」の{荷物|にもつ}の中で、3{丁目|ちょうめ}だけ{棚|たな}Aに入れてしまっている。サキが{仕分|しわ}けを{間違|まちが}えた{証拠|しょうこ}だ。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: office
+    bgm: career-02/tension
+    steps:
+      - type: sprite
+        character: shocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: shocho
+        text: "{荷物|にもつ}が{届|とど}かなかったのは、{誰|だれ}がどの{工程|こうてい}でミスをしたから？ みんなの{考|かんが}えを{聞|き}かせてくれ。"
+      - type: sprite
+        character: shocho
+        action: hide
+      - type: choice
+        id: q1
+        question: 荷物が届かなかった原因は誰のミス？
+        options:
+          - text: ハルト（棚Aにあった荷物を持って行かなかった）
+            value: haruto
+            feedback: ハルトは「エリアAではない」と判断して持って行かなかった。判断は正しいけれど、声を上げなかった後ろめたさはある。
+          - text: ミナ（クレーム対応が遅かった）
+            value: mina
+            feedback: ミナはクレーム対応担当で、仕分けや配達には関わっていない。ミナのミスではないよ。
+          - text: ケイ（棚Bに荷物がないのに確認しなかった）
+            value: kei
+            feedback: ケイは棚Bにないことに気づいたけど確認しなかった。でも根本の原因は仕分けのミスだよ。
+          - text: サキ（仕分けのとき棚を間違えた）
+            value: saki
+            feedback: 正解！ サキが住所を最後まで確認せず、さくら通り3丁目をエリアAの棚に入れたのが根本の原因。
+      - type: choice
+        id: q2
+        question: サキだけが悪い？ 他のメンバーの責任は？
+        options:
+          - text: サキだけが悪い。仕分けミスが全ての原因
+            value: saki-only
+            feedback: 確かに根本原因はサキの仕分けミス。でもハルトもケイも「変だな」と気づいていたのに声を上げなかった。
+          - text: みんな少し責任がある。気づいた人が声を上げるべきだった
+            value: everyone
+            feedback: そうだね。ハルトは棚Aに変な荷物があると気づき、ケイは棚Bに荷物がないと気づいた。声を上げていれば防げた。
+          - text: 仕組みの問題。1人で仕分けする体制が悪い
+            value: system
+            feedback: するどい！ 1人で仕分けする体制だとミスに気づきにくい。ダブルチェックの仕組みがあれば安全だね。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: office
+    bgm: career-02/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 住所を最後まで読まなかった
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: office
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼく、{出発前|しゅっぱつまえ}に{棚|たな}Aの{荷物|にもつ}を{確認|かくにん}したとき、「さくら通り3{丁目|ちょうめ}」の{荷物|にもつ}があったんだ。"
+      - type: dialog
+        character: haruto
+        text: "「さくら通りはエリアBじゃなかったっけ？」って{一瞬|いっしゅん}思った。でも「{棚|たな}Aに{置|お}いてあるから{担当|たんとう}{範囲|はんい}が変わったのかも」って思ってそのまま。"
+        expression: determined
+      - type: dialog
+        character: haruto
+        text: "あとでエリアBの{棚|たな}に{移|うつ}そうと思って……{忘|わす}れちゃった。{声|こえ}を上げていれば{防|ふせ}げたかもしれない。"
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ミナの秘密
+  - id: truth-mina
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: right
+      - type: dialog
+        character: mina
+        text: "さとうさん、{電話|でんわ}で「{今日届|きょうとど}かないと{困|こま}る。子どもが{待|ま}っているのに」って泣きそうな{声|こえ}だったの。"
+      - type: dialog
+        character: mina
+        text: "とても{申|もう}し{訳|わけ}なくて。もっと早く{原因|げんいん}を{調|しら}べていれば、さとうさんを{待|ま}たせなかったのに。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれ、{棚|たな}Bに「さとうさん{宅|たく}」の{荷物|にもつ}がないことに気づいてた。エリアBの{担当|たんとう}なのに{棚|たな}Bにないのは変だって。"
+      - type: dialog
+        character: kei
+        text: "でも「{仕分|しわ}け{担当|たんとう}のサキが{確認|かくにん}してるはず」って思って、何も言わなかった。"
+        expression: determined
+      - type: dialog
+        character: kei
+        text: "……正直に言うと、自分の{棚|たな}にない{荷物|にもつ}を{探|さが}すのが{面倒|めんどう}だったのもある。{声|こえ}をかけていれば……。"
+      - type: sprite
+        character: kei
+        action: hide
+
+  # サキの告白（クライマックス）
+  - id: truth-saki
+    bgm: career-02/truth
+    steps:
+      - type: sprite
+        character: saki
+        expression: worried
+        position: center
+      - type: dialog
+        character: saki
+        text: "……わたしのミスです。さとうさんの{荷物|にもつ}、{棚|たな}Bに入れるべきだったのに、{棚|たな}Aに入れちゃった。"
+      - type: narration
+        speed: slow
+        text: "サキがゆっくり話し{始|はじ}めた。"
+      - type: dialog
+        character: saki
+        text: "{今朝|けさ}、32個の{荷物|にもつ}を{仕分|しわ}けていて、「さくら通り3{丁目|ちょうめ}」の{伝票|でんぴょう}を見たとき、住所を{途中|とちゅう}までしか読まなかったの。"
+        expression: worried
+      - type: dialog
+        character: saki
+        text: "「さくら……」と見て、「さくら通り」と「みどり通り」の{区分|くぶん}を{混同|こんどう}しちゃって、エリアAの{棚|たな}に入れてしまった。"
+      - type: dialog
+        character: saki
+        text: "「さくら通り1{丁目|ちょうめ}」はちゃんと{棚|たな}Bに入れてるのに、3{丁目|ちょうめ}だけ{間違|まちが}えた。{集中|しゅうちゅう}が{切|き}れてたのかもしれない。"
+        expression: worried
+      - type: dialog
+        character: saki
+        text: "{悪気|わるぎ}はなかった。でも{確認|かくにん}しなかったのはわたしの{責任|せきにん}。さとうさんに{申|もう}し{訳|わけ}ない。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        speed: slow
+        text: "サキに{悪意|あくい}はなかった。住所を{最後|さいご}まで{確認|かくにん}しなかった——これは{仕分|しわ}けの{仕事|しごと}でよくあるミスパターンだ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: office
+    bgm: career-02/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: shocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: shocho
+        text: "{今回|こんかい}の{事件|じけん}で分かったことがあるね。"
+      - type: dialog
+        character: shocho
+        text: "{宅配|たくはい}の{仕事|しごと}には「{仕分|しわ}け→エリア{別|べつ}の持ち出し→{配達|はいたつ}」の{流|なが}れがある。{仕分|しわ}けの{正確|せいかく}さが{全|すべ}ての{配達|はいたつ}の{基盤|きばん}だ。"
+        expression: normal
+      - type: dialog
+        character: shocho
+        text: "そして大事なこと——ハルトもケイも「{変|へん}だな」と{思|おも}ったのに{声|こえ}を上げなかった。1人のミスに気づいた人が{声|こえ}をかけていれば{防|ふせ}げた。"
+        expression: thinking
+      - type: sprite
+        character: shocho
+        action: hide
+      - type: sprite
+        character: saki
+        expression: determined
+        position: left
+      - type: dialog
+        character: saki
+        text: "次からは住所を{最後|さいご}まで読む。「さくら通り……3{丁目|ちょうめ}！」って{声|こえ}に出して{確認|かくにん}する。"
+      - type: sprite
+        character: saki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "さとうさんの{荷物|にもつ}は{棚|たな}Aに{残|のこ}っていたので、すぐに{届|とど}けられた。子どもが{待|ま}っていた{荷物|にもつ}は、ちゃんと{届|とど}いた。"
+      - type: narration
+        speed: slow
+        text: "{仕分|しわ}けの{正確|せいかく}さが{全|すべ}ての{出発点|しゅっぱつてん}。そして「{変|へん}だな」と{思|おも}ったら{声|こえ}を上げる——チームで{確認|かくにん}し{合|あ}うことが、ミスを{防|ふせ}ぐ{一番|いちばん}の{方法|ほうほう}だ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——{届|とど}かない{荷物|にもつ}の{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
