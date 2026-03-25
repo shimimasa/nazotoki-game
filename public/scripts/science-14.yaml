@@ -1,0 +1,387 @@
+meta:
+  id: science-14
+  title: 停電した理科室の密室
+  series: サイエンス捜査班
+  volume: 14
+  estimatedMinutes: 22
+
+characters:
+  sora:
+    name: ソラ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-d-normal.webp
+      happy: girl-d-happy.webp
+      thinking: girl-d-thinking.webp
+      worried: girl-d-worried.webp
+      surprised: girl-d-surprised.webp
+      determined: girl-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minato:
+    name: ミナト
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  yuu:
+    name: ユウ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: science-lab
+    bgm: science-14/opening
+    steps:
+      - type: narration
+        text: "「{電気|でんき}の{利用|りよう}」の{実験|じっけん}が{終|お}わり、4{人|にん}が{実験|じっけん}{器具|きぐ}を{準備室|じゅんびしつ}に{片付|かたづ}けて{鍵|かぎ}をかけた。"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: surprised }
+          - { id: hina, expression: thinking }
+          - { id: minato, expression: worried }
+          - { id: yuu, expression: surprised }
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{翌朝|よくあさ}、{鍵|かぎ}のかかった{準備室|じゅんびしつ}を{開|あ}けると——ブレーカーが{落|お}ちて{真|ま}っ{暗|くら}。{豆電球|まめでんきゅう}セットが{焼|や}き{切|き}れ、{配線|はいせん}がぐちゃぐちゃ。そして{先生|せんせい}のテスト{答案|とうあん}が1{枚|まい}なくなっていた。"
+      - type: narration
+        text: "{鍵|かぎ}は{先生|せんせい}と{理科係|りかがかり}の2{人|にん}しか{持|も}っていない。{密室|みっしつ}で{何|なに}が{起|お}きた？"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: hina
+        action: hide
+      - type: sprite
+        id: minato
+        action: hide
+      - type: sprite
+        id: yuu
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-14/tension
+      - type: dialog
+        character: sensei
+        text: "{電気|でんき}の{知識|ちしき}を{使|つか}って、{密室|みっしつ}の{準備室|じゅんびしつ}で{何|なに}が{起|お}きたかを{解明|かいめい}してください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "停電した理科室の密室"
+        subtitle: "サイエンス捜査班 Vol.14"
+
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-14/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 3つの回路"
+      - type: narration
+        text: "{電気回路|でんきかいろ}には3つの{種類|しゅるい}がある。{直列回路|ちょくれつかいろ}（{豆電球|まめでんきゅう}を1{列|れつ}につなぐ・{安全|あんぜん}）。{並列回路|へいれつかいろ}（{枝分|えだわ}かれさせてつなぐ・{安全|あんぜん}）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ショート{回路|かいろ}（{豆電球|まめでんきゅう}を{通|とお}さず{導線|どうせん}だけでつなぐ・{危険|きけん}！）——{抵抗|ていこう}がほぼゼロ→{大電流|だいでんりゅう}→{発熱|はつねつ}→ブレーカーが{落|お}ちる！"
+
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 現場検証"
+      - type: narration
+        text: "{準備室|じゅんびしつ}の{状態|じょうたい}——ブレーカー{落下|らっか}、{導線|どうせん}が{黒|くろ}く{焦|こ}げている、{豆電球|まめでんきゅう}のフィラメントが{焼|や}き{切|き}れている、{電池|でんち}が{異常|いじょう}に{発熱|はつねつ}した{跡|あと}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "テスト{答案|とうあん}の{束|たば}から1{枚|まい}{足|た}りない。{名前|なまえ}の{順番|じゅんばん}から{推測|すいそく}すると——ミナトの{答案|とうあん}。{床|ゆか}に{小|ちい}さな{紙切|かみき}れも{落|お}ちていた。{導線|どうせん}が{焦|こ}げるほどの{大電流|だいでんりゅう}……{正|ただ}しい{回路|かいろ}ではこうならない。ショート{回路|かいろ}では？"
+
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 鍵の管理"
+      - type: narration
+        text: "{準備室|じゅんびしつ}の{鍵|かぎ}——{先生|せんせい}の{鍵|かぎ}は{職員室|しょくいんしつ}のカギ{入|い}れにあった（{使|つか}われた{形跡|けいせき}なし）。{合鍵|あいかぎ}はミナト（{理科係|りかがかり}）が{持|も}っている。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{準備室|じゅんびしつ}のブレーカーは{準備室|じゅんびしつ}の{中|なか}の{回路|かいろ}にしか{反応|はんのう}しない。{外|そと}からの{操作|そうさ}ではブレーカーは{落|お}とせない。つまり{犯人|はんにん}は{中|なか}にいた。16:20{以降|いこう}に{入|はい}れたのは{合鍵|あいかぎ}を{持|も}つ{人|ひと}だけ。"
+
+  - id: evidence-4
+    bg: science-lab
+    bgm: science-14/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — アリバイと目撃"
+      - type: narration
+        text: "{全員|ぜんいん}16:20に{理科室|りかしつ}を{出|で}た。ソラ・ヒナ・ユウはまっすぐ{帰宅|きたく}。ミナトは「すぐ{帰|かえ}った」と{言|い}っている。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "しかしユウが16:30ごろ、ミナトが{学校|がっこう}に{戻|もど}っていくのを{目撃|もくげき}。タイマー{仮説|かせつ}も{検証|けんしょう}——ショート{回路|かいろ}は{一瞬|いっしゅん}で{起|お}きる。{時間差|じかんさ}をつける{仕組|しく}みがない。{外|そと}からの{操作|そうさ}は{電気|でんき}の{原理|げんり}上{不可能|ふかのう}。"
+
+  - id: testimony
+    bg: science-lab
+    bgm: science-14/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: sora
+        position: left
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "{準備室|じゅんびしつ}を{調|しら}べたの。{導線|どうせん}が{黒|くろ}く{焦|こ}げてて、{床|ゆか}に{紙切|かみき}れも{落|お}ちてた。ショート{回路|かいろ}の{跡|あと}だと{思|おも}う。"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: hina
+        position: right
+        expression: thinking
+      - type: dialog
+        character: hina
+        text: "{導線|どうせん}の{焦|こ}げ、フィラメントの{焼|や}き{切|き}れ、{電池|でんち}の{発熱|はつねつ}——3つ{全部|ぜんぶ}「{大電流|だいでんりゅう}」を{指|さ}してる。ショート{回路|かいろ}に{間違|まちが}いない。ミナトがテストの{点数|てんすう}を{気|き}にしてたのも{知|し}ってる。"
+      - type: sprite
+        id: hina
+        action: hide
+      - type: sprite
+        id: minato
+        position: left
+        expression: normal
+      - type: dialog
+        character: minato
+        text: "16:20に{鍵|かぎ}をかけてすぐ{帰|かえ}ったぜ。{準備室|じゅんびしつ}には{戻|もど}ってない。{答案|とうあん}なんて{知|し}らない。"
+      - type: sprite
+        id: minato
+        action: hide
+      - type: sprite
+        id: yuu
+        position: right
+        expression: worried
+      - type: dialog
+        character: yuu
+        text: "ぼく、16:30ごろに{通学路|つうがくろ}でミナトを{見|み}たんだ。{学校|がっこう}の{方|ほう}に{戻|もど}っていくみたいだった。{先生|せんせい}の{鍵|かぎ}は{職員室|しょくいんしつ}にあったから{使|つか}われてない。{合鍵|あいかぎ}を{持|も}ってるのはミナトだけ。"
+      - type: sprite
+        id: yuu
+        action: hide
+
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-14/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 帰納法で密室を解く"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{帰納法|きのうほう}——バラバラの{手|て}がかりから{共通点|きょうつうてん}を{見|み}つけ{出|だ}す{推理|すいり}。{導線|どうせん}の{焦|こ}げ＋フィラメント{焼|や}き{切|き}れ＋{電池|でんち}{発熱|はつねつ}——{共通点|きょうつうてん}は「{大電流|だいでんりゅう}」。すべてがショート{回路|かいろ}を{指|さ}している。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{密室|みっしつ}の{解明|かいめい}——{準備室|じゅんびしつ}は{鍵|かぎ}がかかっていた。{先生|せんせい}の{鍵|かぎ}は{未使用|みしよう}。{合鍵|あいかぎ}はミナトだけ。ブレーカーは{中|なか}の{回路|かいろ}でしか{落|お}ちない。{外|そと}からの{操作|そうさ}は{電気|でんき}の{原理|げんり}上{不可能|ふかのう}。"
+      - type: narration
+        text: "{行動|こうどう}の{証拠|しょうこ}——ユウが16:30にミナトが{学校|がっこう}に{戻|もど}るのを{目撃|もくげき}。なくなった{答案|とうあん}はミナトの{分|ぶん}。ミナトに{動機|どうき}あり。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{帰納法|きのうほう}ですべての{手|て}がかりがミナトを{指|さ}している。16:30に{合鍵|あいかぎ}で{準備室|じゅんびしつ}に{入|はい}り、{暗|くら}い{中|なか}で{豆電球|まめでんきゅう}セットを{使|つか}おうとしてショート{回路|かいろ}を{起|お}こした。パニックになり{答案|とうあん}を{抜|ぬ}き{取|と}って{逃|に}げた。"
+
+  - id: questions
+    bg: science-lab
+    bgm: science-14/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "ブレーカーが{落|お}ちた{原因|げんいん}は？"
+        options:
+          - text: "停電"
+            feedback: "{理科室|りかしつ}の{電気|でんき}は{正常|せいじょう}だった。{準備室|じゅんびしつ}だけのブレーカーが{落|お}ちたのは、{中|なか}でショート{回路|かいろ}が{起|お}きたから。"
+          - text: "ショート回路で大電流が流れた"
+            feedback: "そのとおり！ {豆電球|まめでんきゅう}を{通|とお}さず{導線|どうせん}だけで{電池|でんち}をつないだショート{回路|かいろ}。{大電流|だいでんりゅう}でブレーカーが{作動|さどう}した。"
+          - text: "外から操作された"
+            feedback: "{準備室|じゅんびしつ}のブレーカーは{中|なか}の{回路|かいろ}にしか{反応|はんのう}しない。ショート{回路|かいろ}は{一瞬|いっしゅん}で{起|お}きるから{外|そと}からは{不可能|ふかのう}。"
+      - type: choice
+        id: q2
+        text: "{密室|みっしつ}の{準備室|じゅんびしつ}に{入|はい}った{犯人|はんにん}は？"
+        options:
+          - text: "ソラ"
+            feedback: "ソラは{合鍵|あいかぎ}を{持|も}っていないし、まっすぐ{帰宅|きたく}した。{準備室|じゅんびしつ}には{入|はい}れないよ。"
+          - text: "ヒナ"
+            feedback: "ヒナも{合鍵|あいかぎ}を{持|も}っていないし、まっすぐ{帰宅|きたく}。{回路|かいろ}の{分析|ぶんせき}でショート{回路|かいろ}を{見|み}ぬいた{証人|しょうにん}だよ。"
+          - text: "ミナト"
+            feedback: "{合鍵|あいかぎ}を{持|も}つ{唯一|ゆいいつ}の{生徒|せいと}。ユウに16:30に{学校|がっこう}に{戻|もど}るのを{目撃|もくげき}された。なくなった{答案|とうあん}もミナトの{分|ぶん}。すべてがミナトを{指|さ}している。"
+          - text: "ユウ"
+            feedback: "ユウは{合鍵|あいかぎ}を{持|も}っていないし、まっすぐ{帰宅|きたく}。ミナトの{目撃|もくげき}{証人|しょうにん}だよ。"
+
+  - id: truth-minato
+    bg: science-lab
+    bgm: science-14/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: narration
+        speed: slow
+        text: "{密室|みっしつ}の{準備室|じゅんびしつ}に{入|はい}ったのは——ミナトだった。"
+      - type: sprite
+        id: minato
+        position: center
+        expression: worried
+      - type: dialog
+        character: minato
+        text: "テストで1{問|もん}だけ{間違|まちが}えた。いつも{満点|まんてん}だったのに。それが{許|ゆる}せなくて、{答案|とうあん}を{書|か}き{直|なお}して{戻|もど}そうとしたんだ。"
+      - type: dialog
+        character: minato
+        expression: worried
+        text: "16:30に{合鍵|あいかぎ}で{準備室|じゅんびしつ}に{入|はい}った。{暗|くら}かったから{豆電球|まめでんきゅう}セットで{明|あ}かりをつけようとしたけど、{焦|あせ}って{回路|かいろ}を{間違|まちが}えた。{導線|どうせん}だけで{電池|でんち}をつないじゃって——バチッ！ って{音|おと}がしてブレーカーが{落|お}ちた。"
+      - type: dialog
+        character: minato
+        text: "パニックになって{答案|とうあん}を{抜|ぬ}き{取|と}って{逃|に}げた。1{問|もん}のミスが{悔|くや}しくて、こんなことしてしまった。テストで100{点|てん}じゃなくても、こんなことするほうがずっとダメだった……ごめん。"
+      - type: sprite
+        id: minato
+        action: hide
+
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなが{知|し}っていたことも{明|あ}かされた。"
+      - type: sprite
+        id: sora
+        position: left
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "{導線|どうせん}の{焦|こ}げ{跡|あと}と{床|ゆか}の{紙切|かみき}れを{見|み}つけた。ショート{回路|かいろ}の{証拠|しょうこ}と{答案|とうあん}を{暗闇|くらやみ}で{扱|あつか}った{痕跡|こんせき}だったんだね。"
+      - type: sprite
+        id: sora
+        action: hide
+      - type: sprite
+        id: hina
+        position: right
+        expression: determined
+      - type: dialog
+        character: hina
+        text: "{導線|どうせん}の{焦|こ}げ、フィラメントの{焼|や}き{切|き}れ、{電池|でんち}の{発熱|はつねつ}——{帰納法|きのうほう}で3つ{全部|ぜんぶ}が「ショート{回路|かいろ}」を{指|さ}していた。ミナトがテストの{点数|てんすう}を{気|き}にしてたのも{知|し}ってたわ。"
+      - type: sprite
+        id: hina
+        action: hide
+      - type: sprite
+        id: yuu
+        position: left
+        expression: thinking
+      - type: dialog
+        character: yuu
+        text: "16:30にミナトが{学校|がっこう}に{戻|もど}っていくのを{見|み}たんだ。「すぐ{帰|かえ}った」は{嘘|うそ}だった。{先生|せんせい}の{鍵|かぎ}が{職員室|しょくいんしつ}にあったことも{確認|かくにん}した。{合鍵|あいかぎ}はミナトだけ。"
+      - type: sprite
+        id: yuu
+        action: hide
+
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{直列回路|ちょくれつかいろ}・{並列回路|へいれつかいろ}は{安全|あんぜん}な{回路|かいろ}。ショート{回路|かいろ}は{豆電球|まめでんきゅう}を{通|とお}さないから{大電流|だいでんりゅう}が{流|なが}れて{危険|きけん}。ブレーカーは{安全装置|あんぜんそうち}として{電気|でんき}を{止|と}めてくれます。"
+      - type: dialog
+        character: sensei
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{帰納法|きのうほう}でバラバラの{手|て}がかりから{共通点|きょうつうてん}を{見|み}つけましたね。{導線|どうせん}の{焦|こ}げも、フィラメントの{焼|や}き{切|き}れも、{電池|でんち}の{発熱|はつねつ}も——{全部|ぜんぶ}「ショート{回路|かいろ}」を{指|さ}していた。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "テストの1{問|もん}ミスは{恥|は}ずかしいことじゃありません。{間違|まちが}いから{学|まな}ぶことが{大切|たいせつ}。ミナトの「{完璧|かんぺき}でなきゃダメ」という{気持|きも}ちは{分|わ}かるけど、{方法|ほうほう}が{間違|まちが}っていましたね。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  - id: epilogue
+    bg: science-lab
+    bgm: science-14/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: minato
+        position: left
+        expression: worried
+      - type: dialog
+        character: minato
+        text: "ごめん。{答案|とうあん}は{返|かえ}す。1{問|もん}{間違|まちが}えたくらいで、こんなことするべきじゃなかった。"
+      - type: sprite
+        id: minato
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。テストは{月曜日|げつようび}に{返|かえ}すつもりだったんだけどね。{間違|まちが}えたところを{一緒|いっしょ}に{復習|ふくしゅう}しましょう。{失敗|しっぱい}は{成長|せいちょう}のチャンスですよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "ショート{回路|かいろ}が{暴|あば}いた{密室|みっしつ}の{真実|しんじつ}。{電気|でんき}の{知識|ちしき}が{鍵|かぎ}のかかった{部屋|へや}のなぞを{解|と}いた。"
+      - type: effect
+        name: fade-out
