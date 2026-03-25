@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 18:08
+- Add geography-04 game script: terrain alibi V-valley mystery
+
 ## 2026-03-25 18:01
 - Add geography-03 game script: hazard map evacuation route mystery
 
