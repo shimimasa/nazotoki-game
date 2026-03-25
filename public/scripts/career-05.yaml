@@ -1,0 +1,517 @@
+meta:
+  id: career-05
+  title: 工場のキズ
+  series: キャリア探偵団
+  volume: 5
+  estimatedMinutes: 22
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kojocho:
+    name: 工場長
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: office
+    bgm: career-05/opening
+    steps:
+      - type: narration
+        text: "「みどり{工場|こうじょう}」。おもちゃを作って、{検品|けんぴん}して、お{客|きゃく}さんに{届|とど}ける{工場|こうじょう}だ。"
+      - type: narration
+        text: "ところが{今日|きょう}、お{客|きゃく}さんから{困|こま}った{連絡|れんらく}が来た。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: kojocho
+        expression: normal
+        position: center
+      - type: bgm
+        track: career-05/investigation
+      - type: dialog
+        character: kojocho
+        text: "お{客|きゃく}さんから「{箱|はこ}の中に{傷|きず}のあるおもちゃが3個入っていた」というクレームだ。"
+        expression: thinking
+      - type: dialog
+        character: kojocho
+        text: "{検品|けんぴん}{記録|きろく}には「{全品|ぜんぴん}{検査|けんさ}{完了|かんりょう}」と書いてある。なぜ{検査|けんさ}済みなのに{傷物|きずもの}が{出荷|しゅっか}された？"
+      - type: dialog
+        character: kojocho
+        text: "キャリア{探偵団|たんていだん}、何が起きたのか{調|しら}べてくれ！"
+        expression: normal
+      - type: sprite
+        character: kojocho
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.5
+        subtitle: 工場のキズ
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: office
+    bgm: career-05/investigation
+    steps:
+      - type: narration
+        text: "{工場|こうじょう}の{仕事|しごと}の{流|なが}れ——{原材料|げんざいりょう}→{製造|せいぞう}→{検品|けんぴん}→{出荷|しゅっか}。それぞれの{担当者|たんとうしゃ}に話を{聞|き}こう。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。{品質|ひんしつ}{管理|かんり}{担当|たんとう}で、{検品|けんぴん}{記録|きろく}を{全|すべ}て{管理|かんり}してる。先週の{記録|きろく}には「{不合格品|ふごうかくひん}なし」って書いてあるんだ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。クレーム{対応|たいおう}{担当|たんとう}。{今日|きょう}お{客|きゃく}さんから{電話|でんわ}を{受|う}けたの。「プレゼント{用|よう}に{買|か}ったのに{傷|きず}があってがっかりした」って。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。先週の{検品|けんぴん}{担当|たんとう}。{製品|せいひん}を1つずつ{確認|かくにん}して、{傷|きず}がないかチェックしたよ。"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。{出荷|しゅっか}{担当|たんとう}。{検品|けんぴん}済みの{製品|せいひん}を{箱|はこ}に入れて送り出す{仕事|しごと}。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 検品記録 =====
+  - id: evidence-1
+    bg: office
+    bgm: career-05/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 検品記録
+      - type: narration
+        text: "みどり{工場|こうじょう} {検品|けんぴん}{記録|きろく}——"
+      - type: narration
+        text: "日付：先週{月曜日|げつようび}　{担当者|たんとうしゃ}：ケイ"
+      - type: narration
+        text: "{検品|けんぴん}数：50個　{不合格品|ふごうかくひん}：0個"
+      - type: narration
+        text: "{完了|かんりょう}印：ケイ ✓"
+      - type: narration
+        text: "{品質|ひんしつ}{基準|きじゅん}：{傷|きず}の{深|ふか}さ0.5mm{以上|いじょう}はNG品"
+      - type: narration
+        text: "{記録|きろく}では「{全品|ぜんぴん}{検査|けんさ}{完了|かんりょう}・{不合格品|ふごうかくひん}なし」。でもお{客|きゃく}さんに{傷物|きずもの}が{届|とど}いている——なぜ？"
+
+  # ===== 証拠カード2: 返品品の検査報告 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 返品品の検査報告
+      - type: narration
+        text: "{返品|へんぴん}品 {検査|けんさ}{報告|ほうこく}——"
+      - type: narration
+        text: "{返品|へんぴん}数：3個"
+      - type: narration
+        text: "{製品|せいひん}A：{表面|ひょうめん}に{約|やく}1.2mmの{傷|きず}（NG{基準|きじゅん}{超|こ}え）"
+      - type: narration
+        text: "{製品|せいひん}B：{表面|ひょうめん}に{約|やく}0.9mmの{傷|きず}（NG{基準|きじゅん}{超|こ}え）"
+      - type: narration
+        text: "{製品|せいひん}C：{表面|ひょうめん}に{約|やく}0.7mmの{傷|きず}（NG{基準|きじゅん}{超|こ}え）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{特記|とっき}{事項|じこう}：3個とも「{磨|みが}いたような{跡|あと}」がある。"
+      - type: narration
+        text: "3個とも0.5mm{以上|いじょう}の{傷|きず}で明らかなNG品。しかも「{磨|みが}いた{跡|あと}」？ {誰|だれ}かが{磨|みが}こうとした？"
+
+  # ===== 証拠カード3: 工場の仕事の流れ =====
+  - id: evidence-3
+    bgm: career-05/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 工場の仕事の流れ
+      - type: narration
+        text: "みどり{工場|こうじょう} {製造|せいぞう}ラインの{手順|てじゅん}——"
+      - type: narration
+        text: "1. {原材料|げんざいりょう}の{受|う}け入れチェック"
+      - type: narration
+        text: "2. {製造|せいぞう}・{加工|かこう}"
+      - type: narration
+        text: "3. {検品|けんぴん}（1個ずつ{確認|かくにん}）← ここで{傷|きず}・{不良|ふりょう}を{発見|はっけん}する"
+      - type: narration
+        text: "4. {合格品|ごうかくひん} → {出荷|しゅっか}{準備|じゅんび}　NG品 → {上司|じょうし}に{報告|ほうこく} → {再加工|さいかこう} or {廃棄|はいき}"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "★「NG品が出たら{必|かなら}ず{報告|ほうこく}する」がルール。★「1人で{判断|はんだん}して{再加工|さいかこう}」は{禁止|きんし}。"
+
+  # ===== 証拠カード4: 出荷伝票 =====
+  - id: evidence-4
+    bgm: career-05/experiment
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 出荷伝票
+      - type: narration
+        text: "{出荷|しゅっか}{伝票|でんぴょう}——"
+      - type: narration
+        text: "{出荷|しゅっか}日：先週{月曜日|げつようび}（{午後|ごご}）　{出荷|しゅっか}数：50個"
+      - type: narration
+        text: "{担当者|たんとうしゃ}：サキ　{検品|けんぴん}済みラベル：{全品|ぜんぴん}{確認|かくにん}済み ✓"
+      - type: narration
+        text: "{検品|けんぴん}{記録|きろく}の{完成品|かんせいひん}数50個と{出荷|しゅっか}数50個は{一致|いっち}。数は{合|あ}っている——{問題|もんだい}はその「中身」だ。"
+
+  # ===== 追加HO: ケイの個人メモ =====
+  - id: evidence-6
+    bgm: career-05/tension
+    steps:
+      - type: title_card
+        text: 追加証拠
+        subtitle: ケイの個人メモ
+      - type: narration
+        text: "{倉庫|そうこ}の{隅|すみ}で見つかったメモ——"
+      - type: narration
+        text: "「{製品|せいひん}13番・27番・41番："
+      - type: narration
+        text: "{傷|きず}があって{迷|まよ}った。"
+      - type: narration
+        text: "{磨|みが}けばキレイになるかも？"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{倉庫|そうこ}の{奥|おく}で少し{磨|みが}いてみたが、かえって{傷|きず}が{広|ひろ}がった気がする……どうしよう。」"
+      - type: narration
+        text: "ケイが{検品|けんぴん}中に{傷|きず}のある{製品|せいひん}を見つけ、{報告|ほうこく}せずに1人で{磨|みが}こうとしていた{証拠|しょうこ}だ。"
+
+  # ===== 証拠カード5: 品質方針メモ（反転） =====
+  - id: evidence-5
+    bgm: career-05/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 工場長の品質方針
+      - type: sprite
+        character: kojocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kojocho
+        text: "うちの{工場|こうじょう}にはこの{方針|ほうしん}がある。なぜ「1人{判断|はんだん}の{再加工|さいかこう}」が{禁止|きんし}なのか、{理由|りゆう}を{知|し}ってほしい。"
+      - type: sprite
+        character: kojocho
+        action: hide
+      - type: narration
+        text: "{品質|ひんしつ}{方針|ほうしん}メモ——"
+      - type: narration
+        text: "・{傷|きず}を{磨|みが}こうとすると、{傷|きず}が{広|ひろ}がることがある"
+      - type: narration
+        text: "・NG品の数が{記録|きろく}に{残|のこ}ることで、{品質|ひんしつ}{問題|もんだい}の{傾向|けいこう}が分かる"
+      - type: narration
+        text: "・「{記録|きろく}に{残|のこ}したくない→{黙|だま}って{修正|しゅうせい}」が{最|もっと}も{危険|きけん}な{行為|こうい}"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "・チームで{確認|かくにん}するから{品質|ひんしつ}が{保|たも}たれる"
+      - type: narration
+        text: "「お{客|きゃく}さんのため」を{思|おも}う{気持|きも}ちは大切。でも「{報告|ほうこく}する」がチームの{仕事|しごと}。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: office
+    bgm: career-05/tension
+    steps:
+      - type: sprite
+        character: kojocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kojocho
+        text: "{検品|けんぴん}済みなのに{傷物|きずもの}が{出荷|しゅっか}された。{誰|だれ}が何をした？ そしてなぜそうした？"
+      - type: sprite
+        character: kojocho
+        action: hide
+      - type: choice
+        id: q1
+        question: 傷物が出荷された原因は誰の行動？
+        options:
+          - text: ハルト（品質管理の確認が甘かった）
+            value: haruto
+            feedback: ハルトは記録を管理する側で、検品作業はケイの担当。ハルトは記録の矛盾に気づいた側だよ。
+          - text: ケイ（検品で傷を見つけたのに報告せず磨こうとした）
+            value: kei
+            feedback: 正解！ ケイは傷のある製品を発見したが報告せず、1人で磨こうとして傷を悪化させた。
+          - text: サキ（出荷時に再確認しなかった）
+            value: saki
+            feedback: サキは「検品済みラベル」がついた製品を箱に入れる担当。検品済みの製品を再確認するルールはないよ。
+          - text: ミナ（クレーム対応が遅かった）
+            value: mina
+            feedback: ミナはクレームを受け取った側。出荷前の検品には関わっていないよ。
+      - type: choice
+        id: q2
+        question: ケイはなぜ報告しなかった？
+        options:
+          - text: ミスを隠したかった
+            value: hide
+            feedback: 最終的にはミスを隠す気持ちもあった。でも最初の動機は「お客さんのためにキレイにしたい」だった。
+          - text: お客さんのためを思っていた
+            value: customer
+            feedback: 最初はそう。でも磨いて傷が悪化した後、「記録に残ると困る」と怖くなって記録を改ざんしてしまった。
+          - text: 最初は正義感、最後はミスを隠す気持ちに変わった
+            value: both
+            feedback: するどい！ 動機が「お客さんのため」から「自分のミスを隠す」に変わっていった。これが因果の連鎖。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: office
+    bgm: career-05/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: お客さんのためと思って
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: office
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼく、先週の{検品|けんぴん}後に{倉庫|そうこ}の{片隅|かたすみ}で「3個の{製品|せいひん}が{別|べつ}に{置|お}かれている」のを見てたんだ。"
+      - type: dialog
+        character: haruto
+        text: "なぜそこにあるのか{疑問|ぎもん}に{思|おも}ったけど、{翌日|よくじつ}には消えてたから何も言わなかった。"
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ミナの秘密
+  - id: truth-mina
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: right
+      - type: dialog
+        character: mina
+        text: "先週、ケイが「うーん、これどうしようかな……」って言いながら{製品|せいひん}を3個{手|て}に取って{倉庫|そうこ}の{奥|おく}に持っていくのを見たの。"
+      - type: dialog
+        character: mina
+        text: "「何かこだわりがあるのかな」って{思|おも}って{声|こえ}をかけなかった。あのとき{聞|き}いていれば……。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # サキの秘密
+  - id: truth-saki
+    steps:
+      - type: sprite
+        character: saki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: saki
+        text: "{出荷|しゅっか}した{製品|せいひん}を{後|あと}で数え{直|なお}したら「3個{少|すく}ない」ことに気づいてた。でも{出荷|しゅっか}{伝票|でんぴょう}の数と{合|あ}ってたから「{大丈夫|だいじょうぶ}」って{思|おも}って{報告|ほうこく}しなかった。"
+      - type: dialog
+        character: saki
+        text: "「どこかに3個{残|のこ}ってるはず」と{思|おも}ってたのに、{確認|かくにん}しなかった。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ケイの告白（クライマックス）
+  - id: truth-kei
+    bgm: career-05/truth
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: center
+      - type: dialog
+        character: kei
+        text: "……そうです、おれがやりました。"
+      - type: narration
+        speed: slow
+        text: "ケイが{覚悟|かくご}を{決|き}めたように話し{始|はじ}めた。"
+      - type: dialog
+        character: kei
+        text: "{検品|けんぴん}のとき、3個だけ「お{客|きゃく}さんが見たら{傷|きず}だと{思|おも}うかもな」って{感|かん}じる{製品|せいひん}があって。{基準|きじゅん}はギリギリだったんだけど。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "「{磨|みが}けばキレイになるかも」って思って、{倉庫|そうこ}の{奥|おく}で{磨|みが}いてみた。でも{磨|みが}いたら{逆|ぎゃく}に{傷|きず}が{広|ひろ}がっちゃって。"
+      - type: dialog
+        character: kei
+        text: "NG品にしたら自分のミスが{記録|きろく}に{残|のこ}るし、{怖|こわ}くて……。{結局|けっきょく}「{検査|けんさ}{完了|かんりょう}」って書いちゃった。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "お{客|きゃく}さんのためを{思|おも}ったのは本当。でも、{報告|ほうこく}しないで1人でやろうとしたのが{間違|まちが}いだった。本当にごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ケイの{動機|どうき}は「お{客|きゃく}さんのため」という{正義感|せいぎかん}だった。でも1人で{判断|はんだん}したことで、{傷|きず}は{悪化|あっか}し、{記録|きろく}も{改|かい}ざんされた。{正義感|せいぎかん}の{暴走|ぼうそう}——それが{今回|こんかい}の{問題|もんだい}だった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: office
+    bgm: career-05/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: kojocho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kojocho
+        text: "{今回|こんかい}の{事件|じけん}で大事なことが分かったね。"
+      - type: dialog
+        character: kojocho
+        text: "ケイの「お{客|きゃく}さんのために」という{気持|きも}ちは{間違|まちが}いじゃない。でも「{報告|ほうこく}する」がチームの{仕事|しごと}だ。"
+        expression: normal
+      - type: dialog
+        character: kojocho
+        text: "NG品の{記録|きろく}は「{失敗|しっぱい}の{証拠|しょうこ}」じゃない。「次をもっと良くするためのデータ」だ。1人の{判断|はんだん}よりチームの{判断|はんだん}の{方|ほう}が{正確|せいかく}。"
+        expression: thinking
+      - type: sprite
+        character: kojocho
+        action: hide
+      - type: sprite
+        character: kei
+        expression: determined
+        position: left
+      - type: dialog
+        character: kei
+        text: "次からは{迷|まよ}ったら{必|かなら}ず{報告|ほうこく}する。「これ{大丈夫|だいじょうぶ}かな？」って{思|おも}ったときが{報告|ほうこく}のタイミングだって分かった。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "3個のNG品は正しく{記録|きろく}され、お{客|きゃく}さんには{新|あたら}しい{製品|せいひん}が{届|とど}けられた。プレゼントは、ちゃんと{届|とど}いた。"
+      - type: narration
+        speed: slow
+        text: "「{報告|ほうこく}する」のは{弱|よわ}さじゃない。チームの{力|ちから}を{借|か}りること——それが{品質|ひんしつ}を{守|まも}る{一番|いちばん}の{方法|ほうほう}だ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——{工場|こうじょう}のキズの{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
