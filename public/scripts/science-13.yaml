@@ -1,0 +1,405 @@
+meta:
+  id: science-13
+  title: ろうそくが暴く犯行時刻
+  series: サイエンス捜査班
+  volume: 13
+  estimatedMinutes: 22
+
+characters:
+  akito:
+    name: アキト
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  karen:
+    name: カレン
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  rei:
+    name: レイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  noa:
+    name: ノア
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: science-lab
+    bgm: science-13/opening
+    steps:
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}、「ものの{燃|も}え{方|かた}」の{実験|じっけん}が{終|お}わった。{先生|せんせい}は{換気|かんき}の{確認|かくにん}のためにろうそく（20cm）に{火|ひ}をつけて、15:30に{理科室|りかしつ}を{出|で}た。"
+      - type: narration
+        text: "{翌朝|よくあさ}、2つの{異変|いへん}が{発覚|はっかく}した。"
+      - type: sprite_group
+        characters:
+          - { id: akito, expression: surprised }
+          - { id: karen, expression: thinking }
+          - { id: rei, expression: worried }
+          - { id: noa, expression: worried }
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{異変|いへん}①：{実験|じっけん}ノートの2ページが{破|やぶ}り{取|と}られている！ {異変|いへん}②：ろうそくの{長|なが}さが{計算|けいさん}と{合|あ}わない！"
+      - type: narration
+        text: "ろうそくは1{時間|じかん}で4cm{燃|も}える。15:30から17:00は1{時間|じかん}30{分|ぷん}。20cm−6cm＝14cmのはずが——{実際|じっさい}は16cm。2cm{分|ぶん}（30{分間|ぷんかん}）{足|た}りない。{途中|とちゅう}で30{分間|ぷんかん}{消|き}えていた！？"
+      - type: sprite
+        id: akito
+        action: hide
+      - type: sprite
+        id: karen
+        action: hide
+      - type: sprite
+        id: rei
+        action: hide
+      - type: sprite
+        id: noa
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-13/tension
+      - type: dialog
+        character: sensei
+        text: "ろうそくの{長|なが}さから{犯行|はんこう}{時刻|じこく}を{特定|とくてい}し、{実験|じっけん}ノートを{破|やぶ}った{犯人|はんにん}を{突|つ}き{止|と}めてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ろうそくが暴く犯行時刻"
+        subtitle: "サイエンス捜査班 Vol.13"
+
+  # ===== 証拠カード1: 燃焼の3条件 =====
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-13/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 燃焼の3条件"
+      - type: narration
+        text: "ものが{燃|も}えるための3{条件|じょうけん}——①{燃|も}えるもの（ロウ、{木|き}、{紙|かみ}など）。②{酸素|さんそ}（{空気中|くうきちゅう}に{約|やく}21%）。③{発火点|はっかてん}{以上|いじょう}の{温度|おんど}。"
+      - type: narration
+        text: "3つ{全|すべ}てそろうと{燃焼|ねんしょう}。どれか1つを{取|と}り{除|のぞ}けば{火|ひ}は{消|き}える。ろうそくを{吹|ふ}き{消|け}す→{息|いき}で{炎|ほのお}の{温度|おんど}が{発火点|はっかてん}{以下|いか}に{下|さ}がる＋{酸素|さんそ}が{吹|ふ}き{飛|と}ばされる。"
+      - type: narration
+        text: "ろうそくの{燃|も}え{方|かた}——{固体|こたい}のロウが{熱|ねつ}で{溶|と}ける→{液体|えきたい}のロウが{芯|しん}を{伝|つた}って{吸|す}い{上|あ}がる→{気体|きたい}になったロウが{燃|も}える。"
+
+  # ===== 証拠カード2: ろうそくの燃焼記録 =====
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — ろうそく時計"
+      - type: narration
+        text: "ろうそくのデータ。{初期|しょき}の{長|なが}さ：20cm。{燃焼速度|ねんしょうそくど}：1{時間|じかん}あたり4cm（15{分|ふん}で1cm）。{点火|てんか}：15:30。{確認|かくにん}：17:00。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{正常|せいじょう}なら20−6＝14cm。{実際|じっさい}は16cm。{差|さ}は2cm＝30{分間|ぷんかん}。ろうそくは{途中|とちゅう}で30{分間|ぷんかん}{消|き}えていた！"
+      - type: narration
+        text: "ろうそくの{火|ひ}が{途中|とちゅう}で{消|き}えた——{誰|だれ}かが{消|け}した？ {窓|まど}は{閉|し}まっていたから{風|かぜ}で{消|き}えた{可能性|かのうせい}は{低|ひく}い。"
+
+  # ===== 証拠カード3: 4人のアリバイ =====
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 4人のアリバイ"
+      - type: narration
+        text: "{放課後|ほうかご}の4{人|にん}の{行動|こうどう}。16:00〜16:10は{全員|ぜんいん}{理科室|りかしつ}で{片付|かたづ}け。16:10にアキトが{退出|たいしゅつ}——ろうそくは{点|つ}いていた。"
+      - type: narration
+        text: "カレンは16:15から{図書室|としょしつ}（{図書|としょ}{委員|いいん}）。レイは「{校庭|こうてい}でサッカー」と{言|い}っている。ノアは{教室|きょうしつ}にいたが、16:45に{忘|わす}れ{物|もの}を{取|と}りに{理科室|りかしつ}へ。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ノアが16:45に{来|き}たとき、ろうそくは{消|き}えていた。マッチで{再点火|さいてんか}した。つまり——ろうそくが{消|き}えたのは16:10〜16:45のどこか。この{時間帯|じかんたい}に{理科室|りかしつ}に{来|き}た{人|ひと}は？"
+
+  # ===== 証拠カード4: 現場検証 =====
+  - id: evidence-4
+    bg: science-lab
+    bgm: science-13/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 現場検証"
+      - type: narration
+        text: "{実験|じっけん}ノートの{状態|じょうたい}——{昨日|きのう}の「ものの{燃|も}え{方|かた}」{実験|じっけん}の{結果|けっか}{記録|きろく}ページが2ページ{破|やぶ}り{取|と}られている。{引|ひ}き{出|だ}しに{鍵|かぎ}はかかっていなかった。"
+      - type: narration
+        text: "ろうそくの{状態|じょうたい}——16cm。{芯|しん}に{再点火|さいてんか}された{形跡|けいせき}あり。マッチの{燃|も}えカスが1{本|ぽん}{落|お}ちている（ノアが{使|つか}ったもの）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{窓|まど}は{閉|し}まっている→{風|かぜ}で{消|き}えた{可能性|かのうせい}は{低|ひく}い。{一番|いちばん}{可能性|かのうせい}が{高|たか}いのは——{誰|だれ}かが{吹|ふ}き{消|け}した。"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: science-lab
+    bgm: science-13/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: akito
+        position: left
+        expression: determined
+      - type: dialog
+        character: akito
+        text: "ぼくは16:10に{理科室|りかしつ}を{出|で}た。そのときろうそくは{確|たし}かに{点|つ}いていた。{教室|きょうしつ}に{行|い}ってそのまま{帰|かえ}ったよ。"
+      - type: sprite
+        id: akito
+        action: hide
+      - type: sprite
+        id: karen
+        position: right
+        expression: thinking
+      - type: dialog
+        character: karen
+        text: "わたしは16:15から{図書室|としょしつ}にいた。{図書|としょ}{委員|いいん}のシフトがあったから。でも16:15に{廊下|ろうか}でレイを{見|み}かけたの。{理科室|りかしつ}の{方|ほう}に{向|む}かってたみたい。"
+      - type: sprite
+        id: karen
+        action: hide
+      - type: sprite
+        id: rei
+        position: left
+        expression: normal
+      - type: dialog
+        character: rei
+        text: "おれは16:10に{理科室|りかしつ}を{出|で}て{校庭|こうてい}でサッカーしてたぜ。{理科室|りかしつ}には{戻|もど}ってないよ。{実験|じっけん}ノートなんて{知|し}らない。"
+      - type: sprite
+        id: rei
+        action: hide
+      - type: sprite
+        id: noa
+        position: right
+        expression: worried
+      - type: dialog
+        character: noa
+        text: "16:45に{忘|わす}れ{物|もの}を{取|と}りに{理科室|りかしつ}に{行|い}ったの。そしたらろうそくが{消|き}えてて{暗|くら}かった。{心配|しんぱい}でマッチで{火|ひ}をつけ{直|なお}したよ。"
+      - type: sprite
+        id: noa
+        action: hide
+
+  # ===== 証拠カード5: ろうそく時計（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-13/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — ろうそく時計のタイムライン"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "ろうそくの{長|なが}さから{犯行|はんこう}{時刻|じこく}を{逆算|ぎゃくさん}しよう。ノアが16:45に{再点火|さいてんか}。17:00に16cm。15{分間|ぷんかん}で1cm{燃焼|ねんしょう}→16:45{時点|じてん}で17cm。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ろうそくが17cmになったのは——20−17＝3cm{燃焼|ねんしょう}。3cm÷4cm/{時間|じかん}＝45{分|ぷん}。15:30＋45{分|ぷん}＝16:15。ろうそくが{消|き}えたのは16:15ごろ！"
+      - type: narration
+        text: "16:15に{消|き}えて16:45に{再点火|さいてんか}。{消|き}えていた{時間|じかん}＝30{分間|ぷんかん}。{計算|けいさん}とぴったり{一致|いっち}！"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "16:15ごろに{理科室|りかしつ}にいた{人|ひと}は？ アキトは16:10に{退出|たいしゅつ}。カレンは16:15から{図書室|としょしつ}。ノアは16:45に{初|はじ}めて{来|き}た。レイは「{校庭|こうてい}」と{言|い}っているが——カレンが16:15に{廊下|ろうか}で{目撃|もくげき}。{理科室|りかしつ}の{方|ほう}に{向|む}かっていた。16:15に{理科室|りかしつ}にいたのは——レイだけ！"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: science-lab
+    bgm: science-13/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "ろうそくが{途中|とちゅう}で{消|き}えていた{時間|じかん}は？"
+        options:
+          - text: "15分間"
+            feedback: "{計算|けいさん}してみよう。{正常|せいじょう}なら14cm、{実際|じっさい}は16cm。{差|さ}の2cm÷4cm/{時間|じかん}＝0.5{時間|じかん}＝30{分間|ぷんかん}だよ。"
+          - text: "30分間"
+            feedback: "そのとおり！ 2cm÷4cm/{時間|じかん}＝30{分間|ぷんかん}。16:15〜16:45の30{分間|ぷんかん}、ろうそくは{消|き}えていた。"
+          - text: "1時間"
+            feedback: "1{時間|じかん}だと4cm{分|ぶん}の{差|さ}になるはず。{実際|じっさい}の{差|さ}は2cm＝30{分間|ぷんかん}だよ。"
+      - type: choice
+        id: q2
+        text: "{実験|じっけん}ノートを{破|やぶ}った{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "アキト"
+            feedback: "アキトは16:10に{退出|たいしゅつ}。そのときろうそくは{点|つ}いていた。{犯行|はんこう}{時刻|じこく}（16:15）にはもう{理科室|りかしつ}にいないよ。"
+          - text: "カレン"
+            feedback: "カレンは16:15から{図書室|としょしつ}。{図書|としょ}{委員|いいん}として{確認|かくにん}されている。{理科室|りかしつ}には{行|い}っていないよ。"
+          - text: "レイ"
+            feedback: "「{校庭|こうてい}でサッカー」と{言|い}っているが、カレンが16:15に{廊下|ろうか}で{目撃|もくげき}。{理科室|りかしつ}の{方|ほう}へ{向|む}かっていた。ろうそく{時計|どけい}が{示|しめ}す{犯行|はんこう}{時刻|じこく}は16:15——レイだけがいた。"
+          - text: "ノア"
+            feedback: "ノアは16:45に{忘|わす}れ{物|もの}で{来|き}て、{消|き}えていたろうそくに{火|ひ}をつけ{直|なお}した。マッチの{燃|も}えカスも{証拠|しょうこ}。{犯人|はんにん}ではないよ。"
+
+  # ===== 真実: レイの告白 =====
+  - id: truth-rei
+    bg: science-lab
+    bgm: science-13/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: narration
+        speed: slow
+        text: "{実験|じっけん}ノートを{破|やぶ}ったのは——レイだった。"
+      - type: sprite
+        id: rei
+        position: center
+        expression: worried
+      - type: dialog
+        character: rei
+        text: "ごめん……ぼくのグループだけ{実験|じっけん}が{失敗|しっぱい}したんだ。ビンのフタがずれて、{正|ただ}しい{結果|けっか}にならなかった。{先生|せんせい}に「やり{直|なお}し」って{言|い}われるのが{怖|こわ}くて……。"
+      - type: dialog
+        character: rei
+        expression: worried
+        text: "16:15に{理科室|りかしつ}に{戻|もど}って、ろうそくの{火|ひ}を{吹|ふ}き{消|け}した。{暗|くら}い{方|ほう}が{廊下|ろうか}から{見|み}つかりにくいと{思|おも}って。ノートの2ページを{破|やぶ}り{取|と}って、16:20に{出|で}た。"
+      - type: dialog
+        character: rei
+        text: "まさかろうそくの{長|なが}さで{犯行|はんこう}{時刻|じこく}がバレるなんて{思|おも}わなかった……。ろうそくは{嘘|うそ}をつけない「{時計|どけい}」だったんだな。"
+      - type: sprite
+        id: rei
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなが{知|し}っていたことも{明|あ}かされた。"
+      - type: sprite
+        id: akito
+        position: left
+        expression: thinking
+      - type: dialog
+        character: akito
+        text: "16:10に{出|で}たとき、レイが「もう{少|すこ}し{片付|かたづ}ける」って{言|い}ってた。でも{実際|じっさい}はすぐ{出|で}て、また{戻|もど}ってたんだね。"
+      - type: sprite
+        id: akito
+        action: hide
+      - type: sprite
+        id: karen
+        position: right
+        expression: determined
+      - type: dialog
+        character: karen
+        text: "16:15に{廊下|ろうか}でレイを{見|み}た。{理科室|りかしつ}の{方|ほう}に{向|む}かってた。「{校庭|こうてい}でサッカー」は{嘘|うそ}だったんだ。ろうそくの{燃焼速度|ねんしょうそくど}で{計算|けいさん}すれば、{犯行|はんこう}{時刻|じこく}が{特定|とくてい}できるって{分|わ}かってたわ。"
+      - type: sprite
+        id: karen
+        action: hide
+      - type: sprite
+        id: noa
+        position: left
+        expression: thinking
+      - type: dialog
+        character: noa
+        text: "16:45に{来|き}たとき{暗|くら}くて{心配|しんぱい}だった。ろうそくに{火|ひ}をつけ{直|なお}したの。もっと{早|はや}く{来|き}ていたら、レイに{会|あ}えたかも……。"
+      - type: sprite
+        id: noa
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{燃焼|ねんしょう}の3{条件|じょうけん}——{燃|も}えるもの・{酸素|さんそ}・{発火点|はっかてん}{以上|いじょう}の{温度|おんど}。3つ{全部|ぜんぶ}そろうと{燃|も}え、どれか1つを{取|と}り{除|のぞ}けば{消|き}えます。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "ろうそくの{燃焼速度|ねんしょうそくど}（1{時間|じかん}4cm）が{分|わ}かっていれば、{長|なが}さから「いつ{消|き}えたか」を{逆算|ぎゃくさん}できます。ろうそくは{嘘|うそ}をつけない「{時計|どけい}」でしたね。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "{実験|じっけん}に{失敗|しっぱい}するのは{恥|は}ずかしいことじゃありません。{失敗|しっぱい}から{学|まな}ぶことの{方|ほう}が{多|おお}い。{正直|しょうじき}に「うまくいかなかった」と{言|い}えば、みんなで{考|かんが}えて{次|つぎ}はうまくいくかもしれない。{隠|かく}すより{共有|きょうゆう}する{方|ほう}がずっといいですよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: science-lab
+    bgm: science-13/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: rei
+        position: left
+        expression: worried
+      - type: dialog
+        character: rei
+        text: "ごめん。{実験|じっけん}に{失敗|しっぱい}したのが{恥|は}ずかしくて、こんなことしちゃった。もう{一度|いちど}{実験|じっけん}やり{直|なお}させてもらえる？"
+      - type: sprite
+        id: rei
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "もちろん。レイのグループは{来週|らいしゅう}やり{直|なお}しましょう。{失敗|しっぱい}の{原因|げんいん}を{考|かんが}えて{対策|たいさく}すれば、{次|つぎ}はうまくいくはず。{科学|かがく}は{失敗|しっぱい}から{進歩|しんぽ}するものですよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "ろうそくの「{時計|どけい}」が{刻|きざ}んだ{真実|しんじつ}——{科学|かがく}のデータは、いつも{正直|しょうじき}だ。"
+      - type: effect
+        name: fade-out
