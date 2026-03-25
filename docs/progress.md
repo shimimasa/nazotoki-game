@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-03-25 17:18
+- Add math2-08 game script: pattern change cognitive bias mystery
+
 ## 2026-03-25 17:14
 - Add math2-07 game script: volume puzzle cylinder mystery
 

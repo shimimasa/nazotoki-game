@@ -1,0 +1,497 @@
+meta:
+  id: math2-09
+  title: 複合図形の謎
+  series: 数学深化探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: math2-09/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}の{校舎|こうしゃ}{改修|かいしゅう}プロジェクト。{特別|とくべつ}{教室|きょうしつ}の{床|ゆか}{面積|めんせき}を{計算|けいさん}する{課題|かだい}だ。"
+      - type: narration
+        text: "{理科室|りかしつ}・{音楽室|おんがくしつ}・{図工室|ずこうしつ}・{家庭科室|かていかしつ}——4つとも{L字型|エルじがた}の{複合|ふくごう}{図形|ずけい}。4人が1つずつ{面積|めんせき}を{計算|けいさん}して{提出|ていしゅつ}した。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{検算|けんざん}したところ、4つのうち1つだけ{面積|めんせき}が{間違|まちが}っているわ。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、4つの{計算|けいさん}{結果|けっか}を{並|なら}べて{比較|ひかく}して、どの{教室|きょうしつ}が{間違|まちが}っているか{突|つ}き{止|と}めて！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.9
+        subtitle: 複合図形の謎
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: math2-09/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{理科室|りかしつ}を{担当|たんとう}して、{分割法|ぶんかつほう}で52m²と{計算|けいさん}した。{上|うえ}の{長方形|ちょうほうけい}40m²＋{下|した}の{長方形|ちょうほうけい}12m²＝52m²。"
+      - type: dialog
+        character: riku
+        text: "タクミの{図工室|ずこうしつ}が80m²って聞いて「大きいな」って思ったけど、{検算|けんざん}しなかった。"
+        expression: thinking
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。{音楽室|おんがくしつ}を{担当|たんとう}して、34m²。{上|うえ}24m²＋{下|した}10m²＝34m²。"
+      - type: dialog
+        character: hina
+        text: "タクミが「{一番|いちばん}{乗|の}り！」って{嬉|うれ}しそうだったの。{早|はや}かったから「すごいね」って{言|い}ったけど……{確認|かくにん}はしなかった。"
+        expression: worried
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。{図工室|ずこうしつ}を{担当|たんとう}して80m²。{早|はや}く{終|お}わらせてみんなの{分|ぶん}も{手伝|てつだ}おうと思ったんだ。"
+      - type: dialog
+        character: takumi
+        text: "えっと、{分割法|ぶんかつほう}で{上|うえ}50m²＋{下|した}30m²＝80m²。{合|あ}ってるよね？"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{家庭科室|かていかしつ}を{担当|たんとう}して42m²。{上|うえ}24m²＋{下|した}18m²＝42m²。"
+      - type: dialog
+        character: kotoha
+        text: "タクミの80m²、ちょっと大きすぎない？ {図工室|ずこうしつ}の{全体|ぜんたい}の{長方形|ちょうほうけい}が10×8＝80m²だから……{凹|へこ}みを{引|ひ}いてないんじゃ。"
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 平面図 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: math2-09/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 4つの教室の平面図
+      - type: narration
+        text: "4つの{特別|とくべつ}{教室|きょうしつ}はすべて{L字型|エルじがた}——{長方形|ちょうほうけい}から1か{所|しょ}が{凹|へこ}んだ{形|かたち}。"
+      - type: narration
+        text: "{理科室|りかしつ}（リク）：{横|よこ}10m×{縦|たて}6m、{右下|みぎした}の{凹|へこ}み{横|よこ}4m×{縦|たて}2m"
+      - type: narration
+        text: "{音楽室|おんがくしつ}（ヒナ）：{横|よこ}8m×{縦|たて}5m、{右下|みぎした}の{凹|へこ}み{横|よこ}3m×{縦|たて}2m"
+      - type: narration
+        text: "{図工室|ずこうしつ}（タクミ）：{横|よこ}10m×{縦|たて}8m、{右下|みぎした}の{凹|へこ}み{横|よこ}4m×{縦|たて}3m"
+      - type: narration
+        text: "{家庭科室|かていかしつ}（コトハ）：{横|よこ}8m×{縦|たて}6m、{右下|みぎした}の{凹|へこ}み{横|よこ}2m×{縦|たて}3m"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{全部|ぜんぶ}「大きい{長方形|ちょうほうけい}から{凹|へこ}みを{引|ひ}く」{形|かたち}。{凹|へこ}みの{面積|めんせき}はそれぞれ8m²、6m²、12m²、6m²。"
+
+  # ===== 証拠カード2: 計算結果 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 4人の計算結果
+      - type: narration
+        text: "4人が{提出|ていしゅつ}した{計算|けいさん}{結果|けっか}——"
+      - type: narration
+        text: "{理科室|りかしつ}（リク）：52m²　{音楽室|おんがくしつ}（ヒナ）：34m²"
+      - type: narration
+        text: "{図工室|ずこうしつ}（タクミ）：80m²　{家庭科室|かていかしつ}（コトハ）：42m²"
+      - type: narration
+        text: "先生のメモ：「4人とも{分割法|ぶんかつほう}で{計算|けいさん}。しかし1つだけ{間違|まちが}い。{全体|ぜんたい}から{引|ひ}く{法|ほう}で{検算|けんざん}してください」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "80m²だけ{飛|と}び{抜|ぬ}けて大きい。{図工室|ずこうしつ}の{全体|ぜんたい}の{長方形|ちょうほうけい}は10×8＝80m²——タクミの{計算|けいさん}{結果|けっか}と{全体|ぜんたい}{面積|めんせき}が{同|おな}じ？"
+
+  # ===== 証拠カード3: 全体面積と帰納法 =====
+  - id: evidence-3
+    bgm: math2-09/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 全体面積と比較しよう
+      - type: narration
+        text: "「{全体|ぜんたい}{面積|めんせき}−{計算|けいさん}{結果|けっか}」を4{教室|きょうしつ}で{計算|けいさん}——"
+      - type: narration
+        text: "{理科室|りかしつ}：60−52＝8m²（{凹|へこ}み4×2＝8m² ✓）"
+      - type: narration
+        text: "{音楽室|おんがくしつ}：40−34＝6m²（{凹|へこ}み3×2＝6m² ✓）"
+      - type: narration
+        text: "{家庭科室|かていかしつ}：48−42＝6m²（{凹|へこ}み2×3＝6m² ✓）"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{図工室|ずこうしつ}：80−80＝0m²（{凹|へこ}み4×3＝12m²のはず ✗）——{凹|へこ}みを{全|まった}く{引|ひ}いていない！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{帰納法|きのうほう}：3つの{教室|きょうしつ}では「{全体|ぜんたい}−{計算|けいさん}＝{凹|へこ}み{面積|めんせき}」。{図工室|ずこうしつ}だけパターンに{合|あ}わない——タクミの{計算|けいさん}が{間違|まちが}い。"
+
+  # ===== 証拠カード4: タクミの計算用紙（一部） =====
+  - id: evidence-4
+    bgm: math2-09/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: タクミの計算用紙
+      - type: narration
+        text: "タクミの{計算|けいさん}{用紙|ようし}（{一部|いちぶ}が{汚|よご}れて{読|よ}めない）——"
+      - type: narration
+        text: "① {上|うえ}の{長方形|ちょうほうけい}：10m×5m＝50m²"
+      - type: narration
+        text: "② {下|した}の{長方形|ちょうほうけい}：■■m×3m＝■■m²（{汚|よご}れて{読|よ}めない）"
+      - type: narration
+        text: "{合計|ごうけい}：50＋■■＝80m²"
+      - type: narration
+        text: "タクミのメモ：「{下|した}の{長方形|ちょうほうけい}の{横|よこ}って何mだっけ……10mでいいよね？ {急|いそ}いでるから{平面図|へいめんず}をもう1{回|かい}{見|み}る{時間|じかん}がない」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{下|した}の{横|よこ}を10mで{計算|けいさん}すると10×3＝30m²、{合計|ごうけい}50＋30＝80m²。でも{正|ただ}しくは{凹|へこ}みの{手前|てまえ}まで＝6m。6×3＝18m²。"
+
+  # ===== 証拠カード5: タクミの計算メモ全体 =====
+  - id: evidence-5
+    bgm: math2-09/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タクミの本当の計算
+      - type: narration
+        text: "{汚|よご}れを{落|お}としたタクミの{計算|けいさん}{用紙|ようし}——"
+      - type: narration
+        text: "① {上|うえ}の{長方形|ちょうほうけい}：10m×5m＝50m²"
+      - type: narration
+        text: "② {下|した}の{長方形|ちょうほうけい}：10m×3m＝30m² ← {全体|ぜんたい}の{横幅|よこはば}を{使|つか}ってしまった！ {本当|ほんとう}は{凹|へこ}みの{手前|てまえ}まで＝6m"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "タクミの{走|はし}り{書|が}き：「よし！ 50＋30＝80で{計算|けいさん}{完了|かんりょう}！ これでおれが{一番|いちばん}{乗|の}り！ {早|はや}く{終|お}わったからリクやヒナやコトハの{分|ぶん}も{手伝|てつだ}えるぞ」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{正|ただ}しい{計算|けいさん}：{分割法|ぶんかつほう} 50＋18＝68m²。{全体|ぜんたい}から{引|ひ}く{法|ほう} 80−12＝68m²。どちらも68m²。"
+      - type: narration
+        speed: slow
+        text: "タクミの80m²は12m²{多|おお}い——{凹|へこ}み{面積|めんせき}（4×3＝12）{分|ぶん}。みんなのために{急|いそ}いだ{結果|けっか}、{平面図|へいめんず}の{凹|へこ}みの{角|かど}を{見落|みお}とした。"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: classroom
+    bgm: math2-09/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{帰納法|きのうほう}で{特定|とくてい}できたわね。{面積|めんせき}を{間違|まちが}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: 面積の計算を間違えたのは誰？
+        options:
+          - text: リク（理科室52m²）
+            value: riku
+            feedback: リクの理科室52m²は正しいよ。全体60−52＝8＝凹み面積（4×2）で帰納法のパターンに合っている。
+          - text: ヒナ（音楽室34m²）
+            value: hina
+            feedback: ヒナの音楽室34m²は正しいよ。全体40−34＝6＝凹み面積（3×2）で帰納法のパターンに合っている。
+          - text: タクミ（図工室80m²）
+            value: takumi
+            feedback: 正解！ タクミは下の長方形の横幅を6mではなく10m（全体の横幅）で計算した。正しくは68m²。みんなのために急いだ結果の見落とし。
+          - text: コトハ（家庭科室42m²）
+            value: kotoha
+            feedback: コトハの家庭科室42m²は正しいよ。全体48−42＝6＝凹み面積（2×3）で帰納法のパターンに合っている。
+      - type: choice
+        id: q2
+        question: 帰納法でどうやって間違いを見つけた？
+        options:
+          - text: 3つの教室で「全体−計算＝凹み面積」のパターンがあり、1つだけ合わなかった
+            value: induction
+            feedback: 正解！ 理科室・音楽室・家庭科室は全て「全体面積−計算結果＝凹み面積」。図工室だけ差が0で凹みを引いていなかった。複数データのパターン比較が帰納法。
+          - text: 一番大きい数字が間違いだと判断した
+            value: biggest
+            feedback: 「大きいから間違い」だけでは根拠が弱いよ。帰納法のポイントは「3つに共通するパターンを見つけて、1つだけ合わないものを発見する」こと。
+          - text: タクミが急いでいたから間違いだと推測した
+            value: rush
+            feedback: 「急いでいた」は動機の推測であって、計算ミスの証拠にはならないよ。帰納法で「パターンに合わない」ことを数字で証明するのが大切。
+          - text: 全体面積と計算結果が同じだったから
+            value: same
+            feedback: いい気づき！ でもそれだけでは「なぜ同じなのか」が分からない。帰納法で他の3つのパターン（差＝凹み面積）と比較して初めて「凹みを引いていない」と確定できる。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: math2-09/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: みんなのために急いだ代償
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの後ろめたさ
+  - id: truth-riku
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼく、タクミの80m²が「大きい」と思ったのに{検算|けんざん}しなかった。{数字|すうじ}を{並|なら}べて{比|くら}べていれば気づけたのに。"
+      - type: dialog
+        character: riku
+        text: "「{確認|かくにん}した？」の{一言|ひとこと}が{間違|まちが}いを{防|ふせ}ぐ。次からは{検算|けんざん}を{必|かなら}ずやる。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # ヒナの後ろめたさ
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "タクミが「{一番|いちばん}{乗|の}り！」って{嬉|うれ}しそうだったから「すごいね」って{言|い}っちゃった。{急|いそ}いでたことに気づいてたのに。"
+      - type: dialog
+        character: hina
+        text: "「すごいね」じゃなくて「{大丈夫|だいじょうぶ}？ {確認|かくにん}した？」って{聞|き}くべきだった。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # コトハの後ろめたさ
+  - id: truth-kotoha
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "「80m²は大きすぎる」って{感|かん}じたのに、タクミに{直接|ちょくせつ}{言|い}えなかった。"
+      - type: dialog
+        character: kotoha
+        text: "{違和感|いわかん}に気づいたら{声|こえ}に{出|だ}す。{遠慮|えんりょ}は{間違|まちが}いを{見逃|みのが}す{原因|げんいん}になる。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # タクミの真実（クライマックス）
+  - id: truth-takumi
+    bgm: math2-09/truth
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "……おれのミスだ。{図工室|ずこうしつ}の{下|した}の{長方形|ちょうほうけい}の{横幅|よこはば}を{間違|まちが}えた。"
+      - type: narration
+        speed: slow
+        text: "タクミがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: takumi
+        text: "「{早|はや}く{終|お}わらせてみんなの{分|ぶん}も{手伝|てつだ}いたい」って思って、{平面図|へいめんず}を{一回|いっかい}しか{見|み}なかった。{下|した}の{横|よこ}が6mなのに、{全体|ぜんたい}の{横幅|よこはば}10mで{計算|けいさん}しちゃった。"
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "50＋30＝80って{出|で}たとき、{全体|ぜんたい}の{長方形|ちょうほうけい}と{同|おな}じ{数字|すうじ}なのに「{合|あ}ってる！」って思い{込|こ}んだ。{凹|へこ}みを{引|ひ}いてないのに。"
+      - type: dialog
+        character: takumi
+        text: "みんなのためにって{急|いそ}いだけど、{急|いそ}いで{間違|まちが}えたら{意味|いみ}がない。「{終|お}わった！」の{前|まえ}に{検算|けんざん}しなきゃダメだった。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: narration
+        speed: slow
+        text: "タクミに{悪意|あくい}はなかった。「みんなのために{早|はや}く{終|お}わらせたい」という{気持|きも}ちから{急|いそ}いだ{結果|けっか}、{平面図|へいめんず}の{凹|へこ}みの{角|かど}を{見落|みお}とした。{速|はや}さより{正確|せいかく}さ——{検算|けんざん}が{大切|たいせつ}だ。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: math2-09/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{今回|こんかい}の{事件|じけん}で大切なことが分かったわね。"
+      - type: dialog
+        character: sensei
+        text: "{複合|ふくごう}{図形|ずけい}の{面積|めんせき}は「{分割法|ぶんかつほう}」でも「{全体|ぜんたい}から{引|ひ}く{法|ほう}」でも{同|おな}じ{答|こた}えになるはず。2つの{方法|ほうほう}で{検算|けんざん}すれば{間違|まちが}いが{見|み}つかるわ。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "そして{帰納法|きのうほう}——{複数|ふくすう}のデータを{並|なら}べて「{共通|きょうつう}パターン」を{見|み}つける{力|ちから}。3つに{合|あ}って1つだけ{合|あ}わないものが{見|み}えてくる。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: takumi
+        text: "次からは「{終|お}わった！」の{前|まえ}に{必|かなら}ず{検算|けんざん}する。{分割法|ぶんかつほう}で{出|だ}した{答|こた}えを「{全体|ぜんたい}から{引|ひ}く{法|ほう}」でも{確|たし}かめる！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "{図工室|ずこうしつ}の{面積|めんせき}は{正|ただ}しく68m²に{修正|しゅうせい}された。{分割法|ぶんかつほう}50＋18＝68。{全体|ぜんたい}から{引|ひ}く{法|ほう}80−12＝68——2つの{方法|ほうほう}で{一致|いっち}。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{速|はや}さは{大切|たいせつ}。でも「{終|お}わった！」の{前|まえ}に{検算|けんざん}する——その{一手間|ひとてま}が、{正確|せいかく}さを{守|まも}る{最強|さいきょう}の{武器|ぶき}だ。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{複合|ふくごう}{図形|ずけい}の{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
