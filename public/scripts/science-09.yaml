@@ -1,0 +1,433 @@
+meta:
+  id: science-09
+  title: てこの密室と消えたプラネタリウム
+  series: サイエンス捜査班
+  volume: 9
+  estimatedMinutes: 22
+
+characters:
+  haruka:
+    name: ハルカ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  shun:
+    name: シュン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotone:
+    name: コトネ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-d-normal.webp
+      happy: girl-d-happy.webp
+      thinking: girl-d-thinking.webp
+      worried: girl-d-worried.webp
+      surprised: girl-d-surprised.webp
+      determined: girl-d-determined.webp
+  daichi:
+    name: ダイチ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: science-lab
+    bgm: science-09/opening
+    steps:
+      - type: narration
+        text: "{理科|りか}{委員会|いいんかい}が2{週間|しゅうかん}かけて{作|つく}った「{手作|てづく}りプラネタリウム{投影機|とうえいき}」が、{理科|りか}{準備室|じゅんびしつ}から{消|き}えた。"
+      - type: narration
+        text: "{金曜日|きんようび}の{放課後|ほうかご}に{先生|せんせい}がドアを{鍵|かぎ}で{施錠|せじょう}。{窓|まど}のクレセント{錠|じょう}も{閉|し}まっていた。"
+      - type: sprite_group
+        characters:
+          - { id: haruka, expression: surprised }
+          - { id: shun, expression: thinking }
+          - { id: kotone, expression: worried }
+          - { id: daichi, expression: surprised }
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、{先生|せんせい}が{開|あ}けると——プラネタリウムがない！"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "ドアも{窓|まど}も{閉|し}まっている。どこからも{入|はい}れないはず。なのに{中身|なかみ}が{消|き}えた——{完全|かんぜん}な{密室|みっしつ}。"
+      - type: sprite
+        id: haruka
+        action: hide
+      - type: sprite
+        id: shun
+        action: hide
+      - type: sprite
+        id: kotone
+        action: hide
+      - type: sprite
+        id: daichi
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-09/tension
+      - type: dialog
+        character: sensei
+        text: "{鍵|かぎ}はわたししか{持|も}っていません。{窓|まど}も{内側|うちがわ}から{施錠|せじょう}されたまま。いったいどうやって？ {科学|かがく}の{力|ちから}で{密室|みっしつ}のなぞを{解|と}いてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "てこの密室と消えたプラネタリウム"
+        subtitle: "サイエンス捜査班 Vol.9"
+
+  # ===== 証拠カード1: 密室状況 =====
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-09/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 密室の状況"
+      - type: narration
+        text: "{理科|りか}{準備室|じゅんびしつ}の{施錠|せじょう}{状態|じょうたい}——ドア：{鍵|かぎ}がかかっていた。{鍵|かぎ}は{先生|せんせい}だけが{持|も}っている。{合鍵|あいかぎ}はない。"
+      - type: narration
+        text: "{窓|まど}①（{南側|みなみがわ}{左|ひだり}）：クレセント{錠|じょう}が{閉|し}まっている。{窓|まど}②（{南側|みなみがわ}{右|みぎ}）：クレセント{錠|じょう}が{閉|し}まっている。{窓|まど}ガラスの{破損|はそん}なし。"
+      - type: narration
+        text: "クレセント{錠|じょう}は{窓|まど}の{内側|うちがわ}にある{半月型|はんげつがた}の{金具|かなぐ}。くるっと{回|まわ}すとロックがかかる。{外|そと}からは{回|まわ}せないはず……。"
+      - type: narration
+        text: "ドアも{窓|まど}も{閉|し}まっている。{完全|かんぜん}な{密室|みっしつ}。{本当|ほんとう}に「{絶対|ぜったい}に{入|はい}れない」のだろうか？"
+
+  # ===== 証拠カード2: 4人の行動 =====
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 金曜日の行動"
+      - type: narration
+        text: "{金曜日|きんようび}15:30〜16:10の4{人|にん}の{行動|こうどう}。"
+      - type: narration
+        text: "ハルカ：{準備室|じゅんびしつ}で{最終|さいしゅう}チェック→15:45に{出|で}た→{先生|せんせい}に{報告|ほうこく}（{先生|せんせい}が{確認|かくにん}）。シュン：{理科室|りかしつ}で{片付|かたづ}け→16:00まで{理科室|りかしつ}にいた（ハルカが{確認|かくにん}）。"
+      - type: narration
+        text: "コトネ：{理科室|りかしつ}にいた→15:50ごろ「ちょっと{用事|ようじ}がある」と{出|で}た（{証人|しょうにん}なし）。ダイチ：{理科室|りかしつ}で{片付|かたづ}け→15:45に{校庭|こうてい}へ→15:55ごろ{戻|もど}り{始|はじ}めた（{証人|しょうにん}なし）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ハルカが15:45に{出|で}たとき{投影機|とうえいき}はあった。{先生|せんせい}が16:05に{施錠|せじょう}するまでの20{分間|ぷんかん}が{犯行|はんこう}{可能|かのう}{時間|じかん}。1{人|ひとり}で{行動|こうどう}していたのはコトネとダイチ。"
+
+  # ===== 証拠カード3: 窓の周辺の痕跡 =====
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 窓の周辺の調査"
+      - type: narration
+        text: "{月曜|げつよう}{朝|あさ}に{発見|はっけん}された{痕跡|こんせき}。"
+      - type: narration
+        text: "{発見|はっけん}①：{窓枠|まどわく}の{下部|かぶ}に{金属|きんぞく}がこすれたような{新|あたら}しい{傷|きず}。{約|やく}3cm{幅|はば}の{隙間|すきま}に{沿|そ}っている。{先週|せんしゅう}はなかった{傷|きず}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{発見|はっけん}②：{理科室|りかしつ}の1mの{竹|たけ}ものさしが1{本|ぽん}{足|た}りない（5{本|ほん}→4{本|ほん}）。{幅|はば}3cm、{厚|あつ}さ5mm。"
+      - type: narration
+        text: "{発見|はっけん}③：{準備室|じゅんびしつ}の{窓|まど}の{下|した}の{花壇|かだん}の{土|つち}に{靴跡|くつあと}。サイズは22cm——{小学|しょうがく}5{年生|ねんせい}くらい。"
+      - type: narration
+        text: "{窓枠|まどわく}に{金属|きんぞく}の{傷|きず}→{何|なに}か{差|さ}し{込|こ}んだ？ {竹|たけ}ものさしが{消|き}えた→{長|なが}い{棒|ぼう}を{使|つか}った？ {花壇|かだん}に{靴跡|くつあと}→{窓|まど}の{外|そと}に{誰|だれ}かいた？"
+
+  # ===== 証拠カード4: 理科コンテスト情報 =====
+  - id: evidence-4
+    bg: classroom
+    bgm: science-09/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 理科コンテスト"
+      - type: narration
+        text: "{来週|らいしゅう}の{理科|りか}コンテスト。5{年|ねん}1{組|くみ}は「{水質|すいしつ}{調査|ちょうさ}」で{順調|じゅんちょう}。5{年|ねん}3{組|くみ}は「{植物|しょくぶつ}の{成長|せいちょう}{記録|きろく}」で{順調|じゅんちょう}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "5{年|ねん}2{組|くみ}は「プラネタリウム」がテーマ。しかし{自分|じぶん}たちの{投影機|とうえいき}のLED{配線|はいせん}が{木曜日|もくようび}に{切|き}れてしまった！ {修理|しゅうり}には{数日|すうじつ}かかる。"
+      - type: narration
+        text: "{担当|たんとう}はコトネ。{先生|せんせい}に「{理科|りか}{委員会|いいんかい}の{投影機|とうえいき}を{貸|か}してほしい」と{頼|たの}んだが、「{展示|てんじ}用だからダメ」と{断|ことわ}られた。クラスメイトは「コトネなら{何|なん}とかしてくれる」と{期待|きたい}しているらしい。"
+      - type: narration
+        text: "コトネには{投影機|とうえいき}を{必要|ひつよう}とする{動機|どうき}がある。でも{準備室|じゅんびしつ}は{密室|みっしつ}。{鍵|かぎ}を{持|も}っていないコトネにどうやって？"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: science-lab
+    bgm: science-09/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: haruka
+        position: left
+        expression: thinking
+      - type: dialog
+        character: haruka
+        text: "わたしは15:45に{準備室|じゅんびしつ}を{出|で}たとき、{投影機|とうえいき}はちゃんとあったよ。{窓枠|まどわく}の{下|した}に{隙間|すきま}があるのは{知|し}ってた。{夏|なつ}に「{虫|むし}が{入|はい}る」って{先生|せんせい}に{報告|ほうこく}したことがある。"
+      - type: sprite
+        id: haruka
+        action: hide
+      - type: sprite
+        id: shun
+        position: right
+        expression: determined
+      - type: dialog
+        character: shun
+        text: "{月曜|げつよう}{朝|あさ}に{窓枠|まどわく}の{傷|きず}と{竹|たけ}ものさしの{消失|しょうしつ}を{見|み}つけた。それと、{窓|まど}の{上|うえ}の{雨|あま}どいパイプに{紐|ひも}がこすれた{跡|あと}もあったんだ。"
+      - type: sprite
+        id: shun
+        action: hide
+      - type: sprite
+        id: kotone
+        position: left
+        expression: worried
+      - type: dialog
+        character: kotone
+        text: "15:50に「{用事|ようじ}がある」って{出|で}たのは{本当|ほんとう}。クラスの{投影機|とうえいき}が{壊|こわ}れて{困|こま}ってて……。でも{準備室|じゅんびしつ}は{密室|みっしつ}だよ？ わたしは{鍵|かぎ}{持|も}ってないし……。"
+      - type: sprite
+        id: kotone
+        action: hide
+      - type: sprite
+        id: daichi
+        position: right
+        expression: thinking
+      - type: dialog
+        character: daichi
+        text: "おれは15:55ごろ{校庭|こうてい}から{戻|もど}る{途中|とちゅう}で、{準備室|じゅんびしつ}の{外|そと}でコトネを{見|み}たんだ。{竹|たけ}ものさしと{紐|ひも}を{持|も}ってた。「{実験|じっけん}の{練習|れんしゅう}」って{言|い}ってたけど……。"
+      - type: sprite
+        id: daichi
+        action: hide
+
+  # ===== 証拠カード5: てこと滑車（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-09/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — てこと滑車の原理"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "「てこ」の{原理|げんり}。{支点|してん}（てこが{回転|かいてん}する{中心|ちゅうしん}）、{力点|りきてん}（{力|ちから}を{加|くわ}える{場所|ばしょ}）、{作用点|さようてん}（{力|ちから}が{伝|つた}わる{場所|ばしょ}）。"
+      - type: narration
+        text: "★{大事|だいじ}な{法則|ほうそく}★ {力点|りきてん}から{支点|してん}までの{距離|きょり}が{長|なが}いほど、{作用点|さようてん}に{大|おお}きな{力|ちから}がかかる。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "もし1mの{竹|たけ}ものさしを{窓枠|まどわく}の{隙間|すきま}から{差|さ}し{込|こ}み、{窓枠|まどわく}を{支点|してん}にしたら——{外側|そとがわ}（{力点|りきてん}）を{押|お}す→{内側|うちがわ}のクレセント{錠|じょう}（{作用点|さようてん}）に{力|ちから}が{伝|つた}わる。"
+      - type: narration
+        text: "{力点|りきてん}〜{支点|してん}＝{約|やく}70cm、{支点|してん}〜{作用点|さようてん}＝{約|やく}30cm。{力|ちから}が{約|やく}2.3{倍|ばい}に{増幅|ぞうふく}される！ クレセント{錠|じょう}を{回|まわ}せる！ {密室|みっしつ}は{破|やぶ}れる！"
+      - type: narration
+        text: "さらに「{定滑車|ていかっしゃ}」の{原理|げんり}。{窓|まど}の{上|うえ}の{雨|あま}どいパイプに{紐|ひも}を{通|とお}せば、{力|ちから}の{方向|ほうこう}が{変|か}わる。{下|した}に{引|ひ}く→{上|うえ}に{持|も}ち{上|あ}がる。5kgの{投影機|とうえいき}を{窓|まど}から{取|と}り{出|だ}せる！"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "つまり——てこで{窓|まど}を{開|あ}け、{滑車|かっしゃ}で{投影機|とうえいき}を{出|だ}し、もう{一度|いちど}てこで{窓|まど}を{閉|し}める。{密室|みっしつ}の{完成|かんせい}。{窓枠|まどわく}の{隙間|すきま}を{知|し}っていて、{投影機|とうえいき}を{必要|ひつよう}としていた{人|ひと}は——{誰|だれ}？"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: science-lab
+    bgm: science-09/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "{密室|みっしつ}を{破|やぶ}るのに{使|つか}われた{科学|かがく}{原理|げんり}は？"
+        options:
+          - text: "磁石の力"
+            feedback: "{磁石|じしゃく}ではないよ。{窓枠|まどわく}の{隙間|すきま}から{長|なが}い{棒|ぼう}を{差|さ}し{込|こ}み、てこの{原理|げんり}でクレセント{錠|じょう}を{回|まわ}したんだ。"
+          - text: "てこと滑車の原理"
+            feedback: "そのとおり！ てこで{窓|まど}を{開|あ}け、{定滑車|ていかっしゃ}の{原理|げんり}で{投影機|とうえいき}を{取|と}り{出|だ}した。2つの{科学|かがく}{原理|げんり}を{組|く}み{合|あ}わせた{密室|みっしつ}トリックだね。"
+          - text: "光の屈折"
+            feedback: "{光|ひかり}ではないよ。{窓枠|まどわく}の{隙間|すきま}から{竹|たけ}ものさしを{差|さ}し{込|こ}んで、てこの{原理|げんり}でクレセント{錠|じょう}を{回|まわ}したんだ。"
+      - type: choice
+        id: q2
+        text: "{投影機|とうえいき}を{持|も}ち{出|だ}したのは{誰|だれ}？"
+        options:
+          - text: "ハルカ"
+            feedback: "ハルカは15:45に{出|で}て{先生|せんせい}に{報告|ほうこく}した。{準備室|じゅんびしつ}から{出|で}た{後|あと}に{犯行|はんこう}する{理由|りゆう}がないね。"
+          - text: "シュン"
+            feedback: "シュンは16:00まで{理科室|りかしつ}にいた（ハルカが{確認|かくにん}）。{投影機|とうえいき}を{必要|ひつよう}とする{動機|どうき}もないよ。"
+          - text: "コトネ"
+            feedback: "クラスの{投影機|とうえいき}が{壊|こわ}れた{動機|どうき}。15:50に1{人|ひとり}で{出|で}た。ダイチに{竹|たけ}ものさしと{紐|ひも}を{持|も}っているのを{目撃|もくげき}された。{窓枠|まどわく}の{隙間|すきま}も{知|し}っていた……。"
+          - text: "ダイチ"
+            feedback: "ダイチは{校庭|こうてい}にいた。コトネを{目撃|もくげき}した{証人|しょうにん}だよ。{投影機|とうえいき}を{必要|ひつよう}とする{動機|どうき}もないね。"
+
+  # ===== 真実: コトネの告白 =====
+  - id: truth-kotone
+    bg: science-lab
+    bgm: science-09/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{密室|みっしつ}のなぞの{真相|しんそう}を{発表|はっぴょう}します。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{投影機|とうえいき}を{持|も}ち{出|だ}したのは——コトネだった。"
+      - type: sprite
+        id: kotone
+        position: center
+        expression: worried
+      - type: dialog
+        character: kotone
+        text: "クラスの{投影機|とうえいき}が{壊|こわ}れて、みんなが「コトネなら{何|なん}とかしてくれる」って{期待|きたい}してて……。{先生|せんせい}に{断|ことわ}られたけど、みんなのために{借|か}りるしかないって{思|おも}っちゃった。"
+      - type: narration
+        text: "コトネは{窓枠|まどわく}の{隙間|すきま}を{知|し}っていた。1mの{竹|たけ}ものさしを{差|さ}し{込|こ}み、{窓枠|まどわく}を{支点|してん}にしてクレセント{錠|じょう}を{回|まわ}した——てこの{原理|げんり}。"
+      - type: narration
+        text: "{窓|まど}の{上|うえ}の{雨|あま}どいパイプに{紐|ひも}を{通|とお}し、{投影機|とうえいき}に{結|むす}んで{外|そと}から{下|した}に{引|ひ}いた——{定滑車|ていかっしゃ}の{原理|げんり}。5kgの{投影機|とうえいき}が{窓|まど}から{出|で}てきた。"
+      - type: dialog
+        character: kotone
+        expression: worried
+        text: "そのあと{窓|まど}を{閉|し}めて、もう{一度|いちど}{竹|たけ}ものさしでクレセント{錠|じょう}を{戻|もど}した。{月曜|げつよう}に{返|かえ}すつもりだったの……ごめんなさい。"
+      - type: sprite
+        id: kotone
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなが{知|し}っていたことも{明|あ}かされた。"
+      - type: sprite
+        id: haruka
+        position: left
+        expression: thinking
+      - type: dialog
+        character: haruka
+        text: "{窓枠|まどわく}の{下|した}に{約|やく}3cmの{隙間|すきま}があること、{知|し}ってた。コトネが「クラスの{投影機|とうえいき}が{壊|こわ}れた」ってすごく{悩|なや}んでたのも{聞|き}いてた。"
+      - type: sprite
+        id: haruka
+        action: hide
+      - type: sprite
+        id: shun
+        position: right
+        expression: determined
+      - type: dialog
+        character: shun
+        text: "{月曜|げつよう}{朝|あさ}に3つの{物証|ぶっしょう}を{見|み}つけた。{窓枠|まどわく}の{金属|きんぞく}の{擦|す}り{傷|きず}、{竹|たけ}ものさし1{本|ぽん}の{消失|しょうしつ}、{雨|あま}どいパイプの{紐|ひも}の{擦|す}れ{跡|あと}。これが{決定的|けっていてき}な{証拠|しょうこ}だった。"
+      - type: sprite
+        id: shun
+        action: hide
+      - type: sprite
+        id: daichi
+        position: left
+        expression: thinking
+      - type: dialog
+        character: daichi
+        text: "{金曜|きんよう}の15:55ごろ、{準備室|じゅんびしつ}の{外|そと}でコトネが{竹|たけ}ものさしと{紐|ひも}を{持|も}ってるのを{見|み}たんだ。「{実験|じっけん}の{練習|れんしゅう}」って{言|い}ってたけど……。"
+      - type: sprite
+        id: daichi
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "「てこの{原理|げんり}」と「{定滑車|ていかっしゃ}の{原理|げんり}」——2つの{科学|かがく}{原理|げんり}を{組|く}み{合|あ}わせて{密室|みっしつ}を{解|と}きましたね。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "てこは{支点|してん}・{力点|りきてん}・{作用点|さようてん}の3つのポイントがあります。{力点|りきてん}から{支点|してん}までの{距離|きょり}が{長|なが}いほど、{小|ちい}さな{力|ちから}で{大|おお}きな{力|ちから}を{出|だ}せます。{定滑車|ていかっしゃ}は{力|ちから}の{方向|ほうこう}を{変|か}えます。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "コトネの「みんなのために」という{気持|きも}ちは{素敵|すてき}です。でも{方法|ほうほう}が{間違|まちが}っていた。{先生|せんせい}に{断|ことわ}られたなら、「{別|べつ}の{方法|ほうほう}で{発表|はっぴょう}できないか」をクラスのみんなと{相談|そうだん}すべきでした。{科学|かがく}の{知識|ちしき}は{使|つか}い{方|かた}{次第|しだい}ですよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: science-lab
+    bgm: science-09/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: kotone
+        position: left
+        expression: worried
+      - type: dialog
+        character: kotone
+        text: "ごめんなさい。{投影機|とうえいき}はわたしの{家|いえ}にあります。{今日|きょう}{返|かえ}します。"
+      - type: sprite
+        id: kotone
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。{投影機|とうえいき}は{返|かえ}してもらうとして——コトネのクラスの{投影機|とうえいき}の{修理|しゅうり}、{理科|りか}{委員会|いいんかい}のみんなで{手伝|てつだ}いましょうか？"
+      - type: dialog
+        character: sensei
+        text: "「{困|こま}っている」と{正直|しょうじき}に{言|い}えば、みんなが{助|たす}けてくれます。こっそり{持|も}ち{出|だ}すよりも、ずっといい{解決|かいけつ}{方法|ほうほう}がありますよ。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "コトネのてこと{滑車|かっしゃ}の{知識|ちしき}は、{密室|みっしつ}トリックではなく——{理科|りか}コンテストの{発表|はっぴょう}で{活|い}かされることになった。"
+      - type: effect
+        name: fade-out
