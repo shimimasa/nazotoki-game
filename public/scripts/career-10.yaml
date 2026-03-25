@@ -1,0 +1,655 @@
+meta:
+  id: career-10
+  title: 働くとはなにか
+  series: キャリア探偵団
+  volume: 10
+  estimatedMinutes: 30
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: school-library
+    bgm: career-10/opening
+    steps:
+      - type: narration
+        text: "みどり{市立|しりつ}さくら{小学校|しょうがっこう}の6{年生|ねんせい}。明日は「キャリアフェア{発表会|はっぴょうかい}」——{各|かく}グループが「{仕事|しごと}の{調査|ちょうさ}」を{発表|はっぴょう}する{特別|とくべつ}な{日|ひ}だ。"
+      - type: narration
+        text: "ところが{発表|はっぴょう}の{前日|ぜんじつ}、グループAのリーダーが{確認|かくにん}すると——スライドのデータが{書|か}き{変|か}わっていた。"
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "グループAから{報告|ほうこく}がありました。{発表|はっぴょう}{資料|しりょう}のスライドが、{誰|だれ}かに{無断|むだん}で{書|か}き{換|か}えられていたそうです。"
+      - type: dialog
+        character: sensei
+        text: "しごとたんてい{団|だん}のみなさんに、この{謎|なぞ}を{解|と}いてほしいのです。{共有|きょうゆう}ファイルサーバーの{更新|こうしん}{履歴|りれき}、アリバイ{証言|しょうげん}——すべての{証拠|しょうこ}が{鍵|かぎ}になります。"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.10
+        subtitle: 働くとはなにか
+
+  # ===== キャラクター紹介 =====
+  - id: suspects
+    bg: school-classroom
+    bgm: career-10/investigation
+    steps:
+      - type: narration
+        text: "しごとたんてい{団|だん}の4{人|にん}が{集|あつ}まった。今日の{事件|じけん}——「{誰|だれ}がグループAのスライドを{書|か}き{換|か}えたのか」。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。{情報|じょうほう}{整理|せいり}が{得意|とくい}。{共有|きょうゆう}ファイルサーバーには{更新|こうしん}{履歴|りれき}のログが{残|のこ}るはず。まず{仕組|しく}みを{確認|かくにん}しよう。"
+        expression: thinking
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。グループAのリーダーとは{仲良|なかよ}しで……{発表|はっぴょう}が{書|か}き{換|か}えられたって{聞|き}いて、すごく{悲|かな}しくなった。{誰|だれ}がどんな{気持|きも}ちでそうしたのか、ちゃんと{知|し}りたい。"
+        expression: worried
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ！ {現地|げんち}{調査|ちょうさ}{得意|とくい}！ スライドが{書|か}き{換|か}えられたなら、{図書室|としょしつ}のPCから{共有|きょうゆう}サーバーにアクセスしたんじゃないか？ まず{図書室|としょしつ}を{調|しら}べよう！"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "……わたしはサキ。{数字|すうじ}や{記録|きろく}の{矛盾|むじゅん}に気づくのが{得意|とくい}。{昼休|ひるやす}みは……ちょっとあちこち{行|い}ってました。{詳|くわ}しくはあとで{話|はな}します。"
+        expression: thinking
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 図書室の入退室ログ =====
+  - id: evidence-1
+    bg: school-library
+    bgm: career-10/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 図書室の入退室ログ
+      - type: narration
+        text: "{図書|としょ}{委員|いいん}の{先生|せんせい}に{提供|ていきょう}してもらった{昼休|ひるやす}みの{図書室|としょしつ}の{記録|きろく}——"
+      - type: narration
+        text: "{入室|にゅうしつ}{記録|きろく}: 12:32 Aさん（6{年|ねん}1{組|くみ} {女子|じょし}）{入室|にゅうしつ}"
+      - type: narration
+        text: "12:35 sakiyui（6{年|ねん}1{組|くみ}）{入室|にゅうしつ} ※PCログインあり"
+      - type: narration
+        text: "{退室|たいしつ}{記録|きろく}: 12:48 sakiyui {退室|たいしつ} ※PCをログアウトして{退室|たいしつ}"
+      - type: narration
+        text: "PC{利用|りよう}{記録|きろく}: PC3{番|ばん}: 12:35〜12:48 アカウント「sakiyui」が{使用|しよう} ※その{他|た}のPCは{本日|ほんじつ}の{昼休|ひるやす}み{利用|りよう}なし"
+      - type: se
+        sound: common/discover
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruto
+        text: "「sakiyui」というアカウントID……これは{誰|だれ}のもの？ {昼休|ひるやす}みに{図書室|としょしつ}のPCを{使|つか}ったのはこの1{人|ひと}だけだ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kei
+        text: "12:35〜12:48か。この{時間帯|じかんたい}、{図書室|としょしつ}にいた{人|ひと}とアリバイが{確認|かくにん}できている{人|ひと}を{照合|しょうごう}すれば……{絞|しぼ}れてくるな。"
+      - type: sprite
+        character: kei
+        action: hide
+
+  # ===== 証拠カード2: ファイルサーバーのアクセスログ =====
+  - id: evidence-2
+    bg: school-classroom
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: ファイルサーバーのアクセスログ
+      - type: narration
+        text: "{情報|じょうほう}{担当|たんとう}の{先生|せんせい}が{確認|かくにん}してくれたサーバーの{操作|そうさ}ログ——"
+      - type: narration
+        text: "12:36:14 アカウント: sakiyui → グループAのフォルダを{開|ひら}く（{読|よ}み{取|と}り）"
+      - type: narration
+        text: "12:37:02 アカウント: sakiyui → slide_A_final.pptxを{開|ひら}く（{読|よ}み{取|と}り）"
+      - type: narration
+        text: "12:39:45 アカウント: sakiyui → slide_A_final.pptxを{上書|うわが}き{保存|ほぞん}（{書|か}き{込|こ}み） ※{変更前|へんこうまえ}のバックアップが{自動|じどう}{保存|ほぞん}されています"
+      - type: narration
+        text: "12:47:58 アカウント: sakiyui → ログアウト"
+      - type: se
+        sound: common/discover
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "12:37に{開|ひら}いて、12:39に{上書|うわが}き{保存|ほぞん}。2{分間|ふんかん}でグループAのスライドのデータを{書|か}き{換|か}えた。アクセス{先|さき}は——グループAのフォルダ。{間違|まちが}いない。"
+        expression: surprised
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: worried
+        position: right
+      - type: dialog
+        character: mina
+        text: "{上書|うわが}き{保存|ほぞん}って、{元|もと}のデータを{消|け}して{新|あたら}しいデータで{置|お}き{換|か}えること……グループAが{何時間|なんじかん}もかけて{確認|かくにん}したデータが、{無断|むだん}で{変|か}えられたんだ。"
+        expression: worried
+      - type: sprite
+        character: mina
+        action: hide
+
+  # ===== 証拠カード3: 4人のアリバイ証言 =====
+  - id: evidence-3
+    bg: school-hallway
+    bgm: career-10/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 4人の昼休みのアリバイ証言
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくの{証言|しょうげん}: {昼休|ひるやす}みはずっと{教室|きょうしつ}にいた。スライドの{最終|さいしゅう}{確認|かくにん}をしてた。12:40ごろ、{廊下|ろうか}でサキとすれ{違|ちが}いました。サキは{図書室|としょしつ}の{方向|ほうこう}から{歩|ある}いてきていた。"
+        expression: thinking
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしの{証言|しょうげん}: {昼休|ひるやす}みは{給食|きゅうしょく}{片付|かたづ}けの{当番|とうばん}でした。{給食室|きゅうしょくしつ}の{廊下|ろうか}で13:00まで{作業|さぎょう}していました。{先生|せんせい}が{確認|かくにん}してくださいました。{図書室|としょしつ}には{行|い}っていません。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれの{証言|しょうげん}: {昼休|ひるやす}みはバスケ{部|ぶ}の{練習|れんしゅう}で{体育館|たいいくかん}にいた。{顧問|こもん}の{先生|せんせい}と{部員|ぶいん}7{名|めい}が{一緒|いっしょ}。13:00に{体育館|たいいくかん}を{出|で}て{廊下|ろうか}を{通|とお}ったとき、{図書室|としょしつ}の{出口|でぐち}あたりでサキを{見|み}た{気|き}がします。見{間違|まちが}いかもしれないけど。"
+        expression: thinking
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしの{証言|しょうげん}: {昼休|ひるやす}みは……ちょっとあちこち{行|い}ってました。{詳|くわ}しくはあとで{話|はな}します。"
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        speed: slow
+        text: "4{人|にん}のうち、{図書室|としょしつ}に「{行|い}けなかったことが{確実|かくじつ}な{人|ひと}」はミナとケイ。ハルトは{教室|きょうしつ}にいたが、{廊下|ろうか}でサキと{出会|であ}った。サキの{証言|しょうげん}だけが{曖昧|あいまい}だ。"
+
+  # ===== 証拠カード4: 変更されたスライドの比較 =====
+  - id: evidence-4
+    bg: school-classroom
+    bgm: career-10/experiment
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 変更されたスライドの比較
+      - type: narration
+        text: "{情報|じょうほう}{担当|たんとう}の{先生|せんせい}が{自動|じどう}{保存|ほぞん}されていたバックアップファイルを{確認|かくにん}——"
+      - type: narration
+        text: "{変更前|へんこうまえ}（{元|もと}のグループAのスライド）: 7{枚目|まいめ}「{製造業|せいぞうぎょう}の{給与|きゅうよ}と{働|はたら}き{方|かた}」"
+      - type: narration
+        text: "日本の{製造業|せいぞうぎょう}で{働|はたら}く{人|ひと}の{平均|へいきん}{年収|ねんしゅう}は、{約|やく}350{万円|まんえん}です（2024{年度|ねんど}{調査|ちょうさ}）。{出典|しゅってん}: {厚生労働省|こうせいろうどうしょう}「{賃金|ちんぎん}{構造|こうぞう}{基本|きほん}{統計|とうけい}{調査|ちょうさ}」2024{年版|ねんばん}"
+      - type: narration
+        text: "{変更後|へんこうご}（{書|か}き{換|か}えられたスライド）: {平均|へいきん}{年収|ねんしゅう}は、{約|やく}362{万円|まんえん}です（2025{年度|ねんど}{調査|ちょうさ}）。{出典|しゅってん}: {厚生労働省|こうせいろうどうしょう}「{賃金|ちんぎん}{構造|こうぞう}{基本|きほん}{統計|とうけい}{調査|ちょうさ}」2025{年版|ねんばん}"
+      - type: se
+        sound: common/discover
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruto
+        text: "350{万円|まんえん}から362{万円|まんえん}に{変|か}えられた。12{万円|まんえん}の{差|さ}。{変更|へんこう}したのは{新|あたら}しいデータに{更新|こうしん}した——{悪意|あくい}ではなく、「より{正確|せいかく}なデータに{直|なお}した」ように{見|み}える。"
+        expression: thinking
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: worried
+        position: right
+      - type: dialog
+        character: mina
+        text: "たとえ「より{正確|せいかく}なデータ」だとしても……{相手|あいて}に{確認|かくにん}せずに{勝手|かって}に{変|か}えるのは、どうなんだろう？ グループAの{人|ひと}たちは、{自分|じぶん}たちの{発表|はっぴょう}を{自分|じぶん}たちで{決|き}める{権利|けんり}があるんじゃないかな。"
+        expression: worried
+      - type: sprite
+        character: mina
+        action: hide
+
+  # ===== 証拠カード5: サキのメモ（反転） =====
+  - id: evidence-5
+    bg: school-library
+    bgm: career-10/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: サキのメモと新しい問い
+      - type: se
+        sound: common/tension
+      - type: narration
+        text: "{先生|せんせい}が{事情|じじょう}を{聞|き}いたとき、サキが{自分|じぶん}から{見|み}せたノートのページ——"
+      - type: narration
+        speed: slow
+        text: "【サキのノート（{本日|ほんじつ}の{朝|あさ}の{時間|じかん}に{書|か}いたメモ）】"
+      - type: narration
+        text: "グループAのスライドの7ページ、{賃金|ちんぎん}のデータが2024{年版|ねんばん}になっている。2025{年版|ねんばん}は{今年|ことし}の3{月|がつ}に{出|で}た{最新版|さいしんばん}で、{数値|すうち}が362{万円|まんえん}に{更新|こうしん}されている。"
+      - type: narration
+        text: "{昨日|きのう}、グループAのリーダーに「データが{古|ふる}い」と{伝|つた}えようとしたが、「もう{最終|さいしゅう}{確認|かくにん}が{終|お}わってる」と{断|こと}わられた。"
+      - type: narration
+        text: "でも、このまま{古|ふる}いデータで{発表|はっぴょう}されたら、それを{聞|き}いた{人|ひと}たちが「{製造業|せいぞうぎょう}の{給料|きゅうりょう}は350{万円|まんえん}だ」と{信|しん}じてしまう。12{万円|まんえん}の{違|ちが}いは{大|おお}きい。{誰|だれ}かが{直|なお}さなければならない。それは{正確|せいかく}な{情報|じょうほう}を{知|し}っている{私|わたし}の{仕事|しごと}だと{思|おも}った。"
+      - type: narration
+        speed: slow
+        text: "……でも、やってしまった{後|あと}で{考|かんが}えた。「{正|ただ}しいこと」をしたかった。でも、グループAの{人|ひと}たちは、{何|なに}も{知|し}らないまま{明日|あした}{発表|はっぴょう}に{立|た}つ。{私|わたし}は{正|ただ}しかった？"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: sprite
+        character: saki
+        expression: worried
+        position: center
+      - type: dialog
+        character: saki
+        text: "……{実|じつ}は、{私|わたし}がやりました。sakiyuiは、わたしのアカウントIDです。"
+        expression: worried
+      - type: sprite
+        character: saki
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "サキさんに{悪意|あくい}はありませんでした。{正確|せいかく}な{情報|じょうほう}を{広|ひろ}めたいという、{誠実|せいじつ}な{気持|きも}ちがありました。でも、グループAの{人|ひと}たちは、{自分|じぶん}たちの{発表|はっぴょう}を{自分|じぶん}たちで{決|き}める{権利|けんり}があります。それを、サキさんは1{人|ひと}の{判断|はんだん}で{変|か}えてしまいました。"
+      - type: dialog
+        character: sensei
+        text: "これは「{働|はたら}くこと」についての、{大切|たいせつ}な{問|と}いを{投|な}げかけています。みなさんも「{自分|じぶん}のやり{方|かた}が{正|ただ}しい」と{思|おも}って、{他|ほか}の{人|ひと}のやり{方|かた}を{変|か}えたくなったことはありませんか？"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+
+  # ===== 投票（2段階） =====
+  - id: questions
+    bg: school-classroom
+    bgm: career-10/tension
+    steps:
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "{証拠|しょうこ}をすべて{整理|せいり}しよう。Card1の{図書室|としょしつ}ログ、Card2のサーバーログ、Card3の{各自|かくじ}のアリバイ、Card4のスライド{比較|ひかく}——すべてが{一致|いっち}している。まず1{回目|かいめ}の{投票|とうひょう}だ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: choice
+        id: q1
+        question: グループAのスライドを書き換えたのは誰？
+        options:
+          - text: ハルト（情報型・教室でスライド確認していた）
+            value: haruto
+            feedback: ハルトは昼休み中、教室でスライドの最終確認をしていた。12:40ごろ廊下でサキとすれ違ったことも証言している。図書室のログにハルトのアカウントは記録されていない。
+          - text: ミナ（感情型・給食片付けの当番だった）
+            value: mina
+            feedback: ミナは昼休み中、給食室前の廊下で片付け当番をしていた。先生が確認済み。13:00まで図書室に行くことはできなかった。
+          - text: ケイ（行動型・体育館でバスケ部の練習だった）
+            value: kei
+            feedback: ケイは昼休み中、体育館でバスケ部の練習をしていた。顧問の先生と部員7名が証人。図書室のログにケイのアカウントは記録されていない。
+          - text: サキ（観察型・昼休みの行動が曖昧だった）
+            value: saki
+            feedback: 正解！ Card1の図書室ログに「sakiyui」のアカウントが12:35〜12:48に記録。Card2のサーバーログでグループAのスライドを上書き保存。ハルトとケイがサキを図書室付近で目撃。アリバイも曖昧だった。すべての証拠がサキに一致する。
+      - type: sprite
+        character: mina
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mina
+        text: "サキの{動機|どうき}は{悪|わる}くなかった。でも、グループAのリーダーは「{自分|じぶん}たちの{発表|はっぴょう}が{勝手|かって}に{変|か}えられた」と{泣|な}いていた。{正|ただ}しい{動機|どうき}と、{正|ただ}しい{行動|こうどう}は、{常|つね}に{同|おな}じじゃないのかな。"
+        expression: worried
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kei
+        text: "……もし{自分|じぶん}が{同|おな}じ{立場|たちば}だったら、どうしたかな。「{正確|せいかく}なデータがある」って{分|わ}かってたら、{直|なお}してあげたい{気持|きも}ちになるかもしれない。そう{思|おも}うと、サキを{一方的|いっぽうてき}に{責|せ}める{気持|きも}ちになれない。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: choice
+        id: q2
+        question: 働くとき、あなたが一番大切にしたいことは何？
+        options:
+          - text: A. 正確で質の高い仕事をすること（プロとしての技術・誠実さ）
+            value: accuracy
+            feedback: サキが大切にしていた価値観だ。正確さへのこだわりは、プロフェッショナルとして大切な資質。でも、正確さだけを絶対視すると「相手の自律性」を見落とすことがある。正確さと他者尊重のバランスが問われる。
+          - text: B. 社会や誰かの役に立つこと（貢献・つながり）
+            value: contribution
+            feedback: ミナが大切にしていた価値観に近い。「人のために働く」という動機は、働くことの根本にある大切な意義。ただ、「役に立とうとする」ことが「相手の代わりに決めてしまう」ことにならないよう、相手と一緒に考えることも大切。
+          - text: C. 自分が成長し、やりがいを感じること（自己実現）
+            value: growth
+            feedback: 働くことを通じて自分が成長する、やりがいを感じることは大切な動機。自己成長への意欲は、仕事を長く続けるためのエネルギーになる。でも、「自分のやりがい」だけを優先すると、チームや相手への影響を見失うこともある。
+          - text: D. 正解はない——全部大事、バランスが必要
+            value: balance
+            feedback: 今日の事件が教えてくれたことの一つはまさにこれ。正確さ・貢献・成長・つながり、どれか一つを絶対視するのではなく、状況に応じてバランスを取る力が、長く働き続ける上で大切になる。
+
+  # ===== 真実へ =====
+  - id: truth-intro
+    bg: school-classroom
+    bgm: career-10/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 正確さへのこだわりが生んだ矛盾
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: school-classroom
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruto
+        text: "実はぼくも、グループAのデータが{古|ふる}いことに{気|き}づいてた。{昨日|きのう}「2025{年版|ねんばん}が{出|で}ている」と{分|わ}かって、グループAに{教|おし}えようとしたけど、「{準備|じゅんび}に{時間|じかん}がかかる」って{断|こと}わられた。"
+        expression: thinking
+      - type: dialog
+        character: haruto
+        text: "サキとぼくは、{同|おな}じことを{考|かんが}えていた。でも、ぼくは{諦|あきら}めた。サキは{行動|こうどう}した。……{手順|てじゅん}を{守|まも}ることの{意味|いみ}を、{改|あらた}めて{考|かんが}えさせられた。"
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ミナの秘密
+  - id: truth-mina
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: right
+      - type: dialog
+        character: mina
+        text: "{昨日|きのう}の{放課後|ほうかご}、サキが「{製造業|せいぞうぎょう}の{賃金|ちんぎん}データ、2025{年版|ねんばん}が{出|で}てたよ。グループAはまだ{知|し}らないんじゃないかな」って{言|い}ってた。{私|わたし}が「{教|おし}えてあげれば？」って{言|い}ったら、「{明日|あした}……」と{言|い}いかけて{黙|だま}ってしまった。"
+        expression: thinking
+      - type: dialog
+        character: mina
+        text: "「{人|ひと}のために{働|はたら}くこと」と「{人|ひと}の{代|か}わりに{決|き}めてしまうこと」は{違|ちが}う——お{母|かあ}さんが{看護師|かんごし}として{働|はたら}く{中|なか}で{教|おし}えてくれたことが、{今日|きょう}ようやく{本当|ほんとう}の{意味|いみ}で{分|わ}かった{気|き}がする。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kei
+        text: "13:00に{体育館|たいいくかん}から{戻|もど}る{途中|とちゅう}、{図書室|としょしつ}の{前|まえ}でサキを{見|み}た。「見{間違|まちが}いかも」って{思|おも}ってたけど——{本当|ほんとう}のことだった。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "{自分|じぶん}だったらどうするかな……って{本気|ほんき}で{考|かんが}えた。「サキを{責|せ}められるほど、{自分|じぶん}は{完全|かんぜん}に{正|ただ}しく{行動|こうどう}できるのかな」って。それが{今日|きょう}一番{難|むずか}しい{問|とい}いだった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # サキの真実（クライマックス）
+  - id: truth-saki
+    bgm: career-10/truth
+    steps:
+      - type: sprite
+        character: saki
+        expression: worried
+        position: center
+      - type: narration
+        speed: slow
+        text: "サキが、ゆっくりと{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: saki
+        text: "みんなにごめんなさい。{悪|わる}いことをしようとしたわけじゃなかった。でも……{結果|けっか}として、グループAの{人|ひと}たちを{傷|きず}つけてしまった。"
+        expression: worried
+      - type: dialog
+        character: saki
+        text: "{間違|まちが}ったデータが{広|ひろ}まることが、どうしても{許|ゆる}せなかった。{正確|せいかく}な{情報|じょうほう}を{知|し}っている{自分|じぶん}が{直|なお}せば{解決|かいけつ}できると{思|おも}った。"
+        expression: thinking
+      - type: dialog
+        character: saki
+        text: "でも——{本当|ほんとう}は{最初|さいしょ}からグループAの{人|ひと}たちに{相談|そうだん}すれば{良|よ}かった。{断|こと}わられたとき、{先生|せんせい}に{仲介|ちゅうかい}を{頼|たの}むこともできた。{勝手|かって}に{変|か}えることは、{私|わたし}が{決|き}めることじゃなかった。"
+        expression: worried
+      - type: dialog
+        character: saki
+        text: "今日、この{事件|じけん}を{通|とお}して{初|はじ}めて{考|かんが}えた——{働|はたら}くって、{自分|じぶん}の{正|ただ}しさだけじゃないんだ。{相手|あいて}と{一緒|いっしょ}に{決|き}めること、それも「{働|はたら}く」ということの{大切|たいせつ}な{部分|ぶぶん}なんだ、って。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        speed: slow
+        text: "サキに{悪意|あくい}はなかった。「{正確|せいかく}な{情報|じょうほう}を{広|ひろ}めたい」という{誠実|せいじつ}な{確信|かくしん}からの{行動|こうどう}だった。しかし「{働|はたら}く」という{行為|こうい}には、{自分|じぶん}の{判断|はんだん}だけでなく「{相手|あいて}の{自律性|じりつせい}を{尊重|そんちょう}する」という{原則|げんそく}がある。その{矛盾|むじゅん}が、「{働|はたら}くとはなにか」を{考|かんが}えるパラダイムシフトのきっかけになった。"
+
+  # ===== エピローグ（シリーズ完結） =====
+  - id: epilogue
+    bg: school-classroom
+    bgm: career-10/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "今日の{事件|じけん}で、みなさんはとても{大切|たいせつ}なことを{学|まな}びました。「{正|ただ}しい{動機|どうき}」があっても、「{相手|あいて}に{無断|むだん}で{変|か}える」{行為|こうい}は、{職業|しょくぎょう}{倫理|りんり}として{許|ゆる}されない——これが{働|はたら}く{人間|にんげん}としての{根本的|こんぽんてき}なルールです。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "そして「{働|はたら}くこと」の{意義|いぎ}は{一|ひと}つではありません。{収入|しゅうにゅう}を{得|え}ること、{社会|しゃかい}に{貢献|こうけん}すること、{自分|じぶん}が{成長|せいちょう}すること、{人|ひと}とつながること——これらはすべて「{働|はたら}くこと」に{含|ふく}まれています。"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: left
+      - type: dialog
+        character: haruto
+        text: "Vol.1から{今日|きょう}まで、{消去法|しょうきょほう}・{情報整理|じょうほうせいり}・{因果|いんが}{連鎖|れんさ}・タイムライン・{仮説|かせつ}{検証|けんしょう}・{全探索|ぜんたんさく}・{情報|じょうほう}{欠落|けつらく}・{認知|にんち}バイアス・{帰納法|きのうほう}——そして{今日|きょう}の{複合|ふくごう}{推理|すいり}とメタ{認知|にんち}。10{本|ほん}の{事件|じけん}で、ぼくたちは9つの{推理|すいり}スキルを{積|つ}み{上|あ}げた。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: happy
+        position: right
+      - type: dialog
+        character: mina
+        text: "{働|はたら}くって、{難|むずか}しい。{自分|じぶん}の{正義感|せいぎかん}だけでは{足|た}りなくて、{相手|あいて}の{気持|きも}ちや{権利|けんり}を{考|かんが}える{必要|ひつよう}がある。でも、だから{働|はたら}くことは{面白|おもしろ}くて、{価値|かち}があることなのかもしれない。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "{将来|しょうらい}どんな{仕事|しごと}に{就|つ}くかは{分|わ}からないけど——「チームで{決|き}める」「{記録|きろく}を{残|のこ}す」「{正確|せいかく}さと{相手|あいて}への{尊重|そんちょう}を{両方|りょうほう}{守|まも}る」。これは{絶対|ぜったい}{使|つか}える{力|ちから}だ！"
+        expression: happy
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "みんなにごめんなさい。そして……{一緒|いっしょ}に{考|かんが}えてくれてありがとう。「{働|はたら}くとはなにか」——{今日|きょう}まで{考|かんが}えたことがなかった{問|と}いだった。これが、キャリア{探偵団|たんていだん}での{一番大切|いちばんたいせつ}な{学|まな}びになりました。"
+        expression: happy
+      - type: sprite
+        character: saki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "しごとたんてい{団|だん}は、{今日|きょう}もっとも{難|むずか}しい{謎|なぞ}を{解|と}いた。「{犯人|はんにん}は{誰|だれ}か」という{第|だい}1{層|そう}の{謎|なぞ}——そして「{働|はたら}くとはなにか」という、{答|こた}えのない{第|だい}2{層|そう}の{問|と}い。"
+      - type: narration
+        speed: slow
+        text: "キャリア{探偵団|たんていだん} Vol.1〜10——10{本|ほん}の{事件|じけん}と10の{推理|すいり}スキル。それを{身|み}につけた4{人|にん}は、もう{探偵|たんてい}ではなく、{未来|みらい}の{働|はたら}く{人間|にんげん}として、{社会|しゃかい}に{踏|ふ}み{出|だ}す{準備|じゅんび}ができている。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——{働|はたら}くとはなにか、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

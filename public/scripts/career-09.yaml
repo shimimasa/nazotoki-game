@@ -1,0 +1,516 @@
+meta:
+  id: career-09
+  title: ボランティアのデータ
+  series: キャリア探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  center_staff:
+    name: センター職員
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: office
+    bgm: career-09/opening
+    steps:
+      - type: narration
+        text: "みどり{市|し}の{地域|ちいき}ボランティア{団体|だんたい}「みどりの{里|さと}サポートセンター」。{毎月|まいつき}{第2土曜日|だいにどようび}に{清掃|せいそう}・{植樹|しょくじゅ}・{子ども食堂|こどもしょくどう}などの{活動|かつどう}をしている。"
+      - type: narration
+        text: "今年（ことし）の4{月|がつ}から3{月|がつ}まで、12か{月|げつ}{分|ぶん}の{活動|かつどう}{記録|きろく}がそろった。"
+      - type: narration
+        text: "ところが、{記録|きろく}を{全部|ぜんぶ}{並|なら}べて{見|み}てみると……"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: center_staff
+        expression: thinking
+        position: center
+      - type: dialog
+        character: center_staff
+        text: "12か{月|げつ}の{記録|きろく}を{並|なら}べて{確認|かくにん}していたら……9{月|がつ}だけ、{記録|きろく}の{形式|けいしき}がぜんぜん{違|ちが}うんです！"
+        expression: thinking
+      - type: bgm
+        track: career-09/investigation
+      - type: dialog
+        character: center_staff
+        text: "4{月|がつ}から8{月|がつ}と10{月|がつ}から3{月|がつ}は{同|おな}じ{形式|けいしき}なのに、9{月|がつ}だけ{別|べつ}の{形|かたち}になっています。いったいなぜ？"
+      - type: dialog
+        character: center_staff
+        text: "データを{見比|みくら}べて、{真相|しんそう}を{解明|かいめい}してください。キャリア{探偵団|たんていだん}の{皆|みな}さん、{調|しら}べてくれますか？"
+        expression: normal
+      - type: sprite
+        character: center_staff
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.9
+        subtitle: ボランティアのデータ
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: office
+    bgm: career-09/investigation
+    steps:
+      - type: narration
+        text: "「みどりの{里|さと}サポートセンター」の{活動|かつどう}{記録|きろく}{担当|たんとう}4{人|にん}。3{月|がつ}15{日|にち}の{振|ふ}り{返|かえ}りミーティングに{集|あつ}まった。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト、{記録|きろく}{整理|せいり}{担当|たんとう}。12か{月|げつ}のデータを{並|なら}べて{整理|せいり}するのが{得意|とくい}。4{月|がつ}から3{月|がつ}まで全部{見|み}れば{何|なに}か{分|わ}かるはずだよ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。{活動|かつどう}{内容|ないよう}の{記録|きろく}{担当|たんとう}。ボランティアに{参加|さんか}してくれた{人|ひと}たちの{声|こえ}を{記録|きろく}しているの。みんなの{気持|きも}ちを{大切|たいせつ}にしたい。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: normal
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。{実地|じっち}{調査|ちょうさ}・{集計|しゅうけい}{担当|たんとう}。{現場|げんば}に{行|い}って{人数|にんずう}を{数|かぞ}える{仕事|しごと}。えっと……9{月|がつ}の{記録|きろく}、なんか{問題|もんだい}あった？"
+        expression: thinking
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: determined
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。データ{検証|けんしょう}{担当|たんとう}。{数字|すうじ}や{記録|きろく}の{矛盾|むじゅん}を{見|み}つけるのが{得意|とくい}。この{欄|らん}、{他|ほか}の{月|つき}にはないよ？ {数字|すうじ}が{合|あ}わないの。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 標準様式 =====
+  - id: evidence-1
+    bg: office
+    bgm: career-09/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 活動記録の標準様式
+      - type: narration
+        text: "みどりの{里|さと}サポートセンター　{活動|かつどう}{記録|きろく}{標準|ひょうじゅん}{様式|ようしき}（2020{年|ねん}3{月|がつ} センター{承認|しょうにん}）——"
+      - type: narration
+        text: "{記録|きろく}に{書|か}くこと（5{項目|こうもく}・{全|すべ}て{必須|ひっす}）"
+      - type: narration
+        text: "① {日時|にちじ}：{実施日|じっしび}・{開始|かいし}{時刻|じこく}・{終了|しゅうりょう}{時刻|じこく}"
+      - type: narration
+        text: "② {参加者数|さんかしゃすう}：{当日|とうじつ}{参加|さんか}した{人数|にんずう}（スタッフ{含|ふく}む）※{必|かなら}ず「{実数|じっすう}」を{記録|きろく}すること"
+      - type: narration
+        text: "③ {活動|かつどう}{内容|ないよう}：{何|なに}をしたか（{清掃|せいそう}/{植樹|しょくじゅ}/{食堂|しょくどう}/{その他|そのた}）を{箇条書|かじょうが}きで"
+      - type: narration
+        text: "④ {成果|せいか}・{実績|じっせき}：{数値|すうち}で{表|あらわ}す（{清掃|せいそう}{面積|めんせき}○㎡・{植樹|しょくじゅ}○本など）"
+      - type: narration
+        text: "⑤ {担当者名|たんとうしゃめい}：{記録|きろく}{責任者|せきにんしゃ}のフルネームを{記入|きにゅう}"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "★ {注意|ちゅうい}：{様式|ようしき}を{勝手|かって}に{変|か}えないこと。{記録|きろく}の{形式|けいしき}が{変|か}わると「{過去|かこ}との{比較|ひかく}」や「{外部|がいぶ}への{報告|ほうこく}」ができなくなります。"
+
+  # ===== 証拠カード2: 春・夏の記録 =====
+  - id: evidence-2
+    bg: office
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: 春・夏の活動記録（4月・5月・7月・8月）
+      - type: narration
+        text: "みどりの{里|さと}サポートセンター　{活動|かつどう}{記録|きろく}——"
+      - type: narration
+        text: "4{月|がつ}12{日|にち}（{土|どう}）9:00〜12:00　{参加|さんか}{者数|しゃすう}：23{名|めい}　{活動|かつどう}：{公園|こうえん}{清掃|せいそう}　{成果|せいか}：{清掃|せいそう}{面積|めんせき}{約|やく}800㎡・ごみ{袋|ぶくろ}6{袋|ふくろ}{回収|かいしゅう}　{担当者名|たんとうしゃめい}：{田村|たむら} {由希|ゆき}"
+      - type: narration
+        text: "5{月|がつ}10{日|にち}（{土|どう}）9:00〜12:00　{参加|さんか}{者数|しゃすう}：18{名|めい}　{活動|かつどう}：{植樹|しょくじゅ}{活動|かつどう}　{成果|せいか}：{桜|さくら}の{苗木|なえぎ}15{本|ほん}{植樹|しょくじゅ}　{担当者名|たんとうしゃめい}：{本田|ほんだ} {健太|けんた}"
+      - type: narration
+        text: "7{月|がつ}12{日|にち}（{土|どう}）9:00〜11:00　{参加|さんか}{者数|しゃすう}：15{名|めい}　{活動|かつどう}：{子|こ}ども{食堂|しょくどう}{補助|ほじょ}　{成果|せいか}：{食事|しょくじ}{提供数|ていきょうすう}47{食|しょく}　{担当者名|たんとうしゃめい}：{三浦|みうら} {奈々|なな}"
+      - type: narration
+        text: "8{月|がつ}9{日|にち}（{土|どう}）9:00〜12:00　{参加|さんか}{者数|しゃすう}：14{名|めい}　{活動|かつどう}：{公園|こうえん}{清掃|せいそう}・{草刈|くさかり}り　{成果|せいか}：{清掃|せいそう}{面積|めんせき}{約|やく}600㎡・{草刈|くさかり}り2か{所|しょ}　{担当者名|たんとうしゃめい}：{田村|たむら} {由希|ゆき}"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "4{月|がつ}・5{月|がつ}・7{月|がつ}・8{月|がつ}の{記録|きろく}を{見|み}てみよう。{全|すべ}ての{月|つき}に①{日時|にちじ}②{参加者数|さんかしゃすう}（{実数|じっすう}）③{活動|かつどう}{内容|ないよう}④{成果|せいか}（{数値|すうち}）⑤{担当者名|たんとうしゃめい}の5{項目|こうもく}が{揃|そろ}っている。"
+
+  # ===== 証拠カード3: 秋・冬の記録 =====
+  - id: evidence-3
+    bgm: career-09/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 秋・冬の活動記録（10月・11月・1月・2月）
+      - type: narration
+        text: "みどりの{里|さと}サポートセンター　{活動|かつどう}{記録|きろく}——"
+      - type: narration
+        text: "10{月|がつ}11{日|にち}（{土|どう}）9:00〜12:00　{参加|さんか}{者数|しゃすう}：26{名|めい}　{活動|かつどう}：{落|お}ち{葉|ば}{清掃|せいそう}・{植樹|しょくじゅ}　{成果|せいか}：{清掃|せいそう}{面積|めんせき}{約|やく}1000㎡・{苗木|なえぎ}8{本|ほん}{植樹|しょくじゅ}　{担当者名|たんとうしゃめい}：{本田|ほんだ} {健太|けんた}"
+      - type: narration
+        text: "11{月|がつ}8{日|にち}（{土|どう}）9:00〜12:00　{参加|さんか}{者数|しゃすう}：31{名|めい}　{活動|かつどう}：{公園|こうえん}{清掃|せいそう}・{子|こ}ども{食堂|しょくどう}{補助|ほじょ}　{成果|せいか}：{清掃|せいそう}{面積|めんせき}{約|やく}800㎡・{食事|しょくじ}{提供数|ていきょうすう}52{食|しょく}　{担当者名|たんとうしゃめい}：{三浦|みうら} {奈々|なな}"
+      - type: narration
+        text: "1{月|がつ}10{日|にち}（{土|どう}）9:00〜12:00　{参加|さんか}{者数|しゃすう}：19{名|めい}　{活動|かつどう}：{公園|こうえん}{清掃|せいそう}・{防寒|ぼうかん}{植樹|しょくじゅ}　{成果|せいか}：{清掃|せいそう}{面積|めんせき}{約|やく}700㎡・{苗木|なえぎ}12{本|ほん}{植樹|しょくじゅ}　{担当者名|たんとうしゃめい}：{田村|たむら} {由希|ゆき}"
+      - type: narration
+        text: "2{月|がつ}14{日|にち}（{土|どう}）9:00〜12:00　{参加|さんか}{者数|しゃすう}：22{名|めい}　{活動|かつどう}：{子|こ}ども{食堂|しょくどう}{補助|ほじょ}・{公園|こうえん}{清掃|せいそう}　{成果|せいか}：{食事|しょくじ}{提供数|ていきょうすう}61{食|しょく}・{清掃|せいそう}{面積|めんせき}{約|やく}400㎡　{担当者名|たんとうしゃめい}：{本田|ほんだ} {健太|けんた}"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "Card②とCard③を{並|なら}べると8か{月|げつ}{分|ぶん}の{記録|きろく}が{揃|そろ}う。{全|すべ}て{同|おな}じ5{項目|こうもく}の{形式|けいしき}——これが{標準|ひょうじゅん}{様式|ようしき}の「{共通|きょうつう}パターン」だ。{帰納法|きのうほう}でパターンを{発見|はっけん}した！"
+
+  # ===== 証拠カード4: 9月の記録 =====
+  - id: evidence-4
+    bgm: career-09/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 9月の活動記録（問題の月）
+      - type: narration
+        text: "みどりの{里|さと}サポートセンター　{活動|かつどう}{記録|きろく}（{記録|きろく}{担当|たんとう}：ケイ　9{月|がつ}{分|ぶん}）——"
+      - type: narration
+        text: "{実施日|じっしび}：9{月|がつ}13{日|にち}（{土|どう}）　{時間帯|じかんたい}：{午前|ごぜん}9{時|じ}〜{正午|しょうご}"
+      - type: narration
+        text: "〈{参加者|さんかしゃ}について〉　{今月|こんげつ}の{参加|さんか}{予定者数|よていしゃすう}：28{名|めい}　{実際|じっさい}に{来|き}た{人|ひと}の{様子|ようす}：とても{活気|かっき}があった！"
+      - type: narration
+        text: "〈{活動|かつどう}の{内容|ないよう}〉　{川沿|かわぞ}い{清掃|せいそう}　{植樹|しょくじゅ}（{桜|さくら}）"
+      - type: narration
+        text: "〈{今月|こんげつ}の{成果|せいか}と{感想|かんそう}〉（{担当|たんとう}：ケイより）{川|かわ}がきれいになるのを{見|み}て、{参加|さんか}した{人|ひと}みんなの{顔|かお}がかがやいていた。{来月|らいげつ}も{続|つづ}けたいと{話|はな}してくれた{人|ひと}が{多|おお}かった。"
+      - type: narration
+        text: "〈{担当者|たんとうしゃ}〉　{圭太|けいた} {空|そら}（けいた そら）"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "Card②・Card③と{比|くら}べてみよう——9{月|がつ}だけ「{感想|かんそう}コメント{欄|らん}」がある。9{月|がつ}だけ「{成果|せいか}（{数値|すうち}）」がない。9{月|がつ}だけ「{参加者数|さんかしゃすう}（{予定|よてい}28{名|めい}）」と「{実数|じっすう}」ではなく「{予定|よてい}」が{書|か}いてある。{担当者名|たんとうしゃめい}は——ケイ！"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: office
+    bgm: career-09/tension
+    steps:
+      - type: sprite
+        character: center_staff
+        expression: thinking
+        position: center
+      - type: dialog
+        character: center_staff
+        text: "12か{月|げつ}のデータを{並|なら}べて{見|み}えてきたことがある。{証拠|しょうこ}カードをもとに{推理|すいり}してみよう。"
+      - type: sprite
+        character: center_staff
+        action: hide
+      - type: choice
+        id: q1
+        question: 9月の記録で「標準様式から外れているもの」はどれ？
+        options:
+          - text: 感想コメント欄が追加されている
+            value: comment-added
+            feedback: 正解！ 標準様式の5項目に「感想コメント欄」は含まれていない。ケイが独自に追加したものだよ。Card①の標準様式と比べると分かる。
+          - text: 担当者名が書いていない
+            value: no-name
+            feedback: 9月の記録には「圭太 空（けいた そら）」と担当者名が書いてある。担当者名は書いてあるよ。
+          - text: 活動内容が書いていない
+            value: no-activity
+            feedback: 9月の記録には「川沿い清掃・植樹」と活動内容が書いてある。活動内容はあるよ。ただ、他に大きな違いがあるよ。
+          - text: 日時が書いていない
+            value: no-date
+            feedback: 9月の記録には「9月13日（土）午前9時〜正午」と日時が書いてある。日時はあるよ。他に注目してみよう。
+      - type: choice
+        id: q2
+        question: 9月の「参加者数（予定28名）」が問題なのはなぜ？
+        options:
+          - text: 予定の人数と実際の人数が違うので、前後の月と比べられない
+            value: cant-compare
+            feedback: 正解！ 他の月は全て「実際に来た人数（実数）」が書いてある。9月だけ「予定者数」では、前後の月と参加者数を比べても意味がない。これが「データの継続性」が失われる問題だよ。
+          - text: 28名という数字が間違っている
+            value: wrong-number
+            feedback: 28名が予定者数として間違っているかどうかではなく、「予定の数字か実際の数字か」が問題なんだ。他の月は「実数」を書くルールだよ。
+          - text: 参加者数は書かなくていいから
+            value: not-needed
+            feedback: 標準様式のCard①を確認しよう。②参加者数は「全て必須」の5項目の1つ。書かなくていいわけではないよ。
+          - text: ケイが人数を数え間違えたから
+            value: miscounted
+            feedback: ケイのメモを読むと「実際に来た人数を書く代わりに予定の人数を書いた」とある。数え間違えではなく、わざと予定数を書いたんだよ。
+
+  # ===== 証拠カード5（反転）=====
+  - id: evidence-5
+    bgm: career-09/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ケイのメモ
+      - type: sprite
+        character: saki
+        expression: determined
+        position: center
+      - type: dialog
+        character: saki
+        text: "ケイが{記録|きろく}を{作成|さくせい}したとき、こんなメモを{残|のこ}していた。"
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "【ケイの{作業|さぎょう}メモ — 9{月|がつ}の{記録|きろく}について】——"
+      - type: narration
+        text: "9{月|がつ}の{記録|きろく}、{俺|おれ}が{担当|たんとう}した。{正直|しょうじき}に{言|い}うと……{標準|ひょうじゅん}{様式|ようしき}、ちょっと{変|か}えた。"
+      - type: narration
+        text: "{理由|りゆう}は「{次|つぎ}の{担当者|たんとうしゃ}に{活動|かつどう}の{雰囲気|ふんいき}も{伝|つた}えたい」と{思|おも}ったから。{数字|すうじ}だけじゃなくて、{参加|さんか}した{人|ひと}の{気持|きも}ちや{声|こえ}も{記録|きろく}に{残|のこ}せたら、もっとボランティアに{参加|さんか}したい{人|ひと}が{増|ふ}えると{思|おも}って。"
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        speed: slow
+        text: "{参加者数|さんかしゃすう}のところ、「{実際|じっさい}に{来|き}た{人数|にんずう}」を{書|か}く{代|か}わりに「{予定|よてい}（よてい）の{人数|にんずう}」を{書|か}いた。{実際|じっさい}は22{名|めい}だった——{予定|よてい}より{少|すく}なかった。「{予定|よてい}{通|どお}りに{集|あつ}まった」って{感|かん}じを{出|だ}したかったから。"
+      - type: narration
+        text: "{悪気|わるぎ}はなかった。{本当|ほんとう}に。みんなのためになると{思|おも}ってやったんだ——でも……「{標準|ひょうじゅん}{様式|ようしき}を{変|か}えたらダメ」って、そういうことだったんだね。"
+      - type: narration
+        speed: slow
+        text: "{前提|ぜんてい}{破壊|はかい}——「ケイが{記録|きろく}を{改ざん|かいざん}した」→「ケイが{善意|ぜんい}で{感想|かんそう}{欄|らん}を{追加|ついか}し、{参加者数|さんかしゃすう}に{予定値|よていち}を{記録|きろく}した。{問題|もんだい}の{本質|ほんしつ}は{様式|ようしき}{逸脱|いつだつ}＋{実績|じっせき}データの{不正確|ふせいかく}さ」"
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: office
+    bgm: career-09/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: みんなのために変えた記録
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: office
+    steps:
+      - type: sprite
+        character: haruto
+        expression: worried
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくも「{自分|じぶん}も{感想|かんそう}を{書|か}きたかった」って{思|おも}ったことがある。ケイの{気持|きも}ちは{分|わ}かる。"
+      - type: dialog
+        character: haruto
+        text: "でも……{記録|きろく}の{形式|けいしき}を{変|か}えると「{過去|かこ}のデータと{比|くら}べられなくなる」って、{気|き}づかなかったのかな。{帰納法|きのうほう}で{並|なら}べたとき、9{月|がつ}が{浮|う}き{上|あ}がってしまった。"
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ミナの秘密
+  - id: truth-mina
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたし、10{月|がつ}の{担当|たんとう}のとき「9{月|がつ}と10{月|がつ}の{様式|ようしき}が{違|ちが}う」って{気|き}づいていたの。"
+      - type: dialog
+        character: mina
+        text: "でも……ケイへの{遠慮|えんりょ}で{言|い}えなかった。あのとき{声|こえ}をかけていれば、もっと{早|はや}く{解決|かいけつ}できたのかも。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # サキの秘密
+  - id: truth-saki
+    steps:
+      - type: sprite
+        character: saki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: saki
+        text: "わたし、3{月|がつ}の{集計|しゅうけい}のとき「9{月|がつ}の{参加者数|さんかしゃすう}が{予定|よてい}か{実数|じっすう}か{分|わ}からない」と{気|き}づいてた。"
+      - type: dialog
+        character: saki
+        text: "でも{後回|あとまわ}しにしてた。{気|き}づいたとき、その{場|ば}で{言|い}える{力|ちから}が{大切|たいせつ}だって、{今|いま}{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ケイの真実（クライマックス）
+  - id: truth-kei
+    bgm: career-09/truth
+    steps:
+      - type: sprite
+        character: kei
+        expression: worried
+        position: center
+      - type: dialog
+        character: kei
+        text: "……{俺|おれ}です。9{月|がつ}の{記録|きろく}、{変|か}えました。"
+      - type: narration
+        speed: slow
+        text: "ケイがゆっくりと{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: kei
+        text: "{感想|かんそう}が{残|のこ}せたら、{次|つぎ}にボランティアをやる{人|ひと}がイメージしやすいと{思|おも}って。{数字|すうじ}だけじゃ、{当日|とうじつ}の{楽|たの}しさとか{感動|かんどう}が{伝|つた}わらないじゃないですか。だから{様式|ようしき}を{変|か}えました。"
+        expression: worried
+      - type: dialog
+        character: kei
+        text: "{参加者数|さんかしゃすう}のことは……{実際|じっさい}に{来|き}た{人|ひと}が22{名|めい}で、{予定|よてい}より{少|すく}なかった。それを{書|か}くと「9{月|がつ}は{人|ひと}が{集|あつ}まらなかった」みたいに{見|み}えると{思|おも}って。みんながすごく{頑張|がんば}ったのに……だから{予定|よてい}の28{名|めい}の{方|ほう}を{書|か}きました。"
+      - type: dialog
+        character: kei
+        text: "{様式|ようしき}を{変|か}えると{過去|かこ}のデータと{比|くら}べられなくなる、って、{全然|ぜんぜん}{考|かんが}えてなかった。みんなのためにやったつもりが、みんなのデータを{壊|こわ}してしまったんだね。……ごめん、{俺|おれ}が{間違|まちが}ってた。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "ケイに{悪意|あくい}はなかった。「みんなのために{記録|きろく}を{使|つか}いやすくしたい」という{純粋|じゅんすい}な{善意|ぜんい}が、{記録|きろく}の{標準化|ひょうじゅんか}という{仕組|しく}みの{重要性|じゅうようせい}を{超|こ}えてしまった。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: office
+    bgm: career-09/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: center_staff
+        expression: thinking
+        position: center
+      - type: dialog
+        character: center_staff
+        text: "今回（こんかい）の{事件|じけん}で{大切|たいせつ}なことが{分|わ}かったね。"
+      - type: dialog
+        character: center_staff
+        text: "ボランティア{活動|かつどう}{記録|きろく}の{標準|ひょうじゅん}{様式|ようしき}には5つの{項目|こうもく}がある——①{日時|にちじ}②{参加者数|さんかしゃすう}（{実数|じっすう}）③{活動|かつどう}{内容|ないよう}④{成果|せいか}・{実績|じっせき}（{数値|すうち}）⑤{担当者名|たんとうしゃめい}。"
+        expression: normal
+      - type: dialog
+        character: center_staff
+        text: "{形式|けいしき}を{揃|そろ}えることで「{過去|かこ}との{比較|ひかく}」「センターへの{報告|ほうこく}」「{翌年|よくねん}の{活動|かつどう}{計画|けいかく}{立案|りつあん}」が{可能|かのう}になる。1か{月|げつ}でも{形式|けいしき}が{違|ちが}うと、{時系列|じけいれつ}の{比較|ひかく}に{支障|ししょう}が{出|で}る。"
+        expression: thinking
+      - type: dialog
+        character: center_staff
+        text: "{善意|ぜんい}と{正確|せいかく}さは{別|べつ}。「みんなのためにやった」は{立派|りっぱ}な{動機|どうき}。でも「{良|よ}かれと{思|おも}って{変|か}えた」だけでは、データの{正確|せいかく}さや{継続性|けいぞくせい}は{守|まも}れない。{意図|いと}と{結果|けっか}は{別々|べつべつ}に{評価|ひょうか}する{必要|ひつよう}がある。"
+        expression: normal
+      - type: sprite
+        character: center_staff
+        action: hide
+      - type: sprite
+        character: kei
+        expression: determined
+        position: left
+      - type: dialog
+        character: kei
+        text: "{次|つぎ}からは{標準|ひょうじゅん}{様式|ようしき}を{必|かなら}ず{確認|かくにん}してから{記録|きろく}する。{変|か}えたいことがあれば、センターに{相談|そうだん}して{承認|しょうにん}を{得|え}てから。{実数|じっすう}は{実数|じっすう}として、ちゃんと{書|か}く。"
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "12か{月|げつ}の{記録|きろく}は{修正|しゅうせい}され、9{月|がつ}の{実績|じっせき}データ（{参加者数|さんかしゃすう}22{名|めい}・{成果|せいか}の{数値|すうち}）が{正確|せいかく}に{記録|きろく}し{直|なお}された。"
+      - type: narration
+        speed: slow
+        text: "{帰納法|きのうほう}は、{複数|ふくすう}のデータを{並|なら}べてパターンを{見|み}つけ、{外|はず}れた{例外|れいがい}を{検出|けんしゅつ}する{推理|すいり}{方法|ほうほう}。{記録|きろく}の{標準化|ひょうじゅんか}は「{信頼|しんらい}できるデータ」のための{基盤|きばん}。{善意|ぜんい}ある{行動|こうどう}でも、{仕組|しく}みを{守|まも}ることの{大切|たいせつ}さを{学|まな}んだ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——ボランティアのデータの{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
