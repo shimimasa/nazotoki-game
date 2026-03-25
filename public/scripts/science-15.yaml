@@ -1,0 +1,383 @@
+meta:
+  id: science-15
+  title: 給食後の体調不良事件
+  series: サイエンス捜査班
+  volume: 15
+  estimatedMinutes: 22
+
+characters:
+  makoto:
+    name: マコト
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  rin:
+    name: リン
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hana:
+    name: ハナ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  - id: prologue
+    bg: science-lab
+    bgm: science-15/opening
+    steps:
+      - type: narration
+        text: "「{消化|しょうか}の{仕組|しく}み」の{実験|じっけん}の{日|ひ}。4つの{食品|しょくひん}サンプルにだ{液|えき}（アミラーゼ）を{加|くわ}えて、デンプンが{消化|しょうか}されるかを{調|しら}べる。"
+      - type: sprite_group
+        characters:
+          - { id: makoto, expression: normal }
+          - { id: rin, expression: normal }
+          - { id: tsubasa, expression: normal }
+          - { id: hana, expression: normal }
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "ところが{実験|じっけん}の{途中|とちゅう}——4つのサンプルのうち、1つだけ{結果|けっか}がおかしい！ サンプルCだけ{反応|はんのう}が{異常|いじょう}。{中身|なかみ}が{入|い}れ{替|か}えられている{可能性|かのうせい}が！"
+      - type: sprite
+        id: makoto
+        action: hide
+      - type: sprite
+        id: rin
+        action: hide
+      - type: sprite
+        id: tsubasa
+        action: hide
+      - type: sprite
+        id: hana
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-15/tension
+      - type: dialog
+        character: sensei
+        text: "{消化|しょうか}の{知識|ちしき}を{使|つか}って、{実験|じっけん}{結果|けっか}のパターンから{異常|いじょう}を{見抜|みぬ}き、サンプルをすり{替|か}えた{犯人|はんにん}を{突|つ}き{止|と}めてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "給食後の体調不良事件"
+        subtitle: "サイエンス捜査班 Vol.15"
+
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-15/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 消化のしくみ"
+      - type: narration
+        text: "{消化器官|しょうかきかん}と{消化|しょうか}{酵素|こうそ}。{口|くち}：だ{液|えき}（アミラーゼ）がデンプンを{糖|とう}に{分解|ぶんかい}。{胃|い}：{胃液|いえき}（ペプシン）がタンパク{質|しつ}を{分解|ぶんかい}。{小腸|しょうちょう}：{膵液|すいえき}・{胆汁|たんじゅう}が{脂肪|しぼう}を{分解|ぶんかい}。"
+      - type: narration
+        text: "ヨウ{素|そ}{液|えき}の{実験|じっけん}——デンプンがあると{紫色|むらさきいろ}に{変|か}わる。だ{液|えき}でデンプンが{分解|ぶんかい}されたあとは{色|いろ}が{変|か}わらない＝{消化|しょうか}された{証拠|しょうこ}！"
+
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — 実験結果"
+      - type: narration
+        text: "サンプルA（ごはん・マコト）：①ヨウ{素|そ}{液|えき}→{紫色|むらさきいろ}。②だ{液|えき}{処理後|しょりご}→{色|いろ}なし。✓{正常|せいじょう}。サンプルB（{卵|たまご}・リン）：①{色|いろ}なし。②{色|いろ}なし。✓{正常|せいじょう}（デンプンなし）。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "サンプルC（おかゆ？・ツバサ）：①{紫色|むらさきいろ}。②{紫色|むらさきいろ}のまま！ ✗{異常|いじょう}！ {消化|しょうか}されていない！ サンプルD（パン・ハナ）：①{紫色|むらさきいろ}。②{色|いろ}なし。✓{正常|せいじょう}。"
+      - type: narration
+        text: "A・Dはデンプンありで{消化|しょうか}された。Bはデンプンなしで{正常|せいじょう}。Cだけデンプンありなのに{消化|しょうか}されない。おかゆなら{消化|しょうか}されるはず——{中身|なかみ}は{本当|ほんとう}におかゆ？"
+
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 加熱と消化"
+      - type: narration
+        text: "{加熱|かねつ}した{食品|しょくひん}（おかゆ・ごはん・パン）→デンプンがやわらかくなる→だ{液|えき}の{酵素|こうそ}が{分解|ぶんかい}しやすい→{消化|しょうか}される。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{生|なま}の{食品|しょくひん}（{生|なま}の{豆|まめ}・{生|なま}の{米|こめ}）→デンプンが{硬|かた}いまま→{酵素|こうそ}が{働|はたら}きにくい→{消化|しょうか}されにくい。{準備室|じゅんびしつ}には{実験用|じっけんよう}の{生|なま}の{豆|まめ}があった……。"
+
+  - id: evidence-4
+    bg: science-lab
+    bgm: science-15/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 行動記録"
+      - type: narration
+        text: "{給食後|きゅうしょくご}の{休|やす}み{時間|じかん}（13:00〜13:15）。マコト：{教室|きょうしつ}（13:05に{理科室|りかしつ}{前|まえ}を{通過|つうか}、{人影|ひとかげ}{目撃|もくげき}）。リン：{教室|きょうしつ}。ハナ：{教室|きょうしつ}。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ツバサ：13:00に「トイレ」と{言|い}って{教室|きょうしつ}を{出|で}た→13:10に{教室|きょうしつ}に{戻|もど}った（{慌|あわ}てた{表情|ひょうじょう}）。ハナの{目撃|もくげき}によると、ツバサは{理科室|りかしつ}の{方向|ほうこう}に{行|い}っていた。ツバサだけが{休|やす}み{時間|じかん}に{理科室|りかしつ}へ{行|い}っている。"
+
+  - id: testimony
+    bg: science-lab
+    bgm: science-15/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: makoto
+        position: left
+        expression: determined
+      - type: dialog
+        character: makoto
+        text: "ぼくのサンプルA（ごはん）は{正常|せいじょう}だった。13:05に{理科室|りかしつ}{前|まえ}を{通|とお}ったとき、{中|なか}に{人影|ひとかげ}が{見|み}えたけど{誰|だれ}かは{分|わ}からなかった。"
+      - type: sprite
+        id: makoto
+        action: hide
+      - type: sprite
+        id: rin
+        position: right
+        expression: thinking
+      - type: dialog
+        character: rin
+        text: "わたしのサンプルB（{卵|たまご}）はデンプンがないから{正常|せいじょう}。{実|じつ}はツバサが{給食|きゅうしょく}のフライを{残|のこ}していたのを{見|み}たの。それと、ツバサが13:00すぎに「{理科室|りかしつ}に{行|い}く」って{言|い}ってた。"
+      - type: sprite
+        id: rin
+        action: hide
+      - type: sprite
+        id: tsubasa
+        position: left
+        expression: normal
+      - type: dialog
+        character: tsubasa
+        text: "おれのサンプルCは……おかゆのはずなんだけど、なぜか{結果|けっか}がおかしかった。おれは{何|なに}もしてないぜ。トイレに{行|い}ってただけだし。"
+      - type: sprite
+        id: tsubasa
+        action: hide
+      - type: sprite
+        id: hana
+        position: right
+        expression: worried
+      - type: dialog
+        character: hana
+        text: "わたしのサンプルD（パン）は{正常|せいじょう}だった。{実|じつ}は13:00に、ツバサが「トイレ」って{言|い}って{出|で}たとき、{理科室|りかしつ}の{方|ほう}に{歩|ある}いて{行|い}くのが{見|み}えたの。13:10に{戻|もど}ってきたとき{慌|あわ}ててた。"
+      - type: sprite
+        id: hana
+        action: hide
+
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-15/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — パターン認識で犯人を特定"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "パターン{認識|にんしき}——データを{並|なら}べて{規則性|きそくせい}と{異常|いじょう}を{見|み}つける。A（ごはん）：{加熱|かねつ}{済|ず}み→{消化|しょうか}された✓。B（{卵|たまご}）：デンプンなし→{正常|せいじょう}✓。D（パン）：{加熱|かねつ}{済|ず}み→{消化|しょうか}された✓。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "パターン：{加熱|かねつ}{済|ず}みのデンプン{食品|しょくひん}→だ{液|えき}で{消化|しょうか}される。C（おかゆ？）だけ{消化|しょうか}されない→{加熱|かねつ}されていない{食品|しょくひん}にすり{替|か}わった！ {準備室|じゅんびしつ}の「{生|なま}の{豆|まめ}」が{怪|あや}しい！"
+      - type: narration
+        text: "{犯人|はんにん}の{特定|とくてい}——サンプルCの{担当|たんとう}＝ツバサ。{休|やす}み{時間|じかん}に{理科室|りかしつ}に{行|い}った＝ツバサ。13:05に{人影|ひとかげ}＝ツバサ。{給食|きゅうしょく}を{残|のこ}した（{動機|どうき}）＝ツバサ。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "すべてのデータがツバサを{指|さ}している。{実験|じっけん}を{混乱|こんらん}させて{先生|せんせい}の{注意|ちゅうい}をそらし、{給食|きゅうしょく}を{残|のこ}したことを{忘|わす}れさせようとした。でも{消化|しょうか}の{科学|かがく}が、すり{替|か}えを{暴|あば}いた！"
+
+  - id: questions
+    bg: science-lab
+    bgm: science-15/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "サンプルCだけ{消化|しょうか}されなかった{理由|りゆう}は？"
+        options:
+          - text: "だ液の量が足りなかった"
+            feedback: "{他|ほか}のサンプルは{同|おな}じ{量|りょう}のだ{液|えき}で{正常|せいじょう}に{消化|しょうか}された。だ{液|えき}の{量|りょう}は{関係|かんけい}ないよ。"
+          - text: "中身が加熱されていない食品にすり替えられた"
+            feedback: "そのとおり！ おかゆ（{加熱|かねつ}{済|ず}み）が{生|なま}の{豆|まめ}（{未加熱|みかねつ}）にすり{替|か}えられた。{未加熱|みかねつ}のデンプンは{酵素|こうそ}が{働|はたら}きにくいから{消化|しょうか}されない。"
+          - text: "実験の時間が短すぎた"
+            feedback: "{全|すべ}てのサンプルを{同|おな}じ{時間|じかん}で{実験|じっけん}した。{時間|じかん}は{関係|かんけい}ないよ。{中身|なかみ}が{違|ちが}うのが{原因|げんいん}。"
+      - type: choice
+        id: q2
+        text: "サンプルをすり{替|か}えた{犯人|はんにん}は？"
+        options:
+          - text: "マコト"
+            feedback: "マコトは{教室|きょうしつ}にいて、13:05に{理科室|りかしつ}{前|まえ}を{通|とお}っただけ。サンプルAも{正常|せいじょう}。"
+          - text: "リン"
+            feedback: "リンは{教室|きょうしつ}にいた。{消化|しょうか}の{知識|ちしき}で{分析|ぶんせき}をリードした{証人|しょうにん}だよ。"
+          - text: "ツバサ"
+            feedback: "サンプルC{担当|たんとう}。{休|やす}み{時間|じかん}に{理科室|りかしつ}へ。{人影|ひとかげ}の{目撃|もくげき}。{給食|きゅうしょく}を{残|のこ}した{動機|どうき}。すべてがツバサを{指|さ}している。"
+          - text: "ハナ"
+            feedback: "ハナは{教室|きょうしつ}にいた。ツバサの{行動|こうどう}を{目撃|もくげき}した{証人|しょうにん}だよ。サンプルDも{正常|せいじょう}。"
+
+  - id: truth-tsubasa
+    bg: science-lab
+    bgm: science-15/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: narration
+        speed: slow
+        text: "サンプルCをすり{替|か}えたのは——ツバサだった。"
+      - type: sprite
+        id: tsubasa
+        position: center
+        expression: worried
+      - type: dialog
+        character: tsubasa
+        text: "ごめん。{給食|きゅうしょく}のフライが{大|おお}きくて{食|た}べ{切|き}れなかった。{残|のこ}した{子|こ}は{放課後|ほうかご}に{面談|めんだん}があるって{聞|き}いて{怖|こわ}くて……。"
+      - type: dialog
+        character: tsubasa
+        expression: worried
+        text: "{実験|じっけん}がうまくいかなかったら{先生|せんせい}がそっちに{夢中|むちゅう}になって、{給食|きゅうしょく}のことを{忘|わす}れてくれるかなって。{休|やす}み{時間|じかん}に{理科室|りかしつ}に{行|い}って、サンプルCのおかゆを{準備室|じゅんびしつ}の{生|なま}の{豆|まめ}に{入|い}れ{替|か}えちゃった。"
+      - type: dialog
+        character: tsubasa
+        text: "まさか{消化|しょうか}の{実験|じっけん}でバレるなんて{思|おも}わなかった。{加熱|かねつ}した{食品|しょくひん}と{生|なま}の{食品|しょくひん}で{消化|しょうか}のされ{方|かた}が{違|ちが}うんだね。ごめんなさい。"
+      - type: sprite
+        id: tsubasa
+        action: hide
+
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなが{知|し}っていたことも{明|あ}かされた。"
+      - type: sprite
+        id: makoto
+        position: left
+        expression: thinking
+      - type: dialog
+        character: makoto
+        text: "13:05に{理科室|りかしつ}{前|まえ}を{通|とお}ったとき{人影|ひとかげ}が{見|み}えた。{犯行|はんこう}{時刻|じこく}の{証拠|しょうこ}だったんだ。"
+      - type: sprite
+        id: makoto
+        action: hide
+      - type: sprite
+        id: rin
+        position: right
+        expression: determined
+      - type: dialog
+        character: rin
+        text: "ツバサが{給食|きゅうしょく}を{残|のこ}してたのと、13:00すぎに{理科室|りかしつ}に{行|い}くと{言|い}ってたのを{知|し}ってた。{動機|どうき}と{行動|こうどう}の{証拠|しょうこ}。"
+      - type: sprite
+        id: rin
+        action: hide
+      - type: sprite
+        id: hana
+        position: left
+        expression: thinking
+      - type: dialog
+        character: hana
+        text: "ツバサが「トイレ」って{言|い}って{理科室|りかしつ}の{方|ほう}に{行|い}くのが{見|み}えた。13:10に{慌|あわ}てて{戻|もど}ってきたのも。{犯人|はんにん}{特定|とくてい}の{決|き}め{手|て}だったんだね。"
+      - type: sprite
+        id: hana
+        action: hide
+
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{消化器官|しょうかきかん}は{口|くち}→{食道|しょくどう}→{胃|い}→{小腸|しょうちょう}→{大腸|だいちょう}の{順|じゅん}。だ{液|えき}のアミラーゼがデンプンを{分解|ぶんかい}します。ヨウ{素|そ}{液|えき}でデンプンの{有無|うむ}が{分|わ}かります。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "{加熱|かねつ}した{食品|しょくひん}は{消化|しょうか}されやすく、{生|なま}の{食品|しょくひん}は{消化|しょうか}されにくい。この{違|ちが}いがすり{替|か}えを{暴|あば}きましたね。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "ツバサ、{給食|きゅうしょく}を{残|のこ}すのが{怖|こわ}かった{気持|きも}ちは{分|わ}かります。でも「{食|た}べ{切|き}れない」と{正直|しょうじき}に{言|い}えばよかったんですよ。{先生|せんせい}は{怒|おこ}りません。{体|からだ}に{無理|むり}をさせないことも{大切|たいせつ}です。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  - id: epilogue
+    bg: science-lab
+    bgm: science-15/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: tsubasa
+        position: left
+        expression: worried
+      - type: dialog
+        character: tsubasa
+        text: "ごめん。{給食|きゅうしょく}を{残|のこ}すのが{怖|こわ}くて{逃|に}げようとした。でもこんなことするほうがずっとダメだった。"
+      - type: sprite
+        id: tsubasa
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}してくれてありがとう。{給食|きゅうしょく}は{無理|むり}に{食|た}べなくていい。「{食|た}べ{切|き}れない」と{言|い}ってくれたら{量|りょう}を{調整|ちょうせい}するよ。それと——{消化|しょうか}の{実験|じっけん}、ツバサは{今日|きょう}の{事件|じけん}で{誰|だれ}より{詳|くわ}しくなったね。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        text: "パターン{認識|にんしき}が4つのデータから{異常|いじょう}を{見|み}つけ、{消化|しょうか}の{科学|かがく}がすり{替|か}えの{正体|しょうたい}を{暴|あば}いた。"
+      - type: effect
+        name: fade-out
