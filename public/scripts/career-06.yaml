@@ -1,0 +1,500 @@
+meta:
+  id: career-06
+  title: お店の在庫
+  series: キャリア探偵団
+  volume: 6
+  estimatedMinutes: 22
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mina:
+    name: ミナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kei:
+    name: ケイ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  saki:
+    name: サキ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tencho:
+    name: 店長
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: street
+    bgm: career-06/opening
+    steps:
+      - type: narration
+        text: "「みどりスーパー」。{地域|ちいき}のみんなが{毎日|まいにち}お{買|か}い物をするスーパーだ。"
+      - type: narration
+        text: "ところが{今日|きょう}、{在庫|ざいこ}を{確認|かくにん}していたハルトが{不思議|ふしぎ}なことに気づいた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: tencho
+        expression: normal
+        position: center
+      - type: bgm
+        track: career-06/investigation
+      - type: dialog
+        character: tencho
+        text: "「みどりチョコ」の{在庫|ざいこ}データと{実物|じつぶつ}の数が5個ずれている！ コンピュータでは20個、{棚|たな}には25個。"
+        expression: thinking
+      - type: dialog
+        character: tencho
+        text: "{在庫|ざいこ}がずれると{発注|はっちゅう}{判断|はんだん}も{狂|くる}う。なぜ5個の{差|さ}が出たのか{調|しら}べてくれ！"
+        expression: normal
+      - type: sprite
+        character: tencho
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: キャリア探偵団 Vol.6
+        subtitle: お店の在庫
+
+  # ===== 担当紹介 =====
+  - id: suspects
+    bg: street
+    bgm: career-06/investigation
+    steps:
+      - type: narration
+        text: "スーパーの{仕事|しごと}——{入荷|にゅうか}→{販売|はんばい}→{在庫|ざいこ}{管理|かんり}→{棚|たな}{補充|ほじゅう}。{基本|きほん}の{計算|けいさん}は「{先週|せんしゅう}の{在庫|ざいこ} + {入荷|にゅうか}数 − {販売|はんばい}数 = {今|いま}の{在庫|ざいこ}」。"
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: left
+      - type: dialog
+        character: haruto
+        text: "ぼくはハルト。{在庫|ざいこ}{管理|かんり}{担当|たんとう}。{今日|きょう}、コンピュータの{在庫|ざいこ}と{棚|たな}の{実物|じつぶつ}が5個ずれてるのを見つけたんだ。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        expression: normal
+        position: right
+      - type: dialog
+        character: mina
+        text: "わたしはミナ。レジ{担当|たんとう}。POS（ポス）データ——つまり{販売|はんばい}{記録|きろく}を{管理|かんり}してるよ。"
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        expression: happy
+        position: left
+      - type: dialog
+        character: kei
+        text: "おれはケイ。{入荷|にゅうか}{担当|たんとう}！ {商品|しょうひん}が{届|とど}いたらコンピュータに「{入荷|にゅうか}{処理|しょり}」をするのがおれの{仕事|しごと}。"
+        expression: normal
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        expression: normal
+        position: right
+      - type: dialog
+        character: saki
+        text: "わたしはサキ。{棚|たな}{整理|せいり}{担当|たんとう}。{商品|しょうひん}が{少|すく}なくなったら{倉庫|そうこ}から{補充|ほじゅう}するの。"
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ===== 証拠カード1: 入荷記録 =====
+  - id: evidence-1
+    bg: street
+    bgm: career-06/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 入荷記録
+      - type: narration
+        text: "みどりスーパー {入荷|にゅうか}{記録|きろく}（{今週|こんしゅう}）——"
+      - type: narration
+        text: "{商品名|しょうひんめい}：みどりチョコ"
+      - type: narration
+        text: "{月曜|げつよう}：{入荷|にゅうか}なし　{火曜|かよう}：{入荷|にゅうか}なし"
+      - type: narration
+        text: "{水曜|すいよう}：{入荷|にゅうか}なし　{木曜|もくよう}（{今日|きょう}）：{入荷|にゅうか}なし"
+      - type: narration
+        text: "{担当者|たんとうしゃ}：ケイ。{今週|こんしゅう}は「みどりチョコ」の{入荷|にゅうか}はゼロ。"
+
+  # ===== 証拠カード2: POSデータ =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: POSデータ（販売記録）
+      - type: narration
+        text: "みどりスーパー {販売|はんばい}{記録|きろく} POSデータ（{今週|こんしゅう}）——"
+      - type: narration
+        text: "{月曜|げつよう}：8個　{火曜|かよう}：7個　{水曜|すいよう}：9個　{木曜|もくよう}（{今日|きょう}）：6個"
+      - type: narration
+        text: "{今週|こんしゅう}{合計|ごうけい}：30個"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{先週末|せんしゅうまつ}の{在庫|ざいこ}35個 + {入荷|にゅうか}0個 − {販売|はんばい}30個 = {在庫|ざいこ}5個……のはず。でも{実物|じつぶつ}は25個もある。"
+
+  # ===== 証拠カード3: 在庫記録 =====
+  - id: evidence-3
+    bgm: career-06/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 在庫記録（コンピュータ）
+      - type: narration
+        text: "{在庫|ざいこ}{記録|きろく}（システム）——"
+      - type: narration
+        text: "{先週末|せんしゅうまつ}：35個（{確定|かくてい}）"
+      - type: narration
+        text: "{月曜朝|げつようあさ}：35個 → {月曜|げつよう}{夕方|ゆうがた}：20個"
+      - type: effect
+        name: flash
+        duration: 300
+      - type: narration
+        speed: slow
+        text: "★{月曜|げつよう}に「8個売れた」のに「15個{減|へ}った」のはなぜ？"
+      - type: narration
+        text: "{木曜|もくよう}（{今日|きょう}）：コンピュータ上 20個 / {棚|たな}の{実物|じつぶつ} 25個"
+      - type: narration
+        text: "{計算|けいさん}が{合|あ}わない。{入荷|にゅうか}{記録|きろく}にない「5個の{補充|ほじゅう}」がどこかで{行|おこな}われた——{誰|だれ}が？"
+
+  # ===== 証拠カード4: 棚補充マニュアル =====
+  - id: evidence-4
+    bgm: career-06/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: 棚補充マニュアル
+      - type: narration
+        text: "{棚|たな}{補充|ほじゅう}マニュアル——"
+      - type: narration
+        text: "1. {棚|たな}の{商品|しょうひん}が10個{以下|いか}になったら{補充|ほじゅう}のサイン"
+      - type: narration
+        text: "2. {倉庫|そうこ}から{補充|ほじゅう}する個数を{決|き}める"
+      - type: narration
+        text: "3.【{必須|ひっす}】コンピュータで「{入荷|にゅうか}{処理|しょり}」をする"
+      - type: narration
+        text: "4. {棚|たな}に{商品|しょうひん}を{並|なら}べる"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "★{手順|てじゅん}3の「{入荷|にゅうか}{処理|しょり}」をしないと、コンピュータの{在庫|ざいこ}数に{反映|はんえい}されない！"
+      - type: sprite
+        character: mina
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mina
+        text: "そういえば……先週の{金曜日|きんようび}、{常連|じょうれん}のおばあさんがみどりチョコを{買|か}いに来たとき、{棚|たな}に1個も{残|のこ}ってなかったの。"
+      - type: dialog
+        character: mina
+        text: "おばあさんは「あらぁ、なくなっちゃったの。また来るね」って{笑|わら}って{帰|かえ}った。サキがそれを見て、すごく{悔|くや}しそうだった。"
+        expression: worried
+      - type: sprite
+        character: mina
+        action: hide
+
+  # ===== 証拠カード5: アンケート結果（反転） =====
+  - id: evidence-5
+    bgm: career-06/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 在庫管理の大切さ
+      - type: sprite
+        character: tencho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tencho
+        text: "お{客|きゃく}さんのアンケート{結果|けっか}と、{在庫|ざいこ}{管理|かんり}の{意味|いみ}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: tencho
+        action: hide
+      - type: narration
+        text: "お{客|きゃく}さんアンケート——"
+      - type: narration
+        text: "「{商品|しょうひん}が{棚|たな}に{並|なら}んでいない{経験|けいけん}がある」→ 56%が「ある」"
+      - type: narration
+        text: "そのうち82%が「{困|こま}った」「がっかりした」と{回答|かいとう}"
+      - type: narration
+        text: "「{在庫|ざいこ}{管理|かんり}の{正確|せいかく}さは大切？」→ 91%が「とても大切」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{在庫|ざいこ}が{正確|せいかく}に{記録|きろく}されていれば、いつ{補充|ほじゅう}が{必要|ひつよう}か{自動|じどう}で分かる。お{客|きゃく}さんが来たとき{確実|かくじつ}に{商品|しょうひん}がある。"
+      - type: narration
+        text: "ルールを{守|まも}ることと、お{客|きゃく}さんの{笑顔|えがお}を{守|まも}ること。サキが{選|えら}んだのはどちらだった？"
+
+  # ===== 投票 =====
+  - id: questions
+    bg: street
+    bgm: career-06/tension
+    steps:
+      - type: sprite
+        character: tencho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tencho
+        text: "{在庫|ざいこ}が5個ずれた{原因|げんいん}は{誰|だれ}の{行動|こうどう}？ そしてなぜそうした？"
+      - type: sprite
+        character: tencho
+        action: hide
+      - type: choice
+        id: q1
+        question: 在庫が5個ずれた原因は？
+        options:
+          - text: ハルト（在庫管理の計算ミス）
+            value: haruto
+            feedback: ハルトの計算は正確。ずれを発見した側だよ。問題はデータに反映されていない補充があること。
+          - text: ミナ（POSデータの記録ミス）
+            value: mina
+            feedback: POSデータはレジで自動記録されるからミスは起きにくい。販売数30個は正確だよ。
+          - text: ケイ（入荷処理の漏れ）
+            value: kei
+            feedback: ケイの入荷記録は正確で「入荷ゼロ」。問題は入荷とは別の経路で棚に商品が追加されたこと。
+          - text: サキ（棚補充のとき入荷処理をし忘れた）
+            value: saki
+            feedback: 正解！ サキが倉庫から5個を棚に補充したとき、入荷処理をしなかったためコンピュータに反映されなかった。
+      - type: choice
+        id: q2
+        question: サキはなぜ入荷処理をしなかった？
+        options:
+          - text: めんどくさかった。少量だから記録しなくていいと思った
+            value: lazy
+            feedback: 「ちょっとだから後でいいか」という思い込みはあった。でも一番の動機は別にあるよ。
+          - text: おばあさんの笑顔を守りたかった。すぐに補充したくて手順を省略した
+            value: grandma
+            feedback: そう。先週おばあさんをがっかりさせた経験から「二度と棚を空にしたくない」と急いで補充した。
+          - text: 入荷処理が必要だと知らなかった
+            value: didnt-know
+            feedback: マニュアルには書いてあるから知っていたはず。でも「ちょっとだから」という認知バイアスが働いた。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: street
+    bgm: career-06/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: おばあさんの笑顔のために
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # ハルトの秘密
+  - id: truth-haruto
+    bg: street
+    steps:
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: haruto
+        text: "コンピュータの{記録|きろく}を{詳|くわ}しく{調|しら}べたら「{月曜日|げつようび}{以降|いこう}、{入荷|にゅうか}{処理|しょり}なしで{在庫|ざいこ}が{増|ふ}えている」データがあったんだ。"
+      - type: dialog
+        character: haruto
+        text: "「システムのエラーかも」って思って{黙|だま}ってた。もっと早く{声|こえ}を上げるべきだった。"
+        expression: determined
+      - type: sprite
+        character: haruto
+        action: hide
+
+  # ケイの秘密
+  - id: truth-kei
+    steps:
+      - type: sprite
+        character: kei
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kei
+        text: "先週、{倉庫|そうこ}で「みどりチョコが5個ほど{棚|たな}の{近|ちか}くに{移動|いどう}した」ような気がしてたんだ。"
+      - type: dialog
+        character: kei
+        text: "「{誰|だれ}かが{作業|さぎょう}してるのかな」って{思|おも}って何も言わなかった。"
+        expression: determined
+      - type: sprite
+        character: kei
+        action: hide
+
+  # ミナの秘密
+  - id: truth-mina
+    steps:
+      - type: sprite
+        character: mina
+        expression: worried
+        position: left
+      - type: dialog
+        character: mina
+        text: "サキがおばあさんのことを「{次|つぎ}は{絶対|ぜったい}にチョコを{届|とど}けたい」って言ってたのを{覚|おぼ}えてる。あのときの{悔|くや}しそうな{顔|かお}。"
+      - type: dialog
+        character: mina
+        text: "サキの{気持|きも}ちは分かる。でも{記録|きろく}がないと、もっとたくさんのお{客|きゃく}さんに{迷惑|めいわく}がかかっちゃう。"
+        expression: determined
+      - type: sprite
+        character: mina
+        action: hide
+
+  # サキの告白（クライマックス）
+  - id: truth-saki
+    bgm: career-06/truth
+    steps:
+      - type: sprite
+        character: saki
+        expression: worried
+        position: center
+      - type: dialog
+        character: saki
+        text: "……やっぱりわたしでした。"
+      - type: narration
+        speed: slow
+        text: "サキがゆっくり話し{始|はじ}めた。"
+      - type: dialog
+        character: saki
+        text: "先週の{金曜日|きんようび}、{常連|じょうれん}のおばあさんがみどりチョコを{買|か}いに来たの。でも{棚|たな}に1個も{残|のこ}ってなかった。"
+        expression: worried
+      - type: dialog
+        character: saki
+        text: "おばあさんは「あらぁ、なくなっちゃったの。また来るね」って{笑|わら}って{帰|かえ}った。あの{笑顔|えがお}が{忘|わす}れられなくて。"
+      - type: dialog
+        character: saki
+        text: "だから{月曜日|げつようび}、チョコが8個しかないのを見て、すぐに{倉庫|そうこ}から5個{補充|ほじゅう}した。おばあさんが来たときに{棚|たな}が{空|から}だったら——って。"
+      - type: dialog
+        character: saki
+        text: "でも「ちょっとだから{入荷|にゅうか}{処理|しょり}は{後|あと}でいいか」って……{手順|てじゅん}を{省略|しょうりゃく}しちゃった。おばあさんの{笑顔|えがお}を{守|まも}りたかった。でも{手順|てじゅん}を{守|まも}らなかった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        speed: slow
+        text: "サキの{動機|どうき}はおばあさんの{笑顔|えがお}を{守|まも}りたいという{優|やさ}しさだった。でも{手順|てじゅん}を{省略|しょうりゃく}した{結果|けっか}、{在庫|ざいこ}データがずれ、{発注|はっちゅう}{判断|はんだん}にも{影響|えいきょう}が出てしまう。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: street
+    bgm: career-06/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: tencho
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tencho
+        text: "{今回|こんかい}の{事件|じけん}で大事なことが分かったね。"
+      - type: dialog
+        character: tencho
+        text: "サキがおばあさんのために{補充|ほじゅう}したこと{自体|じたい}は{間違|まちが}いじゃない。「お{客|きゃく}さんに{届|とど}けたい」という{気持|きも}ちは、スーパーの{仕事|しごと}の{原点|げんてん}だ。"
+        expression: normal
+      - type: dialog
+        character: tencho
+        text: "でも{手順|てじゅん}を{守|まも}ることが、{結果|けっか}として{一番|いちばん}多くのお{客|きゃく}さんを{守|まも}る。{記録|きろく}があるからこそ、いつ{補充|ほじゅう}が{必要|ひつよう}か{自動|じどう}で分かるんだ。"
+        expression: thinking
+      - type: sprite
+        character: tencho
+        action: hide
+      - type: sprite
+        character: saki
+        expression: determined
+        position: left
+      - type: dialog
+        character: saki
+        text: "次からは{補充|ほじゅう}したらすぐ{入荷|にゅうか}{処理|しょり}をする。「ちょっとだから」って{省略|しょうりゃく}しない。おばあさんの{笑顔|えがお}は、正しい{手順|てじゅん}で{守|まも}る。"
+      - type: sprite
+        character: saki
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: haruto, expression: happy }
+          - { id: mina, expression: happy }
+          - { id: kei, expression: happy }
+          - { id: saki, expression: happy }
+      - type: narration
+        text: "{在庫|ざいこ}データは正しく{修正|しゅうせい}された。そして{次|つぎ}の{金曜日|きんようび}——おばあさんは{笑顔|えがお}でみどりチョコを{買|か}って{帰|かえ}った。"
+      - type: narration
+        speed: slow
+        text: "{良|よ}い{動機|どうき} + 正しい{手順|てじゅん}。この2つがそろって、{初|はじ}めて{仕事|しごと}は{完成|かんせい}する。"
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: mina
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: narration
+        text: "キャリア{探偵団|たんていだん}——お{店|みせ}の{在庫|ざいこ}の{謎|なぞ}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
