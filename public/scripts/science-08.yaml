@@ -1,0 +1,444 @@
+meta:
+  id: science-08
+  title: 影のトリックと消えた標本
+  series: サイエンス捜査班
+  volume: 8
+  estimatedMinutes: 22
+
+characters:
+  misaki:
+    name: ミサキ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kaito:
+    name: カイト
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  natsuki:
+    name: ナツキ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: science-lab
+    bgm: science-08/opening
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}の{理科室|りかしつ}で{大切|たいせつ}にしていた{黄鉄鉱|おうてっこう}の{標本|ひょうほん}が{消|き}えた。"
+      - type: narration
+        text: "{黄鉄鉱|おうてっこう}は「{愚者|ぐしゃ}の{金|きん}」とも{呼|よ}ばれ、{金色|きんいろ}にキラキラ{光|ひか}る{珍|めずら}しい{鉱物|こうぶつ}。{昼休|ひるやす}みの{間|あいだ}に{消|き}えたらしい。"
+      - type: sprite_group
+        characters:
+          - { id: misaki, expression: worried }
+          - { id: kaito, expression: determined }
+          - { id: natsuki, expression: thinking }
+          - { id: takumi, expression: normal }
+      - type: narration
+        text: "{防犯|ぼうはん}カメラはないが、{壁|かべ}に{映|うつ}った「{人影|ひとかげ}」を{見|み}たという{証言|しょうげん}がある。その{影|かげ}の{形|かたち}から——"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "「ミサキが{犯人|はんにん}じゃないか」と{疑|うたが}われている。"
+      - type: sprite
+        id: misaki
+        action: hide
+      - type: sprite
+        id: kaito
+        action: hide
+      - type: sprite
+        id: natsuki
+        action: hide
+      - type: sprite
+        id: takumi
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: thinking
+      - type: bgm
+        track: science-08/tension
+      - type: dialog
+        character: sensei
+        text: "{影|かげ}を{見|み}ただけで{犯人|はんにん}が{分|わ}かる？ {光|ひかり}の{性質|せいしつ}を{使|つか}って、{真実|しんじつ}を{解|と}き{明|あ}かしてください。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "影のトリックと消えた標本"
+        subtitle: "サイエンス捜査班 Vol.8"
+
+  # ===== 証拠カード1: 黄鉄鉱の標本 =====
+  - id: evidence-1
+    bg: science-lab
+    bgm: science-08/investigation
+    steps:
+      - type: effect
+        name: fade-in
+      - type: title_card
+        text: "ステップ1：調査"
+        subtitle: "証拠カード1 — 黄鉄鉱の標本"
+      - type: narration
+        text: "{消|き}えた{標本|ひょうほん}：{黄鉄鉱|おうてっこう}（パイライト）。{手|て}のひらサイズで{金色|きんいろ}にキラキラ{光|ひか}る。"
+      - type: narration
+        text: "{保管|ほかん}{場所|ばしょ}は{理科室|りかしつ}{北側|きたがわ}の{棚|たな}の3{段目|だんめ}。{鍵|かぎ}はかかっていなかった。{午前中|ごぜんちゅう}の{授業|じゅぎょう}で{先生|せんせい}が{見|み}せたときはあった。"
+      - type: narration
+        text: "{棚|たな}は{理科室|りかしつ}のどこにある？ {窓|まど}（{光源|こうげん}）からどれくらい{離|はな}れている？ これが{後|あと}で{重要|じゅうよう}になる。"
+
+  # ===== 証拠カード2: カイトの目撃証言 =====
+  - id: evidence-2
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード2 — カイトの目撃証言"
+      - type: sprite
+        id: kaito
+        position: center
+        expression: determined
+      - type: dialog
+        character: kaito
+        text: "12:10ごろ、{理科室|りかしつ}の{東側|ひがしがわ}の{窓|まど}から{中|なか}を{見|み}たら、{東|ひがし}の{壁|かべ}に{大|おお}きな{人影|ひとかげ}が{映|うつ}っていたんだ。"
+      - type: dialog
+        character: kaito
+        expression: determined
+        text: "{影|かげ}の{頭|あたま}のところにポニーテールみたいなシルエットがあった。ポニーテールって{言|い}ったら、クラスではミサキだよね？"
+      - type: sprite
+        id: kaito
+        action: hide
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "カイトは{影|かげ}を{見|み}ただけで、{理科室|りかしつ}の{中|なか}には{入|はい}っていない。「{影|かげ}の{形|かたち}＝その{人|ひと}が{犯人|はんにん}」と{決|き}めていいのだろうか？"
+
+  # ===== 証拠カード3: 4人の昼休みの行動 =====
+  - id: evidence-3
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "証拠カード3 — 昼休みの行動"
+      - type: narration
+        text: "{先生|せんせい}が{確認|かくにん}した4{人|にん}の{行動|こうどう}。"
+      - type: narration
+        text: "ミサキ：{廊下|ろうか}を{通|とお}った（12:10ごろ）。{証人|しょうにん}なし。カイト：{理科室|りかしつ}の{外|そと}から{影|かげ}を{目撃|もくげき}。{証人|しょうにん}なし。"
+      - type: narration
+        text: "ナツキ：{図書室|としょしつ}にいた。{図書|としょ}{委員|いいん}が{確認|かくにん}。タクミ：{校庭|こうてい}にいた（と{言|い}っている）。{証人|しょうにん}なし。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "ナツキには{証人|しょうにん}がいる。{証人|しょうにん}がいないのはミサキとタクミの2{人|にん}。どちらが{理科室|りかしつ}に{入|はい}れた？"
+
+  # ===== 証拠カード4: 理科室の見取り図 =====
+  - id: evidence-4
+    bg: science-lab
+    bgm: science-08/experiment
+    steps:
+      - type: title_card
+        text: "証拠カード4 — 理科室の見取り図"
+      - type: narration
+        text: "{理科室|りかしつ}の{配置|はいち}。{西側|にしがわ}に{大|おお}きな{窓|まど}——{午後|ごご}は{太陽|たいよう}の{光|ひかり}が{入|はい}る。{東側|ひがしがわ}に{壁|かべ}——{影|かげ}が{映|うつ}る{場所|ばしょ}。"
+      - type: narration
+        text: "{北側|きたがわ}に{棚|たな}——{黄鉄鉱|おうてっこう}が{置|お}いてあった。{南側|みなみがわ}に{入口|いりぐち}——{廊下|ろうか}に{繋|つな}がっている。"
+      - type: narration
+        text: "{距離|きょり}の{目安|めやす}——{窓|まど}（{西|にし}）から{棚|たな}（{北|きた}）まで{約|やく}4m。{窓|まど}から{東|ひがし}の{壁|かべ}まで{約|やく}6m。{廊下|ろうか}（ドア{付近|ふきん}）から{窓|まど}まで{約|やく}1m。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{廊下|ろうか}（ドア{付近|ふきん}）は{窓|まど}から{近|ちか}い。{棚|たな}は{窓|まど}から{遠|とお}い。{影|かげ}の{大|おお}きさはどう{違|ちが}う？"
+
+  # ===== 証言パート =====
+  - id: testimony
+    bg: science-lab
+    bgm: science-08/investigation
+    steps:
+      - type: title_card
+        text: "ステップ2：聞き取り"
+      - type: sprite
+        id: misaki
+        position: left
+        expression: worried
+      - type: dialog
+        character: misaki
+        text: "わたし、{廊下|ろうか}を{通|とお}っただけだよ！ {理科室|りかしつ}には{入|はい}ってない！ なのにみんなが「{犯人|はんにん}だ」って……{悲|かな}しい。"
+      - type: dialog
+        character: misaki
+        expression: determined
+        text: "ポニーテールだからって{決|き}めつけないで！ {証拠|しょうこ}で{考|かんが}えてよ！"
+      - type: sprite
+        id: misaki
+        action: hide
+      - type: sprite
+        id: kaito
+        position: right
+        expression: thinking
+      - type: dialog
+        character: kaito
+        text: "{影|かげ}を{見|み}たのは{本当|ほんとう}だ。{大|おお}きなポニーテールの{影|かげ}がはっきり{映|うつ}ってた。でも……{影|かげ}を{見|み}ただけで{犯人|はんにん}だって{言|い}い{切|き}れるのかな。"
+      - type: sprite
+        id: kaito
+        action: hide
+      - type: sprite
+        id: natsuki
+        position: left
+        expression: thinking
+      - type: dialog
+        character: natsuki
+        text: "{先週|せんしゅう}の{理科|りか}の{実験|じっけん}で「{光|ひかり}と{影|かげ}」をやったんだ。{光源|こうげん}からの{距離|きょり}で{影|かげ}の{大|おお}きさが{変|か}わることを{知|し}ってる。この{知識|ちしき}が{使|つか}えるかも。"
+      - type: sprite
+        id: natsuki
+        action: hide
+      - type: sprite
+        id: takumi
+        position: right
+        expression: normal
+      - type: dialog
+        character: takumi
+        text: "おれは{昼休|ひるやす}みに{校庭|こうてい}にいたぜ。{理科室|りかしつ}には{行|い}ってないよ。{鉱物|こうぶつ}は{好|す}きだけどさ。"
+      - type: sprite
+        id: takumi
+        action: hide
+
+  # ===== 証拠カード5: 光と影の実験データ（ゲームチェンジャー） =====
+  - id: evidence-5
+    bg: science-lab
+    bgm: science-08/tension
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "★新事実★"
+        subtitle: "証拠カード5 — 光と影の実験データ"
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "ナツキのノートから、{先週|せんしゅう}の{理科|りか}の{実験|じっけん}「{光|ひかり}と{影|かげ}」のデータが{出|で}てきた。"
+      - type: narration
+        text: "{光源|こうげん}からの{距離|きょり}と{影|かげ}の{大|おお}きさ——10cmなら{約|やく}3{倍|ばい}（とても{大|おお}きい）。30cmなら{約|やく}1.5{倍|ばい}。50cmならほぼ{同|おな}じ。100cmなら{元|もと}より{小|ちい}さい。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{光源|こうげん}に{近|ちか}いモノの{影|かげ}は{大|おお}きくなる。{光源|こうげん}から{遠|とお}いモノの{影|かげ}は{小|ちい}さくなる。"
+      - type: narration
+        text: "{今回|こんかい}の{事件|じけん}に{当|あ}てはめると——カイトが{見|み}た{影|かげ}は「{大|おお}きかった」。つまり{光源|こうげん}（{西|にし}の{窓|まど}）の{近|ちか}くにいた{人|ひと}の{影|かげ}。{窓|まど}の{近|ちか}く＝{廊下側|ろうかがわ}（ドア{付近|ふきん}）。"
+      - type: se
+        sound: common/tension
+      - type: narration
+        speed: slow
+        text: "{大|おお}きなポニーテールの{影|かげ}＝{窓|まど}の{近|ちか}くにいたミサキの{影|かげ}。でもミサキは{理科室|りかしつ}の{外|そと}——{廊下|ろうか}を{通|とお}っただけ！ じゃあ{理科室|りかしつ}の{中|なか}で{棚|たな}に{近|ちか}づいたのは{誰|だれ}？ {棚|たな}は{窓|まど}から{遠|とお}いから、その{人|ひと}の{影|かげ}は{小|ちい}さかった——カイトは{気|き}づかなかったんだ。"
+
+  # ===== 推理・投票 =====
+  - id: questions
+    bg: science-lab
+    bgm: science-08/tension
+    steps:
+      - type: title_card
+        text: "ステップ3：推理"
+      - type: choice
+        id: q1
+        text: "{光源|こうげん}に{近|ちか}い{人|ひと}の{影|かげ}はどうなる？"
+        options:
+          - text: "大きくなる"
+            feedback: "そのとおり！ {光源|こうげん}に{近|ちか}いほど{影|かげ}は{大|おお}きくなる。カイトが{見|み}た{大|おお}きな{影|かげ}は、{窓|まど}の{近|ちか}くにいた{人|ひと}のもの。"
+          - text: "小さくなる"
+            feedback: "{逆|ぎゃく}だよ。{光源|こうげん}に{近|ちか}いほど{影|かげ}は{大|おお}きく、{遠|とお}いほど{小|ちい}さくなるんだ。"
+          - text: "変わらない"
+            feedback: "{変|か}わるよ！ {光源|こうげん}に{近|ちか}いほど{影|かげ}は{大|おお}きく、{遠|とお}いほど{小|ちい}さくなる。"
+      - type: choice
+        id: q2
+        text: "{標本|ひょうほん}を{持|も}ち{出|だ}したのは{誰|だれ}？"
+        options:
+          - text: "ミサキ"
+            feedback: "ミサキは{廊下|ろうか}を{通|とお}っただけ。{窓|まど}の{近|ちか}くだったから{影|かげ}が{大|おお}きく{映|うつ}ったけど、{理科室|りかしつ}には{入|はい}ってないよ。"
+          - text: "カイト"
+            feedback: "カイトは{理科室|りかしつ}の{外|そと}から{影|かげ}を{見|み}ただけ。{中|なか}には{入|はい}ってない。"
+          - text: "ナツキ"
+            feedback: "ナツキは{図書室|としょしつ}にいた。{図書|としょ}{委員|いいん}が{確認|かくにん}しているよ。"
+          - text: "タクミ"
+            feedback: "タクミは「{校庭|こうてい}にいた」と{言|い}っているけど{証人|しょうにん}がいない。{鉱物|こうぶつ}が{好|す}きで{動機|どうき}もある。{棚|たな}は{窓|まど}から{遠|とお}いから{影|かげ}も{小|ちい}さい——{気|き}づかれなかった。"
+
+  # ===== 真実: タクミの告白 =====
+  - id: truth-takumi
+    bg: science-lab
+    bgm: science-08/truth
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{標本|ひょうほん}を{持|も}ち{出|だ}した{人物|じんぶつ}を{発表|はっぴょう}します。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{黄鉄鉱|おうてっこう}の{標本|ひょうほん}を{持|も}ち{出|だ}したのは——タクミだった。"
+      - type: sprite
+        id: takumi
+        position: center
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "{黄鉄鉱|おうてっこう}が{光|ひかり}を{反射|はんしゃ}する{様子|ようす}を、{自分|じぶん}の{部屋|へや}でもっとじっくり{観察|かんさつ}したかったんだ。「{借|か}りるだけ」のつもりだった……。"
+      - type: narration
+        text: "タクミは12:05ごろ{理科室|りかしつ}に{入|はい}り、{棚|たな}から{標本|ひょうほん}を{取|と}った。{窓|まど}から{遠|とお}い{棚|たな}にいたので{影|かげ}は{小|ちい}さかった。"
+      - type: narration
+        text: "カイトが{見|み}た「{大|おお}きなポニーテールの{影|かげ}」は、{廊下|ろうか}を{通|とお}ったミサキのもの。ミサキは{理科室|りかしつ}の{外|そと}にいた。{窓|まど}に{近|ちか}かったから{影|かげ}が{大|おお}きく{映|うつ}っただけだった。"
+      - type: dialog
+        character: takumi
+        expression: worried
+        text: "ミサキが{疑|うたが}われてるのに{気|き}づいてた。{言|い}い{出|だ}せなくてごめん……。"
+      - type: sprite
+        id: takumi
+        action: hide
+
+  # ===== みんなの秘密 =====
+  - id: truth-others
+    bg: science-lab
+    steps:
+      - type: narration
+        text: "みんなにも{隠|かく}していたことがあった。"
+      - type: sprite
+        id: misaki
+        position: left
+        expression: thinking
+      - type: dialog
+        character: misaki
+        text: "{廊下|ろうか}を{通|とお}ったとき、{理科室|りかしつ}のドアが{少|すこ}し{開|あ}いていて、{棚|たな}の{近|ちか}くに{誰|だれ}かがいるのがチラッと{見|み}えたの。{急|いそ}いでたから{通|とお}り{過|す}ぎちゃったけど。"
+      - type: sprite
+        id: misaki
+        action: hide
+      - type: sprite
+        id: kaito
+        position: right
+        expression: worried
+      - type: dialog
+        character: kaito
+        text: "{影|かげ}を{見|み}ただけで「ポニーテール＝ミサキ＝{犯人|はんにん}」って{決|き}めつけちゃった。{光源|こうげん}との{距離|きょり}で{影|かげ}の{大|おお}きさが{変|か}わることは{考|かんが}えてなかった……。{観察|かんさつ}は{正|ただ}しかったけど、{解釈|かいしゃく}が{間違|まちが}ってたんだ。"
+      - type: sprite
+        id: kaito
+        action: hide
+      - type: sprite
+        id: natsuki
+        position: left
+        expression: happy
+      - type: dialog
+        character: natsuki
+        text: "{先週|せんしゅう}の{実験|じっけん}データから「{大|おお}きな{影|かげ}＝{光源|こうげん}に{近|ちか}い{人|ひと}」って{分|わ}かってた。このデータが{冤罪|えんざい}を{晴|は}らす{鍵|かぎ}になったね。"
+      - type: sprite
+        id: natsuki
+        action: hide
+
+  # ===== 学習ポイント =====
+  - id: learning
+    bg: science-lab
+    steps:
+      - type: title_card
+        text: "学習ポイント"
+      - type: sprite
+        id: sensei
+        position: center
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{光|ひかり}はまっすぐ{進|すす}み、モノに{当|あ}たると{影|かげ}ができます。{光源|こうげん}に{近|ちか}いモノの{影|かげ}は{大|おお}きく、{遠|とお}いモノの{影|かげ}は{小|ちい}さくなる。"
+      - type: dialog
+        character: sensei
+        expression: happy
+        text: "「{影|かげ}の{形|かたち}＝{犯人|はんにん}」という{思|おも}い{込|こ}みで{冤罪|えんざい}が{起|お}きそうでした。これを{認知|にんち}バイアスといいます。"
+      - type: dialog
+        character: sensei
+        expression: thinking
+        text: "{目撃|もくげき}{証言|しょうげん}だけでなく、{科学的|かがくてき}{原理|げんり}で{検証|けんしょう}することが{大切|たいせつ}です。タクミの「{借|か}りるだけ」も、{許可|きょか}なく{持|も}ち{出|だ}すのはダメですが、{好奇心|こうきしん}そのものは{悪|わる}くない。{正|ただ}しい{方法|ほうほう}で{知|し}りたい{気持|きも}ちを{満|み}たそう。"
+      - type: sprite
+        id: sensei
+        action: hide
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: science-lab
+    bgm: science-08/resolution
+    steps:
+      - type: effect
+        name: fade-out
+      - type: effect
+        name: fade-in
+      - type: sprite
+        id: takumi
+        position: left
+        expression: worried
+      - type: dialog
+        character: takumi
+        text: "ごめん、{標本|ひょうほん}はカバンの{中|なか}にある。{今|いま}すぐ{返|かえ}すよ。{借|か}りるだけのつもりだったんだ。"
+      - type: sprite
+        id: takumi
+        action: hide
+      - type: sprite
+        id: misaki
+        position: right
+        expression: happy
+      - type: dialog
+        character: misaki
+        text: "みんなが{光|ひかり}の{科学|かがく}で{真実|しんじつ}を{証明|しょうめい}してくれた。{影|かげ}だけで{決|き}めつけなくてよかった……ありがとう！"
+      - type: sprite
+        id: misaki
+        action: hide
+      - type: sprite
+        id: sensei
+        position: center
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{科学|かがく}の{知識|ちしき}がなかったら、ミサキが{犯人|はんにん}だと{決|き}めつけられていたかもしれません。{光|ひかり}と{影|かげ}の{原理|げんり}が、{正|ただ}しい{判断|はんだん}を{導|みちび}いてくれたんですね。"
+      - type: sprite
+        id: sensei
+        action: hide
+      - type: effect
+        name: fade-out
