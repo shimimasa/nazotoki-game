@@ -1,0 +1,435 @@
+meta:
+  id: english-05
+  title: メニューの嘘
+  series: 英語探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-05/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}。今日は『English Restaurant』の{授業|じゅぎょう}！ {教室|きょうしつ}をレストランに{見立|みた}てて、{英語|えいご}で{注文|ちゅうもん}・{接客|せっきゃく}・{会計|かいけい}をする{体験|たいけん}だ。"
+      - type: sprite
+        character: takumi
+        expression: happy
+        position: center
+      - type: dialog
+        character: takumi
+        text: "おれがメニューを作ったぜ！ {英語|えいご}でバッチリ書いた！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: narration
+        text: "ブラウン先生がメニューを見て、{首|くび}をかしげた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『Wait... This menu has some mistakes. "Onigiri" is not "sandwich"!』"
+      - type: narration
+        text: "（ちょっと{待|ま}って……メニューに{間違|まちが}いがあるよ。『おにぎり』は『sandwich』じゃないよ！）"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ブラウン先生によると、5つの{料理|りょうり}のうち3つの{英語|えいご}{翻訳|ほんやく}が{間違|まちが}っているそうよ。"
+      - type: dialog
+        character: sensei
+        text: "{間違|まちが}いを1つずつ{検証|けんしょう}して、なぜこうなったのか{突|つ}き{止|と}めましょう。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-05/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: メニューを仮説検証しよう
+
+      # --- メニュー確認 ---
+      - type: narration
+        text: "タクミが作ったメニューを{確認|かくにん}しよう。"
+      - type: narration
+        text: "1. カレーライス ＝ Curry and Rice。2. おにぎり ＝ Sandwich。3. みそ{汁|しる} ＝ Orange Juice。"
+      - type: narration
+        text: "4. サラダ ＝ Salad。5. {焼|や}き{魚|ざかな} ＝ Fried Chicken。"
+
+      # --- 仮説検証 ---
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "1つずつ{検証|けんしょう}しよう。『もしこの{翻訳|ほんやく}が{正|ただ}しいなら、{料理|りょうり}の{特徴|とくちょう}と{一致|いっち}するはず』——これが{仮説|かせつ}{検証|けんしょう}だ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hina
+        text: "まず『おにぎり ＝ Sandwich』。もし Sandwich が{正|ただ}しい{翻訳|ほんやく}なら、おにぎりはパンで作るはず。"
+      - type: dialog
+        character: hina
+        text: "でもおにぎりは{ご飯|ごはん}をにぎって{海苔|のり}で{包|つつ}んだもの。パンじゃない。——{矛盾|むじゅん}！"
+        expression: surprised
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: center
+      - type: dialog
+        character: emma
+        text: "次、『みそ{汁|しる} ＝ Orange Juice』。もし Orange Juice が{正|ただ}しいなら、みそ{汁|しる}はオレンジの{果汁|かじゅう}のはず。"
+      - type: dialog
+        character: emma
+        text: "でもみそ{汁|しる}はみそのスープ。{果物|くだもの}は入ってない。——{矛盾|むじゅん}！"
+        expression: surprised
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "最後、『{焼|や}き{魚|ざかな} ＝ Fried Chicken』。もし Fried Chicken が{正|ただ}しいなら、{焼|や}き{魚|ざかな}は{鶏肉|とりにく}を{油|あぶら}で{揚|あ}げた{料理|りょうり}のはず。"
+      - type: dialog
+        character: ren
+        text: "でも{焼|や}き{魚|ざかな}は{魚|さかな}を{焼|や}いた{料理|りょうり}。grilled ＝ {焼|や}く、fried ＝ {油|あぶら}で{揚|あ}げる。{全然|ぜんぜん}{違|ちが}う！——{矛盾|むじゅん}！"
+        expression: determined
+      - type: sprite
+        character: ren
+        action: hide
+      - type: narration
+        text: "3つの{間違|まちが}いが{判明|はんめい}。Curry and Rice と Salad だけが{正|ただ}しかった。この2つはカタカナ{英語|えいご}でそのまま{通|つう}じる。"
+
+      # --- 犯人の手がかり ---
+      - type: sprite
+        character: ren
+        expression: normal
+        position: left
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: ren
+        text: "タクミ、{木曜|もくよう}の{放課後|ほうかご}に『メニュー作った？ {英語|えいご}が分からなかったら{聞|き}いてね』って言ったよね。"
+      - type: dialog
+        character: takumi
+        text: "う、うん……『大丈夫、もう書いたぜ！』って言ったけど……。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: left
+      - type: sprite
+        character: emma
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "{木曜|もくよう}の{放課後|ほうかご}、{忘|わす}れ物を{取|と}りに{教室|きょうしつ}に{戻|もど}ったら、タクミが1人でメニューを書いてた。{机|つくえ}にはノートとえんぴつだけ。{辞書|じしょ}は{置|お}いてなかった。"
+      - type: dialog
+        character: emma
+        text: "{木曜|もくよう}の{夜|よる}、タクミから『メニューの{英語|えいご}が分からない。{教|おし}えて』ってLINEが来てたの。でもわたし、もう{寝|ね}てて……。朝{起|お}きたら『もういいや、{自分|じぶん}でやった』って……。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-05/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 正しい翻訳と間違いの理由
+
+      - type: narration
+        text: "ブラウン先生の{翻訳|ほんやく}チェック{結果|けっか}——"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "おにぎり ＝ Rice Ball（ライスボール）。rice ＝ {ご飯|ごはん}、ball ＝ ボール（{丸|まる}い{形|かたち}）。"
+      - type: narration
+        text: "みそ{汁|しる} ＝ Miso Soup（ミソスープ）。miso ＝ みそ、soup ＝ スープ。"
+      - type: narration
+        text: "{焼|や}き{魚|ざかな} ＝ Grilled Fish（グリルドフィッシュ）。grilled ＝ {焼|や}いた、fish ＝ {魚|さかな}。"
+      - type: narration
+        text: "ブラウン先生のコメント：『Curry and Rice と Salad はカタカナ{英語|えいご}でそのまま{通|つう}じます。でも Rice Ball、Miso Soup、Grilled Fish は{辞書|じしょ}を{引|ひ}かないと分からない{単語|たんご}です。』"
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ren
+        text: "タクミの{間違|まちが}いのパターンが見えた。おにぎり → 『{挟|はさ}む』から{連想|れんそう} → Sandwich。みそ{汁|しる} → 『{飲|の}み物』から{連想|れんそう} → Orange Juice。"
+      - type: dialog
+        character: ren
+        text: "{焼|や}き{魚|ざかな} → 『{焼|や}く → フライ』から{連想|れんそう} → Fried Chicken。全部、『それっぽい』{英語|えいご}を{当|あ}てはめただけなんだ。"
+        expression: thinking
+      - type: sprite
+        character: ren
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-05/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 間違いメニューを作ったのは
+
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: left
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hina
+        text: "メニューを作ったのはタクミ。{辞書|じしょ}を使わずに書いていた。わたしが{目撃|もくげき}してる。"
+      - type: dialog
+        character: emma
+        text: "タクミは{夜|よる}にわたしに{助|たす}けを{求|もと}めてた。でも{返事|へんじ}がなくて、{自分|じぶん}でやっちゃった……。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{間違|まちが}いメニューを作ったのは{誰|だれ}？"
+      - type: choice
+        question: "間違いメニューを作ったのは？"
+        options:
+          - text: レン
+            correct: false
+            feedback: "レンは{注文|ちゅうもん}{係|がかり}。メニューは作っていない。むしろタクミに『{手伝|てつだ}おうか』と{声|こえ}をかけていた。"
+          - text: エマ
+            correct: false
+            feedback: "エマは{接客|せっきゃく}{係|がかり}。タクミから{助|たす}けを{求|もと}められたが、{寝|ね}ていて{返信|へんしん}できなかった。"
+          - text: タクミ
+            correct: true
+            feedback: "正解！ タクミはメニュー{作成|さくせい}{係|がかり}。{辞書|じしょ}を使わず『それっぽい』{英語|えいご}を{当|あ}てはめた。{悪気|わるぎ}はなく{知識|ちしき}{不足|ぶそく}と{焦|あせ}り。"
+          - text: ヒナ
+            correct: false
+            feedback: "ヒナは{会計|かいけい}{係|がかり}。タクミが{辞書|じしょ}なしで書いているのを{目撃|もくげき}した{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-05/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: それっぽいと正しいは違う
+
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "……おれが{間違|まちが}えました。{英語|えいご}が分からなくて、{締|し}め{切|き}りに{間|ま}に合わなくて。"
+      - type: dialog
+        character: takumi
+        text: "{辞書|じしょ}を{引|ひ}かずに『これっぽい』って{思|おも}った{英語|えいご}を書いちゃったんだ。おにぎりは{挟|はさ}むから Sandwich かなって……。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "わたし、タクミのLINEに{気|き}づかなかった。{返事|へんじ}してあげたかった……ごめんね。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: ren
+        expression: normal
+        position: center
+      - type: dialog
+        character: ren
+        text: "ぼくが{手伝|てつだ}うって言ったとき、『大丈夫』って言わなければよかったんだよ。分からないことを{聞|き}くのは{恥|は}ずかしいことじゃない。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: determined
+        position: center
+      - type: dialog
+        character: takumi
+        text: "次からは{絶対|ぜったい}{辞書|じしょ}を{引|ひ}く。そして分からないときはレンに{聞|き}く。{約束|やくそく}！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-05/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "タクミくん、メニューを作ろうとした{気持|きも}ちは{立派|りっぱ}よ。{次|つぎ}は{辞書|じしょ}で{確認|かくにん}してね。"
+      - type: dialog
+        character: sensei
+        text: "{翻訳|ほんやく}で{大事|だいじ}なのは、『それっぽい』じゃなく{正確|せいかく}さ。Curry や Salad はカタカナで{通|つう}じるけど、Rice Ball や Miso Soup は{辞書|じしょ}を{引|ひ}かないと分からないの。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: happy
+        position: left
+      - type: sprite
+        character: ren
+        expression: happy
+        position: right
+      - type: dialog
+        character: takumi
+        text: "よし、メニューを書き{直|なお}すぞ！ レン、{手伝|てつだ}ってくれ！"
+      - type: dialog
+        character: ren
+        text: "もちろん！ おにぎり ＝ Rice Ball、みそ{汁|しる} ＝ Miso Soup、{焼|や}き{魚|ざかな} ＝ Grilled Fish。{一緒|いっしょ}に{覚|おぼ}えよう。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: "『それっぽい{英語|えいご}』と『{正|ただ}しい{英語|えいご}』は{違|ちが}う。{辞書|じしょ}を{引|ひ}く。分からなかったら{聞|き}く。それだけで{間違|まちが}いは{防|ふせ}げる。"
+      - type: narration
+        speed: slow
+        text: "そして{仮説|かせつ}{検証|けんしょう}——『もし○○なら△△のはず』。この{考|かんが}え方は、{英語|えいご}だけじゃなく{推理|すいり}のどんな{場面|ばめん}でも{使|つか}える{武器|ぶき}になる。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——メニュー{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

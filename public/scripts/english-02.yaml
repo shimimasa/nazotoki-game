@@ -1,0 +1,544 @@
+meta:
+  id: english-02
+  title: あいさつの謎
+  series: 英語探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-02/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}。今日はALTのブラウン先生の{誕生日|たんじょうび}。4人はそれぞれ{英語|えいご}のバースデーカードを書いて、{放課後|ほうかご}にサプライズで{渡|わた}すことにした。"
+      - type: narration
+        text: "火曜日——{放課後|ほうかご}16時。"
+      - type: sprite
+        character: emma
+        expression: happy
+        position: center
+      - type: dialog
+        character: emma
+        text: "ブラウン先生、Happy Birthday！ みんなでカードを書いたんです！"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: narration
+        text: "ブラウン先生はにっこり{笑|わら}って4{枚|まい}のカードを{受|う}け{取|と}った。1{枚|まい}ずつ{丁寧|ていねい}に読んでいく。"
+      - type: narration
+        text: "ところが——4{枚|まい}目を読んだあと、ブラウン先生が{首|くび}をかしげた。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『Thank you, everyone! But... one card says "Good morning." It's afternoon now, isn't it?』"
+      - type: narration
+        text: "（ありがとう、みんな！ でも1{枚|まい}のカードに『Good morning』って書いてあるよ。今は{午後|ごご}だよね？）"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{放課後|ほうかご}の16時に{渡|わた}したカードに『Good morning』——朝のあいさつを{午後|ごご}に使うのは{間違|まちが}いね。"
+      - type: dialog
+        character: sensei
+        text: "4{枚|まい}のカードを{調|しら}べて、{間違|まちが}ったあいさつを書いた人を{見|み}つけましょう。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-02/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 4枚のカードを調べよう
+
+      # --- 証拠カード①② 英語のあいさつルールとカード内容 ---
+      - type: narration
+        text: "まず、{英語|えいご}のあいさつのルールを{確認|かくにん}しよう。"
+      - type: narration
+        text: "Good morning ＝ 朝〜12時ごろ。Good afternoon ＝ 12時〜17時ごろ。Good evening ＝ 17時{以降|いこう}。"
+      - type: narration
+        text: "カードを{渡|わた}したのは16時。{正|ただ}しいあいさつは『Good afternoon』。"
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ren
+        text: "4{枚|まい}のカードの{中身|なかみ}を{整理|せいり}しよう。"
+      - type: narration
+        text: "カードA：『Good afternoon』——16時に{正|ただ}しい。カードB：『Good morning』——16時には{間違|まちが}い！"
+      - type: narration
+        text: "カードC：『Good afternoon』——{正|ただ}しい。カードD：『Good afternoon』——{正|ただ}しい。"
+      - type: dialog
+        character: ren
+        text: "カードBだけ『Good morning』。16時は{午後|ごご}だから、『Good afternoon』が{正|ただ}しい。カードBを書いた人が{犯人|はんにん}だ。"
+        expression: determined
+      - type: sprite
+        character: ren
+        action: hide
+
+      # --- 証拠カード② 書いた時間の情報 ---
+      - type: narration
+        text: "次に、4人がカードをいつ書いたかを{調|しら}べよう。"
+      - type: sprite
+        character: emma
+        expression: normal
+        position: left
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: right
+      - type: dialog
+        character: emma
+        text: "わたしは5時間目の{休|やす}み時間、14時に書いたよ。"
+      - type: dialog
+        character: takumi
+        text: "おれは{昼休|ひるやす}みの12時45分！ エマに『Good afternoonって書けばいいよ』って{教|おし}えてもらったんだ。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        expression: normal
+        position: left
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: ren
+        text: "ぼくは{昼休|ひるやす}みの12時30分に書いた。"
+      - type: dialog
+        character: hina
+        text: "わたしは朝、{早|はや}めに書いておいたよ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{情報|じょうほう}{整理|せいり}してみよう。レン＝12:30、エマ＝14:00、タクミ＝12:45。そしてヒナだけ……朝の8:00。"
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ren
+        text: "{待|ま}って。ヒナだけ朝に書いてる。朝8時なら『Good morning』って書くのが{自然|しぜん}じゃないか？"
+      - type: sprite
+        character: ren
+        action: hide
+
+      # --- 証拠カード③ 筆跡分析 ---
+      - type: narration
+        text: "レンが4{枚|まい}のカードの{筆跡|ひっせき}を{比|くら}べた。"
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "カードAの字は{少|すこ}し{角|かく}ばっている。これはぼくの字だ。カードCは大きくて{元気|げんき}な字——タクミだね。"
+      - type: dialog
+        character: ren
+        text: "カードDは{丸|まる}くてかわいい字。ハートの{模様|もよう}もある。これはエマ。"
+      - type: dialog
+        character: ren
+        text: "そしてカードBは……とても{丁寧|ていねい}で{几帳面|きちょうめん}な字。文字のバランスが{整|ととの}っている。"
+        expression: surprised
+      - type: dialog
+        character: ren
+        text: "ぼくでもタクミでもエマでもない。{残|のこ}るのは……ヒナだ。ヒナは4人の中で一番字がきれいだから。"
+        expression: determined
+      - type: sprite
+        character: ren
+        action: hide
+
+      # --- 証拠カード④ 目撃情報 ---
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: center
+      - type: dialog
+        character: emma
+        text: "そういえば……火曜の朝8時ごろ、{教室|きょうしつ}に来たらヒナがカードを書いてたの。『{早|はや}めに書いておくね』って言ってた。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: center
+      - type: dialog
+        character: takumi
+        text: "おれはエマに{教|おし}えてもらったから{間違|まちが}えなかった。でもヒナは{英語|えいご}が{得意|とくい}だから、{誰|だれ}にも{聞|き}かずに1人で書いたんだよな。"
+      - type: dialog
+        character: takumi
+        text: "1人で書いたから、『{渡|わた}す時間は{午後|ごご}だよ』って{確認|かくにん}する人がいなかったってことか……。"
+        expression: surprised
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-02/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: ブラウン先生の確認
+
+      - type: narration
+        text: "ブラウン先生がカードBの{筆跡|ひっせき}を{確認|かくにん}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『I checked the handwriting on Card B. It's very neat and careful. I've seen this writing before — in Hina's homework. I think Hina wrote this card.』"
+      - type: narration
+        text: "（カードBの{筆跡|ひっせき}を{確認|かくにん}しました。とても{丁寧|ていねい}できれい。この字は{見覚|みおぼ}えがあります——ヒナさんの{宿題|しゅくだい}と同じです）"
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: left
+      - type: sprite
+        character: emma
+        expression: worried
+        position: right
+      - type: dialog
+        character: ren
+        text: "やっぱり……カードBはヒナが書いたんだ。"
+      - type: dialog
+        character: emma
+        text: "ヒナが『Good morning』と{間違|まちが}えた？ {英語|えいご}が一番{得意|とくい}なのに……？"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-02/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: なぜヒナが間違えたのか
+
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: left
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ren
+        text: "{整理|せいり}しよう。カードBのあいさつは『Good morning』。16時に{渡|わた}すカードには{間違|まちが}い。"
+      - type: dialog
+        character: emma
+        text: "ヒナは朝8時にカードを書いた。朝だから『Good morning』が{自然|しぜん}に出たんだ……。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: center
+      - type: dialog
+        character: takumi
+        text: "つまり、ヒナは『書いた時間』のあいさつを書いちゃったんだ。でも{渡|わた}すのは{午後|ごご}——『{渡|わた}す時間』に合わせるべきだった。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "……。"
+      - type: sprite
+        character: hina
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "ここで{推理|すいり}をまとめよう。『Good morning』と{間違|まちが}えて書いたカードは{誰|だれ}のもの？"
+      - type: choice
+        question: "間違ったあいさつを書いたのは？"
+        options:
+          - text: レン
+            correct: false
+            feedback: "レンは{昼休|ひるやす}み（12:30）に書いた。{午後|ごご}なので『Good afternoon』が{自然|しぜん}。カードAが正しいのでレンではない。"
+          - text: エマ
+            correct: false
+            feedback: "エマは14時に書いた。{午後|ごご}なので『Good afternoon』が{自然|しぜん}。カードDが正しいのでエマではない。"
+          - text: タクミ
+            correct: false
+            feedback: "タクミは{昼休|ひるやす}み（12:45）にエマに{教|おし}えてもらって書いた。カードCが正しいのでタクミではない。"
+          - text: ヒナ
+            correct: true
+            feedback: "正解！ ヒナは朝8時にカードを書いた。朝だから『Good morning』が{自然|しぜん}に出た。でも{渡|わた}すのは16時——『Good afternoon』が正しかった。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-02/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 書いた時間と渡す時間
+
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "……{当|あ}たってる。わたしが書いたカードBに『Good morning』って書いちゃった。"
+      - type: dialog
+        character: hina
+        text: "朝8時に{教室|きょうしつ}で書いたの。朝だったから、{自然|しぜん}に『Good morning』って書いた。{渡|わた}すのが{午後|ごご}だって、分かってたはずなのに……。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "ヒナ、{英語|えいご}が{得意|とくい}なのに……どうして？"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "{得意|とくい}だから{油断|ゆだん}したの。『Good morning』なんて{当|あ}たり前すぎて、{無意識|むいしき}に書いちゃった。"
+      - type: dialog
+        character: hina
+        text: "{渡|わた}した後にブラウン先生に{言|い}われて気づいた。{英語|えいご}が{得意|とくい}って{思|おも}われてるのに、こんな{初歩的|しょほてき}な{間違|まちが}い……{恥|は}ずかしくて言えなかった。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: center
+      - type: dialog
+        character: takumi
+        text: "ヒナ、おれなんて{英語|えいご}が{苦手|にがて}でエマに{教|おし}えてもらったんだぜ。{間違|まちが}えるのは{恥|は}ずかしくないよ。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        expression: happy
+        position: center
+      - type: dialog
+        character: ren
+        text: "そうだよ。{大事|だいじ}なのは{間違|まちが}いに気づいて{直|なお}すこと。ヒナならすぐに{直|なお}せるさ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-02/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: narration
+        text: "ヒナはブラウン先生のところへ{行|い}った。"
+      - type: sprite
+        character: hina
+        expression: determined
+        position: center
+      - type: dialog
+        character: hina
+        text: "ブラウン先生、I'm sorry. わたしのカードのあいさつが{間違|まちが}ってました。Good morning じゃなくて、Good afternoon が{正|ただ}しいです。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "ブラウン先生はにっこり{笑|わら}った。"
+      - type: narration
+        text: "『That's OK, Hina! Mistakes help us learn!』（大丈夫だよ、ヒナ！ {間違|まちが}いから{学|まな}べるんだよ！）"
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{英語|えいご}のあいさつは『いつ使うか』が{大事|だいじ}。Good morning、Good afternoon、Good evening——時間帯で{変|か}わることを{覚|おぼ}えましょう。"
+      - type: dialog
+        character: sensei
+        text: "そしてもう1つ。{間違|まちが}えたら{恥|は}ずかしがらずに{直|なお}す。ブラウン先生の{言葉|ことば}を{覚|おぼ}えておいてね。"
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "『Mistakes help us learn!』——{間違|まちが}いから{学|まな}べる！"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hina
+        expression: happy
+        position: left
+      - type: sprite
+        character: emma
+        expression: happy
+        position: right
+      - type: dialog
+        character: hina
+        text: "ブラウン先生に{新|あたら}しいカードを書き{直|なお}す！ 今度はちゃんと……Good afternoon, Mr. Brown! Happy Birthday!"
+      - type: dialog
+        character: emma
+        text: "ヒナ、{発音|はつおん}もきれい！ さすがだね！"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: happy
+        position: left
+      - type: sprite
+        character: ren
+        expression: happy
+        position: right
+      - type: dialog
+        character: takumi
+        text: "おれも{覚|おぼ}えた！ 朝は Good morning、{昼|ひる}は Good afternoon、{夕方|ゆうがた}は Good evening！"
+      - type: dialog
+        character: ren
+        text: "Excellent! あいさつの時間帯、{完璧|かんぺき}だねタクミ。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: "あいさつは「いつ使うか」で{変|か}わる。{書|か}いた時間じゃなく、{届|とど}ける時間。それは{英語|えいご}だけじゃなく、{相手|あいて}のことを{考|かんが}える{気持|きも}ちでもある。"
+      - type: narration
+        speed: slow
+        text: "そして{間違|まちが}えても大丈夫。Mistakes help us learn——{間違|まちが}いから{学|まな}べるのだから。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——あいさつ{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

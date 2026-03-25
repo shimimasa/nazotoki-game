@@ -1,0 +1,393 @@
+meta:
+  id: english-09
+  title: 翻訳アプリの罠
+  series: 英語探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-09/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の『Pen Pal Letter Project』。オーストラリアの小学校に{英語|えいご}で{自分|じぶん}の学校を{紹介|しょうかい}する{手紙|てがみ}を{送|おく}る{授業|じゅぎょう}。"
+      - type: narration
+        text: "4人がそれぞれ{手紙|てがみ}を書いて{送|おく}った。ところが——"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "オーストラリアの先生から{連絡|れんらく}が来た。『1{通|つう}だけ{英語|えいご}が{変|へん}。{意味|いみ}が{通|つう}じない{部分|ぶぶん}がある。』"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{英語|えいご}が{変|へん}だと{指摘|してき}された{手紙|てがみ}は……タクミくんの{手紙|てがみ}よ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: takumi
+        text: "えっ！ おれ、{一生懸命|いっしょうけんめい}書いたのに……！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "タクミくんの{手紙|てがみ}の{誤訳|ごやく}パターンを{調|しら}べて、なぜこうなったのか{突|つ}き{止|と}めましょう。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-09/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 誤訳パターンを帰納法で発見せよ
+
+      # --- 手紙の比較 ---
+      - type: narration
+        text: "まず4人の{手紙|てがみ}を{比|くら}べよう。"
+      - type: narration
+        text: "レン：『I read English books there. I like reading very much.』——{自然|しぜん}な{小学生|しょうがくせい}の{英語|えいご}。"
+      - type: narration
+        text: "エマ：『We eat school lunch every day. It is delicious.』——{問題|もんだい}なし。"
+      - type: narration
+        text: "ヒナ：『We do many experiments. Science is interesting.』——{問題|もんだい}なし。"
+      - type: narration
+        text: "そしてタクミ：『Soccer is like. It plays in the schoolyard. It runs with friend.』"
+      - type: sprite
+        character: hina
+        expression: surprised
+        position: center
+      - type: dialog
+        character: hina
+        text: "タクミの{英語|えいご}、{明|あき}らかにおかしい。『Soccer is like.』って何？ 『{好|す}き』なら『I like soccer.』でしょ。"
+      - type: dialog
+        character: hina
+        text: "しかも{主語|しゅご}が全部『It』。{自分|じぶん}のことなら『I』のはず。これは{小学生|しょうがくせい}が{自分|じぶん}で書く{間違|まちが}いとは{違|ちが}う……。"
+        expression: thinking
+      - type: sprite
+        character: hina
+        action: hide
+
+      # --- 翻訳アプリテスト ---
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "ぼくが{翻訳|ほんやく}アプリのテストをしたんだ。5つの{日本語|にほんご}を入れて、どう{訳|やく}されるか{調|しら}べた。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: narration
+        text: "テスト1：『りんごが{好|す}き』→ アプリ：『Apple is like.』——{正|ただ}しくは『I like apples.』。{間違|まちが}い。"
+      - type: narration
+        text: "テスト3：『きれいな{花|はな}を見る』→ アプリ：『It sees beautiful flower.』——{正|ただ}しくは『I see beautiful flowers.』。{間違|まちが}い。"
+      - type: narration
+        text: "テスト5：『{友達|ともだち}と{遊|あそ}ぶ』→ アプリ：『It plays with friend.』——{正|ただ}しくは『I play with friends.』。{間違|まちが}い。"
+      - type: sprite
+        character: ren
+        expression: determined
+        position: center
+      - type: dialog
+        character: ren
+        text: "3つの{弱点|じゃくてん}を見つけた。『が』の{罠|わな}：『〇〇が{好|す}き』が『〇〇 is like.』になる。"
+      - type: dialog
+        character: ren
+        text: "{主語|しゅご}{消失|しょうしつ}の{罠|わな}：{日本語|にほんご}で{主語|しゅご}を{省|はぶ}くと『It』が入る。{単数形|たんすうけい}の{罠|わな}：{友達|ともだち}が『friend』（{単数|たんすう}）になる。"
+        expression: thinking
+      - type: sprite
+        character: ren
+        action: hide
+
+      # --- 目撃情報 ---
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "……{実|じつ}は、{火曜|かよう}の{放課後|ほうかご}にタクミがスマホの{翻訳|ほんやく}アプリを使ってるの見ちゃったの。{画面|がめん}に{日本語|にほんご}を{入力|にゅうりょく}して、出てきた{英語|えいご}をノートに{写|うつ}してた。"
+      - type: dialog
+        character: emma
+        text: "『{英語|えいご}が分からなくて……{内緒|ないしょ}にしてね？』って言われて、{約束|やくそく}しちゃったけど……。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-09/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: パターン完全一致
+
+      - type: narration
+        text: "{翻訳|ほんやく}アプリのテスト{結果|けっか}と、タクミの{手紙|てがみ}を{並|なら}べた。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『が』の{罠|わな}：テスト『りんごが{好|す}き → Apple is like.』＝ タクミ『サッカーが{好|す}き → Soccer is like.』——パターン{一致|いっち}！"
+      - type: narration
+        text: "{主語|しゅご}{消失|しょうしつ}の{罠|わな}：テスト『{遊|あそ}ぶ → It plays...』＝ タクミ『{校庭|こうてい}で{遊|あそ}ぶ → It plays...』——パターン{一致|いっち}！"
+      - type: narration
+        text: "{単数形|たんすうけい}の{罠|わな}：テスト『{友達|ともだち}と → with friend』＝ タクミ『{友達|ともだち}と → with friend』——パターン{一致|いっち}！"
+      - type: sprite
+        character: hina
+        expression: determined
+        position: center
+      - type: dialog
+        character: hina
+        text: "3つのパターン{全|すべ}てが{一致|いっち}。{帰納法|きのうほう}の{結論|けつろん}——タクミの{手紙|てがみ}は{翻訳|ほんやく}アプリで書かれたもの。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-09/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 翻訳アプリを使ったのは
+
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: left
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ren
+        text: "{帰納法|きのうほう}——たくさんのデータからパターンを見つけて、{未知|みち}のケースに{適用|てきよう}する。{翻訳|ほんやく}アプリのテスト{結果|けっか}とタクミの{手紙|てがみ}が{完全|かんぜん}に{一致|いっち}した。"
+      - type: dialog
+        character: emma
+        text: "タクミが{翻訳|ほんやく}アプリを使っていたのも{目撃|もくげき}してる……。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{翻訳|ほんやく}アプリを使って{手紙|てがみ}を書いたのは{誰|だれ}？"
+      - type: choice
+        question: "翻訳アプリを使ったのは？"
+        options:
+          - text: レン
+            correct: false
+            feedback: "レンは{翻訳|ほんやく}チェック{係|がかり}。{自分|じぶん}の{手紙|てがみ}は{自然|しぜん}な{小学生|しょうがくせい}{英語|えいご}で、アプリの{誤訳|ごやく}パターンはない。"
+          - text: エマ
+            correct: false
+            feedback: "エマの{手紙|てがみ}は{自然|しぜん}な{英語|えいご}。タクミがアプリを使っていたのを{目撃|もくげき}した{側|がわ}。"
+          - text: タクミ
+            correct: true
+            feedback: "正解！ タクミは{英語|えいご}が{苦手|にがて}で{翻訳|ほんやく}アプリに{頼|たよ}った。3つの{誤訳|ごやく}パターンが{帰納法|きのうほう}で{証明|しょうめい}された。"
+          - text: ヒナ
+            correct: false
+            feedback: "ヒナの{手紙|てがみ}は{自然|しぜん}な{英語|えいご}。タクミの{誤訳|ごやく}の{不自然|ふしぜん}さに{気|き}づいた{側|がわ}。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-09/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 助けを求める勇気
+
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "……おれが{翻訳|ほんやく}アプリを使いました。{英語|えいご}が{全然|ぜんぜん}分からなくて、{手紙|てがみ}が書けなかった。"
+      - type: dialog
+        character: takumi
+        text: "みんなに{笑|わら}われたくなくて、『{自分|じぶん}で書いた』って{嘘|うそ}ついた。アプリなら何とかなると{思|おも}ったのに……。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        expression: normal
+        position: center
+      - type: dialog
+        character: ren
+        text: "タクミ、{英語|えいご}が分からないなら{言|い}ってよ。ぼくが{教|おし}えるから。{翻訳|ほんやく}アプリに{頼|たよ}るより、{一緒|いっしょ}に書いた方がいい。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: center
+      - type: dialog
+        character: hina
+        text: "{翻訳|ほんやく}アプリは{道具|どうぐ}。{単語|たんご}を{調|しら}べるには{便利|べんり}。でも文をそのまま使うのは{危険|きけん}。{弱点|じゃくてん}があるから。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: determined
+        position: center
+      - type: dialog
+        character: takumi
+        text: "次からはレンに{聞|き}く！ {苦手|にがて}なことで{助|たす}けを{求|もと}めるのは{恥|は}ずかしくない。……って、もう3回目くらいだけど！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-09/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{翻訳|ほんやく}アプリは{便利|べんり}な{道具|どうぐ}。でも{弱点|じゃくてん}を知らないと{使|つか}えないわ。"
+      - type: dialog
+        character: sensei
+        text: "『が』の{罠|わな}、{主語|しゅご}{消失|しょうしつ}の{罠|わな}、{単数形|たんすうけい}の{罠|わな}。アプリの{結果|けっか}を{鵜呑|うの}みにせず、{自分|じぶん}でチェックすることが{大事|だいじ}。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "そして{帰納法|きのうほう}。たくさんのデータを{比|くら}べてパターンを見つける{力|ちから}。{翻訳|ほんやく}アプリだけじゃなく、いろんな{場面|ばめん}で{使|つか}えるわ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: "{翻訳|ほんやく}アプリは{便利|べんり}。でも{自分|じぶん}の{力|ちから}で{英語|えいご}を書くことには{代|か}えられない。{間違|まちが}えても、{自分|じぶん}の{言葉|ことば}で{伝|つた}える{方|ほう}が{相手|あいて}に{届|とど}く。"
+      - type: narration
+        speed: slow
+        text: "{帰納法|きのうほう}——たくさんのデータからパターンを見つけ、{未知|みち}のケースを{予測|よそく}する。それは{推理|すいり}の、そして{科学|かがく}の{基本|きほん}でもある。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——{翻訳|ほんやく}アプリ{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

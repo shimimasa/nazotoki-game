@@ -1,0 +1,451 @@
+meta:
+  id: english-07
+  title: 消えた手紙の秘密
+  series: 英語探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-07/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}。ALTのブラウン先生への『Thank You Letter』を書く{授業|じゅぎょう}。4人がそれぞれ{英語|えいご}で{感謝|かんしゃ}の{手紙|てがみ}を書いた。"
+      - type: narration
+        text: "レンが{翻訳|ほんやく}チェック{係|がかり}として4{通|つう}を{確認|かくにん}し、{封筒|ふうとう}にまとめた。タクミが{封筒|ふうとう}をブラウン先生に{渡|わた}した。"
+      - type: narration
+        text: "ところが——"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "ブラウン先生が{封筒|ふうとう}を{開|あ}けると——{手紙|てがみ}は3{通|つう}しかなかった。"
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: takumi
+        text: "えっ！？ おれの{手紙|てがみ}がない！ ちゃんと書いたのに！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "4人が書いたはずなのに3{通|つう}しかない。{消|き}えた{手紙|てがみ}はどこに？ そしてなぜタクミくんの{手紙|てがみ}だけが？"
+      - type: dialog
+        character: sensei
+        text: "{手紙|てがみ}の{形式|けいしき}に{注目|ちゅうもく}して、{真相|しんそう}を{突|つ}き{止|と}めましょう。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-07/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 手紙の形式を確認しよう
+
+      # --- 手紙の形式確認 ---
+      - type: narration
+        text: "まず、{英語|えいご}の{手紙|てがみ}の書き方を{確認|かくにん}しよう。"
+      - type: narration
+        text: "1. Dear ＋ 名前（あて名）。2. Thank you for ＋ 〜してくれたこと（{本文|ほんぶん}）。3. Your student,（{結|むす}び）。4. {自分|じぶん}の名前（{署名|しょめい}）。"
+      - type: narration
+        text: "そして5. P.S.（{追伸|ついしん}）——{手紙|てがみ}の{最後|さいご}に{付|つ}け{足|た}す一言。書いても書かなくてもOK。"
+
+      # --- 残った3通の確認 ---
+      - type: narration
+        text: "{封筒|ふうとう}に{残|のこ}っていた3{通|つう}の{手紙|てがみ}を{確認|かくにん}しよう。"
+      - type: sprite
+        character: emma
+        expression: normal
+        position: center
+      - type: dialog
+        character: emma
+        text: "わたしの{手紙|てがみ}。『Dear Mr. Brown, Thank you for teaching us English. I like your class very much. Your student, Emma』。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: center
+      - type: dialog
+        character: hina
+        text: "わたしの{手紙|てがみ}。『Dear Mr. Brown, Thank you for checking our English. I want to write better English. Your student, Hina』。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: ren
+        expression: normal
+        position: center
+      - type: dialog
+        character: ren
+        text: "ぼくの{手紙|てがみ}。『Dear Mr. Brown, Thank you for reading English books with us. Your student, Ren』。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: narration
+        text: "3{通|つう}とも Dear → Thank you → Your student → 名前の{形式|けいしき}。そして……どの{手紙|てがみ}にも P.S. はない。"
+
+      # --- タクミのP.S.情報 ---
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: center
+      - type: dialog
+        character: takumi
+        text: "おれの{手紙|てがみ}はちゃんと書いたぜ！ 『Thank you for playing soccer with us.』って。あと P.S. も書いたんだ！"
+      - type: dialog
+        character: takumi
+        text: "レンに{渡|わた}す前に『P.S. って{追伸|ついしん}だよな？』って{聞|き}いたら、レンが『うん、{手紙|てがみ}の{最後|さいご}に書くやつだよ』って{教|おし}えてくれた。"
+        expression: happy
+      - type: sprite
+        character: takumi
+        action: hide
+
+      # --- レンの不審な行動 ---
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: center
+      - type: dialog
+        character: emma
+        text: "{昼休|ひるやす}みに{封筒|ふうとう}の{装飾|そうしょく}をしていたら、レンが{隣|となり}で{手紙|てがみ}を1{通|つう}ずつ読んでた。3{通|つう}目まではスムーズだったけど……。"
+      - type: dialog
+        character: emma
+        text: "4{通|つう}目を読んだとき{手|て}が{止|と}まった。{何度|なんど}も読み{返|かえ}して、{顔|かお}が{赤|あか}くなってた。『どうしたの？』って{聞|き}いたら『なんでもない』って。"
+        expression: worried
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hina
+        text: "{昼休|ひるやす}みの{終|お}わり、レンのカバンがいつもより{膨|ふく}らんでた。ふだんはぺったんこなのに。{紙|かみ}みたいなものが入ってるように見えた。"
+      - type: dialog
+        character: hina
+        text: "あと、タクミが{手紙|てがみ}を書いてるとき『P.S. も書くぜ！』って{嬉|うれ}しそうに言ってたの、{覚|おぼ}えてる。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "レンが4{通|つう}目で{手|て}を{止|と}めた。カバンが{膨|ふく}らんだ。タクミは P.S. を書いた。P.S. の{内容|ないよう}が{鍵|かぎ}？"
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-07/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: P.S.に書かれていたこと
+
+      - type: narration
+        text: "レンのカバンから、タクミの{手紙|てがみ}が見つかった。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "『Dear Mr. Brown, Thank you for playing soccer with us. You are very good at soccer! I want to play again. Your student, Takumi』"
+      - type: narration
+        text: "そして——P.S.。"
+      - type: narration
+        text: "『P.S. I saw Ren's notebook. It had everyone's English test mistakes. Why does Ren have it?』"
+      - type: narration
+        text: "（{追伸|ついしん}：レンのノートを見た。みんなの{英語|えいご}テストの{間違|まちが}いが書いてあった。なぜレンは{持|も}っているの？）"
+      - type: sprite
+        character: ren
+        expression: worried
+        position: center
+      - type: dialog
+        character: ren
+        text: "……。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: narration
+        text: "レンのカバンから{手紙|てがみ}と{一緒|いっしょ}にノートも見つかった。{表紙|ひょうし}には『クラスのみんなの{英語|えいご}を{上手|じょうず}にするプロジェクト』。"
+      - type: narration
+        text: "中には、エマ・タクミ・ヒナの{英語|えいご}の{間違|まちが}いと{正|ただ}しい{書|か}き方、そして『みんなに{教|おし}えるときのヒント』が{丁寧|ていねい}に{記録|きろく}されていた。"
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-07/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 手紙を隠したのは誰か
+
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: left
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hina
+        text: "{整理|せいり}するわ。タクミの{手紙|てがみ}の P.S. にレンの{秘密|ひみつ}が書いてあった。レンは{翻訳|ほんやく}チェック中にそれを読んだ。"
+      - type: dialog
+        character: takumi
+        text: "おれ、{悪気|わるぎ}はなかったんだ。ノートを{偶然|ぐうぜん}見つけて、{不思議|ふしぎ}だったから P.S. に書いただけで……。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "タクミの{手紙|てがみ}を{封筒|ふうとう}から{抜|ぬ}いて{隠|かく}したのは{誰|だれ}？"
+      - type: choice
+        question: "手紙を隠したのは？"
+        options:
+          - text: レン
+            correct: true
+            feedback: "正解！ レンは{翻訳|ほんやく}チェック中にタクミの P.S. を読み、{自分|じぶん}の『{英語|えいご}まちがいノート』の{秘密|ひみつ}がバレるのを{恐|おそ}れて{手紙|てがみ}を{隠|かく}した。"
+          - text: エマ
+            correct: false
+            feedback: "エマは{封筒|ふうとう}の{装飾|そうしょく}{係|がかり}。レンの{動揺|どうよう}を{目撃|もくげき}したが、{手紙|てがみ}には{触|さわ}っていない。"
+          - text: タクミ
+            correct: false
+            feedback: "タクミは{手紙|てがみ}を書いた{本人|ほんにん}。{封筒|ふうとう}を{渡|わた}す{配達|はいたつ}{係|がかり}だが、{自分|じぶん}の{手紙|てがみ}を{抜|ぬ}く{理由|りゆう}がない。"
+          - text: ヒナ
+            correct: false
+            feedback: "ヒナは{記録|きろく}{係|がかり}。レンのカバンの{膨|ふく}らみに{気|き}づいたが、{手紙|てがみ}を{抜|ぬ}いたのはヒナではない。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-07/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 秘密を守りたかった
+
+      - type: sprite
+        character: ren
+        expression: worried
+        position: center
+      - type: dialog
+        character: ren
+        text: "……ぼくが{隠|かく}しました。タクミの{手紙|てがみ}の P.S. を読んで、ノートのことがブラウン先生やみんなにバレると{思|おも}って……パニックになった。"
+      - type: dialog
+        character: ren
+        text: "あのノートは、みんなの{英語|えいご}を{上手|じょうず}にするために作ったんだ。{間違|まちが}いを{記録|きろく}して、どうやって{教|おし}えたらいいか{考|かんが}えてた。"
+      - type: dialog
+        character: ren
+        text: "でも『人の{間違|まちが}いを{記録|きろく}してるなんてひどい』って{思|おも}われるのが{怖|こわ}かった。だから{秘密|ひみつ}にしてたのに、タクミが P.S. に……。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "レン、ごめん。おれ、{悪気|わるぎ}はなかったんだ。ノートを見て『すげぇ、みんなの{間違|まちが}いが書いてある！ なんで？』って{不思議|ふしぎ}に{思|おも}っただけで……。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: emma
+        expression: normal
+        position: center
+      - type: dialog
+        character: emma
+        text: "レン、ノートの中{身|み}を見たよ。『みんなに{教|おし}えるときのヒント』まで書いてあった。{助|たす}けるためのノートだったんだね。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: center
+      - type: dialog
+        character: hina
+        text: "わたし、『I want write』って{間違|まちが}えてた。{正|ただ}しくは『I want to write』。レンのノートに{正|ただ}しい{書|か}き方が書いてあった。ありがとう。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ren
+        text: "えっ……{怒|おこ}らないの？"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: happy
+        position: center
+      - type: dialog
+        character: takumi
+        text: "レンが{英語|えいご}を{教|おし}えてくれるの、{嬉|うれ}しいぜ！ でも{秘密|ひみつ}にしないで{堂々|どうどう}と{教|おし}えてくれよ！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-07/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "レンくん、ノートは{素晴|すば}らしい{取|と}り{組|く}みよ。でも{秘密|ひみつ}を{守|まも}るために{友達|ともだち}の{手紙|てがみ}を{隠|かく}すのは{間違|まちが}い。"
+      - type: dialog
+        character: sensei
+        text: "{秘密|ひみつ}は{隠|かく}すより{話|はな}したほうがいい。『{助|たす}けたい』という{気持|きも}ちは、オープンにしたほうが{伝|つた}わるの。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ren
+        expression: determined
+        position: center
+      - type: dialog
+        character: ren
+        text: "ノートの名前を{変|か}える。『レンの{英語|えいご}おたすけノート』。もう{秘密|ひみつ}にしない。みんなの{英語|えいご}を{一緒|いっしょ}に{上手|じょうず}にしよう！"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "今日{覚|おぼ}えた{英語|えいご}の{手紙|てがみ}の{形式|けいしき}——Dear、Thank you for...、Your student、そして P.S.。"
+      - type: dialog
+        character: sensei
+        text: "P.S. は{手紙|てがみ}の{最後|さいご}の一言。でも書く前に『この{内容|ないよう}で大丈夫？』と{考|かんが}えることも{大事|だいじ}ね。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: "{手紙|てがみ}は{気持|きも}ちを{届|とど}けるもの。Dear で{始|はじ}まり、Thank you で{感謝|かんしゃ}を{伝|つた}え、P.S. で一言{添|そ}える。"
+      - type: narration
+        speed: slow
+        text: "そして{情報|じょうほう}{欠落|けつらく}——『あるはずのものがない』に{気|き}づく{力|ちから}。それは{手紙|てがみ}の中だけでなく、{日常|にちじょう}の{推理|すいり}でも{使|つか}える。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——{消|き}えた{手紙|てがみ}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

@@ -1,0 +1,390 @@
+meta:
+  id: english-10
+  title: ことばの壁の向こう
+  series: 英語探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-10/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}に、オーストラリアから{転入生|てんにゅうせい}がやってきた。名前はリアム。"
+      - type: narration
+        text: "リアムの{自己|じこ}{紹介|しょうかい}カード：『I want to learn Japanese. Please teach me!』（{日本語|にほんご}を{学|まな}びたいです。{教|おし}えてください！）"
+      - type: narration
+        text: "4人はリアムのために{日本語|にほんご}で『{歓迎|かんげい}カード』を作り、{教室|きょうしつ}の{黒板|こくばん}に{貼|は}った。"
+      - type: narration
+        text: "ところが{翌朝|よくあさ}——"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "{歓迎|かんげい}カードが{破|やぶ}られていた。"
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "カードが……{破|やぶ}られてる！ みんなで作ったのに！"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "カードはきれいに{剥|は}がされてから{破|やぶ}られている。{怒|いか}りではなく、{何|なに}か{別|べつ}の{理由|りゆう}がありそうね。"
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}が、なぜ{破|やぶ}った？ これが{英語|えいご}{探偵団|たんていだん}、{最後|さいご}の{事件|じけん}よ。{出動|しゅつどう}！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-10/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 最後の事件を解き明かせ
+
+      # --- 証拠確認 ---
+      - type: narration
+        text: "{破|やぶ}られたカードを{調|しら}べよう。文字{部分|ぶぶん}が{中心|ちゅうしん}に{壊|こわ}されている。イラストは{比較的|ひかくてき}{残|のこ}っている。"
+      - type: narration
+        text: "月曜の{放課後|ほうかご}の{行動|こうどう}を{確認|かくにん}。15:30にカードを{貼|は}った。16:10にエマが{帰宅|きたく}。その後、ヒナが{教室|きょうしつ}に1人で{残|のこ}った。"
+
+      # --- リアムの気持ち ---
+      - type: sprite
+        character: ren
+        expression: normal
+        position: center
+      - type: dialog
+        character: ren
+        text: "月曜の{放課後|ほうかご}、リアムと{英語|えいご}で{話|はな}したんだ。リアムは『{黒板|こくばん}のカード、{英語|えいご}は読めるけど{日本語|にほんご}の{部分|ぶぶん}も読みたい。{教|おし}えてくれる？』って{言|い}ってた。"
+      - type: dialog
+        character: ren
+        text: "リアムは{日本語|にほんご}の{歓迎|かんげい}カードを{嬉|うれ}しそうに見てたよ。"
+        expression: happy
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: center
+      - type: dialog
+        character: takumi
+        text: "サッカー中にリアムが{教室|きょうしつ}の{窓|まど}を見て、カードを{指|ゆび}さして『That card is beautiful!』って言ってたぜ。すごく{嬉|うれ}しそうだった。"
+      - type: dialog
+        character: takumi
+        text: "あと、{火曜|かよう}の朝にゴミ{箱|ばこ}を見たら、カードの{切|き}れ{端|はし}が入ってた。{裏|うら}に{英語|えいご}の{下書|したが}きみたいな文字が見えた。『Welcome to...』って。"
+        expression: surprised
+      - type: sprite
+        character: takumi
+        action: hide
+
+      # --- ヒナの行動 ---
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: center
+      - type: dialog
+        character: emma
+        text: "月曜の{放課後|ほうかご}、{帰|かえ}ろうとしたらヒナが{教室|きょうしつ}に{残|のこ}ってた。『カードのこと、ちょっと{考|かんが}えたいの』って。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "月曜の{放課後|ほうかご}、リアムがカードの前に立って{日本語|にほんご}の{部分|ぶぶん}をじっと見てた。{首|くび}をかしげて、{少|すこ}し{困|こま}った{顔|かお}をしてた。"
+      - type: dialog
+        character: hina
+        text: "リアムは{日本語|にほんご}が読めない。{日本語|にほんご}のカードじゃリアムに{気持|きも}ちが{伝|つた}わらないって{思|おも}った……。"
+        expression: thinking
+      - type: sprite
+        character: hina
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート（1回目投票） =====
+  - id: deduction
+    bg: classroom
+    bgm: english-10/tension
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 歓迎カードを破ったのは
+
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{最後|さいご}に{教室|きょうしつ}に{残|のこ}っていたのはヒナ。ゴミ{箱|ばこ}には{英語|えいご}の{下書|したが}き。カードは{計画的|けいかくてき}に{剥|は}がされて{破|やぶ}られた。"
+
+      # --- 犯人投票 ---
+      - type: choice
+        question: "歓迎カードを破ったのは？"
+        options:
+          - text: レン
+            correct: false
+            feedback: "レンはリアムに『{日本語|にほんご}を{教|おし}えるよ』と{約束|やくそく}した。カードを{破|やぶ}る{理由|りゆう}がない。"
+          - text: エマ
+            correct: false
+            feedback: "エマはカードのデザインを{担当|たんとう}した。{自分|じぶん}の{作品|さくひん}を{破|やぶ}る{理由|りゆう}がない。16:00に{帰宅|きたく}。"
+          - text: タクミ
+            correct: false
+            feedback: "タクミはリアムとサッカーを{楽|たの}しんだ。ゴミ{箱|ばこ}の{下書|したが}きを{発見|はっけん}した{側|がわ}。"
+          - text: ヒナ
+            correct: true
+            feedback: "正解。ヒナは{最後|さいご}に{教室|きょうしつ}に{残|のこ}り、{日本語|にほんご}カードを{英語|えいご}に書き{直|なお}そうとした。でもなぜ？"
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-10/truth
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: リアムの本当の気持ち
+
+      - type: narration
+        text: "ゴミ{箱|ばこ}から{回収|かいしゅう}した{切|き}れ{端|はし}を{広|ひろ}げると、ヒナの字で書かれた{英語|えいご}版カードの{下書|したが}きが出てきた。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "『Welcome to Class 4-1, Liam! We are happy you are here. Let's be friends!』"
+      - type: narration
+        text: "ヒナは{日本語|にほんご}のカードを{破|やぶ}って、{英語|えいご}版を作り{直|なお}そうとしていた。リアムのために——。"
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "しかし——ブラウン先生がリアムの{日記|にっき}を{翻訳|ほんやく}して{共有|きょうゆう}した。"
+      - type: narration
+        text: "『{昨日|きのう}、クラスメートが{歓迎|かんげい}カードを作ってくれた。{日本語|にほんご}が書いてあった。{全部|ぜんぶ}は読めなかったけど、すごく{嬉|うれ}しかった。あの{日本語|にほんご}の{言葉|ことば}を{覚|おぼ}えたいと{思|おも}った。』"
+      - type: narration
+        text: "『今日、カードが{破|やぶ}られていた。{悲|かな}しかった。{誰|だれ}がなぜやったのか分からない。』"
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "リアムは……{日本語|にほんご}のカードを{嬉|うれ}しく{思|おも}ってたの……？ {読|よ}みたかった……？"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ren
+        text: "リアムは『{困|こま}っていた』んじゃない。『読みたくて{一生懸命|いっしょうけんめい}見ていた』んだ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-10/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 相手に聞くということ
+
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "わたしがカードを{破|やぶ}りました。リアムが{日本語|にほんご}を読めなくて{困|こま}ってると{思|おも}った。{英語|えいご}で書き{直|なお}さなきゃって。"
+      - type: dialog
+        character: hina
+        text: "でも……リアムは{日本語|にほんご}を{学|まな}びたかったんだ。{日本語|にほんご}のカードが{嬉|うれ}しかった。わたしは『{相手|あいて}のため』って{思|おも}い{込|こ}んでいただけで……リアムに{聞|き}いてなかった。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: center
+      - type: dialog
+        character: takumi
+        text: "ヒナの{気持|きも}ちは分かるぜ。リアムのためを{思|おも}ったんだよな。でも『リアムはどうしたい？』って{聞|き}くのが{先|さき}だった。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: emma
+        expression: normal
+        position: center
+      - type: dialog
+        character: emma
+        text: "ことばの{壁|かべ}を{超|こ}えるのに、{完璧|かんぺき}な{英語|えいご}は{必要|ひつよう}なかったんだ。リアムは{日本語|にほんご}を{学|まな}びたかった。{大事|だいじ}なのは{相手|あいて}の{気持|きも}ちを{聞|き}くこと。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: ren
+        expression: determined
+        position: center
+      - type: dialog
+        character: ren
+        text: "『{相手|あいて}のため』と{思|おも}い{込|こ}む前に、『{本当|ほんとう}に{相手|あいて}が{望|のぞ}んでいること？』と{自問|じもん}する。これがメタ{認知|にんち}——Vol.10で{学|まな}んだ{最後|さいご}のスキルだ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-10/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ヒナさん、リアムのことを{考|かんが}えて{行動|こうどう}した{気持|きも}ちは{素敵|すてき}よ。でも『{聞|き}く』ことが{先|さき}。"
+      - type: dialog
+        character: sensei
+        text: "ことばの{壁|かべ}を{超|こ}えるのに一番{大事|だいじ}なのは、{完璧|かんぺき}な{英語|えいご}じゃない。{相手|あいて}の{気持|きも}ちを{聞|き}くこと。『What do you want?』——その一言が、{壁|かべ}を{超|こ}える{鍵|かぎ}よ。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hina
+        expression: determined
+        position: center
+      - type: dialog
+        character: hina
+        text: "リアムに{謝|あやま}って、{新|あたら}しいカードを{一緒|いっしょ}に作る。今度は{日本語|にほんご}と{英語|えいご}の{両方|りょうほう}で。リアムに『どっちがいい？』って{聞|き}いてから。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+
+      # --- シリーズ振り返り ---
+      - type: narration
+        text: "Vol.1——{消|き}えたアルファベット。{消去法|しょうきょほう}を{覚|おぼ}えた。Vol.2——あいさつの{謎|なぞ}。{情報|じょうほう}{整理|せいり}を{学|まな}んだ。"
+      - type: narration
+        text: "Vol.3——色の{暗号|あんごう}。{因果|いんが}{連鎖|れんさ}で{暗号|あんごう}を{解|と}いた。Vol.4——{曜日|ようび}のアリバイ。タイムラインを{再構成|さいこうせい}した。"
+      - type: narration
+        text: "Vol.5——メニューの{嘘|うそ}。{仮説|かせつ}{検証|けんしょう}で{矛盾|むじゅん}を{暴|あば}いた。Vol.6——{道案内|みちあんない}のトリック。{全探索|ぜんたんさく}で{最適解|さいてきかい}を見つけた。"
+      - type: narration
+        text: "Vol.7——{消|き}えた{手紙|てがみ}の{秘密|ひみつ}。{情報|じょうほう}{欠落|けつらく}に{気|き}づいた。Vol.8——スピーチの{不正|ふせい}。{認知|にんち}バイアスを{疑|うたが}った。"
+      - type: narration
+        text: "Vol.9——{翻訳|ほんやく}アプリの{罠|わな}。{帰納法|きのうほう}でパターンを{証明|しょうめい}した。"
+      - type: narration
+        text: "そして Vol.10——ことばの{壁|かべ}の{向|む}こう。{全|すべ}てのスキルを{使|つか}い、メタ{認知|にんち}に{辿|たど}り{着|つ}いた。"
+      - type: narration
+        speed: slow
+        text: "{英語|えいご}を{学|まな}ぶことは、{単語|たんご}や{文法|ぶんぽう}を{覚|おぼ}えることだけじゃない。{相手|あいて}を{知|し}ろうとすること。{聞|き}くこと。{伝|つた}えようとすること。"
+      - type: narration
+        speed: slow
+        text: "ことばの{壁|かべ}の{向|む}こうには、{新|あたら}しい{友達|ともだち}がいる。その{壁|かべ}を{超|こ}える{力|ちから}は、もうきみの{中|なか}にある。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——シリーズ{完結|かんけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

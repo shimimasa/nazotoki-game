@@ -1,0 +1,385 @@
+meta:
+  id: english-08
+  title: スピーチの不正
+  series: 英語探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-08/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の『English Speech Contest』。テーマは『My Favorite Thing』（わたしの{好|す}きなもの）。4人がそれぞれ{英語|えいご}でスピーチを{発表|はっぴょう}した。"
+      - type: narration
+        text: "エマのスピーチが{圧倒的|あっとうてき}に{上手|じょうず}く、ブラウン先生も{感心|かんしん}。{表現|ひょうげん}10{点|てん}{満点|まんてん}で1位に。"
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hina
+        text: "……エマのスピーチ、先生のお{手本|てほん}と{似|に}すぎてない？"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ヒナさんが{鋭|するど}い{指摘|してき}をしたわ。エマさんのスピーチがお{手本|てほん}に{似|に}ている？"
+      - type: dialog
+        character: sensei
+        text: "コンテストのルール3は『{自分|じぶん}で{考|かんが}えた文を使うこと』。4人のスピーチを{比|くら}べてみましょう。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-08/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: スピーチを比較分析しよう
+
+      # --- 4人のスピーチ比較 ---
+      - type: narration
+        text: "4人のスピーチを{比|くら}べよう。まずレン・タクミ・ヒナの{表現|ひょうげん}。"
+      - type: narration
+        text: "レン：『I read one book every week. It is fun.』——{小学生|しょうがくせい}レベルの{自然|しぜん}な{英語|えいご}。"
+      - type: narration
+        text: "タクミ：『I play soccer every day. It is cool.』——{同|おな}じく{小学生|しょうがくせい}レベル。"
+      - type: narration
+        text: "ヒナ：『I watch stars every night. It is beautiful.』——これも{同|おな}じレベル。"
+      - type: narration
+        text: "そしてエマ：『I love seeing Mr. Brown's smile when he teaches us.』『English opens many doors.』"
+      - type: sprite
+        character: hina
+        expression: determined
+        position: center
+      - type: dialog
+        character: hina
+        text: "エマだけ{表現|ひょうげん}のレベルが{違|ちが}う。『when he teaches us』のような{複文|ふくぶん}は、{小|しょう}4で{自力|じりき}で書けるレベルじゃない。"
+      - type: dialog
+        character: hina
+        text: "『{英語|えいご}が{好|す}きだから{上手|じょうず}い』って{思|おも}い{込|こ}みじゃない？ これが{認知|にんち}バイアス——{思|おも}い{込|こ}みを{疑|うたが}わなきゃ。"
+        expression: thinking
+      - type: sprite
+        character: hina
+        action: hide
+
+      # --- お手本との比較 ---
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "月曜にブラウン先生が見せたお{手本|てほん}スピーチをメモしてたんだ。{読|よ}み{上|あ}げるね。"
+      - type: dialog
+        character: ren
+        text: "お{手本|てほん}の3行目：『I love seeing your smiles when you understand new words.』"
+      - type: dialog
+        character: ren
+        text: "4行目：『English opens many doors.』5行目：『Let's enjoy learning together!』"
+        expression: surprised
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: takumi
+        text: "エマのスピーチと{比|くら}べてみろよ！ 『English opens many doors.』——{全|まった}く同じだ！"
+      - type: sprite
+        character: takumi
+        action: hide
+
+      # --- タクミの目撃 ---
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "……{実|じつ}は、{火曜|かよう}の{放課後|ほうかご}に{教室|きょうしつ}に{忘|わす}れ物を{取|と}りに{行|い}ったら、エマがブラウン先生のお{手本|てほん}スピーチをノートに{写|うつ}してたんだ。"
+      - type: dialog
+        character: takumi
+        text: "『{何|なに}書いてるの？』って{聞|き}いたら、『お{手本|てほん}を{写|うつ}してるの。{参考|さんこう}にするだけだよ。{内緒|ないしょ}にしてね？』って。"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-08/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 3つの文が一致
+
+      - type: narration
+        text: "お{手本|てほん}とエマのスピーチを{並|なら}べて{比較|ひかく}した。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "お{手本|てほん}：『I love seeing your smiles when you understand new words.』→ エマ：『I love seeing Mr. Brown's smile when he teaches us.』——{主語|しゅご}を{変|か}えただけ。"
+      - type: narration
+        text: "お{手本|てほん}：『English opens many doors.』→ エマ：『English opens many doors.』——{完全|かんぜん}{一致|いっち}。"
+      - type: narration
+        text: "お{手本|てほん}：『Let's enjoy learning together!』→ エマ：『Let's enjoy talking together!』——1{語|ご}だけ{変更|へんこう}。"
+      - type: narration
+        text: "エマのカバンから{下書|したが}きメモも見つかった。『3つの文を使っちゃった。{参考|さんこう}にしただけって{思|おも}ってたけど……コピーだよね。{優勝|ゆうしょう}したかった。』"
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "……。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-08/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: お手本をコピーしたのは
+
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: left
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ren
+        text: "{認知|にんち}バイアスに{気|き}をつけよう。『エマは{英語|えいご}が{好|す}き → スピーチが{上手|じょうず}いのは{当然|とうぜん}』——これは{思|おも}い{込|こ}みだった。"
+      - type: dialog
+        character: hina
+        text: "エマの{英語|えいご}{力|りょく}はわたしたちと同じレベル。{上手|じょうず}く{聞|き}こえた{部分|ぶぶん}はお{手本|てほん}のコピー。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "お{手本|てほん}スピーチをコピーしたのは{誰|だれ}？"
+      - type: choice
+        question: "スピーチをコピーしたのは？"
+        options:
+          - text: レン
+            correct: false
+            feedback: "レンのスピーチは{小学生|しょうがくせい}レベルの{自然|しぜん}な{英語|えいご}。お{手本|てほん}との{一致|いっち}はない。"
+          - text: エマ
+            correct: true
+            feedback: "正解！ エマはお{手本|てほん}から3つの文をコピーした。『English opens many doors.』は{完全|かんぜん}{一致|いっち}。ルール{違反|いはん}。"
+          - text: タクミ
+            correct: false
+            feedback: "タクミのスピーチは{小学生|しょうがくせい}レベル。エマがお{手本|てほん}を{写|うつ}しているのを{目撃|もくげき}した{側|がわ}。"
+          - text: ヒナ
+            correct: false
+            feedback: "ヒナはエマの{表現|ひょうげん}レベルの{不自然|ふしぜん}さに{気|き}づいた{側|がわ}。{認知|にんち}バイアスを{指摘|してき}した。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-08/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 自分の言葉で伝えること
+
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "……わたしがコピーしました。ブラウン先生のスピーチが{素敵|すてき}すぎて、わたしもあんなふうに{言|い}いたかった。"
+      - type: dialog
+        character: emma
+        text: "3つの文を使っちゃった。『{参考|さんこう}にしただけ』って{思|おも}ってたけど……コピーだよね。{優勝|ゆうしょう}したかった。先生に『{英語|えいご}が{上手|じょうず}い』って言われたかった。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: center
+      - type: dialog
+        character: takumi
+        text: "エマの{気持|きも}ちは分かるぜ。{勝|か}ちたいよな。でも、コピーは{自分|じぶん}の{力|ちから}じゃない。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        expression: normal
+        position: center
+      - type: dialog
+        character: ren
+        text: "エマ、{自分|じぶん}の{言葉|ことば}で書いたスピーチのほうが、きっとエマらしくていいスピーチになるよ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        expression: determined
+        position: center
+      - type: dialog
+        character: emma
+        text: "もう一度、{自分|じぶん}の{言葉|ことば}で書き{直|なお}す。お{手本|てほん}は{参考|さんこう}にするけど、{自分|じぶん}だけの文で。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-08/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "エマさん、{英語|えいご}が{好|す}きな{気持|きも}ちは{本物|ほんもの}よ。でも{自分|じぶん}の{言葉|ことば}で{伝|つた}えることが{大事|だいじ}。"
+      - type: dialog
+        character: sensei
+        text: "お{手本|てほん}は『{参考|さんこう}にする』のはOK。でも『そのまま使う』のはNG。この{違|ちが}いを{覚|おぼ}えておいてね。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "そして{認知|にんち}バイアス。『こうに{違|ちが}いない』という{思|おも}い{込|こ}みを{疑|うたが}う{力|ちから}。ヒナさんの{指摘|してき}がなかったら、{気|き}づかなかったわ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: "スピーチは{自分|じぶん}の{言葉|ことば}で{伝|つた}えるもの。{上手|じょうず}じゃなくても、{自分|じぶん}の{気持|きも}ちがこもった{言葉|ことば}は{人|ひと}の{心|こころ}に{届|とど}く。"
+      - type: narration
+        speed: slow
+        text: "そして{認知|にんち}バイアス——『こうに{違|ちが}いない』を{疑|うたが}うこと。{見|み}えている{情報|じょうほう}だけで{判断|はんだん}しない。それが{推理|すいり}の{本質|ほんしつ}。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——スピーチ{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

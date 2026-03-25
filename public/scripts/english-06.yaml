@@ -1,0 +1,456 @@
+meta:
+  id: english-06
+  title: 道案内のトリック
+  series: 英語探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-06/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}。今日は『English Town Tour』の{授業|じゅぎょう}！ {校舎|こうしゃ}の中を{英語|えいご}で{案内|あんない}して、ブラウン先生を{教室|きょうしつ}から{体育館|たいいくかん}まで{導|みちび}く。"
+      - type: narration
+        text: "ヒナが3つのルートを{設計|せっけい}し、ルートCを『おすすめ』に{選|えら}んだ。"
+      - type: narration
+        text: "ところが{当日|とうじつ}——"
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "時間オーバーだ！ 5分の{予定|よてい}が8分もかかっちまった！ {質疑応答|しつぎおうとう}タイムがなくなったぞ！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "ブラウン先生が{首|くび}をかしげた。『Why did we take Route C? It was the longest route...』（なぜルートCにしたの？ 一番{遠回|とおまわ}りだったのに……）"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "3つのルートがあって、なぜ一番{長|なが}いルートCが『おすすめ』だったのかしら。"
+      - type: dialog
+        character: sensei
+        text: "3ルート{全部|ぜんぶ}を{検証|けんしょう}して、{本当|ほんとう}の{理由|りゆう}を見つけましょう。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-06/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 3ルートを全探索しよう
+
+      # --- 英語ミニレッスン ---
+      - type: narration
+        text: "まず、{道案内|みちあんない}の{英語|えいご}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "Go straight ＝ まっすぐ{進|すす}む。Turn right ＝ {右|みぎ}に{曲|ま}がる。Turn left ＝ {左|ひだり}に{曲|ま}がる。Go past ＝ 〜を{通|とお}り{過|す}ぎる。"
+
+      # --- 3ルート追跡 ---
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "3ルート{全部|ぜんぶ}を{英語|えいご}の{指示|しじ}で{追跡|ついせき}しよう。まずルートA。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: narration
+        text: "ルートA：『Go straight to the gym.』——{教室|きょうしつ}からまっすぐ{南|みなみ}へ。{体育館|たいいくかん}に{直行|ちょっこう}。40{歩|ぽ}、{約|やく}2分。"
+      - type: narration
+        text: "ルートB：『Turn left. Go past the library. Turn right. Go through the schoolyard. Turn right. Go straight to the gym.』"
+      - type: narration
+        text: "{教室|きょうしつ}→{東|ひがし}→{図書室|としょしつ}前→{南|みなみ}→{中庭|なかにわ}→{西|にし}→{体育館|たいいくかん}。80{歩|ぽ}、{約|やく}4分。"
+      - type: narration
+        text: "ルートC：『Turn left. Go past the library. Go straight. Go past the science lab. Turn right. Go past the art room. Turn right. Go straight to the gym.』"
+      - type: narration
+        text: "{教室|きょうしつ}→{東|ひがし}→{図書室|としょしつ}前→さらに{東|ひがし}→{理科室|りかしつ}前→{南|みなみ}→{図工室|ずこうしつ}前→{西|にし}→{体育館|たいいくかん}。120{歩|ぽ}、{約|やく}8分。"
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ren
+        text: "ルートA＝2分、ルートB＝4分、ルートC＝8分。{制限|せいげん}時間は5分。ルートCは3分もオーバーしてる！"
+      - type: dialog
+        character: ren
+        text: "ぼくは{木曜|もくよう}に{計測|けいそく}して分かってたんだ。でもヒナが『{見|み}どころが{多|おお}い』って{自信|じしん}{満々|まんまん}に言うから、{言|い}えなかった……。"
+        expression: worried
+      - type: sprite
+        character: ren
+        action: hide
+
+      # --- ミスリード検証 ---
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: left
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: right
+      - type: dialog
+        character: takumi
+        text: "あ、そういえば{中庭|なかにわ}のベンチにおれの{英語|えいご}スピーチ{原稿|げんこう}が{落|お}ちてたらしい。おれもルートBを{通|とお}ったのかって{疑|うたが}われそうだけど……。"
+      - type: dialog
+        character: emma
+        text: "それは3時間目の{英語|えいご}の{授業|じゅぎょう}で{中庭|なかにわ}に出たとき{落|お}としたって、タクミ{本人|ほんにん}が言ってたよ。{放課後|ほうかご}のルートBとは{関係|かんけい}ない。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+
+      # --- ポスター情報 ---
+      - type: sprite
+        character: emma
+        expression: normal
+        position: center
+      - type: dialog
+        character: emma
+        text: "水曜の{放課後|ほうかご}、ヒナが大きなポスターを作ってた。『Welcome to English Town!』って書いてあって、2時間もかけたんだって。"
+      - type: dialog
+        character: emma
+        text: "『どこに{貼|は}るの？』って{聞|き}いたら、ヒナは『{理科室|りかしつ}の前の{廊下|ろうか}』って言ってた。"
+        expression: thinking
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: takumi
+        text: "あっ！ {当日|とうじつ}ルートCで{案内|あんない}してたとき、{理科室|りかしつ}の前にきれいなポスターがあったの、{覚|おぼ}えてるぞ！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-06/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: ルートCだけの特徴
+
+      - type: narration
+        text: "3ルートが{通|とお}る{場所|ばしょ}と{設置物|せっちぶつ}を{比|くら}べてみよう。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "{図書室|としょしつ}前のエマの{看板|かんばん}——ルートBもCも{通|とお}る。{中庭|なかにわ}の{花|はな}——ルートBだけ。"
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "{理科室|りかしつ}前のヒナのポスター——ルートCだけ！ ルートCだけが{理科室|りかしつ}前を{通|とお}る{唯一|ゆいいつ}のルート。"
+      - type: sprite
+        character: ren
+        expression: determined
+        position: center
+      - type: dialog
+        character: ren
+        text: "{英語|えいご}の{道案内|みちあんない}を読み{直|なお}そう。ルートBとCの{分岐点|ぶんきてん}は、{図書室|としょしつ}を{過|す}ぎた後。"
+      - type: dialog
+        character: ren
+        text: "ルートBは{南|みなみ}に{曲|ま}がる。ルートCは『Go straight』——さらに{東|ひがし}に{進|すす}む。この『Go straight』が{理科室|りかしつ}前を{通|とお}る{唯一|ゆいいつ}の{分岐点|ぶんきてん}だ！"
+        expression: thinking
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "……。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-06/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: なぜ遠回りルートを選んだのか
+
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: left
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: emma
+        text: "ルートBは80{歩|ぽ}で4分。{見|み}どころも{十分|じゅうぶん}。ルートCは120{歩|ぽ}で8分。3分もオーバー。"
+      - type: dialog
+        character: takumi
+        text: "でもルートCだけが{理科室|りかしつ}前を{通|とお}る。そこにはヒナのポスターがある。ヒナが2時間もかけて作ったポスター……。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "{遠回|とおまわ}りのルートCを『おすすめ』にした{本当|ほんとう}の{理由|りゆう}を知っている人は{誰|だれ}？"
+      - type: choice
+        question: "遠回りルートを選んだのは？"
+        options:
+          - text: レン
+            correct: false
+            feedback: "レンは{距離|きょり}{測定|そくてい}{係|がかり}。ルートCが{長|なが}すぎると分かっていたが、ヒナに{言|い}えなかった。"
+          - text: エマ
+            correct: false
+            feedback: "エマは{装飾|そうしょく}{係|がかり}。ヒナのポスターを見たが、ルート{選択|せんたく}との{関係|かんけい}には{気|き}づかなかった。"
+          - text: タクミ
+            correct: false
+            feedback: "タクミは{案内|あんない}{係|がかり}。{当日|とうじつ}ガイドをしただけで、ルート{選択|せんたく}には{関|かか}わっていない。"
+          - text: ヒナ
+            correct: true
+            feedback: "正解！ ヒナはルート{設計|せっけい}{係|がかり}。{理科室|りかしつ}前に{貼|は}った{自分|じぶん}のポスターをブラウン先生に見てもらうために、ルートCを『おすすめ』にした。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-06/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: ポスターを見てほしかった
+
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "……わたしが{選|えら}びました。ルートCを『おすすめ』にしたのは、わたしのポスターを{通|とお}るから。"
+      - type: dialog
+        character: hina
+        text: "ポスター、2時間もかけて作ったの。『Welcome to English Town!』って、ブラウン先生が{喜|よろこ}ぶと{思|おも}って。{見|み}てもらいたかった。"
+      - type: dialog
+        character: hina
+        text: "ルートBでも{見|み}どころは{十分|じゅうぶん}だって分かってた。でも、ルートBだと{理科室|りかしつ}の前を{通|とお}らない。わたしのポスターを{見|み}てもらえない……。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: emma
+        expression: normal
+        position: center
+      - type: dialog
+        character: emma
+        text: "ヒナの{気持|きも}ち、分かるよ。{一生懸命|いっしょうけんめい}作ったものを見てもらいたいよね。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: center
+      - type: dialog
+        character: takumi
+        text: "でもそのせいで3分オーバーして、{質疑応答|しつぎおうとう}タイムがなくなったんだよな。みんなの時間を使っちまった。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: worried
+        position: center
+      - type: dialog
+        character: hina
+        text: "ごめんなさい。{道案内|みちあんない}は{相手|あいて}のためにするもの。{自分|じぶん}の{都合|つごう}で{変|か}えちゃダメだった。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: ren
+        expression: worried
+        position: center
+      - type: dialog
+        character: ren
+        text: "ぼくも{反省|はんせい}してる。{計測|けいそく}でルートCが{長|なが}すぎるって分かってたのに、{言|い}えなかった。『おかしいな』と{思|おも}ったら{早|はや}めに{言|い}うべきだった。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-06/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ヒナさん、ポスターはとても{素敵|すてき}だったわ。でもルートBで{案内|あんない}してから、{帰|かえ}りに{理科室|りかしつ}前を{通|とお}れば見てもらえたわよね。"
+      - type: dialog
+        character: sensei
+        text: "{道案内|みちあんない}は{相手|あいて}のためにするもの。{案内|あんない}する人の{都合|つごう}ではなく、{案内|あんない}される人のことを{考|かんが}えましょう。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: hina
+        expression: happy
+        position: left
+      - type: sprite
+        character: ren
+        expression: happy
+        position: right
+      - type: dialog
+        character: hina
+        text: "次からはルートBで{案内|あんない}して、{帰|かえ}りにポスターを見てもらう！ そっちの方がいいアイデアだ。"
+      - type: dialog
+        character: ren
+        text: "ぼくも次からは『おかしい』と{思|おも}ったらすぐ{言|い}う。{計測|けいそく}{結果|けっか}はみんなに{共有|きょうゆう}しなきゃ{意味|いみ}がない。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "今日{覚|おぼ}えた{道案内|みちあんない}の{英語|えいご}——Go straight、Turn right、Turn left、Go past。これで{英語|えいご}で{道案内|みちあんない}ができるわ！"
+      - type: dialog
+        character: sensei
+        text: "そして{全探索|ぜんたんさく}。{選択肢|せんたくし}を{全部|ぜんぶ}{調|しら}べて{比|くら}べること。1つだけ見て決めない。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: "{道案内|みちあんない}は{相手|あいて}のために。{自分|じぶん}の{都合|つごう}ではなく、{案内|あんない}される人のことを{考|かんが}える。"
+      - type: narration
+        speed: slow
+        text: "そして{全探索|ぜんたんさく}——{選択肢|せんたくし}を{全部|ぜんぶ}{調|しら}べれば、一番いい{道|みち}が見えてくる。{推理|すいり}も、{人生|じんせい}の{選択|せんたく}も。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——{道案内|みちあんない}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

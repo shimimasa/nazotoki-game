@@ -1,0 +1,535 @@
+meta:
+  id: english-03
+  title: 色の暗号
+  series: 英語探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-03/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}。金曜の『{英語|えいご}クイズ大会』に{向|む}けて、先生がクイズ{用紙|ようし}を{準備|じゅんび}していた。"
+      - type: narration
+        text: "木曜の朝——先生がクイズ{用紙|ようし}を{確認|かくにん}すると。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "あら？ クイズ{用紙|ようし}の{余白|よはく}に、{英語|えいご}が書いてある。わたしは書いてないのに……。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "{用紙|ようし}の{余白|よはく}に、7つの色の{英単語|えいたんご}がきれいに{並|なら}んでいた。"
+      - type: narration
+        text: "Purple、Red、Emerald、Silver、Emerald、Navy、Tan。"
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: narration
+        text: "さらに{用紙|ようし}の{裏|うら}には小さく——『Look in the teacher's desk』（先生の{机|つくえ}の中を見て）。"
+      - type: narration
+        text: "先生の{机|つくえ}の{引|ひ}き{出|だ}しを{開|あ}けると、{手作|てづく}りの『{英語|えいご}なぞなぞカード』が入っていた。"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}かが{暗号|あんごう}を{仕込|しこ}んだみたい。この色の{英単語|えいたんご}にはメッセージが{隠|かく}されているわ。"
+      - type: dialog
+        character: sensei
+        text: "{暗号|あんごう}のメッセージは何か。そして書いたのは{誰|だれ}か。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-03/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 色の暗号を解読せよ
+
+      # --- 暗号解読 ---
+      - type: narration
+        text: "まず、7つの色の{英単語|えいたんご}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "Purple ＝ むらさき。Red ＝ {赤|あか}。Emerald ＝ エメラルドグリーン。Silver ＝ {銀色|ぎんいろ}。Navy ＝ ネイビー（こい{青|あお}）。Tan ＝ うす{茶色|ちゃいろ}。"
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: center
+      - type: dialog
+        character: takumi
+        text: "色の{英単語|えいたんご}が7つ……これが{暗号|あんごう}？ どうやって読むんだ？"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hina
+        text: "{頭文字|かしらもじ}——{英単語|えいたんご}の{最初|さいしょ}の1文字を{取|と}ってみたら？"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "Purple → P。Red → R。Emerald → E。Silver → S。Emerald → E。Navy → N。Tan → T。"
+      - type: narration
+        text: "P - R - E - S - E - N - T。あれ、Eが2回出てくる……7文字の{英単語|えいたんご}……。"
+      - type: sprite
+        character: emma
+        expression: surprised
+        position: center
+      - type: dialog
+        character: emma
+        text: "PRESENT！ 『プレゼント』だ！ 先生の{机|つくえ}のなぞなぞカードが、プレゼントってこと！？"
+      - type: sprite
+        character: emma
+        action: hide
+
+      # --- 知識レベルの確認 ---
+      - type: narration
+        text: "{暗号|あんごう}は{解|と}けた。次は「{誰|だれ}が書いたか」を{調|しら}べよう。"
+      - type: narration
+        text: "この{暗号|あんごう}を作るには、silver、tan、emerald、navyという4つの{難|むずか}しい色の{英単語|えいたんご}を知っている{必要|ひつよう}がある。"
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hina
+        text: "わたしは emerald と navy は知ってるけど、silver と tan は知らなかった……。わたしには『PRESENT』の{暗号|あんごう}は作れない。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: takumi
+        text: "おれなんか red と blue くらいしか{自信|じしん}ないぜ。{絶対|ぜったい}おれじゃない。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: center
+      - type: dialog
+        character: emma
+        text: "わたしは emerald だけ知ってた。silver と tan と navy は……うーん、{無理|むり}かも。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: narration
+        text: "4つの{難|むずか}しい色の{英単語|えいたんご}を{全部|ぜんぶ}知っていて、しかも{暗号|あんごう}が{大好|だいす}きな人——。"
+
+      # --- 行動と目撃情報 ---
+      - type: narration
+        text: "次に、水曜の{放課後|ほうかご}の{行動|こうどう}を{確認|かくにん}しよう。先生がクイズ{用紙|ようし}を{置|お}いたのは水曜の{放課後|ほうかご}。{書|か}き{込|こ}めたのは水曜16時〜17時の間。"
+      - type: sprite
+        character: ren
+        expression: normal
+        position: left
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: right
+      - type: dialog
+        character: takumi
+        text: "おれは{校庭|こうてい}でサッカーしてた。{教室|きょうしつ}には{戻|もど}ってない。"
+      - type: dialog
+        character: ren
+        text: "ぼくは{教室|きょうしつ}で{宿題|しゅくだい}をしてた。16時から16時40分くらいまで。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: emma
+        expression: thinking
+        position: left
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: right
+      - type: dialog
+        character: emma
+        text: "わたしは{合唱|がっしょう}{練習|れんしゅう}。{教室|きょうしつ}には{戻|もど}ってないよ。"
+      - type: dialog
+        character: hina
+        text: "わたしは{委員会|いいんかい}{活動|かつどう}。16時15分に{教室|きょうしつ}の前を{通|とお}っただけ。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+
+      # --- 目撃情報 ---
+      - type: sprite
+        character: emma
+        expression: surprised
+        position: center
+      - type: dialog
+        character: emma
+        text: "あ……{教室|きょうしつ}の前を{通|とお}ったとき、レンがクイズ{用紙|ようし}に何かを{丁寧|ていねい}に書いてるの、チラッと見えたの。色の{英単語|えいたんご}がたくさん{並|なら}んでるように見えた。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: hina
+        expression: surprised
+        position: center
+      - type: dialog
+        character: hina
+        text: "わたしも16時15分に{教室|きょうしつ}の前を{通|とお}ったとき……レンが先生の{机|つくえ}の{引|ひ}き{出|だ}しを{開|あ}けて、何かを入れてるのを見た。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: takumi
+        text: "レンがクイズ{用紙|ようし}に書いて、先生の{机|つくえ}にカードを入れた……？ {全部|ぜんぶ}つながるぞ！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-03/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: 暗号の本当の意味
+
+      - type: narration
+        text: "先生がレンに{確認|かくにん}した。"
+      - type: sprite
+        character: ren
+        expression: worried
+        position: center
+      - type: dialog
+        character: ren
+        text: "……ぼくが書きました。"
+      - type: se
+        sound: common/discover
+      - type: dialog
+        character: ren
+        text: "色の{頭文字|かしらもじ}で『PRESENT』っていう{暗号|あんごう}を{思|おも}いついて……みんなにプレゼントとして{解|と}いてほしかったんです。"
+      - type: dialog
+        character: ren
+        text: "先生の{机|つくえ}になぞなぞカードを入れて、{暗号|あんごう}を{解|と}いた人が見つけるサプライズにしたかった。"
+        expression: normal
+      - type: sprite
+        character: ren
+        action: hide
+      - type: narration
+        text: "なぞなぞカードの{裏|うら}には小さく——『For my friends — from the Color Code Master』（{友|とも}だちへ——カラーコードマスターより）。"
+      - type: sprite
+        character: emma
+        expression: surprised
+        position: left
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: emma
+        text: "いたずらじゃなくて……サプライズだったの！？"
+      - type: dialog
+        character: takumi
+        text: "{暗号|あんごう}のメッセージ自体が『プレゼント』って……レン、すげぇ！"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hina
+        text: "でも……先生のクイズ{用紙|ようし}に{無断|むだん}で{書|か}き{込|こ}んだのは、ルール{違反|いはん}よね。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-03/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: 暗号を書いたのは誰か
+
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。色の{暗号|あんごう}を書いたのは{誰|だれ}？"
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: left
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hina
+        text: "silver、tan、emerald、navyの4つ{全部|ぜんぶ}知っていたのはレンだけ。わたしは silver と tan を知らなかった。"
+      - type: dialog
+        character: ren
+        text: "……。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "色の{暗号|あんごう}『PRESENT』をクイズ{用紙|ようし}に書いたのは{誰|だれ}？"
+      - type: choice
+        question: "暗号を書いたのは？"
+        options:
+          - text: レン
+            correct: true
+            feedback: "正解！ レンは silver、tan、emerald、navy の4つ{全部|ぜんぶ}知っていて、{暗号|あんごう}が{大好|だいす}き。水曜の{放課後|ほうかご}に{教室|きょうしつ}で{一人|ひとり}だった。"
+          - text: エマ
+            correct: false
+            feedback: "エマは emerald だけ知っていた。silver、tan、navy は知らなかったので『PRESENT』の{暗号|あんごう}は作れない。"
+          - text: タクミ
+            correct: false
+            feedback: "タクミは{基本|きほん}の色しか知らない。{難|むずか}しい4色を使った{暗号|あんごう}は作れない。"
+          - text: ヒナ
+            correct: false
+            feedback: "ヒナは emerald と navy は知っていたが、silver と tan は知らなかった。7文字の{暗号|あんごう}は{完成|かんせい}できない。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-03/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: カラーコードマスターの正体
+
+      - type: sprite
+        character: ren
+        expression: worried
+        position: center
+      - type: dialog
+        character: ren
+        text: "ぼくが書きました。色の{頭文字|かしらもじ}で『PRESENT』っていう{暗号|あんごう}を{思|おも}いついて、みんなに{解|と}いてもらいたかったんだ。"
+      - type: dialog
+        character: ren
+        text: "先生の{机|つくえ}になぞなぞカードを入れて、{暗号|あんごう}を{解|と}いた人へのプレゼントにしたかった。{暗号|あんごう}のメッセージ自体が『プレゼント』……って、ちょっとカッコいいかなって。"
+        expression: normal
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        expression: normal
+        position: center
+      - type: dialog
+        character: emma
+        text: "レンの気持ちは{素敵|すてき}だよ。みんなを{楽|たの}しませたかったんだよね。"
+      - type: dialog
+        character: emma
+        text: "でも……先生のクイズ{用紙|ようし}に{無断|むだん}で書くのは、やっぱりダメだよ。"
+        expression: thinking
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: ren
+        expression: worried
+        position: center
+      - type: dialog
+        character: ren
+        text: "うん……ごめんなさい。サプライズなら、先生に{相談|そうだん}してからやるべきだった。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: happy
+        position: center
+      - type: dialog
+        character: takumi
+        text: "でも{暗号|あんごう}{自体|じたい}はすごかったぜ！ 7つの色の{英単語|えいたんご}で『PRESENT』って……おれ、{全然|ぜんぜん}分かんなかった！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: happy
+        position: center
+      - type: dialog
+        character: hina
+        text: "emerald が2回出てくるのがヒントだったのね。{同|おな}じ文字が{繰|く}り{返|かえ}される7文字の{英単語|えいたんご}……よく{思|おも}いついたわ。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-03/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "レンくん、{暗号|あんごう}を作る{才能|さいのう}はすばらしいわ。でも次からは先生に{相談|そうだん}してね。"
+      - type: dialog
+        character: sensei
+        text: "金曜のクイズ大会で、レンくんの{暗号|あんごう}コーナーを作りましょう。今度は{公式|こうしき}のイベントとして！"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ren
+        expression: happy
+        position: center
+      - type: dialog
+        character: ren
+        text: "本当ですか！？ じゃあ次はもっと{難|むずか}しい{暗号|あんごう}を……10文字に{挑戦|ちょうせん}してみます！"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "今日{覚|おぼ}えた色の{英単語|えいたんご}——Purple、Emerald、Silver、Navy、Tan。{基本|きほん}の red や blue だけじゃなく、{難|むずか}しい色も{覚|おぼ}えましたね。"
+      - type: dialog
+        character: sensei
+        text: "そして{因果連鎖|いんかれんさ}。色 → {頭文字|かしらもじ}を{取|と}る → {並|なら}べる → メッセージ。{順番|じゅんばん}に{考|かんが}えると、{暗号|あんごう}が{解|と}ける！"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: narration
+        text: "レンの{暗号|あんごう}は、色の{英単語|えいたんご}の中に{隠|かく}されたメッセージだった。PRESENT——みんなへのプレゼント。"
+      - type: narration
+        speed: slow
+        text: "{英語|えいご}は{暗号|あんごう}のように「{遊|あそ}び」で使うと{覚|おぼ}えやすい。色の名前を知っているだけで、{世界|せかい}がもっとカラフルに見えてくる。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——色の{暗号|あんごう}{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500

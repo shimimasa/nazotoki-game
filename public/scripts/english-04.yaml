@@ -1,0 +1,475 @@
+meta:
+  id: english-04
+  title: 曜日のアリバイ
+  series: 英語探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  ren:
+    name: レン
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  emma:
+    name: エマ
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  hina:
+    name: ヒナ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: english-04/opening
+    steps:
+      - type: narration
+        text: "あおば小学校4年1{組|くみ}の{廊下|ろうか}に、『English Week Schedule』（{英語|えいご}の{週間|しゅうかん}スケジュールボード）が{掲示|けいじ}されている。"
+      - type: narration
+        text: "{放課後|ほうかご}の{活動|かつどう}が{英語|えいご}の{曜日|ようび}で書かれている。Monday＝Art Club、Tuesday＝Free、Wednesday＝English Club……。"
+      - type: narration
+        text: "水曜の朝——"
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: takumi
+        text: "ちょっと{待|ま}てよ！ ボードの Wednesday が『English Club』じゃなくて『Music Club』に{変|か}わってるぞ！"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: bgm
+        action: stop
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "あら、{本当|ほんとう}。Wednesday の{欄|らん}が書き{換|か}えられてる。わたしは{変|か}えてないわ。"
+      - type: dialog
+        character: sensei
+        text: "月曜のボードは{正常|せいじょう}だった。つまり火曜——Tuesday の{放課後|ほうかご}に{誰|だれ}かが書き{換|か}えたのね。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "{曜日|ようび}ごとの{行動|こうどう}をタイムラインにして、{犯人|はんにん}を見つけましょう。{英語|えいご}{探偵団|たんていだん}、{出動|しゅつどう}よ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 探索パート =====
+  - id: investigation
+    bg: classroom
+    bgm: english-04/investigation
+    steps:
+      - type: title_card
+        title: 探索パート
+        subtitle: 曜日のタイムラインを作ろう
+
+      # --- 英語の曜日確認 ---
+      - type: narration
+        text: "まず、{英語|えいご}の{曜日|ようび}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "Monday（{月曜|げつよう}）、Tuesday（{火曜|かよう}）、Wednesday（{水曜|すいよう}）、Thursday（{木曜|もくよう}）、Friday（{金曜|きんよう}）。"
+      - type: narration
+        text: "★ Tuesday（{火曜|かよう}）と Thursday（{木曜|もくよう}）は{似|に}ている！ Tue＝{火|か}、Thu＝{木|もく}。"
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "{犯行|はんこう}は Tuesday（{火曜|かよう}）の{放課後|ほうかご}。4人の Tuesday の{行動|こうどう}を{整理|せいり}しよう。"
+      - type: sprite
+        character: ren
+        action: hide
+
+      # --- 火曜の行動確認 ---
+      - type: sprite
+        character: ren
+        expression: normal
+        position: left
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: right
+      - type: dialog
+        character: ren
+        text: "ぼくは Tuesday の{放課後|ほうかご}、{図書室|としょしつ}で{辞書|じしょ}を読んでた。15時30分から16時30分まで。"
+      - type: dialog
+        character: takumi
+        text: "おれは{校庭|こうてい}でサッカーだ。15時30分から16時40分。{廊下|ろうか}には{行|い}ってない。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: left
+      - type: sprite
+        character: emma
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしは{委員会|いいんかい}{活動|かつどう}。15時30分から16時30分。{帰|かえ}りにボードを見たら、もう書き{換|か}わってた。"
+      - type: dialog
+        character: emma
+        text: "わたしは……{図書室|としょしつ}にいたよ。{本|ほん}を読んでた。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+
+      # --- アリバイの矛盾 ---
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ren
+        text: "{待|ま}って。ぼくも Tuesday に{図書室|としょしつ}にいた。でも……エマの{姿|すがた}は{見|み}なかったよ？"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "えっ……？ でもわたし、{図書室|としょしつ}で{本|ほん}を読んでたはず……。"
+      - type: sprite
+        character: emma
+        action: hide
+
+      # --- 目撃情報 ---
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: center
+      - type: dialog
+        character: takumi
+        text: "あ、{思|おも}い出した。Tuesday の16時40分ごろ、サッカーの{帰|かえ}りに{廊下|ろうか}を{通|とお}ったら……エマがスケジュールボードの前に立ってたぞ。"
+      - type: dialog
+        character: takumi
+        text: "何かを書いてるように見えた。"
+        expression: surprised
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hina
+        text: "わたしは16時30分にボードの前を{通|とお}ったとき、もう Wednesday が『Music Club』に{変|か}わってた。15時30分〜16時30分の{間|あいだ}に書き{換|か}えられたってことね。"
+      - type: dialog
+        character: hina
+        text: "それと……エマ、{前|まえ}に『English Club と Music Club が{同|おな}じ Wednesday で{困|こま}る』って言ってたよね？"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 反転パート =====
+  - id: turning-point
+    bg: classroom
+    bgm: english-04/tension
+    steps:
+      - type: title_card
+        title: 反転パート
+        subtitle: TuesdayとThursday
+
+      - type: narration
+        text: "先生がエマに{確認|かくにん}した。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: left
+      - type: sprite
+        character: emma
+        expression: normal
+        position: right
+      - type: dialog
+        character: sensei
+        text: "エマさん、Tuesday は{図書室|としょしつ}にいた？"
+      - type: dialog
+        character: emma
+        text: "うん！ {本|ほん}を読んでた……あれ、でもレンくんに会ってないな……。"
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "もしかして、Thursday（{木曜|もくよう}）の{記憶|きおく}じゃない？"
+        expression: normal
+      - type: dialog
+        character: emma
+        text: "えっ……あ、Thursday かも。{火曜|かよう}と{木曜|もくよう}って{英語|えいご}が{似|に}てるから……Tuesday と Thursday……。"
+        expression: surprised
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: ren
+        expression: surprised
+        position: center
+      - type: dialog
+        character: ren
+        text: "Tuesday と Thursday の{混同|こんどう}……！ エマは Thursday に{図書室|としょしつ}にいて、Tuesday にはボードの前にいたんだ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== 推理パート =====
+  - id: deduction
+    bg: classroom
+    bgm: english-04/investigation
+    steps:
+      - type: title_card
+        title: 推理パート
+        subtitle: スケジュールを書き換えたのは
+
+      - type: sprite
+        character: hina
+        expression: thinking
+        position: left
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hina
+        text: "{整理|せいり}するわ。{犯行|はんこう}は Tuesday の{放課後|ほうかご}。レンは{図書室|としょしつ}、タクミは{校庭|こうてい}、わたしは{委員会|いいんかい}。"
+      - type: dialog
+        character: takumi
+        text: "エマの『Tuesday に{図書室|としょしつ}にいた』ってアリバイは、Thursday の{記憶|きおく}だった。しかもおれ、エマをボードの前で見てる。"
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+
+      # --- 犯人投票 ---
+      - type: narration
+        text: "スケジュールボードの Wednesday を書き{換|か}えたのは{誰|だれ}？"
+      - type: choice
+        question: "スケジュールを書き換えたのは？"
+        options:
+          - text: レン
+            correct: false
+            feedback: "レンは Tuesday に{図書室|としょしつ}にいた。{廊下|ろうか}には{行|い}っていない。"
+          - text: エマ
+            correct: true
+            feedback: "正解！ エマは Tuesday と Thursday を{混同|こんどう}していた。{本当|ほんとう}は Tuesday にボードの前にいて、書き{換|か}えた。"
+          - text: タクミ
+            correct: false
+            feedback: "タクミは Tuesday に{校庭|こうてい}でサッカーをしていた。{廊下|ろうか}を{通|とお}ったのは16時40分で、書き{換|か}えた後。"
+          - text: ヒナ
+            correct: false
+            feedback: "ヒナは{委員会|いいんかい}{活動|かつどう}中。16時30分にボードを{通過|つうか}したときには{既|すで}に書き{換|か}わっていた。"
+      - type: effect
+        name: fade-out
+
+  # ===== 真相パート =====
+  - id: truth
+    bg: classroom
+    bgm: english-04/truth
+    steps:
+      - type: title_card
+        title: 真相パート
+        subtitle: 両方やりたかった
+
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "……わたしが書き{換|か}えました。"
+      - type: dialog
+        character: emma
+        text: "English Club も Music Club も{大好|だいす}き。でもどちらも Wednesday で{重|かさ}なってて……。"
+      - type: dialog
+        character: emma
+        text: "もしスケジュールが『Music Club』に{変|か}わったら、English Club は{今週|こんしゅう}ないことになって、Music Club の{発表会|はっぴょうかい}に出られるって{思|おも}ったの。"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: center
+      - type: dialog
+        character: takumi
+        text: "{両方|りょうほう}やりたかったんだな。その{気持|きも}ちは分かるぜ。"
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: ren
+        expression: thinking
+        position: center
+      - type: dialog
+        character: ren
+        text: "でも Tuesday のアリバイが Thursday の{記憶|きおく}だったのは、{本当|ほんとう}に{混同|こんどう}してたんだね。Tuesday と Thursday……{英語|えいご}が{似|に}てるから。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        expression: worried
+        position: center
+      - type: dialog
+        character: emma
+        text: "うん……{自分|じぶん}でも{本当|ほんとう}に Tuesday に{図書室|としょしつ}にいたと{思|おも}ってた。Thursday の{記憶|きおく}だって{気|き}づかなかった。"
+      - type: dialog
+        character: emma
+        text: "スケジュールを{勝手|かって}に{変|か}えたのは{間違|まちが}い。先生に{相談|そうだん}すればよかった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: emma
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: english-04/resolution
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 800
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "エマさん、{両方|りょうほう}やりたい{気持|きも}ちはよく分かるわ。来週は English Club を30分{早|はや}く{始|はじ}めて、その後 Music Club に{合流|ごうりゅう}できるように{調整|ちょうせい}しましょう。"
+      - type: dialog
+        character: sensei
+        text: "スケジュールを{変|か}えるんじゃなくて、先生に{相談|そうだん}してね。もっといい{方法|ほうほう}が見つかるから。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: emma
+        expression: happy
+        position: center
+      - type: dialog
+        character: emma
+        text: "{本当|ほんとう}！？ ありがとうございます！ {両方|りょうほう}できるんだ！"
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "今日の{大事|だいじ}な学び。{英語|えいご}の{曜日|ようび}は Monday、Tuesday、Wednesday、Thursday、Friday、Saturday、Sunday。"
+      - type: dialog
+        character: sensei
+        text: "{特|とく}に Tuesday（{火曜|かよう}）と Thursday（{木曜|もくよう}）は{似|に}ているから{注意|ちゅうい}！ Tue ＝ {火|か}、Thu ＝ {木|もく}。もう{間違|まちが}えないわね？"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: ren, expression: happy }
+          - { id: emma, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: hina, expression: happy }
+      - type: dialog
+        character: takumi
+        text: "Tuesday と Thursday、もう{絶対|ぜったい}{間違|まちが}えないぜ！ Tue は{火|か}、Thu は{木|もく}！"
+      - type: narration
+        text: "{曜日|ようび}のタイムラインで{推理|すいり}すること。そして「やりたいことが{重|かさ}なったら{相談|そうだん}する」こと。"
+      - type: narration
+        speed: slow
+        text: "スケジュールを{変|か}えるのは{簡単|かんたん}。でも{正|ただ}しいのは、{声|こえ}に出して{伝|つた}えること。{英語|えいご}でも{日本語|にほんご}でも、{大事|だいじ}なのは{同|おな}じ。"
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: emma
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: narration
+        text: "{英語|えいご}{探偵団|たんていだん}——{曜日|ようび}のアリバイ{事件|じけん}、{解決|かいけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
