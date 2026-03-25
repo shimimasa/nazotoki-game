@@ -1,0 +1,494 @@
+meta:
+  id: math2-10
+  title: 算数の考え方
+  series: 数学深化探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  riku:
+    name: リク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E91E63"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF8C00"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+
+scenes:
+  # ===== プロローグ =====
+  - id: prologue
+    bg: classroom
+    bgm: math2-10/opening
+    steps:
+      - type: narration
+        text: "あおば{市立|しりつ}ひまわり{小学校|しょうがっこう}の「{校内|こうない}{算数|さんすう}オリンピック」{予選|よせん}。4チームが{同|おな}じ5{問|もん}を{解|と}く。"
+      - type: narration
+        text: "すうじたんてい{団|だん}のAチームは{全問|ぜんもん}{正解|せいかい}。しかし{予選|よせん}{後|ご}の{休憩|きゅうけい}{時間|じかん}に——"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: se
+        sound: common/discover
+      - type: effect
+        name: shake
+        duration: 400
+      - type: dialog
+        character: sensei
+        text: "BチームのQ3の{回答|かいとう}{用紙|ようし}に書き{換|か}えの{跡|あと}を{見|み}つけたわ。{元|もと}の{答|こた}え84m²が{消|け}されて、{別|べつ}の{筆跡|ひっせき}で69m²に{変|か}わっている。"
+      - type: dialog
+        character: sensei
+        text: "69m²は{正|ただ}しい{答|こた}え。{誰|だれ}かがBチームの{回答|かいとう}を{勝手|かって}に{直|なお}した——{数学|すうがく}{深化|しんか}{探偵団|たんていだん}、{最後|さいご}の{事件|じけん}よ！"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+
+  # ===== タイトルカード =====
+  - id: title
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        text: 数学深化探偵団 Vol.10
+        subtitle: 算数の考え方
+
+  # ===== メンバー紹介 =====
+  - id: suspects
+    bg: classroom
+    bgm: math2-10/investigation
+    steps:
+      - type: narration
+        text: "「すうじたんてい{団|だん}」の4人に話を{聞|き}こう。"
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼくはリク。{休憩|きゅうけい}{時間|じかん}は{教室|きょうしつ}でAチームの{回答|かいとう}を{振|ふ}り{返|かえ}ってた。Bチームの{机|つくえ}には{近|ちか}づいてない。"
+      - type: dialog
+        character: riku
+        text: "コトハが{教室|きょうしつ}で{片付|かたづ}けしてたのは{見|み}てたけど、{何|なに}をしてたかは{分|わ}からない。"
+        expression: thinking
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        expression: normal
+        position: right
+      - type: dialog
+        character: hina
+        text: "わたしはヒナ。{休憩|きゅうけい}はBチームの子と{廊下|ろうか}でおしゃべりしてた。「Q3{難|むずか}しかったよね」って{言|い}われたけど、{答|こた}えは{教|おし}えなかったよ。"
+      - type: dialog
+        character: hina
+        text: "{教室|きょうしつ}には{入|はい}ってないから、{回答|かいとう}{用紙|ようし}には{触|さわ}れない。"
+        expression: normal
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: left
+      - type: dialog
+        character: takumi
+        text: "おれはタクミ。{休憩|きゅうけい}は{校庭|こうてい}でサッカーしてた。{教室|きょうしつ}には{戻|もど}ってない。"
+      - type: dialog
+        character: takumi
+        text: "Bチームの84m²って{聞|き}いて……{全体|ぜんたい}{面積|めんせき}と{同|おな}じ？ Vol.9のおれと{同|おな}じミスかも。"
+        expression: thinking
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "わたしはコトハ。{休憩|きゅうけい}は{教室|きょうしつ}で{片付|かたづ}けをしてたわ。Bチームの{机|つくえ}の{近|ちか}くも{通|とお}ったけど……。"
+      - type: dialog
+        character: kotoha
+        text: "……{特|とく}に{何|なに}もしてない。"
+        expression: worried
+      - type: sprite
+        character: kotoha
+        action: hide
+
+  # ===== 証拠カード1: 予選結果 =====
+  - id: evidence-1
+    bg: classroom
+    bgm: math2-10/experiment
+    steps:
+      - type: title_card
+        text: 証拠①
+        subtitle: 予選結果と書き換え
+      - type: narration
+        text: "{校内|こうない}{算数|さんすう}オリンピック{予選|よせん}{結果|けっか}——"
+      - type: narration
+        text: "Aチーム（すうじたんてい{団|だん}）：5/5{問|もん}{正解|せいかい}。Bチーム：Q3のみ書き{換|か}え{発覚|はっかく}。"
+      - type: narration
+        text: "BチームQ3の{回答|かいとう}{用紙|ようし}：{元|もと}の{答|こた}え84m²が{消|け}されて、{別|べつ}の{筆跡|ひっせき}で69m²に。"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "69m²は{正|ただ}しい{答|こた}え。{間違|まちが}いを{正|ただ}しく{直|なお}した人がいる——{妨害|ぼうがい}ではなく「{修正|しゅうせい}」。でも{無断|むだん}で。"
+
+  # ===== 証拠カード2: Q3の回答用紙 =====
+  - id: evidence-2
+    steps:
+      - type: title_card
+        text: 証拠②
+        subtitle: BチームQ3の回答用紙
+      - type: narration
+        text: "書き{換|か}え{前|まえ}（{消|け}しゴムの{跡|あと}から{復元|ふくげん}）——"
+      - type: narration
+        text: "{上|うえ}の{長方形|ちょうほうけい}：12m×4m＝48m²。{下|した}の{長方形|ちょうほうけい}：12m×3m＝36m²。{合計|ごうけい}：48＋36＝84m²。"
+      - type: narration
+        text: "書き{換|か}え{後|ご}（{別|べつ}の{筆跡|ひっせき}）——"
+      - type: narration
+        text: "{上|うえ}の{長方形|ちょうほうけい}：12m×4m＝48m²。{下|した}の{長方形|ちょうほうけい}：7m×3m＝21m²。{合計|ごうけい}：48＋21＝69m²。"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "先生の{検算|けんざん}：{全体|ぜんたい}12×7−{凹|へこ}み5×3＝84−15＝69m²。書き{換|か}え{後|ご}の69m²が{正|ただ}しい。{下|した}の{横|よこ}を12m→7m（12−5）に{修正|しゅうせい}——{凹|へこ}みを{引|ひ}き{忘|わす}れていた。"
+
+  # ===== 証拠カード3: 行動記録と筆跡 =====
+  - id: evidence-3
+    bgm: math2-10/investigation
+    steps:
+      - type: title_card
+        text: 証拠③
+        subtitle: 休憩時間の行動と筆跡
+      - type: narration
+        text: "{休憩|きゅうけい}{時間|じかん}の4人の{行動|こうどう}——"
+      - type: narration
+        text: "リク：{教室|きょうしつ}・Aチームの{机|つくえ}。ヒナ：{廊下|ろうか}（{教室|きょうしつ}の{外|そと}）。タクミ：{校庭|こうてい}。コトハ：{教室|きょうしつ}・Bチームの{机|つくえ}の{近|ちか}く。"
+      - type: narration
+        text: "{筆跡|ひっせき}{分析|ぶんせき}：書き{換|か}え{部分|ぶぶん}の「7」に{横線|よこせん}が{入|はい}っている。"
+      - type: narration
+        text: "リクの「7」：{横線|よこせん}なし。ヒナ：なし。タクミ：なし。コトハ：{横線|よこせん}あり——{一致|いっち}！"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "{消去法|しょうきょほう}（Vol.1）：ヒナとタクミは{教室|きょうしつ}にいなかった。タイムライン（Vol.4）：リクはAチームの{机|つくえ}。{筆跡|ひっせき}が{一致|いっち}するのはコトハ。"
+
+  # ===== 証拠カード4: コトハの算数ノート =====
+  - id: evidence-4
+    bgm: math2-10/tension
+    steps:
+      - type: title_card
+        text: 証拠④
+        subtitle: コトハの算数ノート
+      - type: narration
+        text: "コトハがQ3を{解|と}いたときのノート——"
+      - type: narration
+        text: "{分割法|ぶんかつほう}：{上|うえ}（12×4＝48）＋{下左|したひだり}（7×3＝21）＝69m²"
+      - type: narration
+        text: "{全体|ぜんたい}から{引|ひ}く{法|ほう}：12×7−5×3＝84−15＝69m² → {一致|いっち}！ cross-check OK"
+      - type: narration
+        text: "ノートの{端|はし}のメモ：「BチームのQ3の{答|こた}え、84m²って{書|か}いてあった。84って{全体|ぜんたい}{面積|めんせき}（12×7＝84）と{同|おな}じ……{凹|へこ}みを{引|ひ}いてない？ Vol.9のタクミと{同|おな}じ{間違|まちが}い？」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        speed: slow
+        text: "コトハはBチームの{間違|まちが}いに気づいた。{帰納法|きのうほう}（Vol.9）で「84＝{全体|ぜんたい}{面積|めんせき}。{凹|へこ}み{未引|みひ}き」とパターンを{見抜|みぬ}いた。"
+
+  # ===== 証拠カード5: コトハのメモ帳 =====
+  - id: evidence-5
+    bgm: math2-10/tension
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: コトハのメモ帳
+      - type: narration
+        text: "{問題|もんだい}{用紙|ようし}の{裏|うら}に{書|か}かれたコトハの{下書|したが}き{計算|けいさん}——"
+      - type: narration
+        text: "「Bチームの{計算|けいさん}チェック：{上|うえ}12×4＝48 ← {合|あ}ってる。{下|した}12×3＝36 ← {横|よこ}が12m？ {凹|へこ}みの{手前|てまえ}は12−5＝7mのはず」"
+      - type: narration
+        text: "「{下|した}の{横|よこ}は7m。7×3＝21が{正|ただ}しい。48＋21＝69m²。Bチームの84m²は{凹|へこ}み（5×3＝15）を{引|ひ}き{忘|わす}れている」"
+      - type: effect
+        name: flash
+        duration: 400
+      - type: narration
+        text: "コトハの{走|はし}り{書|が}き——"
+      - type: narration
+        speed: slow
+        text: "「{間違|まちが}った{計算|けいさん}を{見|み}てしまった。{知|し}ってるのに{放|ほう}っておけない。でも……{勝手|かって}に{直|なお}すのは……。でも{算数|さんすう}が{正|ただ}しくないのを{見過|みす}ごすなんて、できない。{直|なお}そう」"
+      - type: se
+        sound: common/discover
+      - type: narration
+        text: "そして{最後|さいご}の{一行|いちぎょう}——「……{本当|ほんとう}にこれでよかったのかな」"
+
+  # ===== 投票（第1層） =====
+  - id: questions
+    bg: classroom
+    bgm: math2-10/tension
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}がそろったわね。Bチームの{回答|かいとう}を書き{換|か}えたのは{誰|だれ}？"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: choice
+        id: q1
+        question: Bチームの回答用紙を書き換えたのは誰？
+        options:
+          - text: リク（教室でAチームの回答を振り返っていた）
+            value: riku
+            feedback: リクは教室にいたけど、Aチームの机にいて筆跡も一致しない。Bチームの机には近づいていないよ。
+          - text: ヒナ（廊下でBチームの子とおしゃべり）
+            value: hina
+            feedback: ヒナは教室の外（廊下）にいたから、回答用紙には触れない。答えも教えなかったよ。
+          - text: タクミ（校庭でサッカー）
+            value: takumi
+            feedback: タクミは校庭にいて教室には戻っていない。物理的に書き換えられないよ。
+          - text: コトハ（教室で片付け、Bチームの机の近く）
+            value: kotoha
+            feedback: 正解！ コトハは教室でBチームの机の近くにいて、筆跡（横線入りの7）も一致。Vol.9の学びで間違いに気づき、正しい答えに書き換えた。
+      - type: choice
+        id: q2
+        question: コトハの算数は正しかった。でも行動はどうだった？
+        options:
+          - text: 算数的に正しくても、他人の回答を無断で直すのは問題
+            value: unauthorized
+            feedback: そうだね。コトハの計算は100%正しい。でも「正しい知識を持っている」ことと「それを相手の同意なく使う」ことは別の問題。算数の正しさと行動の正しさは別次元。
+          - text: 間違いを正しく直したのだから全く問題ない
+            value: no-problem
+            feedback: 算数的には正しい。でも「他人の回答用紙を勝手に直す」ことはコンテストのルール上、問題になる。Bチームが自分で気づく機会も奪ってしまった。
+          - text: Bチームに教えてあげるべきだった
+            value: should-teach
+            feedback: いい考え！ 「一緒に考えよう」「ここの計算、確認してみて」と声をかける方法もあったね。直接書き換えるより、自分で気づけるように導く方がいい場合もある。
+          - text: 見て見ぬふりをすべきだった
+            value: ignore
+            feedback: 「知ってるのに放っておく」のも難しいよね。コトハの「放っておけない」という気持ちは分かる。問題は「方法」であって「気持ち」ではない。
+
+  # ===== 真実パート =====
+  - id: truth-intro
+    bg: classroom
+    bgm: math2-10/truth
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        text: 真実
+        subtitle: 正しい知識の使い方
+      - type: effect
+        name: fade-in
+        duration: 600
+
+  # リクの後ろめたさ
+  - id: truth-riku
+    bg: classroom
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+      - type: dialog
+        character: riku
+        text: "ぼく、{教室|きょうしつ}にいたのにコトハの{行動|こうどう}に気づかなかった。{自分|じぶん}の{振|ふ}り{返|かえ}りに{集中|しゅうちゅう}しすぎて。"
+      - type: dialog
+        character: riku
+        text: "「{周|まわ}りを{見|み}る」ことも{大切|たいせつ}な{算数|さんすう}の{力|ちから}——{自分|じぶん}のことだけじゃなく。"
+        expression: determined
+      - type: sprite
+        character: riku
+        action: hide
+
+  # ヒナの後ろめたさ
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+      - type: dialog
+        character: hina
+        text: "Bチームの子に「Q3{難|むずか}しかったよね」って{言|い}われたの。{答|こた}えは{教|おし}えなかったけど、「一緒に{考|かんが}えてみよう」とは{言|い}えたかも。"
+      - type: dialog
+        character: hina
+        text: "「{教|おし}えない」と「{見守|みまも}る」は{違|ちが}う。{一緒|いっしょ}に{考|かんが}える{方法|ほうほう}もあった。"
+        expression: determined
+      - type: sprite
+        character: hina
+        action: hide
+
+  # タクミの後ろめたさ
+  - id: truth-takumi
+    steps:
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: takumi
+        text: "Bチームの84m²——Vol.9のおれと{同|おな}じ{間違|まちが}いだ。{凹|へこ}みの{横幅|よこはば}を{全体|ぜんたい}の{横幅|よこはば}で{計算|けいさん}しちゃうやつ。"
+      - type: dialog
+        character: takumi
+        text: "おれがそばにいて「{検算|けんざん}した？」って{声|こえ}をかけてれば、コトハも書き{換|か}えなくて{済|す}んだかも。"
+        expression: determined
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # コトハの真実（クライマックス）
+  - id: truth-kotoha
+    bgm: math2-10/truth
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "……わたしが書き{換|か}えた。BチームのQ3を。"
+      - type: narration
+        speed: slow
+        text: "コトハがゆっくりと話し{始|はじ}めた。"
+      - type: dialog
+        character: kotoha
+        text: "{片付|かたづ}けの{途中|とちゅう}でBチームの{回答|かいとう}{用紙|ようし}が{目|め}に{入|はい}った。Q3の{答|こた}えが84m²——{全体|ぜんたい}{面積|めんせき}と{同|おな}じ。Vol.9のタクミと{同|おな}じ{間違|まちが}いだって{気|き}づいた。"
+        expression: worried
+      - type: dialog
+        character: kotoha
+        text: "{正|ただ}しい{答|こた}えは69m²。{計算|けいさん}してみたら{間違|まちが}いなかった。「{知|し}ってるのに{放|ほう}っておけない」「{算数|さんすう}が{正|ただ}しくないのを{見過|みす}ごせない」——そう思って{直|なお}しちゃった。"
+      - type: dialog
+        character: kotoha
+        text: "わたしの{算数|さんすう}は{正|ただ}しかった。でも……{他|ほか}の人の{回答|かいとう}を{勝手|かって}に{直|なお}すのは、{正|ただ}しいことだったのかな。"
+        expression: worried
+      - type: dialog
+        character: kotoha
+        text: "「{教|おし}えてあげる」「一緒に{考|かんが}えよう」って{言|い}えばよかった。{算数|さんすう}の{力|ちから}の{使|つか}い{方|かた}を{間違|まちが}えた。"
+        expression: determined
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "コトハの{算数|さんすう}は100%{正|ただ}しかった。でも「{正|ただ}しい{知識|ちしき}を{持|も}っている」ことと「それを{相手|あいて}の{同意|どうい}なく{使|つか}う」ことは{別|べつ}の{問題|もんだい}。{算数|さんすう}の{正|ただ}しさと{行動|こうどう}の{正|ただ}しさは、{別|べつ}{次元|じげん}にある。"
+
+  # ===== エピローグ =====
+  - id: epilogue
+    bg: classroom
+    bgm: math2-10/resolution
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "{最終巻|さいしゅうかん}の{事件|じけん}、よく{解|と}き{明|あ}かしたわね。"
+      - type: dialog
+        character: sensei
+        text: "Vol.1の{消去法|しょうきょほう}、Vol.4のタイムライン、Vol.9の{帰納法|きのうほう}とcross-check——{今|いま}まで{学|まな}んだ{算数|さんすう}の{力|ちから}を{全部|ぜんぶ}{使|つか}って{犯人|はんにん}を{特定|とくてい}できた。"
+        expression: normal
+      - type: dialog
+        character: sensei
+        text: "でも{今回|こんかい}の{一番|いちばん}大切な{学|まな}びは——「{算数|さんすう}の{力|ちから}をどう{使|つか}うか」。{正|ただ}しい{知識|ちしき}は、{相手|あいて}と一緒に{考|かんが}えるために{使|つか}おう。"
+        expression: happy
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "「{知|し}っている」を「{勝手|かって}に{直|なお}す」に{使|つか}わない。「一緒に{考|かんが}えよう」に{使|つか}う。それがわたしの{算数|さんすう}の{考|かんが}え{方|かた}。"
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: riku, expression: happy }
+          - { id: hina, expression: happy }
+          - { id: takumi, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "BチームのQ3は{元|もと}に{戻|もど}され、Bチームが{自分|じぶん}たちで{間違|まちが}いに気づけるよう{先生|せんせい}が{導|みちび}いた。コトハはBチームに「一緒に{確認|かくにん}してみよう」と{声|こえ}をかけた。"
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: narration
+        speed: slow
+        text: "{算数|さんすう}の{力|ちから}は、{正|ただ}しい{答|こた}えを{出|だ}すためだけにあるんじゃない。「一緒に{考|かんが}えよう」「{確認|かくにん}してみよう」——{誰|だれ}かと{一緒|いっしょ}に{使|つか}うとき、{算数|さんすう}は{一番|いちばん}{強|つよ}くなる。"
+      - type: narration
+        text: "{数学|すうがく}{深化|しんか}{探偵団|たんていだん}——{算数|さんすう}の{考|かんが}え{方|かた}、{解決|かいけつ}！ シリーズ{完結|かんけつ}！"
+      - type: effect
+        name: fade-out
+        duration: 1500
