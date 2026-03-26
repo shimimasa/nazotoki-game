@@ -1,0 +1,502 @@
+meta:
+  id: moral-11
+  title: 消えたおすすめ本と4つのルール
+  series: 答えのない法廷
+  volume: 11
+  estimatedMinutes: 20
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  minato:
+    name: ミナト
+    color: "#E08040"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoha:
+    name: コトハ
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}で『{学級|がっきゅう}{文庫|ぶんこ}おすすめ{本|ほん}ランキング』を{決|き}めることになった。4{冊|さつ}の{本|ほん}が{候補|こうほ}に{上|あ}がった。"
+
+      - type: narration
+        text: "ミナトが『もっと{公平|こうへい}にしよう』と{言|い}って、4つの{投票|とうひょう}ルールで{選|えら}ぶことにした。{多数決|たすうけつ}、ポイント{制|せい}、{推薦文|すいせんぶん}{投票|とうひょう}、{先着|せんちゃく}{読書|どくしょ}{順|じゅん}。"
+
+      - type: narration
+        text: "ところが——4つのルールすべてで{同|おな}じ{結果|けっか}が{出|で}た。"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "ヒナタが{推|お}した{本|ほん}が、**4{回|かい}とも{最下位|さいかい}**。ヒナタは{泣|な}いて{帰|かえ}った。"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ヒナタがいない。{何|なに}が{起|お}きたのか、みんなで{考|かんが}えてみよう。"
+        expression: worried
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: minato
+            expression: surprised
+          - id: kotoha
+            expression: thinking
+          - id: sora
+            expression: worried
+
+      - type: narration
+        text: "なぜ4つのルールすべてで{同|おな}じ{本|ほん}が{最下位|さいかい}になったのか——{探偵|たんてい}たちが{調|しら}べ{始|はじ}める。"
+
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "答えのない法廷 Vol.11"
+        subtitle: "消えたおすすめ本と4つのルール"
+
+  # ========================================
+  # 証拠カード1: ランキング結果
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "4つの{投票|とうひょう}ルールの{結果|けっか}を{見|み}てみよう。"
+
+      - type: narration
+        text: "{多数決|たすうけつ}：1位A『{冒険|ぼうけん}のはじまり』 2位B 3位C **4位D**\nポイント制：1位A 2位B 3位C **4位D**\n{推薦文|すいせんぶん}投票：1位B 2位A 3位C **4位D**\n{先着|せんちゃく}読書順：1位A 2位C 3位B **4位D**"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "A＝{人気|にんき}{漫画|まんが}の{原作|げんさく}（ミナトの{推薦|すいせん}）\nB＝{映画化|えいがか}{作品|さくひん}（コトハの{推薦|すいせん}）\nC＝{教科書|きょうかしょ}{掲載|けいさい}{作者|さくしゃ}の{本|ほん}（ソラの{推薦|すいせん}）\n**D＝あまり{知|し}られていない{本|ほん}（ヒナタの{推薦|すいせん}）**"
+
+      - type: narration
+        text: "ルールを4{回|かい}{変|か}えたのに、{毎回|まいかい}Dが{最下位|さいかい}。{偶然|ぐうぜん}？ それとも何かパターンがある？"
+
+  # ========================================
+  # 証拠カード2: 4つのルールの仕組み
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: sprite
+        character: minato
+        expression: determined
+        position: center
+
+      - type: dialog
+        character: minato
+        text: "4つもルールを{試|ため}したんだから、{結果|けっか}は{間違|まちが}いない。Dが{最下位|さいかい}なのは{仕方|しかた}ないよ。"
+        expression: determined
+
+      - type: sprite
+        character: minato
+        action: hide
+
+      - type: narration
+        text: "①{多数決|たすうけつ}：{一番|いちばん}{読|よ}みたい{本|ほん}に1{票|ぴょう}\n②ポイント{制|せい}：1位=4点、2位=3点…で{合計|ごうけい}\n③{推薦文|すいせんぶん}{投票|とうひょう}：{推薦文|すいせんぶん}を{読|よ}んで{投票|とうひょう}\n④{先着|せんちゃく}{読書|どくしょ}{順|じゅん}：{図書室|としょしつ}の{貸出|かしだし}{回数|かいすう}で{順位|じゅんい}"
+
+      - type: narration
+        text: "4つのルールは{本当|ほんとう}にそれぞれ{違|ちが}う？ どのルールでも『{有利|ゆうり}な{本|ほん}』と『{不利|ふり}な本』があるとしたら？"
+
+  # ========================================
+  # 証拠カード3: ヒナタの推薦文
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: sprite
+        character: hinata
+        expression: determined
+        position: left
+
+      - type: dialog
+        character: hinata
+        text: "この{本|ほん}は、おばあちゃんが{小|ちい}さな{庭|にわ}で{野菜|やさい}を{育|そだ}てるお{話|はなし}です。{読|よ}んでいると、{風|かぜ}のにおいがしてくるみたいで、{何度|なんど}も{読|よ}み{返|かえ}しました。"
+        expression: happy
+
+      - type: dialog
+        character: hinata
+        text: "{有名|ゆうめい}じゃないけど、{読|よ}んだら{好|す}きになると{思|おも}います。{皆|みな}さんにも{読|よ}んでほしいです。"
+        expression: determined
+
+      - type: sprite
+        character: hinata
+        action: hide
+
+      - type: narration
+        text: "クラスの{反応|はんのう}は——『{知|し}らない{本|ほん}だなあ』『{聞|き}いたことない』。{推薦文|すいせんぶん}{投票|とうひょう}でも、Aの{推薦文|すいせんぶん}（『アニメの{続|つづ}きが{読|よ}める！』）に{票|ひょう}が{集中|しゅうちゅう}した。"
+
+      - type: narration
+        text: "ヒナタの{推薦文|すいせんぶん}は{気持|きもち}が{込|こ}もっている。でも{票|ひょう}が{入|はい}らなかった。なぜだろう？"
+
+  # ========================================
+  # 証拠カード4: 参加状況データ
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: kotoha
+        text: "{集計|しゅうけい}データを{見|み}てほしい。{各|かく}本を{読|よ}んだことがある{人数|にんずう}に{注目|ちゅうもく}して。"
+        expression: thinking
+
+      - type: sprite
+        character: kotoha
+        action: hide
+
+      - type: narration
+        text: "{読|よ}んだことがある{人数|にんずう}:\nA『{冒険|ぼうけん}のはじまり』= **28人**\nB『{星|ほし}の{旅人|たびびと}』= **22人**\nC『{言葉|ことば}の{魔法|まほう}』= **15人**\n**D『{小|ちい}さな{庭|にわ}の{物語|ものがたり}』= たった2人**"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "Dを{読|よ}んだことがあるのは、クラス30{人中|にんちゅう}**たった2人**（ヒナタとソラだけ）。{読|よ}んだことがない{本|ほん}に{投票|とうひょう}する{人|ひと}はいない——だからDは{最大|さいだい}3{票|ぴょう}しか{入|はい}らなかった。"
+        speed: slow
+
+      - type: narration
+        text: "どんなルールでも、『{知|し}られていない{本|ほん}』は{不利|ふり}にならない？"
+
+  # ========================================
+  # 証拠カード5: D本の感想（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：新たな証拠"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "D『{小|ちい}さな{庭|にわ}の{物語|ものがたり}』を{読|よ}んだ{人|ひと}たちの{感想|かんそう}が{出|で}てきた——"
+
+      - type: narration
+        text: "ヒナタ：★★★★★「{大好|だいす}きな{本|ほん}。5{回|かい}{読|よ}みました」"
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: sora
+        text: "……{実|じつ}は{僕|ぼく}もDを{読|よ}んだ。Aよりもずっと{面白|おもしろ}いと{思|おも}った。でも{皆|みな}がAに{投票|とうひょう}するから……{言|い}えなかった。"
+        expression: worried
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{図書|としょ}{委員|いいん}として{言|い}うと、この{本|ほん}は{全国|ぜんこく}{読書|どくしょ}{感想|かんそう}コンクールの{推薦|すいせん}{図書|としょ}に{選|えら}ばれています。{内容|ないよう}は{素晴|すば}らしいのですが、{宣伝|せんでん}されていないため{知名度|ちめいど}が{低|ひく}いのです。"
+        expression: thinking
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{読|よ}んだ{人|ひと}{全員|ぜんいん}が★5をつけた{本|ほん}が、『{知|し}られていない』というだけで{最下位|さいかい}になった。"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：考えよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{多数決|たすうけつ}は{公平|こうへい}なルールだと{思|おも}う？"
+        feedback_default: "ルール{自体|じたい}は{公平|こうへい}に{見|み}える。でも『{知|し}っている{人数|にんずう}の{差|さ}』があるとき、{公平|こうへい}なルールでも{不公平|ふこうへい}な{結果|けっか}になることがある。"
+        options:
+          - text: "{公平|こうへい}。{多|おお}い{方|ほう}が{正|ただ}しい"
+            value: fair
+          - text: "{不公平|ふこうへい}。{知|し}られていない{本|ほん}が{不利|ふり}"
+            value: unfair
+          - text: "ルール{次第|しだい}。{公平|こうへい}にもなるし{不公平|ふこうへい}にもなる"
+            value: depends
+
+      - type: choice
+        id: q2
+        question: "『{知|し}られていない』ことと『{価値|かち}がない』ことは{同|おな}じ？"
+        feedback_default: "D{本|ほん}は{読|よ}んだ{人|ひと}{全員|ぜんいん}が★5。{知|し}られていなくても{価値|かち}がある{本|ほん}はたくさんある。{知名度|ちめいど}と{品質|ひんしつ}は{別|べつ}のもの。"
+        options:
+          - text: "{違|ちが}う。{知|し}られていなくても{良|よ}い{本|ほん}はある"
+            value: different
+          - text: "ほぼ{同|おな}じ。{知|し}られていないなら{仕方|しかた}ない"
+            value: same
+          - text: "{難|むずか}しい。{知|し}られる{機会|きかい}がないのが{問題|もんだい}"
+            value: opportunity
+
+      - type: choice
+        id: q3
+        question: "ソラは{好|す}きな{本|ほん}に{投票|とうひょう}できなかった。なぜ？"
+        feedback_default: "みんなと{違|ちが}う{意見|いけん}を{言|い}うのは{勇気|ゆうき}がいる。でも{声|こえ}を{上|あ}げないと、{良|よ}いものが{埋|う}もれてしまう。"
+        options:
+          - text: "{同調|どうちょう}{圧力|あつりょく}。みんなと{違|ちが}う{意見|いけん}が{怖|こわ}い"
+            value: peer-pressure
+          - text: "Aも{好|す}きだったから"
+            value: liked-a-too
+          - text: "{自信|じしん}がなかった。{自分|じぶん}の{感覚|かんかく}を{信|しん}じられなかった"
+            value: no-confidence
+
+      - type: choice
+        id: q4
+        question: "{知|し}られていない{良|よ}い{本|ほん}を{公平|こうへい}に{評価|ひょうか}できるルールを{考|かんが}えてみよう"
+        feedback_default: "『{全員|ぜんいん}が{全|すべ}ての{本|ほん}を{読|よ}んでから{投票|とうひょう}する』——スタートラインを{揃|そろ}えることが{公平|こうへい}の{第一歩|だいいっぽ}かもしれない。"
+        options:
+          - text: "{全員|ぜんいん}が4{冊|さつ}とも{読|よ}んでから{投票|とうひょう}する"
+            value: read-all
+          - text: "{知名度|ちめいど}が{低|ひく}い{本|ほん}を{先|さき}に{紹介|しょうかい}する{時間|じかん}を{作|つく}る"
+            value: intro-time
+          - text: "ルールだけでは{解決|かいけつ}できない。{意識|いしき}を{変|か}える{必要|ひつよう}がある"
+            value: awareness
+          - text: "{分|わ}からない。{難|むずか}しい{問題|もんだい}"
+            value: unsure
+
+  # ========================================
+  # 真相 — 各キャラの告白
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: minato
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: minato
+        text: "……{正直|しょうじき}に{言|い}うと、Aが{有名|ゆうめい}だからどのルールでも{勝|か}つって、{分|わ}かっていたかもしれない。『{公平|こうへい}にしよう』って{言|い}ったのに……。"
+        expression: worried
+
+      - type: sprite
+        character: minato
+        action: hide
+
+      - type: sprite
+        character: kotoha
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: kotoha
+        text: "{集計|しゅうけい}していて{気|き}づいた。『{読|よ}んだ{人数|にんずう}の{差|さ}』が{結果|けっか}を{決|き}めていた。{数字|すうじ}は{嘘|うそ}をつかない。でも{数字|すうじ}だけでは{見|み}えないものもある。"
+        expression: determined
+
+      - type: sprite
+        character: kotoha
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "{僕|ぼく}はD{本|ほん}を{読|よ}んで{感動|かんどう}した。でもみんながAに{投票|とうひょう}するから、{僕|ぼく}もAに{入|い}れた。{声|こえ}を{上|あ}げるべきだった。ヒナタに{申|もう}し{訳|わけ}ない。"
+        expression: worried
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hinata
+        text: "……{悲|かな}しかった。でも{仕方|しかた}ないのかなって{思|おも}った。{有名|ゆうめい}じゃない{本|ほん}は、{最初|さいしょ}から{不利|ふり}なんだって。"
+        expression: worried
+
+      - type: dialog
+        character: hinata
+        text: "でも{本当|ほんとう}は——{仕方|しかた}なくないよね。{知|し}られていないだけで、いい{本|ほん}なのに。{誰|だれ}かが{声|こえ}を{上|あ}げてくれたら、{変|か}わったかもしれない。"
+        expression: determined
+
+      - type: sprite
+        character: hinata
+        action: hide
+
+  # ========================================
+  # 最後の問い
+  # ========================================
+  - id: final-question
+    steps:
+      - type: choice
+        id: q5
+        question: "この{事件|じけん}で『{犯人|はんにん}』は{誰|だれ}？"
+        feedback_default: "{犯人|はんにん}は{個人|こじん}ではなく『{知名度|ちめいど}バイアス』という{構造|こうぞう}。{知|し}られているものが{自動的|じどうてき}に{有利|ゆうり}になる——{公平|こうへい}なルールにも{死角|しかく}がある。"
+        options:
+          - text: "ミナト（ルールを{提案|ていあん}した）"
+            value: minato
+          - text: "ソラ（{好|す}きな{本|ほん}に{投票|とうひょう}しなかった）"
+            value: sora
+          - text: "{誰|だれ}も{悪|わる}くない。ルール{自体|じたい}に{死角|しかく}があった"
+            value: structural
+          - text: "{知名度|ちめいど}バイアスという{構造|こうぞう}が{犯人|はんにん}"
+            value: bias
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "この{事件|じけん}には{犯人|はんにん}はいません。{公平|こうへい}なルールにも『{死角|しかく}』がある——それが{今回|こんかい}の{真相|しんそう}です。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "{知|し}られているものが{自動的|じどうてき}に{有利|ゆうり}になる。これを『{知名度|ちめいど}バイアス』と{言|い}います。ルールが{公平|こうへい}でも、スタートラインが{同|おな}じでなければ{不公平|ふこうへい}な{結果|けっか}になる。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "じゃあどうすればいい？ ——まず、{知|し}ること。{知|し}られていない{良|よ}いものがあることを。そして、{声|こえ}を{上|あ}げること。ソラのように『{本当|ほんとう}は{好|す}きだった』なら、それを{伝|つた}える{勇気|ゆうき}を{持|も}つこと。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "{公平|こうへい}って{難|むずか}しい。でも、{難|むずか}しいからこそ{考|かんが}え{続|つづ}ける{価値|かち}がある。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{知|し}られていないことと、{価値|かち}がないことは{違|ちが}う。{公平|こうへい}なルールにも{死角|しかく}がある。"
+
+      - type: narration
+        text: "——それが、4つのルールが{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

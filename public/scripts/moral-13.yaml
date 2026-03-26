@@ -1,0 +1,486 @@
+meta:
+  id: moral-13
+  title: 枯れた学級菜園
+  series: 答えのない法廷
+  volume: 13
+  estimatedMinutes: 20
+
+characters:
+  souta:
+    name: ソウタ
+    color: "#E08040"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  rin:
+    name: リン
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  aoi:
+    name: アオイ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanata:
+    name: カナタ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5ヶ{月|げつ}{育|そだ}てたクラスのミニトマト、30{株|かぶ}。{来週|らいしゅう}は{収穫祭|しゅうかくさい}で{食|た}べる{予定|よてい}だった。"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 500
+
+      - type: narration
+        text: "{土曜日|どようび}の{朝|あさ}、先生が{菜園|さいえん}を{見|み}に来ると——ミニトマトが**{全部|ぜんぶ}{枯|か}れていた**。"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "5ヶ月の{努力|どりょく}が……。{水|みず}やり{当番|とうばん}の4人に{話|はなし}を{聞|き}いたら、{全員|ぜんいん}『ちゃんとやった』と{言|い}う。でも{土|つち}は{水|みず}びたしの{場所|ばしょ}とカラカラの{場所|ばしょ}がある。何があったの？"
+        expression: worried
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: souta
+            expression: surprised
+          - id: rin
+            expression: worried
+          - id: aoi
+            expression: thinking
+          - id: kanata
+            expression: worried
+
+      - type: narration
+        text: "{結果|けっか}から{原因|げんいん}を{逆算|ぎゃくさん}する——{因果|いんが}の{連鎖|れんさ}をたどれ。"
+
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: rin
+        action: hide
+      - type: sprite
+        character: aoi
+        action: hide
+      - type: sprite
+        character: kanata
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "答えのない法廷 Vol.13"
+        subtitle: "枯れた学級菜園"
+
+  # ========================================
+  # 証拠カード1: 菜園観察記録
+  # ========================================
+  - id: evidence-1
+    bg: schoolyard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{菜園|さいえん}の{状態|じょうたい}を{調|しら}べてみよう。ミニトマト30{株|かぶ}、{全部|ぜんぶ}{枯|か}れている。{葉|は}っぱはしおれて{茶色|ちゃいろ}。{実|み}は1つもなっていない。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{土|つち}の{状態|じょうたい}が{場所|ばしょ}によって{違|ちが}う！ ジョウロ{置|お}き{場|ば}{側|がわ}（A-B{列|れつ}）は{水|みず}びたし。{真|ま}ん{中|なか}（C-D{列|れつ}）はやや{乾燥|かんそう}。{遠|とお}い{側|がわ}（E-F{列|れつ}）はカラカラ。"
+
+      - type: narration
+        text: "なぜ{場所|ばしょ}によって{土|つち}の{状態|じょうたい}が{違|ちが}うの？ {水|みず}を{均等|きんとう}にあげていなかった？"
+
+  # ========================================
+  # 証拠カード2: 水やり記録ノート
+  # ========================================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: narration
+        text: "{先週|せんしゅう}の{水|みず}やり{記録|きろく}ノートを{見|み}てみよう。"
+
+      - type: narration
+        text: "{月曜|げつよう}（ソウタ）：『ちゃんと{水|みず}をあげた。たっぷり』\n{火曜|かよう}（リン）：『{昨日|きのう}たくさんあげたみたいだから、{少|すく}なめにした』\n{水曜|すいよう}（アオイ）：『リンちゃんと{同|おな}じくらいの{量|りょう}であげた』"
+
+      - type: narration
+        text: "{木曜|もくよう}（カナタ）：『ちゃんとやった。でも{葉|は}っぱが少し{元気|げんき}ないような…』\n{金曜|きんよう}：（{当番|とうばん}なし）{誰|だれ}も{水|みず}やりをしなかった"
+
+      - type: narration
+        text: "{全員|ぜんいん}『ちゃんとやった』と{書|か}いている。でもミニトマトは{枯|か}れた。『たっぷり』『{少|すく}なめ』って、{具体的|ぐたいてき}にどのくらい？"
+
+  # ========================================
+  # 証拠カード3: 4人の言い分
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: sprite
+        character: souta
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: souta
+        text: "ちゃんとたっぷりあげたよ。ジョウロで{何回|なんかい}も。{土|つち}がしっかり{湿|しめ}るまであげた。"
+        expression: normal
+
+      - type: sprite
+        character: souta
+        action: hide
+
+      - type: sprite
+        character: rin
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: rin
+        text: "{月曜|げつよう}に{見|み}たら{土|つち}がビシャビシャだったの。{多|おお}すぎると{根|ね}が{腐|くさ}るって{聞|き}いたから、{少|すく}なめにした。{良|よ}かれと{思|おも}ったのに……。"
+        expression: worried
+
+      - type: sprite
+        character: rin
+        action: hide
+
+      - type: sprite
+        character: aoi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: aoi
+        text: "リンちゃんの{記録|きろく}を{見|み}て、{同|おな}じくらいの{量|りょう}にした。{記録|きろく}に{従|したが}うのが{正|ただ}しいと{思|おも}ったんだ。"
+        expression: thinking
+
+      - type: sprite
+        character: aoi
+        action: hide
+
+      - type: sprite
+        character: kanata
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kanata
+        text: "{木曜|もくよう}にあげたとき、{葉|は}っぱが{少|すこ}し{元気|げんき}なかった。でも{金曜|きんよう}は{自分|じぶん}の{当番|とうばん}じゃないし、{誰|だれ}かが{気|き}づくと{思|おも}った……。"
+        expression: worried
+
+      - type: sprite
+        character: kanata
+        action: hide
+
+  # ========================================
+  # 証拠カード4: 菜園の配置図
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "{菜園|さいえん}を{上|うえ}から{見|み}た{図|ず}。{左|ひだり}にジョウロ{置|お}き{場|ば}。A-B{列|れつ}（10{株|かぶ}）は{水|みず}びたし。C-D{列|れつ}（10{株|かぶ}）はやや{乾燥|かんそう}。E-F{列|れつ}（10{株|かぶ}）はカラカラ。"
+
+      - type: narration
+        text: "ジョウロ{置|お}き{場|ば}に{近|ちか}い{株|かぶ}ほど{水|みず}が{多|おお}く、{遠|とお}い{株|かぶ}ほどカラカラ。{水|みず}を{均等|きんとう}にあげていなかった——{近|ちか}い{方|ほう}に{集中|しゅうちゅう}していた？"
+
+  # ========================================
+  # 証拠カード5: ルール表+正しい量（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：新たな証拠"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "4{月|がつ}に{配|くば}られた{水|みず}やりルール{表|ひょう}を{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "『★ {学級|がっきゅう}{菜園|さいえん}の{水|みず}やりルール ★\n1. {毎日|まいにち}1{回|かい}、{当番|とうばん}が{水|みず}やりをする\n2. ジョウロを{使|つか}う\n3. {全部|ぜんぶ}の{株|かぶ}にあげる\n4. {終|お}わったら{記録|きろく}ノートに書く』"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "**{水|みず}の{量|りょう}が{書|か}いていない！** 『どのくらいあげるか』が{決|き}まっていなかった。"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "先生が{調|しら}べた{正|ただ}しい{量|りょう}：ミニトマトは1{株|かぶ}あたり**500ml**（ペットボトル1{本|ぽん}ぶん）が{適量|てきりょう}。{多|おお}すぎると{根|ね}が{腐|くさ}り、{少|すく}なすぎると{枯|か}れる。"
+
+      - type: narration
+        text: "{因果|いんが}{連鎖|れんさ}：\nソウタが1株1000ml（{倍|ばい}の{量|りょう}）→{土|つち}が{水|みず}びたし\n→リンが『{多|おお}すぎる』と{思|おも}い200mlに{減|へ}らす\n→アオイがリンの{記録|きろく}を{見|み}て{同|おな}じ200ml\n→カナタが{異変|いへん}に{気|き}づくが{黙|だま}る\n→{金曜|きんよう}は{当番|とうばん}なし→{全滅|ぜんめつ}"
+        speed: slow
+
+      - type: narration
+        text: "{最初|さいしょ}の{間違|まちが}い（ソウタの{水|みず}の{量|りょう}）はなぜ{起|お}きた？ ——ルール{表|ひょう}に{量|りょう}が{書|か}いてなかったから。"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：考えよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{責任|せきにん}が{一番|いちばん}{重|おも}いのは{誰|だれ}？"
+        feedback_default: "1人のせいではない。{連鎖|れんさ}した{全員|ぜんいん}の{責任|せきにん}——そして、{仕組|しく}みの{問題|もんだい}もある。"
+        options:
+          - text: "ソウタ（{最初|さいしょ}の{間違|まちが}いを{起|お}こした）"
+            value: souta
+          - text: "リン（{確認|かくにん}せずに{量|りょう}を{変|か}えた）"
+            value: rin
+          - text: "カナタ（{気|き}づいたのに{黙|だま}っていた）"
+            value: kanata
+          - text: "{全員|ぜんいん}{同|おな}じ。{連鎖|れんさ}した{全員|ぜんいん}の{責任|せきにん}"
+            value: everyone
+          - text: "**{仕組|しく}みが{悪|わる}い**。ルール{表|ひょう}に{量|りょう}が{書|か}いてなかった"
+            value: system
+
+      - type: choice
+        id: q2
+        question: "リンの『{良|よ}かれと{思|おも}って{減|へ}らした』は{正|ただ}しかった？"
+        feedback_default: "『{良|よ}かれと{思|おも}って』{自分|じぶん}の{判断|はんだん}で{変|か}えるのは{危|あぶ}ない。{分|わ}からないときは{確認|かくにん}する。それが{共同|きょうどう}{作業|さぎょう}のルール。"
+        options:
+          - text: "{正|ただ}しい。{判断|はんだん}したこと{自体|じたい}は{良|よ}い"
+            value: good-judgment
+          - text: "{間違|まちが}い。{正|ただ}しい{量|りょう}を{確認|かくにん}すべきだった"
+            value: should-check
+          - text: "{気持|きもち}は{分|わ}かるけど、{方法|ほうほう}が{間違|まちが}っている"
+            value: good-intent-bad-method
+
+      - type: choice
+        id: q3
+        question: "カナタは{異変|いへん}に{気|き}づいていた。{声|こえ}を{上|あ}げるべきだった？"
+        feedback_default: "『{自分|じぶん}の{当番|とうばん}じゃないから』は{言|い}い{訳|わけ}にならない。みんなのものを{守|まも}るのは{全員|ぜんいん}の{責任|せきにん}。{気|き}づいたら{声|こえ}を{上|あ}げる。それも{大事|だいじ}な『{仕事|しごと}』。"
+        options:
+          - text: "{声|こえ}を{上|あ}げるべきだった"
+            value: should-speak
+          - text: "{自分|じぶん}の{当番|とうばん}じゃないから{仕方|しかた}ない"
+            value: not-my-turn
+          - text: "{声|こえ}を{上|あ}げるのは{勇気|ゆうき}がいる。{難|むずか}しい"
+            value: takes-courage
+
+      - type: choice
+        id: q4
+        question: "ルール{表|ひょう}に{量|りょう}が{書|か}いてなかった。これは{誰|だれ}のせい？"
+        feedback_default: "ルール{表|ひょう}を{作|つく}ったのは先生。でも『おかしい』と{気|き}づいて{声|こえ}を{上|あ}げることもできた。{仕組|しく}みの{問題|もんだい}は、みんなで{気|き}づいてみんなで{直|なお}すもの。"
+        options:
+          - text: "ルール{表|ひょう}を{作|つく}った先生のせい"
+            value: teacher
+          - text: "{気|き}づかなかった{全員|ぜんいん}のせい"
+            value: everyone
+          - text: "{仕組|しく}みは{完璧|かんぺき}じゃない。{気|き}づいた人が{直|なお}すもの"
+            value: fix-together
+
+  # ========================================
+  # 真相 — 因果連鎖
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: souta
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: souta
+        text: "……{僕|ぼく}、{正|ただ}しい{量|りょう}を{知|し}らなかった。『たっぷり』がいいと{思|おも}って{倍|ばい}あげちゃった。それが{全部|ぜんぶ}の{始|はじ}まりだった。"
+        expression: worried
+
+      - type: sprite
+        character: souta
+        action: hide
+
+      - type: sprite
+        character: rin
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: rin
+        text: "{土|つち}がビシャビシャで{怖|こわ}くなって、{勝手|かって}に{減|へ}らしちゃった。先生に{聞|き}けばよかった……。"
+        expression: worried
+
+      - type: sprite
+        character: rin
+        action: hide
+
+      - type: sprite
+        character: aoi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: aoi
+        text: "リンちゃんの{記録|きろく}を{信|しん}じたけど、{自分|じぶん}の{目|め}で{土|つち}を{確認|かくにん}すべきだった。{記録|きろく}だけで{判断|はんだん}したのが{間違|まちが}いだった。"
+        expression: thinking
+
+      - type: sprite
+        character: aoi
+        action: hide
+
+      - type: sprite
+        character: kanata
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kanata
+        text: "{葉|は}っぱが{元気|げんき}ないの、{気|き}づいていた。でも『{自分|じぶん}の{当番|とうばん}じゃないし』って{思|おも}って{何|なに}も{言|い}わなかった。{声|こえ}を{上|あ}げていれば……。"
+        expression: worried
+
+      - type: sprite
+        character: kanata
+        action: hide
+
+      - type: narration
+        text: "{最初|さいしょ}の1つの{間違|まちが}いが、{連鎖|れんさ}して{大|おお}きな{結果|けっか}になった。でも{途中|とちゅう}で{誰|だれ}か1人が{声|こえ}を{上|あ}げていれば——30{株|かぶ}は{救|すく}えたかもしれない。"
+        speed: slow
+
+  # ========================================
+  # 最後の問い
+  # ========================================
+  - id: final-question
+    steps:
+      - type: choice
+        id: q5
+        question: "{同|おな}じ{失敗|しっぱい}を{繰|く}り{返|かえ}さないために、{一番|いちばん}{大事|だいじ}なことは？"
+        feedback_default: "{仕組|しく}みを{直|なお}す。{確認|かくにん}する。{声|こえ}を{上|あ}げる。『{自分|じぶん}1人くらい』が{連鎖|れんさ}しないように——みんなで{守|まも}るのが{公共|こうきょう}の{精神|せいしん}。"
+        options:
+          - text: "{仕組|しく}みを{直|なお}す（ルール{表|ひょう}に{量|りょう}を{書|か}く）"
+            value: fix-system
+          - text: "{分|わ}からないときは{確認|かくにん}する"
+            value: confirm
+          - text: "{異変|いへん}に{気|き}づいたら{声|こえ}を{上|あ}げる"
+            value: speak-up
+          - text: "{全部|ぜんぶ}{大事|だいじ}"
+            value: all
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: schoolyard
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{犯人|はんにん}は{全員|ぜんいん}。でも{全員|ぜんいん}が{同|おな}じように{悪|わる}いわけじゃない。{最初|さいしょ}の{間違|まちが}いがあり、{連鎖|れんさ}があり、{沈黙|ちんもく}があった。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "そして——ルール{表|ひょう}に{水|みず}の{量|りょう}を{書|か}かなかったのは先生のせいでもある。{仕組|しく}みが{不完全|ふかんぜん}だった。ごめんね。"
+        expression: worried
+
+      - type: dialog
+        character: sensei
+        text: "でもね——{仕組|しく}みは{完璧|かんぺき}じゃない。{大事|だいじ}なのは、おかしいと{思|おも}ったら{声|こえ}を{上|あ}げること。{気|き}づいた人が{動|うご}くこと。それが『みんなのものを{守|まも}る』ということ。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{来年|らいねん}、もう一度{育|そだ}てよう。{今度|こんど}はルール{表|ひょう}に{量|りょう}を{書|か}いて。そして{困|こま}ったら{声|こえ}を{上|あ}げて。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "『{自分|じぶん}1人くらい』が{連鎖|れんさ}すると、{大|おお}きな{結果|けっか}になる。{声|こえ}を{上|あ}げることも、{大事|だいじ}な{仕事|しごと}。"
+
+      - type: narration
+        text: "——それが、{枯|か}れた{学級|がっきゅう}{菜園|さいえん}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

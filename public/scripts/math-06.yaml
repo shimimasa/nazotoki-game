@@ -1,0 +1,388 @@
+meta:
+  id: math-06
+  title: 水そうの水はなぜ減る？ — 比例のトリック
+  series: 数字の迷宮
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  aoi:
+    name: アオイ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  hinata:
+    name: ヒナタ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kaito:
+    name: カイト
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ren:
+    name: レン
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sensei:
+    name: 館長
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-m-normal.webp
+      happy: teacher-m-happy.webp
+      thinking: teacher-m-thinking.webp
+      worried: teacher-m-worried.webp
+      surprised: teacher-m-surprised.webp
+      determined: teacher-m-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "『みなと子ども{水族館|すいぞくかん}』の{目玉|めだま}、{大型|おおがた}{水槽|すいそう}『ブルーオーシャン』。{美|うつく}しい{熱帯魚|ねったいぎょ}が{泳|およ}ぐ{自慢|じまん}の{水槽|すいそう}。"
+
+      - type: narration
+        text: "ところが——{水位|すいい}が{毎朝|まいあさ}少しずつ{下|さ}がっている。{水漏|みずも}れではない。"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{誰|だれ}かが{夜|よる}のうちに{水|みず}を{抜|ぬ}いている。{水位|すいい}センサーの{記録|きろく}は『1{時間|じかん}あたり5cmずつ{減少|げんしょう}』を{示|しめ}す。"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{夜間|やかん}に{水族館|すいぞくかん}に{入|はい}れたのは{飼育員|しいくいん}{見習|みなら}いの4人だけ。{水位|すいい}{変化|へんか}のデータと{行動|こうどう}{時間|じかん}を{突|つ}き{合|あ}わせて{犯人|はんにん}を{見|み}つけてくれ！"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: aoi
+            expression: normal
+          - id: hinata
+            expression: thinking
+          - id: kaito
+            expression: normal
+          - id: ren
+            expression: normal
+
+      - type: narration
+        text: "{水位|すいい}データから{犯行|はんこう}{時刻|じこく}を{特定|とくてい}し、アリバイを{崩|くず}せ！"
+
+      - type: sprite
+        character: aoi
+        action: hide
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: kaito
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.6"
+        subtitle: "水そうの水はなぜ減る？ — 比例のトリック"
+
+  # ========================================
+  # 証拠1: 水位センサーの記録
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "ブルーオーシャンの{水位|すいい}{変化|へんか}データ（{昨夜|さくや}22:00〜{翌朝|よくあさ}6:00）を{見|み}てみよう。"
+
+      - type: narration
+        text: "22:00 → 110.0cm\n22:10 → 110.0cm（{変化|へんか}なし）\n22:20 → 110.0cm（変化なし）\n22:30 → 110.0cm（変化なし）"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**22:40 → 109.5cm**（−0.5cm）\n**22:50 → 105.0cm**（−4.5cm）← ★{急|きゅう}に{減|へ}った！\n23:00 → 105.0cm（変化なし）\n…6:00 → 105.0cm（変化なし）"
+
+      - type: narration
+        text: "{水位|すいい}が{下|さ}がったのは**22:40〜22:50の10{分間|ぷんかん}だけ**！ 110cm → 105cm = **5cm{減少|げんしょう}**。"
+
+  # ========================================
+  # 証拠2: 3日間の水位変化グラフ
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{過去|かこ}3{日間|にちかん}の{水位|すいい}{減少|げんしょう}パターンを{比|くら}べてみよう。"
+
+      - type: narration
+        text: "1{日目|にちめ}：22:30〜22:40に5cm{減少|げんしょう}（120→115cm）\n2{日目|にちめ}：22:35〜22:45に5cm{減少|げんしょう}（115→110cm）\n3{日目|にちめ}（{昨夜|さくや}）：22:40〜22:50に5cm{減少|げんしょう}（110→105cm）"
+
+      - type: narration
+        text: "{毎日|まいにち}{同|おな}じ{量|りょう}（5cm）が{減|へ}っている。{犯行|はんこう}{時刻|じこく}は{毎日|まいにち}少しずつ{遅|おそ}くなっている。そして——**{今夜|こんや}も{同|おな}じことが{起|お}きたら、{水位|すいい}は100cm{以下|いか}に！ {魚|さかな}が{危|あぶ}ない！**"
+        speed: slow
+
+  # ========================================
+  # 証拠3: ポンプの仕様
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{水族館|すいぞくかん}のポンプのスペックを{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "{通常|つうじょう}モード：{毎分|まいふん}10リットル\n{急速|きゅうそく}モード：{毎分|まいふん}20リットル（{通常|つうじょう}の**2{倍|ばい}**）"
+
+      - type: narration
+        text: "{計算|けいさん}してみよう。{水槽|すいそう}の{底|そこ}{面積|めんせき}は20,000cm²。\n{通常|つうじょう}モード：10L = 10,000cm³ → {水位|すいい}は{毎分|まいふん}10,000÷20,000 = **0.5cm{下|さ}がる**\n10{分|ぷん}{動|うご}かすと：0.5×10 = **5cm** ← {昨夜|さくや}の{減少量|げんしょうりょう}と{一致|いっち}！"
+
+      - type: narration
+        text: "{急速|きゅうそく}モード：20L = 20,000cm³ → {水位|すいい}は{毎分|まいふん}20,000÷20,000 = **1.0cm{下|さ}がる**\n5{分|ふん}{動|うご}かすと：1.0×5 = **5cm** ← これも{昨夜|さくや}と{一致|いっち}！"
+
+      - type: narration
+        text: "2つの{可能性|かのうせい}がある：{通常|つうじょう}モードで10{分|ぷん} **or** {急速|きゅうそく}モードで5{分|ふん}。どっち？"
+
+  # ========================================
+  # 証拠4: 夜間行動記録
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "{昨夜|さくや}の{水族館|すいぞくかん}への{出入|でい}り{記録|きろく}。"
+
+      - type: narration
+        text: "アオイ：20:00{入館|にゅうかん}→22:00{退館|たいかん}（{夜|よる}のエサやり）\nヒナタ：21:00入館→23:00退館（{記録|きろく}{整理|せいり}）\n**カイト：22:00入館→0:00退館（{水質|すいしつ}チェック）**\nレン：23:00入館→1:00退館（{水槽|すいそう}ガラス{清掃|せいそう}）"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{水位|すいい}が{下|さ}がった**22:40〜22:50**にいたのは：\nアオイ：22:00{退館|たいかん}済み → **いなかった**\n**ヒナタ：いた**（21:00〜23:00）\n**カイト：いた**（22:00〜0:00）← ★{犯行|はんこう}{時刻|じこく}にど{真|ま}ん{中|なか}！\nレン：23:00から入館 → **いなかった**"
+
+  # ========================================
+  # 証拠5: 「2倍の速さ」問題（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：2倍の速さの謎"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: kaito
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: kaito
+        text: "{昨夜|さくや}は{急速|きゅうそく}モードを{使|つか}ったよ。{通常|つうじょう}の**2{倍|ばい}の{速|はや}さ**。2{日前|にちまえ}は{通常|つうじょう}モードだったけどね。"
+        expression: normal
+
+      - type: sprite
+        character: kaito
+        action: hide
+
+      - type: narration
+        text: "ここで{考|かんが}えてみよう。『2{倍|ばい}の{速|はや}さ』なら——"
+
+      - type: narration
+        text: "パターンA：『2{倍|ばい}の{速|はや}さで**{同|おな}じ10{分間|ぷんかん}**{動|うご}かした』\n→ 1.0cm × 10 = **10cm{下|さ}がるはず**"
+
+      - type: narration
+        text: "パターンB：『2{倍|ばい}の{速|はや}さだから**{半分|はんぶん}の5{分|ふん}**で{同|おな}じ5cmに{到達|とうたつ}』\n→ 1.0cm × 5 = **5cm**"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{実際|じっさい}のデータ：{昨夜|さくや}の{水位|すいい}{減少|げんしょう}は**5cm**。\n→ パターンAなら10cm{下|さ}がるはずなのに5cmしか{下|さ}がっていない\n→ パターンBなら{一致|いっち}。つまり**5{分間|ふんかん}**しかポンプを{動|うご}かしていない"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**『2{倍|ばい}の{速|はや}さ』= {同|おな}じ{量|りょう}を{抜|ぬ}くのに{半分|はんぶん}の{時間|じかん}で{済|す}む = {速|はや}さと{時間|じかん}は{反比例|はんぴれい}の{関係|かんけい}！**"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{水|みず}を{抜|ぬ}いた{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "アオイ"
+            value: aoi
+            feedback: "アオイは22:00に{退館|たいかん}。{犯行|はんこう}{時刻|じこく}（22:40〜22:50）にはいなかった。"
+          - text: "ヒナタ"
+            value: hinata
+            feedback: "ヒナタは22:40にいたけど、ポンプの{音|おと}を{聞|き}いた{側|がわ}。{操作|そうさ}したのは{別|べつ}の人。"
+          - text: "カイト"
+            value: kaito
+            correct: true
+            feedback: "{正解|せいかい}！ カイトは{犯行|はんこう}{時刻|じこく}にいた。しかも『{急速|きゅうそく}モードを{使|つか}った』と{自分|じぶん}で{言|い}っている。{水位|すいい}データとポンプの{計算|けいさん}が{全|すべ}て{一致|いっち}！"
+          - text: "レン"
+            value: ren
+            feedback: "レンは23:00に{入館|にゅうかん}。{犯行|はんこう}{時刻|じこく}にはまだいなかった。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "{犯行|はんこう}{時刻|じこく}にカイトがいた"
+            value: timing
+            feedback: "{大事|だいじ}だけど、ヒナタもいた。{時刻|じこく}だけでは{絞|しぼ}りきれない。{計算|けいさん}で{証明|しょうめい}しよう！"
+          - text: "ポンプの{計算|けいさん}（{通常|つうじょう}10分 or {急速|きゅうそく}5分 = 5cm）とカイトの{証言|しょうげん}が{一致|いっち}"
+            value: calculation
+            correct: true
+            feedback: "{完璧|かんぺき}！ カイトは『{急速|きゅうそく}モードを{使|つか}った』と{証言|しょうげん}。{急速|きゅうそく}モードで5{分|ふん}なら5cm{減少|げんしょう}。データと{完全|かんぜん}{一致|いっち}。{比例|ひれい}と{反比例|はんぴれい}の{計算|けいさん}で{犯人|はんにん}を{追|お}い{詰|つ}めた！"
+          - text: "3{日間|にちかん}のパターンが{同|おな}じ"
+            value: pattern
+            feedback: "3{日間|にちかん}のパターンは{重要|じゅうよう}な{手|て}がかり。でも{犯人|はんにん}{特定|とくてい}にはポンプの{計算|けいさん}が{必要|ひつよう}だよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: kaito
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: kaito
+        text: "……{僕|ぼく}がやった。{算数|さんすう}の{授業|じゅぎょう}で『{比例|ひれい}』を{習|なら}って、{水|みず}を{抜|ぬ}くときも{比例|ひれい}するのか{知|し}りたくて。"
+        expression: worried
+
+      - type: dialog
+        character: kaito
+        text: "ポンプの{速|はや}さを{変|か}えたら{時間|じかん}はどう{変|か}わる？ {速|はや}さ×{時間|じかん}={量|りょう}で、{速|はや}さが2{倍|ばい}なら{時間|じかん}は{半分|はんぶん}——{反比例|はんぴれい}だ！ って{分|わ}かった{瞬間|しゅんかん}は{嬉|うれ}しかった。"
+        expression: thinking
+
+      - type: dialog
+        character: kaito
+        text: "でも{昨夜|さくや}、{急速|きゅうそく}モードにしたら{魚|さかな}が{暴|あば}れ{始|はじ}めて。5{分|ふん}で{止|と}めた。{魚|さかな}にストレスをかけてしまった。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: kaito
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "カイトの『{比例|ひれい}を{確|たし}かめたい』という{好奇心|こうきしん}は{素晴|すば}らしい。でも{水族館|すいぞくかん}の{水槽|すいそう}で{勝手|かって}に{実験|じっけん}するのはダメだ。{魚|さかな}の{命|いのち}がかかっている。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは『{比例|ひれい}と{反比例|はんぴれい}』だった。{水|みず}の{量|りょう}と{時間|じかん}は{比例|ひれい}する。{速|はや}さと{時間|じかん}は{反比例|はんぴれい}する。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "『2{倍|ばい}の{速|はや}さ』＝ {同|おな}じ{量|りょう}を{半分|はんぶん}の{時間|じかん}で。この{関係|かんけい}を{理解|りかい}していないと、{犯人|はんにん}の{行動|こうどう}を{正|ただ}しく{追|お}えなかった。{算数|さんすう}の{力|ちから}で{真相|しんそう}に{辿|たど}り{着|つ}いた！"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{好奇心|こうきしん}は{大切|たいせつ}。でも{実験|じっけん}には{正|ただ}しい{方法|ほうほう}と{場所|ばしょ}を{選|えら}ぼうね。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{速|はや}さ × {時間|じかん} = {量|りょう}。{速|はや}さが2{倍|ばい}なら{時間|じかん}は{半分|はんぶん}。{比例|ひれい}と{反比例|はんぴれい}——{数字|すうじ}の{関係|かんけい}が{事件|じけん}を{解|と}く。"
+
+      - type: narration
+        text: "——それが、{水|みず}そうの{水|みず}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

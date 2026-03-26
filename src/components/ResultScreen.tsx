@@ -114,12 +114,16 @@ export function ResultScreen({ script, choices, correctCount, totalJudged, onRes
           「{script.meta.title}」
         </div>
 
+        {totalJudged > 0 && (
+          <div class="result-score-hero">
+            <span class="result-score-number">{correctCount}</span>
+            <span class="result-score-divider">/</span>
+            <span class="result-score-total">{totalJudged}</span>
+            <span class="result-score-label">正解</span>
+          </div>
+        )}
+
         <div class="result-stats">
-          {totalJudged > 0 && (
-            <span class="result-stat result-stat-correct">
-              正解 {correctCount}/{totalJudged}
-            </span>
-          )}
           <span class="result-stat">回答 {answeredCount}/{allChoices.length}</span>
           <span class="result-stat">約{script.meta.estimatedMinutes}分</span>
         </div>

@@ -1,0 +1,427 @@
+meta:
+  id: math-08
+  title: 速さ×時間×距離と4つの証言
+  series: 数字の迷宮
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  kana:
+    name: カナ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  yuu:
+    name: ユウ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  minoru:
+    name: ミノル
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  ryou:
+    name: リョウ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{放課後|ほうかご}の{学校|がっこう}。{廊下|ろうか}は{体育館|たいいくかん}（0m{地点|ちてん}）から{教室棟|きょうしつとう}（200m{地点|ちてん}）まで{一直線|いっちょくせん}に200m。"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 500
+
+      - type: bgm
+        action: stop
+
+      - type: narration
+        text: "200m{地点|ちてん}の{窓|まど}ガラスが{割|わ}れた！ {誰|だれ}かがボールを{弾|はず}ませたらしい。"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "4人が{放課後|ほうかご}に{廊下|ろうか}にいた。{全員|ぜんいん}『{自分|じぶん}じゃない』と{言|い}っている。でも{証言|しょうげん}の{時刻|じこく}と{場所|ばしょ}を『{速|はや}さ×{時間|じかん}={距離|きょり}』で{計算|けいさん}すれば——{誰|だれ}かの{嘘|うそ}が{分|わ}かるはず。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: kana
+            expression: surprised
+          - id: yuu
+            expression: thinking
+          - id: minoru
+            expression: worried
+          - id: ryou
+            expression: normal
+
+      - type: narration
+        text: "{証言|しょうげん}を{数式|すうしき}で{検証|けんしょう}して、{真実|しんじつ}を{見|み}つけ{出|だ}せ！"
+
+      - type: sprite
+        character: kana
+        action: hide
+      - type: sprite
+        character: yuu
+        action: hide
+      - type: sprite
+        character: minoru
+        action: hide
+      - type: sprite
+        character: ryou
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.8"
+        subtitle: "速さ×時間×距離と4つの証言"
+
+  # ========================================
+  # 証拠1: 廊下の地図と目撃情報
+  # ========================================
+  - id: evidence-1
+    bg: hallway-sunset
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{廊下|ろうか}の{地図|ちず}。{体育館|たいいくかん}（0m）から{教室棟|きょうしつとう}（200m）まで{一直線|いっちょくせん}。"
+
+      - type: narration
+        text: "{目撃|もくげき}{情報|じょうほう}：\n15:07 ユウがリョウを**100m{付近|ふきん}**で{目撃|もくげき}\n15:09〜15:10 ミノルが**200m{付近|ふきん}**で{走|はし}るような{足音|あしおと}を{聞|き}いた\n15:10 カナが**0m{付近|ふきん}**でリョウを{目撃|もくげき}\n15:12 先生が{現場|げんば}{到着|とうちゃく}。200m{地点|ちてん}にガラスの{破片|はへん}とボールを{確認|かくにん}"
+
+      - type: narration
+        text: "15:07に100mにいたリョウが、15:10に0mにいるとしたら——その3{分間|ぷんかん}に200m{地点|ちてん}を{通|とお}れた？"
+
+  # ========================================
+  # 証拠2: 速さの計算表
+  # ========================================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: narration
+        text: "{速|はや}さの{基準値|きじゅんち}を{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "{普通|ふつう}の{歩|ある}き：{分速|ふんそく}60〜70m\n{早歩|はやある}き：{分速|ふんそく}80〜100m\nゆっくり{走|はし}り：{分速|ふんそく}100〜150m\n{速|はや}い{走|はし}り：{分速|ふんそく}150〜200m"
+
+      - type: narration
+        text: "{速|はや}さの{公式|こうしき}：\n{速|はや}さ = {距離|きょり} ÷ {時間|じかん}\n{距離|きょり} = {速|はや}さ × {時間|じかん}\n{時間|じかん} = {距離|きょり} ÷ {速|はや}さ"
+
+      - type: narration
+        text: "もしリョウが『15:07に100mにいて、15:10に0mにいた』なら、{速|はや}さは何m/{分|ぷん}？ これは{歩|ある}き？ それとも……？"
+
+  # ========================================
+  # 証拠3: 現場の状況
+  # ========================================
+  - id: evidence-3
+    bg: hallway-sunset
+    steps:
+      - type: narration
+        text: "{現場|げんば}（200m{地点|ちてん}）の{状況|じょうきょう}を{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "{窓|まど}ガラスの{破片|はへん}が{外側|そとがわ}に{飛|と}び{散|ち}っていた。ゴム{製|せい}のボールが{廊下|ろうか}の{隅|すみ}に{転|ころ}がっていた。ボールの{跡|あと}と{窓|まど}ガラスのひびの{位置|いち}が{一致|いっち}。"
+
+      - type: narration
+        text: "{誰|だれ}かがボールを{持|も}っていて、{弾|はず}ませたら{窓|まど}に当たった。{誰|だれ}がこのボールを{持|も}っていた？"
+
+  # ========================================
+  # 証拠4: 4人の証言
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: kana
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: kana
+        text: "15:10ごろ、0m{付近|ふきん}にいたよ。リョウも{同|おな}じ{場所|ばしょ}にいた。ガラスが{割|わ}れる{音|おと}の{直後|ちょくご}、リョウと{一緒|いっしょ}に{反応|はんのう}した。"
+        expression: normal
+
+      - type: sprite
+        character: kana
+        action: hide
+
+      - type: sprite
+        character: yuu
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: yuu
+        text: "15:07に100m{付近|ふきん}でリョウを{見|み}た。{体育館|たいいくかん}{方向|ほうこう}（0m{方向|ほうこう}）に{向|む}かっていた。"
+        expression: thinking
+
+      - type: sprite
+        character: yuu
+        action: hide
+
+      - type: sprite
+        character: minoru
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: minoru
+        text: "15:09〜15:10ごろ、200m{付近|ふきん}にいた。{走|はし}るような{足音|あしおと}がして、ガラスが{割|わ}れた。"
+        expression: worried
+
+      - type: sprite
+        character: minoru
+        action: hide
+
+      - type: sprite
+        character: ryou
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: ryou
+        text: "ずっと{体育館|たいいくかん}の{近|ちか}く（0m{付近|ふきん}）にいたよ。200mには{近|ちか}づいていない。"
+        expression: normal
+
+      - type: sprite
+        character: ryou
+        action: hide
+
+      - type: narration
+        text: "リョウは『ずっと0m{付近|ふきん}にいた』と{言|い}う。でもユウは『15:07に100mでリョウを{見|み}た』と{言|い}う。{矛盾|むじゅん}している。"
+
+  # ========================================
+  # 証拠5: ユウの詳細メモ（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：計算で検証"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: yuu
+        expression: determined
+        position: center
+
+      - type: dialog
+        character: yuu
+        text: "{手帳|てちょう}に{詳|くわ}しく{書|か}いてあった。15:07にリョウを100m{付近|ふきん}で{見|み}た。{普通|ふつう}の{歩|ある}きより{明|あき}らかに{速|はや}かった。カバンが{揺|ゆ}れていた——{中|なか}に{何|なに}か{入|はい}っていた{様子|ようす}。"
+        expression: determined
+
+      - type: sprite
+        character: yuu
+        action: hide
+
+      - type: narration
+        text: "さあ{計算|けいさん}してみよう！"
+
+      - type: narration
+        text: "【{計算|けいさん}①】リョウの{主張|しゅちょう}：100m→0m（{直行|ちょっこう}）\n{距離|きょり}：100m、{時間|じかん}：3{分|ぷん}\n{速|はや}さ = 100÷3 ≒ **{分速|ふんそく}33m**\n→ {普通|ふつう}の{歩|ある}き（{分速|ふんそく}60m）より{遅|おそ}い。{歩|ある}きでも{余裕|よゆう}で{可能|かのう}。"
+
+      - type: narration
+        text: "【{計算|けいさん}②】もしリョウが100m→200m→0mと{移動|いどう}したとしたら？\n{距離|きょり}：100m + 200m = **300m**、{時間|じかん}：3{分|ぷん}\n{速|はや}さ = 300÷3 = **{分速|ふんそく}100m**"
+
+      - type: effect
+        name: flash
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**{分速|ふんそく}100m = {走|はし}り{速度|そくど}！** {歩|ある}き（{分速|ふんそく}60〜70m）では**{絶対|ぜったい}に{不可能|ふかのう}**。"
+        speed: slow
+
+      - type: narration
+        text: "リョウは{走|はし}っていた。{走|はし}っていれば{事件|じけん}{現場|げんば}（200m）を{通|とお}れた。{廊下|ろうか}を{走|はし}っていた + ボールを{持|も}っていた + 200m{地点|ちてん}を{通|とお}った = {事故|じこ}の{説明|せつめい}がつく。"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{窓|まど}ガラスを{割|わ}った{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "カナ"
+            value: kana
+            feedback: "カナは0m{付近|ふきん}にいた。200m{地点|ちてん}にはいなかった。{他|ほか}の{目撃|もくげき}{証言|しょうげん}とも{矛盾|むじゅん}しない。"
+          - text: "ユウ"
+            value: yuu
+            feedback: "ユウは100m{付近|ふきん}で{目撃|もくげき}した{側|がわ}。ボールも{持|も}っていなかった。"
+          - text: "ミノル"
+            value: minoru
+            feedback: "ミノルは200m{付近|ふきん}にいたけど、{足音|あしおと}を{聞|き}いた{側|がわ}。ボールは{持|も}っていなかった。"
+          - text: "リョウ"
+            value: ryou
+            correct: true
+            feedback: "{正解|せいかい}！ {計算|けいさん}で{証明|しょうめい}：15:07に100m → 15:10に0m。もし200mを{経由|けいゆ}していたら300m÷3{分|ぷん}={分速|ふんそく}100m＝{走|はし}り{速度|そくど}。リョウは{廊下|ろうか}を{走|はし}っていた！"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "ミノルが{聞|き}いた{走|はし}る{足音|あしおと}"
+            value: footsteps
+            feedback: "{足音|あしおと}は{状況|じょうきょう}{証拠|しょうこ}。でも{誰|だれ}の{足音|あしおと}か{確定|かくてい}できない。{計算|けいさん}で{証明|しょうめい}しよう！"
+          - text: "100m→200m→0mの{移動|いどう}に{分速|ふんそく}100m（{走|はし}り{速度|そくど}）が{必要|ひつよう}な{計算|けいさん}{結果|けっか}"
+            value: speed-calc
+            correct: true
+            feedback: "{完璧|かんぺき}！ 300m÷3{分|ぷん}={分速|ふんそく}100m。{歩|ある}き{速度|そくど}（60〜70m）では{不可能|ふかのう}。{走|はし}っていなければ{物理|ぶつり}的にありえない。{速|はや}さの{計算|けいさん}で{嘘|うそ}を{暴|あば}いた！"
+          - text: "ユウの{手帳|てちょう}メモ"
+            value: notebook
+            feedback: "{手帳|てちょう}メモは{重要|じゅうよう}な{情報源|じょうほうげん}。でもメモだけでは{犯人|はんにん}{特定|とくてい}にならない。{速|はや}さの{計算|けいさん}と{組|く}み{合|あ}わせて{初|はじ}めて{決定的|けっていてき}な{証拠|しょうこ}になるよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: hallway-sunset
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: ryou
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: ryou
+        text: "……{僕|ぼく}がやった。{廊下|ろうか}を{走|はし}っていて、ボールを{弾|はず}ませたら{窓|まど}に当たっちゃったんだ。わざとじゃない。{事故|じこ}だった。"
+        expression: worried
+
+      - type: dialog
+        character: ryou
+        text: "{学校|がっこう}にボールを{持|も}ち{込|こ}むのは{禁止|きんし}されている。{廊下|ろうか}を{走|はし}るのもルール{違反|いはん}。{両方|りょうほう}{認|みと}めたら{大|おお}ごとになると{思|おも}って、{嘘|うそ}をついた。"
+        expression: thinking
+
+      - type: dialog
+        character: ryou
+        text: "でも——{速|はや}さの{計算|けいさん}で{嘘|うそ}がバレるなんて{思|おも}わなかった。{数字|すうじ}は{嘘|うそ}をつけないんだ……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: ryou
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "リョウは{怒|おこ}られるのが{怖|こわ}くて{嘘|うそ}をついた。{気持|きもち}は{分|わ}かるけど、{正直|しょうじき}に{言|い}った{方|ほう}が{傷|きず}は{浅|あさ}い。{事故|じこ}なら{先生|せんせい}も{分|わ}かってくれるよ。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{速|はや}さ × {時間|じかん} = {距離|きょり}**。{証言|しょうげん}の{時刻|じこく}と{場所|ばしょ}から{速|はや}さを{計算|けいさん}して、{物理|ぶつり}的にありえるかどうかを{検証|けんしょう}した。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "300m÷3{分|ぷん}={分速|ふんそく}100m。{歩|ある}き{速度|そくど}では{不可能|ふかのう}——だから{走|はし}っていた。{算数|さんすう}の{計算|けいさん}で{嘘|うそ}のアリバイを{崩|くず}した！"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{数字|すうじ}は{嘘|うそ}をつけない。{計算|けいさん}する人が{最強|さいきょう}の{探偵|たんてい}だ。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{速|はや}さ = {距離|きょり} ÷ {時間|じかん}。{証言|しょうげん}を{数式|すうしき}で{検証|けんしょう}すれば、{嘘|うそ}は{計算|けいさん}で{暴|あば}ける。"
+
+      - type: narration
+        text: "——それが、{速|はや}さ×{時間|じかん}×{距離|きょり}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

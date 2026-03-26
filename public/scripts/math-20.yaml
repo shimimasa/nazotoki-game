@@ -1,0 +1,372 @@
+meta:
+  id: math-20
+  title: 3つの通貨と両替の矛盾
+  series: 数字の迷宮
+  volume: 20
+  estimatedMinutes: 20
+
+characters:
+  kai:
+    name: カイ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mio:
+    name: ミオ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  hayato:
+    name: ハヤト
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sakura:
+    name: サクラ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{国際|こくさい}{交流|こうりゅう}フェスティバル！ 3つの{模擬|もぎ}{通貨|つうか}『スター★』『ムーン☾』『サン☀』を{使|つか}ったお{買|か}い{物|もの}ゲーム。"
+
+      - type: narration
+        text: "ところが——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "メイン{金庫|きんこ}から**{景品|けいひん}{引換券|ひきかえけん}10{枚|まい}**が{盗|ぬす}まれた！"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{犯行|はんこう}{時刻|じこく}の14:00〜14:15、4人の{両替|りょうがえ}{係|がかり}は{全員|ぜんいん}『ブースで{両替|りょうがえ}していた』と{主張|しゅちょう}。レシートも{提出|ていしゅつ}した。でも{検算|けんさん}すると1人だけ{計算|けいさん}が{合|あ}わない——レシートを{偽造|ぎぞう}した{犯人|はんにん}は{誰|だれ}？"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: kai
+            expression: thinking
+          - id: mio
+            expression: normal
+          - id: hayato
+            expression: normal
+          - id: sakura
+            expression: normal
+
+      - type: narration
+        text: "3つの{通貨|つうか}の{交換|こうかん}レートを{計算|けいさん}して、{偽|にせ}レシートを{見|み}つけ{出|だ}せ！ {数字|すうじ}の{迷宮|めいきゅう}、{最終|さいしゅう}{問題|もんだい}！"
+
+      - type: sprite
+        character: kai
+        action: hide
+      - type: sprite
+        character: mio
+        action: hide
+      - type: sprite
+        character: hayato
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.20"
+        subtitle: "3つの通貨と両替の矛盾"
+
+  # ========================================
+  # 証拠1: 3つの通貨と交換レート
+  # ========================================
+  - id: evidence-1
+    bg: schoolyard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "3つの{模擬|もぎ}{通貨|つうか}の{交換|こうかん}レート。"
+
+      - type: narration
+        text: "1ムーン☾ = **0.5スター★**（= 1/2スター）\n1サン☀ = **1.5スター★**（= 3/2スター）"
+
+      - type: narration
+        text: "スター↔ムーン：{直接|ちょくせつ}{変換|へんかん}（1ステップ）\nスター↔サン：{直接|ちょくせつ}変換（1ステップ）\n**ムーン↔サン：スターを{経由|けいゆ}する2{段階|だんかい}変換（2ステップ）**"
+
+      - type: narration
+        text: "★{重要|じゅうよう}：ムーンとサンの{間|あいだ}には{直接|ちょくせつ}のレートがない。スターを{経由|けいゆ}して**2ステップ**で{計算|けいさん}する{必要|ひつよう}がある。ここを{間違|まちが}えると{金額|きんがく}が{大|おお}きくズレる！"
+
+  # ========================================
+  # 証拠2: 4人のレシート
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{犯行|はんこう}{時刻|じこく}（14:00〜14:15）に4人が{行|おこな}ったと{主張|しゅちょう}する{両替|りょうがえ}の{記録|きろく}。"
+
+      - type: narration
+        text: "カイ（14:02）：10スター → ムーン → {結果|けっか}**20ムーン**\nミオ（14:05）：9ムーン → サン → {結果|けっか}**3サン**\n**ハヤト（14:08）：6サン → ムーン → {結果|けっか}9ムーン**\nサクラ（14:12）：8ムーン → スター → {結果|けっか}**4スター**"
+
+      - type: narration
+        text: "4人のレシートを{検算|けんさん}してみよう。{交換|こうかん}レートを{使|つか}って、それぞれの{計算|けいさん}が{正|ただ}しいか{確認|かくにん}。**{全員|ぜんいん}{正|ただ}しい？ それとも1人だけ{間違|まちが}っている？**"
+
+  # ========================================
+  # 証拠3: タイムラインと会場マップ
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{犯行|はんこう}{時刻|じこく}のタイムライン。"
+
+      - type: narration
+        text: "14:00 カイが{金庫|きんこ}を{確認|かくにん}→{景品|けいひん}{引換券|ひきかえけん}**30{枚|まい}**あり\n14:02 カイ：{両替|りょうがえ}{対応|たいおう}\n14:05 ミオ：{両替|りょうがえ}{対応|たいおう}\n**14:07 ハヤトが『トイレに{行|い}く』とブースBを{離|はな}れた**\n**14:08 ハヤト：{両替|りょうがえ}{対応|たいおう}（レシート{記録|きろく}あり）← {本当|ほんとう}にブースにいた？**\n14:10 ハヤトがブースBに{戻|もど}った\n14:12 サクラ：{両替|りょうがえ}{対応|たいおう}\n14:15 カイが{金庫|きんこ}を{確認|かくにん}→**20{枚|まい}に{減少|げんしょう}。10{枚|まい}{消失|しょうしつ}！**"
+
+      - type: narration
+        text: "ブースBから{金庫|きんこ}までは**{近|ちか}い**（1{分|ぷん}で{往復|おうふく}{可能|かのう}）。ブースBからトイレまでは**{遠|とお}い**（{反対|はんたい}{方向|ほうこう}）。ハヤトが14:07にブースを{離|はな}れて14:08に{両替|りょうがえ}——**1{分|ぷん}で{戻|もど}った？**"
+
+  # ========================================
+  # 証拠4: 検算ワークシート
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "★4人のレシートを{検算|けんさん}しよう！"
+
+      - type: narration
+        text: "カイ：10スター → ムーン\n10 ÷ 0.5 = **20ムーン** ← レシート20ムーン ✅"
+
+      - type: narration
+        text: "ミオ：9ムーン → サン（2{段階|だんかい}！）\n①9×0.5 = 4.5スター\n②4.5÷1.5 = **3サン** ← レシート3サン ✅"
+
+      - type: narration
+        text: "サクラ：8ムーン → スター\n8×0.5 = **4スター** ← レシート4スター ✅"
+
+      - type: narration
+        text: "**ハヤト：6サン → ムーン（2{段階|だんかい}！）**\n①6×3/2 = 6×1.5 = **9スター** ← ここまでは{合|あ}っている"
+
+      - type: narration
+        text: "②9スター → ムーン\n9÷0.5 = 9×2 = **18ムーン** ← {正|ただ}しい{答|こた}え"
+
+      - type: effect
+        name: flash
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**ハヤトのレシートは『9ムーン』。{正|ただ}しくは『18ムーン』。** ステップ②を{飛|と}ばしている！ 6×3/2=9で{止|と}まっていて、スター→ムーンの{変換|へんかん}をしていない！"
+        speed: slow
+
+  # ========================================
+  # 証拠5: ハヤトの計算の矛盾（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：偽レシートの証拠"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "ハヤトの{間違|まちが}いの{正体|しょうたい}——"
+
+      - type: narration
+        text: "ハヤトは『6×3/2=9ムーン』と{書|か}いた。\nでも3/2はサン→**スター**のレート。ムーンのレートじゃない！\nスターに{変換|へんかん}しただけで{止|と}まっている。"
+
+      - type: narration
+        text: "{正|ただ}しい{計算|けいさん}：\n①6サン×3/2 = 9**スター**\n②9スター÷0.5 = **18ムーン**\n\nハヤトの{答|こた}え：9ムーン（{正解|せいかい}の{半分|はんぶん}！）"
+        speed: slow
+
+      - type: narration
+        text: "**なぜ{間違|まちが}えた？** ブースにいれば{実際|じっさい}に{通貨|つうか}を{数|かぞ}えるので{間違|まちが}えない。**{偽造|ぎぞう}したから{計算|けいさん}ミスが{出|で}た**。14:07にブースを{離|はな}れ、{金庫|きんこ}から{引換券|ひきかえけん}を{盗|ぬす}み、{戻|もど}ってから{急|いそ}いで{偽|にせ}レシートを{作|つく}った——そのとき2{段階|だんかい}{変換|へんかん}の{計算|けいさん}を{間違|まちが}えた。"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：最終推理"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{景品|けいひん}{引換券|ひきかえけん}を{盗|ぬす}んだ{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "カイ（レシート：20ムーン ✅）"
+            value: kai
+            feedback: "カイの{計算|けいさん}は{正|ただ}しい。10÷0.5=20ムーン。ブースにいた{証拠|しょうこ}。"
+          - text: "ミオ（レシート：3サン ✅）"
+            value: mio
+            feedback: "ミオの{計算|けいさん}も{正|ただ}しい。9×0.5=4.5→4.5÷1.5=3サン。2{段階|だんかい}{変換|へんかん}も{完璧|かんぺき}。"
+          - text: "ハヤト（レシート：9ムーン ❌）"
+            value: hayato
+            correct: true
+            feedback: "{正解|せいかい}！ ハヤトのレシートだけ{計算|けいさん}が{間違|まちが}っている。6サン=9**スター**=**18ムーン**なのに、9ムーンと{書|か}いた。2{段階|だんかい}{変換|へんかん}のステップ②を{飛|と}ばした。**{偽造|ぎぞう}レシートの{計算|けいさん}ミスが{決定的|けっていてき}{証拠|しょうこ}！**"
+          - text: "サクラ（レシート：4スター ✅）"
+            value: sakura
+            feedback: "サクラの{計算|けいさん}も{正|ただ}しい。8×0.5=4スター。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "ハヤトが14:07にブースを{離|はな}れた"
+            value: left-booth
+            feedback: "{大事|だいじ}な{状況|じょうきょう}{証拠|しょうこ}。でも『トイレに{行|い}った』{可能性|かのうせい}もある。{計算|けいさん}で{証明|しょうめい}しよう。"
+          - text: "2{段階|だんかい}{変換|へんかん}の{計算|けいさん}ミス（6サン=18ムーンなのに9ムーンと{記載|きさい}）"
+            value: calculation-error
+            correct: true
+            feedback: "{完璧|かんぺき}！ サン→ムーンは2{段階|だんかい}{変換|へんかん}。ステップ①(サン→スター)は{合|あ}っているがステップ②(スター→ムーン)を{飛|と}ばした。ブースにいれば{実物|じつぶつ}を{数|かぞ}えるので{間違|まちが}えない。{間違|まちが}えた＝{偽造|ぎぞう}した。**{小数|しょうすう}と{分数|ぶんすう}の{混合|こんごう}{計算|けいさん}で{嘘|うそ}を{暴|あば}いた！**"
+          - text: "ブースBから{金庫|きんこ}が{近|ちか}い"
+            value: proximity
+            feedback: "{距離|きょり}の{近|ちか}さは{機会|きかい}の{証拠|しょうこ}。{決定的|けっていてき}なのは{計算|けいさん}の{矛盾|むじゅん}。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: hayato
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hayato
+        text: "……{僕|ぼく}がやった。ブースのノルマが{達成|たっせい}できなくて、{引換券|ひきかえけん}を10{枚|まい}{持|も}ち{出|だ}した。"
+        expression: worried
+
+      - type: dialog
+        character: hayato
+        text: "お{客|きゃく}さんが{全然|ぜんぜん}{来|こ}なくて、14:00の{時点|じてん}で3{枚|まい}しか{配|くば}れていなかった。ノルマは10{枚|まい}。先生に{怒|おこ}られると{思|おも}って、{金庫|きんこ}から{持|も}ち{出|だ}した。"
+        expression: thinking
+
+      - type: dialog
+        character: hayato
+        text: "{戻|もど}ってから{急|いそ}いで{偽|にせ}レシートを{作|つく}ったけど、2{段階|だんかい}{変換|へんかん}の{計算|けいさん}を{間違|まちが}えちゃった。{実際|じっさい}に{通貨|つうか}を{数|かぞ}えていれば{間違|まちが}えないのに。{偽造|ぎぞう}したから{計算|けいさん}ミスが{出|で}た……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: hayato
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: schoolyard
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ハヤトはノルマが{達成|たっせい}できなくて{怖|こわ}かった。{困|こま}ったときは{先生|せんせい}に{相談|そうだん}してね。ノルマは{達成|たっせい}できなくても{怒|おこ}らないよ。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{最終|さいしゅう}{問題|もんだい}おつかれさま！ {今回|こんかい}のカギは**2{段階|だんかい}{変換|へんかん}**。ムーン→サンは{直接|ちょくせつ}{変換|へんかん}できない。スターを{経由|けいゆ}する。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "Vol.1の『{距離|きょり}÷{速|はや}さ＝{時間|じかん}』から{始|はじ}まった{数字|すうじ}の{迷宮|めいきゅう}。Vol.20で『{小数|しょうすう}×{分数|ぶんすう}の2{段階|だんかい}{変換|へんかん}+{複合|ふくごう}{推理|すいり}』まで{辿|たど}り{着|つ}いた。**{全|すべ}ての{推理|すいり}スキルを{使|つか}って{犯人|はんにん}を{追|お}い{詰|つ}めた！**"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{数字|すうじ}は{嘘|うそ}をつかない。{計算|けいさん}する{人|ひと}が{最強|さいきょう}の{探偵|たんてい}だ。{数字|すうじ}の{迷宮|めいきゅう}、{全|ぜん}20{巻|かん}{完結|かんけつ}！"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "ムーン→サンは{直接|ちょくせつ}{変換|へんかん}できない。スターを{経由|けいゆ}する2{段階|だんかい}{変換|へんかん}。{計算|けいさん}を{飛|と}ばした{偽造|ぎぞう}レシートが{犯人|はんにん}の{証拠|しょうこ}。"
+
+      - type: narration
+        text: "——それが、3つの{通貨|つうか}が{教|おし}えてくれたこと。{数字|すうじ}の{迷宮|めいきゅう}、{完結|かんけつ}。"
+
+      - type: effect
+        name: fade-out

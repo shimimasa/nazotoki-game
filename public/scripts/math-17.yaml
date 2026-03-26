@@ -1,0 +1,442 @@
+meta:
+  id: math-17
+  title: 偽の宝の地図と縮尺の秘密
+  series: 数字の迷宮
+  volume: 17
+  estimatedMinutes: 20
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  sora:
+    name: ソラ
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  takumi:
+    name: タクミ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  natsume:
+    name: ナツメ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{遠足|えんそく}で『{宝探|たからさが}しオリエンテーリング』が{開催|かいさい}された。先生が{配|くば}った{地図|ちず}（{縮尺|しゅくしゃく}1:2000）をもとにチェックポイントを{回|まわ}り、{宝箱|たからばこ}を{目指|めざ}す。"
+
+      - type: narration
+        text: "ところが——3人が{地図|ちず}どおりに{歩|ある}いても、チェックポイントが{見|み}つからない！"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{地図|ちず}の{距離|きょり}と{実際|じっさい}の{距離|きょり}がまったく{合|あ}わない。**{全部|ぜんぶ}ちょうど2{倍|ばい}ずれている**！"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{地図|ちず}は{私|わたし}が{作|つく}りました。{縮尺|しゅくしゃく}は**1:2000**です。{全員|ぜんいん}に{同|おな}じ{地図|ちず}を{配|くば}ったはず。でも3人の{地図|ちず}には**1:1000**と{書|か}いてある……{誰|だれ}かが{書|か}き{換|か}えた？"
+        expression: surprised
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: hikari
+            expression: surprised
+          - id: sora
+            expression: thinking
+          - id: takumi
+            expression: normal
+          - id: natsume
+            expression: worried
+
+      - type: narration
+        text: "{縮尺|しゅくしゃく}の{計算|けいさん}で{偽|にせ}{地図|ちず}の{矛盾|むじゅん}を{暴|あば}き、{偽造者|ぎぞうしゃ}を{特定|とくてい}せよ！"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: natsume
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.17"
+        subtitle: "偽の宝の地図と縮尺の秘密"
+
+  # ========================================
+  # 証拠1: みんなの地図
+  # ========================================
+  - id: evidence-1
+    bg: schoolyard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "みんなが{持|も}っている{地図|ちず}。{縮尺|しゅくしゃく}：**1:1000**と{書|か}いてある。"
+
+      - type: narration
+        text: "{縮尺|しゅくしゃく}1:1000なら、{地図|ちず}の1cm＝{実際|じっさい}の1000cm＝**10m**\n\nスタート→A{地点|ちてん}：{地図|ちず}4cm → 4×1000＝4000cm＝**40m**\nA→B{地点|ちてん}：{地図|ちず}3cm → 3×1000＝3000cm＝**30m**\nB→{宝箱|たからばこ}：{地図|ちず}5cm → 5×1000＝5000cm＝**50m**"
+
+  # ========================================
+  # 証拠2: 実際に歩いた報告
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: sprite
+        character: hikari
+        expression: surprised
+        position: left
+
+      - type: dialog
+        character: hikari
+        text: "{地図|ちず}で4cmだから40mのはず。でも40m{歩|ある}いてもA{地点|ちてん}が{見|み}つからなかった。**80mくらい**のところでやっと{見|み}えた！"
+        expression: surprised
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: surprised
+        position: right
+
+      - type: dialog
+        character: sora
+        text: "A→Bは30mのはずなのに、**60mくらい**{歩|ある}いた！"
+        expression: surprised
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: natsume
+        expression: surprised
+        position: left
+
+      - type: dialog
+        character: natsume
+        text: "B→{宝箱|たからばこ}は50mのはずなのに、**100mくらい**あった！"
+        expression: surprised
+
+      - type: sprite
+        character: natsume
+        action: hide
+
+      - type: sprite
+        character: takumi
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: takumi
+        text: "{俺|おれ}は{普通|ふつう}に{地図|ちず}を{見|み}て{歩|ある}いたら、ちゃんと{着|つ}いたけど？ A{地点|ちてん}も80mくらいのところにあった。"
+        expression: normal
+
+      - type: sprite
+        character: takumi
+        action: hide
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{地図|ちず}の{計算|けいさん}（1:1000）と{実際|じっさい}の{距離|きょり}のずれ：\nスタート→A：40m → {実際|じっさい}{約|やく}80m = **2{倍|ばい}！**\nA→B：30m → {実際|じっさい}{約|やく}60m = **2{倍|ばい}！**\nB→{宝箱|たからばこ}：50m → {実際|じっさい}{約|やく}100m = **2{倍|ばい}！**\n{全部|ぜんぶ}ちょうど2{倍|ばい}ずれている！"
+
+  # ========================================
+  # 証拠3: 先生の証言
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: sprite
+        character: sensei
+        expression: determined
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{地図|ちず}は{私|わたし}が{作|つく}りました。**{縮尺|しゅくしゃく}は1:2000**です。{間違|まちが}いありません。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "先生の{地図|ちず}（1:2000）で{計算|けいさん}すると：\nスタート→A：4×2000＝8000cm＝**80m** ✅\nA→B：3×2000＝6000cm＝**60m** ✅\nB→{宝箱|たからばこ}：5×2000＝10000cm＝**100m** ✅"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "**1:2000なら{実際|じっさい}の{距離|きょり}とぴったり{一致|いっち}！** 先生が{配|くば}ったのは1:2000。でも3人の{地図|ちず}は1:1000になっている。**{誰|だれ}かが{書|か}き{換|か}えた！**"
+        speed: slow
+
+  # ========================================
+  # 証拠4: 4人の地図を比較
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "4人の{地図|ちず}を{並|なら}べてみよう。{図|ず}（{道|みち}やチェックポイント）は{全員|ぜんいん}{同|おな}じ。{違|ちが}うのは**{右下|みぎした}の{縮尺|しゅくしゃく}の{数字|すうじ}だけ**。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ヒカリ：**1:1000**\nソラ：**1:1000**\n**タクミ：1:2000**\nナツメ：**1:1000**"
+        speed: slow
+
+      - type: narration
+        text: "先生が{配|くば}ったのは1:2000。でも3人は1:1000。**タクミだけが{本物|ほんもの}**を{持|も}っている。{偶然|ぐうぜん}？"
+
+  # ========================================
+  # 証拠5: 偽造の証拠（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：偽造の証拠"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: hikari
+        expression: determined
+        position: left
+
+      - type: dialog
+        character: hikari
+        text: "3人の{地図|ちず}（1:1000）は、タクミの{地図|ちず}（1:2000）と{比|くら}べて**{紙|かみ}の{質|しつ}が{少|すこ}し{違|ちが}う**。{別|べつ}のプリンターで{作|つく}ったみたい。"
+        expression: determined
+
+      - type: dialog
+        character: hikari
+        text: "そして{前日|ぜんじつ}の{放課後|ほうかご}、**タクミが先生の{教室|きょうしつ}に{入|はい}ってきた**。{忘|わす}れ{物|もの}だと{言|い}っていたけど、先生の{机|つくえ}のあたりを{見|み}ていた。{机|つくえ}の{上|うえ}には{地図|ちず}の{原本|げんぽん}があった。"
+        expression: thinking
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: natsume
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: natsume
+        text: "{昨日|きのう}の{帰|かえ}り{道|みち}、タクミが『**{何|なに}があっても{一番|いちばん}になる**』と{言|い}っていた。{去年|きょねん}{最下位|さいかい}で{笑|わら}われたことをまだ{気|き}にしていた。そして{今朝|けさ}、タクミが**いつもより{早|はや}く{教室|きょうしつ}に{来|き}ていた**。先生の{机|つくえ}の{近|ちか}くに。"
+        expression: thinking
+
+      - type: sprite
+        character: natsume
+        action: hide
+
+      - type: narration
+        text: "タクミは{前日|ぜんじつ}に{原本|げんぽん}を{見|み}て、{偽|にせ}{地図|ちず}（1:1000）を3{枚|まい}{印刷|いんさつ}。{当日|とうじつ}の{朝|あさ}、{配布前|はいふまえ}の{地図|ちず}に{混|ま}ぜた。{自分|じぶん}だけ{本物|ほんもの}（1:2000）を{確保|かくほ}。3人は{距離|きょり}を{半分|はんぶん}に{計算|けいさん}してしまい、{迷|まよ}っている{間|あいだ}にタクミだけが{一番乗|いちばんの}り——"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{偽|にせ}{地図|ちず}を{作|つく}った{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "ヒカリ"
+            value: hikari
+            feedback: "ヒカリの{地図|ちず}も1:1000（{偽物|にせもの}）。{被害者|ひがいしゃ}の{側|がわ}。"
+          - text: "ソラ"
+            value: sora
+            feedback: "ソラの{地図|ちず}も1:1000（{偽物|にせもの}）。{被害者|ひがいしゃ}。"
+          - text: "タクミ"
+            value: takumi
+            correct: true
+            feedback: "{正解|せいかい}！ タクミだけが{本物|ほんもの}の{地図|ちず}（1:2000）を{持|も}っていた。{前日|ぜんじつ}に{原本|げんぽん}を{見|み}て{偽物|にせもの}を3{枚|まい}{作|つく}り、{自分|じぶん}だけ{正|ただ}しい{距離|きょり}で{歩|ある}いて{一番乗|いちばんの}りしようとした！"
+          - text: "ナツメ"
+            value: natsume
+            feedback: "ナツメの{地図|ちず}も1:1000（{偽物|にせもの}）。{被害者|ひがいしゃ}。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "{実際|じっさい}の{距離|きょり}が{全部|ぜんぶ}2{倍|ばい}ずれていること"
+            value: distance-gap
+            feedback: "2{倍|ばい}のずれは{重要|じゅうよう}な{発見|はっけん}。でも{誰|だれ}が{偽造|ぎぞう}したかまでは{分|わ}からない。{地図|ちず}の{比較|ひかく}が{必要|ひつよう}。"
+          - text: "タクミだけが{本物|ほんもの}の{縮尺|しゅくしゃく}（1:2000）を{持|も}っていた"
+            value: real-map
+            correct: true
+            feedback: "{完璧|かんぺき}！ 先生が{配|くば}ったのは1:2000。3人の{地図|ちず}だけ1:1000に{書|か}き{換|か}えられた。**タクミだけが{本物|ほんもの}を{持|も}っている**＝タクミが{偽物|にせもの}を{作|つく}って{他|ほか}の3人に{渡|わた}した。{縮尺|しゅくしゃく}の{計算|けいさん}で{偽造|ぎぞう}を{暴|あば}いた！"
+          - text: "{前日|ぜんじつ}にタクミが先生の{教室|きょうしつ}にいた"
+            value: previous-day
+            feedback: "{状況|じょうきょう}{証拠|しょうこ}としては{重要|じゅうよう}。でも{縮尺|しゅくしゃく}の{計算|けいさん}と{合|あ}わせて{初|はじ}めて{決定的|けっていてき}。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: schoolyard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: takumi
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: takumi
+        text: "……{俺|おれ}がやった。{偽|にせ}の{地図|ちず}を3{枚|まい}{作|つく}って{混|ま}ぜた。{縮尺|しゅくしゃく}の{数字|すうじ}だけ1:1000に{変|か}えた。"
+        expression: worried
+
+      - type: dialog
+        character: takumi
+        text: "{去年|きょねん}{最下位|さいかい}で{笑|わら}われた。{今年|ことし}こそ{一番|いちばん}に{見|み}つけてヒーローになりたかった。みんなが{間違|まちが}った{距離|きょり}で{迷|まよ}っている{間|あいだ}に、{俺|おれ}だけ{正|ただ}しい{地図|ちず}で——"
+        expression: thinking
+
+      - type: dialog
+        character: takumi
+        text: "でも——{縮尺|しゅくしゃく}の{計算|けいさん}をすれば{分|わ}かっちゃうんだな。2{倍|ばい}ずれていること{自体|じたい}が{証拠|しょうこ}になった。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: takumi
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "タクミは{一番|いちばん}になりたかった。その{気持|きもち}は{分|わ}かる。でも{他|ほか}の人を{騙|だま}して{勝|か}つのは{本当|ほんとう}の{勝利|しょうり}じゃない。{次|つぎ}は{自分|じぶん}の{力|ちから}で{勝負|しょうぶ}しよう。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{縮尺|しゅくしゃく}**。{地図|ちず}の1cm＝{実際|じっさい}の{何|なん}m？ 1:2000なら1cm＝20m。1:1000なら1cm＝10m。**{縮尺|しゅくしゃく}の{数字|すうじ}が{変|か}わると{計算|けいさん}{結果|けっか}が2{倍|ばい}{違|ちが}う**。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "そして{実際|じっさい}に{歩|ある}いた{距離|きょり}と{計算|けいさん}の{結果|けっか}を{比|くら}べたら{矛盾|むじゅん}が{見|み}つかった。**{地図|ちず}の{数字|すうじ}を{信|しん}じるだけでなく、{実際|じっさい}と{照|て}らし{合|あ}わせる**——これが{大事|だいじ}。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{縮尺|しゅくしゃく}は{地図|ちず}の{命|いのち}。1つの{数字|すうじ}が{変|か}わるだけで、{世界|せかい}が2{倍|ばい}に{広|ひろ}がったり{縮|ちぢ}んだりする。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{縮尺|しゅくしゃく}1:2000なら1cm=20m。1:1000なら1cm=10m。{数字|すうじ}が{変|か}わると{距離|きょり}が2{倍|ばい}{違|ちが}う。{地図|ちず}と{実際|じっさい}を{照|て}らし{合|あ}わせて{矛盾|むじゅん}を{見|み}つける。"
+
+      - type: narration
+        text: "——それが、{偽|にせ}の{宝|たから}の{地図|ちず}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

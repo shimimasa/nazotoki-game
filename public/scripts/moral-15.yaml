@@ -1,0 +1,519 @@
+meta:
+  id: moral-15
+  title: 転校生のお弁当
+  series: 答えのない法廷
+  volume: 15
+  estimatedMinutes: 20
+
+characters:
+  mana:
+    name: マナ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kei:
+    name: ケイ
+    color: "#E08040"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  aya:
+    name: アヤ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ryuu:
+    name: リュウ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ブラジルから来た{転校生|てんこうせい}のルカ。{最初|さいしょ}はみんなと{一緒|いっしょ}にお{弁当|べんとう}を{食|た}べていた。"
+
+      - type: narration
+        text: "でも{最近|さいきん}、ルカは1人で{食|た}べるようになった。"
+
+      - type: bgm
+        action: stop
+
+      - type: narration
+        text: "{先生|せんせい}が{理由|りゆう}を{聞|き}くと——"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ルカが{言|い}っていた。『お{弁当|べんとう}を「{変|へん}」って{言|い}われた。{笑|わら}われた』って。"
+        expression: worried
+
+      - type: dialog
+        character: sensei
+        text: "お{母|かあ}さんが{毎朝|まいあさ}{早|はや}く{起|お}きて{作|つく}ってくれるお{弁当|べんとう}。ブラジルの{料理|りょうり}。——{何|なに}があったんだろう？"
+        expression: thinking
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: mana
+            expression: surprised
+          - id: kei
+            expression: surprised
+          - id: aya
+            expression: worried
+          - id: ryuu
+            expression: thinking
+
+      - type: narration
+        text: "『{変|へん}』と{言|い}ったのは{誰|だれ}か、なぜか——4人の{探偵|たんてい}が{調|しら}べ{始|はじ}める。"
+
+      - type: sprite
+        character: mana
+        action: hide
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: aya
+        action: hide
+      - type: sprite
+        character: ryuu
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "答えのない法廷 Vol.15"
+        subtitle: "転校生のお弁当"
+
+  # ========================================
+  # 証拠カード1: ルカのお弁当
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "ルカのお{弁当|べんとう}の{中身|なかみ}を{見|み}てみよう。"
+
+      - type: narration
+        text: "フランゴ・ア・パッサリーニョ：{鶏肉|とりにく}の{唐揚|からあ}げ{風|ふう}。にんにくとレモン{味|あじ}。ブラジルで{大人気|だいにんき}のおかず。{日本|にほん}の{唐揚|からあ}げに{似|に}ている。"
+
+      - type: narration
+        text: "ファロッファ：キャッサバ{粉|こ}を{炒|いた}めたもの。パラパラした{黄色|きいろ}い{粉|こな}。ブラジルでは**{毎日|まいにち}{食|た}べる**。ごはんにかけるのが{定番|ていばん}。"
+
+      - type: narration
+        text: "フェジョアーダ{風|ふう}スープ：{黒豆|くろまめ}と{肉|にく}のスープ。{黒|くろ}い{色|いろ}。**ブラジルの{国民食|こくみんしょく}**。みんなが{好|す}きな{料理|りょうり}。"
+
+      - type: narration
+        text: "ルカのお{弁当|べんとう}は**ブラジルでは{完全|かんぜん}に{普通|ふつう}**。『{変|へん}』に{見|み}えるのは、{日本|にほん}では{見慣|みな}れないから。"
+
+  # ========================================
+  # 証拠カード2: お弁当タイムの出来事
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{水曜日|すいようび}のお{弁当|べんとう}タイムに何が{起|お}きたか。"
+
+      - type: sprite
+        character: mana
+        expression: surprised
+        position: left
+
+      - type: dialog
+        character: mana
+        text: "何それ？ {変|か}わったお{弁当|べんとう}だね。"
+        expression: surprised
+
+      - type: sprite
+        character: mana
+        action: hide
+
+      - type: sprite
+        character: kei
+        expression: happy
+        position: right
+
+      - type: dialog
+        character: kei
+        text: "{変|へん}なの！ あはは！"
+        expression: happy
+
+      - type: sprite
+        character: kei
+        action: hide
+
+      - type: narration
+        text: "ルカの{表情|ひょうじょう}が{曇|くも}った。{黙|だま}ってお{弁当|べんとう}を{食|た}べ{始|はじ}めた。{最後|さいご}まで{一言|ひとこと}も{話|はな}さなかった。"
+        speed: slow
+
+      - type: narration
+        text: "マナの『{変|か}わったお{弁当|べんとう}だね』は{興味|きょうみ}から{出|で}た{言葉|ことば}。ケイの『{変|へん}なの！』は{笑|わら}いを{誘|さそ}うため。——でもルカにとっては、お{母|かあ}さんが{作|つく}ってくれた{大切|たいせつ}なお{弁当|べんとう}を{笑|わら}われた。"
+
+  # ========================================
+  # 証拠カード3: ルカの気持ち
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "ルカが先生に{話|はな}したこと——"
+
+      - type: narration
+        text: "『お{弁当|べんとう}を「{変|へん}」って{言|い}われた。{笑|わら}われた。お{母|かあ}さんが{毎朝|まいあさ}{早|はや}く{起|お}きて{作|つく}ってくれるお{弁当|べんとう}。ブラジルにいたときは{友達|ともだち}も「おいしそう」って{言|い}ってくれた。{日本|にほん}では「{変|へん}」って{言|い}われた。』"
+        speed: slow
+
+      - type: narration
+        text: "『お{弁当|べんとう}を{持|も}ってくるのをやめたい。{給食|きゅうしょく}を{食|た}べたい。』"
+
+      - type: narration
+        text: "でもルカのお{母|かあ}さんにとって、お{弁当|べんとう}は**{愛情|あいじょう}の{表現|ひょうげん}**。ルカが『{給食|きゅうしょく}にしたい』と{言|い}ったら、お{母|かあ}さんは{悲|かな}しむかもしれない。ルカは{板挟|いたばさ}み。"
+
+  # ========================================
+  # 証拠カード4: 4つの視点
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: mana
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mana
+        text: "{珍|めずら}しいお{弁当|べんとう}を見て{素直|すなお}に{反応|はんのう}しただけ。{悪|わる}い{意味|いみ}じゃなかった。でもルカを{傷|きず}つけたらしい……。"
+        expression: worried
+
+      - type: sprite
+        character: mana
+        action: hide
+
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kei
+        text: "{面白|おもしろ}くて{笑|わら}っただけだよ。{場|ば}を{盛|も}り{上|あ}げようとした。からかうつもりはなかった。"
+        expression: worried
+
+      - type: sprite
+        character: kei
+        action: hide
+
+      - type: sprite
+        character: aya
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: aya
+        text: "ルカが{先生|せんせい}に「{給食|きゅうしょく}を{食|た}べたい」って{頼|たの}んだの、{知|し}ってる。ルカの{気持|きも}ち、{考|かんが}えるとつらい……。"
+        expression: worried
+
+      - type: sprite
+        character: aya
+        action: hide
+
+      - type: sprite
+        character: ryuu
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: ryuu
+        text: "{僕|ぼく}、アメリカに{住|す}んでいたとき、{日本|にほん}のお{弁当|べんとう}を「weird（ウィアード）」って{言|い}われた。{海苔|のり}が『{黒|くろ}い{紙|かみ}』に{見|み}えたんだって。{同|おな}じことなんだ。"
+        expression: determined
+
+      - type: sprite
+        character: ryuu
+        action: hide
+
+      - type: narration
+        text: "{全員|ぜんいん}に{悪意|あくい}はない。でもルカは{傷|きず}ついた。{悪意|あくい}がなくても人を{傷|きず}つけることがある。"
+
+  # ========================================
+  # 証拠カード5: 比較対照（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：比べてみよう"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "{日本|にほん}のお{弁当|べんとう}とブラジルのお{弁当|べんとう}を{並|なら}べてみよう。"
+
+      - type: narration
+        text: "{日本|にほん}：おにぎり、{卵焼|たまごや}き、{唐揚|からあ}げ、ウインナー\n→ {日本|にほん}では『{普通|ふつう}』\n→ アメリカでは『weird（{変|へん}）』"
+
+      - type: narration
+        text: "ブラジル：フランゴ、ファロッファ、フェジョアーダ、バナナ\n→ ブラジルでは『{普通|ふつう}』\n→ {日本|にほん}では『{変|へん}』"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "リュウがアメリカで：{日本|にほん}のお{弁当|べんとう}→「What's that? Weird!」\n{海苔|のり}が『{黒|くろ}い{紙|かみ}』に{見|み}えた。タコさんウインナーが『{気持|きも}ち{悪|わる}い』って。"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{同|おな}じ{構造|こうぞう}。『{知|し}らない』を『{変|へん}』と{感|かん}じるだけ。"
+        speed: slow
+
+      - type: narration
+        text: "『{変|へん}』→ {否定的|ひていてき}。『おかしい』『{間違|まちが}っている』\n『{違|ちが}う』→ {中立的|ちゅうりつてき}。『{別|べつ}の{種類|しゅるい}』『もう1つのやり{方|かた}』\n\n{言葉|ことば}を1つ{変|か}えるだけで、{印象|いんしょう}が{変|か}わる。"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：考えよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "マナが『{変|か}わったお{弁当|べんとう}だね』と{言|い}ったのは{悪|わる}いこと？"
+        feedback_default: "どちらにも{理由|りゆう}がある。{大事|だいじ}なのは『{悪|わる}いか{悪|わる}くないか』ではなく、『{相手|あいて}がどう{感|かん}じたか』に{気|き}づけるかどうか。"
+        options:
+          - text: "{悪|わる}い。{知|し}らない{文化|ぶんか}のものを『{変|へん}』と{言|い}うのは{相手|あいて}を{傷|きず}つける"
+            value: bad
+          - text: "{悪|わる}くない。{知|し}らないものに{驚|おどろ}くのは{自然|しぜん}。{悪意|あくい}はなかった"
+            value: not-bad
+          - text: "{言|い}い{方|かた}が{問題|もんだい}。『{変|へん}』じゃなく『{珍|めずら}しい』なら{違|ちが}った"
+            value: wording
+
+      - type: choice
+        id: q2
+        question: "ルカがお{弁当|べんとう}をやめたら{問題|もんだい}は{解決|かいけつ}する？"
+        feedback_default: "ルカがお{弁当|べんとう}をやめたら、お{母|かあ}さんの{愛情|あいじょう}を{拒否|きょひ}することになる。{問題|もんだい}は『お{弁当|べんとう}』ではなく『{受|う}け{入|い}れ{方|かた}』にある。"
+        options:
+          - text: "{解決|かいけつ}しない。{問題|もんだい}は{別|べつ}のところにある"
+            value: not-solved
+          - text: "{解決|かいけつ}する。{周|まわ}りに{合|あ}わせた{方|ほう}が{楽|らく}"
+            value: solved
+          - text: "{難|むずか}しい。ルカの{気持|きも}ちとお{母|かあ}さんの{気持|きも}ちがぶつかる"
+            value: dilemma
+
+      - type: choice
+        id: q3
+        question: "『{悪気|わるぎ}がなかった』は、{傷|きず}つけたことの{言|い}い{訳|わけ}になる？"
+        feedback_default: "{悪意|あくい}がなくても{相手|あいて}は{傷|きず}つく。{大事|だいじ}なのは『{悪気|わるぎ}がなかった』で{終|お}わらず、『{傷|きず}つけたこと}に{気|き}づいたらどうするか』。"
+        options:
+          - text: "ならない。{結果|けっか}として{傷|きず}つけたのは{事実|じじつ}"
+            value: no-excuse
+          - text: "なる。{悪意|あくい}がないなら{許|ゆる}すべき"
+            value: excuse
+          - text: "{言|い}い{訳|わけ}にはならないが、{悪意|あくい}がなかったことは{大事|だいじ}"
+            value: both-matter
+
+      - type: choice
+        id: q4
+        question: "{知|し}らないものを{見|み}て{驚|おどろ}いたとき、どんな{言葉|ことば}を{選|えら}べばいい？"
+        feedback_default: "『{変|へん}』ではなく『{初|はじ}めて{見|み}た！ どんな{味|あじ}？』。{興味|きょうみ}を{示|しめ}す{言葉|ことば}は{相手|あいて}を{尊重|そんちょう}する{言葉|ことば}。"
+        options:
+          - text: "『{初|はじ}めて{見|み}た！ どんな{味|あじ}？』（{興味|きょうみ}を{示|しめ}す）"
+            value: show-interest
+          - text: "『おいしそう！ {食|た}べてみたい』（{肯定|こうてい}する）"
+            value: affirm
+          - text: "{何|なに}も{言|い}わない（{余計|よけい}なことを{言|い}わない）"
+            value: stay-silent
+          - text: "『{違|ちが}うお{弁当|べんとう}だね』（{中立|ちゅうりつ}に{言|い}う）"
+            value: neutral
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: mana
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mana
+        text: "{実|じつ}は……あの{後|あと}、ルカに{話|はな}しかけようとしたの。でもルカが1人でいるのを{見|み}て、{何|なに}て{言|い}えばいいか{分|わ}からなくて……。"
+        expression: worried
+
+      - type: dialog
+        character: mana
+        text: "『{変|か}わったお{弁当|べんとう}だね』って{言|い}ったのは、{興味|きょうみ}があったからなの。{悪|わる}い{意味|いみ}じゃなかった。でも{言|い}い{方|かた}が{悪|わる}かった。ごめんね。"
+        expression: determined
+
+      - type: sprite
+        character: mana
+        action: hide
+
+      - type: sprite
+        character: kei
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kei
+        text: "{僕|ぼく}が『{変|へん}なの！』って{笑|わら}ったのが{一番|いちばん}{悪|わる}かった。{面白|おもしろ}がっただけだけど……ルカのお{母|かあ}さんが{作|つく}ったお{弁当|べんとう}を{笑|わら}ったんだ。"
+        expression: worried
+
+      - type: sprite
+        character: kei
+        action: hide
+
+      - type: sprite
+        character: ryuu
+        expression: determined
+        position: left
+
+      - type: dialog
+        character: ryuu
+        text: "{僕|ぼく}はアメリカで{同|おな}じ{経験|けいけん}をした。{日本|にほん}のお{弁当|べんとう}を『weird（{変|へん}）』って{言|い}われた。{海苔|のり}が『{黒|くろ}い{紙|かみ}』に{見|み}えたんだって。すごく{悲|かな}しかった。"
+        expression: determined
+
+      - type: dialog
+        character: ryuu
+        text: "あのとき{僕|ぼく}が{分|わ}かったのは——『{変|へん}』じゃない。『{違|ちが}う』だけ。{日本|にほん}のお{弁当|べんとう}もブラジルのお{弁当|べんとう}も、{同|おな}じ**お{母|かあ}さんの{愛情|あいじょう}**なんだ。"
+        expression: happy
+
+      - type: sprite
+        character: ryuu
+        action: hide
+
+  # ========================================
+  # 最後の問い
+  # ========================================
+  - id: final-question
+    steps:
+      - type: choice
+        id: q5
+        question: "ルカに{何|なに}て{声|こえ}をかける？"
+        feedback_default: "『{変|へん}』を『{違|ちが}う』に{変|か}えるだけで、{世界|せかい}は{変|か}わる。{知|し}らないものに{出会|であ}ったとき——{興味|きょうみ}を{持|も}つことが{最初|さいしょ}の{一歩|いっぽ}。"
+        options:
+          - text: "『ルカのお{弁当|べんとう}、{食|た}べてみたい！ {教|おし}えて？』"
+            value: interested
+          - text: "『ごめんね。{変|へん}って{言|い}ってごめん』"
+            value: apologize
+          - text: "『{明日|あした}、{一緒|いっしょ}にお{弁当|べんとう}{食|た}べよう』"
+            value: eat-together
+          - text: "{全部|ぜんぶ}{言|い}いたい"
+            value: all
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "この{事件|じけん}には{犯人|はんにん}はいません。マナもケイも{悪意|あくい}はなかった。でもルカは{傷|きず}ついた。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "『{変|へん}』じゃない。『{違|ちが}う』だけ。{日本|にほん}のお{弁当|べんとう}はブラジルでは{珍|めずら}しい。ブラジルのお{弁当|べんとう}は{日本|にほん}では{珍|めずら}しい。——{同|おな}じ{構造|こうぞう}。『{知|し}らない』を『{変|へん}』と{感|かん}じるだけ。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{知|し}らないものに{出会|であ}ったとき——{驚|おどろ}くのは{自然|しぜん}。でも{驚|おどろ}きを『{変|へん}』ではなく『{面白|おもしろ}い』に{変|か}える。その{小|ちい}さな{一歩|いっぽ}が、{異|こと}なる{文化|ぶんか}を{受|う}け{入|い}れる{最初|さいしょ}の{一歩|いっぽ}。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——ルカのお{弁当|べんとう}、{今度|こんど}みんなで{食|た}べてみない？ きっとおいしいよ。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "『{変|へん}』を『{違|ちが}う』に。『{知|し}らない』を『{知|し}りたい』に。{言葉|ことば}を1つ{変|か}えるだけで、{世界|せかい}は{変|か}わる。"
+
+      - type: narration
+        text: "——それが、{転校生|てんこうせい}のお{弁当|べんとう}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

@@ -1,0 +1,612 @@
+meta:
+  id: moral-08
+  title: いなくなったメダカと4つのいのちの話
+  series: 答えのない法廷
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  aoi:
+    name: アオイ
+    color: "#5B8FA8"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  hina:
+    name: ヒナ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  riku:
+    name: リク
+    color: "#E08040"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kenta:
+    name: ケンタ
+    color: "#4A8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}2{組|くみ}では、{教室|きょうしつ}の{窓際|まどぎわ}に{水槽|すいそう}を{置|お}いて、6{匹|ぴき}のメダカを{飼|か}っている。{去年|きょねん}の{理科|りか}の{授業|じゅぎょう}で{卵|たまご}からかえったメダカたち。"
+
+      - type: narration
+        text: "みんなで{名前|なまえ}をつけた。ヒカリ、ソラ、モモ、テン、ルナ、ココ。{毎日|まいにち}{交代|こうたい}で{餌|えさ}やりや{水替|みずか}えをしてきた。"
+
+      - type: narration
+        text: "ところが——{月曜日|げつようび}の{朝|あさ}。"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{水槽|すいそう}を見ると——メダカが**2{匹|ひき}**しかいない。4匹が「いなくなった」。"
+        speed: slow
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: dialog
+        character: sensei
+        text: "メダカが4匹いなくなっている……。{盗|ぬす}まれた？ {逃|に}げた？ それとも……。"
+        expression: worried
+
+      - type: dialog
+        character: sensei
+        text: "{大事|だいじ}なのは{犯人|はんにん}{探|さが}しじゃない。4匹のメダカに**{何|なに}があったか**を{知|し}ること。{調|しら}べてみよう。"
+        expression: thinking
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: aoi
+            expression: worried
+          - id: hina
+            expression: worried
+          - id: riku
+            expression: surprised
+          - id: kenta
+            expression: worried
+
+      - type: narration
+        text: "4人の{探偵|たんてい}が、メダカの{行方|ゆくえ}を{調|しら}べ{始|はじ}める——"
+
+      - type: sprite
+        character: aoi
+        action: hide
+      - type: sprite
+        character: hina
+        action: hide
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "答えのない法廷 Vol.8"
+        subtitle: "いなくなったメダカと4つのいのちの話"
+
+  # ========================================
+  # 証拠カード1: 水槽の現在の状態
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{水槽|すいそう}の{様子|ようす}を{詳|くわ}しく{調|しら}べてみよう。"
+
+      - type: narration
+        text: "メダカは2{匹|ひき}だけ（{元|もと}は6匹）。水が{白|しろ}く{濁|にご}っている。{底|そこ}に{食|た}べ{残|のこ}しの{餌|えさ}が{沈|しず}んでいる。"
+
+      - type: narration
+        text: "{蓋|ふた}が少しずれている。フィルターは{動|うご}いている。{水槽|すいそう}の{周|まわ}りに水の{跡|あと}はない。"
+
+      - type: narration
+        text: "水が{濁|にご}っていて、{餌|えさ}の{残|のこ}りが{多|おお}い。{餌|えさ}を{入|い}れすぎた？ そしてメダカが4匹いなくなったけど、{水槽|すいそう}の周りに{逃|に}げた{跡|あと}はない。どこに{行|い}った？"
+
+  # ========================================
+  # 証拠カード2: メダカの飼い方ガイド
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{理科|りか}の{教科書|きょうかしょ}にメダカの{飼|か}い{方|かた}が{載|の}っている。"
+
+      - type: narration
+        text: "{餌|えさ}やり：1日1{回|かい}、ひとつまみ{程度|ていど}。{入|い}れすぎると水が{汚|よご}れる。{食|た}べ{残|のこ}しは{水質|すいしつ}{悪化|あっか}の{原因|げんいん}。"
+
+      - type: narration
+        text: "{水替|みずか}え：1〜2{週間|しゅうかん}に1{回|かい}。{水槽|すいそう}の水を{全部|ぜんぶ}{替|か}えない（3{分|ぶん}の1ずつ）。カルキを{抜|ぬ}いた水を{使|つか}う。メダカを{別|べつ}の{容器|ようき}に{移|うつ}してから。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "メダカの{寿命|じゅみょう}：{飼育|しいく}で1〜2{年|ねん}。{学級|がっきゅう}のメダカは{去年|きょねん}の{春|はる}から{飼|か}っている（{約|やく}1年）。そろそろ{寿命|じゅみょう}の子もいるかも……。"
+
+  # ========================================
+  # 証拠カード3: 4人の土日の行動
+  # ========================================
+  - id: evidence-3
+    bg: hallway-sunset
+    steps:
+      - type: narration
+        text: "{土日|どにち}に4人はそれぞれ{学校|がっこう}に来ていた。何をしていた？"
+
+      - type: sprite
+        character: aoi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: aoi
+        text: "{土曜日|どようび}の{朝|あさ}8:30に{当番|とうばん}で来たよ。{水槽|すいそう}を{確認|かくにん}して、{餌|えさ}をやった。メダカが{何匹|なんびき}いたか……{正確|せいかく}には{覚|おぼ}えていない。"
+        expression: thinking
+
+      - type: sprite
+        character: aoi
+        action: hide
+
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hina
+        text: "{土曜日|どようび}の{午後|ごご}14:00ごろ、{忘|わす}れ物を{取|と}りに来たの。{水槽|すいそう}を見たら、メダカが{元気|げんき}がなくて{心配|しんぱい}だった。"
+        expression: worried
+
+      - type: sprite
+        character: hina
+        action: hide
+
+      - type: sprite
+        character: riku
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: riku
+        text: "{日曜日|にちようび}の{午前|ごぜん}10:00ごろ来た。水が{汚|よご}れていたから{掃除|そうじ}しようと{思|おも}ったんだ。帰るとき、メダカは3{匹|びき}いたと{思|おも}う。"
+        expression: normal
+
+      - type: sprite
+        character: riku
+        action: hide
+
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kenta
+        text: "{日曜日|にちようび}の{午後|ごご}14:00ごろ来た。{心配|しんぱい}で見に来ただけ。帰るとき、メダカは2{匹|ひき}だった……。"
+        expression: worried
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        text: "リクが来たとき3匹、ケンタが来たとき2匹。{日曜日|にちようび}の{午前|ごぜん}から{午後|ごご}の{間|あいだ}に、さらに1匹{減|へ}った？"
+
+  # ========================================
+  # 証拠カード4: 飼育記録ノート
+  # ========================================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: narration
+        text: "ケンタが書いている{飼育|しいく}{記録|きろく}ノートを見てみよう。"
+
+      - type: narration
+        text: "{水曜日|すいようび}：6匹{確認|かくにん}。{元気|げんき}。{餌|えさ}OK。\n{木曜日|もくようび}：6匹確認。元気。餌OK。\n{金曜日|きんようび}：6匹確認。少し元気がない？　{餌|えさ}→**{多|おお}めにあげた**。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{金曜日|きんようび}にケンタが「多めにあげた」と書いてある。{証拠|しょうこ}カード2の「{餌|えさ}を{入|い}れすぎると水が{汚|よご}れる」と{合|あ}わせると……水が{濁|にご}った{原因|げんいん}はこれ？"
+        speed: slow
+
+  # ========================================
+  # 反転フェーズ: 調査結果
+  # ========================================
+  - id: investigation
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：調査結果"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "4つの{場所|ばしょ}を{調|しら}べた{結果|けっか}が{出|で}た——"
+
+      - type: narration
+        text: "【{水槽|すいそう}の{底|そこ}】{餌|えさ}の{食|た}べ{残|のこ}しが{大量|たいりょう}に{沈|しず}んでいる。{通常|つうじょう}の3{倍|ばい}くらいの{量|りょう}。水が{白|しろ}く{濁|にご}った{原因|げんいん}はこれだ。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "【{校庭|こうてい}の{花壇|かだん}】{花壇|かだん}の{端|はし}に小さな{穴|あな}。{掘|ほ}ってみると——メダカが1匹、{埋|う}まっていた。すでに{死|し}んでいる。{丁寧|ていねい}に{埋|う}められている。{誰|だれ}かが『{弔|とむら}った』ように見える。"
+        speed: slow
+
+      - type: narration
+        text: "【{理科室|りかしつ}の{流|なが}し】{排水口|はいすいこう}のゴミ{受|う}けに、小さな{銀色|ぎんいろ}のウロコが1{枚|まい}。メダカの大きさの{跡|あと}。{流|なが}しの{周|まわ}りに少し水が{飛|と}んでいる。{慌|あわ}てて{何|なに}かした？"
+
+      - type: narration
+        text: "【{教室|きょうしつ}の{窓際|まどぎわ}】{水槽|すいそう}の{横|よこ}に{濡|ぬ}れた{紙|かみ}コップが1つ。コップの{中|なか}にほんの少し水が{残|のこ}っている。メダカを{入|い}れて{運|はこ}んだような{跡|あと}——"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "4匹のメダカは、それぞれ{別|べつ}の{場所|ばしょ}に——{別|べつ}の{理由|りゆう}で「いなくなった」。"
+        speed: slow
+
+  # ========================================
+  # 先生からの報告
+  # ========================================
+  - id: teacher-report
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "みんなの{調査|ちょうさ}{結果|けっか}を{聞|き}きました。先生からも1つ、{伝|つた}えたいことがあります。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{学級|がっきゅう}のメダカは{去年|きょねん}の{春|はる}から{飼|か}っています。{約|やく}1{年|ねん}。メダカの{寿命|じゅみょう}は1〜2年。そろそろ{寿命|じゅみょう}を{迎|むか}える子がいてもおかしくありません。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "{大事|だいじ}なのは{犯人|はんにん}を{探|さが}すことじゃない。4匹のメダカに何があったかを{知|し}って、『いのちを{大切|たいせつ}にするって何だろう？』を{考|かんが}えること。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "もし、メダカに{関|かか}わったことで{話|はな}したいことがある人は、{正直|しょうじき}に{話|はな}してほしい。{怒|おこ}りません。"
+        expression: normal
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：考えよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "4匹のメダカに何があった？ {一番|いちばん}{近|ちか}いと{思|おも}うものを{選|えら}ぼう"
+        feedback_default: "{証拠|しょうこ}を{振|ふ}り{返|かえ}って、4匹それぞれの『いなくなり{方|かた}』を{考|かんが}えてみよう。"
+        options:
+          - text: "{誰|だれ}かが{盗|ぬす}んだ"
+            value: stolen
+          - text: "それぞれ{別|べつ}の{理由|りゆう}でいなくなった"
+            value: different-reasons
+          - text: "{全部|ぜんぶ}{死|し}んでしまった"
+            value: all-dead
+          - text: "{分|わ}からない"
+            value: unsure
+
+      - type: narration
+        text: "では、次の{問|と}いを{考|かんが}えてみよう。"
+
+      - type: choice
+        id: q2
+        question: "ケンタが{餌|えさ}を{多|おお}めにあげたのは{悪|わる}いこと？"
+        feedback_default: "ケンタは「{元気|げんき}がないから{多|おお}めにあげよう」と{思|おも}った。{気持|きもち}はやさしい。でも{正|ただ}しい{知識|ちしき}がなかった——。"
+        options:
+          - text: "{悪|わる}い。{知|し}らなかったでは{済|す}まない"
+            value: bad
+          - text: "{悪|わる}くない。{知|し}らなかったのだから"
+            value: not-bad
+          - text: "{気持|きもち}はいいけど、{結果|けっか}は{悪|わる}い"
+            value: good-intent-bad-result
+
+      - type: choice
+        id: q3
+        question: "いのちを{大切|たいせつ}にするために、{気持|きもち}のほかに何が{必要|ひつよう}？"
+        feedback_default: "「{助|たす}けたい」という{気持|きもち}は{大切|たいせつ}。でもそれだけでは{足|た}りない。{正|ただ}しい{知識|ちしき}と、{相談|そうだん}する{勇気|ゆうき}も{必要|ひつよう}なんだ。"
+        options:
+          - text: "{正|ただ}しい{知識|ちしき}（{飼|か}い{方|かた}を{勉強|べんきょう}する）"
+            value: knowledge
+          - text: "{相談|そうだん}する{勇気|ゆうき}（1人で{決|き}めない）"
+            value: courage
+          - text: "{両方|りょうほう}{必要|ひつよう}"
+            value: both
+
+  # ========================================
+  # 真相 — アオイ
+  # ========================================
+  - id: truth-aoi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: aoi
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: aoi
+        text: "……{土曜日|どようび}の{朝|あさ}、{当番|とうばん}で来たとき。1匹のメダカが{水面|すいめん}に{浮|う}いて{死|し}んでいたの。"
+        expression: worried
+
+      - type: dialog
+        character: aoi
+        text: "すごく{悲|かな}しかった。みんなに{言|い}ったらもっと{悲|かな}しむと{思|おも}って……{校庭|こうてい}の{花壇|かだん}に小さな{穴|あな}を{掘|ほ}って、{埋|う}めたの。『ありがとう』って{言|い}いながら。"
+        expression: determined
+
+      - type: sprite
+        character: aoi
+        action: hide
+
+      - type: narration
+        text: "アオイのいのちへの{向|む}き{合|あ}い{方|かた}——「{命|いのち}が{終|お}わったとき、{静|しず}かに{見送|みおく}る」。{弔|とむら}う{気持|きもち}は{美|うつく}しい。でもみんなに{伝|つた}えなかったことで、{真相|しんそう}が{分|わ}からなくなった。"
+        speed: slow
+
+  # ========================================
+  # 真相 — ヒナ
+  # ========================================
+  - id: truth-hina
+    steps:
+      - type: sprite
+        character: hina
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hina
+        text: "……{土曜日|どようび}の{午後|ごご}、{忘|わす}れ物を{取|と}りに来たとき。メダカが{元気|げんき}がなくて、水が{濁|にご}っていたの。"
+        expression: worried
+
+      - type: dialog
+        character: hina
+        text: "『このままじゃ{死|し}んじゃう！』って{思|おも}って、{紙|かみ}コップに水と{一緒|いっしょ}に1匹を{入|い}れて、{家|いえ}に{持|も}ち{帰|かえ}ったの。"
+        expression: determined
+
+      - type: effect
+        name: flash
+
+      - type: dialog
+        character: hina
+        text: "そのメダカは——{今|いま}も{家|いえ}の{水槽|すいそう}で**{元気|げんき}に{泳|およ}いでいるよ！**"
+        expression: happy
+
+      - type: sprite
+        character: hina
+        action: hide
+
+      - type: narration
+        text: "ヒナのいのちへの向き合い方——「目の前の{命|いのち}を{何|なん}としても{助|たす}ける」。メダカは生きている！ でも、みんなのメダカを1人で{勝手|かって}に{連|つ}れ{出|だ}した。先生に{相談|そうだん}する{方法|ほうほう}もあったはず。"
+        speed: slow
+
+  # ========================================
+  # 真相 — リク
+  # ========================================
+  - id: truth-riku
+    steps:
+      - type: sprite
+        character: riku
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: riku
+        text: "……{日曜日|にちようび}の{午前|ごぜん}、水が{汚|よご}れていたから{掃除|そうじ}しようと{思|おも}ったんだ。でも先生に{相談|そうだん}しないで、1人でやっちゃった。"
+        expression: worried
+
+      - type: dialog
+        character: riku
+        text: "水を{流|なが}しに{捨|す}てている{途中|とちゅう}で、1匹のメダカが水と{一緒|いっしょ}にこぼれて……{排水口|はいすいこう}に{流|なが}されちゃったんだ。{慌|あわ}てて{捕|つか}まえようとしたけど、{間|ま}に{合|あ}わなかった。"
+        expression: worried
+
+      - type: sprite
+        character: riku
+        action: hide
+
+      - type: narration
+        text: "リクのいのちへの向き合い方——「{行動|こうどう}して{助|たす}けようとする」。でも{正|ただ}しい{知識|ちしき}がなかった。{水替|みずか}えの{方法|ほうほう}を{知|し}っていれば、{防|ふせ}げたかもしれない。"
+        speed: slow
+
+  # ========================================
+  # 真相 — ケンタ
+  # ========================================
+  - id: truth-kenta
+    steps:
+      - type: sprite
+        character: kenta
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: kenta
+        text: "……{日曜日|にちようび}の{午後|ごご}、{心配|しんぱい}で見に来たら、もう1匹が{浮|う}いて{死|し}んでいた。{僕|ぼく}が{金曜日|きんようび}に{餌|えさ}を{入|い}れすぎたせいだって{思|おも}った。"
+        expression: worried
+
+      - type: dialog
+        character: kenta
+        text: "パニックになって……{死|し}んだメダカをトイレに{流|なが}しちゃったんだ。{怖|こわ}くて、どうしていいか{分|わ}からなくて。"
+        expression: worried
+
+      - type: sprite
+        character: kenta
+        action: hide
+
+      - type: narration
+        text: "ケンタのいのちへの向き合い方——{自分|じぶん}の{失敗|しっぱい}に{向|む}き{合|あ}えず、{逃|に}げてしまった。でもケンタは「{元気|げんき}にしたい」と{思|おも}って{餌|えさ}をあげた。{気持|きもち}はやさしかった。{正|ただ}しい{知識|ちしき}があれば——。"
+        speed: slow
+
+  # ========================================
+  # 最後の問い
+  # ========================================
+  - id: final-question
+    bg: classroom
+    steps:
+      - type: narration
+        text: "4匹のメダカ。{死|し}んだ子、{助|たす}けられた子、{事故|じこ}で{流|なが}された子、{怖|こわ}くて{隠|かく}された子。「いなくなった」の{意味|いみ}は、全員{違|ちが}った。"
+
+      - type: choice
+        id: q4
+        question: "4人の{中|なか}で、メダカにとって{一番|いちばん}{良|よ}かったことをしたのは{誰|だれ}？"
+        feedback_default: "どの{考|かんが}え{方|かた}にも{理由|りゆう}がある。{大事|だいじ}なのは、『なぜそう{思|おも}うか』を{説明|せつめい}できること。"
+        options:
+          - text: "アオイ（{弔|とむら}ってあげた）"
+            value: aoi
+          - text: "ヒナ（1匹を{救|すく}った）"
+            value: hina
+          - text: "リク（{掃除|そうじ}しようとした）"
+            value: riku
+          - text: "ケンタ（{餌|えさ}をあげようとした）"
+            value: kenta
+          - text: "{誰|だれ}が{一番|いちばん}とは{言|い}えない"
+            value: no-best
+
+      - type: choice
+        id: q5
+        question: "いのちを{大切|たいせつ}にするって、どういうこと？"
+        feedback_default: "{気持|きもち}だけでは{命|いのち}は{守|まも}れない。{正|ただ}しい{知識|ちしき}と、{困|こま}ったときに{相談|そうだん}する{勇気|ゆうき}。そして{失敗|しっぱい}を{正直|しょうじき}に{伝|つた}えること。それが、いのちを{大切|たいせつ}にすること。"
+        options:
+          - text: "{正|ただ}しい{知識|ちしき}で{世話|せわ}をすること"
+            value: knowledge
+          - text: "{困|こま}ったら1人で{抱|かか}えず{相談|そうだん}すること"
+            value: ask-help
+          - text: "{失敗|しっぱい}しても{正直|しょうじき}に{伝|つた}えること"
+            value: honesty
+          - text: "{全部|ぜんぶ}{大事|だいじ}"
+            value: all
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "4人とも、メダカのことを{大切|たいせつ}に{思|おも}っていた。{誰|だれ}も{悪|わる}いことをしようとはしていなかった。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "でもね——「{助|たす}けたい」「{元気|げんき}にしたい」という{気持|きもち}だけでは、{命|いのち}は{守|まも}れないことがある。{正|ただ}しい{知識|ちしき}がないと、{逆|ぎゃく}に{命|いのち}を{危|あや}うくしてしまうこともあるんだ。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "そして、{困|こま}ったとき、{失敗|しっぱい}したとき——1人で{抱|かか}えないこと。{正直|しょうじき}に{伝|つた}えること。{相談|そうだん}すること。それが{命|いのち}を{守|まも}ることにつながるんだよ。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "ヒナの{家|いえ}のメダカは——{今|いま}も{元気|げんき}に{泳|およ}いでいます。みんなで{迎|むか}えに{行|い}こう。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{命|いのち}はひとつしかない。{取|と}り{返|かえ}しがつかない。だから——{気持|きもち}だけでなく、{知識|ちしき}と{勇気|ゆうき}で{守|まも}ろう。"
+
+      - type: narration
+        text: "——それが、4匹のメダカが{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

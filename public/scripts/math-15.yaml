@@ -1,0 +1,407 @@
+meta:
+  id: math-15
+  title: 時計が止まった教室
+  series: 数字の迷宮
+  volume: 15
+  estimatedMinutes: 20
+
+characters:
+  mizuki:
+    name: ミズキ
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  hinata:
+    name: ヒナタ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "お{昼休|ひるやす}みが{終|お}わって{教室|きょうしつ}に{戻|もど}ると——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "かべの{大|おお}きな{時計|とけい}が**{止|と}まっている**！ そして——{飼育|しいく}{委員|いいん}が{大切|たいせつ}に{育|そだ}てていたカブトムシの{飼育|しいく}ケースが、{理科室|りかしつ}から{音楽室|おんがくしつ}に{動|うご}かされていた！"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{時計|とけい}が{止|と}まったのは**12{時|じ}51{分|ふん}**。カブトムシのケースを{運|はこ}ぶとき、{時計|とけい}のコードにぶつかったのかも。4人の{行動|こうどう}を{時間|じかん}の{計算|けいさん}で{確|たし}かめよう。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: mizuki
+            expression: normal
+          - id: koharu
+            expression: surprised
+          - id: hinata
+            expression: normal
+          - id: sora
+            expression: thinking
+
+      - type: narration
+        text: "{時刻|じこく}と{時間|じかん}の{計算|けいさん}でアリバイを{検証|けんしょう}して{犯人|はんにん}を{見|み}つけ{出|だ}せ！"
+
+      - type: sprite
+        character: mizuki
+        action: hide
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.15"
+        subtitle: "時計が止まった教室"
+
+  # ========================================
+  # 証拠1: 学校の地図と移動時間
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{学校|がっこう}の{地図|ちず}と{移動|いどう}{時間|じかん}を{確認|かくにん}しよう。どこに{行|い}くにも**{教室|きょうしつ}を{通|とお}る**。"
+
+      - type: narration
+        text: "{教室|きょうしつ}→{校庭|こうてい}：**5{分|ふん}**\n{教室|きょうしつ}→{図書室|としょしつ}：**3{分|ふん}**\n{教室|きょうしつ}→{理科室|りかしつ}：**4{分|ふん}**\n{教室|きょうしつ}→{音楽室|おんがくしつ}：**6{分|ふん}**"
+
+      - type: narration
+        text: "{校庭|こうてい}→{理科室|りかしつ}：5+4=**9{分|ふん}**\n{理科室|りかしつ}→{音楽室|おんがくしつ}：4+6=**10{分|ふん}**\n{校庭|こうてい}→{音楽室|おんがくしつ}：5+6=**11{分|ふん}**"
+
+  # ========================================
+  # 証拠2: みんなの行動きろく
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "お{昼休|ひるやす}みの{間|あいだ}、4人はどこにいた？"
+
+      - type: sprite
+        character: mizuki
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: mizuki
+        text: "12:32から12:58までずっと{図書室|としょしつ}にいたよ。{田中|たなか}先生がずっと{一緒|いっしょ}だった。"
+        expression: normal
+
+      - type: sprite
+        character: mizuki
+        action: hide
+
+      - type: narration
+        text: "ミズキの{空白|くうはく}{時間|じかん}：**0{分|ふん}**（ずっと{見|み}られていた）"
+
+      - type: sprite
+        character: koharu
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: koharu
+        text: "12:30から12:48まで{校庭|こうてい}でなわとび。12:48に{出|で}て、12:58に{戻|もど}った。"
+        expression: normal
+
+      - type: sprite
+        character: koharu
+        action: hide
+
+      - type: narration
+        text: "コハルの{空白|くうはく}{時間|じかん}：12:48〜12:58 = **10{分|ふん}**"
+
+      - type: sprite
+        character: hinata
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: hinata
+        text: "12:30から12:35まで{校庭|こうてい}でサッカー。12:35に{出|で}て……{校舎|こうしゃ}の{中|なか}にいた。"
+        expression: normal
+
+      - type: sprite
+        character: hinata
+        action: hide
+
+      - type: narration
+        text: "ヒナタの{空白|くうはく}{時間|じかん}：12:35〜13:05 = **30{分|ふん}**！ {誰|だれ}にも{見|み}られていない。"
+
+      - type: sprite
+        character: sora
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: sora
+        text: "12:30から12:42まで{教室|きょうしつ}でお{絵|え}かき。12:42に{出|で}て、12:52に{戻|もど}った。"
+        expression: normal
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: narration
+        text: "ソラの{空白|くうはく}{時間|じかん}：12:42〜12:52 = **10{分|ふん}**"
+
+  # ========================================
+  # 証拠3: 時計の情報+犯行ルート計算
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{時計|とけい}は**12{時|じ}51{分|ふん}**に{止|と}まった。コードが{引|ひ}っぱられた{跡|あと}がある。{大|おお}きなものをかべのそばで{動|うご}かしたら、コードにぶつかりそう。"
+
+      - type: narration
+        text: "{飼育|しいく}ケースは{大|おお}きくて{重|おも}い（{両手|りょうて}で{持|も}つ）。{理科室|りかしつ}から{音楽室|おんがくしつ}に{運|はこ}ぶには**{教室|きょうしつ}を{通|とお}る**。{時計|とけい}は{入口|いりぐち}のすぐそば。"
+
+      - type: narration
+        text: "{犯行|はんこう}ルートの{計算|けいさん}。**{校庭|こうてい}スタート（ルートA）**: {校庭|こうてい}→{教室|きょうしつ}5分 + {教室|きょうしつ}→{理科室|りかしつ}4分 + {準備|じゅんび}3分 + {理科室|りかしつ}→{教室|きょうしつ}4分 + {教室|きょうしつ}→{音楽室|おんがくしつ}6分 + {片付|かたづ}け2分 = **{合計|ごうけい}24{分|ふん}**"
+
+      - type: narration
+        text: "**{教室|きょうしつ}スタート（ルートB）**: {教室|きょうしつ}→{理科室|りかしつ}4分 + {準備|じゅんび}3分 + {理科室|りかしつ}→{教室|きょうしつ}4分 + {教室|きょうしつ}→{音楽室|おんがくしつ}6分 + {片付|かたづ}け2分 = **{合計|ごうけい}19{分|ふん}**"
+
+  # ========================================
+  # 証拠4: アリバイ計算（反転フェーズ）
+  # ========================================
+  - id: evidence-4
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：アリバイを計算で検証"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "{全員|ぜんいん}の{空白|くうはく}{時間|じかん}と{必要|ひつよう}{時間|じかん}を{比|くら}べよう！"
+
+      - type: narration
+        text: "ミズキ：{空白|くうはく}0{分|ふん} → {犯行|はんこう}{不可能|ふかのう} ❌\nコハル：{空白|くうはく}10{分|ふん}、{校庭|こうてい}スタート（ルートA=24{分|ふん}{必要|ひつよう}）→ 10<24 → {犯行|はんこう}{不可能|ふかのう} ❌"
+
+      - type: narration
+        text: "ソラ：{空白|くうはく}10{分|ふん}、{教室|きょうしつ}スタート（ルートB=19{分|ふん}{必要|ひつよう}）→ 10<19 → {犯行|はんこう}{不可能|ふかのう} ❌"
+
+      - type: effect
+        name: flash
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**ヒナタ：{空白|くうはく}30{分|ふん}、{校庭|こうてい}スタート（ルートA=24{分|ふん}{必要|ひつよう}）→ 30>24 → {犯行|はんこう}{可能|かのう}！ ✅**"
+        speed: slow
+
+      - type: narration
+        text: "ヒナタだけが{空白|くうはく}{時間|じかん}（30{分|ふん}）が{犯行|はんこう}ルート（24{分|ふん}）より{長|なが}い。{時間|じかん}の{計算|けいさん}で{犯人|はんにん}が{特定|とくてい}された！"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{飼育|しいく}ケースを{運|はこ}んだ{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "ミズキ（{空白|くうはく}0{分|ふん}）"
+            value: mizuki
+            feedback: "ミズキは{図書室|としょしつ}で{田中|たなか}先生とずっと{一緒|いっしょ}。{空白|くうはく}{時間|じかん}0{分|ふん}。{犯行|はんこう}は{不可能|ふかのう}。"
+          - text: "コハル（{空白|くうはく}10{分|ふん}）"
+            value: koharu
+            feedback: "コハルの{空白|くうはく}は10{分|ふん}。{校庭|こうてい}スタートのルートAは24{分|ふん}{必要|ひつよう}。10<24で{時間|じかん}が{足|た}りない。"
+          - text: "ヒナタ（{空白|くうはく}30{分|ふん}）"
+            value: hinata
+            correct: true
+            feedback: "{正解|せいかい}！ ヒナタの{空白|くうはく}は**30{分|ふん}**。{犯行|はんこう}ルート（{校庭|こうてい}→{理科室|りかしつ}→{音楽室|おんがくしつ}）は24{分|ふん}。**30>24で{犯行|はんこう}{可能|かのう}**！ {時間|じかん}の{計算|けいさん}でアリバイを{崩|くず}した！"
+          - text: "ソラ（{空白|くうはく}10{分|ふん}）"
+            value: sora
+            feedback: "ソラの{空白|くうはく}は10{分|ふん}。{教室|きょうしつ}スタートのルートBでも19{分|ふん}{必要|ひつよう}。10<19で{時間|じかん}が{足|た}りない。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "ヒナタの{空白|くうはく}{時間|じかん}が{一番|いちばん}{長|なが}い"
+            value: longest-gap
+            feedback: "{空白|くうはく}が{長|なが}いのは{確|たし}か。でも{大事|だいじ}なのは『{犯行|はんこう}ルートの{時間|じかん}と{比|くら}べて{足|た}りるか』の{計算|けいさん}。"
+          - text: "{空白|くうはく}30{分|ふん} > {犯行|はんこう}ルート24{分|ふん}で、ヒナタだけが{犯行|はんこう}{可能|かのう}"
+            value: time-calc
+            correct: true
+            feedback: "{完璧|かんぺき}！ {空白|くうはく}{時間|じかん}と{犯行|はんこう}{所要|しょよう}{時間|じかん}を{計算|けいさん}して{比|くら}べた。30>24でヒナタだけが{時間的|じかんてき}に{可能|かのう}。{時刻|じこく}と{時間|じかん}の{計算|けいさん}で{犯人|はんにん}を{追|お}い{詰|つ}めた！"
+          - text: "{時計|とけい}が12:51に{止|と}まった"
+            value: clock-time
+            feedback: "12:51は{重要|じゅうよう}な{手|て}がかり。でもそれだけでは{犯人|はんにん}を{特定|とくてい}できない。{移動|いどう}{時間|じかん}の{計算|けいさん}と{合|あ}わせよう。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hinata
+        text: "……{僕|ぼく}がやった。カブトムシの{飼育|しいく}ケースを{理科室|りかしつ}から{音楽室|おんがくしつ}に{運|はこ}んだ。"
+        expression: worried
+
+      - type: dialog
+        character: hinata
+        text: "{理科室|りかしつ}の{直射日光|ちょくしゃにっこう}でカブトムシが{弱|よわ}っていたんだ。先生に{何度|なんど}も『{場所|ばしょ}を{変|か}えてください』って{頼|たの}んだけど、『{来週|らいしゅう}やるね』って。でもカブトムシは{来週|らいしゅう}まで{待|ま}てないかもしれない。"
+        expression: determined
+
+      - type: dialog
+        character: hinata
+        text: "{教室|きょうしつ}を{通|とお}ったとき、ケースが{時計|とけい}のコードにぶつかって{止|と}まっちゃった。ごめんなさい。でも……カブトムシを{守|まも}りたかったんだ。"
+        expression: worried
+
+      - type: sprite
+        character: hinata
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ヒナタはカブトムシを{守|まも}りたかった。その{気持|きもち}は{正|ただ}しい。でも{勝手|かって}に{動|うご}かすのではなく、もう{一度|いちど}{先生|せんせい}に{伝|つた}える{方法|ほうほう}もあったね。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{時刻|じこく}と{時間|じかん}の{計算|けいさん}**。『12:35から30{分|ぷん}{後|ご}は{何時|なんじ}{何分|なんぷん}？』『12:48から12:58まで{何分間|なんぷんかん}？』"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{空白|くうはく}{時間|じかん}と{犯行|はんこう}{所要|しょよう}{時間|じかん}を{計算|けいさん}して{比|くら}べる。{時間|じかん}が{足|た}りない人は{犯人|はんにん}ではない。{時間|じかん}が{足|た}りるのはヒナタだけだった。**{時間|じかん}の{計算|けいさん}でアリバイを{崩|くず}した！**"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{時計|とけい}は{止|と}まっても、{時間|じかん}は{止|と}まらない。{時間|じかん}の{計算|けいさん}は{最強|さいきょう}のアリバイ{検証|けんしょう}ツールだ。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{空白|くうはく}{時間|じかん}と{犯行|はんこう}{所要|しょよう}{時間|じかん}を{比|くら}べる。{時間|じかん}が{足|た}りるのは{誰|だれ}だけか——{時刻|じこく}と{時間|じかん}の{計算|けいさん}が{犯人|はんにん}を{暴|あば}く。"
+
+      - type: narration
+        text: "——それが、{止|と}まった{時計|とけい}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

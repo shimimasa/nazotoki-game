@@ -1,0 +1,555 @@
+meta:
+  id: moral-10
+  title: かばった嘘と4つの選択
+  series: 答えのない法廷
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  yuri:
+    name: ユリ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kouta:
+    name: コウタ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  aya:
+    name: アヤ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  haruto:
+    name: ハルト
+    color: "#E08040"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{昼休|ひるやす}み、{廊下|ろうか}のロッカーのドアが{壊|こわ}れた。"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: narration
+        text: "先生が{調|しら}べようとしたら——"
+
+      - type: sprite
+        character: haruto
+        expression: determined
+        position: center
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: dialog
+        character: haruto
+        text: "先生、{僕|ぼく}がやりました。{荷物|にもつ}を{取|と}ろうとしてドアを{引|ひ}っ{張|ぱ}ったら{外|はず}れました。{事故|じこ}です。わざとじゃありません。"
+        expression: determined
+
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ハルトが{名乗|なの}り{出|で}た。でも……{証言|しょうげん}が少しずつ{食|く}い{違|ちが}い{始|はじ}めている。"
+        expression: thinking
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: yuri
+            expression: worried
+          - id: kouta
+            expression: thinking
+          - id: aya
+            expression: worried
+          - id: haruto
+            expression: normal
+
+      - type: narration
+        text: "ハルトはなぜ{自分|じぶん}がやったと{言|い}ったのか？ 4人の『{選択|せんたく}』が{交|まじ}わる——"
+
+      - type: sprite
+        character: yuri
+        action: hide
+      - type: sprite
+        character: kouta
+        action: hide
+      - type: sprite
+        character: aya
+        action: hide
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "答えのない法廷 Vol.10"
+        subtitle: "かばった嘘と4つの選択"
+
+  # ========================================
+  # 証拠カード1: 見取り図とタイムライン
+  # ========================================
+  - id: evidence-1
+    bg: hallway-sunset
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{廊下|ろうか}の{見取|みと}り{図|ず}と{昼休|ひるやす}みのタイムライン。"
+
+      - type: narration
+        text: "12:20 {昼休|ひるやす}み{開始|かいし}\n12:30ごろ ロッカーの{音|おと}がした（{推定|すいてい}）\n12:50 昼休み{終了|しゅうりょう}\n13:00 先生がロッカーの{破損|はそん}に{気|き}づく。ハルトが{名乗|なの}り出た"
+
+      - type: narration
+        text: "ユリ：{廊下|ろうか}にいた。{詳|くわ}しくは{話|はな}さない。\nコウタ：{図書室|としょしつ}にいた（{司書|ししょ}の先生が{確認|かくにん}）。\nアヤ：廊下を{歩|ある}いていた。\nハルト：『廊下でロッカーを{壊|こわ}した』と{主張|しゅちょう}。"
+
+  # ========================================
+  # 証拠カード2: ロッカーの壊れ方
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "ロッカーの{壊|こわ}れ{方|かた}を{調|しら}べてみよう。"
+
+      - type: narration
+        text: "{壊|こわ}れた{部分|ぶぶん}：ドアの{上部|じょうぶ}のヒンジ（つがい）が{取|と}れた。ヒンジのネジが{古|ふる}くなっていた（{経年|けいねん}{劣化|れっか}）。『{強|つよ}く{引|ひ}っ{張|ぱ}る{力|ちから}』が{加|くわ}わった{時|とき}に{外|はず}れやすい{状態|じょうたい}だった。"
+
+      - type: narration
+        text: "このロッカーは{以前|いぜん}から『{開|あ}きにくい』と{報告|ほうこく}が上がっていた。{意図的|いとてき}に{壊|こわ}す{力|ちから}と、{荷物|にもつ}を{出|だ}そうとして{引|ひ}っ{張|ぱ}る力——どちらがこの壊れ方に{近|ちか}い？"
+
+  # ========================================
+  # 証拠カード3: ハルトの証言メモ
+  # ========================================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruto
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: haruto
+        text: "12:30ごろ、{廊下|ろうか}のロッカーの{前|まえ}に{行|い}った。{自分|じぶん}の{荷物|にもつ}を{取|と}ろうとして、ドアを{引|ひ}っ{張|ぱ}ったら{外|はず}れた。びっくりしたけど、{事故|じこ}だった。"
+        expression: normal
+
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: sprite
+        character: kouta
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: kouta
+        text: "でも{僕|ぼく}、12:35ごろに{廊下|ろうか}の{端|はし}でハルトを{見|み}かけたんだ。A{教室|きょうしつ}{前|まえ}からは少し{離|はな}れた{場所|ばしょ}で。"
+        expression: thinking
+
+      - type: sprite
+        character: kouta
+        action: hide
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ハルトが『12:30ごろにロッカーの前にいた』と{言|い}い、コウタが『12:35ごろに{別|べつ}の{場所|ばしょ}でハルトを見た』とすると——{時間|じかん}の{辻褄|つじつま}が{合|あ}わない？"
+
+  # ========================================
+  # 証拠カード4: 4人の証言まとめ
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: yuri
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: yuri
+        text: "{昼休|ひるやす}みは{廊下|ろうか}にいた。ハルトが{悪|わる}いわけじゃない、とだけ{言|い}える。"
+        expression: worried
+
+      - type: sprite
+        character: yuri
+        action: hide
+
+      - type: sprite
+        character: aya
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: aya
+        text: "{廊下|ろうか}を{歩|ある}いていた。何か{物音|ものおと}がした{気|き}がした。でも……"
+        expression: worried
+
+      - type: sprite
+        character: aya
+        action: hide
+
+      - type: narration
+        text: "ユリの『ハルトが{悪|わる}いわけじゃない』——ハルトをかばっている？ アヤの『でも……』と{止|と}まった{言葉|ことば}——{何|なに}かを言いたいのに言えない？"
+
+      - type: narration
+        text: "そしてもうひとつ。ハルトが{名乗|なの}り{出|で}てから、クラスの{中|なか}でハルトの{評判|ひょうばん}が{変|か}わり{始|はじ}めた。『ハルトって{乱暴|らんぼう}なんだ』『{物|もの}を{壊|こわ}す子には{近|ちか}づかない{方|ほう}がいい』——{噂|うわさ}が{広|ひろ}がっている。"
+        speed: slow
+
+  # ========================================
+  # 証拠カード5: アヤのメモ（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：新たな証拠"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: aya
+        expression: determined
+        position: center
+
+      - type: dialog
+        character: aya
+        text: "……やっぱり{言|い}うね。{私|わたし}、{昼休|ひるやす}みにメモを{取|と}っていたの。"
+        expression: determined
+
+      - type: sprite
+        character: aya
+        action: hide
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "アヤのメモ（12:30ごろ）：\n『{廊下|ろうか}を{歩|ある}いていたら、A{教室|きょうしつ}{前|まえ}で**ユリ**がロッカーを{引|ひ}っ{張|ぱ}っているのが{見|み}えた。（少し{離|はな}れた{場所|ばしょ}から）』"
+        speed: slow
+
+      - type: narration
+        text: "『その{直後|ちょくご}に「ガタン！」という{音|おと}。{振|ふ}り{返|かえ}るとユリが{立|た}ちすくんでいた。その{後|あと}、ハルトが{廊下|ろうか}を{歩|ある}いてきてユリと{話|はな}した。2人が話した{後|あと}、ハルトが先生の{方|ほう}へ歩いていった。』"
+        speed: slow
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{実際|じっさい}にロッカーを{壊|こわ}した{人物|じんぶつ}と、{名乗|なの}り{出|で}た{人物|じんぶつ}は——{同|おな}じ？ {違|ちが}う？"
+
+      - type: narration
+        text: "もし{違|ちが}うとしたら、なぜハルトは『{自分|じぶん}がやった』と{言|い}ったのだろう？ そして——ハルトの{嘘|うそ}で**{守|まも}られた**のは{誰|だれ}？ **{傷|きず}ついた**のは{誰|だれ}？"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：考えよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "ロッカーを{壊|こわ}したのは{誰|だれ}？"
+        feedback_default: "{証拠|しょうこ}を{組|く}み{合|あ}わせて{考|かんが}えてみよう。アヤのメモ、コウタの{目撃|もくげき}、ユリの{言葉|ことば}。"
+        options:
+          - text: "ユリ（アヤのメモが{証拠|しょうこ}）"
+            value: yuri
+            correct: true
+            feedback: "そのとおり。ユリが{荷物|にもつ}を{取|と}ろうとしてドアを{引|ひ}っ{張|ぱ}り、{古|ふる}いヒンジが{外|はず}れた{事故|じこ}だった。ハルトはユリをかばって{名乗|なの}り{出|で}たんだ。"
+          - text: "ハルト（{本人|ほんにん}が{言|い}っている）"
+            value: haruto
+            feedback: "ハルトは{自分|じぶん}がやったと{言|い}っている。でもコウタの{目撃|もくげき}やアヤのメモと{矛盾|むじゅん}がある。もう{一度|いちど}{考|かんが}えてみよう。"
+          - text: "{分|わ}からない"
+            value: unsure
+            feedback: "{証拠|しょうこ}をもう一度{整理|せいり}してみよう。アヤが見たのは{誰|だれ}？ コウタが見たのは？"
+
+      - type: narration
+        text: "では、もっと{大事|だいじ}な{問|と}いを{考|かんが}えよう。"
+
+      - type: choice
+        id: q2
+        question: "ハルトの『かばった{嘘|うそ}』は{正|ただ}しかった？"
+        feedback_default: "ハルトの{嘘|うそ}はユリを{守|まも}った。でも{同時|どうじ}に、ハルト{自身|じしん}が『{乱暴|らんぼう}な子』と{誤解|ごかい}される{被害|ひがい}を{受|う}けた。{嘘|うそ}は『{守|まも}る人』と『{傷|きず}つく人』を{同時|どうじ}に{生|う}む。"
+        options:
+          - text: "{正|ただ}しい。{友達|ともだち}を{守|まも}ることは{大切|たいせつ}"
+            value: correct-lie
+          - text: "{正|ただ}しくない。{嘘|うそ}は{嘘|うそ}"
+            value: lie-is-lie
+          - text: "{気持|きもち}は{分|わ}かるけど、{結果|けっか}が{悪|わる}い"
+            value: good-intent-bad-result
+
+      - type: choice
+        id: q3
+        question: "ユリはどうするべきだった？"
+        feedback_default: "{怖|こわ}いのに{正直|しょうじき}に{話|はな}すことが『{勇気|ゆうき}』。{正直|しょうじき}に{話|はな}すことは、{相手|あいて}を{信頼|しんらい}する{行動|こうどう}でもあるんだ。"
+        options:
+          - text: "ハルトの{申|もう}し{出|で}を{断|ことわ}って、{自分|じぶん}で先生に{言|い}う"
+            value: refuse-and-confess
+          - text: "{黙|だま}っていてよかった。ハルトの{気持|きもち}を{無駄|むだ}にしたくない"
+            value: stay-silent
+          - text: "{後|あと}からでも{正直|しょうじき}に{話|はな}すべき"
+            value: confess-later
+
+      - type: choice
+        id: q4
+        question: "{嘘|うそ}をつく{前|まえ}に{考|かんが}えるべきことは何？"
+        feedback_default: "{嘘|うそ}は{誰|だれ}かを{守|まも}ると{同時|どうじ}に、{別|べつ}の{誰|だれ}かを{傷|きず}つけることがある。{今回|こんかい}、{傷|きず}ついたのはハルト{自身|じしん}だった。"
+        options:
+          - text: "この{嘘|うそ}で{守|まも}られるのは{誰|だれ}か"
+            value: who-protected
+          - text: "この{嘘|うそ}で{傷|きず}つくのは{誰|だれ}か"
+            value: who-hurt
+          - text: "{嘘|うそ}をつかずに{守|まも}る{方法|ほうほう}はないか"
+            value: alternative
+          - text: "{全部|ぜんぶ}{考|かんが}えるべき"
+            value: all
+
+  # ========================================
+  # 真相 — ユリの告白
+  # ========================================
+  - id: truth-yuri
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: yuri
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: yuri
+        text: "……{本当|ほんとう}のことを{言|い}います。ロッカーを{壊|こわ}したのは、{私|わたし}です。"
+        expression: worried
+
+      - type: dialog
+        character: yuri
+        text: "{荷物|にもつ}を{取|と}ろうとしてドアを{強|つよ}く{引|ひ}っ{張|ぱ}ったら、ヒンジが{外|はず}れちゃったの。{事故|じこ}だった。でも{怖|こわ}くて……。"
+        expression: worried
+
+      - type: dialog
+        character: yuri
+        text: "ハルトが来て、『{自分|じぶん}がやったことにしてあげる』って{言|い}ってくれた。{断|ことわ}ろうとしたけど、先生に{怒|おこ}られるのが{怖|こわ}くて……{受|う}け{入|い}れちゃった。"
+        expression: thinking
+
+      - type: dialog
+        character: yuri
+        text: "ハルトの{気持|きもち}はうれしかった。でもずっと——{後|うし}ろめたかった。ハルトが『{乱暴|らんぼう}な子』って{言|い}われているのも{知|し}っていた。{私|わたし}のせいで……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: yuri
+        action: hide
+
+  # ========================================
+  # 真相 — ハルトの選択
+  # ========================================
+  - id: truth-haruto
+    steps:
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: haruto
+        text: "ユリが{泣|な}きそうだったんだ。{壊|こわ}しちゃって、どうしようって{震|ふる}えていた。だから{僕|ぼく}が代わりに{言|い}えばいいと{思|おも}った。"
+        expression: thinking
+
+      - type: dialog
+        character: haruto
+        text: "みんなに『{乱暴|らんぼう}な子』って{思|おも}われたのは……{正直|しょうじき}、つらかった。でもユリが{怒|おこ}られるよりいいと{思|おも}った。"
+        expression: worried
+
+      - type: dialog
+        character: haruto
+        text: "……でも、{本当|ほんとう}はもっといい{方法|ほうほう}があったのかもしれない。{一緒|いっしょ}に先生に{話|はな}しに{行|い}くとか。"
+        expression: determined
+
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: narration
+        text: "ハルトの{嘘|うそ}はユリを{守|まも}った。でも{同時|どうじ}に、ハルト{自身|じしん}が{傷|きず}ついた。やさしさから{生|う}まれた{嘘|うそ}。それでも——{嘘|うそ}は{嘘|うそ}。"
+        speed: slow
+
+  # ========================================
+  # コウタとアヤの選択
+  # ========================================
+  - id: truth-others
+    steps:
+      - type: sprite
+        character: kouta
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: kouta
+        text: "{僕|ぼく}はハルトが{嘘|うそ}をついていると{思|おも}っていた。{時間|じかん}が{合|あ}わなかったから。でも{友達|ともだち}を{追|お}い{詰|つ}めるのは——{嫌|いや}だった。"
+        expression: thinking
+
+      - type: sprite
+        character: kouta
+        action: hide
+
+      - type: sprite
+        character: aya
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: aya
+        text: "{私|わたし}は見ていた。でも『{気|き}のせいかも』って{思|おも}って{黙|だま}っていた。{結局|けっきょく}、{黙|だま}っていたことでハルトが{傷|きず}ついた。"
+        expression: worried
+
+      - type: sprite
+        character: aya
+        action: hide
+
+      - type: narration
+        text: "かばう。{黙|だま}る。{疑|うたが}う。{告白|こくはく}する——4人の{選択|せんたく}が{交|まじ}わった{結果|けっか}、{誰|だれ}も{望|のぞ}まなかった{結末|けつまつ}が{生|う}まれた。"
+
+  # ========================================
+  # 最後の問い
+  # ========================================
+  - id: final-question
+    steps:
+      - type: choice
+        id: q5
+        question: "もしあなたがユリの{立場|たちば}だったら、ハルトの{申|もう}し{出|で}を{受|う}け{入|い}れる？"
+        feedback_default: "{怖|こわ}いのは{当然|とうぜん}。でも{正直|しょうじき}に{話|はな}すことは、{相手|あいて}を{信頼|しんらい}すること。そして{自分|じぶん}を{守|まも}ることでもある。"
+        options:
+          - text: "{受|う}け{入|い}れない。{自分|じぶん}で{正直|しょうじき}に{話|はな}す"
+            value: refuse
+          - text: "{受|う}け{入|い}れるかも。{怖|こわ}いから"
+            value: accept
+          - text: "ハルトと{一緒|いっしょ}に先生に{話|はな}しに{行|い}く"
+            value: go-together
+          - text: "{分|わ}からない。その{場|ば}にならないと"
+            value: unsure
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ハルトは{友達|ともだち}を{守|まも}りたかった。その{気持|きもち}はとても{温|あたた}かい。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "でもね——やさしさと{正直|しょうじき}さは、{両立|りょうりつ}できるんだよ。『{正直|しょうじき}に{言|い}いながら、ユリに{寄|よ}り{添|そ}う{方法|ほうほう}』があったはず。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{嘘|うそ}をつく{前|まえ}に{考|かんが}えよう。この{嘘|うそ}で{守|まも}られるのは{誰|だれ}？ {傷|きず}つくのは{誰|だれ}？ {嘘|うそ}をつかずに{守|まも}る{方法|ほうほう}はないか？"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "{正直|しょうじき}に{話|はな}すことは{怖|こわ}い。でもそれは、{相手|あいて}を{信頼|しんらい}する{行動|こうどう}なんだ。{信頼|しんらい}は、{怒|おこ}られないためじゃなく、人との{関係|かんけい}を{深|ふか}めるために。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "かばう{優|やさ}しさ。{黙|だま}る{葛藤|かっとう}。{疑|うたが}う{誠実|せいじつ}さ。{告白|こくはく}する{勇気|ゆうき}。"
+
+      - type: narration
+        text: "——4つの{選択|せんたく}の{先|さき}に、{正直|しょうじき}という{光|ひかり}がある。"
+
+      - type: effect
+        name: fade-out

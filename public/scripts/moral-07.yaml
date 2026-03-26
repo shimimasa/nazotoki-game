@@ -1,0 +1,724 @@
+meta:
+  id: moral-07
+  title: 書きかえられた点数と4つのものさし
+  series: 答えのない法廷
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  sora:
+    name: ソラ
+    color: "#E05050"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  mizuki:
+    name: ミズキ
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  natsu:
+    name: ナツ
+    color: "#F0A030"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yuuto:
+    name: ユウト
+    color: "#2E8B57"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}は{先週|せんしゅう}の{金曜日|きんようび}、スポーツ{大会|たいかい}をした。{赤|あか}・{青|あお}・{黄|き}・{緑|みどり}の4チームに{分|わ}かれて、3つの{種目|しゅもく}で{競|きそ}った。"
+
+      - type: narration
+        text: "{結果|けっか}は{教室|きょうしつ}の{後|うし}ろの{壁|かべ}に{貼|は}った大きなポスターに{記録|きろく}。みんな、{自分|じぶん}のチームが{何位|なんい}だったか、ワクワクしながらポスターを{見|み}ていた。"
+
+      - type: narration
+        text: "ところが——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}。先生がポスターを{確認|かくにん}すると——"
+        speed: slow
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "おかしいぞ。2か{所|しょ}、{点数|てんすう}が書きかえられている！"
+        expression: surprised
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: dialog
+        character: sensei
+        text: "よく見ると、{赤|あか}いペンで1か所、{青|あお}いペンで1か所……つまり、2人の人が{別々|べつべつ}に書きかえたようだ。"
+        expression: thinking
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: sora
+            expression: surprised
+          - id: mizuki
+            expression: worried
+          - id: natsu
+            expression: worried
+          - id: yuuto
+            expression: thinking
+
+      - type: narration
+        text: "{誰|だれ}が、なぜ、{点数|てんすう}を{変|か}えた？ 4人の{探偵|たんてい}が{調査|ちょうさ}を{始|はじ}める——"
+
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: mizuki
+        action: hide
+      - type: sprite
+        character: natsu
+        action: hide
+      - type: sprite
+        character: yuuto
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "答えのない法廷 Vol.7"
+        subtitle: "書きかえられた点数と4つのものさし"
+
+  # ========================================
+  # 証拠カード1: ポスターの現在の状態
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{教室|きょうしつ}の{後|うし}ろの{壁|かべ}に{貼|は}られた大きなポスター。スポーツ{大会|たいかい}の{結果|けっか}が書いてある。"
+
+      - type: narration
+        text: "かけっこリレー：{赤|あか}15 {青|あお}10 {黄|き}25 {緑|みどり}20\n{玉入|たまい}れ：赤15 青25 黄20 緑30\n{大|おお}なわとび：赤25 青25 黄20 緑30"
+
+      - type: narration
+        text: "{合計|ごうけい}：赤55 青60 黄65 緑80\n{優勝|ゆうしょう}：{緑|みどり}チーム（80{点|てん}）"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "よく見ると——{赤|あか}チームの『かけっこリレー』の{数字|すうじ}は{赤|あか}いペンで書き{直|なお}されている。{青|あお}チームの『{大|おお}なわとび』の数字は青いペンで書き直されている。"
+        speed: slow
+
+      - type: narration
+        text: "ポスターは2{色|しょく}のペンで{書|か}きかえられていた。{赤|あか}ペンと{青|あお}ペン——なぜ2色？ 1人が書きかえたなら1色のはず。2人の人が{別々|べつべつ}に書きかえた？"
+
+  # ========================================
+  # 証拠カード2: スポーツ大会の記録
+  # ========================================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: narration
+        text: "スポーツ{大会|たいかい}の{記録|きろく}を{調|しら}べてみよう。"
+
+      - type: narration
+        text: "かけっこリレー：1{位|い} 赤、2位 黄、3位 緑、4位 青\n{玉入|たまい}れ：1位 緑、2位 青、3位 黄、4位 赤\n{大|おお}なわとび：1位 緑、2位 赤、3位 黄、4位 青"
+
+      - type: narration
+        text: "{大|おお}なわとびの{出来事|できごと}——{青|あお}チームのユイは{骨折|こっせつ}でギプスをしていた。{大|おお}なわとびでユイが{縄|なわ}に{引|ひ}っかかることが{多|おお}かった。ユイ{以外|いがい}の{青|あお}チームは{普通|ふつう}に{跳|と}べていた。"
+
+      - type: narration
+        text: "かけっこリレーの{出来事|できごと}——{赤|あか}チームが1{位|い}で{大差|たいさ}の{勝利|しょうり}。『赤チームはすごく{速|はや}かった』とみんなが{言|い}っていた。"
+
+      - type: narration
+        text: "ポスターで書きかえられたのは、この2つの{種目|しゅもく}の{点数|てんすう}。{偶然|ぐうぜん}……？ それとも……？"
+
+  # ========================================
+  # 証拠カード3: 金曜日の放課後の行動
+  # ========================================
+  - id: evidence-3
+    bg: hallway-sunset
+    steps:
+      - type: narration
+        text: "{金曜日|きんようび}の{放課後|ほうかご}、4人はそれぞれ何をしていた？"
+
+      - type: sprite
+        character: sora
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "{帰|かえ}りの{会|かい}の{後|あと}、すぐ帰ろうとしたけど、{忘|わす}れ物に気づいて15:50ごろ{教室|きょうしつ}に{一瞬|いっしゅん}{戻|もど}った。すぐに帰ったよ。"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: mizuki
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: mizuki
+        text: "{掃除|そうじ}{当番|とうばん}だったから、{教室|きょうしつ}に{残|のこ}っていたよ。15:30から16:00ごろまで{掃除|そうじ}していた。その後帰った。"
+
+      - type: sprite
+        character: mizuki
+        action: hide
+
+      - type: sprite
+        character: natsu
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: natsu
+        text: "{帰|かえ}りの{会|かい}の{後|あと}、{廊下|ろうか}で{友達|ともだち}と{話|はな}していたよ。16:00から16:20ごろに帰った。"
+
+      - type: sprite
+        character: natsu
+        action: hide
+
+      - type: sprite
+        character: yuuto
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: yuuto
+        text: "{帰|かえ}りの{会|かい}の{後|あと}、{先生|せんせい}に{聞|き}きたいことがあって{職員室|しょくいんしつ}に{行|い}った。15:40から16:00ごろまで先生と{話|はな}して、それから帰ったよ。"
+
+      - type: sprite
+        character: yuuto
+        action: hide
+
+      - type: narration
+        text: "{放課後|ほうかご}に{教室|きょうしつ}にいたのは{誰|だれ}？ ミズキは{掃除|そうじ}で教室にいた。ソラは{忘|わす}れ物で{一瞬|いっしゅん}{戻|もど}った。ユウトは{職員室|しょくいんしつ}にいたけど、その後は……？"
+
+  # ========================================
+  # 証拠カード4: 教室とペンの情報
+  # ========================================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: narration
+        text: "{教室|きょうしつ}には{赤|あか}・{青|あお}・{黄|き}・{緑|みどり}の4色のマーカーペンがある。ペン{立|た}てに{置|お}いてあり、{誰|だれ}でも{自由|じゆう}に使える。"
+
+      - type: narration
+        text: "{放課後|ほうかご}、{教室|きょうしつ}は{鍵|かぎ}をかけない。先生が17:00ごろに{施錠|せじょう}する。{放課後|ほうかご}に教室に{入|はい}ることはルール{違反|いはん}ではない。"
+
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ポスターの{点数|てんすう}は{私|わたし}が{金曜日|きんようび}の14:00に{正確|せいかく}に書いた。{月曜日|げつようび}の{朝|あさ}8:00に{確認|かくにん}したら2か{所|しょ}{変|か}わっていた。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{犯人|はんにん}を{探|さが}しているのではないんだ。なぜそうしたかを{知|し}りたいんだよ。"
+        expression: normal
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "書きかえに使われたのは{赤|あか}ペンと{青|あお}ペン。赤ペンは赤チームの色。青ペンは青チームの色。{自分|じぶん}のチームの色のペンを使った……？"
+
+  # ========================================
+  # 証拠カード5 + 記憶カード（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：新たな証拠"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "先生がポスターをさらに{調|しら}べたところ、書きかえた{部分|ぶぶん}の{下|した}に{元|もと}の{数字|すうじ}がうっすら{残|のこ}っていた！"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "書きかえ①（{赤|あか}ペン）：赤チームの『かけっこリレー』\n{元|もと}の{点数|てんすう}：30点 → {変更後|へんこうご}：15点\n→ 15点{減|げん}らされた！"
+        speed: slow
+
+      - type: narration
+        text: "書きかえ②（{青|あお}ペン）：{青|あお}チームの『{大|おお}なわとび』\n{元|もと}の{点数|てんすう}：5点 → {変更後|へんこうご}：25点\n→ 20点{増|ふ}やされた！"
+        speed: slow
+
+      - type: narration
+        text: "{元|もと}の{順位|じゅんい}：{緑|みどり}(80) > 赤(70) > 黄(65) > 青(40)\n{変更後|へんこうご}の順位：緑(80) > 黄(65) > 青(60) > 赤(55)"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "赤チーム（ソラ）が2{位|い}から{最下位|さいかい}に{転落|てんらく}！ 青チーム（ミズキ）が最下位から3位に{上昇|じょうしょう}！"
+        speed: slow
+
+  # ========================================
+  # 記憶カード — 各キャラの記憶
+  # ========================================
+  - id: memories
+    bg: classroom
+    steps:
+      - type: narration
+        text: "さらに、4人のそれぞれが{金曜日|きんようび}のことを{思|おも}い出し始めた——"
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "15:50ごろ、{忘|わす}れ物を{取|と}りに{教室|きょうしつ}に{戻|もど}ったとき……ミズキがポスターの近くにいた。手に{青|あお}いマーカーペンがあった{気|き}がする。"
+        expression: thinking
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: mizuki
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: mizuki
+        text: "スポーツ{大会|たいかい}の{後|あと}、ユイが{泣|な}いていたんだ。『{私|わたし}のせいで{青|あお}チームが{最下位|さいかい}になっちゃった。みんなごめんね……』って。"
+        expression: worried
+
+      - type: dialog
+        character: mizuki
+        text: "ユイの{涙|なみだ}を{見|み}て、思ったんだ。ユイは{悪|わる}くない。ケガのせいで{点数|てんすう}が{低|ひく}いのは{不公平|ふこうへい}だって。"
+        expression: determined
+
+      - type: sprite
+        character: mizuki
+        action: hide
+
+      - type: sprite
+        character: natsu
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: natsu
+        text: "16:15ごろ、{廊下|ろうか}を{歩|ある}いていたら……ユウトが{教室|きょうしつ}のドアから{出|で}てきた。手に{赤|あか}いマーカーペンがあった気がする。"
+        expression: thinking
+
+      - type: dialog
+        character: natsu
+        text: "ユウトは少し{考|かんが}え{込|こ}んでいるように見えた。"
+        expression: worried
+
+      - type: sprite
+        character: natsu
+        action: hide
+
+      - type: sprite
+        character: yuuto
+        expression: determined
+        position: right
+
+      - type: dialog
+        character: yuuto
+        text: "かけっこリレーの{決勝|けっしょう}で、{赤|あか}チームのアンカーが{第|だい}3コーナーで少し{内側|うちがわ}を{走|はし}った。コースアウト——つまり{反則|はんそく}だ。"
+        expression: determined
+
+      - type: dialog
+        character: yuuto
+        text: "{審判|しんぱん}の先生は{気|き}づいていなかった。先生に{伝|つた}えたけど、『{見|み}ていなかったので{何|なん}とも{言|い}えない』って{言|い}われた。"
+        expression: worried
+
+      - type: sprite
+        character: yuuto
+        action: hide
+
+      - type: narration
+        text: "4人の{記憶|きおく}が{出揃|でそろ}った。{真相|しんそう}に{近|ちか}づいている——"
+
+  # ========================================
+  # 先生のメモ
+  # ========================================
+  - id: teacher-memo
+    bg: classroom
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{実|じつ}は、{金曜日|きんようび}の15:45ごろ、ユウトが{職員室|しょくいんしつ}に来たんだ。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "『先生、かけっこリレーで赤チームのアンカーがコーナーで{内側|うちがわ}を{走|はし}っていました。コースアウトです。{点数|てんすう}を{直|なお}してください』と{言|い}っていた。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "{私|わたし}は{審判|しんぱん}をしていたけど、見ていなかった。だから『見ていなかったので何とも言えない』と{答|こた}えた。ユウトは少し{不満|ふまん}そうだった。"
+        expression: worried
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "ユウトは{反則|はんそく}を先生に{伝|つた}えたけど、先生は『見ていなかった』と{言|い}った。正しいことを{伝|つた}えたのに、{誰|だれ}にも{信|しん}じてもらえなかったら——？"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：考えよう"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{証拠|しょうこ}が{出揃|でそろ}った。さあ、{考|かんが}えてみよう。"
+        expression: normal
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: choice
+        id: q1
+        question: "{誰|だれ}が{点数|てんすう}を書きかえた？（2人{選|えら}んでみよう）"
+        feedback_default: "いい{推理|すいり}だね。{証拠|しょうこ}をもう一度{振|ふ}り{返|かえ}って、「なぜ」も{考|かんが}えてみよう。"
+        options:
+          - text: "ミズキとユウト（{青|あお}ペンと{赤|あか}ペンの2人）"
+            value: mizuki-yuuto
+          - text: "ミズキとソラ（{青|あお}チームと{赤|あか}チーム）"
+            value: mizuki-sora
+          - text: "ユウトとナツ（2人とも{放課後|ほうかご}にいた）"
+            value: yuuto-natsu
+          - text: "{分|わ}からない。もっと{考|かんが}えたい"
+            value: unsure
+
+      - type: narration
+        text: "では、次の{問|と}いを{考|かんが}えてみよう。"
+
+      - type: choice
+        id: q2
+        question: "ケガのせいで{点数|てんすう}が{低|ひく}いのは『{不公平|ふこうへい}』？ それとも『しかたない』？"
+        feedback_default: "どの{考|かんが}え{方|かた}にも{理由|りゆう}がある。{大事|だいじ}なのは『なぜそう{思|おも}うか』を{自分|じぶん}の{言葉|ことば}で{説明|せつめい}できること。"
+        options:
+          - text: "{不公平|ふこうへい}。ハンデがある人には{配慮|はいりょ}すべき"
+            value: unfair
+          - text: "しかたない。{同|おな}じルールで{競|きそ}ったのだから"
+            value: fair
+          - text: "{難|むずか}しい。どちらとも{言|い}えない"
+            value: hard
+
+      - type: narration
+        text: "もう一つ——"
+
+      - type: choice
+        id: q3
+        question: "{審判|しんぱん}が{見逃|み}のがした{反則|はんそく}を、{自分|じぶん}の{手|て}で{正|ただ}すのは『{正義|せいぎ}』？ それとも『{越権|えっけん}』？"
+        feedback_default: "『{正|ただ}しいこと』と『{正|ただ}しいやり{方|かた}』は{別|べつ}かもしれない。{考|かんが}え{続|つづ}けてみよう。"
+        options:
+          - text: "{正義|せいぎ}。{間違|まちが}いは{誰|だれ}かが{正|ただ}すべき"
+            value: justice
+          - text: "{越権|えっけん}。{審判|しんぱん}の{判断|はんだん}を{尊重|そんちょう}すべき"
+            value: overreach
+          - text: "{気持|きもち}は{分|わ}かるけど、{方法|ほうほう}が{間違|まちが}っている"
+            value: wrong-method
+
+      - type: narration
+        text: "みんな、いろんな{考|かんが}え{方|かた}がある。それでいい。{大事|だいじ}なのは、{自分|じぶん}と{違|ちが}う{考|かんが}えにも{耳|みみ}を{傾|かたむ}けること。"
+
+  # ========================================
+  # 真相 — ミズキ
+  # ========================================
+  - id: truth-mizuki
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: mizuki
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: mizuki
+        text: "……{私|わたし}が書きかえたの。{青|あお}チームの『{大|おお}なわとび』の{点数|てんすう}を、5{点|てん}から25点に。"
+        expression: worried
+
+      - type: dialog
+        character: mizuki
+        text: "ユイが{泣|な}いていたんだよ。『{私|わたし}のせいでみんなが{最下位|さいかい}になった』って。{骨折|こっせつ}でギプスしてるのに、ユイは{悪|わる}くないのに。"
+        expression: determined
+
+      - type: dialog
+        character: mizuki
+        text: "ユイがいなければ、{青|あお}チームはもっと{跳|と}べたはず。だから{他|ほか}のチームの{平均|へいきん}くらいの{点数|てんすう}にしたの。"
+        expression: thinking
+
+      - type: dialog
+        character: mizuki
+        text: "……でも、{勝手|かって}にやっちゃった。先生に{相談|そうだん}すればよかったのかな。"
+        expression: worried
+
+      - type: sprite
+        character: mizuki
+        action: hide
+
+      - type: narration
+        text: "ミズキのものさし——『{衡平|こうへい}』。ハンデがある人には{配慮|はいりょ}すべき。ケガの人を助けたい{気持|きもち}は{正|ただ}しい。でも、1人で{勝手|かって}に{点数|てんすう}を{変|か}えるのは……？"
+        speed: slow
+
+  # ========================================
+  # 真相 — ユウト
+  # ========================================
+  - id: truth-yuuto
+    steps:
+      - type: sprite
+        character: yuuto
+        expression: determined
+        position: right
+
+      - type: dialog
+        character: yuuto
+        text: "……{僕|ぼく}も書きかえた。{赤|あか}チームの『かけっこリレー』の{点数|てんすう}を、30{点|てん}から15点に。"
+        expression: determined
+
+      - type: dialog
+        character: yuuto
+        text: "赤チームのアンカーが{第|だい}3コーナーで{内側|うちがわ}を{走|はし}った。あれは{反則|はんそく}だ。先生に{言|い}ったけど、『見ていなかった』って{言|い}われた。"
+        expression: thinking
+
+      - type: dialog
+        character: yuuto
+        text: "先生が{正|ただ}さないなら、{僕|ぼく}が{正|ただ}すしかないと{思|おも}ったんだ。{間違|まちが}いは{間違|まちが}いだから。"
+        expression: determined
+
+      - type: dialog
+        character: yuuto
+        text: "……でも、{自分|じぶん}の{判断|はんだん}だけで{変|か}えてよかったのか。今は{分|わ}からなくなってきた。"
+        expression: worried
+
+      - type: sprite
+        character: yuuto
+        action: hide
+
+      - type: narration
+        text: "ユウトのものさし——『{矯正的|きょうせいてき}{公正|こうせい}』。{間違|まちが}いは{正|ただ}すべき。{反則|はんそく}を{見逃|みのが}さない{正義感|せいぎかん}は{正|ただ}しい。でも、{審判|しんぱん}を{飛|と}び{越|こ}えて1人で……？"
+        speed: slow
+
+  # ========================================
+  # 4つのものさし
+  # ========================================
+  - id: four-measures
+    bg: classroom
+    steps:
+      - type: narration
+        text: "4人の『ものさし』は全員{違|ちが}う——"
+
+      - type: sprite
+        character: sora
+        expression: determined
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "{私|わたし}は、{正|ただ}しい{手順|てじゅん}で{決|き}めたことは{守|まも}るべきだと{思|おも}う。{勝手|かって}に{変|か}えるのは{絶対|ぜったい}ダメ。"
+        expression: determined
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: natsu
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: natsu
+        text: "{私|わたし}は、みんなが{楽|たの}しめるのが{一番|いちばん}{大事|だいじ}だと{思|おも}う。{点数|てんすう}より、みんなの{気持|きもち}のほうが……"
+        expression: thinking
+
+      - type: sprite
+        character: natsu
+        action: hide
+
+      - type: narration
+        text: "ソラは『{手続|てつづき}{的|てき}{公正|こうせい}』——{正|ただ}しい{手順|てじゅん}で{決|き}めるべき。\nミズキは『{衡平|こうへい}』——ハンデには{配慮|はいりょ}すべき。\nナツは『{包摂|ほうせつ}』——みんなが{楽|たの}しめればいい。\nユウトは『{矯正的|きょうせいてき}公正』——{間違|まちが}いは{正|ただ}すべき。"
+        speed: slow
+
+      - type: narration
+        text: "4つのものさしは、どれも『{正|ただ}しい』。でも、どれか1つだけでは{足|た}りない。"
+
+  # ========================================
+  # 最後の問い
+  # ========================================
+  - id: final-question
+    steps:
+      - type: choice
+        id: q4
+        question: "4つのものさし。あなたはどれに{一番|いちばん}{近|ちか}い？"
+        feedback_default: "どのものさしにも{強|つよ}みと{弱|よわ}みがある。{自分|じぶん}のものさしを{知|し}ることが、{最初|さいしょ}の{一歩|いっぽ}だよ。"
+        options:
+          - text: "ソラ（{手続|てつづき}{的|てき}{公正|こうせい}：{正|ただ}しい{手順|てじゅん}で{決|き}めるべき）"
+            value: procedural
+          - text: "ミズキ（{衡平|こうへい}：ハンデには{配慮|はいりょ}すべき）"
+            value: equity
+          - text: "ナツ（{包摂|ほうせつ}：みんなが{楽|たの}しめればいい）"
+            value: inclusion
+          - text: "ユウト（{矯正的|きょうせいてき}{公正|こうせい}：{間違|まちが}いは{正|ただ}すべき）"
+            value: corrective
+
+      - type: choice
+        id: q5
+        question: "{公正|こうせい}って、1人で{決|き}められるもの？"
+        feedback_default: "ミズキもユウトも『{正|ただ}しいこと』のつもりだった。でも2人とも1人で{決|き}めて、{勝手|かって}に{行動|こうどう}した。{公正|こうせい}はみんなで{話|はな}し{合|あ}って{決|き}めるものかもしれない。"
+        options:
+          - text: "1人で{決|き}められる。{正|ただ}しいと{思|おも}ったら{行動|こうどう}すべき"
+            value: individual
+          - text: "1人では{決|き}められない。みんなで{話|はな}し{合|あ}うべき"
+            value: collective
+          - text: "{場合|ばあい}による。{緊急|きんきゅう}なら1人でも、そうでなければ{話|はな}し{合|あ}う"
+            value: depends
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ミズキもユウトも、『{正|ただ}しいこと』をしたかった。ユイを{助|たす}けたかった。{反則|はんそく}を{正|ただ}したかった。{気持|きもち}はどちらも{正|ただ}しい。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "でもね——『{正|ただ}しいこと』と『{正|ただ}しいやり{方|かた}』は{別|べつ}なんだ。ポスターを書きかえるのではなく、先生に{相談|そうだん}する。みんなで{話|はな}し{合|あ}う。{行動|こうどう}の『{中身|なかみ}』だけでなく、『やり方』も{大事|だいじ}なんだよ。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "『{公正|こうせい}って何？』——この{問|と}いに、先生も{答|こた}えを{持|も}っていない。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "でも、{自分|じぶん}の『ものさし』を{知|し}ること。{違|ちが}う『ものさし』を{持|も}つ人の{話|はな}を{聞|き}くこと。そこから{始|はじ}めよう。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{公正|こうせい}には{複数|ふくすう}の{意味|いみ}がある。{自分|じぶん}の{正義|せいぎ}で{勝手|かって}に{変|か}えてはいけない。ものさしが{違|ちが}うときは、{話|はな}し{合|あ}おう。"
+
+      - type: narration
+        text: "——それが、4つのものさしが{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

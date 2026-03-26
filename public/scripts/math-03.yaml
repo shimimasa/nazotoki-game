@@ -1,0 +1,459 @@
+meta:
+  id: math-03
+  title: 消えた宝石箱と2まいの見取り図
+  series: 数字の迷宮
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  akira:
+    name: アキラ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sakura:
+    name: サクラ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  takeru:
+    name: タケル
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "みどり{小学校|しょうがっこう}の{創立|そうりつ}50{周年|しゅうねん}{記念|きねん}{展示室|てんじしつ}から、{大切|たいせつ}な『{創立|そうりつ}{記念|きねん}{宝石箱|ほうせきばこ}』が{消|き}えた！"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: narration
+        text: "{翌朝|よくあさ}、{空|から}っぽの{宝石箱|ほうせきばこ}が{理科|りか}{準備室|じゅんびしつ}の{棚|たな}で{見|み}つかった。{蓋|ふた}が{外|はず}れた{状態|じょうたい}で。中に{入|はい}っていたはずの**{記念|きねん}メダル5{枚|まい}**がない。"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{放課後|ほうかご}に{学校|がっこう}にいた3人の{中|なか}に{犯人|はんにん}がいる。{全員|ぜんいん}が大きなカバンを{持|も}っていた。{宝石箱|ほうせきばこ}はどのカバンに{入|はい}る？ それがカギだ。"
+        expression: thinking
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: akira
+            expression: normal
+          - id: sakura
+            expression: normal
+          - id: takeru
+            expression: normal
+
+      - type: narration
+        text: "{容疑者|ようぎしゃ}は3人。{宝石箱|ほうせきばこ}の{大|おお}きさと、3人のカバンの{大|おお}きさを{比|くら}べて{犯人|はんにん}を{突|つ}き{止|と}めろ！"
+
+      - type: sprite
+        character: akira
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+      - type: sprite
+        character: takeru
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.3"
+        subtitle: "消えた宝石箱と2まいの見取り図"
+
+  # ========================================
+  # 証拠1: 宝石箱の寸法
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "まず{宝石箱|ほうせきばこ}の{大|おお}きさを{確認|かくにん}しよう。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{創立|そうりつ}{記念|きねん}{宝石箱|ほうせきばこ}：\n**よこ 20cm × たて 15cm × {高|たか}さ 10cm**"
+
+      - type: narration
+        text: "この{箱|はこ}が{入|はい}るカバンを{持|も}っている人が{犯人|はんにん}だ。{箱|はこ}がカバンに{入|はい}るかどうかは、**よこ・たて・{高|たか}さの3つ{全部|ぜんぶ}**を{比|くら}べないといけない。"
+
+      - type: narration
+        text: "★ {覚|おぼ}えておこう：3つ{全部|ぜんぶ}がカバンより{小|ちい}さい → {入|はい}る！\n1つでもカバンより大きい → {入|はい}らない！"
+
+  # ========================================
+  # 証拠2: 3人のカバン
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "3人のカバンの{大|おお}きさを{調|しら}べよう。"
+
+      - type: sprite
+        character: akira
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: akira
+        text: "{僕|ぼく}のは{円筒形|えんとうけい}のスポーツバッグだよ。サッカーボールが{入|はい}るやつ。{直径|ちょっけい}25cm、{長|なが}さ40cm。"
+        expression: normal
+
+      - type: sprite
+        character: akira
+        action: hide
+
+      - type: narration
+        text: "アキラのスポーツバッグ（{円筒形|えんとうけい}）：\n{直径|ちょっけい} 25cm × {長|なが}さ 40cm"
+
+      - type: sprite
+        character: sakura
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: sakura
+        text: "{私|わたし}のは{大|おお}きなトートバッグ。{図書委員|としょいいん}だから{本|ほん}がたくさん{入|はい}るの。よこ30cm × たて35cm × マチ8cm。"
+        expression: normal
+
+      - type: sprite
+        character: sakura
+        action: hide
+
+      - type: narration
+        text: "サクラのトートバッグ：\nよこ 30cm × たて 35cm × **マチ（{奥行|おくゆ}き）8cm**"
+
+      - type: sprite
+        character: takeru
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: takeru
+        text: "{僕|ぼく}のは{大|おお}きなリュック。{実験|じっけん}{道具|どうぐ}を{入|はい}れるから{大|おお}きいんだ。よこ30cm × たて40cm × {奥行|おくゆ}き15cm。"
+        expression: normal
+
+      - type: sprite
+        character: takeru
+        action: hide
+
+      - type: narration
+        text: "タケルのリュック：\nよこ 30cm × たて 40cm × {奥行|おくゆ}き 15cm"
+
+      - type: narration
+        text: "さあ、{宝石箱|ほうせきばこ}（20×15×10cm）が{入|はい}るカバンはどれ？ **よこ・たて・{高|たか}さの3つ{全部|ぜんぶ}**を{比|くら}べてみよう！"
+
+  # ========================================
+  # 証拠3: 3人の証言
+  # ========================================
+  - id: evidence-3
+    bg: hallway-sunset
+    steps:
+      - type: narration
+        text: "3人の{放課後|ほうかご}の{行動|こうどう}を{聞|き}いてみよう。"
+
+      - type: sprite
+        character: akira
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: akira
+        text: "16:50から{体育館|たいいくかん}でサッカーの{練習|れんしゅう}。17:00に{終|お}わって、{靴箱|くつばこ}で{靴|くつ}を{履|は}き{替|か}えて{帰|かえ}ったよ。{展示室|てんじしつ}は{通|とお}っただけ。"
+        expression: normal
+
+      - type: sprite
+        character: akira
+        action: hide
+
+      - type: sprite
+        character: sakura
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: sakura
+        text: "16:50から{図書室|としょしつ}で{本|ほん}の{整理|せいり}。17:10に{出|で}て{帰|かえ}った。{展示室|てんじしつ}の{前|まえ}は{通|とお}ったけど、{中|なか}には{入|はい}っていないよ。"
+        expression: normal
+
+      - type: sprite
+        character: sakura
+        action: hide
+
+      - type: sprite
+        character: takeru
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: takeru
+        text: "{僕|ぼく}は17:00から17:30まで**ずっと{理科室|りかしつ}にいた**よ。{翌日|よくじつ}の{実験|じっけん}{準備|じゅんび}をしていたんだ。"
+        expression: normal
+
+      - type: sprite
+        character: takeru
+        action: hide
+
+      - type: narration
+        text: "3人の{証言|しょうげん}。{本当|ほんとう}のことを{言|い}っているのは{誰|だれ}？ {嘘|うそ}をついているのは……？"
+
+  # ========================================
+  # 証拠4: 棚の情報
+  # ========================================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: narration
+        text: "{理科|りか}{準備室|じゅんびしつ}の{棚|たな}の{情報|じょうほう}も{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "{空|から}の{宝石箱|ほうせきばこ}が{見|み}つかった{棚|たな}：よこ40cm × たて30cm × {高|たか}さ25cm。{宝石箱|ほうせきばこ}（20×15×10cm）は{余裕|よゆう}で{入|はい}る{大|おお}きさ。"
+
+      - type: narration
+        text: "{蓋|ふた}が{外|はず}れた{状態|じょうたい}で{見|み}つかった——つまり、{犯人|はんにん}は{中身|なかみ}（{記念|きねん}メダル5{枚|まい}）を{取|と}り{出|だ}すために{蓋|ふた}を{開|あ}けた。{宝石箱|ほうせきばこ}そのものではなく、**{中身|なかみ}が{目的|もくてき}**だった。"
+
+  # ========================================
+  # 反転フェーズ: 防犯カメラ
+  # ========================================
+  - id: evidence-5
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：新たな証拠"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "{展示室|てんじしつ}の{出入口|でいりぐち}にある{防犯|ぼうはん}カメラの{映像|えいぞう}が{見|み}つかった！"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "17:05 {人影|ひとかげ}が{展示室|てんじしつ}に{入|はい}る\n17:08 {人影|ひとかげ}が{展示室|てんじしつ}を{出|で}る（{何|なに}かを{持|も}っている）\n※ {画像|がぞう}がぼやけていて、{誰|だれ}かは{判別|はんべつ}できない"
+
+      - type: narration
+        text: "17:05に{展示室|てんじしつ}に{入|はい}り、17:08に{何|なに}かを{持|も}って{出|で}た人がいる。この{時間|じかん}に{誰|だれ}がどこにいたか、{証言|しょうげん}と{照|て}らし{合|あ}わせよう。"
+
+      - type: narration
+        text: "アキラは17:00に{体育館|たいいくかん}を{出|で}て、**17:05には{靴箱|くつばこ}**にいた（サッカー{部|ぶ}の{仲間|なかま}の{証言|しょうげん}）。{靴箱|くつばこ}は{展示室|てんじしつ}から{遠|とお}い。→ **アキラではない！**"
+
+      - type: narration
+        text: "サクラは**17:10に{図書室|としょしつ}を{出|で}た**。17:05はまだ{図書室|としょしつ}にいた。→ **サクラではない！**"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "タケルは『17:00〜17:30まで**ずっと{理科室|りかしつ}にいた**』と{言|い}った。でも17:05〜17:08に{展示室|てんじしつ}にいたのは——？"
+        speed: slow
+
+  # ========================================
+  # 寸法比較のまとめ
+  # ========================================
+  - id: size-comparison
+    bg: classroom
+    steps:
+      - type: narration
+        text: "ここで{寸法|すんぽう}{比較|ひかく}を{整理|せいり}しよう。{宝石箱|ほうせきばこ}：よこ20cm × たて15cm × {高|たか}さ10cm。"
+
+      - type: narration
+        text: "アキラのスポーツバッグ（{円筒形|えんとうけい}）：\n{直径|ちょっけい}25cm → {箱|はこ}の{底|そこ}のよこ20cm+たて15cmの{対角線|たいかくせん}は25cm。\nぴったりで{押|お}し{込|こ}めない。→ **{入|はい}らない！**"
+
+      - type: narration
+        text: "サクラのトートバッグ：\nよこ30cm > 20cm ✓\nたて35cm > 15cm ✓\n**マチ8cm < {高|たか}さ10cm ✗**\n→ **{入|はい}らない！** マチが{足|た}りない"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "タケルのリュック：\nよこ30cm > 20cm ✓\nたて40cm > 15cm ✓\n{奥行|おくゆ}き15cm > {高|たか}さ10cm ✓\n→ **3つ{全部|ぜんぶ}{余裕|よゆう}！ {入|はい}る！**"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{宝石箱|ほうせきばこ}を{持|も}ち{出|だ}した{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "アキラ（サッカー{部|ぶ}キャプテン）"
+            value: akira
+            feedback: "アキラの{円筒形|えんとうけい}バッグは{対角線|たいかくせん}がぴったり25cmで{押|お}し{込|こ}めない。しかも17:05には{靴箱|くつばこ}にいた。{犯人|はんにん}ではないよ。"
+          - text: "サクラ（{図書|としょ}{委員長|いいんちょう}）"
+            value: sakura
+            feedback: "サクラのトートバッグはマチが8cmしかない。{宝石箱|ほうせきばこ}の{高|たか}さ10cmは{入|はい}らない！ 10cm > 8cmだよ。"
+          - text: "タケル（{科学|かがく}クラブ{部長|ぶちょう}）"
+            value: takeru
+            correct: true
+            feedback: "{正解|せいかい}！ タケルのリュック（30×40×15cm）だけが{宝石箱|ほうせきばこ}（20×15×10cm）の3{辺|ぺん}{全部|ぜんぶ}より大きい。しかも17:05に{展示室|てんじしつ}にいた{証拠|しょうこ}もある！"
+
+      - type: choice
+        id: q2
+        question: "{犯人|はんにん}だと{思|おも}う{根拠|こんきょ}は？"
+        options:
+          - text: "カバンが{一番|いちばん}{大|おお}きいから"
+            value: biggest
+            feedback: "{大|おお}きいだけでは{根拠|こんきょ}にならない。{大事|だいじ}なのは『よこ・たて・{高|たか}さの3つ{全部|ぜんぶ}が{入|はい}る』こと。"
+          - text: "{寸法|すんぽう}{比較|ひかく}で3{辺|ぺん}{全部|ぜんぶ}{入|はい}るのはタケルのリュックだけだから"
+            value: dimension
+            correct: true
+            feedback: "{完璧|かんぺき}な{根拠|こんきょ}！ よこ30>20、たて40>15、{奥行|おくゆ}き15>10。3{辺|ぺん}{全部|ぜんぶ}{余裕|よゆう}があるのはタケルだけ。これが{算数|さんすう}の{力|ちから}だ。"
+          - text: "『ずっと{理科室|りかしつ}にいた』という{証言|しょうげん}が{嘘|うそ}だから"
+            value: lie
+            feedback: "{証言|しょうげん}の{矛盾|むじゅん}は{大事|だいじ}な{手|て}がかり！ でも{寸法|すんぽう}{比較|ひかく}で『カバンに{入|はい}る』ことを{証明|しょうめい}しないと{完全|かんぜん}な{推理|すいり}にはならないよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: takeru
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: takeru
+        text: "……{僕|ぼく}がやった。{理科室|りかしつ}で{翌日|よくじつ}の{実験|じっけん}{準備|じゅんび}をしていたとき、{展示室|てんじしつ}に{立|た}ち{寄|よ}って{宝石箱|ほうせきばこ}をリュックに{入|い}れた。"
+        expression: worried
+
+      - type: dialog
+        character: takeru
+        text: "{記念|きねん}メダルの{金属|きんぞく}で{電気|でんき}{回路|かいろ}を{作|つく}ったら、どのくらい{電気|でんき}が{通|とお}るんだろうって……{好奇心|こうきしん}が{抑|おさ}えられなかったんだ。"
+        expression: thinking
+
+      - type: dialog
+        character: takeru
+        text: "{盗|ぬす}もうとしたわけじゃない。{実験|じっけん}が{終|お}わったら{返|かえ}すつもりだった。でも……{勝手|かって}に{持|も}ち{出|だ}したのは{間違|まちが}いだった。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: takeru
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "タケルの{好奇心|こうきしん}は{素晴|すば}らしい。{科学|かがく}への{探究心|たんきゅうしん}は{大切|たいせつ}なもの。でも、{人|ひと}のものを{勝手|かって}に{持|も}ち{出|だ}すのはダメだね。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで、{探偵|たんてい}たちはどうやって{犯人|はんにん}を{見|み}つけた？ {宝石箱|ほうせきばこ}の**よこ・たて・{高|たか}さ**と、カバンの**よこ・たて・{奥行|おくゆ}き**を{比|くら}べたよね。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{箱|はこ}がカバンに{入|はい}るかどうかは、**3つの{辺|へん}{全部|ぜんぶ}**を{比|くら}べないと{分|わ}からない。1つでも{大|おお}きかったら{入|はい}らない。これが{寸法|すんぽう}{比較|ひかく}の{基本|きほん}だよ。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "{算数|さんすう}の{力|ちから}で{犯人|はんにん}を{見|み}つけた！ {数字|すうじ}は{嘘|うそ}をつかない——これからも{数字|すうじ}の{迷宮|めいきゅう}を{楽|たの}しもう。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{箱|はこ}が{入|はい}るかどうかは、よこ・たて・{高|たか}さの**3つ{全部|ぜんぶ}**を{比|くら}べる。1つでも{大|おお}きかったら{入|はい}らない。"
+
+      - type: narration
+        text: "——それが、{消|き}えた{宝石箱|ほうせきばこ}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

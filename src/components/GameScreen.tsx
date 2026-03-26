@@ -237,6 +237,14 @@ export function GameScreen({ script, state, onEvent }: Props) {
         />
       )}
 
+      {/* 正解/不正解フラッシュ */}
+      {state.showingFeedback && state.feedbackIsCorrect === true && (
+        <div class="correct-flash" />
+      )}
+      {state.showingFeedback && state.feedbackIsCorrect === false && (
+        <div class="incorrect-flash" />
+      )}
+
       {!state.activeChoice && !state.activeTitleCard && state.textDisplay.text && (
         <div class={
           state.showingFeedback && state.feedbackIsCorrect === true ? 'feedback-correct' :

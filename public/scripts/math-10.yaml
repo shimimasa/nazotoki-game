@@ -1,0 +1,380 @@
+meta:
+  id: math-10
+  title: 消えた金の分度器と三角形の証言
+  series: 数字の迷宮
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  kei:
+    name: ケイ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yuu:
+    name: ユウ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  nana:
+    name: ナナ
+    color: "#FF6B35"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の『{算数|さんすう}フェスティバル』。{校庭|こうてい}に3{本|ぼん}の{旗|はた}で{三角形|さんかくけい}のコースが{作|つく}られた。{中央|ちゅうおう}の{展示台|てんじだい}には{算数|さんすう}{大会|たいかい}の{優勝|ゆうしょう}トロフィー——『{金|きん}の{分度器|ぶんどき}』が{飾|かざ}られていた。"
+
+      - type: narration
+        text: "{休憩|きゅうけい}{時間|じかん}が{終|お}わって{見|み}に{行|い}くと——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{金|きん}の{分度器|ぶんどき}が**{消|き}えている**！"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "4人の{参加者|さんかしゃ}はそれぞれ{旗|はた}の{近|ちか}くで{角度|かくど}を{測|はか}っていた。でも{証言|しょうげん}が{食|く}い{違|ちが}う。{三角形|さんかくけい}の{角度|かくど}の{性質|せいしつ}を{使|つか}って{矛盾|むじゅん}を{見|み}つけ{出|だ}せ！"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: kei
+            expression: thinking
+          - id: sora
+            expression: thinking
+          - id: yuu
+            expression: normal
+          - id: nana
+            expression: surprised
+
+      - type: narration
+        text: "{角度|かくど}の{矛盾|むじゅん}から{犯人|はんにん}を{突|つ}き{止|と}めろ！"
+
+      - type: sprite
+        character: kei
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: yuu
+        action: hide
+      - type: sprite
+        character: nana
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.10"
+        subtitle: "消えた金の分度器と三角形の証言"
+
+  # ========================================
+  # 証拠1: 金の分度器について
+  # ========================================
+  - id: evidence-1
+    bg: schoolyard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{消|き}えた{品物|しなもの}：{金|きん}の{分度器|ぶんどき}。{直径|ちょっけい}{約|やく}15cm。{片手|かたて}で{持|も}てるサイズ。{算数|さんすう}{大会|たいかい}3{年|ねん}{連続|れんぞく}{優勝|ゆうしょう}のトロフィー。{中央|ちゅうおう}の{展示台|てんじだい}に{飾|かざ}られていた。"
+
+      - type: narration
+        text: "10:00にケイが{展示台|てんじだい}にセット。{休憩|きゅうけい}{時間|じかん}（10:30〜11:00）の{間|あいだ}に{消|き}えた。"
+
+  # ========================================
+  # 証拠2: 4人の角度測定
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "4人の{行動|こうどう}と{角度|かくど}の{測定値|そくていち}。"
+
+      - type: narration
+        text: "ケイ：{旗|はた}Aの{近|ちか}く → {測|はか}った{角度|かくど}**55°**（ソラが{旗|はた}Bから{確認|かくにん}）\nソラ：{旗|はた}Bの{近|ちか}く → {測|はか}った{角度|かくど}**60°**（ケイが{旗|はた}Aから{確認|かくにん}）\nユウ：{旗|はた}Cの{近|ちか}く（と{主張|しゅちょう}）→ {測|はか}った{角度|かくど}**75°**（**{証人|しょうにん}なし、1人**）\nナナ：コースの{周|まわ}り → {測定|そくてい}なし（ケイとソラが{確認|かくにん}）"
+
+      - type: narration
+        text: "ケイの55°とソラの60°はお{互|たが}いに{相手|あいて}がその{場所|ばしょ}にいたことを{確認|かくにん}している。ユウの75°は**{証人|しょうにん}がいない**。"
+
+      - type: narration
+        text: "3つの{角度|かくど}を{全部|ぜんぶ}{足|た}すと……？ 55 + 60 + 75 = **190°**。何か{気|き}づくことはない？"
+
+  # ========================================
+  # 証拠3: 展示台と機材室
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{展示台|てんじだい}のクロスはきちんとしている。{乱暴|らんぼう}に{扱|あつか}った{痕跡|こんせき}はない。{丁寧|ていねい}に{持|も}ち{出|だ}した{様子|ようす}。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "そして——{機材室|きざいしつ}の{棚|たな}に**{見覚|みおぼ}えのない{金色|きんいろ}のもの**が{置|お}かれていた！ {丁寧|ていねい}に{棚|たな}の{上|うえ}に。{壊|こわ}れていない。{機材室|きざいしつ}は{旗|はた}Cから{歩|ある}いて2{分|ふん}くらい。"
+
+  # ========================================
+  # 証拠4: 先生の証言
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{休憩|きゅうけい}{時間|じかん}の{最初|さいしょ}（10:35ごろ）に、テーブル3の{近|ちか}くにいた{生徒|せいと}に**『テーブル3の{壊|こわ}れた{道具|どうぐ}を{片|かた}づけておいて』**と{言|い}った。{金|きん}の{分度器|ぶんどき}のことは{言|い}っていない。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "テーブル3は{旗|はた}Aの{近|ちか}くにある{作業|さぎょう}テーブル。{壊|こわ}れた{分度器|ぶんどき}や{定規|じょうぎ}が{数本|すうほん}あった。{展示台|てんじだい}の{金|きん}の{分度器|ぶんどき}はテーブル3とは**{別|べつ}の{場所|ばしょ}**。"
+        expression: normal
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "先生は『テーブル3の{壊|こわ}れた{道具|どうぐ}』と{言|い}った。でも{聞|き}いた人が『{展示台|てんじだい}の{金|きん}の{分度器|ぶんどき}も』と{勘違|かんちが}いしたら？"
+
+  # ========================================
+  # 証拠5: 三角形の内角の和（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：三角形のルール"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "{算数|さんすう}の{大切|たいせつ}なルール：**{三角形|さんかくけい}の{内角|ないかく}の{和|わ} = 180°**"
+
+      - type: narration
+        text: "{例|れい}①：60° + 60° + 60° = 180°（{正|せい}{三角形|さんかくけい}）\n{例|れい}②：90° + 45° + 45° = 180°（{直角|ちょっかく}{二等辺|にとうへん}{三角形|さんかくけい}）\nどんな{三角形|さんかくけい}でも、3つの{角度|かくど}を{足|た}すと**{必|かなら}ず180°**。"
+
+      - type: narration
+        text: "では{今回|こんかい}の{三角形|さんかくけい}コースの{角度|かくど}を{確認|かくにん}しよう！\n{旗|はた}A（ケイ）：55°\n{旗|はた}B（ソラ）：60°\n{旗|はた}C（ユウ）：75°"
+
+      - type: narration
+        text: "{足|た}してみよう：55° + 60° + 75° = **190°**"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "**190° ≠ 180°！ 10°{多|おお}い！ {誰|だれ}かの{角度|かくど}が{間違|まちが}っている！**"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ケイの55°とソラの60°はお{互|たが}いに{証人|しょうにん}がいる。{正|ただ}しい。\nなら{旗|はた}Cの{本当|ほんとう}の{角度|かくど}は：**180° − 55° − 60° = 65°**\n\nユウは**75°**と{言|い}った。{本当|ほんとう}は**65°**。**10°のズレ**。"
+        speed: slow
+
+      - type: narration
+        text: "ユウは{旗|はた}Cの{正確|せいかく}な{位置|いち}にいなかった。{別|べつ}の{場所|ばしょ}——{機材室|きざいしつ}{寄|よ}りの{場所|ばしょ}から{測|はか}ったから{角度|かくど}がズレた。{機材室|きざいしつ}に{行|い}っていた{証拠|しょうこ}だ。"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{金|きん}の{分度器|ぶんどき}を{持|も}ち{出|だ}した{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "ケイ"
+            value: kei
+            feedback: "ケイの{角度|かくど}55°はソラが{確認|かくにん}している。{正|ただ}しい{位置|いち}にいた。"
+          - text: "ソラ"
+            value: sora
+            feedback: "ソラの{角度|かくど}60°はケイが{確認|かくにん}している。{正|ただ}しい{位置|いち}にいた。"
+          - text: "ユウ"
+            value: yuu
+            correct: true
+            feedback: "{正解|せいかい}！ {三角形|さんかくけい}の{内角|ないかく}の{和|わ}は180°。55°+60°+**65°**=180°なのに、ユウは**75°**と{報告|ほうこく}。10°のズレ＝{旗|はた}Cの{正確|せいかく}な{位置|いち}にいなかった＝{機材室|きざいしつ}に{行|い}っていた{証拠|しょうこ}！"
+          - text: "ナナ"
+            value: nana
+            feedback: "ナナはコースの{周|まわ}りにいた。{角度|かくど}を{測|はか}っていないし、ケイとソラが{確認|かくにん}している。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "{機材室|きざいしつ}に{金色|きんいろ}のものがあった"
+            value: gold-item
+            feedback: "{重要|じゅうよう}だけど、{誰|だれ}が{置|お}いたかは{分|わ}からない。{角度|かくど}の{計算|けいさん}で{証明|しょうめい}しよう！"
+          - text: "{三角形|さんかくけい}の{内角|ないかく}の{和|わ}（180°）でユウの{角度|かくど}だけが10°ズレている"
+            value: angle-math
+            correct: true
+            feedback: "{完璧|かんぺき}！ 180°−55°−60°＝**65°**が{正|ただ}しい{旗|はた}Cの{角度|かくど}。ユウの75°は10°{多|おお}い。{正確|せいかく}な{位置|いち}にいなかった{数学的|すうがくてき}{証拠|しょうこ}。{三角形|さんかくけい}の{性質|せいしつ}で{犯人|はんにん}を{特定|とくてい}した！"
+          - text: "ユウに{証人|しょうにん}がいない"
+            value: no-witness
+            feedback: "{証人|しょうにん}がいないのは{怪|あや}しいけど、それだけでは{犯人|はんにん}{確定|かくてい}にならない。{角度|かくど}の{計算|けいさん}と{合|あ}わせて{初|はじ}めて{決定的|けっていてき}だよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: schoolyard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: yuu
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: yuu
+        text: "……{私|わたし}がやった。でも{盗|ぬす}もうとしたんじゃない！"
+        expression: worried
+
+      - type: dialog
+        character: yuu
+        text: "先生が『{壊|こわ}れた{道具|どうぐ}を{片|かた}づけて』って{言|い}ったのを{聞|き}いて、{展示台|てんじだい}の{分度器|ぶんどき}も{片|かた}づけなきゃと{思|おも}ったの。だから{丁寧|ていねい}に{機材室|きざいしつ}の{棚|たな}にしまった。"
+        expression: thinking
+
+      - type: dialog
+        character: yuu
+        text: "その{後|あと}{旗|はた}Cに{戻|もど}って{角度|かくど}を{測|はか}ったけど、{機材室|きざいしつ}{寄|よ}りの{場所|ばしょ}から{測|はか}っちゃったから{角度|かくど}がズレたんだ……。{恥|は}ずかしくて{言|い}えなかった。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: yuu
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ユウは{悪気|わるぎ}がなかった。先生の{指示|しじ}を{聞|き}き{間違|まちが}えただけ。{手伝|てつだ}おうとした{気持|きもち}はえらいよ。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{三角形|さんかくけい}の{内角|ないかく}の{和|わ} = 180°**。3つの{角度|かくど}を{足|た}して180°にならなければ、{誰|だれ}かの{角度|かくど}が{間違|まちが}っている。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "180° − 55° − 60° = **65°**。ユウの75°との{差|さ}**10°**が、ユウが{正確|せいかく}な{位置|いち}にいなかった{証拠|しょうこ}。{三角形|さんかくけい}のルールで{犯人|はんにん}を{見|み}つけた！"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{三角形|さんかくけい}の{内角|ないかく}の{和|わ}は{必|かなら}ず180°。この{絶対|ぜったい}のルールが、{嘘|うそ}を{暴|あば}く{最強|さいきょう}の{武器|ぶき}になった。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{三角形|さんかくけい}の3つの{角度|かくど}を{足|た}すと{必|かなら}ず180°。この{絶対|ぜったい}のルールから{外|はず}れる{角度|かくど}は——{嘘|うそ}の{証拠|しょうこ}。"
+
+      - type: narration
+        text: "——それが、{消|き}えた{金|きん}の{分度器|ぶんどき}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

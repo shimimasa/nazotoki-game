@@ -46,10 +46,10 @@ const SERIES_ORDER = [
 ]
 
 const RANK_COLORS: Record<DetectiveRank, string> = {
-  S: '#ffd700',
-  A: '#c0c0c0',
-  B: '#cd7f32',
-  C: '#8899aa',
+  S: '#D4AF37',  // ゴールド
+  A: '#8B7355',  // アンティークブロンズ
+  B: '#B87333',  // コッパー
+  C: '#5C4033',  // ブラウン
 }
 
 export function ScenarioSelect({ onSelect }: Props) {

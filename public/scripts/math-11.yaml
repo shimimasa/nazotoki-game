@@ -1,0 +1,374 @@
+meta:
+  id: math-11
+  title: 分数パティシエと偽のレシピ
+  series: 数字の迷宮
+  volume: 11
+  estimatedMinutes: 20
+
+characters:
+  akane:
+    name: アカネ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  kouta:
+    name: コウタ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  yui:
+    name: ユイ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  miku:
+    name: ミク
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{料理|りょうり}クラブの『お{菓子|かし}コンテスト』。{優勝|ゆうしょう}{候補|こうほ}のアカネチームが{作|つく}ったチョコレートケーキが——{大|だい}{失敗|しっぱい}。"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{原因|げんいん}を{調|しら}べると——レシピカードの{分数|ぶんすう}が{書|か}き{換|か}えられていた！ {砂糖|さとう}2/3カップが3/4カップに、バター1/4カップが1/3カップに。"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "レシピの{分数|ぶんすう}が{書|か}き{換|か}えられている。{昼休|ひるやす}みに{家庭科室|かていかしつ}に{入|はい}れたのは4人。{分数|ぶんすう}の{計算|けいさん}で{犯人|はんにん}を{見|み}つけ{出|だ}そう。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: akane
+            expression: worried
+          - id: kouta
+            expression: normal
+          - id: yui
+            expression: normal
+          - id: miku
+            expression: thinking
+
+      - type: narration
+        text: "{分数|ぶんすう}の{矛盾|むじゅん}から{犯人|はんにん}を{突|つ}き{止|と}めろ！"
+
+      - type: sprite
+        character: akane
+        action: hide
+      - type: sprite
+        character: kouta
+        action: hide
+      - type: sprite
+        character: yui
+        action: hide
+      - type: sprite
+        character: miku
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.11"
+        subtitle: "分数パティシエと偽のレシピ"
+
+  # ========================================
+  # 証拠1: 改ざんされたレシピ
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "アカネチームのレシピカードを{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "{小麦粉|こむぎこ}：1と1/2カップ（{変更|へんこう}なし）\n{砂糖|さとう}：**3/4カップ** ← ★{正|ただ}しくは **2/3カップ**\nバター：**1/3カップ** ← ★{正|ただ}しくは **1/4カップ**\n{卵|たまご}：2{個|こ}（{変更|へんこう}なし）"
+
+      - type: narration
+        text: "{砂糖|さとう}もバターも『{分数|ぶんすう}』の{部分|ぶぶん}だけ{変|か}わっている。どれだけ{増|ふ}えたか、**{通分|つうぶん}**して{計算|けいさん}してみよう。"
+
+  # ========================================
+  # 証拠2: 分数の比較
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{改|かい}ざんの{差|さ}を{計算|けいさん}しよう。3と4の{最小公倍数|さいしょうこうばいすう}は**12**。{分母|ぶんぼ}を12にそろえる。"
+
+      - type: narration
+        text: "{砂糖|さとう}：2/3 = **8/12** → 3/4 = **9/12**（**1/12カップ{多|おお}い**）\nバター：1/4 = **3/12** → 1/3 = **4/12**（**1/12カップ多い**）"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "どちらも**ちょうど1/12カップ**ずつ{増|ふ}やされている！ {分母|ぶんぼ}が{違|ちが}う{分数|ぶんすう}に{変|か}えてあるから、パッと{見|み}では{気|き}づきにくい。これは{偶然|ぐうぜん}じゃない——**{通分|つうぶん}の{計算|けいさん}ができる人**が{意図的|いとてき}に{変|か}えた。"
+
+  # ========================================
+  # 証拠3: 家庭科室の状況
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{家庭科室|かていかしつ}の{鍵|かぎ}は**12:10に{日直|にっちょく}の先生が{開|あ}けた**。12:10より{前|まえ}は{入|はい}れなかった。{書|か}き{換|か}えには**{赤|あか}いボールペン**が{使|つか}われていた。{家庭科室|かていかしつ}には{赤|あか}いボールペンはない。"
+
+      - type: narration
+        text: "4人のボールペン{調査|ちょうさ}：\nアカネ：{黒|くろ}、{青|あお}\nコウタ：{黒|くろ}、{青|あお}、{緑|みどり}\n**ユイ：{黒|くろ}、{赤|あか}**\nミク：{黒|くろ}"
+
+      - type: narration
+        text: "{赤|あか}いボールペンを{持|も}っているのは**ユイだけ**。"
+
+  # ========================================
+  # 証拠4: 昼休みの行動
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "{昼休|ひるやす}みの{行動|こうどう}を{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "アカネ：12:00〜12:40 {教室|きょうしつ}で{友達|ともだち}と{話|はな}す（{友達|ともだち}3人が{確認|かくにん}）✅\nコウタ：12:00〜12:40 {教室|きょうしつ}で{算数|さんすう}ドリル（{隣|となり}の{席|せき}タケシが{確認|かくにん}）✅\n**ユイ：12:10〜12:40 {図書室|としょしつ}で{読書|どくしょ}**（{図書|としょ}{委員|いいん}が{来|き}たときと{出|で}たときだけ{確認|かくにん}）⚠️\nミク：12:00〜12:20 {校庭|こうてい}→12:20〜12:40 {図書室|としょしつ}→{教室|きょうしつ}（{複数|ふくすう}{証人|しょうにん}あり）✅"
+
+      - type: narration
+        text: "{家庭科室|かていかしつ}の{鍵|かぎ}が{開|あ}くのは12:10。アカネとコウタはずっと{教室|きょうしつ}。ミクは{複数|ふくすう}の{証人|しょうにん}あり。**ユイだけ、{途中|とちゅう}の{時間|じかん}を{確認|かくにん}した人がいない**。"
+
+  # ========================================
+  # 証拠5: ユイの読書記録（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：分数でアリバイを検証"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: yui
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yui
+        text: "180ページの{料理|りょうり}の{本|ほん}を{読|よ}んでいたよ。1/6ずつ4{回|かい}に{分|わ}けて{読|よ}んで、{合計|ごうけい}**4/6 = 2/3**まで{読|よ}んだ。"
+        expression: normal
+
+      - type: sprite
+        character: yui
+        action: hide
+
+      - type: narration
+        text: "{計算|けいさん}してみよう：\n1/6 × 4 = 4/6 = 2/3 ← **{計算|けいさん}は{正|ただ}しい** ✓\n180ページ × 2/3 = **120ページ** ← 120ページ{読|よ}んだことになる"
+
+      - type: narration
+        text: "120ページ ÷ 30{分|ぷん} = **4ページ/{分|ぷん}** = 1ページ**15{秒|びょう}**"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{小学生|しょうがくせい}が{料理|りょうり}の{本|ほん}を**1ページ15{秒|びょう}**で{読|よ}める？ {普通|ふつう}は1ページ**1〜2{分|ぷん}**かかる。**{分数|ぶんすう}の{計算|けいさん}は{正|ただ}しいが、{現実的|げんじつてき}に{不可能|ふかのう}な{速度|そくど}！**"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "さらに——{図書|としょ}{委員|いいん}のハナちゃんの{追加|ついか}{証言|しょうげん}：『ユイちゃん、12:10に{来|き}たけど、**12:15くらいに{席|せき}を{離|はな}れた**の。12:20くらいに{戻|もど}ってきたと{思|おも}う』"
+        speed: slow
+
+      - type: narration
+        text: "ユイは12:15〜12:20の**5{分間|ふんかん}**、{図書室|としょしつ}にいなかった！ {家庭科室|かていかしつ}でレシピを{書|か}き{換|か}えるのに{十分|じゅうぶん}な{時間|じかん}。"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "レシピを{書|か}き{換|か}えた{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "アカネ"
+            value: akane
+            feedback: "アカネは12:00〜12:40ずっと{教室|きょうしつ}。{友達|ともだち}3人が{確認|かくにん}。しかも{被害者|ひがいしゃ}（レシピを{書|か}き{換|か}えられた{側|がわ}）だよ。"
+          - text: "コウタ"
+            value: kouta
+            feedback: "コウタもずっと{教室|きょうしつ}。{隣|となり}の{席|せき}のタケシが{確認|かくにん}。しかも{赤|あか}いボールペンを{持|も}っていない。"
+          - text: "ユイ"
+            value: yui
+            correct: true
+            feedback: "{正解|せいかい}！ ユイは{赤|あか}いボールペンを{持|も}っている。12:15〜12:20に{図書室|としょしつ}を{離|はな}れていた。そして{読書|どくしょ}アリバイは{分数|ぶんすう}{計算|けいさん}で{崩|くず}れた——120ページを30{分|ぷん}は{物理的|ぶつりてき}に{不可能|ふかのう}！"
+          - text: "ミク"
+            value: miku
+            feedback: "ミクは{校庭|こうてい}→{図書室|としょしつ}→{教室|きょうしつ}と{移動|いどう}。{複数|ふくすう}の{証人|しょうにん}あり。しかも{赤|あか}いボールペンを{持|も}っていない。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "ユイだけ{赤|あか}いボールペンを{持|も}っている"
+            value: red-pen
+            feedback: "{重要|じゅうよう}な{状況|じょうきょう}{証拠|しょうこ}！ でも『{持|も}っている』だけでは『{使|つか}った』{証拠|しょうこ}にならない。{計算|けいさん}で{証明|しょうめい}しよう！"
+          - text: "{読書|どくしょ}{量|りょう}の{分数|ぶんすう}{計算|けいさん}（120ページ÷30{分|ぷん}=1ページ15{秒|びょう}は{不可能|ふかのう}）"
+            value: reading-speed
+            correct: true
+            feedback: "{完璧|かんぺき}！ 1/6×4=2/3は{正|ただ}しい。でも180×2/3=120ページを30{分|ぷん}で{読|よ}むのは{不可能|ふかのう}（1ページ15{秒|びょう}）。{分数|ぶんすう}の{計算|けいさん}でアリバイの{嘘|うそ}を{暴|あば}いた！"
+          - text: "{図書|としょ}{委員|いいん}の{証言|しょうげん}（12:15に{席|せき}を{離|はな}れた）"
+            value: librarian
+            feedback: "{図書|としょ}{委員|いいん}の{証言|しょうげん}は{大事|だいじ}な{補強|ほきょう}{証拠|しょうこ}。でも{分数|ぶんすう}の{計算|けいさん}と{合|あ}わせて{初|はじ}めて{決定的|けっていてき}になるよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: yui
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: yui
+        text: "……{私|わたし}がやった。アカネチームのレシピの{分数|ぶんすう}を{書|か}き{換|か}えた。"
+        expression: worried
+
+      - type: dialog
+        character: yui
+        text: "{自分|じぶん}のチームのケーキが{何度|なんど}も{失敗|しっぱい}していたの。アカネチームのレシピが{完璧|かんぺき}なのが{悔|くや}しくて。{分数|ぶんすう}をちょっとだけ{変|か}えれば{気|き}づかれないと{思|おも}った。"
+        expression: thinking
+
+      - type: dialog
+        character: yui
+        text: "でも——{通分|つうぶん}して{計算|けいさん}すれば{分|わ}かっちゃうんだね。1/12カップの{差|さ}でも、お{菓子|かし}は{失敗|しっぱい}する。{分数|ぶんすう}って{正確|せいかく}なんだ……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: yui
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ユイは{悔|くや}しかったんだね。{自分|じぶん}のチームが{勝|か}ちたかった{気持|きもち}は{分|わ}かる。でも{他|ほか}のチームのレシピを{変|か}えるのは{間違|まちが}い。{自分|じぶん}のレシピを{磨|みが}こう。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{通分|つうぶん}**。{分母|ぶんぼ}が{違|ちが}う{分数|ぶんすう}を{比|くら}べるには{分母|ぶんぼ}をそろえる。2/3と3/4は{一見|いっけん}{似|に}ているけど、{通分|つうぶん}すると8/12と9/12。1/12の{差|さ}が{見|み}える。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "そして{読書|どくしょ}アリバイ——1/6×4=2/3は{正|ただ}しい{計算|けいさん}。でも180ページの2/3＝120ページを30{分|ぷん}で{読|よ}むのは{不可能|ふかのう}。{計算|けいさん}が{正|ただ}しくても、{現実|げんじつ}と{矛盾|むじゅん}することがある。これが**{演繹法|えんえきほう}**だ。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{分数|ぶんすう}は{正確|せいかく}。だから{嘘|うそ}は{通分|つうぶん}すれば{見|み}つかる。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{分母|ぶんぼ}が{違|ちが}っても、{通分|つうぶん}すれば{差|さ}が{見|み}える。{計算|けいさん}が{正|ただ}しくても{現実|げんじつ}と{矛盾|むじゅん}することがある。"
+
+      - type: narration
+        text: "——それが、{分数|ぶんすう}パティシエが{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

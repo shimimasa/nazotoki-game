@@ -1,0 +1,495 @@
+meta:
+  id: moral-12
+  title: 切り倒された桜の木
+  series: 答えのない法廷
+  volume: 12
+  estimatedMinutes: 20
+
+characters:
+  yui:
+    name: ユイ
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  riku:
+    name: リク
+    color: "#2E8B57"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  akari:
+    name: アカリ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#E08040"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{冬休|ふゆやす}み{明|あ}けの{月曜日|げつようび}。{校庭|こうてい}に出ると——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 500
+
+      - type: narration
+        text: "{桜|さくら}の{木|き}がない。30{年|ねん}{前|まえ}に{卒業生|そつぎょうせい}が{植|う}えた「シンボルツリー」。{入学式|にゅうがくしき}の{写真|しゃしん}にもいつも{写|うつ}っていた{大切|たいせつ}な木。"
+        speed: slow
+
+      - type: narration
+        text: "そこにあったのは——{切|き}り{株|かぶ}だけ。"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite_group
+        characters:
+          - id: yui
+            expression: thinking
+          - id: riku
+            expression: surprised
+          - id: akari
+            expression: worried
+          - id: sora
+            expression: thinking
+
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: yui
+        text: "……やっぱり。"
+        expression: thinking
+
+      - type: sprite
+        character: yui
+        action: hide
+
+      - type: sprite
+        character: akari
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: akari
+        text: "なんで……なんで{切|き}っちゃったの……"
+        expression: worried
+
+      - type: sprite
+        character: akari
+        action: hide
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: narration
+        text: "{誰|だれ}が、なぜ{切|き}ったのか——4人の{探偵|たんてい}が{調|しら}べ{始|はじ}める。"
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "答えのない法廷 Vol.12"
+        subtitle: "切り倒された桜の木"
+
+  # ========================================
+  # 証拠カード1: 切り株の観察記録
+  # ========================================
+  - id: evidence-1
+    bg: schoolyard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{切|き}り{株|かぶ}を{詳|くわ}しく{観察|かんさつ}してみよう。"
+
+      - type: narration
+        text: "{直径|ちょっけい}{約|やく}50cm。{年輪|ねんりん}は30{本|ほん}{以上|いじょう}——30{年|ねん}{以上|いじょう}{生|い}きていた。{断面|だんめん}の{外側|そとがわ}は{白|しろ}っぽいが、**{中心|ちゅうしん}が{黒|くろ}っぽい**。チェーンソーできれいに{切|き}られている。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{中心|ちゅうしん}が{黒|くろ}い——『{芯腐|しんぐさ}れ』の{可能性|かのうせい}。{木|き}の{内部|ないぶ}が{弱|よわ}っていた。そして{業者|ぎょうしゃ}がきれいに{作業|さぎょう}している——{計画的|けいかくてき}な{伐採|ばっさい}。{突然|とつぜん}ではない。"
+
+  # ========================================
+  # 証拠カード2: 桜の木の歴史
+  # ========================================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: narration
+        text: "この{桜|さくら}の30{年|ねん}の{歴史|れきし}を{振|ふ}り{返|かえ}ってみよう。"
+
+      - type: narration
+        text: "30{年前|ねんまえ}：{卒業生|そつぎょうせい}が{卒業|そつぎょう}{記念|きねん}に{苗|なえ}を{植|う}える。\n20{年前|ねんまえ}：{用務員|ようむいん}の{田中|たなか}さんが{着任|ちゃくにん}。{毎年|まいとし}{世話|せわ}をしてきた。\n15{年前|ねんまえ}：『シンボルツリー』として{校庭|こうてい}のシンボルに。"
+
+      - type: narration
+        text: "{毎年|まいとし}4{月|がつ}：{入学式|にゅうがくしき}に{桜|さくら}の{前|まえ}で{記念|きねん}{写真|しゃしん}を{撮|と}るのが{伝統|でんとう}。\n{去年|きょねん}の{春|はる}：いつも{通|どお}り{美|うつく}しく{咲|さ}いた。\n{去年|きょねん}の11{月|がつ}：{枝|えだ}の{一部|いちぶ}に{異常|いじょう}が{見|み}つかる。\n{冬休|ふゆやす}み{中|ちゅう}：{伐採|ばっさい}。"
+
+      - type: narration
+        text: "この{桜|さくら}はただの{木|き}ではない。{学校|がっこう}の{歴史|れきし}そのもの。30{年分|ねんぶん}の{思|おも}い{出|で}が{詰|つ}まっている。でも{病気|びょうき}だったとしたら——"
+
+  # ========================================
+  # 証拠カード3: 校長先生のメモ
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{職員室|しょくいんしつ}で{校長|こうちょう}先生のメモが{見|み}つかった。"
+
+      - type: narration
+        text: "『12{月|がつ}10{日|にち}\n{樹木医|じゅもくい}の{山本|やまもと}先生に{診察|しんさつ}していただいた。\n{診断|しんだん}{結果|けっか}：{天狗巣病|てんぐすびょう}——{菌|きん}による{病気|びょうき}。{幹|みき}の{内部|ないぶ}にも{腐食|ふしょく}が{進行|しんこう}。{強風|きょうふう}や{地震|じしん}で{倒木|とうぼく}の{危険|きけん}あり。{子|こ}どもの{安全|あんぜん}を{考|かんが}えると{伐採|ばっさい}を{推奨|すいしょう}』"
+        speed: slow
+
+      - type: narration
+        text: "『{判断|はんだん}：{冬休|ふゆやす}み{中|ちゅう}に{伐採|ばっさい}する。{理由|りゆう}——{子|こ}どもがいない{時期|じき}に{安全|あんぜん}に{作業|さぎょう}するため。\n{迷|まよ}いもある。30{年|ねん}の{木|き}を{切|き}るのは{苦渋|くじゅう}の{決断|けつだん}。しかし{子|こ}どもの{命|いのち}には{代|か}えられない。』"
+        speed: slow
+
+      - type: narration
+        text: "{校長|こうちょう}先生は{専門家|せんもんか}に{相談|そうだん}した{上|うえ}で{判断|はんだん}している。『{苦渋|くじゅう}の{決断|けつだん}』と書いている。{簡単|かんたん}に{決|き}めたわけではない。でも——**{生徒|せいと}への{説明|せつめい}はなかった**。"
+
+  # ========================================
+  # 証拠カード4: 4人の反応
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: yui
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: yui
+        text: "……やっぱり。11{月|がつ}に{枝|えだ}の{様子|ようす}がおかしいと{思|おも}ったんだ。でも{先生|せんせい}に{言|い}わなかった……。"
+        expression: worried
+
+      - type: sprite
+        character: yui
+        action: hide
+
+      - type: sprite
+        character: riku
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: riku
+        text: "{写真|しゃしん}を{撮|と}らなきゃ。{最後|さいご}の{姿|すがた}を{記録|きろく}に{残|のこ}さないと。"
+        expression: determined
+
+      - type: sprite
+        character: riku
+        action: hide
+
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: akari
+        text: "おばあちゃんが{植|う}えた{木|き}なの……。おばあちゃんは{去年|きょねん}{亡|な}くなった。この{桜|さくら}が{最後|さいご}のつながりだった。"
+        expression: worried
+
+      - type: sprite
+        character: akari
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sora
+        text: "{田中|たなか}さん——{用務員|ようむいん}の{田中|たなか}さんが{言|い}っていた。『もう少し{治療|ちりょう}を{試|ため}したかった。でも{校長|こうちょう}先生の{判断|はんだん}も{分|わ}かる。{子|こ}どもに何かあったら……』って。"
+        expression: thinking
+
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 証拠カード5: 視点切替（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：4つの視点"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "{同|おな}じ{出来事|できごと}を、4つの{視点|してん}から{見|み}てみよう——"
+
+      - type: narration
+        text: "【{校長|こうちょう}先生の{視点|してん}】\n『{子|こ}どもの{安全|あんぜん}が{第一|だいいち}。{専門家|せんもんか}が「{危険|きけん}」と{言|い}った{以上|いじょう}、{伐採|ばっさい}するしかなかった。{責任|せきにん}は{自分|じぶん}が{取|と}る』"
+
+      - type: narration
+        text: "【{用務員|ようむいん} {田中|たなか}さんの{視点|してん}】\n『20{年間|ねんかん}、{毎日|まいにち}この{木|き}を{見|み}てきた。もう少し{治療|ちりょう}を{試|ため}したかった。でも{校長|こうちょう}先生の{判断|はんだん}も{分|わ}かる。{子|こ}どもに何かあったら……』"
+
+      - type: narration
+        text: "【{卒業生|そつぎょうせい}（おばあちゃん{世代|せだい}）の{視点|してん}】\n『{自分|じぶん}たちが{植|う}えた{木|き}。30{年間|ねんかん}、{学校|がっこう}を{見守|みまも}ってきた。{切|き}られるのは{寂|さび}しい。でも{木|き}が{苦|くる}しんでいたなら……』"
+
+      - type: narration
+        text: "【{桜|さくら}の{木|き}の{視点|してん}（もし{木|き}が{話|はな}せたら）】\n『30{年間|ねんかん}、ここに{立|た}っていた。みんなの{笑顔|えがお}を見てきた。でも{最近|さいきん}、{体|からだ}の{中|なか}が{痛|いた}い。もう{自分|じぶん}では{立|た}っていられない……』"
+        speed: slow
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{全員|ぜんいん}が『{正|ただ}しい』。でも『{正|ただ}しい』が4つあるとき、どうやって{判断|はんだん}する？"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：考えよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{桜|さくら}の{木|き}を{切|き}った{判断|はんだん}は{正|ただ}しかった？"
+        feedback_default: "どの{考|かんが}えにも{理由|りゆう}がある。{大事|だいじ}なのは『なぜそう{思|おも}うか』を{言葉|ことば}にできること。"
+        options:
+          - text: "{正|ただ}しい。{子|こ}どもの{安全|あんぜん}が{一番|いちばん}{大事|だいじ}"
+            value: safety-first
+          - text: "もっと{治療|ちりょう}を{試|ため}すべきだった"
+            value: try-treatment
+          - text: "{生徒|せいと}にも{相談|そうだん}すべきだった"
+            value: consult-students
+          - text: "{新|あたら}しい{木|き}を{植|う}えて{前|まえ}に{進|すす}もう"
+            value: plant-new
+
+      - type: choice
+        id: q2
+        question: "ユイは11{月|がつ}に{異常|いじょう}に{気|き}づいていた。{言|い}うべきだった？"
+        feedback_default: "『{気|き}づいたのに{言|い}わなかった』{後悔|こうかい}。でも{子|こ}どもが{大人|おとな}に{伝|つた}えるのは{勇気|ゆうき}がいる。{大事|だいじ}なのは『{次|つぎ}は{伝|つた}えよう』と{思|おも}えること。"
+        options:
+          - text: "{言|い}うべきだった。{早|はや}ければ{治療|ちりょう}できたかも"
+            value: should-tell
+          - text: "{子|こ}どもには{難|むずか}しい{判断|はんだん}。{仕方|しかた}ない"
+            value: hard-for-kids
+          - text: "{気|き}づくこと{自体|じたい}がすごい。{次|つぎ}に{活|い}かせばいい"
+            value: next-time
+
+      - type: choice
+        id: q3
+        question: "{自然|しぜん}を『{人間|にんげん}の{都合|つごう}』だけで{決|き}めていいの？"
+        feedback_default: "{自然|しぜん}は{人間|にんげん}のものじゃない。でも{人間|にんげん}の{安全|あんぜん}も{大事|だいじ}。この{二|ふた}つのバランスが{自然|しぜん}{愛護|あいご}の{本質|ほんしつ}なのかもしれない。"
+        options:
+          - text: "{人間|にんげん}の{安全|あんぜん}が{最|もっと}も{大事|だいじ}"
+            value: human-safety
+          - text: "{自然|しぜん}にも『{権利|けんり}』がある"
+            value: nature-rights
+          - text: "バランスが{大事|だいじ}。{両方|りょうほう}{考|かんが}えるべき"
+            value: balance
+
+      - type: choice
+        id: q4
+        question: "アカリのおばあちゃんならなんて{言|い}うと{思|おも}う？"
+        feedback_default: "おばあちゃんが{植|う}えた{木|き}。でも{木|き}が{苦|くる}しんでいたなら——『{楽|らく}にしてあげるのもやさしさ』かもしれない。"
+        options:
+          - text: "『{切|き}らないで。{私|わたし}の{木|き}なんだから』"
+            value: dont-cut
+          - text: "『{苦|くる}しんでいるなら{楽|らく}にしてあげて』"
+            value: let-go
+          - text: "『{新|あたら}しい{木|き}を{植|う}えてね。{命|いのち}はつながるよ』"
+            value: plant-new-tree
+
+  # ========================================
+  # 真相 — 各キャラの秘密
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真実"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: yui
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: yui
+        text: "11{月|がつ}に{枝|えだ}の{異常|いじょう}に{気|き}づいていた。でも{先生|せんせい}に{言|い}わなかった。{早|はや}く{言|い}っていれば、{治療|ちりょう}できたかもしれないのに……。"
+        expression: worried
+
+      - type: sprite
+        character: yui
+        action: hide
+
+      - type: sprite
+        character: riku
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: riku
+        text: "12{月|がつ}に{撮|と}った{写真|しゃしん}に、{病気|びょうき}の{症状|しょうじょう}が{写|うつ}っていた。でも{気|き}づかなかった。『{見|み}ること』と『{気|き}づくこと』は{違|ちが}うんだ……。"
+        expression: thinking
+
+      - type: sprite
+        character: riku
+        action: hide
+
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: akari
+        text: "おばあちゃんが{去年|きょねん}{亡|な}くなった。この{桜|さくら}がおばあちゃんとの{最後|さいご}のつながりだった。でも……おばあちゃんならきっと『{苦|くる}しんでいるなら{楽|らく}にしてあげなさい』って{言|い}う。"
+        expression: determined
+
+      - type: sprite
+        character: akari
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: sora
+        text: "{田中|たなか}さんは{伐採|ばっさい}の{日|ひ}、{切|き}り{株|かぶ}の{前|まえ}で『ありがとう』って{言|い}っていた。20{年|ねん}{世話|せわ}をしてきた人の{気持|きもち}。{大人|おとな}も{悲|かな}しいんだ。"
+        expression: worried
+
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 最後の問い
+  # ========================================
+  - id: final-question
+    steps:
+      - type: choice
+        id: q5
+        question: "この{事件|じけん}から、{自然|しぜん}と{向|む}き{合|あ}うために{大切|たいせつ}なことは何？"
+        feedback_default: "{自然|しぜん}を{大切|たいせつ}にする{心|こころ}と、{人間|にんげん}の{安全|あんぜん}。どちらも{大事|だいじ}。{答|こた}えは1つじゃない。だからこそ{考|かんが}え{続|つづ}ける{価値|かち}がある。"
+        options:
+          - text: "{自然|しぜん}の{変化|へんか}に{気|き}づくこと（{観察|かんさつ}する{目|め}）"
+            value: observe
+          - text: "みんなで{相談|そうだん}して{決|き}めること"
+            value: discuss
+          - text: "{安全|あんぜん}と{自然|しぜん}{愛護|あいご}のバランスを{考|かんが}えること"
+            value: balance
+          - text: "{命|いのち}が{終|お}わるときも{大切|たいせつ}にすること（{弔|とむら}う{心|こころ}）"
+            value: mourn
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: schoolyard
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "この{事件|じけん}には{犯人|はんにん}はいません。{校長|こうちょう}先生は{子|こ}どもの{安全|あんぜん}を{守|まも}った。{田中|たなか}さんは20{年|ねん}、{愛情|あいじょう}を{込|こ}めて{木|き}を{育|そだ}てた。{卒業生|そつぎょうせい}は{思|おも}い{出|で}を{大切|たいせつ}にしている。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "{全員|ぜんいん}が{正|ただ}しい。でも{正|ただ}しいが4つあるとき——{大事|だいじ}なのは『{誰|だれ}が{悪|わる}いか』ではなく、『どうすればよかったか』を{考|かんが}えること。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{自然|しぜん}を{大切|たいせつ}にするということは、ただ『{切|き}るな』ではない。{観察|かんさつ}し、{理解|りかい}し、ときには{見送|みおく}る{勇気|ゆうき}を{持|も}つこと。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{春|はる}になったら、{新|あたら}しい{桜|さくら}を{植|う}えよう。{命|いのち}はつながっていくから。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{安全|あんぜん}と{自然|しぜん}{愛護|あいご}。{思|おも}い{出|で}と{現実|げんじつ}。{正|ただ}しいが4つあるとき、{答|こた}えは1つではない。"
+
+      - type: narration
+        text: "——それが、{切|き}り{倒|たお}された{桜|さくら}の{木|き}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

@@ -1,0 +1,385 @@
+meta:
+  id: math-13
+  title: 小数点のずれた成績表
+  series: 数字の迷宮
+  volume: 13
+  estimatedMinutes: 20
+
+characters:
+  mai:
+    name: マイ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  aoi:
+    name: アオイ
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ren:
+    name: レン
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  keita:
+    name: ケイタ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "クラスの『{体力|たいりょく}テスト{記録|きろく}{表|ひょう}』がパソコンで{書|か}き{換|か}えられていた。50m{走|そう}のタイムが{全体的|ぜんたいてき}にずれている。"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "8.5{秒|びょう}が85{秒|びょう}に、9.2{秒|びょう}が0.92{秒|びょう}に——**{小数点|しょうすうてん}の{位置|いち}が{動|うご}かされている**！"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{小数点|しょうすうてん}のずれ{方|かた}がバラバラ。パソコンのバグなら{全員|ぜんいん}{同|おな}じ{方向|ほうこう}にずれるはず。これは**{意図的|いとてき}な{操作|そうさ}**。{記録|きろく}{係|がかり}の4人の{中|なか}に{犯人|はんにん}がいる。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: mai
+            expression: surprised
+          - id: aoi
+            expression: thinking
+          - id: ren
+            expression: normal
+          - id: keita
+            expression: normal
+
+      - type: narration
+        text: "{小数点|しょうすうてん}のずれパターンを{見|み}つけ{出|だ}せ！"
+
+      - type: sprite
+        character: mai
+        action: hide
+      - type: sprite
+        character: aoi
+        action: hide
+      - type: sprite
+        character: ren
+        action: hide
+      - type: sprite
+        character: keita
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.13"
+        subtitle: "小数点のずれた成績表"
+
+  # ========================================
+  # 証拠1: 改ざんされた記録表
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "50m{走|そう}の{記録|きろく}を{比|くら}べてみよう。{改|かい}ざん{前|まえ}と{改|かい}ざん{後|ご}。"
+
+      - type: narration
+        text: "マイ：8.5{秒|びょう} → **85{秒|びょう}**\nアオイ：9.2{秒|びょう} → **0.92{秒|びょう}**\nレン：10.5{秒|びょう} → **1.05{秒|びょう}**\nケイタ：8.8{秒|びょう} → **88{秒|びょう}**"
+
+      - type: narration
+        text: "{小数点|しょうすうてん}がどう{動|うご}いているか、1人ずつ{確認|かくにん}しよう。8.5が85になったのは、{小数点|しょうすうてん}が{右|みぎ}に{動|うご}いた？ {左|ひだり}に？"
+
+  # ========================================
+  # 証拠2: ずれ方の分析
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{小数点|しょうすうてん}の{移動|いどう}を{整理|せいり}しよう。"
+
+      - type: narration
+        text: "マイ：8.5 **×10** = 85 → {小数点|しょうすうてん}が{右|みぎ}に1つ → タイムが**{遅|おそ}く**なった\nアオイ：9.2 **÷10** = 0.92 → {小数点|しょうすうてん}が{左|ひだり}に1つ → タイムが**{速|はや}く**なった"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "レン：10.5 **÷10** = 1.05 → {小数点|しょうすうてん}が{左|ひだり}に1つ → タイムが**{速|はや}く**なった\nケイタ：8.8 **×10** = 88 → {小数点|しょうすうてん}が{右|みぎ}に1つ → タイムが**{遅|おそ}く**なった"
+
+      - type: narration
+        text: "**×10（{遅|おそ}くなった人）**: マイ、ケイタ\n**÷10（{速|はや}くなった人）**: アオイ、レン\nバラバラ！ パソコンのバグなら{全員|ぜんいん}{同|おな}じずれ{方|かた}になるはず。**わざと**ずらした{証拠|しょうこ}。"
+
+  # ========================================
+  # 証拠3: パソコン室の調査
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "パソコンの{情報|じょうほう}。{金曜日|きんようび}に4人で{入力|にゅうりょく}。マイが{確認|かくにん}して**{正|ただ}しかった**。{月曜日|げつようび}に先生が{開|ひら}くと**ずれていた**。"
+
+      - type: narration
+        text: "パソコン{室|しつ}は{平日|へいじつ}は{自由|じゆう}に{使|つか}える。**{土日|どにち}は{鍵|かぎ}の{番号|ばんごう}を{知|し}っている人だけ**。{鍵|かぎ}の{番号|ばんごう}を{知|し}っているのは先生と{記録|きろく}{係|がかり}の4人。{犯行|はんこう}は**{土日|どにち}**。"
+
+  # ========================================
+  # 証拠4: 土曜日のアリバイ
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "{土曜日|どようび}に{学校|がっこう}に来たのは{誰|だれ}？"
+
+      - type: narration
+        text: "マイ：{家族|かぞく}でお{出|で}かけ → ❌ 来ていない\nアオイ：{家|いえ}でプログラミング → ❌ 来ていない\n**レン：{図書室|としょしつ}に{本|ほん}を{返|かえ}しに来た → ✅ 来た（10:00ごろ）**\n**ケイタ：{少年団|しょうねんだん}のサッカー{練習|れんしゅう} → ✅ 来た（10:00〜12:00）**"
+
+      - type: narration
+        text: "{土曜日|どようび}に{学校|がっこう}に来たのは**レンとケイタだけ**。マイとアオイは{消去|しょうきょ}。{犯人|はんにん}は**レンかケイタ**。"
+
+  # ========================================
+  # 証拠5: パターン分析（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：パターンを見抜け"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: aoi
+        expression: determined
+        position: left
+
+      - type: dialog
+        character: aoi
+        text: "パソコンの{編集|へんしゅう}{履歴|りれき}を{調|しら}べた。ファイルが{最後|さいご}に{保存|ほぞん}されたのは、**{土曜日|どようび}の10:30**。"
+        expression: determined
+
+      - type: sprite
+        character: aoi
+        action: hide
+
+      - type: sprite
+        character: keita
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: keita
+        text: "{土曜|どよう}の{練習|れんしゅう}の{休憩|きゅうけい}（10:20ごろ）、{水|みず}を{飲|の}みに{校舎|こうしゃ}に{入|はい}ったとき、**パソコン{室|しつ}の{前|まえ}でレンを{見|み}た**。レンは『{本|ほん}を{返|かえ}しに来た』って{言|い}ったけど、{図書室|としょしつ}は3{階|かい}でパソコン{室|しつ}は2{階|かい}。{通|とお}り{道|みち}じゃないよね？"
+        expression: thinking
+
+      - type: sprite
+        character: keita
+        action: hide
+
+      - type: narration
+        text: "では{決定的|けっていてき}な{分析|ぶんせき}——{小数点|しょうすうてん}のずれパターンをもう{一度|いちど}{見|み}よう。"
+
+      - type: narration
+        text: "マイ：×10 → タイムが**{遅|おそ}く**（{損|そん}した）\nアオイ：÷10 → タイムが**{速|はや}く**（{得|とく}した）\n**レン：÷10 → タイムが{速|はや}く（{得|とく}した）**\nケイタ：×10 → タイムが**{遅|おそ}く**（{損|そん}した）"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "ケイタは×10で**{損|そん}している**。{自分|じぶん}を{損|そん}させる{犯行|はんこう}をする？ ありえない。\nレンは÷10で**{得|とく}している**。しかも10.5{秒|びょう}→1.05{秒|びょう}は「ありえない{記録|きろく}」だけど、{他|ほか}の{改|かい}ざんに{紛|まぎ}れて{見|み}えにくい。"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**{土曜|どよう}に{学校|がっこう}にいた + {得|とく}する{方向|ほうこう}にずれている + パソコン{室|しつ}の{前|まえ}にいた = レン！**"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{成績|せいせき}{表|ひょう}を{偽造|ぎぞう}した{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "マイ"
+            value: mai
+            feedback: "マイは{土曜日|どようび}に{学校|がっこう}に来ていない。しかも×10で{損|そん}している{側|がわ}。"
+          - text: "アオイ"
+            value: aoi
+            feedback: "アオイも{土曜日|どようび}に来ていない。{消去|しょうきょ}{済|ず}み。"
+          - text: "レン"
+            value: ren
+            correct: true
+            feedback: "{正解|せいかい}！ レンは{土曜|どよう}に{学校|がっこう}にいた。パソコン{室|しつ}の{前|まえ}にいた。そして÷10で{自分|じぶん}のタイムが**{速|はや}くなっている**。{得|とく}をしたのはレンだけ！"
+          - text: "ケイタ"
+            value: keita
+            feedback: "ケイタは×10で{自分|じぶん}のタイムが**{遅|おそ}く**なっている。{自分|じぶん}を{損|そん}させる{犯行|はんこう}はしないよ。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "{土曜日|どようび}にパソコン{室|しつ}の{前|まえ}にいた"
+            value: location
+            feedback: "{大事|だいじ}な{状況|じょうきょう}{証拠|しょうこ}。でもそれだけでは{確定|かくてい}しない。{小数点|しょうすうてん}のパターンと{組|く}み{合|あ}わせよう。"
+          - text: "{小数点|しょうすうてん}のずれパターンでレンだけが{得|とく}している"
+            value: pattern
+            correct: true
+            feedback: "{完璧|かんぺき}！ ×10された人は{損|そん}、÷10された人は{得|とく}。{犯人|はんにん}は{自分|じぶん}を{得|とく}させ、{他|ほか}を{損|そん}させる。レンだけが{得|とく}+{土曜|どよう}に{学校|がっこう}にいた。{小数点|しょうすうてん}のパターンで{犯人|はんにん}を{暴|あば}いた！"
+          - text: "{編集|へんしゅう}{履歴|りれき}が{土曜|どよう}10:30"
+            value: log
+            feedback: "{時刻|じこく}の{特定|とくてい}には{重要|じゅうよう}。でも{誰|だれ}が{編集|へんしゅう}したかまでは{分|わ}からない。{小数点|しょうすうてん}のパターンが{決定的|けっていてき}。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: ren
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: ren
+        text: "……{僕|ぼく}がやった。{自分|じぶん}のタイムが10.5{秒|びょう}で、{自分|じぶん}だけ{遅|おそ}かった。{恥|は}ずかしくて。"
+        expression: worried
+
+      - type: dialog
+        character: ren
+        text: "{小数点|しょうすうてん}を{左|ひだり}に{動|うご}かして1.05{秒|びょう}にした。そのままだとバレるから、{他|ほか}の人の{小数点|しょうすうてん}もバラバラにずらして『パソコンのバグ』に{見|み}せかけた。"
+        expression: thinking
+
+      - type: dialog
+        character: ren
+        text: "でも——{得|とく}する{方向|ほうこう}にずれているのは{僕|ぼく}だけだった。パターンで{分|わ}かっちゃうんだ……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: ren
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "レンは{恥|は}ずかしかったんだね。でも10.5{秒|びょう}は{頑張|がんば}った{記録|きろく}だよ。{嘘|うそ}の{記録|きろく}で{喜|よろこ}んでも{意味|いみ}がない。{次|つぎ}は{本物|ほんもの}の{記録|きろく}で{勝負|しょうぶ}しよう。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{小数点|しょうすうてん}の{位置|いち}**。{小数点|しょうすうてん}を{右|みぎ}に{動|うご}かすと×10。{左|ひだり}に{動|うご}かすと÷10。{同|おな}じ{数字|すうじ}でも{小数点|しょうすうてん}の{位置|いち}で{意味|いみ}がまったく{変|か}わる。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "そして**パターン{分析|ぶんせき}**——{得|とく}した人と{損|そん}した人を{分|わ}けると、{犯人|はんにん}の{意図|いと}が{見|み}える。{小数点|しょうすうてん}は{小|ちい}さいけど、ずれたら{大|おお}きな{違|ちが}い。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{小数点|しょうすうてん}は{数字|すうじ}の{命|いのち}。1つずれたら10{倍|ばい}の{違|ちが}いになる。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{小数点|しょうすうてん}を{右|みぎ}に{動|うご}かすと×10、{左|ひだり}で÷10。{得|とく}する{方向|ほうこう}にずれていたのは{誰|だれ}か——パターンが{犯人|はんにん}を{教|おし}える。"
+
+      - type: narration
+        text: "——それが、{小数点|しょうすうてん}のずれた{成績|せいせき}{表|ひょう}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

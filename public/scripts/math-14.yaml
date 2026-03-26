@@ -1,0 +1,373 @@
+meta:
+  id: math-14
+  title: どちらがお得? 単位量の罠
+  series: 数字の迷宮
+  volume: 14
+  estimatedMinutes: 20
+
+characters:
+  souma:
+    name: ソウマ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  natsuki:
+    name: ナツキ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  yuuki:
+    name: ユウキ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のバザーで4つのお{店|みせ}がクッキーセットを{売|う}っていた。ところが——"
+
+      - type: bgm
+        action: stop
+
+      - type: narration
+        text: "お{客|きゃく}さんから「{同|おな}じクッキーなのに、お{店|みせ}によって{値段|ねだん}が{全然|ぜんぜん}{違|ちが}う！ {不公平|ふこうへい}だ！」とクレームが{入|はい}った。"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "4人の{店長|てんちょう}は{全員|ぜんいん}『うちが{一番|いちばん}お{得|とく}です』と{言|い}う。{個数|こすう}も{重|おも}さも{値段|ねだん}も{違|ちが}うセットを、どうやって{比|くら}べる？ **{単位|たんい}{量|りょう}あたり**で{計算|けいさん}してみよう。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: souma
+            expression: normal
+          - id: riko
+            expression: normal
+          - id: natsuki
+            expression: happy
+          - id: yuuki
+            expression: normal
+
+      - type: narration
+        text: "{単位|たんい}{量|りょう}あたりの{値段|ねだん}を{計算|けいさん}して、**わざと{高|たか}く{売|う}っていた人**を{見|み}つけ{出|だ}せ！"
+
+      - type: sprite
+        character: souma
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: natsuki
+        action: hide
+      - type: sprite
+        character: yuuki
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.14"
+        subtitle: "どちらがお得? 単位量の罠"
+
+  # ========================================
+  # 証拠1: 4つのお店の基本データ
+  # ========================================
+  - id: evidence-1
+    bg: schoolyard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "まず{個数|こすう}と{値段|ねだん}で{比|くら}べてみよう。"
+
+      - type: narration
+        text: "Aソウマ：8{個|こ} 400{円|えん} → 1{個|こ}あたり400÷8=**50{円|えん}**\nBリコ：6{個|こ} 360{円|えん} → 1個あたり360÷6=**60{円|えん}**\nCナツキ：12{個|こ} 480{円|えん} → 1個あたり480÷12=**40{円|えん}** ← {一番|いちばん}{安|やす}い？\nDユウキ：10{個|こ} 600{円|えん} → 1個あたり600÷10=**60{円|えん}**"
+
+      - type: narration
+        text: "1{個|こ}あたりの{値段|ねだん}で見ると、ナツキが**40{円|えん}**で{一番|いちばん}{安|やす}い。ナツキが{一番|いちばん}お{得|とく}……{本当|ほんとう}に？"
+
+  # ========================================
+  # 証拠2: お客さんのクレーム
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "お{客|きゃく}さんの{声|こえ}を{聞|き}いてみよう。"
+
+      - type: narration
+        text: "お{客|きゃく}さん1：『Cのお{店|みせ}（ナツキ）で12{個|こ}{入|い}り{買|か}ったけど、1{個|こ}がすっごく{小|ちい}さい。{全部|ぜんぶ}{合|あ}わせても{他|ほか}のお{店|みせ}の2〜3{個分|こぶん}くらいしかない』"
+
+      - type: narration
+        text: "お{客|きゃく}さん3：『{個数|こすう}で{選|えら}んだら{失敗|しっぱい}した。**{重|おも}さ**で{比|くら}べないとダメだった』"
+
+      - type: narration
+        text: "{個数|こすう}が{多|おお}くても、1{個|こ}が{小|ちい}さければ『{量|りょう}』は{少|すく}ない。**{重|おも}さ（g）**で{比|くら}べた{方|ほう}が{正確|せいかく}かも？"
+
+  # ========================================
+  # 証拠3: クッキーの重さデータ
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{各|かく}お{店|みせ}のクッキーの{重|おも}さを{調|しら}べよう。"
+
+      - type: narration
+        text: "Aソウマ：1{個|こ}25g × 8{個|こ} = **200g**\nBリコ：1個30g × 6個 = **180g**\nCナツキ：1個**5g** × 12個 = **60g**\nDユウキ：1個20g × 10個 = **200g**"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ナツキのクッキーは1{個|こ}**5g**！ {他|ほか}の4{分|ぶん}の1〜6{分|ぶん}の1の大きさ。{合計|ごうけい}{重量|じゅうりょう}：A=200g、B=180g、D=200g、**C=60g（{最少|さいしょう}！）**"
+        speed: slow
+
+      - type: narration
+        text: "12{個|こ}{入|い}りで{一番|いちばん}{多|おお}く{見|み}えるのに、{重|おも}さは{一番|いちばん}{少|すく}ない！ {見|み}た目の{個数|こすう}に{騙|だま}されていない？"
+
+  # ========================================
+  # 証拠4: 1gあたりの値段を計算しよう
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "いよいよ**1gあたりの{値段|ねだん}**を{計算|けいさん}しよう。{値段|ねだん}÷{重|おも}さ。"
+
+      - type: narration
+        text: "Aソウマ：400{円|えん}÷200g = **2{円|えん}/g**\nBリコ：360{円|えん}÷180g = **2{円|えん}/g**"
+
+      - type: narration
+        text: "**Cナツキ：480{円|えん}÷60g = ？？**"
+
+      - type: wait
+        duration: 1000
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "**Cナツキ：480÷60 = 8{円|えん}/g ！！！**"
+        speed: slow
+
+      - type: narration
+        text: "Dユウキ：600{円|えん}÷200g = **3{円|えん}/g**"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**ナツキのお{店|みせ}だけ1gあたり8{円|えん}。{他|ほか}の3〜4{倍|ばい}の{値段|ねだん}！**\n\n1{個|こ}あたり：ナツキ=40{円|えん}（{最安|さいやす}に{見|み}える！）\n1gあたり：ナツキ=8{円|えん}（{実|じつ}は{最高値|さいこうね}！）"
+        speed: slow
+
+  # ========================================
+  # 証拠5: ナツキの見た目トリック（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：見た目トリックの正体"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "ナツキの『{見|み}た目トリック』の{正体|しょうたい}——"
+
+      - type: narration
+        text: "トリック：1{個|こ}を5gと{極端|きょくたん}に{小|ちい}さくする → {個数|こすう}を12{個|こ}と{多|おお}く{見|み}せる → 『12{個|こ}で480{円|えん}＝1{個|こ}40{円|えん}！ お{得|とく}！』と{思|おも}わせる"
+
+      - type: narration
+        text: "でも{実際|じっさい}は：{合計|ごうけい}60gで480{円|えん}。1gあたり**8{円|えん}**。{他|ほか}のお{店|みせ}（2〜3{円|えん}/g）の**3〜4{倍|ばい}**。"
+
+      - type: narration
+        text: "**{個数|こすう}で{比|くら}べると{最安|さいやす}。{重|おも}さで{比|くら}べると{最高値|さいこうね}。** ——{何|なに}で{比|くら}べるかで{答|こた}えが{変|か}わる。これが**{単位|たんい}{量|りょう}の{罠|わな}**。"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "わざと{高|たか}く{売|う}っていたのは{誰|だれ}？"
+        options:
+          - text: "ソウマ（1gあたり2{円|えん}）"
+            value: souma
+            feedback: "ソウマの1gあたり2{円|えん}は{標準|ひょうじゅん}。{公正|こうせい}な{値段|ねだん}。"
+          - text: "リコ（1gあたり2{円|えん}）"
+            value: riko
+            feedback: "リコも1gあたり2{円|えん}。ソウマと{同|おな}じ{水準|すいじゅん}。{公正|こうせい}。"
+          - text: "ナツキ（1gあたり8{円|えん}）"
+            value: natsuki
+            correct: true
+            feedback: "{正解|せいかい}！ ナツキのお{店|みせ}は1gあたり**8{円|えん}**。{他|ほか}の3〜4{倍|ばい}！ 12{個|こ}{入|い}りで『お{得|とく}』に{見|み}せかけていたが、1{個|こ}が5gしかない。**{単位|たんい}{量|りょう}あたりの{計算|けいさん}で{嘘|うそ}を{暴|あば}いた！**"
+          - text: "ユウキ（1gあたり3{円|えん}）"
+            value: yuuki
+            feedback: "ユウキはやや{高|たか}めだけど、ナツキの8{円|えん}と{比|くら}べれば{許容|きょよう}{範囲|はんい}。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "1{個|こ}あたりの{値段|ねだん}（ナツキ=40{円|えん}で{最安|さいやす}）"
+            value: per-piece
+            feedback: "1{個|こ}あたりだとナツキは{最安|さいやす}に{見|み}える。でもこれは**{罠|わな}**！ 1{個|こ}が5gしかないから。"
+          - text: "**1gあたりの{値段|ねだん}**（ナツキ=8{円|えん}で{他|ほか}の3〜4{倍|ばい}）"
+            value: per-gram
+            correct: true
+            feedback: "{完璧|かんぺき}！ {個数|こすう}で{比|くら}べると{最安|さいやす}。{重|おも}さで{比|くら}べると{最高値|さいこうね}。**{何|なに}を{単位|たんい}にするかで{答|こた}えが{変|か}わる**——これが{単位|たんい}{量|りょう}の{力|ちから}！"
+          - text: "お{客|きゃく}さんのクレーム"
+            value: complaint
+            feedback: "クレームは{気|き}づきのきっかけ。でも{決定的|けっていてき}な{証拠|しょうこ}は{数字|すうじ}の{計算|けいさん}。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: schoolyard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: natsuki
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: natsuki
+        text: "……{私|わたし}がわざと{小|ちい}さいクッキーにした。{自分|じぶん}のお{店|みせ}を『{高級|こうきゅう}ブランド』にしたかったの。{安売|やすう}りされているのが{嫌|いや}で。"
+        expression: worried
+
+      - type: dialog
+        character: natsuki
+        text: "12{個|こ}{入|い}りなら『お{得|とく}』に{見|み}えると{思|おも}った。でも——{重|おも}さで{計算|けいさん}されたら、{一番|いちばん}{高|たか}いことがバレちゃった。"
+        expression: thinking
+
+      - type: dialog
+        character: natsuki
+        text: "お{客|きゃく}さんを{騙|だま}すつもりはなかった。でも{結果|けっか}として{騙|だま}していた。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: natsuki
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ナツキは『いいものを{高|たか}く{売|う}りたい』と{思|おも}った。その{気持|きもち}は{分|わ}かる。でもお{客|きゃく}さんを{騙|だま}す{方法|ほうほう}は{間違|まちが}い。{正直|しょうじき}に『{小|ちい}さいけど{丁寧|ていねい}に{作|つく}りました』と{伝|つた}えればよかった。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{単位|たんい}{量|りょう}あたりの大きさ**。1{個|こ}あたりの{値段|ねだん}と、1gあたりの{値段|ねだん}。**{何|なに}を{基準|きじゅん}にするかで{答|こた}えが{変|か}わる**。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "お{店|みせ}で{買|か}い{物|もの}するとき、『{個数|こすう}が{多|おお}い＝お{得|とく}』とは{限|かぎ}らない。**{重|おも}さあたり**、**{量|りょう}あたり**で{比|くら}べる。それが{単位|たんい}{量|りょう}の{力|ちから}。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{数字|すうじ}は{見|み}せ{方|かた}で{印象|いんしょう}が{変|か}わる。{騙|だま}されないために{計算|けいさん}しよう。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{個数|こすう}で{比|くら}べると{最安|さいやす}。{重|おも}さで{比|くら}べると{最高値|さいこうね}。{何|なに}を{単位|たんい}にするかで{答|こた}えが{変|か}わる。"
+
+      - type: narration
+        text: "——それが、{単位|たんい}{量|りょう}の{罠|わな}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

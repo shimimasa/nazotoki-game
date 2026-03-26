@@ -1,0 +1,356 @@
+meta:
+  id: math-18
+  title: ざっくり計算と消えた予算
+  series: 数字の迷宮
+  volume: 18
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kotone:
+    name: コトネ
+    color: "#4A6FA5"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  misaki:
+    name: ミサキ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  sora:
+    name: ソラ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のお{楽|たの}しみ{会|かい}の{予算|よさん}は5000{円|えん}。4人の{買|か}い{物|もの}{係|がかり}がそれぞれ{買|か}い{出|だ}しに{行|い}き、{使|つか}った{金額|きんがく}を『{概数|がいすう}』で{報告|ほうこく}した。"
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: sensei
+        expression: worried
+        position: center
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: dialog
+        character: sensei
+        text: "おつりを{集|あつ}めたら**200{円|えん}{足|た}りない**！ {全員|ぜんいん}『ざっくりこれくらい{使|つか}った』と{言|い}うけど、{概数|がいすう}の{報告|ほうこく}と{正確|せいかく}な{金額|きんがく}を{突|つ}き{合|あ}わせると、1人だけ『{差|さ}が{大|おお}きすぎる』人がいるはず。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: haruto
+            expression: normal
+          - id: kotone
+            expression: normal
+          - id: misaki
+            expression: normal
+          - id: sora
+            expression: thinking
+
+      - type: narration
+        text: "{概数|がいすう}と{正確|せいかく}な{金額|きんがく}の{差|さ}を{計算|けいさん}して、{消|き}えた200{円|えん}を{追|お}え！"
+
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: sprite
+        character: misaki
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.18"
+        subtitle: "ざっくり計算と消えた予算"
+
+  # ========================================
+  # 証拠1: 4人の報告
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "4人の{買|か}い{物|もの}{報告|ほうこく}（{概数|がいすう}）。"
+
+      - type: narration
+        text: "ハルト：{飾|かざ}りの{材料|ざいりょう} → もらった1500{円|えん} → {報告|ほうこく}**{約|やく}1300{円|えん}**\nコトネ：{紙|かみ}コップ・{紙皿|かみざら}・ナプキン → もらった1000{円|えん} → {報告|ほうこく}**{約|やく}900{円|えん}**\nミサキ：ゲームの{景品|けいひん} → もらった1500{円|えん} → {報告|ほうこく}**{約|やく}1300{円|えん}**\nソラ：お{菓子|かし}・ジュース → もらった2000{円|えん} → {報告|ほうこく}**{約|やく}1600{円|えん}**"
+
+      - type: narration
+        text: "{報告|ほうこく}{合計|ごうけい}：1300+900+1300+1600=**5100{円|えん}**。{予算|よさん}は5000{円|えん}。{概数|がいすう}だから多少のズレはあるけど……"
+
+  # ========================================
+  # 証拠2: おつりの計算
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{渡|わた}したお{金|かね}の{合計|ごうけい}：1500+1000+1500+2000=**6000{円|えん}**\nおつりの{合計|ごうけい}：**1000{円|えん}**\n{使|つか}った{合計|ごうけい}：6000−1000=**5000{円|えん}**"
+
+      - type: narration
+        text: "{概数|がいすう}の{報告|ほうこく}は5100{円|えん}なのに、{実際|じっさい}は5000{円|えん}。でも{概数|がいすう}だからズレはありえる。レシートを{確認|かくにん}しよう。"
+
+  # ========================================
+  # 証拠3: レシートの正確な金額
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "先生がレシートを{確認|かくにん}した。"
+
+      - type: narration
+        text: "ハルト：{報告|ほうこく}{約|やく}1300{円|えん} → レシート**1280{円|えん}**\nコトネ：{報告|ほうこく}{約|やく}900{円|えん} → レシート**860{円|えん}**\nミサキ：{報告|ほうこく}{約|やく}1300{円|えん} → レシート**1087{円|えん}**\nソラ：{報告|ほうこく}{約|やく}1600{円|えん} → レシート**1573{円|えん}**"
+
+      - type: narration
+        text: "{正確|せいかく}な{合計|ごうけい}：1280+860+1087+1573=**4800{円|えん}**\nおつりは6000−4800=**1200{円|えん}**{返|かえ}ってくるはず。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "でもおつりの{合計|ごうけい}は**1000{円|えん}**しかない。1200−1000=**200{円|えん}が{消|き}えている！**"
+        speed: slow
+
+  # ========================================
+  # 証拠4: 概数と正確な金額の差
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "★ここが{推理|すいり}のカギ！ {報告|ほうこく}（{概数|がいすう}）と{正確|せいかく}な{金額|きんがく}の**{差|さ}**を{計算|けいさん}しよう。"
+
+      - type: narration
+        text: "{重要|じゅうよう}なルール：{百|ひゃく}の{位|くらい}までの{概数|がいすう}＝{十|じゅう}の{位|くらい}を{四捨五入|ししゃごにゅう}。{四捨五入|ししゃごにゅう}の{誤差|ごさ}は**{最大|さいだい}50{円|えん}**。だから{差|さ}が50{円|えん}{以内|いない}なら{正常|せいじょう}。50{円|えん}を{大|おお}きく{超|こ}えたら——おかしい！"
+
+      - type: narration
+        text: "ハルト：1300−1280 = **20{円|えん}** → {正常|せいじょう} ✅\nコトネ：900−860 = **40{円|えん}** → {正常|せいじょう} ✅\nソラ：1600−1573 = **27{円|えん}** → {正常|せいじょう} ✅"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "**ミサキ：1300−1087 = 213{円|えん}！！** → **{異常|いじょう}！** 50{円|えん}を{大|おお}きく{超|こ}えている！"
+        speed: slow
+
+      - type: narration
+        text: "しかも1087{円|えん}を{百|ひゃく}の{位|くらい}で{四捨五入|ししゃごにゅう}すると：8（{十|じゅう}の{位|くらい}）を{四捨五入|ししゃごにゅう}→{切|き}り{上|あ}げ→**{約|やく}1100{円|えん}**。ミサキは『{約|やく}1100{円|えん}』と{報告|ほうこく}すべきだったのに、**{約|やく}1300{円|えん}**と{報告|ほうこく}した。"
+
+  # ========================================
+  # 証拠5: パターン発見（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：パターンを見抜け"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "4人の{差|さ}を{並|なら}べてみよう。"
+
+      - type: narration
+        text: "ハルト：{差|さ}**20{円|えん}** → {正常|せいじょう}\nコトネ：{差|さ}**40{円|えん}** → {正常|せいじょう}\nソラ：{差|さ}**27{円|えん}** → {正常|せいじょう}\n**ミサキ：{差|さ}213{円|えん}** → **{異常|いじょう}！ {他|ほか}の{約|やく}10{倍|ばい}！**"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{帰納法|きのうほう}の{力|ちから}：たくさんのデータを{比|くら}べると『{正常|せいじょう}なズレ』（20〜40{円|えん}）と『{異常|いじょう}なズレ』（213{円|えん}）の{区別|くべつ}がつく。**1人だけ{飛|と}び{抜|ぬ}けている**＝それが{手|て}がかり。"
+
+      - type: narration
+        text: "ミサキの{正確|せいかく}な{金額|きんがく}1087{円|えん}。{正|ただ}しい{概数|がいすう}は{約|やく}1100{円|えん}。{報告|ほうこく}は{約|やく}1300{円|えん}。{差|さ}200{円|えん}＝**{消|き}えた200{円|えん}と{一致|いっち}！**"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "200{円|えん}を{誤魔化|ごまか}した{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "ハルト（{差|さ}20{円|えん}）"
+            value: haruto
+            feedback: "ハルトの{差|さ}は20{円|えん}。{四捨五入|ししゃごにゅう}の{正常|せいじょう}な{範囲|はんい}。"
+          - text: "コトネ（{差|さ}40{円|えん}）"
+            value: kotone
+            feedback: "コトネの{差|さ}は40{円|えん}。{四捨五入|ししゃごにゅう}の{正常|せいじょう}な{範囲|はんい}。"
+          - text: "ミサキ（{差|さ}213{円|えん}）"
+            value: misaki
+            correct: true
+            feedback: "{正解|せいかい}！ ミサキの{差|さ}は**213{円|えん}**。{他|ほか}の3人（20〜40{円|えん}）と{比|くら}べて{異常|いじょう}に{大|おお}きい。1087{円|えん}の{正|ただ}しい{概数|がいすう}は{約|やく}1100{円|えん}なのに{約|やく}1300{円|えん}と{報告|ほうこく}。{差|さ}200{円|えん}＝{消|き}えたお{金|かね}！"
+          - text: "ソラ（{差|さ}27{円|えん}）"
+            value: sora
+            feedback: "ソラの{差|さ}は27{円|えん}。{四捨五入|ししゃごにゅう}の{正常|せいじょう}な{範囲|はんい}。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "おつりが200{円|えん}{足|た}りないこと"
+            value: shortage
+            feedback: "200{円|えん}{足|た}りないのは{事実|じじつ}。でも{誰|だれ}が{誤魔化|ごまか}したかまでは{分|わ}からない。{概数|がいすう}との{差|さ}を{計算|けいさん}しよう。"
+          - text: "ミサキだけ{概数|がいすう}と{正確|せいかく}な{金額|きんがく}の{差|さ}が213{円|えん}（{他|ほか}は20〜40{円|えん}）"
+            value: gap-analysis
+            correct: true
+            feedback: "{完璧|かんぺき}！ {帰納法|きのうほう}で4人の{差|さ}を{比較|ひかく}。3人は20〜40{円|えん}（{正常|せいじょう}）。ミサキだけ213{円|えん}（{異常|いじょう}）。{正|ただ}しい{概数|がいすう}は{約|やく}1100{円|えん}なのに{約|やく}1300{円|えん}と{申告|しんこく}。**{概数|がいすう}の{計算|けいさん}で{嘘|うそ}を{暴|あば}いた！**"
+          - text: "レシートの{合計|ごうけい}が4800{円|えん}なこと"
+            value: total
+            feedback: "4800{円|えん}は{大事|だいじ}な{情報|じょうほう}。でも{犯人|はんにん}{特定|とくてい}には{個別|こべつ}の{差|さ}の{比較|ひかく}が{必要|ひつよう}。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: misaki
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: misaki
+        text: "……{私|わたし}がやった。おつりが{他|ほか}の人より{多|おお}いことに{気|き}づいて、200{円|えん}で{自分|じぶん}のノートを{買|か}っちゃった。"
+        expression: worried
+
+      - type: dialog
+        character: misaki
+        text: "先生に『{早|はや}く{報告|ほうこく}して！』って{急|せ}かされて、{概数|がいすう}でざっくり{報告|ほうこく}した。そのとき『ざっくり{計算|けいさん}だからバレない』と{思|おも}って……。{発表会|はっぴょうかい}の{準備|じゅんび}で{忙|いそが}しくて{文房具|ぶんぼうぐ}を{買|か}う{時間|じかん}がなくて、つい。"
+        expression: thinking
+
+      - type: dialog
+        character: misaki
+        text: "でも——{概数|がいすう}でも{差|さ}を{計算|けいさん}すれば{分|わ}かっちゃうんだ。{四捨五入|ししゃごにゅう}の{誤差|ごさ}は{最大|さいだい}50{円|えん}なのに、{私|わたし}の{差|さ}は213{円|えん}。{飛|と}び{抜|ぬ}けすぎていた……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: misaki
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ミサキは{忙|いそが}しくて{焦|あせ}っていたんだね。でもみんなの{予算|よさん}からお{金|かね}を{使|つか}うのは{間違|まちが}い。{困|こま}ったら先生に{言|い}ってね。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{概数|がいすう}と{正確|せいかく}な{値|あたい}の{差|さ}**。{百|ひゃく}の{位|くらい}の{概数|がいすう}なら{四捨五入|ししゃごにゅう}の{誤差|ごさ}は**{最大|さいだい}50{円|えん}**。50{円|えん}を{大|おお}きく{超|こ}える{差|さ}は——{概数|がいすう}では{説明|せつめい}できない。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "そして**{帰納法|きのうほう}**——4人の{差|さ}を{並|なら}べて{比|くら}べたら、1人だけ{飛|と}び{抜|ぬ}けていた。『{正常|せいじょう}なパターン』を{知|し}ることで『{異常|いじょう}』が{見|み}つかる。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——『ざっくり』は{便利|べんり}。でも『ざっくり』にも{限度|げんど}がある。{概数|がいすう}の{力|ちから}で{嘘|うそ}を{見|み}つけた！"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{概数|がいすう}の{誤差|ごさ}には{限度|げんど}がある。4人の{差|さ}を{比|くら}べて『{正常|せいじょう}なズレ』と『{異常|いじょう}なズレ』を{見分|みわ}ける——{帰納法|きのうほう}の{力|ちから}。"
+
+      - type: narration
+        text: "——それが、{消|き}えた{予算|よさん}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

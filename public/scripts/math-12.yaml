@@ -1,0 +1,374 @@
+meta:
+  id: math-12
+  title: 面積トリックと密室の窓
+  series: 数字の迷宮
+  volume: 12
+  estimatedMinutes: 20
+
+characters:
+  ryou:
+    name: リョウ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  takumi:
+    name: タクミ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  saki:
+    name: サキ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  hiro:
+    name: ヒロ
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図工室|ずこうしつ}の{棚|たな}に{飾|かざ}ってあった『{金賞|きんしょう}の{絵|え}』——リョウが{描|えが}いた『{未来|みらい}の{街|まち}』。"
+
+      - type: narration
+        text: "{昼休|ひるやす}み、{図工室|ずこうしつ}のドアには{鍵|かぎ}がかかっていた。なのに——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{絵|え}がカッターで{切|き}り{取|と}られていた！ {額縁|がくぶち}だけが{残|のこ}されている。"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ドアは{鍵|かぎ}がかかっていた。{唯一|ゆいいつ}の{窓|まど}は{幅|はば}40cm×{高|たか}さ120cmの{細|ほそ}い{窓|まど}。こんな{小|ちい}さな{窓|まど}から人が{入|はい}れる？ {面積|めんせき}を{計算|けいさん}して{確|たし}かめよう。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: ryou
+            expression: surprised
+          - id: takumi
+            expression: thinking
+          - id: saki
+            expression: normal
+          - id: hiro
+            expression: normal
+
+      - type: narration
+        text: "{密室|みっしつ}の{窓|まど}の{面積|めんせき}を{計算|けいさん}して{犯人|はんにん}を{突|つ}き{止|と}めろ！"
+
+      - type: sprite
+        character: ryou
+        action: hide
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: saki
+        action: hide
+      - type: sprite
+        character: hiro
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.12"
+        subtitle: "面積トリックと密室の窓"
+
+  # ========================================
+  # 証拠1: 図工室の状況
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{図工室|ずこうしつ}の{状況|じょうきょう}。{金賞|きんしょう}の{絵|え}『{未来|みらい}の{街|まち}』が{額縁|がくぶち}からカッターで{切|き}り{取|と}られていた。{額縁|がくぶち}は{棚|たな}に{残|のこ}っている。"
+
+      - type: narration
+        text: "ドア：{鍵|かぎ}がかかっていた（先生が11:45にかけた）。{壊|こわ}された{形跡|けいせき}なし。{鍵|かぎ}は先生のポケットに1{本|ぽん}だけ。"
+
+      - type: narration
+        text: "{窓|まど}：{幅|はば}40cm × {高|たか}さ120cm。2{階|かい}（{地面|じめん}から{約|やく}4m）。{窓|まど}の{下|した}に{室外機|しつがいき}あり（{高|たか}さ1m）。{室外機|しつがいき}に{乗|の}れば{窓|まど}に{手|て}が{届|とど}く。"
+
+  # ========================================
+  # 証拠2: 図工室周辺の手がかり
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{図工室|ずこうしつ}の{中|なか}：{窓|まど}の{近|ちか}くの{床|ゆか}に{小|ちい}さな{土|つち}の{跡|あと}。{窓|まど}のサッシに{指紋|しもん}のような{跡|あと}。カッターの{刃|は}の{欠片|かけら}が1つ。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{図工室|ずこうしつ}の{外|そと}（{体育館|たいいくかん}{裏|うら}）：{室外機|しつがいき}の{上|うえ}に**{靴|くつ}の{跡|あと}**。{体育館|たいいくかん}{裏|うら}の**{物置|ものおき}の{中|なか}**に{丸|まる}められた{絵|え}が{隠|かく}してあった！"
+
+      - type: narration
+        text: "{犯人|はんにん}は{外|そと}から来て、{室外機|しつがいき}に{乗|の}り、{窓|まど}から{入|はい}った。そして{絵|え}を{切|き}り{取|と}って{外|そと}に{出|で}た。{体育館|たいいくかん}{裏|うら}にいた人は{誰|だれ}？"
+
+  # ========================================
+  # 証拠3: 窓の仕様
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: sprite
+        character: takumi
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: takumi
+        text: "あの{窓|まど}、{普通|ふつう}の{窓|まど}じゃない。**{内倒|うちだお}し{窓|まど}**っていって、{上辺|うわべ}が{軸|じく}になって{手前|てまえ}に{倒|たお}れる{構造|こうぞう}なんだ。{外側|そとがわ}の{取|と}っ{手|て}で{開|あ}ける。"
+        expression: thinking
+
+      - type: sprite
+        character: takumi
+        action: hide
+
+      - type: narration
+        text: "この{窓|まど}は**{外|そと}からしか{開|あ}けられない**（{取|と}っ{手|て}が{外側|そとがわ}にしかない）。そして{窓|まど}は**長方形のまま{開|ひら}くのではない**。{上辺|うわべ}を{軸|じく}にして{倒|たお}れるので、{開口部|かいこうぶ}は……どんな{形|かたち}？"
+
+  # ========================================
+  # 証拠4: 4人のアリバイと肩幅
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "4人の{昼休|ひるやす}みの{行動|こうどう}。"
+
+      - type: narration
+        text: "リョウ：{教室|きょうしつ}で{友達|ともだち}と{絵|え}を{描|か}いていた（{友達|ともだち}2人が{確認|かくにん}）✅\nタクミ：{教室|きょうしつ}で{工作|こうさく}キットを{組|く}み{立|た}てていた（{隣|となり}の{席|せき}ケンが{確認|かくにん}）✅\n**サキ：{体育館|たいいくかん}{裏|うら}でスケッチ**（{確認者|かくにんしゃ}なし）⚠️\nヒロ：{校庭|こうてい}でサッカー（{友達|ともだち}4人が{確認|かくにん}）✅"
+
+      - type: narration
+        text: "4人の{体|からだ}の大きさ：\nリョウ：{身長|しんちょう}145cm、**{肩幅|かたはば}38cm**\nタクミ：{身長|しんちょう}142cm、**{肩幅|かたはば}36cm**\n**サキ：{身長|しんちょう}138cm、{肩幅|かたはば}28cm**\nヒロ：{身長|しんちょう}150cm、**{肩幅|かたはば}42cm**"
+
+      - type: narration
+        text: "{窓|まど}から{入|はい}るには、{体|からだ}が{窓|まど}の{開口部|かいこうぶ}を{通|とお}れないといけない。**{肩幅|かたはば}**が{鍵|かぎ}。{窓|まど}の{開口部|かいこうぶ}の{形|かたち}が{分|わ}かれば、{通|とお}れる人が{分|わ}かるはず。"
+
+  # ========================================
+  # 証拠5: 窓の開口部の正体（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：面積の計算"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "{窓|まど}は{上辺|うわべ}を{軸|じく}にして{手前|てまえ}に{倒|たお}れる。{開|あ}いた{状態|じょうたい}では、{壁|かべ}と{窓|まど}の{間|あいだ}に**{三角形|さんかくけい}の{空間|くうかん}**ができる。"
+
+      - type: narration
+        text: "{面積|めんせき}を{計算|けいさん}しよう！\n長方形だと{思|おも}うと：40 × 120 = **4,800cm²** ← {間違|まちが}い！\n{実際|じっさい}は{三角形|さんかくけい}：40 × 120 ÷ 2 = **2,400cm²** ← {正解|せいかい}！"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{三角形|さんかくけい}は**{下|した}が{広|ひろ}くて{上|うえ}が{狭|せま}い**。人が{下|した}から{斜|なな}めに{入|はい}るとき、{肩|かた}の{位置|いち}（{高|たか}さ60〜80cm）では{幅|はば}が{約|やく}20〜27cm。{斜|なな}めに{体|からだ}を{入|い}れることを{考|かんが}えると、**{肩幅|かたはば}{約|やく}35cm{以下|いか}**なら{通|とお}れる。"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{肩幅|かたはば}35cm{以下|いか}の人は？\nリョウ：38cm → ❌ {通|とお}れない\nタクミ：36cm → ❌ ギリギリ{通|とお}れない\n**サキ：28cm → ✅ {通|とお}れる！**\nヒロ：42cm → ❌ {通|とお}れない"
+        speed: slow
+
+      - type: narration
+        text: "**{三角形|さんかくけい}の{窓|まど}を{通|とお}れたのはサキだけ。** そしてサキは{体育館|たいいくかん}{裏|うら}（{図工室|ずこうしつ}の{窓|まど}のすぐ{下|した}）にいた。{確認者|かくにんしゃ}もいない。"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{金賞|きんしょう}の{絵|え}を{切|き}り{取|と}った{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "リョウ（{肩幅|かたはば}38cm）"
+            value: ryou
+            feedback: "リョウの{肩幅|かたはば}38cmは{三角形|さんかくけい}の{窓|まど}を{通|とお}れない。しかも{被害者|ひがいしゃ}（{絵|え}を{盗|ぬす}まれた{側|がわ}）。"
+          - text: "タクミ（{肩幅|かたはば}36cm）"
+            value: takumi
+            feedback: "タクミの{肩幅|かたはば}36cmもギリギリ{通|とお}れない。しかも{教室|きょうしつ}に{証人|しょうにん}あり。"
+          - text: "サキ（{肩幅|かたはば}28cm）"
+            value: saki
+            correct: true
+            feedback: "{正解|せいかい}！ サキの{肩幅|かたはば}28cmは{三角形|さんかくけい}の{窓|まど}を{通|とお}れる{唯一|ゆいいつ}のサイズ。{体育館|たいいくかん}{裏|うら}（{窓|まど}の{下|した}）にいて、{確認者|かくにんしゃ}もいない。{面積|めんせき}の{計算|けいさん}で{密室|みっしつ}を{解|と}いた！"
+          - text: "ヒロ（{肩幅|かたはば}42cm）"
+            value: hiro
+            feedback: "ヒロの{肩幅|かたはば}42cmは{絶対|ぜったい}に{通|とお}れない。しかも{校庭|こうてい}で{友達|ともだち}4人と{一緒|いっしょ}。"
+
+      - type: choice
+        id: q2
+        question: "{密室|みっしつ}を{解|と}いた{決定的|けっていてき}な{計算|けいさん}は？"
+        options:
+          - text: "長方形の{面積|めんせき}（40×120=4,800cm²）"
+            value: rectangle
+            feedback: "長方形で{計算|けいさん}すると{窓|まど}は{大|おお}きく{見|み}える。でも{実際|じっさい}の{開口部|かいこうぶ}は{三角形|さんかくけい}。{形|かたち}を{間違|まちが}えると{面積|めんせき}も{間違|まちが}える！"
+          - text: "{三角形|さんかくけい}の{面積|めんせき}（40×120÷2=2,400cm²）と{肩幅|かたはば}の{逆算|ぎゃくさん}"
+            value: triangle
+            correct: true
+            feedback: "{完璧|かんぺき}！ {窓|まど}は{三角形|さんかくけい}に{開|ひら}く。{面積|めんせき}は{半分|はんぶん}。そして{三角形|さんかくけい}の{形状|けいじょう}から{通|とお}れる{肩幅|かたはば}を{逆算|ぎゃくさん}→35cm{以下|いか}→サキだけ。{面積|めんせき}の{計算|けいさん}で{密室|みっしつ}を{破|やぶ}った！"
+          - text: "{室外機|しつがいき}の{高|たか}さ（1m）"
+            value: outdoor-unit
+            feedback: "{室外機|しつがいき}に{乗|の}れば{窓|まど}に{届|とど}くのは4人{全員|ぜんいん}に{当|あ}てはまる。{犯人|はんにん}を{絞|しぼ}るのは{面積|めんせき}と{肩幅|かたはば}の{計算|けいさん}だよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: saki
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: saki
+        text: "……{私|わたし}がやった。リョウの{絵|え}を{切|き}り{取|と}って{隠|かく}した。"
+        expression: worried
+
+      - type: dialog
+        character: saki
+        text: "{何度|なんど}も{頑張|がんば}って{描|か}いたのに、{私|わたし}は{銀賞|ぎんしょう}。リョウの{絵|え}は{金賞|きんしょう}。{隣|となり}に{飾|かざ}られていて、{毎日|まいにち}{見|み}るのがつらかった。"
+        expression: thinking
+
+      - type: dialog
+        character: saki
+        text: "{認|みと}められたかった。でも——{人|ひと}の{努力|どりょく}を{壊|こわ}すのは{間違|まちが}いだった。リョウ、ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: saki
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "サキは{認|みと}められたかった。{努力|どりょく}が{報|むく}われない{悔|くや}しさは{分|わ}かるよ。でも{他|ほか}の人の{作品|さくひん}を{壊|こわ}すのではなく、{自分|じぶん}の{作品|さくひん}を{磨|みが}こう。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{三角形|さんかくけい}の{面積|めんせき}**。{底辺|ていへん}×{高|たか}さ÷2。長方形の{面積|めんせき}の**{半分|はんぶん}**。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{窓|まど}を『長方形』だと{思|おも}い{込|こ}んでいたら{面積|めんせき}は4,800cm²。でも{実際|じっさい}は{三角形|さんかくけい}で2,400cm²。**{形|かたち}が{違|ちが}えば{面積|めんせき}も{違|ちが}う**。この{気|き}づきが{密室|みっしつ}を{解|と}いた。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{面積|めんせき}の{計算|けいさん}で{密室|みっしつ}を{破|やぶ}った！ {形|かたち}を{正|ただ}しく{見|み}ることが、{算数|さんすう}の{第一歩|だいいっぽ}。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "長方形の{面積|めんせき} = {底辺|ていへん} × {高|たか}さ。{三角形|さんかくけい}の{面積|めんせき} = {底辺|ていへん} × {高|たか}さ ÷ 2。{形|かたち}が{変|か}われば{面積|めんせき}も{変|か}わる。"
+
+      - type: narration
+        text: "——それが、{密室|みっしつ}の{窓|まど}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

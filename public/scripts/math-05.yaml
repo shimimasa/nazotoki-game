@@ -1,0 +1,407 @@
+meta:
+  id: math-05
+  title: 消えた売上金と割引のワナ
+  series: 数字の迷宮
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  haruto:
+    name: ハルト
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  misaki:
+    name: ミサキ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  daichi:
+    name: ダイチ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sakura:
+    name: サクラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "『あおぞら子ども{祭|まつ}り』で、4つの{班|はん}がフリーマーケットを{出店|しゅってん}した。{大盛況|だいせいきょう}！"
+
+      - type: narration
+        text: "{閉店後|へいてんご}、{売上金|うりあげきん}を{金庫|きんこ}に{集|あつ}めた。ところが——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: dialog
+        character: sensei
+        text: "{売上金|うりあげきん}が**3,000{円|えん}{足|た}りない**！ {各班|かくはん}の{報告額|ほうこくがく}を{足|た}すと33,100{円|えん}で{金庫|きんこ}と{一致|いっち}する。でも{正|ただ}しく{計算|けいさん}すると36,100{円|えん}のはず。"
+        expression: surprised
+
+      - type: dialog
+        character: sensei
+        text: "{誰|だれ}かの{報告|ほうこく}がおかしい。{割引|わりびき}の{計算|けいさん}を{正|ただ}しくやり{直|なお}して、{消|き}えた3,000{円|えん}を{追|お}え！"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: haruto
+            expression: normal
+          - id: misaki
+            expression: thinking
+          - id: daichi
+            expression: normal
+          - id: sakura
+            expression: surprised
+
+      - type: narration
+        text: "4人の{班長|はんちょう}はそれぞれ『{割引|わりびき}セール』を{実施|じっし}していた。{割引|わりびき}の{計算|けいさん}を{検算|けんざん}して{犯人|はんにん}を{見|み}つけ{出|だ}せ！"
+
+      - type: sprite
+        character: haruto
+        action: hide
+      - type: sprite
+        character: misaki
+        action: hide
+      - type: sprite
+        character: daichi
+        action: hide
+      - type: sprite
+        character: sakura
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.5"
+        subtitle: "消えた売上金と割引のワナ"
+
+  # ========================================
+  # 証拠1: 売上報告書
+  # ========================================
+  - id: evidence-1
+    bg: schoolyard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{各班|かくはん}の{売上|うりあげ}{報告|ほうこく}を{見|み}てみよう。"
+
+      - type: narration
+        text: "1{班|はん}（ハルト）：{定価|ていか}{合計|ごうけい}12,000{円|えん}、**2{割引|わりびき}**、{報告額|ほうこくがく}9,600{円|えん}\n2{班|はん}（ミサキ）：{定価|ていか}{合計|ごうけい}8,000{円|えん}、**{半額|はんがく}**、{報告額|ほうこくがく}4,000{円|えん}\n3{班|はん}（ダイチ）：{定価|ていか}{合計|ごうけい}15,000{円|えん}、**3{割引|わりびき}**、{報告額|ほうこくがく}7,500{円|えん}\n4{班|はん}（サクラ）：{定価|ていか}{合計|ごうけい}16,000{円|えん}、**25%OFF**、{報告額|ほうこくがく}12,000{円|えん}"
+
+      - type: narration
+        text: "{報告額|ほうこくがく}の{合計|ごうけい}：9,600 + 4,000 + 7,500 + 12,000 = **33,100{円|えん}**\n{金庫|きんこ}の{中身|なかみ}：**33,100{円|えん}**（{報告|ほうこく}どおり）"
+
+      - type: narration
+        text: "{報告額|ほうこくがく}と{金庫|きんこ}は{一致|いっち}している。でも先生の{計算|けいさん}では36,100{円|えん}のはず。3,000{円|えん}{足|た}りないのは、{誰|だれ}かの{報告|ほうこく}が{間違|まちが}っているから？"
+
+  # ========================================
+  # 証拠2: 割引計算チェック
+  # ========================================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: sprite
+        character: haruto
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: haruto
+        text: "{各班|かくはん}の{割引|わりびき}{計算|けいさん}を{検算|けんざん}してみたよ。みんなで{計算|けいさん}してみよう！"
+        expression: thinking
+
+      - type: sprite
+        character: haruto
+        action: hide
+
+      - type: narration
+        text: "{割引|わりびき}の{意味|いみ}を{整理|せいり}しよう：\n・「2{割引|わりびき}」= {定価|ていか}の**80%**（×0.8）\n・「{半額|はんがく}」= {定価|ていか}の**50%**（×0.5）\n・「3{割引|わりびき}」= {定価|ていか}の**70%**（×0.7）\n・「25%OFF」= {定価|ていか}の**75%**（×0.75）"
+
+      - type: narration
+        text: "では{計算|けいさん}してみよう！\n1{班|はん}：12,000 × 0.8 = **9,600{円|えん}** → {報告|ほうこく}9,600{円|えん} ✅\n2{班|はん}：8,000 × 0.5 = **4,000{円|えん}** → {報告|ほうこく}4,000{円|えん} ✅"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "3{班|はん}：15,000 × 0.7 = **10,500{円|えん}** → {報告|ほうこく}**7,500{円|えん}** ❌ **3,000{円|えん}{足|た}りない！**\n4{班|はん}：16,000 × 0.75 = **12,000{円|えん}** → {報告|ほうこく}12,000{円|えん} ✅"
+        speed: slow
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "**3{班|はん}（ダイチ）だけ、{正|ただ}しい{売上|うりあげ}と{報告額|ほうこくがく}に3,000{円|えん}の{差|さ}がある！** {消|き}えた3,000{円|えん}はここだ！"
+        speed: slow
+
+  # ========================================
+  # 証拠3: 金庫前の目撃
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: sprite
+        character: misaki
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: misaki
+        text: "{私|わたし}が{金庫|きんこ}にお{金|かね}を{入|い}れに{行|い}ったとき（4{番目|ばんめ}・13:35）、ダイチがまだ{金庫|きんこ}のそばにいたの。"
+        expression: thinking
+
+      - type: dialog
+        character: misaki
+        text: "お{金|かね}を{数|かぞ}え{直|なお}しているみたいだった。『{何|なに}してるの？』って{聞|き}いたら、『{合計|ごうけい}を{確認|かくにん}してた』って。でもなんだか{落|お}ち{着|つ}かない{感|かん}じだった……。"
+        expression: worried
+
+      - type: sprite
+        character: misaki
+        action: hide
+
+      - type: narration
+        text: "ダイチは2{番目|ばんめ}（13:32）に{売上|うりあげ}を{入|い}れたはず。なぜ13:35にまだ{金庫|きんこ}のそばにいた？"
+
+  # ========================================
+  # 証拠4: 3班の売れた商品リスト
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: sakura
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sakura
+        text: "3{班|はん}の{売|う}れた{商品|しょうひん}リストがあるよ。{定価|ていか}{合計|ごうけい}15,000{円|えん}は{間違|まちが}いない。"
+        expression: thinking
+
+      - type: sprite
+        character: sakura
+        action: hide
+
+      - type: narration
+        text: "3{班|はん}（ダイチ）の{内訳|うちわけ}：\nカードゲームセット 5,000{円|えん}\nボードゲーム 4,000{円|えん}\nトレーディングカード 3,000{円|えん}\nパズルゲーム 2,000{円|えん}\nミニゲーム{機|き} 1,000{円|えん}\n{合計|ごうけい} **15,000{円|えん}**"
+
+      - type: narration
+        text: "{定価|ていか}{合計|ごうけい}15,000{円|えん}は{確実|かくじつ}。3{割引|わりびき}なら……15,000 × 0.7 = **10,500{円|えん}**が{正|ただ}しい{売上|うりあげ}。でも{報告|ほうこく}は7,500{円|えん}。{差額|さがく}は**ピッタリ3,000{円|えん}**。"
+
+  # ========================================
+  # 証拠5: 割引計算の確定（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：決定的証拠"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "{全班|ぜんぱん}の{正|ただ}しい{売上|うりあげ}を{計算|けいさん}して、{合計|ごうけい}を{出|だ}してみよう。"
+
+      - type: narration
+        text: "1{班|はん}：12,000 × 0.8 = 9,600{円|えん}\n2{班|はん}：8,000 × 0.5 = 4,000{円|えん}\n3{班|はん}：15,000 × 0.7 = **10,500{円|えん}**\n4{班|はん}：16,000 × 0.75 = 12,000{円|えん}\n{正|ただ}しい{合計|ごうけい}：9,600 + 4,000 + 10,500 + 12,000 = **36,100{円|えん}**"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{正|ただ}しい{合計|ごうけい}**36,100{円|えん}** − {金庫|きんこ}の{中身|なかみ}**33,100{円|えん}** = **3,000{円|えん}**\n3{班|はん}の{正|ただ}しい{売上|うりあげ}**10,500{円|えん}** − {報告額|ほうこくがく}**7,500{円|えん}** = **3,000{円|えん}**\n\n{消|き}えた{金額|きんがく}と、3{班|はん}の{差額|さがく}が**ピッタリ{一致|いっち}**！"
+        speed: slow
+
+      - type: narration
+        text: "ダイチは{正|ただ}しい{売上|うりあげ}10,500{円|えん}から3,000{円|えん}をポケットに{入|い}れ、{残|のこ}りの7,500{円|えん}だけを{報告|ほうこく}した。"
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "3,000{円|えん}を{抜|ぬ}き{取|と}った{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "ハルト（1{班|はん}）"
+            value: haruto
+            feedback: "1{班|はん}の{計算|けいさん}：12,000 × 0.8 = 9,600{円|えん}。{報告額|ほうこくがく}と{一致|いっち}。ハルトは{正直|しょうじき}に{報告|ほうこく}しているよ。"
+          - text: "ミサキ（2{班|はん}）"
+            value: misaki
+            feedback: "2{班|はん}の{計算|けいさん}：8,000 × 0.5 = 4,000{円|えん}。{報告額|ほうこくがく}と{一致|いっち}。ミサキは{正|ただ}しい{報告|ほうこく}をしている。"
+          - text: "ダイチ（3{班|はん}）"
+            value: daichi
+            correct: true
+            feedback: "{正解|せいかい}！ 3{班|はん}の{正|ただ}しい{売上|うりあげ}：15,000 × 0.7 = **10,500{円|えん}**。でも{報告|ほうこく}は7,500{円|えん}。{差額|さがく}**3,000{円|えん}**＝{消|き}えたお{金|かね}！"
+          - text: "サクラ（4{班|はん}）"
+            value: sakura
+            feedback: "4{班|はん}の{計算|けいさん}：16,000 × 0.75 = 12,000{円|えん}。{報告額|ほうこくがく}と{一致|いっち}。サクラは{正確|せいかく}だよ。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "ミサキの{目撃|もくげき}（{金庫|きんこ}のそばにいた）"
+            value: witness
+            feedback: "{不審|ふしん}な{行動|こうどう}の{証拠|しょうこ}だけど、『いた』だけでは『{抜|ぬ}き{取|と}った』{証拠|しょうこ}にならない。{数字|すうじ}で{証明|しょうめい}しよう！"
+          - text: "{割引|わりびき}{計算|けいさん}の{検算|けんざん}で3{班|はん}だけ3,000{円|えん}{合|あ}わない"
+            value: calculation
+            correct: true
+            feedback: "{完璧|かんぺき}！ 15,000 × 0.7 = 10,500{円|えん}。{報告|ほうこく}は7,500{円|えん}。{差額|さがく}3,000{円|えん}が{消|き}えたお{金|かね}と{一致|いっち}。{算数|さんすう}で{犯人|はんにん}を{追|お}い{詰|つ}めた！"
+          - text: "{売|う}れた{商品|しょうひん}リスト"
+            value: product-list
+            feedback: "{定価|ていか}{合計|ごうけい}15,000{円|えん}の{確認|かくにん}には{重要|じゅうよう}。でも{決定的|けっていてき}なのは{割引|わりびき}{計算|けいさん}との{突|つ}き{合|あ}わせだよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: daichi
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: daichi
+        text: "……{僕|ぼく}がやった。{売上|うりあげ}から3,000{円|えん}を{抜|ぬ}き{取|と}った。"
+        expression: worried
+
+      - type: dialog
+        character: daichi
+        text: "{親友|しんゆう}のコウタがサッカー{大会|たいかい}の{参加費|さんかひ}3,000{円|えん}を{払|はら}えなくて{泣|な}いていたんだ。『{出|で}られないかも』って。"
+        expression: thinking
+
+      - type: dialog
+        character: daichi
+        text: "フリマの{売上|うりあげ}からちょっと{借|か}りて、おこづかいで{返|かえ}せばバレないと{思|おも}った。でも——{返|かえ}すタイミングを{失|うしな}って……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: daichi
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: schoolyard
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ダイチは{親友|しんゆう}を{助|たす}けたかった。その{気持|きもち}は{分|わ}かる。でも{人|ひと}のお{金|かね}を{勝手|かって}に{使|つか}うのは{間違|まちが}い。{助|たす}ける{方法|ほうほう}は{他|ほか}にもあったはず。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}の{推理|すいり}のカギは『{割引|わりびき}{計算|けいさん}の{検算|けんざん}』だった。2{割引|わりびき}＝×0.8、3{割引|わりびき}＝×0.7、{半額|はんがく}＝×0.5、25%OFF＝×0.75。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{定価|ていか}と{割引率|わりびきりつ}が{分|わ}かれば、{正|ただ}しい{売上|うりあげ}は{計算|けいさん}できる。{報告|ほうこく}された{数字|すうじ}を{鵜呑|うの}みにせず、{自分|じぶん}で{検算|けんざん}する——これが{算数|さんすう}の{力|ちから}！"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "{割引|わりびき}の{計算|けいさん}で{嘘|うそ}を{見|み}つけた！ {数字|すうじ}は{嘘|うそ}をつかない——{計算|けいさん}する{人|ひと}が{味方|みかた}だ。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{定価|ていか}×{割引率|わりびきりつ}＝{正|ただ}しい{売上|うりあげ}。{報告|ほうこく}された{数字|すうじ}を{鵜呑|うの}みにせず、{自分|じぶん}で{検算|けんざん}する。"
+
+      - type: narration
+        text: "——それが、{消|き}えた{売上金|うりあげきん}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

@@ -1,0 +1,376 @@
+meta:
+  id: math-07
+  title: 消えたトロフィーと3つのカギ — ベン図の密室
+  series: 数字の迷宮
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  sora:
+    name: ソラ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  mei:
+    name: メイ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  riku:
+    name: リク
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  hana:
+    name: ハナ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "みなみ{小学校|しょうがっこう}の『{算数|さんすう}チャレンジ{大会|たいかい}』{前日|ぜんじつ}。{優勝|ゆうしょう}トロフィーと{賞状|しょうじょう}が{保管|ほかん}されていた『{特別|とくべつ}{保管室|ほかんしつ}』。"
+
+      - type: narration
+        text: "{鍵|かぎ}はかかったまま。{金庫|きんこ}は{閉|し}じたまま。なのに——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "トロフィーだけが**{消|き}えている**。"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{保管室|ほかんしつ}に{入|はい}るには3つの{条件|じょうけん}が{全部|ぜんぶ}{必要|ひつよう}。ドアの{鍵|かぎ}、{金庫|きんこ}の{暗証|あんしょう}{番号|ばんごう}、先生の{使用|しよう}{許可証|きょかしょう}。3つ{全部|ぜんぶ}{持|も}っている人だけがトロフィーに{触|さわ}れる。"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: sora
+            expression: normal
+          - id: mei
+            expression: thinking
+          - id: riku
+            expression: normal
+          - id: hana
+            expression: normal
+
+      - type: narration
+        text: "4人の{条件|じょうけん}の{組|く}み{合|あ}わせをベン{図|ず}で{整理|せいり}し、3つ{全部|ぜんぶ}が{重|かさ}なる{人物|じんぶつ}を{見|み}つけ{出|だ}せ！"
+
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: mei
+        action: hide
+      - type: sprite
+        character: riku
+        action: hide
+      - type: sprite
+        character: hana
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.7"
+        subtitle: "消えたトロフィーと3つのカギ — ベン図の密室"
+
+  # ========================================
+  # 証拠1: セキュリティ記録
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{保管室|ほかんしつ}に{入|はい}るための3つの{条件|じょうけん}と、{誰|だれ}が{何|なに}を{持|も}っているかを{確認|かくにん}しよう。"
+
+      - type: narration
+        text: "**{条件|じょうけん}A（{鍵|かぎ}）**: {合鍵|あいかぎ}2{本|ほん} → **ソラ**に1本、**リク**に1本\n**{条件|じょうけん}B（{暗証|あんしょう}{番号|ばんごう}）**: {金庫|きんこ}の4{桁|けた}「3927」→ **ソラ・メイ・ハナ**が{知|し}っている\n**{条件|じょうけん}C（{許可証|きょかしょう}）**: 先生が{発行|はっこう} → **メイ・リク**に{発行|はっこう}{済|ず}み"
+
+      - type: narration
+        text: "4人の{条件|じょうけん}{保有|ほゆう}{状況|じょうきょう}：\nソラ：A=○ B=○ C=×\nメイ：A=× B=○ C=○\nリク：A=○ B=× C=○\nハナ：A=？ B=○ C=？"
+
+      - type: narration
+        text: "{誰|だれ}も3つ{全部|ぜんぶ}そろっていない……？ でもハナの{鍵|かぎ}と{許可証|きょかしょう}は『？』。まだ{分|わ}からないことがある。"
+
+  # ========================================
+  # 証拠2: 保管室の見取り図
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{保管室|ほかんしつ}の{構造|こうぞう}を{確認|かくにん}。{窓|まど}なし。{換気口|かんきこう}は15cm{角|かく}（{人|ひと}もトロフィーも{通|とお}れない）。ドアは{鍵|かぎ}がないと{内側|うちがわ}からも{開|あ}かない。**{鍵|かぎ}を{持|も}っている人しかドアを{開|あ}けられない**。"
+
+      - type: narration
+        text: "{鍵|かぎ}を{持|も}っているのはソラとリク。この2人の{中|なか}で{金庫|きんこ}も{開|あ}けられるのは——ソラ（{暗証|あんしょう}{番号|ばんごう}を{知|し}っている）。でもソラは{許可証|きょかしょう}を{持|も}っていない。{全部|ぜんぶ}そろう人がいない？"
+
+  # ========================================
+  # 証拠3: 前日のタイムライン
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}、4人は何をしていた？"
+
+      - type: narration
+        text: "15:45 ハナが**先生と{話|はな}していた**。何の{話|はなし}？\n16:30 ハナが**『{保管室|ほかんしつ}に{行|い}く』と{言|い}った**。何をしに？\n16:50 リクが{帰|かえ}り{道|みち}で{校舎|こうしゃ}2{階|かい}{方向|ほうこう}からハナを{見|み}た。{保管室|ほかんしつ}は2{階|かい}の{奥|おく}。"
+
+      - type: narration
+        text: "ハナが{保管室|ほかんしつ}に{行|い}った{理由|りゆう}は？ そのとき3つの{条件|じょうけん}を{持|も}っていた？"
+
+  # ========================================
+  # 証拠4: 鍵の貸し借り記録
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "{鍵|かぎ}の{動|うご}きを{追|お}ってみよう。"
+
+      - type: narration
+        text: "16:15 ソラがメイに{鍵|かぎ}を{貸|か}した（メイが{保管室|ほかんしつ}に{入|はい}るため）\n16:20 メイがソラに{返却|へんきゃく}\n**16:30 ソラがハナに{鍵|かぎ}を{貸|か}した**（ハナが『先生に{頼|たの}まれた{賞状|しょうじょう}を{入|い}れに{行|い}く』と{言|い}ったため）\n**16:45 ハナがソラに{返却|へんきゃく}**\n17:00 ソラが{最終|さいしゅう}{施錠|せじょう}"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ハナは16:30〜16:45の{間|あいだ}、**ソラの{鍵|かぎ}を{借|か}りていた**！ → {条件|じょうけん}Aを{一時的|いちじてき}に{持|も}っていた！"
+
+      - type: narration
+        text: "ハナは{鍵|かぎ}（A）を{借|か}りた。{暗証|あんしょう}{番号|ばんごう}（B）も{知|し}っている。あとは{許可証|きょかしょう}（C）だけ……{本当|ほんとう}に{持|も}っていない？"
+
+  # ========================================
+  # 証拠5: 先生の追加証言（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：決定的証拠"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "え？ ハナに{使用|しよう}{許可証|きょかしょう}を{出|だ}したかって？ ……あ、そうだ。**{昨日|きのう}の15:45に、ハナが来て**『{賞状|しょうじょう}の{追加分|ついかぶん}を{保管室|ほかんしつ}に{入|い}れたいんですが、{許可証|きょかしょう}をもらえますか？』って。"
+        expression: surprised
+
+      - type: dialog
+        character: sensei
+        text: "それで{使用|しよう}{許可証|きょかしょう}を1{枚|まい}{発行|はっこう}したよ。……え？ {返|かえ}してもらったかって？ いや、**{返却|へんきゃく}はまだされていない**な。ハナが{持|も}っているはずだよ。"
+        expression: worried
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{条件|じょうけん}を{更新|こうしん}！\nソラ：A=○ B=○ C=× → **NO**\nメイ：A=× B=○ C=○ → **NO**\nリク：A=○ B=× C=○ → **NO**\n**ハナ：A=○（{借|か}りた） B=○ C=○（先生から{発行|はっこう}！）→ YES！**"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**ハナだけが A ∩ B ∩ C —— 3つの{条件|じょうけん}すべてを{持|も}っていた！**"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    bg: classroom
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "トロフィーを{持|も}ち{出|だ}した{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "ソラ（{鍵|かぎ}+{暗証|あんしょう}{番号|ばんごう}）"
+            value: sora
+            feedback: "ソラは{鍵|かぎ}（A）と{暗証|あんしょう}{番号|ばんごう}（B）を{持|も}っているけど、{許可証|きょかしょう}（C）がない。2つだけでは{足|た}りない。"
+          - text: "メイ（{暗証|あんしょう}{番号|ばんごう}+{許可証|きょかしょう}）"
+            value: mei
+            feedback: "メイは{暗証|あんしょう}{番号|ばんごう}（B）と{許可証|きょかしょう}（C）を{持|も}っているけど、{鍵|かぎ}（A）がない。ドアが{開|あ}かない。"
+          - text: "リク（{鍵|かぎ}+{許可証|きょかしょう}）"
+            value: riku
+            feedback: "リクは{鍵|かぎ}（A）と{許可証|きょかしょう}（C）を{持|も}っているけど、{暗証|あんしょう}{番号|ばんごう}（B）を{知|し}らない。{金庫|きんこ}が{開|あ}かない。"
+          - text: "ハナ（{鍵|かぎ}+{暗証|あんしょう}{番号|ばんごう}+{許可証|きょかしょう}）"
+            value: hana
+            correct: true
+            feedback: "{正解|せいかい}！ ハナは{鍵|かぎ}を{借|か}り（A）、{暗証|あんしょう}{番号|ばんごう}を{知|し}り（B）、{許可証|きょかしょう}をもらった（C）。**3つ{全部|ぜんぶ}そろっていたのはハナだけ**！ ベン{図|ず}のA∩B∩Cに{入|はい}るのはハナだけだ。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "ハナが{保管室|ほかんしつ}の{方向|ほうこう}にいた{目撃|もくげき}"
+            value: location
+            feedback: "2{階|かい}にいたのは{状況|じょうきょう}{証拠|しょうこ}。でも「いた」だけでは「{入|はい}った」{証拠|しょうこ}にならない。"
+          - text: "ベン{図|ず}でA∩B∩Cに{入|はい}るのがハナだけ"
+            value: venn
+            correct: true
+            feedback: "{完璧|かんぺき}！ {条件|じょうけん}A（{鍵|かぎ}）×B（{暗証|あんしょう}{番号|ばんごう}）×C（{許可証|きょかしょう}）の3つ{全部|ぜんぶ}が{重|かさ}なるのはハナだけ。ベン{図|ず}の『{積|せき}{集合|しゅうごう}』で{犯人|はんにん}を{特定|とくてい}した！"
+          - text: "{許可証|きょかしょう}が{返却|へんきゃく}されていない"
+            value: permit
+            feedback: "{許可証|きょかしょう}を{持|も}っていたのは{重要|じゅうよう}。でもそれだけでは{条件|じょうけん}が{足|た}りない。3つの{条件|じょうけん}**{全部|ぜんぶ}**がそろっていることを{証明|しょうめい}しよう。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hana
+        text: "……{私|わたし}がやった。{賞状|しょうじょう}を{入|い}れに{行|い}ったとき、トロフィーを{持|も}ち{出|だ}した。ロッカーに{隠|かく}してある。"
+        expression: worried
+
+      - type: dialog
+        character: hana
+        text: "{去年|きょねん}の{算数|さんすう}チャレンジ{大会|たいかい}で2{位|い}だった。{今年|ことし}こそ{優勝|ゆうしょう}したい。でも{練習|れんしゅう}{問題|もんだい}で{思|おも}うような{点|てん}が{取|と}れなくて。"
+        expression: thinking
+
+      - type: dialog
+        character: hana
+        text: "トロフィーがなくなれば{大会|たいかい}が{延期|えんき}されて、もっと{練習|れんしゅう}できる{時間|じかん}がもらえると{思|おも}った。……{本当|ほんとう}にごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: hana
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ハナは{負|ま}けるのが{怖|こわ}かった。その{気持|きもち}は{分|わ}かる。でも{逃|に}げても{問題|もんだい}は{解決|かいけつ}しない。{練習|れんしゅう}して{挑|いど}むことが{大事|だいじ}なんだ。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは『ベン{図|ず}』だった。3つの{条件|じょうけん}をそれぞれ{丸|まる}で{表|あらわ}して、{重|かさ}なりを{見|み}る。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "『A **かつ** B **かつ** C』——3つ{全部|ぜんぶ}が{重|かさ}なるところ。ここに{入|はい}る人が{犯人|はんにん}。1つでも{欠|か}けていたら{保管室|ほかんしつ}には{入|はい}れない。これが{集合|しゅうごう}の『{積|せき}{集合|しゅうごう}（インターセクション）』だ。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{算数|さんすう}の{力|ちから}で{密室|みっしつ}を{解|と}いた！ ベン{図|ず}は{情報|じょうほう}を{整理|せいり}する{最強|さいきょう}の{道具|どうぐ}だ。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "3つの{条件|じょうけん}がすべて{重|かさ}なる{場所|ばしょ}——ベン{図|ず}のA∩B∩C。そこにいるのは{誰|だれ}か。"
+
+      - type: narration
+        text: "——それが、{消|き}えたトロフィーが{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

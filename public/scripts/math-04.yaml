@@ -1,0 +1,392 @@
+meta:
+  id: math-04
+  title: 書きかえられたグラフと見えない数字
+  series: 数字の迷宮
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  akira:
+    name: アキラ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  riko:
+    name: リコ
+    color: "#E07BAD"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sora:
+    name: ソラ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yuuna:
+    name: ユウナ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}の『{学校祭|がっこうさい}バザー』。4つのクラスが{模擬店|もぎてん}を{出|だ}した。{閉会式|へいかいしき}で{売上|うりあげ}ランキングが{発表|はっぴょう}された。"
+
+      - type: narration
+        text: "ところが{翌日|よくじつ}——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{職員室|しょくいんしつ}の{掲示板|けいじばん}に{貼|は}ってあった{売上|うりあげ}ランキングの{棒|ぼう}グラフが**{差|さ}し{替|か}えられていた**！ {順位|じゅんい}が{入|い}れ{替|か}わっている。"
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "{本来|ほんらい}3{位|い}だった5{年|ねん}2{組|くみ}が、1{位|い}に{書|か}きかえられている！ {放課後|ほうかご}にパソコン{室|しつ}に{入|はい}れた4人の{中|なか}に{犯人|はんにん}がいる。"
+        expression: surprised
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: akira
+            expression: normal
+          - id: riko
+            expression: thinking
+          - id: sora
+            expression: normal
+          - id: yuuna
+            expression: surprised
+
+      - type: narration
+        text: "グラフの{数字|すうじ}を{突|つ}き{合|あ}わせて{改|かい}ざんの{証拠|しょうこ}を{見|み}つけ{出|だ}せ！"
+
+      - type: sprite
+        character: akira
+        action: hide
+      - type: sprite
+        character: riko
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: yuuna
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.4"
+        subtitle: "書きかえられたグラフと見えない数字"
+
+  # ========================================
+  # 証拠1: 改ざんされた棒グラフ
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "{掲示板|けいじばん}に{貼|は}ってあった{棒|ぼう}グラフを{見|み}てみよう。"
+
+      - type: narration
+        text: "ひまわり{祭|さい} {売上|うりあげ}ランキング（{掲示板|けいじばん}{版|ばん}）：\n5{年|ねん}2{組|くみ}：**18,500{円|えん}** ← ★1{位|い}\n5年4組：14,600円\n5年1組：11,200円\n5年3組：9,200円\n{合計|ごうけい}：**53,500円**"
+
+      - type: narration
+        text: "5年2組が1位……。{本当|ほんとう}にこの{数字|すうじ}は{正|ただ}しい？"
+
+  # ========================================
+  # 証拠2: 閉会式のメモ
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: sprite
+        character: akira
+        expression: normal
+        position: left
+
+      - type: dialog
+        character: akira
+        text: "{閉会式|へいかいしき}のとき、{僕|ぼく}メモを{取|と}っていたんだ。{先生|せんせい}が{発表|はっぴょう}した{数字|すうじ}はこれだよ。"
+        expression: normal
+
+      - type: sprite
+        character: akira
+        action: hide
+
+      - type: narration
+        text: "アキラの{閉会式|へいかいしき}メモ：\n1{位|い}：5{年|ねん}1{組|くみ}（たこ{焼|や}き） **17,800{円|えん}**\n2位：5年4組（アクセサリー） 14,600円\n3位：5年2組（わたあめ） **12,400円**\n4位：5年3組（フリマ） 9,200円\n{合計|ごうけい}：**54,000円**"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "あれ？ {掲示板|けいじばん}のグラフの{合計|ごうけい}は**53,500{円|えん}**。{閉会式|へいかいしき}のメモの{合計|ごうけい}は**54,000円**。**500{円|えん}{違|ちが}う！** そして5年1組と5年2組の{数字|すうじ}が{全然|ぜんぜん}{違|ちが}う！"
+        speed: slow
+
+  # ========================================
+  # 証拠3: パソコン室の入退室記録
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "パソコン{室|しつ}のカギ{貸出帳|かしだしちょう}の{記録|きろく}。"
+
+      - type: narration
+        text: "15:40 アキラ {入室|にゅうしつ}（USBメモリの{忘|わす}れ{物|もの}）\n15:45 アキラ {退室|たいしつ}\n**15:45 ソラ {入室|にゅうしつ}（{調|しら}べ{物|もの}）**\n**16:00 ソラ 退室**\n16:00 リコ 入室（パソコンクラブ{備品|びひん}チェック）\n16:15 リコ 退室\n16:10 ユウナ 入室（{放送|ほうそう}{原稿|げんこう}の{作成|さくせい}）\n16:25 ユウナ 退室"
+
+      - type: narration
+        text: "ソラが15:45〜16:00の{間|あいだ}、**1人でパソコン{室|しつ}にいた**。{先生|せんせい}が{作|つく}った{集計|しゅうけい}ファイルに{触|さわ}れた{時間|じかん}は——"
+
+  # ========================================
+  # 証拠4: 手書き売上記録表
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: sprite
+        character: riko
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: riko
+        text: "{各|かく}クラスの{実行|じっこう}{委員|いいん}が{手書|てが}きで{記録|きろく}した{売上表|うりあげひょう}があるよ。こっちは{書|か}きかえられない。"
+        expression: thinking
+
+      - type: sprite
+        character: riko
+        action: hide
+
+      - type: narration
+        text: "{手書|てが}き{売上|うりあげ}{記録表|きろくひょう}：\n5{年|ねん}1{組|くみ}：{午前|ごぜん}8,300 + {午後|ごご}9,500 = **17,800{円|えん}**\n5年2組：午前5,600 + 午後6,800 = **12,400円**\n5年3組：午前3,700 + 午後5,500 = **9,200円**\n5年4組：午前6,100 + 午後8,500 = **14,600円**"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "{手書|てが}きの{記録|きろく}では5年2組は**12,400円**。{掲示板|けいじばん}の{棒|ぼう}グラフでは**18,500円**。**6,100{円|えん}もちがう！**"
+        speed: slow
+
+  # ========================================
+  # 証拠5: 円グラフ（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：決定的証拠"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "先生が{閉会式|へいかいしき}{用|よう}に{作|つく}ったもう1つのグラフが{見|み}つかった——**{円|えん}グラフ**！ このシートはパソコンに{残|のこ}っていた。"
+
+      - type: narration
+        text: "ひまわり{祭|さい} {売上|うりあげ}の{割合|わりあい}（{円|えん}グラフ）：\n5{年|ねん}1{組|くみ}：33.0%\n5年2組：23.0%\n5年3組：17.0%\n5年4組：27.0%"
+
+      - type: narration
+        text: "この{割合|わりあい}から{実際|じっさい}の{売上|うりあげ}を{逆算|ぎゃくさん}してみよう！"
+
+      - type: narration
+        text: "{掲示板|けいじばん}の{棒|ぼう}グラフの{合計|ごうけい}53,500{円|えん}で{計算|けいさん}すると：\n5年1組：53,500 × 0.33 = **17,655円** …{棒|ぼう}グラフの11,200円と{合|あ}わない！\n5年2組：53,500 × 0.23 = **12,305円** …{棒|ぼう}グラフの18,500円と{合|あ}わない！"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "{閉会式|へいかいしき}メモの{合計|ごうけい}**54,000{円|えん}**で{計算|けいさん}すると：\n5年1組：54,000 × 0.33 = **17,820円** ≒ 17,800円 ✅\n5年2組：54,000 × 0.23 = **12,420円** ≒ 12,400円 ✅\n5年3組：54,000 × 0.17 = **9,180円** ≒ 9,200円 ✅\n5年4組：54,000 × 0.27 = **14,580円** ≒ 14,600円 ✅"
+        speed: slow
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**{円|えん}グラフは{本物|ほんもの}のデータと{一致|いっち}する。{棒|ぼう}グラフだけが{書|か}きかえられている！**\n{変|か}わっているのは5年2組（{上|あ}がった）と5年1組（{下|さ}がった）だけ。**5年2組に{有利|ゆうり}な{改|かい}ざん！**"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "{棒|ぼう}グラフを{書|か}きかえた{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "アキラ"
+            value: akira
+            feedback: "アキラは15:40〜15:45の5{分|ふん}だけパソコン{室|しつ}にいた。USBメモリを{取|と}りに{来|き}ただけ。しかもアキラの{閉会式|へいかいしき}メモは{正|ただ}しい{数字|すうじ}だよ。"
+          - text: "リコ"
+            value: riko
+            feedback: "リコは16:00〜16:15。{備品|びひん}チェックが{目的|もくてき}。そして{手書|てが}き{記録表|きろくひょう}を{持|も}ってきてくれた{正直|しょうじき}な子。"
+          - text: "ソラ"
+            value: sora
+            correct: true
+            feedback: "{正解|せいかい}！ ソラは15:45〜16:00に**1人で**パソコン{室|しつ}にいた。5年2組の{実行|じっこう}{委員|いいん}で、{改|かい}ざんは5年2組に{有利|ゆうり}。しかも**{円|えん}グラフのシートを{変|か}え{忘|わす}れた**のが{決定的|けっていてき}{証拠|しょうこ}！"
+          - text: "ユウナ"
+            value: yuuna
+            feedback: "ユウナは16:10〜16:25。{放送|ほうそう}{原稿|げんこう}の{作成|さくせい}が{目的|もくてき}。5年2組ではないから{改|かい}ざんの{動機|どうき}がないよ。"
+
+      - type: choice
+        id: q2
+        question: "{改|かい}ざんの{決定的|けっていてき}{証拠|しょうこ}は何？"
+        options:
+          - text: "{手書|てが}き{記録|きろく}と{棒|ぼう}グラフの{数字|すうじ}が{違|ちが}う"
+            value: handwritten
+            feedback: "{大事|だいじ}な{証拠|しょうこ}！ でも「{手書|てが}きが{間違|まちが}っている」{可能性|かのうせい}もある。もっと{決定的|けっていてき}なものがあるよ。"
+          - text: "{棒|ぼう}グラフと{円|えん}グラフの{数字|すうじ}が{矛盾|むじゅん}する"
+            value: graph-mismatch
+            correct: true
+            feedback: "{完璧|かんぺき}！ {円|えん}グラフの{割合|わりあい}から{逆算|ぎゃくさん}すると、{本物|ほんもの}のデータ（{合計|ごうけい}54,000{円|えん}）と{一致|いっち}する。{棒|ぼう}グラフだけがウソ。2つのグラフを{突|つ}き{合|あ}わせたから{見|み}つけられた！"
+          - text: "パソコン{室|しつ}にソラだけがいた{時間|じかん}がある"
+            value: alone-time
+            feedback: "{機会|きかい}の{証拠|しょうこ}としては{重要|じゅうよう}！ でも「いた」だけでは「やった」{証拠|しょうこ}にならない。{数字|すうじ}の{矛盾|むじゅん}が{決定的|けっていてき}だよ。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sora
+        text: "……{僕|ぼく}がやった。{閉会式|へいかいしき}のあと、パソコン{室|しつ}で{先生|せんせい}の{集計|しゅうけい}ファイルを{開|ひら}いて、5年2組の{数字|すうじ}を{書|か}きかえた。"
+        expression: worried
+
+      - type: dialog
+        character: sora
+        text: "クラスのみんなが『あんなにがんばったのに3{位|い}か……』ってガッカリしていたんだ。グラフを{直|なお}せばみんなが{喜|よろこ}ぶと{思|おも}った。"
+        expression: thinking
+
+      - type: dialog
+        character: sora
+        text: "でも{円|えん}グラフのシートを{変|か}えるのを{忘|わす}れていた。{数字|すうじ}は{嘘|うそ}をつけないんだ……。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "ソラは『みんなのため』と{思|おも}ってデータを{書|か}きかえた。その{気持|きもち}は{分|わ}かる。でも——{嘘|うそ}のデータは、{他|ほか}のクラスの{努力|どりょく}を{否定|ひてい}することになる。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち、どうやって{改|かい}ざんを{見|み}つけた？ {棒|ぼう}グラフと{円|えん}グラフの{数字|すうじ}を**{突|つ}き{合|あ}わせた**よね。{円|えん}グラフの{割合|わりあい}から{逆算|ぎゃくさん}して、{本物|ほんもの}のデータを{復元|ふくげん}した。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "{数字|すうじ}は{嘘|うそ}をつかない——でも、{数字|すうじ}を{使|つか}う{人間|にんげん}は{嘘|うそ}をつくことがある。だから**{複数|ふくすう}のデータを{比|くら}べる{力|ちから}**が{大事|だいじ}なんだ。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "{算数|さんすう}の{力|ちから}で{嘘|うそ}を{見|み}つけた！ {数字|すうじ}は{嘘|うそ}をつかない——だから{数字|すうじ}を{味方|みかた}にしよう。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "1つのグラフだけ{見|み}ても{嘘|うそ}は{分|わ}からない。{複数|ふくすう}のデータを{突|つ}き{合|あ}わせて{初|はじ}めて{矛盾|むじゅん}が{見|み}える。"
+
+      - type: narration
+        text: "——それが、{書|か}きかえられたグラフが{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out

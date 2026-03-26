@@ -1,0 +1,413 @@
+meta:
+  id: math-19
+  title: 鏡の部屋と対称のトリック
+  series: 数字の迷宮
+  volume: 19
+  estimatedMinutes: 20
+
+characters:
+  yuuki:
+    name: ユウキ
+    color: "#4A6FA5"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  aoi:
+    name: アオイ
+    color: "#2E8B57"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  rin:
+    name: リン
+    color: "#E07BAD"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  natsu:
+    name: ナツ
+    color: "#FF6B35"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  sensei:
+    name: 先生
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{算数|さんすう}フェスティバルの『{鏡|かがみ}の{部屋|へや}』。{特別|とくべつ}{展示室|てんじしつ}の{入口|いりぐち}には『{対称|たいしょう}な{図形|ずけい}を{完成|かんせい}させよう』と書かれたパズルロックがかけられている。"
+
+      - type: narration
+        text: "{翌朝|よくあさ}——"
+
+      - type: bgm
+        action: stop
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: narration
+        text: "{展示室|てんじしつ}の{中|なか}のモザイクアートに**ペンキがかけられていた**！ パズルロックは{閉|し}まったまま。{鍵|かぎ}のかかった{密室|みっしつ}——{誰|だれ}が{入|はい}れた？"
+        speed: slow
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: sensei
+        expression: surprised
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "3人の{準備|じゅんび}{委員|いいん}が{線対称|せんたいしょう}で{試|ため}したがドアは{開|あ}かなかった。パズルロックを{解|と}ける人だけが{入|はい}れるはず。{対称|たいしょう}の{秘密|ひみつ}を{解|と}け！"
+        expression: determined
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - id: yuuki
+            expression: thinking
+          - id: aoi
+            expression: thinking
+          - id: rin
+            expression: normal
+          - id: natsu
+            expression: surprised
+
+      - type: narration
+        text: "{線対称|せんたいしょう}と{点対称|てんたいしょう}——{対称|たいしょう}の{違|ちが}いを{見|み}つけて{密室|みっしつ}を{解|と}け！"
+
+      - type: sprite
+        character: yuuki
+        action: hide
+      - type: sprite
+        character: aoi
+        action: hide
+      - type: sprite
+        character: rin
+        action: hide
+      - type: sprite
+        character: natsu
+        action: hide
+
+      - type: effect
+        name: fade-out
+
+      - type: title_card
+        text: "数字の迷宮 Vol.19"
+        subtitle: "鏡の部屋と対称のトリック"
+
+  # ========================================
+  # 証拠1: パズルロックの仕組み
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "ステップ1：調査"
+
+      - type: narration
+        text: "パズルロック：4×4マスのグリッドの**{左半分|ひだりはんぶん}**にパターンが{描|えが}かれている。**{右半分|みぎはんぶん}**を{正|ただ}しく{描|か}けばドアが{開|あ}く。"
+
+      - type: narration
+        text: "{左半分|ひだりはんぶん}のパターン：\n{行|ぎょう}1：■ □\n{行|ぎょう}2：□ ■\n{行|ぎょう}3：■ ■\n{行|ぎょう}4：□ □\n\nドアには『{対称|たいしょう}な{図形|ずけい}を{完成|かんせい}させよう』と{書|か}いてある。"
+
+  # ========================================
+  # 証拠2: 3人の練習シート
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "{準備日|じゅんびび}の{昼休|ひるやす}みに、4人がパズルロックにチャレンジした。"
+
+      - type: sprite
+        character: yuuki
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: yuuki
+        text: "{線対称|せんたいしょう}で{試|ため}した。{列|れつ}2と{列|れつ}3の{間|あいだ}を{軸|じく}にして、{左右|さゆう}を{鏡|かがみ}に{映|うつ}した{形|かたち}を{描|か}いた。でもドアは**{開|あ}かなかった**。"
+        expression: worried
+
+      - type: sprite
+        character: yuuki
+        action: hide
+
+      - type: sprite
+        character: aoi
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: aoi
+        text: "{私|わたし}もユウキと{同|おな}じ{線対称|せんたいしょう}で{試|ため}した。やっぱり**{開|あ}かなかった**。"
+        expression: worried
+
+      - type: sprite
+        character: aoi
+        action: hide
+
+      - type: sprite
+        character: natsu
+        expression: surprised
+        position: left
+
+      - type: dialog
+        character: natsu
+        text: "{俺|おれ}も{線対称|せんたいしょう}。{同|おな}じ{答|こた}え。**{開|あ}かなかった**。"
+        expression: surprised
+
+      - type: sprite
+        character: natsu
+        action: hide
+
+      - type: sprite
+        character: rin
+        expression: normal
+        position: right
+
+      - type: dialog
+        character: rin
+        text: "ちょっと{見|み}ただけ。{試|ため}してないよ。"
+        expression: normal
+
+      - type: sprite
+        character: rin
+        action: hide
+
+      - type: narration
+        text: "3人が{全員|ぜんいん}**{線対称|せんたいしょう}**で{試|ため}して{失敗|しっぱい}。リンだけ『{試|ため}してない』。——{線対称|せんたいしょう}が{間違|まちが}いなら、{正解|せいかい}は{何|なに}？"
+
+  # ========================================
+  # 証拠3: 準備日のタイムライン
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "{準備日|じゅんびび}のタイムライン。"
+
+      - type: narration
+        text: "17:00 ユウキがパズルロックをかけてドアを{閉|し}める\n17:10 ユウキ・アオイが{教室|きょうしつ}に{戻|もど}る\n17:20 ナツが『{水|みず}を{飲|の}みに{行|い}く』と{廊下|ろうか}へ\n**17:25 リンが『トイレに{行|い}く』と{廊下|ろうか}へ**\n17:35 ナツが{教室|きょうしつ}に{戻|もど}る\n**17:40 リンが{教室|きょうしつ}に{戻|もど}る**\n17:50 {全員|ぜんいん}{下校|げこう}"
+
+      - type: narration
+        text: "リンが{廊下|ろうか}にいた{時間|じかん}は**17:25〜17:40の15{分間|ぷんかん}**。4人の{中|なか}で{最|もっと}も{長|なが}い。そしてトイレは{北側|きたがわ}、{展示室|てんじしつ}は**{南側|みなみがわ}**——{反対|はんたい}{方向|ほうこう}。"
+
+  # ========================================
+  # 証拠4: 線対称と点対称の違い
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "**{線対称|せんたいしょう}**：1つの{直線|ちょくせん}（{対称|たいしょう}の{軸|じく}）で{折|お}ると、ぴったり{重|かさ}なる。\n{右半分|みぎはんぶん}は：□■ / ■□ / ■■ / □□"
+
+      - type: narration
+        text: "**{点対称|てんたいしょう}**：ある{点|てん}（{対称|たいしょう}の{中心|ちゅうしん}）のまわりに**180°{回転|かいてん}**させると、{元|もと}の{図形|ずけい}とぴったり{重|かさ}なる。\n{右半分|みぎはんぶん}は：**□□ / ■■ / ■□ / □■** ← {線対称|せんたいしょう}とは{違|ちが}う！"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "**{線対称|せんたいしょう}と{点対称|てんたいしょう}の{右半分|みぎはんぶん}は{全然|ぜんぜん}{違|ちが}う！** 3人は{線対称|せんたいしょう}で{試|ため}して{失敗|しっぱい}した。ということは——パズルロックの{正解|せいかい}は**{点対称|てんたいしょう}**？"
+
+  # ========================================
+  # 証拠5: 点対称がカギ（反転フェーズ）
+  # ========================================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ2：前提を疑え"
+      - type: effect
+        name: fade-in
+
+      - type: narration
+        text: "パズルロックの{正解|せいかい}を**{点対称|てんたいしょう}**で{描|か}いてみよう。"
+
+      - type: narration
+        text: "{左半分|ひだりはんぶん}：■□ / □■ / ■■ / □□\n↓ {中心点|ちゅうしんてん}で180°{回転|かいてん}\n{右半分|みぎはんぶん}：**□□ / ■■ / ■□ / □■**"
+
+      - type: effect
+        name: flash
+
+      - type: narration
+        text: "**{点対称|てんたいしょう}でドアが{開|あ}いた！** パズルロックの{正解|せいかい}は{線対称|せんたいしょう}ではなく{点対称|てんたいしょう}だった！"
+        speed: slow
+
+      - type: narration
+        text: "3人は『{対称|たいしょう}＝{線対称|せんたいしょう}』と{思|おも}い{込|こ}んでいた。{点対称|てんたいしょう}を{知|し}っている人だけが{開|あ}けられた。"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "では{誰|だれ}が{点対称|てんたいしょう}を{知|し}っていた？ リンは{自分|じぶん}のモザイクアートを**{点対称|てんたいしょう}**で{作|つく}っていた。{点対称|てんたいしょう}の{達人|たつじん}。そしてリンだけ『{試|ため}してない』と{言|い}った——**{試|ため}したけど{言|い}わなかった**のかもしれない。"
+        speed: slow
+
+  # ========================================
+  # 質問フェーズ
+  # ========================================
+  - id: questions
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "ステップ3：推理しよう"
+      - type: effect
+        name: fade-in
+
+      - type: choice
+        id: q1
+        question: "モザイクアートにペンキをかけた{犯人|はんにん}は{誰|だれ}？"
+        options:
+          - text: "ユウキ"
+            value: yuuki
+            feedback: "ユウキは{線対称|せんたいしょう}で{試|ため}して{失敗|しっぱい}。パズルロックを{開|あ}けられなかった。"
+          - text: "アオイ"
+            value: aoi
+            feedback: "アオイも{線対称|せんたいしょう}で{失敗|しっぱい}。{開|あ}けられなかった。"
+          - text: "リン"
+            value: rin
+            correct: true
+            feedback: "{正解|せいかい}！ リンは{点対称|てんたいしょう}で{自分|じぶん}のモザイクアートを{作|つく}っていた。パズルロックの{正解|せいかい}が{点対称|てんたいしょう}だと{分|わ}かった。15{分|ふん}の{空白|くうはく}で{展示室|てんじしつ}に{行|い}き、ペンキをかけた！"
+          - text: "ナツ"
+            value: natsu
+            feedback: "ナツも{線対称|せんたいしょう}で{失敗|しっぱい}。{開|あ}けられなかった。"
+
+      - type: choice
+        id: q2
+        question: "{決定的|けっていてき}な{証拠|しょうこ}は何？"
+        options:
+          - text: "リンだけ{練習|れんしゅう}シートがない"
+            value: no-sheet
+            feedback: "{怪|あや}しいけど、『{試|ため}してない』のは{嘘|うそ}かもしれないし{本当|ほんとう}かもしれない。{算数|さんすう}で{証明|しょうめい}しよう。"
+          - text: "パズルロックの{正解|せいかい}が{点対称|てんたいしょう}で、リンだけが{点対称|てんたいしょう}を{使|つか}える"
+            value: point-symmetry
+            correct: true
+            feedback: "{完璧|かんぺき}！ {線対称|せんたいしょう}では{開|あ}かない。{点対称|てんたいしょう}で{開|あ}く。{点対称|てんたいしょう}で{作品|さくひん}を{作|つく}っていたのはリンだけ。**{対称|たいしょう}の{種類|しゅるい}の{違|ちが}い**が{密室|みっしつ}を{解|と}いた！"
+          - text: "リンが{廊下|ろうか}にいた{時間|じかん}が{一番|いちばん}{長|なが}い"
+            value: longest-absence
+            feedback: "{時間|じかん}の{長|なが}さは{状況|じょうきょう}{証拠|しょうこ}。{決定的|けっていてき}なのは{点対称|てんたいしょう}の{知識|ちしき}。"
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: "真相"
+      - type: effect
+        name: fade-in
+
+      - type: sprite
+        character: rin
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: rin
+        text: "……{私|わたし}がやった。パズルロックが{点対称|てんたいしょう}だって、{見|み}た{瞬間|しゅんかん}に{分|わ}かった。{自分|じぶん}のモザイクアートを{点対称|てんたいしょう}で{作|つく}っていたから。"
+        expression: worried
+
+      - type: dialog
+        character: rin
+        text: "{自分|じぶん}の{作品|さくひん}が『デザインが{地味|じみ}』って{言|い}われて、ゲスト{作家|さっか}の{作品|さくひん}に{差|さ}し{替|か}えられた。{私|わたし}の{点対称|てんたいしょう}の{方|ほう}が{美|うつく}しいのに。{悔|くや}しくて……ペンキをかけちゃった。"
+        expression: thinking
+
+      - type: dialog
+        character: rin
+        text: "{自分|じぶん}の{作品|さくひん}に{自信|じしん}があった。でも——{他|ほか}の人の{作品|さくひん}を{壊|こわ}すのは{間違|まちが}いだった。ごめんなさい。"
+        expression: worried
+
+      - type: sprite
+        character: rin
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: sensei
+        text: "リンは{自分|じぶん}の{作品|さくひん}に{誇|ほこ}りを{持|も}っていた。{点対称|てんたいしょう}の{美|うつく}しいデザイン。その{力|ちから}は{素晴|すば}らしい。でも{他|ほか}の人の{作品|さくひん}を{壊|こわ}すのではなく、{自分|じぶん}の{力|ちから}で{次|つぎ}のチャンスを{掴|つか}もう。"
+        expression: normal
+
+      - type: dialog
+        character: sensei
+        text: "ところで{探偵|たんてい}たち——{今回|こんかい}のカギは**{線対称|せんたいしょう}と{点対称|てんたいしょう}の{違|ちが}い**。{線対称|せんたいしょう}は{軸|じく}で{折|お}って{重|かさ}なる。{点対称|てんたいしょう}は{中心|ちゅうしん}で180°{回転|かいてん}して{重|かさ}なる。"
+        expression: thinking
+
+      - type: dialog
+        character: sensei
+        text: "3人が『{対称|たいしょう}＝{線対称|せんたいしょう}』と{思|おも}い{込|こ}んでいた。でも{対称|たいしょう}にはもう1つの{種類|しゅるい}——{点対称|てんたいしょう}——がある。**{前提|ぜんてい}を{疑|うたが}う{力|ちから}**が{密室|みっしつ}を{解|と}いた。"
+        expression: determined
+
+      - type: dialog
+        character: sensei
+        text: "——{線対称|せんたいしょう}で{開|あ}かないなら{点対称|てんたいしょう}を{試|ため}す。『{当|あ}たり{前|まえ}』を{疑|うたが}うことが、{算数|さんすう}の{力|ちから}だ。"
+        expression: happy
+
+      - type: sprite
+        character: sensei
+        action: hide
+
+      - type: narration
+        text: "{線対称|せんたいしょう}：{軸|じく}で{折|お}って{重|かさ}なる。{点対称|てんたいしょう}：{中心|ちゅうしん}で180°{回転|かいてん}して{重|かさ}なる。{対称|たいしょう}には2つの{種類|しゅるい}がある。"
+
+      - type: narration
+        text: "——それが、{鏡|かがみ}の{部屋|へや}が{教|おし}えてくれたこと。"
+
+      - type: effect
+        name: fade-out
