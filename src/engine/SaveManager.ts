@@ -19,6 +19,8 @@ export interface ClearRecord {
   rank: DetectiveRank
   answeredCount: number
   totalChoices: number
+  correctCount: number // 正解数
+  totalJudged: number // 正解判定がある問題の総数
   clearedAt: number // timestamp
 }
 
@@ -87,11 +89,27 @@ export function clearProgress(scriptId: string): void {
 
 /**
  * 探偵ランクを算出
- * 回答率100% = S, ≥75% = A, ≥50% = B, それ以下 = C
+ * 正解判定がある問題: 正解率ベース（S≥100%, A≥75%, B≥50%, C<50%）
+ * 正解判定がない問題のみ: 回答率ベース（互換）
  */
-export function calculateRank(answeredCount: number, totalChoices: number): DetectiveRank {
-  if (totalChoices === 0) return 'S'
-  const rate = answeredCount / totalChoices
+export function calculateRank(
+  correctCount: number,
+  totalJudged: number,
+  answeredCount?: number,
+  totalChoices?: number,
+): DetectiveRank {
+  // 正解判定がある問題がある場合 → 正解率で判定
+  if (totalJudged > 0) {
+    const rate = correctCount / totalJudged
+    if (rate >= 1) return 'S'
+    if (rate >= 0.75) return 'A'
+    if (rate >= 0.5) return 'B'
+    return 'C'
+  }
+  // 正解判定がない問題のみ → 回答率で互換判定
+  const total = totalChoices ?? 0
+  if (total === 0) return 'S'
+  const rate = (answeredCount ?? 0) / total
   if (rate >= 1) return 'S'
   if (rate >= 0.75) return 'A'
   if (rate >= 0.5) return 'B'

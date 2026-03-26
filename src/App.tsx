@@ -182,6 +182,8 @@ export function App() {
         <ResultScreen
           script={script}
           choices={state.choices}
+          correctCount={state.correctCount}
+          totalJudged={state.totalJudged}
           onRestart={handleRestart}
           onBackToSelect={handleBackToSelect}
         />

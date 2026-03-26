@@ -1,0 +1,573 @@
+# ============================================================================
+# ナゾトキ探偵団 ノベルゲーム — デザインシステム
+# ============================================================================
+# リファレンス調査（2026-03-26）に基づく視覚設計の基準書。
+# CSS実装・UXレビュー・Codex指示書の根拠として参照する。
+#
+# 使い方:
+#   - CSS変数の変更時: tokens セクションの値をそのまま適用
+#   - 新コンポーネント追加時: components セクションのルールに従う
+#   - UXレビュー時: review-game-ux スキルがチェックリストとして参照
+#   - 迷ったとき: philosophy に立ち返る
+#
+# リファレンス:
+#   - レイトン教授（羊皮紙テキストウィンドウ・温かみ）
+#   - 逆転裁判（キャラカラー・ネームプレート・演出のメリハリ）
+#   - Duolingo（達成感の可視化・ランクバッジ）
+#   - Kahoot!（選択肢の色分け・認知負荷の軽減）
+#   - Nielsen Norman Group 子ども向けUXガイドライン
+# ============================================================================
+
+meta:
+  title: ナゾトキ探偵団 デザインシステム
+  version: "1.0"
+  created: "2026-03-26"
+  last_updated: "2026-03-26"
+  theme_name: 探偵手帳×琥珀ライト
+  concept: |
+    子どもが「本当の探偵手帳を開いた」感覚。
+    暗い推理ゲームではなく、明るい教育推理アプリ。
+    温かみのあるクリーム背景に、万年筆のインクで書かれた文字。
+    正解すれば琥珀色に輝き、間違えても次に進む勇気をくれるUI。
+
+# ============================================================================
+# 1. DESIGN PHILOSOPHY
+# ============================================================================
+philosophy:
+  - id: DP-01
+    name: 子どもの目線で判断する
+    rule: |
+      「大人のデザイナーがかっこいいと思うUI」ではなく
+      「10歳の子どもが迷わず使えるUI」を唯一の基準にする。
+    test: 小4の生徒に画面を見せて5秒以内に次の操作がわかるか？
+
+  - id: DP-02
+    name: 温かさは設計できる
+    rule: |
+      暗い背景+白文字=「プログラマのダッシュボード」。
+      クリーム背景+ダークブラウン文字=「手帳に書いたメモ」。
+      色温度だけでプロダクトの印象は決まる。
+    test: 画面を見た瞬間「冷たい」と感じたらNG。
+
+  - id: DP-03
+    name: 装飾は意味を持て
+    rule: |
+      「なんとなくおしゃれ」な装飾は排除する。
+      角丸=親しみやすさ、影=浮遊感、ボーダー=領域区切り。
+      全ての装飾に「なぜ?」を答えられること。
+
+  - id: DP-04
+    name: AI臭さの排除
+    rule: |
+      以下を禁止する:
+      - 一律の値（全角丸8px、全gap12px、全rgba(255,255,255,0.1)）
+      - 意味のないグラデーション
+      - 装飾のない暗い背景+青アクセント1色
+      意図的な不揃い・メリハリ・温度差がデザインに個性を与える。
+
+# ============================================================================
+# 2. DESIGN TOKENS — CSS変数に直接マッピング
+# ============================================================================
+tokens:
+  description: |
+    game.css の :root に定義するCSS変数。
+    全コンポーネントはこのトークンのみを参照し、直接カラーコードを書かない。
+
+  # --- カラーパレット ---
+  colors:
+    # ベース
+    base_cream: "#F5E6C0"         # 羊皮紙。テキストウィンドウ背景・カード背景
+    base_warm_white: "#FBF7F0"    # ページ背景。選択画面・結果画面
+    base_parchment: "#EDD9B4"     # クリームより濃い。ホバー・アクティブ
+
+    # テキスト
+    text_primary: "#2C1810"       # 万年筆のインク。本文・ダイアログ
+    text_secondary: "#5C4033"     # ブラウン薄め。ナレーション・補足
+    text_muted: "#8B7355"         # さらに薄い。タイムスタンプ・ラベル
+    text_on_dark: "#F5E6C0"       # ダーク背景上のテキスト（ネームプレート等）
+
+    # アクセント
+    accent_gold: "#B8860B"        # 琥珀ゴールド。正解・達成・探偵バッジ・CTA
+    accent_navy: "#1C2951"        # 深ネイビー。権威・謎・重要情報・ネームプレート
+    accent_terracotta: "#C0543C"  # テラコッタ。緊張・容疑者・不正解
+
+    # セマンティック
+    success: "#4A7C3F"            # 深い緑。正解マーク（金と組み合わせ）
+    error: "#C0543C"              # テラコッタ流用。不正解・警告
+    info: "#4A6FA5"               # 落ち着いた青。ヒント・補足情報
+
+    # 選択肢4色（Kahoot!方式）
+    choice_a: "#C0543C"           # テラコッタ赤
+    choice_b: "#4A6FA5"           # 落ち着い青
+    choice_c: "#B8860B"           # 琥珀ゴールド
+    choice_d: "#4A7C3F"           # 深い緑
+    choice_e: "#7B5EA7"           # 紫（5択用）
+
+    # ゲーム画面（背景画像が主役のため暗め寄り）
+    game_overlay: "rgba(20, 15, 10, 0.35)"   # 背景上のダークオーバーレイ
+    game_window_bg: "rgba(245, 230, 192, 0.93)"  # テキストウィンドウ背景
+    game_window_border: "rgba(184, 134, 11, 0.5)" # テキストウィンドウ上辺
+
+  # --- タイポグラフィ ---
+  typography:
+    description: |
+      Google Fonts から読み込む。font-display: swap 必須。
+      日本語フォントはサブセット自動適用（Google Fonts側）。
+
+    font_families:
+      heading: "'Zen Maru Gothic', sans-serif"    # 見出し・タイトル・ボタン
+      body: "'BIZ UDPGothic', sans-serif"         # 本文・ダイアログ・ナレーション
+      accent: "'Shippori Mincho', serif"          # 強調ナレーション・謎文・手紙
+      fallback: "system-ui, sans-serif"            # ロード前のフォールバック
+
+    google_fonts_import: |
+      @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600&display=swap');
+
+    scale:
+      # モバイルファースト。PC は @media (min-width: 1024px) でスケールアップ
+      xs: "12px"    # キャプション・タイムスタンプ
+      sm: "14px"    # UIラベル・ボタン小・サブテキスト
+      md: "16px"    # 本文（モバイル）
+      lg: "18px"    # 本文（PC）・ダイアログ
+      xl: "24px"    # セクション見出し・タイトルカードサブ
+      xxl: "32px"   # タイトルカード・結果画面ランク
+      hero: "40px"  # シナリオタイトル・ランクバッジ文字
+
+    line_heights:
+      tight: 1.4    # 見出し
+      normal: 1.7   # 本文（子どもは行間広めが読みやすい）
+      loose: 2.0    # ルビ付きテキスト（rtの余白確保）
+
+  # --- 余白 ---
+  spacing:
+    description: |
+      4px刻みの倍数体系。意図的なメリハリのために3段階で使い分ける。
+    unit: "4px"
+    scale:
+      xxs: "4px"    # アイコンと文字の間
+      xs: "8px"     # 同一グループ内の要素間
+      sm: "12px"    # カード内パディング（モバイル）
+      md: "16px"    # カード内パディング（PC）・セクション間
+      lg: "24px"    # セクション間・カードの外マージン
+      xl: "32px"    # 画面端パディング
+      xxl: "48px"   # 画面間の大きな区切り
+
+  # --- 角丸 ---
+  radii:
+    description: |
+      3段階で使い分ける。均一な角丸はAI臭さの原因。
+    sm: "6px"       # ネームプレート・ツールチップ・小バッジ
+    md: "12px"      # カード・パネル・テキストウィンドウ
+    lg: "20px"      # ボタン・フィルタータグ・大バッジ
+    full: "9999px"  # 丸型バッジ・アバター
+
+  # --- 影 ---
+  shadows:
+    description: |
+      暖色系の影で「浮いている」感を出す。rgba黒ではなくブラウン系。
+    sm: "0 1px 3px rgba(44, 24, 16, 0.08)"       # ネームプレート・小カード
+    md: "0 4px 12px rgba(44, 24, 16, 0.1)"       # テキストウィンドウ・選択肢カード
+    lg: "0 8px 24px rgba(44, 24, 16, 0.15)"      # モーダル・バックログパネル
+    glow_gold: "0 0 20px rgba(184, 134, 11, 0.3)" # ランクバッジ・正解演出
+
+  # --- アニメーション ---
+  motion:
+    description: |
+      fade/scaleだけでは機械的。バウンス・スプリング系を追加して「手触り」を出す。
+    durations:
+      instant: "100ms"   # ホバー色変化
+      fast: "200ms"      # ボタンアクティブ
+      normal: "300ms"    # フェード・スライド
+      slow: "500ms"      # 画面遷移・大きなアニメーション
+      dramatic: "800ms"  # ランク表示・正解演出
+
+    easings:
+      default: "ease"
+      bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)"   # オーバーシュート。達成感
+      spring: "cubic-bezier(0.22, 1, 0.36, 1)"       # 自然な減速。スライドイン
+      sharp: "cubic-bezier(0.4, 0, 0.2, 1)"          # きびきび。UIフィードバック
+
+  # --- トランジション ---
+  transitions:
+    button_hover: "background 200ms ease, transform 100ms ease"
+    card_hover: "transform 200ms cubic-bezier(0.22,1,0.36,1), box-shadow 200ms ease"
+    fade_in: "opacity 300ms ease"
+
+# ============================================================================
+# 3. COMPONENT RULES — コンポーネント別の設計ルール
+# ============================================================================
+components:
+
+  # --- テキストウィンドウ ---
+  text_window:
+    description: |
+      ゲームプレイ時間の90%を見る画面。最も重要なコンポーネント。
+      レイトン教授の「羊皮紙テキストウィンドウ」を参考に、
+      クリーム背景+ダークブラウンテキスト+ゴールドボーダーに刷新。
+    reference: レイトン教授・逆転裁判
+    rules:
+      background: tokens.colors.game_window_bg
+      border_top: "2px solid {tokens.colors.game_window_border}"
+      text_color: tokens.colors.text_primary
+      font: tokens.typography.font_families.body
+      font_size: tokens.typography.scale.lg
+      line_height: tokens.typography.line_heights.normal
+      shadow: tokens.shadows.md
+      backdrop_filter: "blur(4px)"
+      border_radius: "0"  # 下部固定のため角丸なし
+      padding: "16px 32px 20px"  # 左右広め、下に余裕
+    states:
+      feedback_correct:
+        border_top_color: tokens.colors.success
+        background_tint: "rgba(74, 124, 63, 0.1)"
+      feedback_incorrect:
+        border_top_color: tokens.colors.error
+        background_tint: "rgba(192, 84, 60, 0.1)"
+
+  # --- ネームプレート ---
+  name_plate:
+    description: |
+      逆転裁判方式のタブ型。キャラクターごとの色で識別。
+      テキストウィンドウ上辺から突き出す形状。
+    reference: 逆転裁判
+    rules:
+      shape: "タブ型（左上から突き出し）"
+      background: "キャラクターカラー（characters[id].color を使用）"
+      text_color: tokens.colors.text_on_dark
+      font: tokens.typography.font_families.heading
+      font_size: tokens.typography.scale.sm
+      font_weight: "700"
+      padding: "4px 16px 4px 12px"
+      border_radius: "6px 6px 0 0"  # 上だけ丸。下はウィンドウに接合
+      shadow: tokens.shadows.sm
+    fallback_color: tokens.colors.accent_navy  # color未定義時のデフォルト
+
+  # --- 選択肢パネル ---
+  choice_panel:
+    description: |
+      Kahoot!方式の色分け。各選択肢が固有色を持ち、
+      色だけで「Aを選んだ」と認識できる。認知負荷の軽減。
+    reference: Kahoot!・ダンガンロンパ
+    rules:
+      overlay_bg: "rgba(20, 15, 10, 0.6)"
+      overlay_blur: "blur(4px)"
+      question_color: tokens.colors.text_on_dark
+      question_font: tokens.typography.font_families.heading
+      question_size: tokens.typography.scale.xl
+    option_rules:
+      min_height: "56px"  # 子ども向け最小タップサイズ（Nielsen Norman推奨）
+      border_radius: tokens.radii.md
+      font: tokens.typography.font_families.heading
+      font_size: tokens.typography.scale.md
+      font_weight: "700"
+      padding: "16px 20px"
+      animation: "choice-slide-in 0.3s {tokens.motion.easings.spring} both"
+    option_colors:
+      description: |
+        各選択肢にユニークな背景色を付与。
+        テキストは全て白。ホバー時に明度を上げる。
+      A: { bg: tokens.colors.choice_a, hover: "#D4644E" }
+      B: { bg: tokens.colors.choice_b, hover: "#5A82B8" }
+      C: { bg: tokens.colors.choice_c, hover: "#CFA01D" }
+      D: { bg: tokens.colors.choice_d, hover: "#5C9152" }
+      E: { bg: tokens.colors.choice_e, hover: "#9070B9" }
+    selected_state:
+      transform: "scale(1.03)"
+      shadow: tokens.shadows.md
+    dimmed_state:
+      opacity: 0.3
+      transform: "scale(0.97)"
+
+  # --- 結果画面 ---
+  result_screen:
+    description: |
+      Duolingo方式の「大型達成バッジ+祝福演出」。
+      ランクバッジにバウンスアニメーション、正解数を大きく表示。
+    reference: Duolingo
+    rules:
+      background: "linear-gradient(160deg, {tokens.colors.base_warm_white} 0%, {tokens.colors.base_cream} 100%)"
+      text_color: tokens.colors.text_primary
+    rank_badge:
+      size: "96px"        # 現在の80pxから拡大
+      border_width: "4px"
+      animation: "rank-reveal 800ms {tokens.motion.easings.bounce}"
+      glow: tokens.shadows.glow_gold
+      colors:
+        S: { color: "#D4AF37", label: "名探偵" }        # ゴールド
+        A: { color: "#8B7355", label: "熟練探偵" }      # アンティークブロンズ
+        B: { color: "#B87333", label: "見習い探偵" }     # コッパー
+        C: { color: "#5C4033", label: "探偵助手" }       # ブラウン
+    score_display:
+      description: "正解数を大きなフォントで目立たせる"
+      font: tokens.typography.font_families.heading
+      font_size: tokens.typography.scale.xl
+      color_correct: tokens.colors.success
+    choice_review:
+      correct_border: tokens.colors.success
+      incorrect_border: tokens.colors.error
+      correct_bg: "rgba(74, 124, 63, 0.08)"
+      incorrect_bg: "rgba(192, 84, 60, 0.08)"
+      correct_label_color: tokens.colors.success
+    buttons:
+      primary_bg: tokens.colors.accent_gold
+      primary_text: "#FFFFFF"
+      primary_radius: tokens.radii.lg
+      secondary_bg: "transparent"
+      secondary_border: tokens.colors.text_muted
+      secondary_text: tokens.colors.text_secondary
+
+  # --- シナリオ選択画面 ---
+  select_screen:
+    description: |
+      ダーク背景を廃止し、ライトベースに。
+      シリーズカードに教科カラーを反映。
+    reference: 一般的な教育アプリ
+    rules:
+      background: "linear-gradient(160deg, {tokens.colors.base_warm_white} 0%, #F0E4CC 100%)"
+      text_color: tokens.colors.text_primary
+    header:
+      title_font: tokens.typography.font_families.heading
+      title_size: tokens.typography.scale.xxl
+      title_weight: "900"
+      title_color: tokens.colors.accent_navy
+    filter_tags:
+      bg: tokens.colors.base_cream
+      bg_active: tokens.colors.accent_navy
+      text: tokens.colors.text_secondary
+      text_active: tokens.colors.text_on_dark
+      radius: tokens.radii.lg
+    series_card:
+      bg: "#FFFFFF"
+      border: "1px solid rgba(44, 24, 16, 0.08)"
+      radius: tokens.radii.md
+      shadow: tokens.shadows.sm
+      hover_shadow: tokens.shadows.md
+      hover_transform: "translateY(-2px)"
+    vol_card:
+      bg: "#FFFFFF"
+      border: "1px solid rgba(44, 24, 16, 0.06)"
+      radius: tokens.radii.md
+      cleared_badge:
+        colors: # rank_badge.colors と同じ
+          S: "#D4AF37"
+          A: "#8B7355"
+          B: "#B87333"
+          C: "#5C4033"
+
+  # --- タイトル画面 ---
+  title_screen:
+    description: |
+      ゲーム開始前の画面。ブランドの第一印象。
+      ダークネイビー背景を維持するが、琥珀のアクセントで温かみを加える。
+      （ゲーム画面のクリームテキストウィンドウとのコントラストを活かす）
+    rules:
+      background: "linear-gradient(160deg, #1C2951 0%, #0F1B33 100%)"
+      title_font: tokens.typography.font_families.heading
+      title_color: tokens.colors.base_cream
+      accent_color: tokens.colors.accent_gold
+    start_button:
+      bg: tokens.colors.accent_gold
+      text: "#FFFFFF"
+      radius: tokens.radii.lg
+      shadow: tokens.shadows.md
+      hover_transform: "translateY(-2px)"
+      hover_shadow: tokens.shadows.lg
+
+  # --- コントロールパネル ---
+  game_controls:
+    description: |
+      画面右上の操作ボタン群。ゲーム中は控えめ、操作時に目立つ。
+    rules:
+      bg: "rgba(44, 24, 16, 0.5)"
+      border: "1px solid rgba(245, 230, 192, 0.2)"
+      text: tokens.colors.text_on_dark
+      radius: tokens.radii.sm
+      inactive_opacity: 0.3
+      active_opacity: 1.0
+    active_state:
+      bg: "rgba(184, 134, 11, 0.6)"
+      border_color: tokens.colors.accent_gold
+
+  # --- バックログ ---
+  backlog:
+    description: テキスト履歴パネル。
+    rules:
+      bg: "rgba(251, 247, 240, 0.97)"
+      border: "1px solid rgba(184, 134, 11, 0.3)"
+      radius: tokens.radii.md
+      shadow: tokens.shadows.lg
+      text_color: tokens.colors.text_primary
+      name_color: tokens.colors.accent_navy
+
+  # --- タイトルカード ---
+  title_card:
+    description: シナリオ冒頭のタイトル表示。
+    rules:
+      overlay_bg: "rgba(20, 15, 10, 0.85)"
+      title_font: tokens.typography.font_families.heading
+      title_size: tokens.typography.scale.xxl
+      title_color: tokens.colors.base_cream
+      subtitle_color: "rgba(245, 230, 192, 0.7)"
+
+# ============================================================================
+# 4. ANIMATION PATTERNS — 演出パターン
+# ============================================================================
+animations:
+  description: |
+    fade/scale だけでは機械的。
+    バウンス・スプリング系を加えて「手触り」を出す。
+
+  patterns:
+    # 選択肢のスライドイン（既存を改善）
+    choice_slide_in:
+      keyframes: |
+        from { opacity: 0; transform: translateX(-20px); }
+        to   { opacity: 1; transform: translateX(0); }
+      duration: "300ms"
+      easing: tokens.motion.easings.spring
+      stagger: "100ms"  # 各選択肢に100msずつ遅延
+
+    # ランクバッジの登場
+    rank_reveal:
+      keyframes: |
+        0%   { opacity: 0; transform: scale(0.3); }
+        60%  { opacity: 1; transform: scale(1.15); }
+        80%  { transform: scale(0.95); }
+        100% { transform: scale(1); }
+      duration: "800ms"
+      easing: tokens.motion.easings.bounce
+
+    # 正解フラッシュ
+    correct_flash:
+      description: "琥珀ゴールドの全画面フラッシュ → フェードアウト"
+      keyframes: |
+        0%   { background: rgba(184, 134, 11, 0.4); }
+        100% { background: rgba(184, 134, 11, 0); }
+      duration: "500ms"
+
+    # 不正解シェイク
+    incorrect_shake:
+      description: "軽い横振動。屈辱感を与えない程度"
+      keyframes: |
+        0%, 100% { transform: translateX(0); }
+        20%      { transform: translateX(-4px); }
+        40%      { transform: translateX(4px); }
+        60%      { transform: translateX(-2px); }
+        80%      { transform: translateX(2px); }
+      duration: "300ms"
+
+    # テキスト送りの▼点滅（改善版）
+    click_indicator:
+      keyframes: |
+        0%, 100% { opacity: 0.3; }
+        50%      { opacity: 0.8; }
+      duration: "1.2s"
+      iteration: infinite
+
+# ============================================================================
+# 5. IMPLEMENTATION ROADMAP — 適用順序
+# ============================================================================
+roadmap:
+  description: |
+    design-system の適用は1画面ずつ。
+    全画面を一気に変えるとデグレリスクが高い。
+    各ステップで実機確認してから次に進む。
+
+  phase_1:
+    name: 基盤（フォント + CSS変数）
+    effort: small
+    tasks:
+      - Google Fonts の読み込み追加（index.html）
+      - CSS変数を design-system に合わせて再定義
+      - body の font-family を BIZ UDPGothic に設定
+    validation: 全画面でテキストが正しく表示されること
+
+  phase_2:
+    name: テキストウィンドウ刷新
+    effort: small
+    tasks:
+      - .text-window の背景をクリームに変更
+      - テキスト色をダークブラウンに変更
+      - ネームプレートをタブ型に変更
+      - ルビ（rt）の色もダーク系に調整
+      - .click-indicator の色を調整
+    validation: ゲーム画面でテキストが読みやすいこと。背景画像と調和すること
+    dependency: phase_1
+
+  phase_3:
+    name: 選択肢パネル刷新
+    effort: small
+    tasks:
+      - 選択肢ボタンをKahoot!方式4色に変更
+      - ボタンサイズを56px以上に保証
+      - フォントを Zen Maru Gothic Bold に変更
+    validation: 色だけで選択肢を識別できること
+    dependency: phase_1
+
+  phase_4:
+    name: 結果画面刷新
+    effort: medium
+    tasks:
+      - 背景をライトベースに変更
+      - テキスト色を全てダークブラウン系に変更
+      - ランクバッジのアニメーションをバウンス系に変更
+      - 正解数の表示を拡大・強調
+      - ボタンを琥珀ゴールドベースに変更
+    validation: 達成感が伝わるか。ランクに応じた差別化があるか
+    dependency: phase_1
+
+  phase_5:
+    name: シナリオ選択画面刷新
+    effort: medium
+    tasks:
+      - 背景をライトベースに変更
+      - シリーズカード・Vol.カードを白カード+シャドウに変更
+      - フィルタータグの配色をクリーム+ネイビーに変更
+      - クリア済みバッジの色を暖色系に統一
+    validation: 教科フィルターが直感的か。クリア状況が一目でわかるか
+    dependency: phase_1
+
+  phase_6:
+    name: タイトル画面 + コントロール + バックログ
+    effort: small
+    tasks:
+      - タイトル画面のボタンを琥珀ゴールドに変更
+      - コントロールパネルの色調を調整
+      - バックログパネルをライトベースに変更
+    validation: 全画面で視覚的一貫性があるか
+    dependency: phase_4, phase_5
+
+# ============================================================================
+# 6. ANTI-PATTERNS — やってはいけないこと
+# ============================================================================
+anti_patterns:
+  - name: ダークモード回帰
+    description: |
+      「やっぱりゲームだから暗い方がかっこいい」と戻さない。
+      対象は小4〜中3の子ども。教室のChromebookで使う。
+      ダークUIは「大人のゲーマー」向けであり、このプロダクトのユーザーではない。
+    exception: タイトル画面のみダークネイビーを許容（ブランド演出として意図的）
+
+  - name: 一律の装飾値
+    description: |
+      全 border-radius を同じ値にしない。
+      全 box-shadow を同じ値にしない。
+      全 gap/padding を同じ値にしない。
+      トークンの3段階（sm/md/lg）を意識して使い分ける。
+
+  - name: 色の直接指定
+    description: |
+      CSSにカラーコードを直接書かない。
+      必ずCSS変数（--vn-* または --ds-*）経由にする。
+      テーマ変更時に1箇所の変更で全体に反映できるようにする。
+
+  - name: 過剰なアニメーション
+    description: |
+      全要素にアニメーションを付けない。
+      アニメーションは「正解」「達成」「選択」など
+      意味のある瞬間にのみ使う。日常操作にはCSSトランジションで十分。
+
+  - name: フォントの混ぜすぎ
+    description: |
+      3ファミリー（Zen Maru Gothic / BIZ UDPGothic / Shippori Mincho）を超えない。
+      1画面に3種類以上のフォントが混在したらレビューで指摘する。

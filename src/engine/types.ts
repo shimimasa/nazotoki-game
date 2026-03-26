@@ -129,6 +129,8 @@ export interface GameState {
   currentSceneIndex: number
   currentStepIndex: number
   choices: Record<string, string> // choiceId -> selected value
+  correctCount: number // 正解数（correct: true の選択肢を選んだ回数）
+  totalJudged: number // 正解判定がある選択肢の総数
   // 表示状態
   visibleSprites: SpriteState[]
   currentBg: string | null
@@ -140,6 +142,7 @@ export interface GameState {
   pendingSounds: string[] // SE再生キュー
   waitingForClick: boolean
   showingFeedback: boolean // 選択肢フィードバック表示中
+  feedbackIsCorrect: boolean | null // true=正解, false=不正解, null=判定なし
   retryChoice: ChoiceStep | null // 不正解時のリトライ用
   backlog: BacklogEntry[] // テキスト履歴
   autoMode: boolean // オートモード（テキスト完了後に自動進行）

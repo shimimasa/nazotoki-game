@@ -30,11 +30,9 @@ export function TextWindow({
       {display.characterName && (
         <div
           class="name-plate"
-          style={{ borderColor: display.characterColor ?? '#fff' }}
+          style={{ backgroundColor: display.characterColor ?? '#1C2951' }}
         >
-          <span style={{ color: display.characterColor ?? '#fff' }}>
-            {display.characterName}
-          </span>
+          {display.characterName}
         </div>
       )}
       <div class="text-content">

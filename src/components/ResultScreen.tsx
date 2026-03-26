@@ -17,6 +17,8 @@ import {
 interface Props {
   script: ScriptData
   choices: Record<string, string>
+  correctCount: number
+  totalJudged: number
   onRestart: () => void
   onBackToSelect: () => void
 }
@@ -35,19 +37,19 @@ function getAllChoices(script: ScriptData): ChoiceStep[] {
 }
 
 const RANK_COLORS: Record<DetectiveRank, string> = {
-  S: '#ffd700',
-  A: '#c0c0c0',
-  B: '#cd7f32',
-  C: '#8899aa',
+  S: '#D4AF37',  // ゴールド
+  A: '#8B7355',  // アンティークブロンズ
+  B: '#B87333',  // コッパー
+  C: '#5C4033',  // ブラウン
 }
 
-export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Props) {
+export function ResultScreen({ script, choices, correctCount, totalJudged, onRestart, onBackToSelect }: Props) {
   const allChoices = getAllChoices(script)
   const answeredCount = Object.keys(choices).length
   const [copied, setCopied] = useState(false)
   const [showRankAnim, setShowRankAnim] = useState(false)
 
-  const rank = calculateRank(answeredCount, allChoices.length)
+  const rank = calculateRank(correctCount, totalJudged, answeredCount, allChoices.length)
   const rankLabel = getRankLabel(rank)
 
   // クリア記録を保存 + ランク演出 + BGM再生
@@ -56,6 +58,8 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
       rank,
       answeredCount,
       totalChoices: allChoices.length,
+      correctCount,
+      totalJudged,
       clearedAt: Date.now(),
     })
     // 結果画面BGM
@@ -69,6 +73,7 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
     const lines: string[] = [
       `${script.meta.series} Vol.${script.meta.volume}「${script.meta.title}」`,
       `探偵ランク: ${rank}（${rankLabel}）`,
+      ...(totalJudged > 0 ? [`正解: ${correctCount}/${totalJudged}`] : []),
       `回答数: ${answeredCount}/${allChoices.length}`,
       '',
     ]
@@ -110,6 +115,11 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
         </div>
 
         <div class="result-stats">
+          {totalJudged > 0 && (
+            <span class="result-stat result-stat-correct">
+              正解 {correctCount}/{totalJudged}
+            </span>
+          )}
           <span class="result-stat">回答 {answeredCount}/{allChoices.length}</span>
           <span class="result-stat">約{script.meta.estimatedMinutes}分</span>
         </div>
@@ -119,24 +129,42 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
             const selectedValue = choices[choice.id]
             const selectedOption = choice.options.find(o => o.value === selectedValue)
             const feedback = selectedOption?.feedback || choice.feedback_default
+            const hasCorrectAnswer = choice.options.some(o => o.correct)
+            const isCorrect = hasCorrectAnswer && !!selectedOption?.correct
+            const correctOption = choice.options.find(o => o.correct)
 
             return (
-              <div key={choice.id} class="result-choice-item">
+              <div key={choice.id} class={`result-choice-item ${hasCorrectAnswer ? (isCorrect ? 'correct' : 'incorrect') : ''}`}>
                 <div class="result-question">
-                  Q{i + 1}. {stripRuby(choice.question || '')}
+                  <span class="result-question-number">Q{i + 1}.</span>
+                  {hasCorrectAnswer && selectedValue && (
+                    <span class={`result-judge ${isCorrect ? 'correct' : 'incorrect'}`}>
+                      {isCorrect ? '○' : '×'}
+                    </span>
+                  )}
+                  {stripRuby(choice.question || '')}
                 </div>
                 <div class="result-options">
                   {choice.options.map((opt) => {
                     const isSelected = opt.value === selectedValue
+                    const isCorrectOpt = !!opt.correct
                     return (
                       <div
                         key={opt.value}
-                        class={`result-option ${isSelected ? 'selected' : 'dimmed'}`}
+                        class={[
+                          'result-option',
+                          isSelected ? 'selected' : 'dimmed',
+                          hasCorrectAnswer && isCorrectOpt ? 'correct-answer' : '',
+                          hasCorrectAnswer && isSelected && !isCorrectOpt ? 'wrong-answer' : '',
+                        ].filter(Boolean).join(' ')}
                       >
                         <span class="result-option-marker">
-                          {isSelected ? '●' : '○'}
+                          {isSelected ? '●' : (hasCorrectAnswer && isCorrectOpt ? '◎' : '○')}
                         </span>
                         <span class="result-option-text">{stripRuby(opt.text)}</span>
+                        {hasCorrectAnswer && isCorrectOpt && !isSelected && (
+                          <span class="result-correct-label">正解</span>
+                        )}
                       </div>
                     )
                   })}

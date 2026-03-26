@@ -137,7 +137,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
 
   const handleChoiceSelect = useCallback(
     (choiceId: string, value: string) => {
-      audioManager.playSe('click')
+      audioManager.playSe('decision')
       onEvent({ type: 'choice_selected', choiceId, value })
     },
     [onEvent]
@@ -238,16 +238,21 @@ export function GameScreen({ script, state, onEvent }: Props) {
       )}
 
       {!state.activeChoice && !state.activeTitleCard && state.textDisplay.text && (
-        <TextWindow
-          display={state.textDisplay}
-          onTypingComplete={handleTypingComplete}
-          typingSpeed={
-            state.textDisplay.speed === 'slow' ? 50
-            : state.textDisplay.speed === 'fast' ? 15
-            : 30
-          }
-          furiganaEnabled={furigana}
-        />
+        <div class={
+          state.showingFeedback && state.feedbackIsCorrect === true ? 'feedback-correct' :
+          state.showingFeedback && state.feedbackIsCorrect === false ? 'feedback-incorrect' : ''
+        }>
+          <TextWindow
+            display={state.textDisplay}
+            onTypingComplete={handleTypingComplete}
+            typingSpeed={
+              state.textDisplay.speed === 'slow' ? 50
+              : state.textDisplay.speed === 'fast' ? 15
+              : 30
+            }
+            furiganaEnabled={furigana}
+          />
+        </div>
       )}
 
       {/* コントロールパネル */}

@@ -22,6 +22,8 @@ export function createInitialState(): GameState {
     currentSceneIndex: 0,
     currentStepIndex: 0,
     choices: {},
+    correctCount: 0,
+    totalJudged: 0,
     visibleSprites: [],
     currentBg: null,
     currentBgm: null,
@@ -38,6 +40,7 @@ export function createInitialState(): GameState {
     pendingSounds: [],
     waitingForClick: false,
     showingFeedback: false,
+    feedbackIsCorrect: null,
     retryChoice: null,
     backlog: [],
     autoMode: false,
@@ -79,22 +82,29 @@ export function processEvent(
       const isCorrect = !hasCorrectAnswer || !!selectedOption?.correct
       const feedback =
         selectedOption?.feedback || choice.feedback_default || null
+      // リトライ中かどうか（初回のみ totalJudged をカウント）
+      const isRetry = !!state.retryChoice
 
       if (isCorrect) {
         // 正解 or 正解なし選択肢 → 記録して次へ
+        // 初回正解: correctCount+1, totalJudged+1
+        // リトライ正解: correctCount+1のみ（totalJudgedは初回不正解時にカウント済み）
         const newState: GameState = {
           ...state,
           choices: { ...state.choices, [event.choiceId]: event.value },
           activeChoice: null,
           retryChoice: null,
+          correctCount: hasCorrectAnswer ? state.correctCount + 1 : state.correctCount,
+          totalJudged: (hasCorrectAnswer && !isRetry) ? state.totalJudged + 1 : state.totalJudged,
           pendingSounds: hasCorrectAnswer
-            ? [...state.pendingSounds, 'discover']
+            ? [...state.pendingSounds, 'correct']
             : state.pendingSounds,
         }
         if (feedback) {
           return {
             ...newState,
             showingFeedback: true,
+            feedbackIsCorrect: hasCorrectAnswer ? true : null,
             textDisplay: {
               text: feedback,
               characterName: null,
@@ -104,19 +114,21 @@ export function processEvent(
             },
           }
         }
-        return newState
+        return { ...newState, feedbackIsCorrect: null }
       } else {
         // 不正解 → フィードバック後にリトライ
         const newState: GameState = {
           ...state,
           activeChoice: null,
           retryChoice: choice,
-          pendingSounds: [...state.pendingSounds, 'crash'],
+          totalJudged: !isRetry ? state.totalJudged + 1 : state.totalJudged,
+          pendingSounds: [...state.pendingSounds, 'wrong'],
         }
         if (feedback) {
           return {
             ...newState,
             showingFeedback: true,
+            feedbackIsCorrect: false,
             textDisplay: {
               text: feedback,
               characterName: null,
@@ -191,12 +203,13 @@ function processClick(script: ScriptData, state: GameState): GameState {
       return {
         ...state,
         showingFeedback: false,
+        feedbackIsCorrect: null,
         activeChoice: state.retryChoice,
         retryChoice: null,
         textDisplay: { text: '', characterName: null, characterColor: null, isTyping: false, visibleChars: 0 },
       }
     }
-    return advanceStep(script, { ...state, showingFeedback: false })
+    return advanceStep(script, { ...state, showingFeedback: false, feedbackIsCorrect: null })
   }
 
   // 選択肢表示中はクリックを無視
