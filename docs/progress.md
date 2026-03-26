@@ -1,5 +1,62 @@
 # 進捗ログ
 
+## 2026-03-25 21:21
+- fix: catalog.json meta extraction - add series→subject mapping
+
+## 2026-03-25 21:11
+- feat: redesign scenario select with series grouping, subject filter, and accordion UI
+
+## 2026-03-25 20:47
+- Add science-18 game script: biotope crisis and justice (complete Science Detective series 18/18)
+
+## 2026-03-25 20:42
+- Add science-17 game script: dissolved clue and crystal mystery
+
+## 2026-03-25 20:37
+- Add science-16 game script: river evidence and erosion mystery
+
+## 2026-03-25 20:32
+- Add science-15 game script: lunch mystery and digestion science
+
+## 2026-03-25 20:27
+- Add science-14 game script: blackout lab locked room and circuit mystery
+
+## 2026-03-25 20:23
+- Add science-13 game script: candle clock and experiment notebook mystery
+
+## 2026-03-25 20:12
+- Add science-12 game script: ice message and states of water mystery
+
+## 2026-03-25 20:03
+- Add science-11 game script: wilted garden and fertilizer burn mystery
+
+## 2026-03-25 19:54
+- Add science-10 game script: sound testimony and trophy mystery (complete Science Detective series 10/10)
+
+## 2026-03-25 19:49
+- Add science-09 game script: lever locked room and planetarium mystery
+
+## 2026-03-25 19:42
+- Add science-08 game script: shadow trick and mineral specimen mystery
+
+## 2026-03-25 19:37
+- Add science-07 game script: electromagnet data falsification mystery
+
+## 2026-03-25 19:33
+- Add science-06 game script: star chart forgery and celestial motion mystery
+
+## 2026-03-25 19:09
+- Add science-05 game script: weather station alibi destruction mystery
+
+## 2026-03-25 19:05
+- Add science-04 game script: ammonite fossil and geological layers mystery
+
+## 2026-03-25 19:00
+- Add science-03 game script: butterfly observation diary mystery
+
+## 2026-03-25 18:47
+- Add geography-10 game script: complete Geography Detective series (10/10)
+
 ## 2026-03-25 18:33
 - Add geography-09 game script: factory data card induction mystery
 
