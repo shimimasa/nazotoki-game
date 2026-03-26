@@ -229,7 +229,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
       <div class="game-controls">
         <button
           class="game-ctrl-btn"
-          title="テキスト履歴"
+          title="前の文をふりかえる"
           onClick={(e) => {
             e.stopPropagation()
             setShowBacklog(true)
@@ -239,7 +239,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
         </button>
         <button
           class={`game-ctrl-btn ${furigana ? 'active' : ''}`}
-          title="ふりがな"
+          title="ふりがなの表示/非表示"
           onClick={(e) => {
             e.stopPropagation()
             toggleFurigana()
@@ -249,7 +249,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
         </button>
         <button
           class={`game-ctrl-btn ${autoMode ? 'active' : ''}`}
-          title="オートモード"
+          title="自動で読みすすめる"
           onClick={(e) => {
             e.stopPropagation()
             setAutoMode(!autoMode)
@@ -259,7 +259,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
         </button>
         <button
           class="game-ctrl-btn"
-          title="ミュート"
+          title="音のON/OFF"
           onClick={(e) => {
             e.stopPropagation()
             audioManager.toggleMute()

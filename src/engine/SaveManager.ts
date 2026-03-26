@@ -4,11 +4,23 @@
  * 保存タイミング: 各ステップ進行時（自動）
  * 復元タイミング: タイトル画面で「つづきから」選択時
  * 削除タイミング: 結果画面到達時、または新規スタート時
+ *
+ * クリア履歴: シナリオ完了時にランク付きで記録（永続）
  */
 
 import type { GameState } from './types'
 
 const SAVE_PREFIX = 'nazotoki-save-'
+const CLEAR_PREFIX = 'nazotoki-clear-'
+
+export type DetectiveRank = 'S' | 'A' | 'B' | 'C'
+
+export interface ClearRecord {
+  rank: DetectiveRank
+  answeredCount: number
+  totalChoices: number
+  clearedAt: number // timestamp
+}
 
 interface SaveData {
   state: GameState
@@ -69,4 +81,85 @@ export function clearProgress(scriptId: string): void {
   } catch {
     // 無視
   }
+}
+
+// --- クリア履歴 ---
+
+/**
+ * 探偵ランクを算出
+ * 回答率100% = S, ≥75% = A, ≥50% = B, それ以下 = C
+ */
+export function calculateRank(answeredCount: number, totalChoices: number): DetectiveRank {
+  if (totalChoices === 0) return 'S'
+  const rate = answeredCount / totalChoices
+  if (rate >= 1) return 'S'
+  if (rate >= 0.75) return 'A'
+  if (rate >= 0.5) return 'B'
+  return 'C'
+}
+
+/**
+ * ランクに対応する称号テキスト
+ */
+export function getRankLabel(rank: DetectiveRank): string {
+  switch (rank) {
+    case 'S': return '名探偵'
+    case 'A': return '熟練探偵'
+    case 'B': return '見習い探偵'
+    case 'C': return '探偵助手'
+  }
+}
+
+/**
+ * クリア記録を保存（ベストランクを維持）
+ */
+export function saveClearRecord(scriptId: string, record: ClearRecord): void {
+  try {
+    const existing = getClearRecord(scriptId)
+    // 既存記録がある場合、ランクが上がった時のみ更新
+    if (existing) {
+      const rankOrder: DetectiveRank[] = ['S', 'A', 'B', 'C']
+      if (rankOrder.indexOf(record.rank) >= rankOrder.indexOf(existing.rank)) {
+        return // 既存ランクの方が高い or 同じ → 更新しない
+      }
+    }
+    localStorage.setItem(CLEAR_PREFIX + scriptId, JSON.stringify(record))
+  } catch {
+    // 無視
+  }
+}
+
+/**
+ * 特定シナリオのクリア記録を取得
+ */
+export function getClearRecord(scriptId: string): ClearRecord | null {
+  try {
+    const raw = localStorage.getItem(CLEAR_PREFIX + scriptId)
+    if (!raw) return null
+    return JSON.parse(raw)
+  } catch {
+    return null
+  }
+}
+
+/**
+ * 全クリア記録を取得（シナリオ選択画面用）
+ */
+export function getAllClearRecords(): Record<string, ClearRecord> {
+  const records: Record<string, ClearRecord> = {}
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (key && key.startsWith(CLEAR_PREFIX)) {
+        const scriptId = key.slice(CLEAR_PREFIX.length)
+        const raw = localStorage.getItem(key)
+        if (raw) {
+          records[scriptId] = JSON.parse(raw)
+        }
+      }
+    }
+  } catch {
+    // 無視
+  }
+  return records
 }

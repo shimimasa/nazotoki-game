@@ -1,11 +1,17 @@
 /**
  * ResultScreen - ゲーム終了後の結果画面
- * 全選択肢を表示し、プレイヤーの選択をハイライトする
+ * 探偵ランク表示 + 全選択肢レビュー + クリア記録保存
  */
 
-import { useState, useCallback } from 'preact/hooks'
+import { useState, useCallback, useEffect } from 'preact/hooks'
 import type { ScriptData, ChoiceStep } from '../engine/types'
 import { stripRuby } from '../engine/RubyParser'
+import {
+  calculateRank,
+  getRankLabel,
+  saveClearRecord,
+  type DetectiveRank,
+} from '../engine/SaveManager'
 
 interface Props {
   script: ScriptData
@@ -27,14 +33,39 @@ function getAllChoices(script: ScriptData): ChoiceStep[] {
   return result
 }
 
+const RANK_COLORS: Record<DetectiveRank, string> = {
+  S: '#ffd700',
+  A: '#c0c0c0',
+  B: '#cd7f32',
+  C: '#8899aa',
+}
+
 export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Props) {
   const allChoices = getAllChoices(script)
   const answeredCount = Object.keys(choices).length
   const [copied, setCopied] = useState(false)
+  const [showRankAnim, setShowRankAnim] = useState(false)
+
+  const rank = calculateRank(answeredCount, allChoices.length)
+  const rankLabel = getRankLabel(rank)
+
+  // クリア記録を保存 + ランク演出
+  useEffect(() => {
+    saveClearRecord(script.meta.id, {
+      rank,
+      answeredCount,
+      totalChoices: allChoices.length,
+      clearedAt: Date.now(),
+    })
+    // ランク表示のアニメーション遅延
+    const timer = setTimeout(() => setShowRankAnim(true), 300)
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleCopy = useCallback(() => {
     const lines: string[] = [
       `${script.meta.series} Vol.${script.meta.volume}「${script.meta.title}」`,
+      `探偵ランク: ${rank}（${rankLabel}）`,
       `回答数: ${answeredCount}/${allChoices.length}`,
       '',
     ]
@@ -49,12 +80,25 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     }).catch(() => {})
-  }, [script, choices, allChoices, answeredCount])
+  }, [script, choices, allChoices, answeredCount, rank, rankLabel])
 
   return (
     <div class="result-screen">
       <div class="result-content">
-        <h2 class="result-title">あなたの推理</h2>
+        {/* 探偵ランク */}
+        <div class={`result-rank-section ${showRankAnim ? 'visible' : ''}`}>
+          <div class="result-rank-label">探偵ランク</div>
+          <div
+            class="result-rank-badge"
+            style={{ color: RANK_COLORS[rank], borderColor: RANK_COLORS[rank] }}
+          >
+            {rank}
+          </div>
+          <div class="result-rank-title" style={{ color: RANK_COLORS[rank] }}>
+            {rankLabel}
+          </div>
+        </div>
+
         <div class="result-series">
           {script.meta.series} Vol.{script.meta.volume}
         </div>
@@ -63,8 +107,8 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
         </div>
 
         <div class="result-stats">
-          <span class="result-stat">回答数 {answeredCount}/{allChoices.length}</span>
-          <span class="result-stat">推定プレイ {script.meta.estimatedMinutes}分</span>
+          <span class="result-stat">回答 {answeredCount}/{allChoices.length}</span>
+          <span class="result-stat">約{script.meta.estimatedMinutes}分</span>
         </div>
 
         <div class="result-choices">
@@ -113,13 +157,13 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
 
         <div class="result-buttons">
           <button class="result-copy" onClick={handleCopy}>
-            {copied ? 'コピーしました！' : '結果をコピー'}
+            {copied ? 'コピーしました！' : 'けっかをコピー'}
           </button>
           <button class="result-restart" onClick={onRestart}>
-            もう一度最初から
+            もういちど最初から
           </button>
           <button class="result-back" onClick={onBackToSelect}>
-            別のシナリオを選ぶ
+            べつのシナリオをえらぶ
           </button>
         </div>
       </div>

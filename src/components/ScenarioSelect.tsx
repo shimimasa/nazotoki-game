@@ -1,9 +1,11 @@
 /**
  * ScenarioSelect - シナリオ選択画面
  * シリーズごとにグルーピング + 教科フィルター + アコーディオン開閉
+ * クリア済みバッジ + シリーズ完了率表示
  */
 
 import { useState, useEffect, useMemo, useCallback } from 'preact/hooks'
+import { getAllClearRecords, type ClearRecord, type DetectiveRank } from '../engine/SaveManager'
 
 export interface CatalogEntry {
   id: string
@@ -43,11 +45,19 @@ const SERIES_ORDER = [
   'タイムトラベル探偵団',
 ]
 
+const RANK_COLORS: Record<DetectiveRank, string> = {
+  S: '#ffd700',
+  A: '#c0c0c0',
+  B: '#cd7f32',
+  C: '#8899aa',
+}
+
 export function ScenarioSelect({ onSelect }: Props) {
   const [catalog, setCatalog] = useState<CatalogEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [openSeries, setOpenSeries] = useState<Set<string>>(new Set())
   const [activeSubject, setActiveSubject] = useState<string | null>(null)
+  const [clearRecords, setClearRecords] = useState<Record<string, ClearRecord>>({})
 
   useEffect(() => {
     fetch('/scripts/catalog.json')
@@ -57,6 +67,8 @@ export function ScenarioSelect({ onSelect }: Props) {
         setLoading(false)
       })
       .catch(() => setLoading(false))
+
+    setClearRecords(getAllClearRecords())
   }, [])
 
   const subjects = useMemo(() => {
@@ -107,6 +119,13 @@ export function ScenarioSelect({ onSelect }: Props) {
     })
   }, [])
 
+  // シリーズ内のクリア数を計算
+  const getSeriesClearCount = useCallback((entries: CatalogEntry[]) => {
+    return entries.filter((e) => clearRecords[e.id]).length
+  }, [clearRecords])
+
+  const totalCleared = useMemo(() => Object.keys(clearRecords).length, [clearRecords])
+
   if (loading) {
     return (
       <div class="select-screen">
@@ -119,7 +138,12 @@ export function ScenarioSelect({ onSelect }: Props) {
     <div class="select-screen">
       <div class="select-header">
         <h1 class="select-title">ナゾトキ探偵団</h1>
-        <p class="select-subtitle">シナリオを選んでください</p>
+        <p class="select-subtitle">シナリオをえらんでください</p>
+        {totalCleared > 0 && (
+          <p class="select-clear-summary">
+            クリア: {totalCleared}/{catalog.length}本
+          </p>
+        )}
       </div>
 
       {/* 教科フィルター */}
@@ -147,10 +171,12 @@ export function ScenarioSelect({ onSelect }: Props) {
       <div class="select-series-list">
         {filteredGroups.map((group) => {
           const isOpen = openSeries.has(group.series)
+          const clearedCount = getSeriesClearCount(group.entries)
+          const isComplete = clearedCount === group.entries.length && clearedCount > 0
           return (
             <div key={group.series} class="select-series-group">
               <button
-                class="select-series-header"
+                class={`select-series-header ${isComplete ? 'series-complete' : ''}`}
                 onClick={() => toggleSeries(group.series)}
                 aria-expanded={isOpen}
               >
@@ -161,6 +187,11 @@ export function ScenarioSelect({ onSelect }: Props) {
                   {group.subject}
                 </span>
                 <span class="select-series-name">{group.series}</span>
+                {clearedCount > 0 && (
+                  <span class={`select-series-clear ${isComplete ? 'complete' : ''}`}>
+                    {isComplete ? '★' : `${clearedCount}/${group.entries.length}`}
+                  </span>
+                )}
                 <span class="select-series-count">
                   {group.entries.length}本
                 </span>
@@ -168,21 +199,32 @@ export function ScenarioSelect({ onSelect }: Props) {
 
               {isOpen && (
                 <div class="select-series-body">
-                  {group.entries.map((entry) => (
-                    <button
-                      key={entry.id}
-                      class="select-vol-card"
-                      onClick={() => onSelect(entry.id)}
-                    >
-                      <span class="select-vol-number">
-                        Vol.{entry.volume}
-                      </span>
-                      <span class="select-vol-title">{entry.title}</span>
-                      <span class="select-vol-time">
-                        約{entry.estimatedMinutes}分
-                      </span>
-                    </button>
-                  ))}
+                  {group.entries.map((entry) => {
+                    const record = clearRecords[entry.id]
+                    return (
+                      <button
+                        key={entry.id}
+                        class={`select-vol-card ${record ? 'cleared' : ''}`}
+                        onClick={() => onSelect(entry.id)}
+                      >
+                        {record && (
+                          <span
+                            class="select-vol-badge"
+                            style={{ color: RANK_COLORS[record.rank], borderColor: RANK_COLORS[record.rank] }}
+                          >
+                            {record.rank}
+                          </span>
+                        )}
+                        <span class="select-vol-number">
+                          Vol.{entry.volume}
+                        </span>
+                        <span class="select-vol-title">{entry.title}</span>
+                        <span class="select-vol-time">
+                          約{entry.estimatedMinutes}分
+                        </span>
+                      </button>
+                    )
+                  })}
                 </div>
               )}
             </div>

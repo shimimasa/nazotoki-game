@@ -24,12 +24,12 @@ export function BacklogPanel({ entries, onClose }: Props) {
     <div class="backlog-overlay" onClick={onClose}>
       <div class="backlog-panel" onClick={(e) => e.stopPropagation()}>
         <div class="backlog-header">
-          <span class="backlog-title">テキスト履歴</span>
+          <span class="backlog-title">これまでの会話</span>
           <button class="backlog-close" onClick={onClose}>✕</button>
         </div>
         <div class="backlog-list">
           {entries.length === 0 && (
-            <div class="backlog-empty">まだテキストがありません</div>
+            <div class="backlog-empty">まだ会話がありません</div>
           )}
           {entries.map((entry, i) => (
             <div key={i} class="backlog-entry">
