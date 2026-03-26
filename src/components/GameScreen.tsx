@@ -32,6 +32,18 @@ export function GameScreen({ script, state, onEvent }: Props) {
     try { return localStorage.getItem('nazotoki-furigana') === 'on' } catch { return false }
   })
   const autoTimerRef = useRef<number | null>(null)
+  const [controlsActive, setControlsActive] = useState(false)
+  const controlsTimerRef = useRef<number | null>(null)
+  const [showGuide, setShowGuide] = useState(() => {
+    try { return !localStorage.getItem('nazotoki-played') } catch { return true }
+  })
+
+  // コントロールパネル: 操作後3秒で半透明化
+  const flashControls = useCallback(() => {
+    setControlsActive(true)
+    if (controlsTimerRef.current) clearTimeout(controlsTimerRef.current)
+    controlsTimerRef.current = window.setTimeout(() => setControlsActive(false), 3000)
+  }, [])
 
   const toggleFurigana = useCallback(() => {
     setFurigana((prev) => {
@@ -109,9 +121,17 @@ export function GameScreen({ script, state, onEvent }: Props) {
   }, [state.activeChoice])
 
   const handleClick = useCallback(() => {
+    if (showGuide) {
+      setShowGuide(false)
+      try { localStorage.setItem('nazotoki-played', '1') } catch {}
+      return
+    }
     if (showBacklog) return
+    if (state.textDisplay.text && !state.activeChoice && !state.activeTitleCard) {
+      audioManager.playSe('click')
+    }
     onEvent({ type: 'click' })
-  }, [onEvent, showBacklog])
+  }, [onEvent, showBacklog, showGuide, state.textDisplay.text, state.activeChoice, state.activeTitleCard])
 
   const handleTypingComplete = useCallback(() => {}, [])
 
@@ -221,17 +241,27 @@ export function GameScreen({ script, state, onEvent }: Props) {
         <TextWindow
           display={state.textDisplay}
           onTypingComplete={handleTypingComplete}
+          typingSpeed={
+            state.textDisplay.speed === 'slow' ? 50
+            : state.textDisplay.speed === 'fast' ? 15
+            : 30
+          }
           furiganaEnabled={furigana}
         />
       )}
 
       {/* コントロールパネル */}
-      <div class="game-controls">
+      <div
+        class={`game-controls ${controlsActive ? 'active' : ''}`}
+        onMouseEnter={flashControls}
+        onTouchStart={flashControls}
+      >
         <button
           class="game-ctrl-btn"
           title="前の文をふりかえる"
           onClick={(e) => {
             e.stopPropagation()
+            flashControls()
             setShowBacklog(true)
           }}
         >
@@ -242,6 +272,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
           title="ふりがなの表示/非表示"
           onClick={(e) => {
             e.stopPropagation()
+            flashControls()
             toggleFurigana()
           }}
         >
@@ -252,6 +283,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
           title="自動で読みすすめる"
           onClick={(e) => {
             e.stopPropagation()
+            flashControls()
             setAutoMode(!autoMode)
           }}
         >
@@ -262,6 +294,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
           title="音のON/OFF"
           onClick={(e) => {
             e.stopPropagation()
+            flashControls()
             audioManager.toggleMute()
           }}
         >
@@ -275,6 +308,15 @@ export function GameScreen({ script, state, onEvent }: Props) {
           entries={state.backlog}
           onClose={() => setShowBacklog(false)}
         />
+      )}
+
+      {/* 初回プレイガイド */}
+      {showGuide && state.textDisplay.text && (
+        <div class="play-guide-overlay">
+          <div class="play-guide-text">
+            画面をタップして<br />読みすすめよう
+          </div>
+        </div>
       )}
     </div>
   )

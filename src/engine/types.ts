@@ -108,6 +108,7 @@ export interface ChoiceOption {
   text: string
   value: string
   feedback?: string
+  correct?: boolean // trueで正解選択肢。不正解時はリトライ
 }
 
 export interface WaitStep {
@@ -139,6 +140,7 @@ export interface GameState {
   pendingSounds: string[] // SE再生キュー
   waitingForClick: boolean
   showingFeedback: boolean // 選択肢フィードバック表示中
+  retryChoice: ChoiceStep | null // 不正解時のリトライ用
   backlog: BacklogEntry[] // テキスト履歴
   autoMode: boolean // オートモード（テキスト完了後に自動進行）
 }
@@ -161,6 +163,7 @@ export interface TextDisplayState {
   characterColor: string | null
   isTyping: boolean
   visibleChars: number
+  speed?: 'slow' | 'normal' | 'fast' // テキスト表示速度
 }
 
 // --- イベント ---

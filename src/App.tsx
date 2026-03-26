@@ -75,7 +75,7 @@ export function App() {
       setState((prev) => {
         let next = processEvent(script, prev, event)
 
-        if (event.type === 'choice_selected' && !next.showingFeedback) {
+        if (event.type === 'choice_selected' && !next.showingFeedback && !next.activeChoice) {
           next = advanceStep(script, next)
         }
         if (event.type === 'effect_done') {

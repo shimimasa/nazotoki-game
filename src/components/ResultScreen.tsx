@@ -6,6 +6,7 @@
 import { useState, useCallback, useEffect } from 'preact/hooks'
 import type { ScriptData, ChoiceStep } from '../engine/types'
 import { stripRuby } from '../engine/RubyParser'
+import { audioManager } from '../engine/AudioManager'
 import {
   calculateRank,
   getRankLabel,
@@ -49,7 +50,7 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
   const rank = calculateRank(answeredCount, allChoices.length)
   const rankLabel = getRankLabel(rank)
 
-  // クリア記録を保存 + ランク演出
+  // クリア記録を保存 + ランク演出 + BGM再生
   useEffect(() => {
     saveClearRecord(script.meta.id, {
       rank,
@@ -57,6 +58,8 @@ export function ResultScreen({ script, choices, onRestart, onBackToSelect }: Pro
       totalChoices: allChoices.length,
       clearedAt: Date.now(),
     })
+    // 結果画面BGM
+    audioManager.playBgm('hope')
     // ランク表示のアニメーション遅延
     const timer = setTimeout(() => setShowRankAnim(true), 300)
     return () => clearTimeout(timer)

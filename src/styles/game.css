@@ -841,6 +841,13 @@
   z-index: 50;
   display: flex;
   gap: 6px;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.game-controls:hover,
+.game-controls.active {
+  opacity: 1;
 }
 
 .game-ctrl-btn {
@@ -998,6 +1005,34 @@
   font-size: 0.55em;
   color: rgba(255, 255, 255, 0.6);
   font-weight: normal;
+}
+
+/* --- 初回プレイガイド --- */
+
+.play-guide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  animation: fade-in 0.5s ease;
+  cursor: pointer;
+}
+
+.play-guide-text {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 2px;
+  animation: guide-pulse 2s ease-in-out infinite;
+}
+
+@keyframes guide-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
 /* --- ユーティリティ --- */

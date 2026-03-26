@@ -13,6 +13,7 @@ import type {
   SpriteState,
   DialogStep,
   NarrationStep,
+  ChoiceStep,
 } from './types'
 
 export function createInitialState(): GameState {
@@ -37,6 +38,7 @@ export function createInitialState(): GameState {
     pendingSounds: [],
     waitingForClick: false,
     showingFeedback: false,
+    retryChoice: null,
     backlog: [],
     autoMode: false,
   }
@@ -71,31 +73,62 @@ export function processEvent(
 
     case 'choice_selected': {
       const choice = state.activeChoice
-      const selectedOption = choice?.options.find((o) => o.value === event.value)
+      if (!choice) return state
+      const selectedOption = choice.options.find((o) => o.value === event.value)
+      const hasCorrectAnswer = choice.options.some((o) => o.correct)
+      const isCorrect = !hasCorrectAnswer || !!selectedOption?.correct
       const feedback =
-        selectedOption?.feedback || choice?.feedback_default || null
+        selectedOption?.feedback || choice.feedback_default || null
 
-      const newState: GameState = {
-        ...state,
-        choices: { ...state.choices, [event.choiceId]: event.value },
-        activeChoice: null,
-      }
-
-      if (feedback) {
-        return {
-          ...newState,
-          showingFeedback: true,
-          textDisplay: {
-            text: feedback,
-            characterName: null,
-            characterColor: null,
-            isTyping: true,
-            visibleChars: 0,
-          },
+      if (isCorrect) {
+        // 正解 or 正解なし選択肢 → 記録して次へ
+        const newState: GameState = {
+          ...state,
+          choices: { ...state.choices, [event.choiceId]: event.value },
+          activeChoice: null,
+          retryChoice: null,
+          pendingSounds: hasCorrectAnswer
+            ? [...state.pendingSounds, 'discover']
+            : state.pendingSounds,
         }
+        if (feedback) {
+          return {
+            ...newState,
+            showingFeedback: true,
+            textDisplay: {
+              text: feedback,
+              characterName: null,
+              characterColor: null,
+              isTyping: true,
+              visibleChars: 0,
+            },
+          }
+        }
+        return newState
+      } else {
+        // 不正解 → フィードバック後にリトライ
+        const newState: GameState = {
+          ...state,
+          activeChoice: null,
+          retryChoice: choice,
+          pendingSounds: [...state.pendingSounds, 'crash'],
+        }
+        if (feedback) {
+          return {
+            ...newState,
+            showingFeedback: true,
+            textDisplay: {
+              text: feedback,
+              characterName: null,
+              characterColor: null,
+              isTyping: true,
+              visibleChars: 0,
+            },
+          }
+        }
+        // フィードバックなし → 即リトライ
+        return { ...newState, activeChoice: choice, retryChoice: null }
       }
-
-      return newState
     }
 
     case 'effect_done':
@@ -126,7 +159,12 @@ function processStartGame(script: ScriptData, state: GameState): GameState {
   const scene = script.scenes[0]
   if (scene) {
     if (scene.bg) newState.currentBg = scene.bg
-    if (scene.bgm) newState.currentBgm = scene.bgm
+    if (scene.bgm) {
+      newState.currentBgm = scene.bgm
+    } else {
+      const autoBgm = getDefaultBgm(scene.id)
+      if (autoBgm) newState.currentBgm = autoBgm
+    }
   }
   return newState
 }
@@ -146,8 +184,18 @@ function processClick(script: ScriptData, state: GameState): GameState {
     }
   }
 
-  // フィードバック表示中 → クリックでフィードバックを閉じて次へ
+  // フィードバック表示中 → クリックでフィードバックを閉じる
   if (state.showingFeedback) {
+    if (state.retryChoice) {
+      // 不正解 → 同じ選択肢を再表示
+      return {
+        ...state,
+        showingFeedback: false,
+        activeChoice: state.retryChoice,
+        retryChoice: null,
+        textDisplay: { text: '', characterName: null, characterColor: null, isTyping: false, visibleChars: 0 },
+      }
+    }
     return advanceStep(script, { ...state, showingFeedback: false })
   }
 
@@ -201,7 +249,13 @@ export function advanceStep(
     // 新シーンの初期bg/bgmを適用
     const nextScene = script.scenes[nextSceneIndex]
     if (nextScene.bg) state = { ...state, currentBg: nextScene.bg }
-    if (nextScene.bgm) state = { ...state, currentBgm: nextScene.bgm }
+    if (nextScene.bgm) {
+      state = { ...state, currentBgm: nextScene.bgm }
+    } else if (!state.currentBgm || shouldAutoSwitchBgm(script.scenes[state.currentSceneIndex]?.id, nextScene.id)) {
+      // BGM未指定のシーンにはシーンIDからデフォルトBGMを自動割当
+      const autoBgm = getDefaultBgm(nextScene.id)
+      if (autoBgm) state = { ...state, currentBgm: autoBgm }
+    }
   }
 
   const newState: GameState = {
@@ -275,6 +329,7 @@ function applyNarration(state: GameState, step: NarrationStep): GameState {
       characterColor: null,
       isTyping: true,
       visibleChars: 0,
+      speed: step.speed,
     },
     backlog: [...state.backlog, { text: step.text, characterName: null, characterColor: null }],
     waitingForClick: false,
@@ -398,4 +453,46 @@ function updateSpriteExpression(
     )
   }
   return [...sprites, { characterId, expression, position: 'center' }]
+}
+
+// --- デフォルトBGM自動マッピング ---
+
+/**
+ * シーンIDからフェーズを推定してBGMを返す
+ * 利用可能BGM: daily-life, exploration, tension-quiet, confession, hope
+ */
+function getDefaultBgm(sceneId: string): string | null {
+  if (!sceneId) return null
+  // プロローグ・日常
+  if (sceneId === 'prologue' || sceneId === 'title' || sceneId === 'suspects') {
+    return 'daily-life'
+  }
+  // 証拠収集・捜査
+  if (sceneId.startsWith('evidence') || sceneId === 'letter') {
+    return 'exploration'
+  }
+  // 推理・質問フェーズ
+  if (sceneId === 'questions' || sceneId === 'deduction' || sceneId === 'investigation') {
+    return 'tension-quiet'
+  }
+  // 真相解明
+  if (sceneId.startsWith('truth')) {
+    return 'confession'
+  }
+  // エピローグ
+  if (sceneId === 'epilogue') {
+    return 'hope'
+  }
+  return null
+}
+
+/**
+ * シーン遷移時にBGMを切り替えるべきか判定
+ * フェーズが変わったときのみtrue
+ */
+function shouldAutoSwitchBgm(prevSceneId: string | undefined, nextSceneId: string): boolean {
+  if (!prevSceneId) return true
+  const prevBgm = getDefaultBgm(prevSceneId)
+  const nextBgm = getDefaultBgm(nextSceneId)
+  return prevBgm !== nextBgm && nextBgm !== null
 }
