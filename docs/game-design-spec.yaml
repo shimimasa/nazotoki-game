@@ -266,7 +266,7 @@ onboarding:
         - 難しい用語にはインライン説明を付与
       priority: critical
       status: partial
-      notes: ふりがなトグルは実装済み。推理失敗時のフローは未実装。
+      notes: ふりがなトグル実装済み。推理失敗→リトライフロー実装済み（retryChoice）。インライン用語説明は未実装。
 
     - id: OB-04
       name: アクセシビリティの懐深さ
@@ -420,7 +420,8 @@ ui_ux:
         - フォントサイズは携帯端末でも読みやすいサイズを確保
         - ふりがな表示（実装済み）
       priority: critical
-      status: partial
+      status: implemented
+      notes: UIラベル平易化済み（もどる/ふりがな/じどう）。title属性で補足説明あり。
       features:
         - UIラベルの平易化
         - ツールチップによる補足説明
@@ -491,6 +492,9 @@ feedback:
         - 操作不能時間でもタップに反応（「まだ読み込み中です」等）
       priority: critical
       status: partial
+      notes: |
+        コード実装済み: click(テキスト送り), decision(選択), correct(正解), wrong(不正解)。
+        不足SEファイル: correct.mp3, wrong.mp3, decision.mp3（効果音ラボからDL必要）。
       features:
         - 操作SE（テキスト送り音、選択音、決定音）
         - ボタンのホバー/アクティブ状態のビジュアル
@@ -705,7 +709,8 @@ visual:
         - 非発話キャラのスプライトを暗くする or 彩度を下げる
         - キャラ名表示の色を発話者に合わせる
       priority: important
-      status: not_implemented
+      status: implemented
+      notes: SpriteLayer実装済み。発話者brightness(1.05)+glow、非発話者brightness(0.65)+muted。
       features:
         - アクティブスプライトのハイライト処理
         - 非アクティブスプライトの減光CSS
@@ -733,8 +738,8 @@ progression:
         - C: 探偵助手
         点数そのものより、ランク名で達成感を演出する。
       priority: critical
-      status: partial
-      notes: ResultScreenにスコア表示はあるが、ランク制は未実装。
+      status: implemented
+      notes: calculateRank+getRankLabel+saveClearRecord実装済み。S/A/B/Cランク+称号+色分けバッジ表示。
       features:
         - 探偵ランクシステム（S/A/B/C）
         - ランクに応じた称号テキストと演出
@@ -752,7 +757,8 @@ progression:
         - 未プレイシナリオが目立つデザイン
         - 「あと3本でシリーズコンプリート」の表示
       priority: critical
-      status: not_implemented
+      status: implemented
+      notes: ScenarioSelectにランク別バッジ+シリーズ完了★+全体クリア数表示。getAllClearRecords()使用。
       features:
         - localStorage でクリア履歴管理
         - シナリオ選択画面にバッジUI
@@ -805,7 +811,8 @@ progression:
         - リトライ時は推理フェーズの直前から（最初からやり直しにしない）
         - 「もう一度考えてみよう」の1行テキスト+選択肢再表示
       priority: critical
-      status: not_implemented
+      status: implemented
+      notes: retryChoice機構実装済み。不正解→wrong SE→フィードバック→同じ選択肢を再表示。既読スキップは未実装。
       features:
         - 犯人当て失敗→再挑戦フロー
         - リトライ時のスキップ（既読部分を飛ばす）
@@ -832,35 +839,36 @@ implementation_priority:
     Phase 3（ゲーム改善）の実装順序の指針。
 
   immediate:
-    description: 次のスプリントで実装すべき（高影響・低コスト）
+    description: 次のスプリントで実装すべき（高影響・低コスト）— 2026-03-27時点で全項目完了
     items:
       - id: RP-01
         feature: 探偵ランクシステム（S/A/B/C）
         effort: small
-        reason: ResultScreenに追加するだけ。スコア計算ロジック+表示。
+        status: done
 
       - id: RP-02
         feature: クリア済みバッジ（シナリオ選択画面）
         effort: small
-        reason: localStorage + CSSバッジ。選択画面のUX向上に直結。
+        status: done
 
       - id: FE-01
         feature: 操作SE（テキスト送り、選択、決定）
         effort: small
-        reason: フリーSE素材 + Audio API。手応えの劇的改善。
+        status: done_code_only
+        blocker: correct.mp3, wrong.mp3, decision.mp3 を効果音ラボからDL必要
 
       - id: RP-05
         feature: 犯人当て失敗→再挑戦フロー
         effort: medium
-        reason: ゲームオーバーの排除。教育ゲームとして必須。
+        status: done
 
       - id: UI-03
         feature: UIラベルの平易化
         effort: small
-        reason: テキスト変更のみ。子ども向けの基本。
+        status: done
 
   short_term:
-    description: 1-2週間以内に実装（高影響・中コスト）
+    description: 1-2週間以内に実装（高影響・中コスト）— 次のフォーカス
     items:
       - id: GM-01
         feature: 推理スコアシステム（正答+根拠+ヒント）
@@ -881,6 +889,7 @@ implementation_priority:
       - id: VD-04
         feature: アクティブキャラのハイライト
         effort: small
+        status: done
 
   medium_term:
     description: 1ヶ月以内に実装（中影響・中〜高コスト）

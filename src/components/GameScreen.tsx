@@ -278,7 +278,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
             setShowBacklog(true)
           }}
         >
-          LOG
+          もどる
         </button>
         <button
           class={`game-ctrl-btn ${furigana ? 'active' : ''}`}
@@ -289,7 +289,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
             toggleFurigana()
           }}
         >
-          かな
+          ふりがな
         </button>
         <button
           class={`game-ctrl-btn ${autoMode ? 'active' : ''}`}
@@ -300,7 +300,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
             setAutoMode(!autoMode)
           }}
         >
-          AUTO
+          じどう
         </button>
         <button
           class="game-ctrl-btn"
