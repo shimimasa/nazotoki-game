@@ -1,0 +1,337 @@
+meta:
+  id: music-07
+  title: 変調する真実
+  series: 音楽探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  kaori:
+    name: カオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hibiki:
+    name: ヒビキ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotone:
+    name: コトネ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{地区|ちく}の{合同|ごうどう}{音楽祭|おんがくさい}が{明日|あした}。ハーモニーズは『{虹|にじ}のメロディ』をハ{長調|ちょうちょう}で{合奏|がっそう}する。"
+      - type: narration
+        text: ところが{本番|ほんばん}{前日|ぜんじつ}のリハーサルで——**トランペット（ヒビキ）だけ{他|ほか}の{楽器|がっき}と{音|おと}が{合|あ}わない**。
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{楽譜|がくふ}を{確認|かくにん}すると、トランペットパートの{楽譜|がくふ}が**ニ{長調|ちょうちょう}**——つまり{移調|いちょう}された{楽譜|がくふ}にすり{替|か}わっていた。しかも{移調|いちょう}に{間違|まちが}いがある。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{移調|いちょう}——{曲|きょく}{全体|ぜんたい}を{別|べつ}の{調|ちょう}で{書|か}き{直|なお}すこと。トランペットは{移調|いちょう}{楽器|がっき}で、{楽譜|がくふ}の『ド』と{実際|じっさい}の{音|おと}が{違|ちが}うの。{誰|だれ}が{楽譜|がくふ}をすり{替|か}えたの？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 変調する真実
+        subtitle: 音楽探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: すり替え楽譜を分析
+      - type: narration
+        text: "すり{替|か}え{楽譜|がくふ}の{音符|おんぷ}を{確認|かくにん}。{移調|いちょう}は{全音|ぜんおん}（2{半音|はんおん}）{上|あ}げるルール。"
+      - type: narration
+        text: "ド→レ ✅、レ→ミ ✅、**ミ→ファ ❌（{正|ただ}しくはファ♯。{半音|はんおん}{不足|ふそく}）**、ファ→ソ ✅、ソ→ラ ✅"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{移調|いちょう}を{知|し}っているけど{間違|まちが}えた{人|ひと}の{仕業|しわざ}。{完全|かんぜん}に{知|し}らない{人|ひと}にはできない。{移調|いちょう}{楽譜|がくふ}を{作|つく}る{必要|ひつよう}があるのは**トランペット{奏者|そうしゃ}**だけ。
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 証言とタイムライン
+      - type: narration
+        text: "4{人|にん}の{証言|しょうげん}を{確認|かくにん}——"
+      - type: sprite
+        character: hibiki
+        expression: normal
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "16:00〜16:30は{楽譜|がくふ}を{見直|みなお}していたよ。"
+        expression: normal
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: narration
+        text: ヒビキの「16:00〜16:30は{楽譜|がくふ}を{見直|みなお}していた」——30{分間|ぷんかん}ずっと？ {具体的|ぐたいてき}に{何時|なんじ}から{何時|なんじ}まで{何|なに}をしていた？
+      - type: sprite
+        character: kaori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaori
+        text: "先生の{原本|げんぽん}{楽譜|がくふ}をノートに{写|うつ}してあるの。トランペットパートはハ{長調|ちょうちょう}で{書|か}かれていた。すり{替|か}え{楽譜|がくふ}は{移調|いちょう}されているけど、ミ→ファが{間違|まちが}い。{正|ただ}しくはミ→ファ♯。"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 語られていない15分間
+      - type: narration
+        text: "16:00{以降|いこう}の{詳細|しょうさい}タイムラインを{確認|かくにん}——"
+      - type: narration
+        text: "16:00 コトネ{退室|たいしつ}。16:05 ソウタ{退室|たいしつ}。16:20 カオリ{退室|たいしつ}。16:30 ヒビキ{退室|たいしつ}（{最後|さいご}）。"
+      - type: narration
+        text: "ヒビキの16:00〜16:15が**「???」**になっている。"
+      - type: narration
+        text: ヒビキは「{楽譜|がくふ}を{見直|みなお}していた」と{言|い}っているが、16:00〜16:15に**{具体的|ぐたいてき}に{何|なに}をしていたか{語|かた}っていない**。
+      - type: narration
+        text: "「{語|かた}られていない{時間|じかん}」に{気|き}づくことが、この{事件|じけん}の{鍵|かぎ}。**まだ{分|わ}かっていないこと**は{何|なに}？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 準備室の発見
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{準備室|じゅんびしつ}を{調|しら}べたところ——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "**{元|もと}のトランペット{楽譜|がくふ}（ハ{長調|ちょうちょう}）が{棚|たな}の{奥|おく}に{隠|かく}されていた**。{折|お}りたたまれて{押|お}し{込|こ}まれている。{棚|たな}の{前|まえ}に{鉛筆|えんぴつ}の{削|けず}りカスも。"
+      - type: sprite
+        character: kaori
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kaori
+        text: "16:00〜16:15のあたり、ヒビキが{準備室|じゅんびしつ}に{出入|でい}りしていたのをチラッと{見|み}た。{何|なに}をしていたかは{見|み}ていないけど……"
+        expression: thinking
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{語|かた}られていなかった15{分間|ぷんかん}の{真実|しんじつ}——ヒビキは16:00〜16:15に{準備室|じゅんびしつ}にいた。{自分|じぶん}が{作|つく}った{移調|いちょう}{楽譜|がくふ}（{間違|まちが}い{入|い}り）を{取|と}り{出|だ}し、{元|もと}の{楽譜|がくふ}を{棚|たな}の{奥|おく}に{隠|かく}し、{移調|いちょう}{楽譜|がくふ}をすり{替|か}えた。
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souta
+        text: "ヒビキ、{先週|せんしゅう}『{移調|いちょう}って{難|むずか}しいな』ってぼそっと{言|い}ってたよね。すぐ『{冗談|じょうだん}だよ』って{言|い}い{直|なお}したけど。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotone
+        text: "リハーサル{直前|ちょくぜん}にヒビキが{楽譜|がくふ}を{手|て}に{持|も}ちながら『{間違|まちが}えた……』ってぼそっと{言|い}ってた。そして先生に{相談|そうだん}するのを{避|さ}けてた。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: narration
+        text: "{移調|いちょう}{楽譜|がくふ}を{作|つく}る{必要|ひつよう}がある{人|ひと}＝トランペット{奏者|そうしゃ}＝ヒビキ。{移調|いちょう}ミスがある＝{移調|いちょう}が{苦手|にがて}な{人|ひと}が{作|つく}った。16:00〜16:15に{準備室|じゅんびしつ}に{出入|でい}り。先生に{相談|そうだん}を{避|さ}けていた——なぜ？
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{移調|いちょう}{楽譜|がくふ}にミスがある。{作|つく}ったのはトランペット{奏者|そうしゃ}。{空白|くうはく}の15{分間|ぷんかん}に{準備室|じゅんびしつ}ですり{替|か}えた。{移調|いちょう}が{苦手|にがて}で先生に{相談|そうだん}できなかった。"
+      - type: choice
+        id: q1
+        question: 楽譜をすり替えた犯人は？
+        options:
+          - text: ヒビキ（移調が苦手＋空白の15分＋準備室出入り＋先生に相談回避）
+            value: hibiki
+            correct: true
+            feedback: "{正解|せいかい}！ ヒビキは{移調|いちょう}が{苦手|にがて}で、{自分|じぶん}で{作|つく}った{移調|いちょう}{楽譜|がくふ}（{間違|まちが}い{入|い}り）を{元|もと}の{楽譜|がくふ}とすり{替|か}えた。{恥|はず}ずかしくて先生に{言|い}えなかった。"
+          - text: カオリ（原本をノートに写していた人）
+            value: kaori
+            feedback: "カオリは{原本|げんぽん}を{記録|きろく}していた{側|がわ}。ピアノ{奏者|そうしゃ}に{移調|いちょう}{楽譜|がくふ}は{不要|ふよう}だよ。"
+          - text: ソウタ（ヒビキの発言を聞いていた人）
+            value: souta
+            feedback: "ソウタは{証言|しょうげん}を{持|も}っている{側|がわ}。16:05に{帰|かえ}っているから{機会|きかい}がないね。"
+          - text: コトネ（ヒビキの行動を見ていた人）
+            value: kotone
+            feedback: "コトネは{目撃|もくげき}{情報|じょうほう}を{持|も}っている{側|がわ}。16:00に{帰|かえ}っていて{機会|きかい}がないよ。"
+
+  # ==================== 真実：ヒビキ ====================
+  - id: truth-hibiki
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒビキの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hibiki
+        expression: worried
+        position: center
+      - type: dialog
+        character: hibiki
+        text: "……ごめん。{楽譜|がくふ}をすり{替|か}えたのは{僕|ぼく}だ。"
+        expression: worried
+      - type: dialog
+        character: hibiki
+        text: "{実|じつ}は{移調|いちょう}が{苦手|にがて}なんだ。ハ{長調|ちょうちょう}の{楽譜|がくふ}を{見|み}ながら{頭|あたま}の{中|なか}で{全音|ぜんおん}{上|あ}げて{吹|ふ}くのが、どうしてもうまくいかなくて。"
+        expression: thinking
+      - type: dialog
+        character: hibiki
+        text: "先生に『{移調|いちょう}{楽譜|がくふ}を{用意|ようい}しなさい』って{言|い}われたけど、{移調|いちょう}が{苦手|にがて}だって{言|い}うのが{恥|はず}ずかしくて……{自分|じぶん}で{移調|いちょう}{楽譜|がくふ}を{作|つく}ろうとした。"
+        expression: worried
+      - type: dialog
+        character: hibiki
+        text: "でもミ→ファ♯を{間違|まちが}えてファにしちゃった。{恥|はず}ずかしくて{元|もと}の{楽譜|がくふ}とすり{替|か}えた。リハーサルで{音|おと}が{合|あ}わなくて……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: hibiki
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaori
+        text: "ヒビキの{証言|しょうげん}に「{語|かた}られていない15{分間|ぷんかん}」があった。そこに{真実|しんじつ}が{隠|かく}されていたんだね。"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: happy
+        position: right
+      - type: dialog
+        character: kotone
+        text: "{苦手|にがて}なことがあるのは{恥|はず}ずかしいことじゃないよ。先生に{相談|そうだん}すれば{一緒|いっしょ}に{練習|れんしゅう}できたのに。"
+        expression: happy
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{移調|いちょう}——{曲|きょく}{全体|ぜんたい}を{別|べつ}の{調|ちょう}で{書|か}き{換|か}えること。トランペットみたいな{移調|いちょう}{楽器|がっき}では{大切|たいせつ}な{技術|ぎじゅつ}よ。{苦手|にがて}なら{一緒|いっしょ}に{練習|れんしゅう}しましょう。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "そして{今日|きょう}のスキルは『{情報|じょうほう}{欠落|けつらく}{認識|にんしき}』。{証言|しょうげん}の{中|なか}の「{語|かた}られていないこと」に{気|き}づく{力|ちから}。ヒビキの15{分間|ぷんかん}の{空白|くうはく}に{真実|しんじつ}があった。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{苦手|にがて}なことを{認|みと}めるのは{恥|はず}ずかしい。でも{隠|かく}すよりも「{助|たす}けて」と{言|い}える{方|ほう}が、ずっと{勇気|ゆうき}がいる。
+      - type: narration
+        text: "{語|かた}られていないことに{気|き}づく{力|ちから}——これは{推理|すいり}だけじゃなく、{日常|にちじょう}{生活|せいかつ}でも{大切|たいせつ}なスキルだ。
+      - type: effect
+        name: fade-out

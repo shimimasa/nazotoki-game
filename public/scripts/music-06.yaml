@@ -1,0 +1,307 @@
+meta:
+  id: music-06
+  title: 休符の罠
+  series: 音楽探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  kaori:
+    name: カオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hibiki:
+    name: ヒビキ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotone:
+    name: コトネ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{校内|こうない}{音楽|おんがく}コンテストが{近|ちか}い。ハーモニーズの{合奏|がっそう}{練習|れんしゅう}で、なぜかパーカッションの{入|はい}りのタイミングだけが{毎回|まいかい}ズレる。"
+      - type: narration
+        text: "{楽譜|がくふ}を{確認|かくにん}すると{正|ただ}しいのに、{演奏|えんそう}するとズレる。しかも**ソロ（1{人|り}）で{叩|たた}くとズレない**。{合奏|がっそう}するときだけズレる。"
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "{楽譜|がくふ}{通|どお}りに{叩|たた}いてるのに……なんで{合奏|がっそう}だとズレるんだ？"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: "「{楽譜|がくふ}が{正|ただ}しいのに{演奏|えんそう}がズレる」——この{矛盾|むじゅん}を{解|と}くため、{楽譜|がくふ}を{細|こま}かく{調|しら}べることにした。"
+      - type: narration
+        text: "{大事|だいじ}な{知識|ちしき}——{強弱|きょうじゃく}{記号|きごう}。pp（ピアニッシモ）＝とても{弱|よわ}く。ff（フォルティッシモ）＝とても{強|つよ}く。{合奏|がっそう}では{全|ぜん}パートの{強弱|きょうじゃく}バランスが{大切|たいせつ}。
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 休符の罠
+        subtitle: 音楽探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 合奏の問題と先生の原本
+      - type: narration
+        text: パーカッションの{入|はい}りが{小節|しょうせつ}9で{毎回|まいかい}ズレる。ソロでは{大丈夫|だいじょうぶ}。{合奏|がっそう}でだけズレる。
+      - type: narration
+        text: 山田先生の{強弱|きょうじゃく}{指定|してい}{表|ひょう}（{原本|げんぽん}）を{確認|かくにん}——
+      - type: narration
+        text: "{小節|しょうせつ}1-4: {全|ぜん}パートmf（{導入|どうにゅう}）。{小節|しょうせつ}5-8: Tp=**ff**、{他|ほか}=f（{盛|も}り{上|あ}がり）。"
+      - type: narration
+        text: "{小節|しょうせつ}9-12: {全体|ぜんたい}p〜mp（{静|しず}かな{部分|ぶぶん}）。{小節|しょうせつ}13-16: Tp=ff、Perc=ff（クライマックス）。"
+      - type: narration
+        text: 先生のメモ——「{小節|しょうせつ}5-8はトランペットが{主役|しゅやく}！ ffで{全力|ぜんりょく}で{吹|ふ}いて！」
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 楽譜の強弱記号を全探索
+      - type: narration
+        text: "{現在|げんざい}の{楽譜|がくふ}に{書|か}かれている{強弱|きょうじゃく}{記号|きごう}を{確認|かくにん}——"
+      - type: narration
+        text: "{小節|しょうせつ}1-4: {全|ぜん}パートmf → {原本|げんぽん}と{一致|いっち} ✅"
+      - type: narration
+        text: "{小節|しょうせつ}5-8: ピアノf、Tp=**pp**、Fl=f、Perc=f"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ちょっと{待|ま}って——先生の{原本|げんぽん}では{小節|しょうせつ}5-8のTpは**ff**。でも{楽譜|がくふ}では**pp**になっている。**1{箇所|かしょ}だけ{違|ちが}う！**"
+      - type: sprite
+        character: kaori
+        expression: determined
+        position: left
+      - type: dialog
+        character: kaori
+        text: "{小節|しょうせつ}5-8でトランペットがpp（とても{弱|よわ}く）で{吹|ふ}いている。{音量|おんりょう}が{小|ちい}さすぎて、パーカッションのソウタがトランペットの{合図|あいず}を{聞|き}き{取|と}れない。だから{小節|しょうせつ}9の{入|はい}りがズレるんだ！"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: narration
+        text: 「ff」が「pp」に{変|か}わると{合奏|がっそう}が{崩|くず}れる。これは{偶然|ぐうぜん}の{書|か}き{間違|まちが}い？ それとも{誰|だれ}かが{意図的|いとてき}に{変|か}えた？
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 書き換えの痕跡
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{楽譜|がくふ}の{小節|しょうせつ}5-8、トランペットパートの「pp」をよく{見|み}ると——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "**{消|け}しゴムで{消|け}した{跡|あと}**がうっすら{残|のこ}っている。{元|もと}の{字|じ}の{筆跡|ひっせき}と{書|か}き{直|なお}した{字|じ}の{筆跡|ひっせき}が{微妙|びみょう}に{違|ちが}う。{消|け}しゴムのカスも{残|のこ}っていた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{誰|だれ}かが先生の「ff」を{消|け}しゴムで{消|け}して、「pp」に{書|か}き{直|なお}した。**{意図的|いとてき}な{書|か}き{換|か}え**。
+      - type: narration
+        text: "{書|か}き{換|か}えで{得|とく}をするのは{誰|だれ}？ 「ff→pp」に{変|か}えると——トランペット（ヒビキ）は{静|しず}かに{吹|ふ}く。その{分|ぶん}、**パーカッション（ソウタ）が{相対的|そうたいてき}に{目立|めだ}つ**。
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotone
+        text: "ソウタが{最近|さいきん}、『もっとパーカッションを{目立|めだ}たせたい』って{言|い}ってたよ。{隣|となり}のクラスのグループが{強|つよ}いって{焦|あせ}ってた。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: narration
+        text: "{書|か}き{換|か}えで{得|とく}をするのはソウタ。{書|か}き{換|か}えのチャンスがあったのもソウタ（{一昨日|おととい}{最後|さいご}に{退室|たいしつ}）。コンテストでパーカッションを{目立|めだ}たせたいと{言|い}っていたのもソウタ。
+      - type: sprite
+        character: hibiki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hibiki
+        text: "{小節|しょうせつ}5-8の「pp」、{盛|も}り{上|あ}がりなのにピアニッシモは{変|へん}だなって{思|おも}ってた。でも『{楽譜|がくふ}に{書|か}いてあるから{正|ただ}しい』と{信|しん}じてた。{疑|うたが}わなかった。"
+        expression: thinking
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: narration
+        text: 「{楽譜|がくふ}に{書|か}いてあるから{正|ただ}しい」——これも{思|おも}い{込|こ}み（{認知|にんち}バイアス）だったかもしれない。
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。ff→ppへの{書|か}き{換|か}え。{消|け}しゴムの{痕跡|こんせき}。{書|か}き{換|か}えで{得|とく}をするのはパーカッション{奏者|そうしゃ}。{一昨日|おととい}{最後|さいご}に{残|のこ}ったのはソウタ。コンテストへの{焦|あせ}り。"
+      - type: choice
+        id: q1
+        question: 強弱記号を書き換えた犯人は？
+        options:
+          - text: ソウタ（パーカッションが目立つ＋最後に退室＋コンテストの焦り）
+            value: souta
+            correct: true
+            feedback: "{正解|せいかい}！ ソウタは{隣|となり}のクラスに{負|ま}けたくなくて、トランペットのffをppに{書|か}き{換|か}えた。ヒビキが{静|しず}かに{吹|ふ}く{間|あいだ}にパーカッションが{目立|めだ}つ——という{計算|けいさん}。でも{合奏|がっそう}{全体|ぜんたい}が{崩|くず}れてしまった。"
+          - text: カオリ（強弱表を分析した人）
+            value: kaori
+            feedback: "カオリは{原本|げんぽん}と{楽譜|がくふ}を{比較|ひかく}して{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}。{書|か}き{換|か}える{動機|どうき}がないよ。"
+          - text: ヒビキ（ppに従って吹いていた人）
+            value: hibiki
+            feedback: "ヒビキは{楽譜|がくふ}を{信|しん}じてppで{吹|ふ}いていた。{書|か}き{換|か}えで{損|そん}をする{側|がわ}だね。"
+          - text: コトネ（ソウタの焦りを知っていた人）
+            value: kotone
+            feedback: "コトネは{動機|どうき}の{情報|じょうほう}を{持|も}っている{側|がわ}。フルート{奏者|そうしゃ}にトランペットの{強弱|きょうじゃく}を{変|か}える{理由|りゆう}がないよ。"
+
+  # ==================== 真実：ソウタ ====================
+  - id: truth-souta
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ソウタの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "……ごめん。{強弱|きょうじゃく}{記号|きごう}を{書|か}き{換|か}えたのは{僕|ぼく}だ。"
+        expression: worried
+      - type: dialog
+        character: souta
+        text: "{隣|となり}のクラスのグループを{偵察|ていさつ}したら、すごくレベルが{高|たか}くて{焦|あせ}った。「このままじゃ{負|ま}ける。もっとパーカッションが{目立|めだ}つ{場面|ばめん}が{欲|ほ}しい」って。"
+        expression: thinking
+      - type: dialog
+        character: souta
+        text: "ヒビキのトランペットがffで{吹|ふ}く{場面|ばめん}をppに{変|か}えれば、パーカッションが{相対的|そうたいてき}に{目立|めだ}つって{計算|けいさん}した。「ちょっと{変|か}えるだけなら{大丈夫|だいじょうぶ}」って{思|おも}ったのに——{合奏|がっそう}{全体|ぜんたい}が{崩|くず}れちゃった。"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hibiki
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hibiki
+        text: "だから{僕|ぼく}のppがおかしかったんだ……。{盛|も}り{上|あ}がりなのに{弱|よわ}くって、{自分|じぶん}でも{変|へん}だと{思|おも}ってた。でも{楽譜|がくふ}を{信|しん}じてた。{疑|うたが}わなきゃいけなかったんだ。"
+        expression: thinking
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotone
+        text: "{勝|か}ちたい{気持|きも}ちは{分|わ}かる。でも{合奏|がっそう}はみんなのもの。1{人|り}が{目立|めだ}とうとすると{全体|ぜんたい}が{崩|くず}れるんだね。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{強弱|きょうじゃく}{記号|きごう}——pp{から}ffまでの6{段階|だんかい}。{合奏|がっそう}では{全|ぜん}パートの{強弱|きょうじゃく}バランスが{大切|たいせつ}。1つの{記号|きごう}を{変|か}えただけで{合奏|がっそう}{全体|ぜんたい}が{変|か}わるのよ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "そして「{小|ちい}さな{変更|へんこう}だから{影響|えいきょう}しない」は{思|おも}い{込|こ}み——{認知|にんち}バイアスね。{音楽|おんがく}でも{推理|すいり}でも、{思|おも}い{込|こ}みに{気|き}をつけること。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{今日|きょう}は{全探索|ぜんたんさく}——{全|すべ}ての{強弱|きょうじゃく}{記号|きごう}を1つずつ{確認|かくにん}して、たった1{箇所|かしょ}の{書|か}き{換|か}えを{発見|はっけん}した。{地道|じみち}に1つずつ{確|たし}かめる{力|ちから}が、{真実|しんじつ}にたどり{着|つ}かせてくれる。
+      - type: narration
+        text: "{合奏|がっそう}はチームワーク。1{人|り}が{目立|めだ}とうとすると{全体|ぜんたい}が{崩|くず}れる。みんなで{調和|ちょうわ}して{初|はじ}めて{良|い}い{演奏|えんそう}になる。
+      - type: effect
+        name: fade-out

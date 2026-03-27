@@ -1,0 +1,400 @@
+meta:
+  id: music-02
+  title: リズムの暗号
+  series: 音楽探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  kaori:
+    name: カオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hibiki:
+    name: ヒビキ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotone:
+    name: コトネ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{音楽|おんがく}{発表会|はっぴょうかい}に{向|む}けて{合奏|がっそう}{練習|れんしゅう}を{続|つづ}けるハーモニーズ。{今日|きょう}の{朝練|あされん}で『{虹|にじ}のメロディ』を{合|あ}わせたところ——"
+      - type: se
+        sound: crash
+      - type: narration
+        text: なぜかパーカッションだけリズムがズレて、{合奏|がっそう}がバラバラに{崩|くず}れてしまった。
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: souta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: souta
+        text: "えっ？ {僕|ぼく}、{楽譜|がくふ}{通|どお}りに{叩|たた}いてるのに……なんでズレるんだろう。"
+        expression: surprised
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: おかしいと{思|おも}って、山田先生が{作|つく}った「リズム{合|あ}わせプリント」を{確認|かくにん}すると——パーカッションパートのリズムが、{昨日|きのう}の{練習|れんしゅう}のときと**{違|ちが}っている**ことに{気|き}づいた。
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かがリズムを{書|か}き{換|か}えた？ でもなぜ？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: kaori
+            expression: thinking
+          - character: souta
+            expression: worried
+          - character: hibiki
+            expression: surprised
+          - character: kotone
+            expression: worried
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}、4{人|にん}はそれぞれ{音楽室|おんがくしつ}で{練習|れんしゅう}していた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: リズムの暗号
+        subtitle: 音楽探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: リズム合わせプリント
+      - type: narration
+        text: "{今朝|けさ}のリズム{合|あ}わせプリント。パーカッションパートの{欄|らん}を{確認|かくにん}する。"
+      - type: narration
+        text: "♩♩♩♩（タン・タン・タン・タン）"
+      - type: narration
+        text: "4{分|ぶん}{音符|おんぷ}が4つ。シンプルな4{拍|はく}のリズム。"
+      - type: narration
+        text: でも……{今朝|けさ}の{合奏|がっそう}で、このリズム{通|どお}りに{叩|たた}いたらみんなとズレてしまった。なぜ？
+      - type: narration
+        text: このプリントのリズムは、{本当|ほんとう}に{最初|さいしょ}から「タン・タン・タン・タン」だった？ {昨日|きのう}の{練習|れんしゅう}ではどうだった？
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: カオリの記録ノート
+      - type: sprite
+        character: kaori
+        expression: determined
+        position: left
+      - type: dialog
+        character: kaori
+        text: "{昨日|きのう}15:00にプリントをノートに{写|うつ}したの。そのときのパーカッションパートは——"
+        expression: determined
+      - type: se
+        sound: discover
+      - type: dialog
+        character: kaori
+        text: "♩♪♪♪♪♩（タン・タタタタ・タン）。{今朝|けさ}のプリントと{違|ちが}う！"
+        expression: surprised
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: narration
+        text: "プリント({今朝|けさ}): ♩♩♩♩ ＝ タン・タン・タン・タン"
+      - type: narration
+        text: "ノート({昨日|きのう}15:00): ♩♪♪♪♪♩ ＝ タン・タタタタ・タン"
+      - type: narration
+        text: "{昨日|きのう}の15:00〜{今朝|けさ}の{間|あいだ}に、{誰|だれ}かがプリントを{書|か}き{換|か}えた？
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ヒビキの録画メモ
+      - type: sprite
+        character: hibiki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "{昨日|きのう}の{合奏|がっそう}{練習|れんしゅう}をタブレットで{録画|ろくが}してたんだ。{見返|みかえ}すとソウタが{叩|たた}いてたリズムは——"
+        expression: thinking
+      - type: dialog
+        character: hibiki
+        text: "タン・タタタタ・タン。8{分|ぶん}{音符|おんぷ}の{連打|れんだ}が{入|はい}ってる。{今朝|けさ}のプリントとは{違|ちが}うよ。"
+        expression: determined
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: narration
+        text: 「{見|み}た」{記録|きろく}（カオリのノート）と「{聞|き}いた」{記録|きろく}（ヒビキの{録画|ろくが}）は{一致|いっち}している。でもプリントだけが{違|ちが}う。
+      - type: narration
+        text: 3つの{視点|してん}を{比|くら}べてみよう。「{見|み}た」「{聞|き}いた」「{今|いま}のプリント」——{食|く}い{違|ちが}いはどこにある？
+      - type: sprite
+        character: hibiki
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "あと、ソウタが『タタタタ』のところで2〜3{回|かい}つまずいてたの{気|き}になった。そのたびに{顔|かお}をしかめてたんだよね。"
+        expression: worried
+      - type: sprite
+        character: hibiki
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 出入りノート
+      - type: narration
+        text: "{出入|でい}りノートの{詳細|しょうさい}を{確認|かくにん}する。"
+      - type: narration
+        text: "15:00 カオリ{入室|にゅうしつ}。15:10 ヒビキ{入室|にゅうしつ}。15:15 コトネ{入室|にゅうしつ}。15:20 ソウタ{入室|にゅうしつ}。"
+      - type: narration
+        text: "15:30〜16:00 {全員|ぜんいん}で{合奏|がっそう}{練習|れんしゅう}。"
+      - type: narration
+        text: "16:00 ヒビキ・コトネ{退室|たいしつ}。16:15 カオリ{退室|たいしつ}。**16:30 ソウタ{退室|たいしつ}（{最後|さいご}）**。"
+      - type: narration
+        text: プリントが{書|か}き{換|か}えられたのは{昨日|きのう}の15:00〜{今朝|けさ}。カオリが{帰|かえ}った16:15{以降|いこう}、{音楽室|おんがくしつ}に1{人|り}で{残|のこ}っていたのは**ソウタだけ**。
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotone
+        text: "そういえばソウタ、{最近|さいきん}『リズムテスト{嫌|いや}だな……』ってぼそっと{言|い}ってたよ。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: プリントの消しゴムのカス
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: プリントをよく{調|しら}べると、パーカッションパートの{欄|らん}に**{消|け}しゴムで{消|け}した{跡|あと}**と**{書|か}き{直|なお}した{跡|あと}**があった。
+      - type: se
+        sound: discover
+      - type: narration
+        text: さらに、プリントの{近|ちか}くの{机|つくえ}に**{音符|おんぷ}の{形|かたち}をした{消|け}しゴムのカス**が{落|お}ちていた。
+      - type: narration
+        text: この{消|け}しゴムは、{先月|せんげつ}ソウタが{音楽店|おんがくてん}で{買|か}ってきた**ト{音|おん}{記号|きごう}の{形|かたち}の{特別|とくべつ}な{消|け}しゴム**だ。{買|か}ったときにみんなに{見|み}せてくれたので、4{人|にん}とも{覚|おぼ}えている。このデザインの{消|け}しゴムを{持|も}っているのは**ソウタだけ**。
+      - type: narration
+        text: "{消|け}された{部分|ぶぶん}をよく{見|み}ると、うっすらと{元|もと}の{音符|おんぷ}の{跡|あと}が{残|のこ}っている——♪♪♪♪（タタタタ）。8{分|ぶん}{音符|おんぷ}4つが{消|け}されて、4{分|ぶん}{音符|おんぷ}2つ（タン・タン）に{書|か}き{直|なお}されている。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: ソウタの{消|け}しゴムのカスがプリントの{近|ちか}くにある。ソウタは{最後|さいご}に{音楽室|おんがくしつ}を{出|で}た。ソウタが「タタタタ」を{苦手|にがて}にしていた。すべてがつながらない？
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。"
+      - type: narration
+        text: "「{見|み}た」{視点|してん}（カオリのノート）: {元|もと}のリズムはタン・タタタタ・タン"
+      - type: narration
+        text: "「{聞|き}いた」{視点|してん}（ヒビキの{録画|ろくが}）: ソウタはタン・タタタタ・タンを{叩|たた}いていた"
+      - type: narration
+        text: "「{今|いま}の」プリント: タン・タン・タン・タンに{変|か}わっている"
+      - type: narration
+        text: 3つの{視点|してん}を{重|かさ}ねると、プリントだけが{書|か}き{換|か}えられたことが{分|わ}かる。
+      - type: choice
+        id: q1
+        question: リズムを書き換えた犯人は誰？
+        options:
+          - text: ソウタ（消しゴムのカス＋最後に退室＋タタタタが苦手）
+            value: souta
+            correct: true
+            feedback: "{正解|せいかい}！ ソウタの{消|け}しゴムのカス、{最後|さいご}まで{残|のこ}っていたこと、8{分|ぶん}{音符|おんぷ}でつまずいていたこと。すべてがソウタを{指|さ}している。"
+          - text: カオリ（ノートに元のリズムを写していた人）
+            value: kaori
+            feedback: "カオリは{元|もと}のリズムをノートに{正確|せいかく}に{写|うつ}していた。{書|か}き{換|か}えるどころか、{元|もと}のリズムを{記録|きろく}していた{人|ひと}だよ。"
+          - text: ヒビキ（録画でソウタのつまずきに気づいた人）
+            value: hibiki
+            feedback: "ヒビキは{録画|ろくが}で{証拠|しょうこ}を{持|も}っている{側|がわ}。16:00に{帰|かえ}っているから{書|か}き{換|か}えの{機会|きかい}もないね。"
+          - text: コトネ（ソウタの「テスト嫌だ」発言を知っていた人）
+            value: kotone
+            feedback: "コトネは16:00に{帰|かえ}っている。{動機|どうき}の{情報|じょうほう}を{持|も}っているけど、{書|か}き{換|か}えの{機会|きかい}がなかったよ。"
+
+  # ==================== 真実：ソウタ ====================
+  - id: truth-souta
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ソウタの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "……ごめん。リズムを{書|か}き{換|か}えたのは、{僕|ぼく}だ。"
+        expression: worried
+      - type: narration
+        text: ソウタは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: souta
+        text: "{明後日|あさって}、山田先生のリズムテストがあるんだ。1{人|り}ずつ先生の{前|まえ}でリズムを{叩|たた}くテスト。パーカッションパートの『タタタタ』が{速|はや}すぎて、{何度|なんど}{練習|れんしゅう}しても{叩|たた}けなかった。"
+        expression: worried
+      - type: dialog
+        character: souta
+        text: "{焦|あせ}って、8{分|ぶん}{音符|おんぷ}を4{分|ぶん}{音符|おんぷ}に{書|か}き{換|か}えれば{叩|たた}けるようになると{思|おも}って……ちょっと{変|か}えるだけなら{大丈夫|だいじょうぶ}だって。"
+        expression: thinking
+      - type: dialog
+        character: souta
+        text: "でも{今朝|けさ}の{合奏|がっそう}で、{自分|じぶん}だけリズムが{違|ちが}ってバラバラになっちゃった。ごめん……。"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaori
+        text: "ノートに{写|うつ}してたから{気|き}づけたの。「{見|み}た」{記録|きろく}と「{今|いま}のプリント」を{比|くら}べたら{違|ちが}いがわかった。"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: sprite
+        character: hibiki
+        expression: determined
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "{録画|ろくが}に{残|のこ}ってたリズムも{元|もと}のままだった。「{見|み}た」{記録|きろく}と「{聞|き}いた」{記録|きろく}が{一致|いっち}してたのが{決|き}め{手|て}だったね。"
+        expression: determined
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotone
+        text: "ソウタが『リズムテスト{嫌|いや}だな』って{言|い}ってたの{覚|おぼ}えてる……{焦|あせ}ってたんだね。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{今日|きょう}は3つの{視点|してん}を{使|つか}って{推理|すいり}したわね。カオリは{楽譜|がくふ}を「{見|み}て」、ヒビキは{演奏|えんそう}を「{聞|き}いて」、コトネはソウタの{気持|きも}ちを「{感|かん}じて」いた。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "1{人|り}の{視点|してん}だけでは{見|み}えないことも、みんなの{視点|してん}を{合|あ}わせると{真実|しんじつ}が{見|み}えてくる。{音楽|おんがく}も{同|おな}じ。{楽譜|がくふ}を{見|み}るだけ、{聞|き}くだけ、{叩|たた}くだけじゃなくて、{全部|ぜんぶ}を{合|あ}わせることで{本当|ほんとう}の{音楽|おんがく}が{生|う}まれるのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{苦手|にがて}なリズムも、{正|ただ}しい{方法|ほうほう}で{練習|れんしゅう}すれば{叩|たた}けるようになる。{近道|ちかみち}をしても{本当|ほんとう}の{解決|かいけつ}にはならない。
+      - type: narration
+        text: そして——「{見|み}る」「{聞|き}く」「{感|かん}じる」。3つの{視点|してん}を{重|かさ}ねると、{真実|しんじつ}にたどり{着|つ}ける。
+      - type: effect
+        name: fade-out

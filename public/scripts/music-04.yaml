@@ -1,0 +1,318 @@
+meta:
+  id: music-04
+  title: 二重奏の秘密
+  series: 音楽探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  kaori:
+    name: カオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hibiki:
+    name: ヒビキ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotone:
+    name: コトネ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{来週|らいしゅう}の{学校|がっこう}{公開日|こうかいび}に{向|む}けて、ハーモニーズは『{二重奏|にじゅうそう}コーナー』を{準備中|じゅんびちゅう}。2{人|り}ずつペアを{組|く}んで、{二重奏|にじゅうそう}を{録音|ろくおん}し、先生に{提出|ていしゅつ}する。"
+      - type: narration
+        text: "ペアA: コトネ（フルート）× カオリ（ピアノ）。ペアB: ヒビキ（トランペット）× ソウタ（パーカッション）。"
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}、2{組|くみ}とも{音楽室|おんがくしつ}のパソコンに{録音|ろくおん}を{保存|ほぞん}した。ところが{今朝|けさ}——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: パソコンを{開|ひら}くと、**ペアAの{録音|ろくおん}データだけが{消|き}えている**。
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ペアBの{録音|ろくおん}は{残|のこ}っているのに、ペアAだけ{消|き}えている？ {誰|だれ}がなぜ？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{大事|だいじ}な{知識|ちしき}——{二重奏|にじゅうそう}で2{人|り}の{音|おと}が{協和音|きょうわおん}ならきれいに{溶|と}け{合|あ}う。{不協和音|ふきょうわおん}ならぶつかる。そして「{合|あ}っていた」には2つの{意味|いみ}がある——「リズムが{合|あ}った」と「{音程|おんてい}が{合|あ}った」は{別|べつ}のこと。
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 二重奏の秘密
+        subtitle: 音楽探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: パソコンのファイル一覧
+      - type: narration
+        text: "{音楽室|おんがくしつ}のパソコンに{保存|ほぞん}されていたファイルを{確認|かくにん}——"
+      - type: narration
+        text: "pairA_duet.wav（{昨日|きのう}16:00{保存|ほぞん}）→ **{見|み}つからない（{消|き}えている）**"
+      - type: narration
+        text: "pairB_duet.wav（{昨日|きのう}16:15{保存|ほぞん}）→ {正常|せいじょう}"
+      - type: narration
+        text: ペアA（コトネ×カオリ）の{録音|ろくおん}だけが{消|き}えている。なぜペアAだけ？ {録音|ろくおん}に{何|なに}か{問題|もんだい}があった？
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 出入りノートと操作ログ
+      - type: narration
+        text: "{出入|でい}りノートを{確認|かくにん}——"
+      - type: narration
+        text: "16:20 カオリ・ヒビキ{退室|たいしつ}。16:25 ソウタ{退室|たいしつ}。**16:30 コトネ{退室|たいしつ}（{最後|さいご}）**。"
+      - type: narration
+        text: パソコンの{操作|そうさ}ログ——16:00にペアA{保存|ほぞん}（カオリ）。16:15にペアB{保存|ほぞん}（ヒビキ）。**16:28にペアAを『ごみ{箱|ばこ}』に{移動|いどう}（{操作者|そうさしゃ}{不明|ふめい}）**。
+      - type: narration
+        text: 16:28にパソコンを{操作|そうさ}できた{人|ひと}は？ 16:25にソウタが{帰|かえ}り、16:30にコトネが{帰|かえ}った。つまり16:28に{音楽室|おんがくしつ}にいたのは**コトネだけ**。
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: みんなの感想
+      - type: narration
+        text: "{昨日|きのう}の{録音後|ろくおんご}、みんなはこう{言|い}っていた——"
+      - type: sprite
+        character: kaori
+        expression: happy
+        position: left
+      - type: dialog
+        character: kaori
+        text: "バッチリ{合|あ}っていた！ リズムもテンポもピッタリ！"
+        expression: happy
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotone
+        text: "……リズムはピッタリ{合|あ}っていた……と{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souta
+        text: "……ほとんど{良|よ}かった。でも1{箇所|かしょ}だけ、ちょっと{気|き}になるところがあった。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: カオリは「バッチリ{合|あ}っていた」。コトネは「リズムは{合|あ}っていた」。{言|い}い{方|かた}が{微妙|びみょう}に{違|ちが}う。ソウタの「1{箇所|かしょ}だけ{気|き}になる」って{何|なに}？
+      - type: narration
+        text: 「{合|あ}っていた」の{意味|いみ}をもう{一度|いちど}{考|かんが}えてみよう——「リズムが{合|あ}った」と「{音程|おんてい}が{合|あ}った」は{別|べつ}のこと。
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 復元された録音データ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hibiki
+        expression: determined
+        position: left
+      - type: dialog
+        character: hibiki
+        text: "{今朝|けさ}、パソコンの『ごみ{箱|ばこ}』から{録音|ろくおん}データを{復元|ふくげん}して{聴|き}いてみた！"
+        expression: determined
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{復元|ふくげん}した{録音|ろくおん}を{聴|き}くと——{全体的|ぜんたいてき}にはとても{良|い}い{二重奏|にじゅうそう}。リズムもテンポもピッタリ。
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: しかし1{箇所|かしょ}だけ——フルート（コトネ）が「ファ」を{吹|ふ}いたとき、ピアノ（カオリ）は「シ」を{弾|ひ}いていた。**ファとシ ＝ {不協和音|ふきょうわおん}**（ぶつかる{響|ひび}き）。
+      - type: narration
+        text: カオリは「バッチリ{合|あ}っていた」と{言|い}った → カオリはこの{不協和音|ふきょうわおん}に**{気|き}づいていない**。
+      - type: narration
+        text: コトネは「リズムは{合|あ}っていた」と{言|い}った → **{音程|おんてい}についてはコメントしていない**。コトネは{不協和音|ふきょうわおん}に{気|き}づいていた{可能性|かのうせい}がある。
+      - type: narration
+        text: "{因果|いんが}の{連鎖|れんさ}をたどろう——{録音|ろくおん}に{不協和音|ふきょうわおん}が{含|ふく}まれていた → {不協和音|ふきょうわおん}に{気|き}づいたのは{誰|だれ}？ → それを{隠|かく}したい{理由|りゆう}は？ → だからデータを{消|け}した？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{操作|そうさ}ログ——16:28にデータが{消|け}された。そのとき{音楽室|おんがくしつ}にいたのはコトネだけ。"
+      - type: narration
+        text: "{録音|ろくおん}に{不協和音|ふきょうわおん}（ファ×シ）がある。カオリは{気|き}づいていない。コトネの「リズムは{合|あ}っていた」——{音程|おんてい}には{触|ふ}れていない。"
+      - type: narration
+        text: "{不協和音|ふきょうわおん}を「{隠|かく}したい」と{思|おも}う{人|ひと}は、{誰|だれ}かを「{守|まも}りたい」のかもしれない。
+      - type: choice
+        id: q1
+        question: 録音データを消した犯人は誰？
+        options:
+          - text: コトネ（16:28に1人＋不協和音に気づいていた＋カオリを守りたかった）
+            value: kotone
+            correct: true
+            feedback: "{正解|せいかい}！ コトネは{不協和音|ふきょうわおん}に{気|き}づき、カオリが{恥|はじ}をかかないように{録音|ろくおん}を{消|け}した。{親友|しんゆう}を{守|まも}りたかったんだ。"
+          - text: カオリ（ペアAの録音を保存した人）
+            value: kaori
+            feedback: "カオリは「バッチリ{合|あ}っていた」と{思|おも}っている。{不協和音|ふきょうわおん}に{気|き}づいていないから、{消|け}す{理由|りゆう}がないよ。"
+          - text: ヒビキ（録音を復元した人）
+            value: hibiki
+            feedback: "ヒビキは{復元|ふくげん}して{証拠|しょうこ}を{見|み}つけた{側|がわ}。16:20に{帰|かえ}っているから{操作|そうさ}できなかったよ。"
+          - text: ソウタ（「気になるところ」を感じた人）
+            value: souta
+            feedback: "ソウタは{耳|みみ}が{良|い}いから{不協和音|ふきょうわおん}に{気|き}づいたけど、16:25に{帰|かえ}っている。{消|け}す{機会|きかい}がなかったね。"
+
+  # ==================== 真実：コトネ ====================
+  - id: truth-kotone
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: コトネの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotone
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotone
+        text: "……ごめんなさい。{録音|ろくおん}を{消|け}したのは、わたしです。"
+        expression: worried
+      - type: dialog
+        character: kotone
+        text: "{録音|ろくおん}を{聴|き}き{返|かえ}したとき、わたしのフルートの『ファ』とカオリのピアノの『シ』がぶつかっているのに{気|き}づいたの。{不協和音|ふきょうわおん}。"
+        expression: thinking
+      - type: dialog
+        character: kotone
+        text: "カオリは{気|き}づいてなくて、『バッチリ{合|あ}っていた！』って{喜|よろこ}んでた。もし先生がこの{録音|ろくおん}を{聴|き}いたら、カオリが{不協和音|ふきょうわおん}に{気|き}づけなかったと{思|おも}われるかも。カオリが{恥|はじ}をかくかもしれない。"
+        expression: worried
+      - type: dialog
+        character: kotone
+        text: "カオリを{守|まも}りたかった。だから{録音|ろくおん}を{消|け}したの……。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: sprite
+        character: kaori
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kaori
+        text: "コトネ……わたしのためだったの？ {不協和音|ふきょうわおん}に{気|き}づいてなかった。ごめんね、もう{一度|いちど}{一緒|いっしょ}に{録|と}り{直|なお}そう。"
+        expression: happy
+      - type: sprite
+        character: kaori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{友達|ともだち}を{守|まも}りたい{気持|きも}ちは{素晴|すば}らしい。でも{守|まも}り{方|かた}は{大事|だいじ}よ。{隠|かく}すのではなく、{一緒|いっしょ}に{解決|かいけつ}する{方法|ほうほう}もあったわね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{協和音|きょうわおん}と{不協和音|ふきょうわおん}——2つの{音|おと}の{関係|かんけい}で{響|ひび}きが{変|か}わる。そして「{合|あ}っていた」には「リズム」と「{音程|おんてい}」の2つの{意味|いみ}がある。{言葉|ことば}の{微妙|びみょう}な{違|ちが}いに{気|き}づくことが、{真実|しんじつ}への{道|みち}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{不協和音|ふきょうわおん}は{必|かなら}ずしも{悪|わる}いものじゃない。{音楽|おんがく}では{緊張|きんちょう}→{解決|かいけつ}の{流|なが}れで{曲|きょく}に{深|ふか}みを{与|あた}える。ぶつかるところも{含|ふく}めて、{音楽|おんがく}なんだ。
+      - type: effect
+        name: fade-out

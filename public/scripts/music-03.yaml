@@ -1,0 +1,366 @@
+meta:
+  id: music-03
+  title: 調子はずれの証言
+  series: 音楽探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  kaori:
+    name: カオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hibiki:
+    name: ヒビキ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotone:
+    name: コトネ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{地区|ちく}の{合同|ごうどう}{音楽祭|おんがくさい}が{明日|あした}に{迫|せま}っている。ハーモニーズは『{虹|にじ}のメロディ』をハ{長調|ちょうちょう}で{合奏|がっそう}する。"
+      - type: narration
+        text: "ところが{今日|きょう}のリハーサルで{問題|もんだい}が{発生|はっせい}。**トランペット（ヒビキ）だけ、{他|ほか}の{楽器|がっき}と{音|おと}が{合|あ}わない**。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{不思議|ふしぎ}に{思|おも}って{楽譜|がくふ}を{確認|かくにん}すると——トランペットパートの{楽譜|がくふ}が、{元|もと}の{楽譜|がくふ}とは**{違|ちが}う{調|ちょう}**で{書|か}かれた{楽譜|がくふ}にすり{替|か}わっていた。"
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}が、なぜ{楽譜|がくふ}をすり{替|か}えたの？ {明日|あした}は{本番|ほんばん}なのに……"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{大事|だいじ}なポイント——{練習|れんしゅう}ルールでは、15:00〜15:30は**{長調|ちょうちょう}の{曲|きょく}だけ**、15:30〜16:00は**{短調|たんちょう}の{曲|きょく}だけ**を{練習|れんしゅう}すると{決|き}まっている。
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 調子はずれの証言
+        subtitle: 音楽探偵団 Vol.3
+
+  # ==================== 調査：証言まとめ ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4人の証言を確認しよう
+      - type: narration
+        text: "{昨日|きのう}の{練習|れんしゅう}について、4{人|にん}はこう{言|い}っている——"
+      - type: sprite
+        character: kaori
+        expression: normal
+        position: left
+      - type: dialog
+        character: kaori
+        text: "15:00〜15:30はハ{長調|ちょうちょう}の{練習曲|れんしゅうきょく}、15:30〜16:00はイ{短調|たんちょう}の{練習曲|れんしゅうきょく}を{弾|ひ}いたよ。"
+        expression: normal
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: sprite
+        character: hibiki
+        expression: normal
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "{僕|ぼく}は15:20ごろに**{短調|たんちょう}の{曲|きょく}**を{練習|れんしゅう}してた。"
+        expression: normal
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: narration
+        text: ……ちょっと{待|ま}って。15:00〜15:30は**{長調|ちょうちょう}の{時間帯|じかんたい}**。ヒビキの「15:20に{短調|たんちょう}」はルール{違反|いはん}？ それとも{証言|しょうげん}が{嘘|うそ}？
+
+  # ==================== 調査：練習ルール ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 練習ルールを確認
+      - type: narration
+        text: 山田先生が{音楽室|おんがくしつ}に{貼|は}ってある{練習|れんしゅう}ルール——
+      - type: narration
+        text: "★ 15:00〜15:30 → {長調|ちょうちょう}の{曲|きょく}だけ"
+      - type: narration
+        text: "★ 15:30〜16:00 → {短調|たんちょう}の{曲|きょく}だけ"
+      - type: narration
+        text: "★ 16:00〜16:30 → {自由|じゆう}{練習|れんしゅう}"
+      - type: narration
+        text: "ヒビキは「15:20ごろに{短調|たんちょう}の{曲|きょく}を{練習|れんしゅう}した」と{言|い}った。でも15:00〜15:30は「{長調|ちょうちょう}だけ」の{時間帯|じかんたい}。これはルール{違反|いはん}……それとも{証言|しょうげん}が{嘘|うそ}？"
+
+  # ==================== 調査：カオリの記録 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: カオリの練習記録
+      - type: sprite
+        character: kaori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaori
+        text: "{昨日|きのう}の{練習|れんしゅう}{記録|きろく}をつけてたの。ヒビキのトランペットの{音|おと}も{聞|き}こえてたから——"
+        expression: thinking
+      - type: dialog
+        character: kaori
+        text: "15:00〜15:30、ヒビキのTpは**{明|あか}るい{曲|きょく}（{長調|ちょうちょう}）**が{聞|き}こえた。15:30〜16:00は**{暗|くら}い{曲|きょく}（{短調|たんちょう}）**に{変|か}わった。"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: narration
+        text: カオリの{記録|きろく}では、ヒビキは15:00〜15:30に**{長調|ちょうちょう}**を{練習|れんしゅう}していた。でもヒビキ{自身|じしん}は「15:20に{短調|たんちょう}」と{言|い}っている。**どちらが{本当|ほんとう}？**
+      - type: sprite
+        character: kaori
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kaori
+        text: "あと、16:00〜16:05ごろ、ヒビキのトランペットの{音|おと}が**{数分間|すうふんかん}{途切|とぎ}れた**の。{準備室|じゅんびしつ}のドアが『カチャ』と{閉|し}まる{音|おと}もした。"
+        expression: thinking
+      - type: sprite
+        character: kaori
+        action: hide
+
+  # ==================== 調査：出入りノート ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 出入りノートと準備室
+      - type: narration
+        text: "{昨日|きのう}の{出入|でい}りノートを{確認|かくにん}——"
+      - type: narration
+        text: "16:00 コトネ{退室|たいしつ}。16:10 カオリ{退室|たいしつ}。16:20 ソウタ{退室|たいしつ}。**16:30 ヒビキ{退室|たいしつ}（{最後|さいご}）**。"
+      - type: narration
+        text: "{準備室|じゅんびしつ}を{調|しら}べると——ドアの{取|と}っ{手|て}に**トランペットのバルブオイル**が{少|すこ}しついている。バルブオイルはトランペットを{手入|てい}れするときに{使|つか}う{油|あぶら}。{手|て}についていることが{多|おお}い。
+      - type: narration
+        text: "{特別|とくべつ}マウスピースがあった{棚|たな}の{前|まえ}に**{足跡|あしあと}**と**{踏|ふ}み{台|だい}がわりに{使|つか}ったらしい{椅子|いす}**。{棚|たな}の{一番|いちばん}{上|うえ}のマウスピースケースが{開|あ}いた{状態|じょうたい}で{残|のこ}っている（{中身|なかみ}だけがない）。"
+
+  # ==================== 反転：ソウタの耳 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ソウタの耳の証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: souta
+        expression: determined
+        position: left
+      - type: dialog
+        character: souta
+        text: "{僕|ぼく}も{耳|みみ}で{確認|かくにん}した。15:25に{入室|にゅうしつ}したとき、ヒビキのTpは**{明|あか}るい{曲|きょく}（{長調|ちょうちょう}）**だった。15:30{以降|いこう}に**{暗|くら}い{曲|きょく}（{短調|たんちょう}）**に{切|き}り{替|か}わった。"
+        expression: determined
+      - type: dialog
+        character: souta
+        text: "そして16:05ごろ、ヒビキの{音|おと}が**{急|きゅう}に{止|と}まった**。2〜3{分間|ぷんかん}、トランペットの{音|おと}がしなかった。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: カオリの{記録|きろく}とソウタの{耳|みみ}の{証言|しょうげん}を{重|かさ}ねると——
+      - type: narration
+        text: ヒビキは15:00〜15:30に**{長調|ちょうちょう}**を{練習|れんしゅう}していた（カオリもソウタも{確認|かくにん}）。
+      - type: narration
+        text: でもヒビキ{自身|じしん}は「15:20に{短調|たんちょう}」と{言|い}っている → **{嘘|うそ}**。
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: 16:05ごろ、ヒビキの{音|おと}が{途切|とぎ}れ、{準備室|じゅんびしつ}のドアの{音|おと}がした。ヒビキは16:05ごろ{準備室|じゅんびしつ}に{入|はい}った{可能性|かのうせい}が{高|たか}い。
+      - type: narration
+        text: ヒビキはなぜ「15:20に{短調|たんちょう}」と{嘘|うそ}をついた？ 16:05の{空白|くうはく}{時間|じかん}に{何|なに}をしていた？ {準備室|じゅんびしつ}のドア{取|と}っ{手|て}にバルブオイル。{全部|ぜんぶ}つなげると……？
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotone
+        text: "ヒビキ、{昨日|きのう}{準備室|じゅんびしつ}のドアの{方|ほう}をチラチラ{見|み}てたよね。それと『{明日|あした}のコンクール、{絶対|ぜったい}{金賞|きんしょう}{取|と}りたい。でも{高|たか}い{音|おと}がちょっと{不安|ふあん}』って{言|い}ってた。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{長調|ちょうちょう}/{短調|たんちょう}のルールでヒビキの{嘘|うそ}が{発覚|はっかく}。16:05の{空白|くうはく}{時間|じかん}。バルブオイル。コンクールへの{焦|あせ}り。{特別|とくべつ}マウスピースの{良|よ}さを{知|し}っていた——"
+      - type: choice
+        id: q1
+        question: 特別マウスピースを持ち出した犯人は？
+        options:
+          - text: ヒビキ（嘘の証言＋空白時間＋バルブオイル＋動機）
+            value: hibiki
+            correct: true
+            feedback: "{正解|せいかい}！ ヒビキは{長調|ちょうちょう}の{時間帯|じかんたい}に「{短調|たんちょう}」と{嘘|うそ}をつき、16:05に{準備室|じゅんびしつ}でマウスピースを{取|と}った。コンクールで{金賞|きんしょう}を{取|と}りたい{一心|いっしん}だった。"
+          - text: カオリ（練習記録をつけていた人）
+            value: kaori
+            feedback: "カオリは{記録|きろく}を{正確|せいかく}につけていた{側|がわ}。ピアノ{奏者|そうしゃ}にマウスピースは{不要|ふよう}だよ。"
+          - text: ソウタ（耳で聞いていた人）
+            value: souta
+            feedback: "ソウタは{耳|みみ}で{証拠|しょうこ}を{持|も}っている{側|がわ}。パーカッション{奏者|そうしゃ}にマウスピースは{不要|ふよう}だね。"
+          - text: コトネ（ヒビキの焦りを知っていた人）
+            value: kotone
+            feedback: "コトネは16:00に{帰|かえ}っている。フルート{奏者|そうしゃ}にマウスピースは{不要|ふよう}だよ。"
+
+  # ==================== 真実：ヒビキ ====================
+  - id: truth-hibiki
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒビキの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hibiki
+        expression: worried
+        position: center
+      - type: dialog
+        character: hibiki
+        text: "……ごめん。{特別|とくべつ}マウスピースを{持|も}ち{出|だ}したのは{僕|ぼく}だ。"
+        expression: worried
+      - type: dialog
+        character: hibiki
+        text: "{明日|あした}のコンクールで{絶対|ぜったい}{金賞|きんしょう}を{取|と}りたかった。でも{自分|じぶん}のマウスピースだと{高|たか}い{音|おと}が{不安定|ふあんてい}で。先生の{特別|とくべつ}マウスピースを{使|つか}うと{驚|おどろ}くほど{良|い}い{音|おと}が{出|で}るんだ。"
+        expression: thinking
+      - type: dialog
+        character: hibiki
+        text: "16:05ごろ、みんなの{目|め}を{盗|ぬす}んで{準備室|じゅんびしつ}に{入|はい}って{取|と}った。そして{嘘|うそ}の{証言|しょうげん}をした。「15:20に{短調|たんちょう}」って——タイムラインをごまかすために。"
+        expression: worried
+      - type: dialog
+        character: hibiki
+        text: "でもカオリの{記録|きろく}もソウタの{耳|みみ}も、{僕|ぼく}が{長調|ちょうちょう}を{弾|ひ}いていたことを{証明|しょうめい}していた。{嘘|うそ}は{通|とお}じなかった……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: hibiki
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: kaori
+        expression: determined
+        position: left
+      - type: dialog
+        character: kaori
+        text: "{長調|ちょうちょう}と{短調|たんちょう}の{練習|れんしゅう}ルール。この{知識|ちしき}があったから、ヒビキの{嘘|うそ}を{見破|みやぶ}れたんだ。"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souta
+        text: "{耳|みみ}で{聞|き}いた{情報|じょうほう}とカオリの{記録|きろく}が{一致|いっち}してた。「{見|み}た」と「{聞|き}いた」の2つの{視点|してん}が{決|き}め{手|て}になったね。"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{長調|ちょうちょう}と{短調|たんちょう}——{曲|きょく}の『{気分|きぶん}』を{決|き}める{大切|たいせつ}な{要素|ようそ}ね。{今日|きょう}は、この{知識|ちしき}を{使|つか}ってヒビキの{嘘|うそ}を{見破|みやぶ}ったわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{金賞|きんしょう}を{取|と}りたい{気持|きも}ちは{素晴|すば}らしい。でも{勝手|かって}に{借|か}りるのは{正|ただ}しくない。{相談|そうだん}してくれたら、{一緒|いっしょ}に{方法|ほうほう}を{考|かんが}えられたのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: タイムラインを{作|つく}り{直|なお}し、{証言|しょうげん}とルールを{照|て}らし{合|あ}わせる。{嘘|うそ}は{証拠|しょうこ}の{前|まえ}に{崩|くず}れる。
+      - type: effect
+        name: fade-out

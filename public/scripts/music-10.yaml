@@ -1,0 +1,360 @@
+meta:
+  id: music-10
+  title: 交響する謎
+  series: 音楽探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  kaori:
+    name: カオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hibiki:
+    name: ヒビキ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotone:
+    name: コトネ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{文化祭|ぶんかさい}コンサートの{当日|とうじつ}{朝|あさ}。ハーモニーズが{演奏|えんそう}する『{虹|にじ}の{交響曲|こうきょうきょく}』の{楽譜|がくふ}が——{全|ぜん}パート{入|い}れ{替|か}えられていた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "カオリの{譜面台|ふめんだい}にはトランペットの{楽譜|がくふ}。ヒビキにはフルート。コトネにはパーカッション。ソウタにはピアノ。{全員|ぜんいん}が**{自分|じぶん}{以外|いがい}**のパートの{楽譜|がくふ}を{持|も}っている。"
+      - type: narration
+        text: しかもこの{入|い}れ{替|か}えは「デタラメ」ではなく、**ある{規則|きそく}に{従|したが}っている**ように{見|み}える。ピアノ→Tp→Fl→Perc→ピアノ……**1つずつ{右|みぎ}{隣|どなり}にズレている{循環|じゅんかん}**。
+      - type: narration
+        text: これは{事故|じこ}ではない。{誰|だれ}かが**{意図的|いとてき}に**{入|い}れ{替|か}えた。
+      - type: narration
+        text: "{今日|きょう}は{最終回|さいしゅうかい}。{投票|とうひょう}は**2{回|かい}**ある。1{回|かい}{目|め}は{犯人|はんにん}。2{回|かい}{目|め}は——{後|あと}で{分|わ}かる。
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 交響する謎
+        subtitle: 音楽探偵団 Vol.10（最終巻）
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入れ替えパターンと出入りノート
+      - type: narration
+        text: "{入|い}れ{替|か}えパターンを{分析|ぶんせき}——{全員|ぜんいん}が「{右|みぎ}{隣|どなり}」の{楽譜|がくふ}を{受|う}け{取|と}る{循環|じゅんかん}。ランダムではない。{意図的|いとてき}で、**{教育的|きょういくてき}なパターン**に{見|み}える。"
+      - type: narration
+        text: "{出入|でい}りノート——16:05コトネ{退室|たいしつ}。16:10ヒビキ{退室|たいしつ}。16:15カオリ{退室|たいしつ}。**16:30ソウタ{退室|たいしつ}（{最後|さいご}。1{人|り}で15{分間|ふんかん}）**。"
+      - type: narration
+        text: "{入|い}れ{替|か}えを{実行|じっこう}できたのは、16:15〜16:30にソウタだけが{残|のこ}っていた{時間帯|じかんたい}。"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 消えた席順メモと合奏への考え
+      - type: sprite
+        character: kaori
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kaori
+        text: "{昨日|きのう}15:00に{書|か}いた{席順|せきじゅん}メモが{消|き}えている！ {入|い}れ{替|か}えパターンはこのメモの{順番|じゅんばん}と{完全|かんぜん}に{一致|いっち}してるの。{誰|だれ}かがメモを{使|つか}って{入|い}れ{替|か}えた。"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: narration
+        text: "{先週|せんしゅう}の{練習後|れんしゅうご}、先生が「あなたにとって{合奏|がっそう}って{何|なに}？」と{聞|き}いた——"
+      - type: narration
+        text: "カオリ: 「{自分|じぶん}のパートを{正確|せいかく}に{弾|ひ}くことです」"
+      - type: narration
+        text: "ヒビキ: 「みんなで{一緒|いっしょ}に{音|おと}を{出|だ}すことです」"
+      - type: narration
+        text: "コトネ: 「きれいな{音楽|おんがく}を{作|つく}ることです」"
+      - type: narration
+        text: "ソウタ: 「**{全員|ぜんいん}が{全体|ぜんたい}の{音|おと}を{聴|き}いて、{互|たが}いの{役割|やくわり}を{理解|りかい}すること**です」"
+      - type: narration
+        text: ソウタだけ「{全体|ぜんたい}」「{互|たが}いの{役割|やくわり}」と{答|こた}えている。{他|ほか}の3{人|にん}は「{自分|じぶん}のパート」か「{一緒|いっしょ}に」{止|ど}まり。ソウタは{何|なに}を{感|かん}じていた？
+
+  # ==================== 1回目投票 ====================
+  - id: vote-1
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 1回目の投票
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hibiki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hibiki
+        text: "ソウタが{先週|せんしゅう}「みんな、{他|ほか}のパートの{音|おと}って{聴|き}いてる？」って{聞|き}いてきたの{覚|おぼ}えてる。{何|なに}か{考|かんが}えてたんだ。"
+        expression: thinking
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotone
+        text: "ソウタが「もしみんなが{他|ほか}のパートの{楽譜|がくふ}を{読|よ}んだら、{何|なに}が{変|か}わると{思|おも}う？」って{聞|き}いてきた。「{全体|ぜんたい}が{見|み}えるかもしれない」って。"
+        expression: thinking
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{循環|じゅんかん}パターン＋{席順|せきじゅん}メモの{一致|いっち}＋{最後|さいご}に{残|のこ}ったソウタ＋「{全体|ぜんたい}を{聴|き}いて」の{回答|かいとう}＋「{他|ほか}のパートを{読|よ}んだら」の{発言|はつげん}。
+      - type: choice
+        id: q1
+        question: 楽譜を入れ替えたのは誰？（1回目投票）
+        options:
+          - text: ソウタ（席順メモ＋最後に退室＋「全体を聴いて」の信念）
+            value: souta
+            correct: true
+            feedback: "{正解|せいかい}。ソウタが{楽譜|がくふ}を{入|い}れ{替|か}えた。でも——**なぜ「{入|い}れ{替|か}え」という{方法|ほうほう}を{選|えら}んだの？** まだ{終|お}わりじゃない。"
+          - text: カオリ（席順メモを書いた人）
+            value: kaori
+            feedback: "カオリは{席順|せきじゅん}メモを{書|か}いた{側|がわ}。{入|い}れ{替|か}えの{道具|どうぐ}を{提供|ていきょう}したが{実行|じっこう}はしていない。16:15に{帰|かえ}ったよ。"
+          - text: ヒビキ（ソウタの質問を覚えていた人）
+            value: hibiki
+            feedback: "ヒビキは{証言|しょうげん}を{持|も}っている{側|がわ}。16:10に{帰|かえ}っているよ。"
+          - text: コトネ（ソウタの発言を知っていた人）
+            value: kotone
+            feedback: "コトネは{情報|じょうほう}を{持|も}っている{側|がわ}。16:05に{帰|かえ}った{最初|さいしょ}の{退室者|たいしつしゃ}だよ。"
+
+  # ==================== Card 5：ソウタの手紙 ====================
+  - id: card-5
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ソウタの手紙
+        subtitle: 本当の理由
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: ソウタの{譜面台|ふめんだい}の{裏|うら}から**{手紙|てがみ}**が{見|み}つかった——
+      - type: sprite
+        character: souta
+        expression: determined
+        position: center
+      - type: dialog
+        character: souta
+        text: "{楽譜|がくふ}を{入|い}れ{替|か}えたのは{僕|ぼく}です。ごめんなさい。"
+        expression: worried
+      - type: dialog
+        character: souta
+        text: "でも{聞|き}いてほしい。{僕|ぼく}たちの{合奏|がっそう}、{本当|ほんとう}に『{合奏|がっそう}』になっていましたか？"
+        expression: determined
+      - type: dialog
+        character: souta
+        text: "カオリはピアノだけ{見|み}ていた。ヒビキはトランペットだけ。コトネはフルートだけ。{僕|ぼく}はパーカッションのリズムを{刻|きざ}む{中|なか}で{全体|ぜんたい}を{聴|き}いていた。だから{分|わ}かった。**みんな、{自分|じぶん}のパートしか{見|み}ていない**。"
+        expression: thinking
+      - type: dialog
+        character: souta
+        text: "{他|ほか}のパートの{楽譜|がくふ}を{見|み}てほしかった。トランペットの{勢|いきお}い、フルートの{繊細|せんさい}さ、パーカッションのリズム、ピアノの{土台|どだい}——{全部|ぜんぶ}を{知|し}って{初|はじ}めて『{合奏|がっそう}』になる。"
+        expression: determined
+      - type: dialog
+        character: souta
+        text: "{方法|ほうほう}は{間違|まちが}っていたかもしれません。{文化祭|ぶんかさい}{当日|とうじつ}にやるべきじゃなかった。先に{相談|そうだん}すべきだった。でも{考|かんが}えてほしい——**「{自分|じぶん}のパートだけ{見|み}ていれば{良|い}い」——それは{本当|ほんとう}ですか？**"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+      - type: wait
+        duration: 2000
+      - type: narration
+        text: "「{楽譜|がくふ}の{入|い}れ{替|か}え」は{妨害|ぼうがい}ではなく、**{問|と}いかけ**だった。"
+
+  # ==================== 議論 + 2回目投票 ====================
+  - id: discussion
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: hibiki
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hibiki
+        text: "……{妨害|ぼうがい}じゃなかったのか。{正直|しょうじき}に{言|い}うと、{僕|ぼく}も{自分|じぶん}の{音量|おんりょう}ばっかり{気|き}にして、{他|ほか}のパートの{音|おと}を{聴|き}いてなかった。"
+        expression: thinking
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotone
+        text: "ソウタ、ちゃんと{伝|つた}えてくれれば{良|よ}かったのに。でも……{気持|きも}ちは{分|わ}かる。"
+        expression: worried
+      - type: sprite
+        character: kotone
+        action: hide
+      - type: sprite
+        character: kaori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kaori
+        text: "{入|い}れ{替|か}えパターンが「{教育的|きょういくてき}」だって{証拠|しょうこ}1で{感|かん}じてた。ソウタの{手紙|てがみ}でその{意味|いみ}が{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: kaori
+        action: hide
+      - type: title_card
+        text: 2回目の投票
+        subtitle: 音楽部が大切にすべきことは？
+      - type: choice
+        id: q2
+        question: 音楽部が本当に大切にすべきことは何？
+        feedback_default: "どれを{選|えら}んでも{間違|まちが}いじゃない。{大事|だいじ}なのは**なぜそれを{選|えら}んだか**。ソウタが{伝|つた}えたかったのは「{全員|ぜんいん}が{全体|ぜんたい}の{音|おと}を{聴|き}いて{合|あ}わせること」。{自分|じぶん}のパートだけでなく、{他|ほか}のパートの{音|おと}も{聴|き}くこと——それが{本当|ほんとう}のアンサンブルだ。"
+        options:
+          - text: 自分のパートを完璧に演奏すること
+            value: technique
+            feedback: "{大切|たいせつ}なこと。でもそれだけでは『{合奏|がっそう}』にはならない。{自分|じぶん}のパートが{完璧|かんぺき}でも、{他|ほか}のパートの{音|おと}を{聴|き}いていなければ——"
+          - text: 全員が全体の音を聴いて合わせること
+            value: ensemble
+            feedback: "ソウタが{一番|いちばん}{伝|つた}えたかったことに{近|ちか}い。{自分|じぶん}のパートだけでなく、{全体|ぜんたい}の{中|なか}での{自分|じぶん}の{役割|やくわり}を{理解|りかい}すること——それが{本当|ほんとう}のアンサンブル。"
+          - text: コンクールで勝つこと
+            value: competition
+            feedback: "{目標|もくひょう}として{大事|だいじ}。でも{勝|か}つための{手段|しゅだん}が{合奏|がっそう}の{本質|ほんしつ}を{見失|みうしな}わせることもある。"
+          - text: みんなで楽しく演奏すること
+            value: fun
+            feedback: "{音楽|おんがく}の{原点|げんてん}。{楽|たの}しさは{大切|たいせつ}。でも「{楽|たの}しい」の{中身|なかみ}が「{自分|じぶん}だけ{楽|たの}しい」か「みんなで{聴|き}き{合|あ}って{楽|たの}しい」かで{意味|いみ}が{変|か}わる。"
+
+  # ==================== 真実 ====================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ソウタの信念
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: souta
+        expression: worried
+        position: center
+      - type: dialog
+        character: souta
+        text: "{方法|ほうほう}は{間違|まちが}っていた。{文化祭|ぶんかさい}{当日|とうじつ}に{相談|そうだん}なく{入|い}れ{替|か}えた。でも……みんなに{全体|ぜんたい}を{聴|き}いてほしかったんだ。"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: hibiki
+        expression: determined
+        position: left
+      - type: dialog
+        character: hibiki
+        text: "{怒|おこ}ってたけど……ソウタの{言|い}うこと、{分|わ}かる{気|き}がする。{僕|ぼく}も{自分|じぶん}の{音|おと}しか{聞|き}いてなかった。"
+        expression: thinking
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: happy
+        position: right
+      - type: dialog
+        character: kotone
+        text: "{一緒|いっしょ}に{練習|れんしゅう}しよう。{今度|こんど}は{全体|ぜんたい}を{聴|き}きながら。"
+        expression: happy
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ==================== エピローグ + シリーズ振り返り ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ソウタの{目的|もくてき}は{正|ただ}しかった。{方法|ほうほう}は{間違|まちが}っていた。{正義|せいぎ}の{暴走|ぼうそう}——{目的|もくてき}がいくら{正|ただ}しくても、{相談|そうだん}なく1{人|り}で{決|き}めるのは{独善的|どくぜんてき}。でもソウタの{問|と}いかけは{大切|たいせつ}よ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{音楽|おんがく}も{推理|すいり}も、{大事|だいじ}なのは『{全体|ぜんたい}を{見|み}る{力|ちから}』。1つの{証拠|しょうこ}だけ、1つのパートだけでは{真実|しんじつ}は{見|み}えない。みんなの{情報|じょうほう}を{合|あ}わせて、{全体|ぜんたい}を{聴|き}き{合|あ}わせて、{初|はじ}めて{答|こた}えが{見|み}えてくる。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "Vol.1から10{本|ぽん}、お{疲|つか}れさまでした。{消去法|しょうきょほう}から{始|はじ}まって、{視点|してん}{切|き}り{替|か}え、タイムライン、{因果|いんが}{連鎖|れんさ}、{仮説|かせつ}{検証|けんしょう}、{全探索|ぜんたんさく}、{情報|じょうほう}{欠落|けつらく}{認識|にんしき}、{認知|にんち}バイアス、{帰納法|きのうほう}、そしてメタ{認知|にんち}。10の{推理|すいり}スキルを{身|み}につけた。"
+      - type: narration
+        text: "{最後|さいご}の{問|と}い——「Vol.1の{自分|じぶん}と{今|いま}の{自分|じぶん}、{何|なに}が{変|か}わった？」"
+      - type: narration
+        text: "{音楽|おんがく}も{推理|すいり}も、{大切|たいせつ}なのは「{聴|き}く{力|ちから}」と「{全体|ぜんたい}を{見|み}る{力|ちから}」。これからもその{目|め}で{世界|せかい}を{探偵|たんてい}してください。
+      - type: effect
+        name: fade-out

@@ -1,0 +1,410 @@
+meta:
+  id: music-01
+  title: 消えたメロディ
+  series: 音楽探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  kaori:
+    name: カオリ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  souta:
+    name: ソウタ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hibiki:
+    name: ヒビキ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotone:
+    name: コトネ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{音楽|おんがく}クラブ『ハーモニーズ』の4人は、3日後の{音楽|おんがく}{発表会|はっぴょうかい}に{向|む}けて{毎日|まいにち}{練習|れんしゅう}を{続|つづ}けている。
+      - type: narration
+        text: "{演奏|えんそう}する{曲|きょく}は、山田先生が手書きで{作|つく}ってくれたオリジナル{曲|きょく}『{虹|にじ}のメロディ』。ピアノ・パーカッション・トランペット・フルートの4パートがそろって{初|はじ}めて{完成|かんせい}する{大切|たいせつ}な1{曲|きょく}だ。
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: 今朝、{音楽室|おんがくしつ}に{来|く}ると、{楽譜|がくふ}の**ピアノパートのページが{破|やぶ}られていた**。
+      - type: narration
+        text: "{楽譜|がくふ}は手書きの1{冊|さつ}だけ。コピーはない。ピアノのメロディがなければ、{合奏|がっそう}は{成|な}り{立|た}たない。
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{発表会|はっぴょうかい}まで、あと3{日|にち}。いったい{誰|だれ}が、なぜ{楽譜|がくふ}を{破|やぶ}ったの……？
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: kaori
+            expression: worried
+          - character: souta
+            expression: thinking
+          - character: hibiki
+            expression: surprised
+          - character: kotone
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{全員|ぜんいん}が{昨日|きのう}の{放課後|ほうかご}に{音楽室|おんがくしつ}で{練習|れんしゅう}していた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えたメロディ
+        subtitle: 音楽探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 破れた楽譜を調べよう
+      - type: narration
+        text: 『{虹|にじ}のメロディ』の{楽譜|がくふ}を{確認|かくにん}する。ピアノパートのページが{破|やぶ}られて、{半分|はんぶん}から{先|さき}がない。
+      - type: narration
+        text: "{残|のこ}っている{部分|ぶぶん}には、こう{書|か}いてある——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ド(4{分|ぶん})→レ(4{分|ぶん})→ミファ(8{分|ぶん})→ソラ(8{分|ぶん})"
+      - type: narration
+        text: 2{小節目|しょうせつめ}の{途中|とちゅう}、「ラ」のあとでページが{破|やぶ}れている。この{先|さき}にどんな{音符|おんぷ}が{書|か}かれていたかは、{破|やぶ}れた{部分|ぶぶん}を{見|み}ないとわからない。
+      - type: narration
+        text: ド→レ→ミ→ファ→ソ→ラ……この{音|おと}の{並|なら}びに{気|き}づくことはない？ ラの{次|つぎ}に{来|く}る{音|おと}は{何|なん}だろう？
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 出入りノートを確認しよう
+      - type: narration
+        text: "{音楽室|おんがくしつ}の{入口|いりぐち}に{置|お}いてある{出入|でいり}りノート。{昨日|きのう}の{放課後|ほうかご}の{記録|きろく}を{確認|かくにん}する。"
+      - type: narration
+        text: "15:00 ヒビキ（{入室|にゅうしつ}）、カオリ（{入室|にゅうしつ}）"
+      - type: narration
+        text: "15:15 コトネ（{入室|にゅうしつ}）"
+      - type: narration
+        text: "15:30 コトネ（{退室|たいしつ}）、ソウタ（{入室|にゅうしつ}）"
+      - type: narration
+        text: "15:45 ヒビキ（{退室|たいしつ}）"
+      - type: narration
+        text: "16:00 ソウタ（{退室|たいしつ}）、カオリ（{退室|たいしつ}）"
+      - type: narration
+        text: 山田先生のメモ——「15:00に{楽譜|がくふ}を{確認|かくにん}。{異常|いじょう}なし。みんな{頑張|がんば}ってね！」
+      - type: narration
+        text: "{楽譜|がくふ}は15:00には{無事|ぶじ}だった。{破|やぶ}れたのはそれ{以降|いこう}。それぞれが{音楽室|おんがくしつ}にいた{時間帯|じかんたい}を{整理|せいり}してみよう。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 楽譜のシミと証言
+      - type: narration
+        text: "{楽譜|がくふ}をよく{見|み}ると、1ページ{目|め}（フルートパート）にうっすらと{水|みず}のシミがある。"
+      - type: narration
+        text: でもシミがあるのはフルートパートのページだけ。{破|やぶ}れたピアノパートには{水|みず}のシミはない。
+      - type: narration
+        text: シミの{大|おお}きさは500{円玉|えんだま}くらい。{拭|ふ}いた{跡|あと}もある。
+      - type: narration
+        text: シミと{破|やぶ}れは{同|おな}じ{人|ひと}がやった？ それとも{別|べつ}々の{出来事|できごと}？
+      - type: sprite
+        character: hibiki
+        expression: worried
+        position: left
+      - type: dialog
+        character: hibiki
+        text: "えっと……{実|じつ}は{昨日|きのう}、{水筒|すいとう}の{水|みず}をちょっとこぼしちゃって。フルートパートにシミがついたかも。でも{破|やぶ}ったのは{僕|ぼく}じゃないよ！"
+        expression: worried
+      - type: sprite
+        character: hibiki
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: カオリの音楽ノート
+      - type: narration
+        text: 今朝、{音楽室|おんがくしつ}の{机|つくえ}の{上|うえ}にカオリの{音楽|おんがく}ノートが{置|お}いてあった。{開|ひら}いたページにこう{書|か}いてある——
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「ソ → ラ → シ → ???」"
+      - type: narration
+        text: "「※すごい！ {上行音階|じょうこうおんかい}だ！」"
+      - type: narration
+        text: 「ソ→ラ→シ」の3つの{音符|おんぷ}が{書|か}かれ、その{先|さき}は{書|か}きかけで{止|と}まっている。{欄外|らんがい}に「すごい！ {上行音階|じょうこうおんかい}だ！」と{走|はし}り{書|が}きがある。
+      - type: narration
+        text: カオリのノートの「ソ→ラ→シ」は、{何|なに}を{写|うつ}したものだろう？ {楽譜|がくふ}の{音符|おんぷ}とぴったり{並|なら}べてみると？
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotone
+        text: "カオリが{楽譜|がくふ}のそばでノートに{何|なに}か{書|か}いていたの、{見|み}たよ。すごく{真剣|しんけん}な{顔|かお}で……"
+        expression: thinking
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ゴミ箱の中の破片
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{音楽室|おんがくしつ}のゴミ{箱|ばこ}を{調|しら}べたら、{楽譜|がくふ}の{破片|はへん}が{見|み}つかったわ！"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{破片|はへん}に{書|か}かれていた{音符|おんぷ}——シ・ド({高|たか}い)。8{分|ぶん}{音符|おんぷ}が2つ。"
+      - type: narration
+        text: この{破片|はへん}は、{証拠|しょうこ}カード1の「ラ」の{続|つづ}きにぴったりつながる。
+      - type: narration
+        text: つまり、{楽譜|がくふ}のピアノパートのメロディは——**ド→レ→ミ→ファ→ソ→ラ→シ→ド({高|たか}い)**
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: ドから{高|たか}いドまで——{完全|かんぜん}な**{上行音階|じょうこうおんかい}**だ！
+      - type: narration
+        text: カオリのノートには「ソ→ラ→シ」と{書|か}いてあった。{破片|はへん}には「シ→ド」がある。ノートと{破片|はへん}の{音符|おんぷ}をつなげると……？
+      - type: narration
+        text: ノートに{書|か}いた{人|ひと}と、{楽譜|がくふ}を{破|やぶ}った{人|ひと}は{同|おな}じ？
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souta
+        text: "……{実|じつ}は{僕|ぼく}、15:40ごろに「バリッ」って{音|おと}を{聞|き}いたんだ。{紙|かみ}が{破|やぶ}れるような{音|おと}。そのとき{気|き}にしなかったけど……"
+        expression: thinking
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: souta
+        expression: determined
+        position: right
+      - type: dialog
+        character: souta
+        text: "それと、{帰|かえ}り{際|ぎわ}にカオリがゴミ{箱|ばこ}の{方|ほう}に{何|なに}かを{捨|す}てたのをチラッと{見|み}た。"
+        expression: determined
+      - type: sprite
+        character: souta
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。カオリのノートの{音符|おんぷ}と{破片|はへん}の{音符|おんぷ}がつながる。15:40の「バリッ」という{音|おと}。ゴミ{箱|ばこ}に{捨|す}てた{何|なに}か——"
+      - type: choice
+        id: q1
+        question: 楽譜を破ったのは誰？
+        options:
+          - text: カオリ（ノートの音符と破片がつながる）
+            value: kaori
+            correct: true
+            feedback: "{正解|せいかい}！ カオリのノートの「ソ→ラ→シ」と{破片|はへん}の「シ→ド」は{連続|れんぞく}する{上行音階|じょうこうおんかい}。カオリが{楽譜|がくふ}を{写|うつ}しながら{破|やぶ}ってしまった{証拠|しょうこ}だ。"
+          - text: ソウタ（「バリッ」の音を聞いた人）
+            value: souta
+            feedback: "ソウタは「バリッ」の{音|おと}を{聞|き}いた{証人|しょうにん}。{自分|じぶん}が{破|やぶ}った{音|おと}を{自分|じぶん}で{証言|しょうげん}するのは{不自然|ふしぜん}だよ。"
+          - text: ヒビキ（水のシミをつけた人）
+            value: hibiki
+            feedback: "ヒビキは{水|みず}のシミをつけたけど、シミがあるのはフルートパート。{破|やぶ}れたピアノパートとは{別|べつ}のページだよ。"
+          - text: コトネ（カオリの行動を見ていた人）
+            value: kotone
+            feedback: "コトネは15:30に{帰|かえ}っている。{楽譜|がくふ}が{破|やぶ}れたのは15:40ごろ。コトネはもう{音楽室|おんがくしつ}にいなかったね。"
+
+  # ==================== 真実：カオリ ====================
+  - id: truth-kaori
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: カオリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kaori
+        expression: worried
+        position: center
+      - type: dialog
+        character: kaori
+        text: "……ごめんなさい。{楽譜|がくふ}を{破|やぶ}ったのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: カオリはうつむきながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: kaori
+        text: "{昨日|きのう}の{練習中|れんしゅうちゅう}、ピアノパートの{音符|おんぷ}をじっと{見|み}ていたら、メロディに『ド→レ→ミ→ファ→ソ→ラ→シ→ド』っていう{上行音階|じょうこうおんかい}が{隠|かく}されていることに{気|き}づいたの。"
+        expression: thinking
+      - type: dialog
+        character: kaori
+        text: "『すごい！ 先生はこんなパターンを{曲|きょく}に{入|い}れてたんだ！』って{興奮|こうふん}して、ノートに{書|か}き{写|うつ}そうとした。"
+        expression: happy
+      - type: dialog
+        character: kaori
+        text: "でも、ページをめくろうとしたとき、{力|ちから}を{入|い}れすぎて……{破|やぶ}れちゃった。"
+        expression: worried
+      - type: dialog
+        character: kaori
+        text: "パニックになって、{破片|はへん}をゴミ{箱|ばこ}に{捨|す}てて、{知|し}らないふりをした。ごめんなさい……"
+        expression: worried
+      - type: sprite
+        character: kaori
+        action: hide
+
+  # ==================== 真実：ソウタ、ヒビキ ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souta
+        text: "……あのとき{音|おと}に{気|き}づいていたのに、{何|なに}もしなかった。もっと{注意|ちゅうい}{深|ぶか}く{見|み}ていれば、{楽譜|がくふ}を{守|まも}れたかもしれない。"
+        expression: worried
+      - type: sprite
+        character: souta
+        action: hide
+      - type: sprite
+        character: hibiki
+        expression: worried
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "{僕|ぼく}は{水筒|すいとう}の{水|みず}をこぼしてシミをつけちゃった。{破|やぶ}ったのとは{関係|かんけい}ないけど、ごめん。"
+        expression: worried
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: kotone
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotone
+        text: "カオリが{楽譜|がくふ}のそばでノートに{書|か}いていたの、{見|み}てたんだ。{音楽|おんがく}が{好|す}きだからこそ{夢中|むちゅう}になったんだよね。"
+        expression: thinking
+      - type: sprite
+        character: kotone
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カオリの{好奇心|こうきしん}は{素晴|すば}らしい{発見|はっけん}につながったのよ。{楽譜|がくふ}の{中|なか}に{上行音階|じょうこうおんかい}のパターンが{隠|かく}されていたこと、{誰|だれ}も{気|き}づかなかったもの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{問題|もんだい}は、{失敗|しっぱい}を{隠|かく}してしまったこと。{好奇心|こうきしん}は{悪|わる}くない。でも{何|なに}かあったときは、{正直|しょうじき}に{言|い}ってくれたら、みんなで{一緒|いっしょ}に{考|かんが}えられるわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{上行音階|じょうこうおんかい}——ド→レ→ミ→ファ→ソ→ラ→シ→ド。{音|おと}が{順番|じゅんばん}に{上|あ}がっていく{並|なら}び。{楽譜|がくふ}にはこういうパターンがたくさん{隠|かく}れている。
+      - type: narration
+        text: "{好|す}きな{曲|きょく}の{楽譜|がくふ}を{見|み}てみると、おもしろい{発見|はっけん}があるかもしれないよ。
+      - type: effect
+        name: fade-out
