@@ -1,0 +1,253 @@
+meta:
+  id: art-03
+  title: 偽りのスケッチ
+  series: 美術探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  sakura:
+    name: サクラ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  takumi:
+    name: タクミ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nijika:
+    name: ニジカ
+    color: "#E67E22"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  yuu:
+    name: ユウ
+    color: "#27AE60"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  sensei:
+    name: 先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: street
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{校内|こうない}{写生|しゃせい}{大会|たいかい}。テーマは「{学校|がっこう}の{花壇|かだん}」。4{人|にん}はそれぞれスケッチブックを{持|も}って{花壇|かだん}の{周|まわ}りに{座|すわ}り、{実物|じつぶつ}を{見|み}ながら{絵|え}を{描|か}いた——はずだった。"
+      - type: narration
+        text: "{提出後|ていしゅつご}、{審査員|しんさいん}の先生がユウの{絵|え}を{見|み}て{首|くび}をかしげた。
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "この{絵|え}、{花壇|かだん}を{見下|みお}ろすように{描|か}いてある。{花壇|かだん}の{前|まえ}から{描|か}いたはずなのに、**{上|うえ}から{見|み}たアングル**になっている。おかしいな。"
+        expression: thinking
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "{大事|だいじ}な{知識|ちしき}——アイレベル（{目|め}の{高|たか}さ）で{見|み}え{方|かた}が{変|か}わる。{花壇|かだん}の{前|まえ}に{座|すわ}る（{水平|すいへい}）と{花壇|かだん}の{地面|じめん}は{見|み}えない。2{階|かい}の{窓|まど}から{見下|みお}ろす（{俯瞰|ふかん}）と{地面|じめん}が{見|み}える。
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 偽りのスケッチ
+        subtitle: 美術探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ユウの絵の分析
+      - type: narration
+        text: "ユウの{絵|え}の{特徴|とくちょう}——{花壇|かだん}の{地面|じめん}が**{見|み}えている**。{花壇|かだん}が**{楕円形|だえんけい}**（{上|うえ}から{見|み}た{形|かたち}）。{花|はな}が**{上|うえ}から{丸|まる}く{見|み}える**。{影|かげ}が{短|みじか}い。"
+      - type: narration
+        text: "{花壇|かだん}の{前|まえ}に{座|すわ}ったなら: {地面|じめん}は{見|み}えない。{花壇|かだん}は{横長|よこなが}の{長方形|ちょうほうけい}。{花|はな}は{正面|しょうめん}から{見|み}える。"
+      - type: narration
+        text: "4つ{全部|ぜんぶ}が「{花壇|かだん}の{前|まえ}からでは{描|か}けない」{特徴|とくちょう}。どこから{見|み}たらこうなる？"
+      - type: narration
+        text: "{写生|しゃせい}ルール: 「{現地|げんち}で{実物|じつぶつ}を{見|み}て{描|か}くこと」。{花壇|かだん}を{見下|みお}ろせる{場所|ばしょ}: {校舎|こうしゃ}2{階|かい}の{教室|きょうしつ}の{窓|まど}（{高|たか}さ{約|やく}5m）。"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 中間休憩の行動と比較
+      - type: narration
+        text: "{中間|ちゅうかん}{休憩|きゅうけい}（10:30〜10:45）の{行動|こうどう}——"
+      - type: narration
+        text: "サクラ: その{場|ば}でスケッチブック{見直|みなお}し。タクミ: ストレッチ。ニジカ: {図工室|ずこうしつ}に{絵|え}の{具|ぐ}を{取|と}りに{行|い}った。"
+      - type: narration
+        text: "ユウ: **「トイレに{行|い}く」と{言|い}って{校舎|こうしゃ}へ**。10:30に{離席|りせき}し、10:45に{戻|もど}ってきた。**15{分間|ふんかん}**。"
+      - type: narration
+        text: "トイレだけで15{分|ふん}？ {長|なが}くない？ その{間|あいだ}に{何|なに}か{別|べつ}のことをしていた？"
+      - type: narration
+        text: "{他|ほか}の3{人|にん}の{絵|え}は{全|すべ}て{水平|すいへい}アングル（{花壇|かだん}の{前|まえ}から）。**ユウだけ{俯瞰|ふかん}アングル**。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 目撃情報と場所の特定
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: takumi
+        expression: surprised
+        position: left
+      - type: dialog
+        character: takumi
+        text: "{中間|ちゅうかん}{休憩|きゅうけい}にストレッチしながら{校舎|こうしゃ}を{見上|みあ}げたら、**2{階|かい}の{教室|きょうしつ}の{窓|まど}にユウらしい{人影|ひとかげ}**が{見|み}えた。{窓|まど}から{下|した}（{花壇|かだん}の{方向|ほうこう}）を{見|み}ていたよ。"
+        expression: surprised
+      - type: sprite
+        character: takumi
+        action: hide
+      - type: sprite
+        character: nijika
+        expression: determined
+        position: right
+      - type: dialog
+        character: nijika
+        text: "{図工室|ずこうしつ}に{絵|え}の{具|ぐ}を{取|と}りに{行|い}った{帰|かえ}り、2{階|かい}の{廊下|ろうか}を{通|とお}ったとき{教室|きょうしつ}のドアが{開|あ}いてて——**ユウがスケッチブックを{持|も}って{窓|まど}の{前|まえ}で{描|か}いてた**！ {花壇|かだん}の{方|ほう}を{見|み}ながら{真剣|しんけん}に。"
+        expression: determined
+      - type: sprite
+        character: nijika
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "タイムラインの{再構築|さいこうちく}——10:30「トイレに{行|い}く」で{校舎|こうしゃ}に{入|はい}る → 10:30〜10:45 **2{階|かい}の{教室|きょうしつ}で{窓|まど}から{花壇|かだん}を{見下|みお}ろしながらスケッチ** → 10:45 {花壇|かだん}の{前|まえ}に{戻|もど}り{下描|したが}きを{元|もと}に{仕上|しあ}げ。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "2{階|かい}の{窓|まど}（{高|たか}さ5m）から{見下|みお}ろすと: {地面|じめん}が{見|み}える ✅。{花壇|かだん}が{楕円形|だえんけい} ✅。{花|はな}が{上|うえ}から{丸|まる}く{見|み}える ✅。{影|かげ}が{短|みじか}い ✅。——**ユウの{絵|え}と{完全|かんぜん}{一致|いっち}**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。ユウの{絵|え}は{俯瞰|ふかん}アングル（{花壇|かだん}の{前|まえ}では{描|か}けない）。15{分間|ふんかん}の「トイレ」。2{階|かい}で{描|か}いているのをタクミとニジカが{目撃|もくげき}。2{階|かい}からのアングルとユウの{絵|え}が{完全|かんぜん}{一致|いっち}。"
+      - type: choice
+        id: q1
+        question: 花壇の前ではなく2階から描いたのは誰？
+        options:
+          - text: ユウ（俯瞰アングル＋15分の空白＋2階での目撃2件＋アングル一致）
+            value: yuu
+            correct: true
+            feedback: "{正解|せいかい}！ ユウは{花壇|かだん}の{前|まえ}で{上手|うま}く{描|か}けず、{中間|ちゅうかん}{休憩|きゅうけい}に2{階|かい}から{見下|みお}ろして{描|か}いた。「{上|うえ}からの{方|ほう}がきれいに{描|か}ける」——でもそれはルール{違反|いはん}。"
+          - text: サクラ（スケッチブックを見直していた人）
+            value: sakura
+            feedback: "サクラはその{場|ば}でスケッチブックを{見直|みなお}していた。{花壇|かだん}の{前|まえ}にいたよ。"
+          - text: タクミ（2階の人影を目撃した人）
+            value: takumi
+            feedback: "タクミは2{階|かい}を{見上|みあ}げた{目撃者|もくげきしゃ}。ストレッチしていた{側|がわ}だよ。"
+          - text: ニジカ（2階でユウを直接目撃した人）
+            value: nijika
+            feedback: "ニジカは{図工室|ずこうしつ}に{絵|え}の{具|ぐ}を{取|と}りに{行|い}った{帰|かえ}りに{目撃|もくげき}した{側|がわ}。"
+
+  # ==================== 真実：ユウ ====================
+  - id: truth-yuu
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ユウの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuu
+        expression: worried
+        position: center
+      - type: dialog
+        character: yuu
+        text: "……ごめんなさい。{花壇|かだん}の{前|まえ}で{描|か}き{始|はじ}めたけど、{花|はな}が{上手|うま}く{描|か}けなくて。"
+        expression: worried
+      - type: dialog
+        character: yuu
+        text: "トイレに{行|い}くって{言|い}って2{階|かい}に{行|い}ったら、{窓|まど}から{花壇|かだん}を{見下|みお}ろしたとき「この{角度|かくど}の{方|ほう}がきれいに{見|み}える！」って{思|おも}って。15{分|ふん}で{下描|したが}きをして、{花壇|かだん}の{前|まえ}に{戻|もど}って{仕上|しあ}げた。"
+        expression: thinking
+      - type: dialog
+        character: yuu
+        text: "ルール{違反|いはん}だって{分|わ}かってた。でも「{上手|うま}く{描|か}きたい」{気持|きも}ちが……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: yuu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "アイレベル——{目|め}の{高|たか}さで{見|み}え{方|かた}が{変|か}わる。{花壇|かだん}の{前|まえ}（80cm）と2{階|かい}（5m）では{全然|ぜんぜん}{違|ちが}う{構図|こうず}になるわ。この{知識|ちしき}でユウの{嘘|うそ}を{見破|みやぶ}れたの。"
+        expression: happy
+      - type: dialog
+        character: sensei
+        text: "{上手|うま}く{描|か}きたい{気持|きも}ちは{分|わ}かる。でもルールを{守|まも}ることも{大切|たいせつ}。{苦手|にがて}なら{練習|れんしゅう}する。{近道|ちかみち}は{信頼|しんらい}を{失|うしな}うわ。"
+        expression: normal
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: narration
+        text: "{同|おな}じ{花壇|かだん}でも{見|み}る{位置|いち}で{全然|ぜんぜん}{違|ちが}って{見|み}える。タイムラインを{再構築|さいこうちく}し、{証言|しょうげん}とアングルを{照|て}らし{合|あ}わせる。{真実|しんじつ}は{複数|ふくすう}の{角度|かくど}から{見|み}ると{見|み}えてくる。
+      - type: effect
+        name: fade-out
