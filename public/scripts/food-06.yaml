@@ -1,0 +1,355 @@
+meta:
+  id: food-06
+  title: 見えない塩
+  series: 食育探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: cooking-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は「{減塩|げんえん}チャレンジ」。4つの{班|はん}がそれぞれ{味噌汁|みそしる}を{作|つく}り、{塩分計|えんぶんけい}で{測定|そくてい}して「{減塩|げんえん}{味噌汁|みそしる}コンテスト」を{行|おこな}う{予定|よてい}だ。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今朝|けさ}、山田先生が{全班|ぜんはん}の{材料|ざいりょう}を{事前測定|じぜんそくてい}したところ、2{班|はん}（タベルの{班|はん}）だけ{塩分量|えんぶんりょう}が{異常|いじょう}に{高|たか}い！"
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ほかの{班|はん}は{約|やく}4gなのに、2{班|はん}だけ17g。{誰|だれ}かが2{班|はん}の{材料|ざいりょう}に{何|なに}かを{追加|ついか}した？"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: thinking
+          - character: taberu
+            expression: worried
+          - character: nikomi
+            expression: surprised
+          - character: sachiko
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{昨日|きのう}の{放課後|ほうかご}、{全員|ぜんいん}が{調理実習室|ちょうりじっしゅうしつ}に{出入|でい}りしていた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 見えない塩
+        subtitle: 食育探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: cooking-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入退室記録を調べよう
+      - type: narration
+        text: "{調理実習室|ちょうりじっしゅうしつ}の{入退室記録|にゅうたいしつきろく}を{確認|かくにん}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{昨日|きのう} 14:00〜14:25 山田先生 —— 4{班分|はんぶん}の{材料|ざいりょう}セットを{準備|じゅんび}"
+      - type: narration
+        text: "{昨日|きのう} 14:30〜14:45 サチコ —— {材料|ざいりょう}セット{確認|かくにん}"
+      - type: narration
+        text: "{昨日|きのう} 15:00〜15:15 ミソラ —— {栄養値|えいようち}{記録|きろく}"
+      - type: narration
+        text: "{昨日|きのう} 15:20〜15:35 ニコミ —— レシピ{確認|かくにん}"
+      - type: narration
+        text: "{昨日|きのう} 15:45〜15:55 タベル —— （{用件欄|ようけんらん}が{空白|くうはく}）"
+      - type: narration
+        text: "タベルの{用件欄|ようけんらん}だけ{空白|くうはく}……なぜ{書|か}かなかった？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 調味料と塩分の一覧表
+      - type: narration
+        text: "{減塩|げんえん}チャレンジのための{資料|しりょう}。{調味料|ちょうみりょう}100mlあたりの{食塩相当量|しょくえんそうとうりょう}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "みそ —— {約|やく}12〜13g / {醤油|しょうゆ} —— {約|やく}14〜16g"
+      - type: narration
+        text: "{白|しろ}だし —— {約|やく}13g / めんつゆ —— {約|やく}2〜4g"
+      - type: narration
+        text: "ポン{酢|ず} —— {約|やく}4〜6g / ケチャップ —— {約|やく}3g / マヨネーズ —— {約|やく}2g"
+      - type: narration
+        text: "{注意|ちゅうい}——「だし」という{名前|なまえ}がついていても、{白|しろ}だしやめんつゆには{食塩|しょくえん}がたっぷり！ 「だし = うまみ = {塩辛|しおから}くない」は{誤解|ごかい}だ。"
+      - type: narration
+        text: "{全探索|ぜんたんさく}タイム！ {上|うえ}の{調味料|ちょうみりょう}を1つずつチェックして、2{班|はん}の「+13g」と{一致|いっち}するものを{探|さが}そう。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 各班の塩分測定結果
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1{班|はん}: {基準|きじゅん}4g → {今朝|けさ}4g（{差|さ}なし）"
+      - type: narration
+        text: "2{班|はん}: {基準|きじゅん}4g → {今朝|けさ}17g（+13g {異常|いじょう}！）"
+      - type: narration
+        text: "3{班|はん}: {基準|きじゅん}4g → {今朝|けさ}4g（{差|さ}なし）/ 4{班|はん}: {基準|きじゅん}4g → {今朝|けさ}4g（{差|さ}なし）"
+      - type: narration
+        text: "2{班|はん}の{材料|ざいりょう}セットには、{他|ほか}の{班|はん}にない「{正体不明|しょうたいふめい}の{小瓶|こびん}」が1{本|ぽん}{入|はい}っていた。"
+      - type: narration
+        text: "{小瓶|こびん}の{正体|しょうたい}と{塩分量|えんぶんりょう}は？ ステップ2の{一覧表|いちらんひょう}と「+13g」を{照|て}らし{合|あ}わせよう。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ミソラの栄養ノート
+      - type: sprite
+        character: misora
+        expression: normal
+        position: left
+      - type: dialog
+        character: misora
+        text: "{昨日|きのう}15{時|じ}に{全班|ぜんはん}の{材料|ざいりょう}を{記録|きろく}したよ。4{班|はん}とも{同|おな}じ{内容|ないよう}で、みそ・{豆腐|とうふ}・わかめ・ねぎだけ。{調味料|ちょうみりょう}の{小瓶|こびん}はなかった。"
+        expression: normal
+      - type: dialog
+        character: misora
+        text: "{塩分|えんぶん}{源|げん}はみそだけで、{各班|かくはん}{約|やく}4gと{推定|すいてい}した。"
+        expression: thinking
+      - type: sprite
+        character: misora
+        action: hide
+      - type: narration
+        text: "ミソラが15{時|じ}に{記録|きろく}したとき、2{班|はん}に{小瓶|こびん}はなかった。{追加|ついか}されたのは15{時|じ}{以降|いこう}。{最後|さいご}に{入|はい}ったのは{誰|だれ}？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: cooking-room
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 2班の小瓶の正体
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "2{班|はん}の{材料|ざいりょう}セットから{見|み}つかった{小瓶|こびん}のラベルを{確認|かくにん}したわ。おもて{面|めん}は——「{白|しろ}だし」。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "そしてうら{面|めん}の{栄養成分表示|えいようせいぶんひょうじ}には「{食塩相当量|しょくえんそうとうりょう}: 13.0g/100ml」。{白|しろ}だし100mlで{食塩|しょくえん}13g！"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「だし」という{名前|なまえ}なのに、{食塩|しょくえん}が13g！ 2{班|はん}の+13gとぴったり{一致|いっち}する。"
+      - type: narration
+        text: "もし「だしは{塩辛|しおから}くない」と{思|おも}い{込|こ}んで{白|しろ}だしを{入|い}れた{人|ひと}がいたなら、それは{悪意|あくい}ではなく{誤解|ごかい}。では{白|しろ}だしを{持|も}ってきて{入|い}れたのは{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: nikomi
+        expression: determined
+        position: right
+      - type: dialog
+        character: nikomi
+        text: "15{時|じ}35{分|ぷん}に{退室|たいしつ}する{直前|ちょくぜん}に{材料棚|ざいりょうだな}を{確認|かくにん}した。そのとき2{班|はん}に{小瓶|こびん}はなかったよ。"
+        expression: determined
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: narration
+        text: "15{時|じ}に{小瓶|こびん}なし（ミソラ）。15{時|じ}35{分|ぷん}にも{小瓶|こびん}なし（ニコミ）。15{時|じ}35{分|ぷん}{以降|いこう}に{調理実習室|ちょうりじっしゅうしつ}にいたのは——"
+      - type: choice
+        id: q1
+        question: 白だしを入れたのは誰？
+        options:
+          - text: タベル（15:45以降に唯一いて、用件欄が空白）
+            value: taberu
+            correct: true
+            feedback: "{正解|せいかい}！ タベルは{自分|じぶん}の{班|はん}の{味噌汁|みそしる}をおいしくしたくて、{家|いえ}から「おばあちゃんの{白|しろ}だし」を{持|も}ってきた。「だし」だから{塩辛|しおから}くないと{思|おも}っていたけど、{実|じつ}は{食塩|しょくえん}13gの{調味料|ちょうみりょう}だった。"
+          - text: ミソラ（栄養値を記録した人）
+            value: misora
+            feedback: "ミソラは15{時|じ}15{分|ぷん}に{退室|たいしつ}。そのとき{小瓶|こびん}はなかったよ。"
+          - text: ニコミ（レシピ確認をした人）
+            value: nikomi
+            feedback: "ニコミは15{時|じ}35{分|ぷん}に{退室|たいしつ}。そのときまだ{小瓶|こびん}はなかったと{証言|しょうげん}している。"
+          - text: サチコ（材料セットを確認した人）
+            value: sachiko
+            feedback: "サチコは14{時|じ}45{分|ぷん}に{退室|たいしつ}。15{時|じ}{以降|いこう}にはいなかったよ。"
+
+  # ==================== 真実：タベル ====================
+  - id: truth-taberu
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: タベルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: taberu
+        expression: worried
+        position: center
+      - type: dialog
+        character: taberu
+        text: "……ごめん。{白|しろ}だしを{入|い}れたのは、{僕|ぼく}なんだ。"
+        expression: worried
+      - type: narration
+        text: タベルは{下|した}を{向|む}いて、ぽつぽつと{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: taberu
+        text: "{自分|じぶん}の{班|はん}の{味噌汁|みそしる}を「おいしく」したかった。おばあちゃんが「{白|しろ}だしを{入|い}れるとうまみが{出|で}るよ」って{言|い}ってたから、{家|いえ}から{持|も}ってきて{入|い}れたんだ。"
+        expression: thinking
+      - type: dialog
+        character: taberu
+        text: "「だし」はうまみ{成分|せいぶん}だから{塩辛|しおから}くないと{思|おも}ってた。でも{裏面|うらめん}の{食塩相当量|しょくえんそうとうりょう}を{見|み}たら13g……「{減塩|げんえん}チャレンジ」なのに、{大量|たいりょう}の{塩分|えんぶん}を{入|い}れちゃってた。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: taberu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: misora
+        expression: worried
+        position: left
+      - type: dialog
+        character: misora
+        text: "{昨日|きのう}、{廊下|ろうか}でタベルが「{白|しろ}だしで{味噌汁|みそしる}がおいしくなる」って{話|はな}してたの、{聞|き}いてた。でもタベルを{傷|きず}つけたくなくて{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: misora
+        action: hide
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: sachiko
+        text: "わたしの14{時|じ}30{分|ぷん}の{確認|かくにん}がもっと{丁寧|ていねい}だったら……。{給食委員|きゅうしょくいいん}として{反省|はんせい}してる。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タベルの「おいしくしたい」という{気持|きも}ちは{素敵|すてき}よ。でも「{白|しろ}だし」には{大量|たいりょう}の{食塩|しょくえん}が{入|はい}ってる。{名前|なまえ}や{見|み}た{目|め}だけで{判断|はんだん}せず、{栄養成分表示|えいようせいぶんひょうじ}を{読|よ}む{習慣|しゅうかん}をつけようね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{見|み}えない{塩分|えんぶん}」は{身近|みぢか}な{調味料|ちょうみりょう}にたくさん{隠|かく}れている。{白|しろ}だし・めんつゆ・{醤油|しょうゆ}——「だし」という{名前|なまえ}でも{塩辛|しおから}くないとは{限|かぎ}らない。
+      - type: narration
+        text: "{食品|しょくひん}のパッケージ{裏面|うらめん}の「{食塩相当量|しょくえんそうとうりょう}」を{確認|かくにん}しよう。{数値|すうち}で{確認|かくにん}する{習慣|しゅうかん}が、{自分|じぶん}と{家族|かぞく}の{健康|けんこう}を{守|まも}る。
+      - type: narration
+        text: "「{全探索|ぜんたんさく}」のワザ——{全|すべ}ての{可能性|かのうせい}を1つずつチェックする{力|ちから}。{勘|かん}ではなく{網羅的|もうらてき}に{調|しら}べることで、{見落|みお}としを{防|ふせ}ごう。
+      - type: effect
+        name: fade-out

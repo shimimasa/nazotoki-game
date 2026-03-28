@@ -1,0 +1,363 @@
+meta:
+  id: food-05
+  title: 冷凍された証拠
+  series: 食育探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: cooking-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は、「{食品|しょくひん}を{正|ただ}しく{保存|ほぞん}しよう」の{実習|じっしゅう}。{冷蔵|れいぞう}・{冷凍|れいとう}・{常温|じょうおん}に{食品|しょくひん}を{正|ただ}しく{仕分|しわ}ける{実験|じっけん}だ。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今朝|けさ}、タベルが{準備室|じゅんびしつ}を{確認|かくにん}すると、{昨日|きのう}{冷蔵庫|れいぞうこ}に{入|い}れたヨーグルト・チーズ・{生|なま}クリームが{冷凍庫|れいとうこ}に{移|うつ}されて{凍|こお}っていた！"
+      - type: narration
+        text: "さらに、{冷凍庫|れいとうこ}に{入|い}れるべき{冷凍|れいとう}うどんと{冷凍|れいとう}コーンが{常温|じょうおん}の{棚|たな}に{出|だ}されて{溶|と}けかけている！"
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かが{食品|しょくひん}の{保存場所|ほぞんばしょ}を{入|い}れ{替|か}えた！ このままでは{実習|じっしゅう}が{台無|だいな}しよ……"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: worried
+          - character: taberu
+            expression: surprised
+          - character: nikomi
+            expression: surprised
+          - character: sachiko
+            expression: worried
+      - type: narration
+        text: "{凍|こお}ったヨーグルト、{溶|と}けかけの{冷凍|れいとう}うどん。4{人|にん}は{異様|いよう}な{光景|こうけい}を{前|まえ}に{言葉|ことば}を{失|うしな}った。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 冷凍された証拠
+        subtitle: 食育探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: cooking-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入退室記録を調べよう
+      - type: narration
+        text: "{準備室|じゅんびしつ}の{入退室記録|にゅうたいしつきろく}を{時間順|じかんじゅん}に{整理|せいり}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{昨日|きのう} 14:00〜14:20 山田先生 —— {食品|しょくひん}を{正|ただ}しく{配置|はいち}"
+      - type: narration
+        text: "{昨日|きのう} 14:30〜14:45 サチコ —— {準備|じゅんび}{確認|かくにん}"
+      - type: narration
+        text: "{昨日|きのう} 15:00〜15:10 タベル —— {見学|けんがく}"
+      - type: narration
+        text: "{昨日|きのう} 15:20〜15:35 ニコミ —— レシピ{確認|かくにん}"
+      - type: narration
+        text: "{昨日|きのう} 15:45〜16:00 ミソラ —— {配置確認|はいちかくにん}"
+      - type: narration
+        text: "{今朝|けさ} 8:00〜8:10 タベル —— {異変|いへん}{発見|はっけん}！"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 食品保存ルール表
+      - type: narration
+        text: "{食品|しょくひん}の{正|ただ}しい{保存方法|ほぞんほうほう}を{学|まな}ぼう。"
+      - type: narration
+        text: "{冷蔵|れいぞう}（0〜10{度|ど}）—— {冷|ひ}やすが{凍|こお}らせない。ヨーグルト・チーズ・{生|なま}クリーム・{卵|たまご}・{鮮魚|せんぎょ}"
+      - type: narration
+        text: "{冷凍|れいとう}（マイナス18{度|ど}{以下|いか}）—— {凍|こお}らせて{保存|ほぞん}。{冷凍|れいとう}うどん・{冷凍|れいとう}コーン・アイスクリーム"
+      - type: narration
+        text: "{常温|じょうおん}（15〜25{度|ど}くらい）—— {冷|ひ}やさず{保存|ほぞん}。{缶詰|かんづめ}・{乾物|かんぶつ}・お{米|こめ}・{砂糖|さとう}・{塩|しお}"
+      - type: narration
+        text: "{大事|だいじ}なポイント —— {冷蔵|れいぞう}は「{冷|ひ}やす（{凍|こお}らせない）」、{冷凍|れいとう}は「{凍|こお}らせる」。この{違|ちが}いをしっかり{覚|おぼ}えよう！"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 食品の場所比較表
+      - type: narration
+        text: "山田先生が{昨日|きのう}{配置|はいち}した{食品|しょくひん}と、{今朝|けさ}{発見|はっけん}された{状態|じょうたい}を{比|くら}べよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヨーグルト・チーズ・{生|なま}クリーム —— {本来|ほんらい}は{冷蔵庫|れいぞうこ} → {今朝|けさ}は{冷凍庫|れいとうこ}（{凍|こお}っていた）"
+      - type: narration
+        text: "{冷凍|れいとう}うどん・{冷凍|れいとう}コーン —— {本来|ほんらい}は{冷凍庫|れいとうこ} → {今朝|けさ}は{常温棚|じょうおんだな}（{溶|と}けかけ）"
+      - type: narration
+        text: "{缶詰|かんづめ}・{乾燥|かんそう}パスタ —— {常温棚|じょうおんだな} → {変化|へんか}なし"
+      - type: narration
+        text: "{入|い}れ{替|か}わりのパターンに{注目|ちゅうもく}。「{冷蔵品|れいぞうひん}→{冷凍庫|れいとうこ}」「{冷凍品|れいとうひん}→{常温|じょうおん}」——{犯人|はんにん}はどんな{間違|まちが}いをした{人|ひと}だろう？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: タベルの観察メモ
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: taberu
+        text: "{今朝|けさ}8{時|じ}に{常温棚|じょうおんだな}の{冷凍|れいとう}うどんを{見|み}たんだ。{袋|ふくろ}の{外側|そとがわ}に{水滴|すいてき}がたくさんついていて、{底|そこ}の{部分|ぶぶん}が{濡|ぬ}れていた。"
+        expression: thinking
+      - type: dialog
+        character: taberu
+        text: "{冷凍食品|れいとうしょくひん}が{溶|と}けて{水滴|すいてき}になるには{時間|じかん}がかかる。この{量|りょう}だと、{少|すく}なくとも{数時間|すうじかん}は{常温|じょうおん}に{置|お}かれていたはず。{昨日|きのう}の{夕方|ゆうがた}{以降|いこう}の{犯行|はんこう}だと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: narration
+        text: "タベルの{観察|かんさつ}と{入退室記録|にゅうたいしつきろく}を{合|あ}わせると、{犯行|はんこう}{時刻|じこく}はいつに{絞|しぼ}られる？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: cooking-room
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 準備室で見つかったメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{準備室|じゅんびしつ}の{床|ゆか}でメモの{切|き}れ{端|はし}を{見|み}つけたわ。{誰|だれ}かの{筆跡|ひっせき}で、こう{書|か}いてある——"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{冷蔵|れいぞう} = {凍|こお}らせる」"
+      - type: narration
+        text: "「{冷凍|れいとう} = {冷|ひ}やす」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{冷蔵|れいぞう}と{冷凍|れいとう}が{逆|ぎゃく}に{書|か}いてある！ このメモの{通|とお}りに{食品|しょくひん}を{配置|はいち}したら——{冷蔵品|れいぞうひん}を{冷凍庫|れいとうこ}に、{冷凍品|れいとうひん}を{常温|じょうおん}に{移|うつ}すことになる。"
+      - type: narration
+        text: "{誰|だれ}かが{冷蔵|れいぞう}と{冷凍|れいとう}を{逆|ぎゃく}に{覚|おぼ}えていて、{自分|じぶん}のメモを{信|しん}じて{食品|しょくひん}を{動|うご}かした。では、そのメモを{書|か}いたのは{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: nikomi
+        expression: determined
+        position: right
+      - type: dialog
+        character: nikomi
+        text: "{実|じつ}は{思|おも}い{出|だ}したことがあるんだ。{昨日|きのう}15{時|じ}35{分|ぷん}に{準備室|じゅんびしつ}を{出|で}るとき、{冷蔵庫|れいぞうこ}の{中|なか}を{確認|かくにん}した。ヨーグルトがちゃんと{入|はい}ってた。{間違|まちが}いない。"
+        expression: determined
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: narration
+        text: "{仮説|かせつ}を{立|た}てよう。{犯人|はんにん}が{保存|ほぞん}ルールを{全|まった}く{知|し}らないなら、{全部|ぜんぶ}バラバラになるはず。でも{実際|じっさい}は{冷蔵|れいぞう}と{冷凍|れいとう}が{規則的|きそくてき}に{入|い}れ{替|か}わっている。つまり{犯人|はんにん}は「{冷蔵|れいぞう}と{冷凍|れいとう}を{逆|ぎゃく}に{覚|おぼ}えている{人|ひと}」——"
+      - type: choice
+        id: q1
+        question: 食品の保存場所を入れ替えたのは誰？
+        options:
+          - text: ミソラ（15:45以降に唯一いて、メモの筆跡が似ている）
+            value: misora
+            correct: true
+            feedback: "{正解|せいかい}！ ミソラは{栄養|えいよう}ノートに「{冷蔵|れいぞう}={凍|こお}らせる」と{逆|ぎゃく}に{書|か}いていた。{自分|じぶん}のノートを{信|しん}じて、先生の{配置|はいち}を「{間違|まちが}い」と{思|おも}い{込|こ}み、{食品|しょくひん}を{入|い}れ{替|か}えてしまった。"
+          - text: タベル（今朝異変を発見した人）
+            value: taberu
+            feedback: "タベルは{今朝|けさ}{発見|はっけん}した{側|がわ}だよ。{昨日|きのう}は15{時|じ}10{分|ぷん}に{退室|たいしつ}していて、15{時|じ}35{分|ぷん}にはまだ{食品|しょくひん}は{正|ただ}しい{場所|ばしょ}にあった。"
+          - text: ニコミ（15:35に冷蔵庫を確認した人）
+            value: nikomi
+            feedback: "ニコミは15{時|じ}35{分|ぷん}に{冷蔵庫|れいぞうこ}を{確認|かくにん}して「ヨーグルトがあった」と{証言|しょうげん}。{犯行|はんこう}はその{後|あと}だね。"
+          - text: サチコ（14:30に確認した人）
+            value: sachiko
+            feedback: "サチコは14{時|じ}45{分|ぷん}に{退室|たいしつ}。15{時|じ}35{分|ぷん}にまだ{食品|しょくひん}は{正|ただ}しかったから、サチコの{時間帯|じかんたい}ではないよ。"
+
+  # ==================== 真実：ミソラ ====================
+  - id: truth-misora
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミソラの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: misora
+        expression: worried
+        position: center
+      - type: dialog
+        character: misora
+        text: "……ごめんなさい。{食品|しょくひん}の{保存場所|ほぞんばしょ}を{入|い}れ{替|か}えたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: ミソラは{栄養|えいよう}ノートをぎゅっと{握|にぎ}りしめた。
+      - type: dialog
+        character: misora
+        text: "{授業|じゅぎょう}で{食品保存|しょくひんほぞん}のルールを{習|なら}ったとき、ノートに「{冷蔵|れいぞう}={凍|こお}らせる、{冷凍|れいとう}={冷|ひ}やす」って{書|か}いちゃったの。{逆|ぎゃく}だったのに{気|き}づかなかった。"
+        expression: thinking
+      - type: dialog
+        character: misora
+        text: "{昨日|きのう}、{準備室|じゅんびしつ}で{自分|じぶん}のノートと{照|て}らし{合|あ}わせたら、先生の{配置|はいち}が{間違|まちが}ってると{思|おも}い{込|こ}んで……「先生のために{直|なお}してあげよう」って、{勝手|かって}に{入|い}れ{替|か}えちゃった。"
+        expression: worried
+      - type: dialog
+        character: misora
+        text: "{自分|じぶん}のノートが{正|ただ}しいって{信|しん}じ{込|こ}んでた。先生に{確認|かくにん}すればよかった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: misora
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: taberu
+        text: "{僕|ぼく}も{今朝|けさ}、{水滴|すいてき}の{量|りょう}から「{数時間|すうじかん}{前|まえ}の{犯行|はんこう}」とは{分|わ}かってた。でも{確信|かくしん}が{持|も}てなくて{言|い}えなかった。もっと{早|はや}く{言|い}えばよかった。"
+        expression: worried
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: sachiko
+        text: "わたしも{実|じつ}は、{冷蔵|れいぞう}と{冷凍|れいとう}の{温度|おんど}の{違|ちが}いがよく{分|わ}かってなかった。「{冷|つめ}たい{方|ほう}が{冷凍|れいとう}？」くらいの{理解|りかい}だったの。ミソラだけじゃないよ。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミソラは「先生のために{直|なお}してあげよう」と{思|おも}ったのよね。その{気持|きも}ちはやさしい。でも{自分|じぶん}のメモだけを{信|しん}じて、{確認|かくにん}しなかったのが{問題|もんだい}だったわ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「{自分|じぶん}が{正|ただ}しい」と{思|おも}い{込|こ}むと、{反対|はんたい}の{証拠|しょうこ}を{見逃|みのが}してしまう。{疑問|ぎもん}に{思|おも}ったときは、{他|ほか}の{情報|じょうほう}や{専門家|せんもんか}に{確認|かくにん}しようね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{冷蔵|れいぞう}は「{冷|ひ}やす（{凍|こお}らせない）」、{冷凍|れいとう}は「{凍|こお}らせる」。{保存方法|ほぞんほうほう}を{間違|まちが}えると、{食品|しょくひん}がダメになってしまう。
+      - type: narration
+        text: "{思|おも}い{込|こ}みは{誰|だれ}にでもある。{大事|だいじ}なのは、「あれ？」と{思|おも}ったとき{立|た}ち{止|ど}まって{確認|かくにん}すること。「{仮説検証|かせつけんしょう}」のワザで、{思|おも}い{込|こ}みに{負|ま}けない{推理|すいり}をしよう。
+      - type: effect
+        name: fade-out

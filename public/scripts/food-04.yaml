@@ -1,0 +1,361 @@
+meta:
+  id: food-04
+  title: アレルギー警報
+  series: 食育探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: cooking-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は、「みんなで{作|つく}るホットケーキパーティー」。{準備室|じゅんびしつ}には{材料|ざいりょう}がそろっている——はずだった。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今朝|けさ}、山田先生が{準備室|じゅんびしつ}の{材料棚|ざいりょうだな}を{確認|かくにん}すると、{昨日|きのう}{並|なら}べた「{卵|たまご}」と「{牛乳|ぎゅうにゅう}」が{消|き}え、{代|か}わりに「{卵|たまご}{不使用|ふしよう}ホットケーキミックス」と「{豆乳|とうにゅう}」が{置|お}かれていた。"
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かが{材料|ざいりょう}を{入|い}れ{替|か}えた。いたずら？ それとも{別|べつ}の{理由|りゆう}が？ みんなで{調|しら}べてちょうだい！"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: thinking
+          - character: taberu
+            expression: worried
+          - character: nikomi
+            expression: surprised
+          - character: sachiko
+            expression: worried
+      - type: narration
+        text: 4{人|にん}の{食育探偵|しょくいくたんてい}たちは{顔|かお}を{見合|みあ}わせた。{昨日|きのう}の{放課後|ほうかご}、{全員|ぜんいん}が{準備室|じゅんびしつ}に{出入|でい}りしていた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: アレルギー警報
+        subtitle: 食育探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: cooking-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入退室記録を調べよう
+      - type: narration
+        text: "{準備室|じゅんびしつ}の{入退室記録|にゅうたいしつきろく}。4{人|にん}がそれぞれ{何時|なんじ}に{出入|でい}りしたか、{時間順|じかんじゅん}に{並|なら}べてみよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{昨日|きのう} 14:00 山田先生 —— {材料|ざいりょう}を{並|なら}べた"
+      - type: narration
+        text: "{昨日|きのう} 14:30〜14:35 ミソラ —— {材料|ざいりょう}リストチェック"
+      - type: narration
+        text: "{昨日|きのう} 15:00〜15:05 タベル —— {見学|けんがく}"
+      - type: narration
+        text: "{昨日|きのう} 15:15〜15:30 ニコミ —— レシピ{確認|かくにん}"
+      - type: narration
+        text: "{昨日|きのう} 15:40〜15:55 サチコ —— {準備|じゅんび}{確認|かくにん}"
+      - type: narration
+        text: "{今朝|けさ} 8:00〜8:05 ニコミ —— {材料|ざいりょう}{確認|かくにん}"
+      - type: narration
+        text: "4{人|にん}の{行動|こうどう}を{時間順|じかんじゅん}に{並|なら}べて、タイムラインを{作|つく}ってみよう。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 食物アレルギーの基礎知識
+      - type: narration
+        text: "{食物|しょくもつ}アレルギーの「{特定原材料|とくていげんざいりょう}7{品目|しちひんもく}」。アレルギーを{起|お}こしやすい{食品|しょくひん}として{国|くに}が{指定|してい}したものだ。"
+      - type: narration
+        text: "{卵|たまご}・{乳|にゅう}（{牛乳|ぎゅうにゅう}など）・{小麦|こむぎ}・そば・{落花生|らっかせい}・えび・かに"
+      - type: narration
+        text: "{除去食|じょきょしょく}と{代替食品|だいたいしょくひん}—— {卵|たまご}アレルギーの{人|ひと}には{卵|たまご}{不使用|ふしよう}ミックス。{乳|にゅう}アレルギーの{人|ひと}には{豆乳|とうにゅう}。"
+      - type: narration
+        text: "{大事|だいじ}なこと —— アレルギー{対応|たいおう}は、{必|かなら}ず{栄養教諭|えいようきょうゆ}や{専門家|せんもんか}に{相談|そうだん}してから{行|おこな}う！"
+      - type: narration
+        text: "{今回|こんかい}{入|い}れ{替|か}わった「{卵|たまご}」「{牛乳|ぎゅうにゅう}」は、{特定原材料|とくていげんざいりょう}に{含|ふく}まれている？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 材料の比較表
+      - type: narration
+        text: "山田先生が{並|なら}べた{元|もと}の{材料|ざいりょう}と、{今朝|けさ}{発見|はっけん}された{材料|ざいりょう}を{比|くら}べよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{変化|へんか}した{材料|ざいりょう} —— {卵|たまご}（6{個|こ}）→ {卵|たまご}{不使用|ふしよう}ホットケーキミックス / {牛乳|ぎゅうにゅう}（200ml）→ {豆乳|とうにゅう}（200ml）"
+      - type: narration
+        text: "そのまま{残|のこ}った{材料|ざいりょう} —— {小麦粉|こむぎこ}、{砂糖|さとう}、バター。ぜんぶ{変化|へんか}なし。"
+      - type: narration
+        text: "{入|い}れ{替|か}えられた{材料|ざいりょう}（{卵|たまご}{不使用|ふしよう}ミックスと{豆乳|とうにゅう}）は、どんな{人|ひと}のために{作|つく}られた{食品|しょくひん}だろう？ ステップ2と{合|あ}わせて{考|かんが}えてみよう。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ニコミの準備室メモ
+      - type: sprite
+        character: nikomi
+        expression: normal
+        position: left
+      - type: dialog
+        character: nikomi
+        text: "{昨日|きのう}15{時|じ}15{分|ふん}から15{時|じ}30{分|ぷん}まで{準備室|じゅんびしつ}にいて、レシピを{確認|かくにん}したよ。{棚|たな}の{上|うえ}に{卵|たまご}6{個|こ}、{牛乳|ぎゅうにゅう}200ml、{小麦粉|こむぎこ}、{砂糖|さとう}、バター——ぜんぶ{元|もと}のままだった。"
+        expression: normal
+      - type: dialog
+        character: nikomi
+        text: "15{時|じ}30{分|ぷん}に{退室|たいしつ}したとき、{材料|ざいりょう}はぜんぶ{元|もと}のままでした！"
+        expression: determined
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: narration
+        text: "ニコミが15{時|じ}30{分|ぷん}に{確認|かくにん}したとき、{卵|たまご}も{牛乳|ぎゅうにゅう}もあった。では、{材料|ざいりょう}が{入|い}れ{替|か}えられたのは15{時|じ}30{分|ぷん}より{後|あと}。その{時間帯|じかんたい}に{準備室|じゅんびしつ}にいたのは……？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の分析
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{入|い}れ{替|か}わっていた{材料|ざいりょう}を{調|しら}べたわ。2つとも{食物|しょくもつ}アレルギー{対応品|たいおうひん}だったの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{卵|たまご}{不使用|ふしよう}ミックスは{卵|たまご}アレルギーの{人|ひと}が{食|た}べられる。{豆乳|とうにゅう}は{牛乳|ぎゅうにゅう}アレルギーの{人|ひと}の{代替品|だいたいひん}。{材料|ざいりょう}を{盗|ぬす}んだのではなく、アレルギーのある{人|ひと}のために{入|い}れ{替|か}えた{可能性|かのうせい}があるわ。"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{盗|ぬす}んだ」のではなく「{誰|だれ}かを{守|まも}ろうとした」——{見方|みかた}が{変|か}わった！"
+      - type: narration
+        text: "クラスにアレルギーのある{人|ひと}は{誰|だれ}？ それを{知|し}っていて、{対応品|たいおうひん}を{選|えら}べる{知識|ちしき}を{持|も}っていたのは{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: taberu
+        expression: worried
+        position: left
+      - type: dialog
+        character: taberu
+        text: "……{正直|しょうじき}に{言|い}うよ。{実|じつ}は{僕|ぼく}、{卵|たまご}アレルギーなんだ。ホットケーキパーティー、{参加|さんか}できるか{不安|ふあん}だった。「みんなと{同|おな}じものが{食|た}べたいな」ってつぶやいちゃった。"
+        expression: worried
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。15{時|じ}30{分|ぷん}には{元|もと}の{材料|ざいりょう}があった。{入|い}れ{替|か}わったのは15{時|じ}30{分|ぷん}のあと。その{時間帯|じかんたい}にいたのはサチコだけ。そして{入|い}れ{替|か}わった{材料|ざいりょう}はアレルギー{対応品|たいおうひん}——"
+      - type: choice
+        id: q1
+        question: 材料を入れ替えたのは誰？
+        options:
+          - text: サチコ（15:40以降に唯一いて、アレルギー対応品を選べる知識がある）
+            value: sachiko
+            correct: true
+            feedback: "{正解|せいかい}！ サチコは{給食委員|きゅうしょくいいん}としてアレルギーの{知識|ちしき}があり、タベルの{卵|たまご}アレルギーを{知|し}っていた。タベルを{守|まも}りたいという{善意|ぜんい}から、{材料|ざいりょう}を{入|い}れ{替|か}えたんだ。"
+          - text: ミソラ（材料リストチェックをした人）
+            value: misora
+            feedback: "ミソラは14{時|じ}35{分|ふん}に{退室|たいしつ}したよ。15{時|じ}30{分|ぷん}にはまだ{元|もと}の{材料|ざいりょう}があったから、ミソラの{時間帯|じかんたい}には{入|い}れ{替|か}わっていない。"
+          - text: タベル（アレルギーの当事者）
+            value: taberu
+            feedback: "タベルは15{時|じ}5{分|ふん}に{退室|たいしつ}。しかも{材料|ざいりょう}には{触|さわ}っていない。{自分|じぶん}で{入|い}れ{替|か}えるのは{不自然|ふしぜん}だよ。"
+          - text: ニコミ（15:30に材料を確認した人）
+            value: nikomi
+            feedback: "ニコミは15{時|じ}30{分|ぷん}に{退室|たいしつ}して、{材料|ざいりょう}は{元|もと}のままだった。{入|い}れ{替|か}わったのはその{後|あと}だね。"
+
+  # ==================== 真実：サチコ ====================
+  - id: truth-sachiko
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: サチコの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: center
+      - type: dialog
+        character: sachiko
+        text: "……ごめんなさい。{材料|ざいりょう}を{入|い}れ{替|か}えたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "サチコの{目|め}には{涙|なみだ}がにじんでいた。"
+      - type: dialog
+        character: sachiko
+        text: "{先日|せんじつ}、タベルが「みんなと{同|おな}じものが{食|た}べたいな…」ってつぶやいてるのを{聞|き}いちゃったの。タベルが{卵|たまご}アレルギーだって{知|し}ってたから、ホットケーキに{卵|たまご}と{牛乳|ぎゅうにゅう}が{入|はい}ってると{食|た}べられないって……"
+        expression: thinking
+      - type: dialog
+        character: sachiko
+        text: "だから{卵|たまご}を{卵|たまご}{不使用|ふしよう}ミックスに、{牛乳|ぎゅうにゅう}を{豆乳|とうにゅう}に{入|い}れ{替|か}えたの。{元|もと}の{卵|たまご}と{牛乳|ぎゅうにゅう}は{給食室|きゅうしょくしつ}の{冷蔵庫|れいぞうこ}にちゃんと{保管|ほかん}してある。{盗|ぬす}んだんじゃない。"
+        expression: determined
+      - type: dialog
+        character: sachiko
+        text: "タベルを{守|まも}りたかっただけ……でも、先生に{相談|そうだん}しないで{勝手|かって}にやっちゃった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: taberu
+        expression: worried
+        position: left
+      - type: dialog
+        character: taberu
+        text: "サチコ……{僕|ぼく}のためにそこまでしてくれたんだ。{嬉|うれ}しい。でも、{僕|ぼく}のアレルギーのせいで{事件|じけん}になっちゃって……ごめん。"
+        expression: worried
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: sprite
+        character: misora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: misora
+        text: "14{時|じ}30{分|ぷん}の{材料|ざいりょう}チェックのとき、「{卵|たまご}アレルギーの{人|ひと}は{食|た}べられないな」って{思|おも}ってた。でも先生に{言|い}えなかった……わたしも{言|い}えばよかった。"
+        expression: thinking
+      - type: sprite
+        character: misora
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タベル、{聞|き}いてね。アレルギーは{個性|こせい}よ。{悪|わる}いことじゃない。そしてサチコの「{守|まも}りたい」という{気持|きも}ちは、とてもすてきなものだわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、アレルギー{対応|たいおう}は{専門家|せんもんか}に{相談|そうだん}してから。{勝手|かって}に{材料|ざいりょう}を{変|か}えると、{別|べつ}のアレルギーを{引|ひ}き{起|お}こすかもしれない。{困|こま}ったことがあれば、{先生|せんせい}に{相談|そうだん}してね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{元|もと}の{卵|たまご}と{牛乳|ぎゅうにゅう}は{給食室|きゅうしょくしつ}に{無事|ぶじ}に{保管|ほかん}されていた。山田先生がアレルギー{対応|たいおう}を{確認|かくにん}した{上|うえ}で、みんなで{楽|たの}しくホットケーキパーティーができることになった。
+      - type: narration
+        text: "{食物|しょくもつ}アレルギーの{特定原材料|とくていげんざいりょう}7{品目|しちひんもく}——{卵|たまご}・{乳|にゅう}・{小麦|こむぎ}・そば・{落花生|らっかせい}・えび・かに。{覚|おぼ}えておこう。
+      - type: narration
+        text: "アレルギーのある{人|ひと}も、ない{人|ひと}も、みんなで{楽|たの}しく{食|た}べる{方法|ほうほう}は{必|かなら}ずある。{困|こま}ったら、まず{誰|だれ}かに{相談|そうだん}しよう。
+      - type: effect
+        name: fade-out
