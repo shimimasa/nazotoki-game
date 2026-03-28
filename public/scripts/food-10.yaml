@@ -1,0 +1,367 @@
+meta:
+  id: food-10
+  title: 捨てられた真実
+  series: 食育探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "シリーズ{最終回|さいしゅうかい}。{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は「フードロス・ゼロ・チャレンジ」。1{週間|しゅうかん}の{給食|きゅうしょく}{残食|ざんしょく}データを{分析|ぶんせき}し、{残食|ざんしょく}を{減|へ}らす{方法|ほうほう}を{考|かんが}える{実習|じっしゅう}だ。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{先週|せんしゅう}のデータを{確認|かくにん}すると、{木曜日|もくようび}だけ{残食量|ざんしょくりょう}が{異常|いじょう}にゼロ。{他|ほか}の{日|ひ}は15〜22%なのに、{木曜|もくよう}だけ0%。{完璧|かんぺき}すぎる。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{統計的|とうけいてき}に{見|み}て、{自然|しぜん}に0%になることはほぼありえない。{誰|だれ}かがデータを{改|かい}ざんした{可能性|かのうせい}があるわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: thinking
+          - character: taberu
+            expression: thinking
+          - character: nikomi
+            expression: worried
+          - character: sachiko
+            expression: surprised
+      - type: narration
+        text: "{食育探偵団|しょくいくたんていだん}、{最後|さいご}の{事件|じけん}。これまで{学|まな}んだ{全|すべ}ての{推理|すいり}スキルが{試|ため}される。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 捨てられた真実
+        subtitle: 食育探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 1週間の残食データ
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先週|せんしゅう}の{残食率|ざんしょくりつ}: {月曜|げつよう}15%（カレー）/ {火曜|かよう}20%（{鮭|さけ}の{塩焼|しおや}き）"
+      - type: narration
+        text: "{木曜|もくよう}0%（ほうれん{草|そう}のごまあえ・{豚汁|とんじる}）/ {金曜|きんよう}22%（{唐揚|からあ}げ）※{水曜|すいよう}は{祝日|しゅくじつ}で{休|やす}み"
+      - type: narration
+        text: "ミソラの{分析|ぶんせき}: {月|げつ}〜{金|きん}の{平均|へいきん}{残食率|ざんしょくりつ}は{約|やく}19%。{変動幅|へんどうはば}は5〜7%。{木曜|もくよう}の0%は{統計的|とうけいてき}にほぼありえない{外|はず}れ{値|ち}。"
+      - type: narration
+        text: "しかも{木曜|もくよう}のメニューは「ほうれん{草|そう}のごまあえ」——{子|こ}どもに{人気|にんき}があるメニューとは{言|い}えない。{自然|しぜん}に{完食|かんしょく}するのは{考|かんが}えにくい。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: フードロスの基礎知識
+      - type: narration
+        text: "{日本|にほん}のフードロスは{年間|ねんかん}{約|やく}523{万|まん}トン。{給食|きゅうしょく}の{残食|ざんしょく}だけで{年間|ねんかん}{約|やく}17{万|まん}トン。"
+      - type: narration
+        text: "{給食|きゅうしょく}の{残食|ざんしょく}の{本来|ほんらい}の{行|ゆ}き{先|さき}: {給食室|きゅうしょくしつ}で{計量|けいりょう}→{堆肥化|たいひか}{施設|しせつ}へ→{土|つち}の{栄養|えいよう}になる→{野菜|やさい}・{食料|しょくりょう}{生産|せいさん}にリサイクル！"
+      - type: narration
+        text: "でも{教室|きょうしつ}のゴミ{箱|ばこ}に{捨|す}てられたら→{焼却|しょうきゃく}{処分|しょぶん}→CO2が{出|で}て{環境|かんきょう}に{負荷|ふか}。リサイクルされない。"
+      - type: narration
+        text: "「{残食|ざんしょく}ゼロにすること」と「{残食|ざんしょく}をリサイクルすること」は{同|おな}じ？ それとも{違|ちが}う？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 各班の木曜日記録
+      - type: se
+        sound: discover
+      - type: narration
+        text: "クラス{内|ない}の{各班|かくはん}の{木曜日|もくようび}{残食|ざんしょく}{状況|じょうきょう}——"
+      - type: narration
+        text: "ニコミの{班|はん}: {残食|ざんしょく}なし（0%）。{給食当番|きゅうしょくとうばん}: ニコミ"
+      - type: narration
+        text: "ミソラの{班|はん}: {約|やく}15% / タベルの{班|はん}: {約|やく}18% / サチコの{班|はん}: {約|やく}16%"
+      - type: narration
+        text: "{他|ほか}クラスの{木曜日|もくようび}: 5{年|ねん}2{組|くみ}17% / 5{年|ねん}3{組|くみ}19% / 6{年|ねん}1{組|くみ}22%"
+      - type: narration
+        text: "{同|おな}じ{日|ひ}の{同|おな}じ{給食|きゅうしょく}なのに、ニコミの{班|はん}だけ0%。{他|ほか}のすべての{班|はん}・クラスは15〜22%。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: タベルの発見レポート
+      - type: sprite
+        character: taberu
+        expression: determined
+        position: left
+      - type: dialog
+        character: taberu
+        text: "{昨日|きのう}、{教室|きょうしつ}のゴミ{箱|ばこ}を{調|しら}べたんだ。{底|そこ}に{緑色|みどりいろ}の{汚|よご}れとごまの{粒|つぶ}があった。{先週|せんしゅう}{木曜|もくよう}の「ほうれん{草|そう}のごまあえ」に{見|み}える。"
+        expression: determined
+      - type: dialog
+        character: taberu
+        text: "それと、「{木|もく}」と{書|か}かれた{紙|かみ}の{切|き}れ{端|はし}も{落|お}ちてた。{残食記録|ざんしょくきろく}シートのフォーマットに{似|に}た{紙|かみ}だった。"
+        expression: thinking
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: narration
+        text: "{木曜日|もくようび}の{給食|きゅうしょく}{残食|ざんしょく}が、{給食室|きゅうしょくしつ}に{返却|へんきゃく}される{前|まえ}に{教室|きょうしつ}のゴミ{箱|ばこ}に{移|うつ}された——？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 残食の本当の行き先
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ひまわり{小学校|しょうがっこう}では、{給食|きゅうしょく}の{残食|ざんしょく}は{堆肥化|たいひか}ルートに{乗|の}せてリサイクルしているの。{土|つち}の{栄養|えいよう}になって、{野菜|やさい}を{育|そだ}てる{力|ちから}になる。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "でも{教室|きょうしつ}のゴミ{箱|ばこ}に{捨|す}てたら、{堆肥化|たいひか}ルートから{外|はず}れて{焼却|しょうきゃく}{処分|しょぶん}。CO2が{出|で}て{環境|かんきょう}に{悪影響|あくえいきょう}。「{残食|ざんしょく}ゼロ」に{見|み}せかけただけで、リサイクルを{妨害|ぼうがい}し、かえってフードロスを{増|ふ}やしてしまうのよ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{残食|ざんしょく}ゼロ = {正義|せいぎ}」と{信|しん}じて{行動|こうどう}した{人|ひと}がいる。でもその{行動|こうどう}は、リサイクルを{妨害|ぼうがい}し、{環境|かんきょう}への{負荷|ふか}を{増|ふ}やしてしまった。"
+      - type: narration
+        text: "{正義感|せいぎかん}が{暴走|ぼうそう}するとき、{本当|ほんとう}に{守|まも}りたかったものを{壊|こわ}してしまうことがある。では、{犯人|はんにん}は{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: sachiko
+        text: "わたしは{木曜日|もくようび}の{記録係|きろくがかり}。ニコミから「{残食|ざんしょく}なし」と{報告|ほうこく}されて、「0%」と{記録|きろく}した。{何|なに}か{変|へん}だなと{思|おも}ったのに{確認|かくにん}しなかった。わたしにも{責任|せきにん}がある。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+      - type: narration
+        text: "ニコミの{班|はん}だけ0%。{給食当番|きゅうしょくとうばん}はニコミ。ゴミ{箱|ばこ}に{木曜|もくよう}の{給食|きゅうしょく}の{残渣|ざんさ}。そしてニコミは「フードロスゼロ」に{強|つよ}い{信念|しんねん}を{持|も}っていた——"
+      - type: choice
+        id: q1
+        question: 残食データを改ざんしたのは誰？
+        options:
+          - text: ニコミ（給食当番として残食をゴミ箱に隠し、0%と報告した）
+            value: nikomi
+            correct: true
+            feedback: "{正解|せいかい}！ ニコミは「フードロスゼロ」のために{残食|ざんしょく}をゴミ{箱|ばこ}に{移|うつ}して{空|から}の{食缶|しょっかん}を{返却|へんきゃく}した。でもその{行動|こうどう}は、{堆肥化|たいひか}リサイクルを{妨害|ぼうがい}し、かえってフードロスを{増|ふ}やした。"
+          - text: ミソラ（統計分析をした人）
+            value: misora
+            feedback: "ミソラはデータの{異常|いじょう}を{発見|はっけん}した{側|がわ}だよ。"
+          - text: タベル（ゴミ箱を確認した人）
+            value: taberu
+            feedback: "タベルは{証拠|しょうこ}を{発見|はっけん}した{側|がわ}。{犯人|はんにん}ではないよ。"
+          - text: サチコ（0%と記録した人）
+            value: sachiko
+            feedback: "サチコはニコミの{報告|ほうこく}を{信|しん}じて{記録|きろく}しただけ。{確認|かくにん}しなかった{責任|せきにん}はあるけど、{残食|ざんしょく}を{移|うつ}したのは{別|べつ}の{人|ひと}。"
+      - type: narration
+        text: "ここで、もう1つ{考|かんが}えてほしいことがある。"
+      - type: choice
+        id: q2
+        question: 食べ残しを減らすために、本当に大切なことは何？
+        options:
+          - text: 食べられる量だけよそって、残食自体を減らす
+            value: reduce
+            feedback: "いい{考|かんが}え！ そもそも{残|のこ}さないことが{一番|いちばん}のフードロス{対策|たいさく}。{自分|じぶん}の{食|た}べられる{量|りょう}を{知|し}ることが{大切|たいせつ}だね。"
+          - text: 残っても堆肥化ルートを守って、リサイクルにつなげる
+            value: recycle
+            feedback: "すばらしい{視点|してん}！ {完食|かんしょく}できなくても、{正|ただ}しいルートで{処理|しょり}すればリサイクルできる。ゴミ{箱|ばこ}に{捨|す}てるのが{一番|いちばん}よくない。"
+          - text: データを正直に記録して、問題を見える化する
+            value: data
+            feedback: "データの{信頼性|しんらいせい}を{守|まも}ることはとても{大事|だいじ}。{正確|せいかく}なデータがあれば、{本当|ほんとう}の{原因|げんいん}が{見|み}えてくる。{改|かい}ざんしたらなにも{解決|かいけつ}しない。"
+          - text: 全部大切。一つだけでは足りない
+            value: all
+            feedback: "そのとおり。{残食|ざんしょく}を{減|へ}らす{努力|どりょく}も、リサイクルルートを{守|まも}ることも、{正直|しょうじき}なデータも、{全部|ぜんぶ}{大切|たいせつ}。{複数|ふくすう}の{視点|してん}から{考|かんが}えられるのが、シリーズ{最終回|さいしゅうかい}にふさわしい{推理|すいり}だ。"
+
+  # ==================== 真実：ニコミ ====================
+  - id: truth-nikomi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ニコミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nikomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nikomi
+        text: "……ごめんなさい。{残食|ざんしょく}データを{改|かい}ざんしたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "ニコミの{目|め}には{涙|なみだ}がにじんでいた。{拳|こぶし}を{強|つよ}く{握|にぎ}りしめている。"
+      - type: dialog
+        character: nikomi
+        text: "「{食|た}べ{残|のこ}しは{悪|わる}い」「フードロスをなくさなきゃ」って、ずっと{思|おも}ってた。{木曜日|もくようび}の{給食当番|きゅうしょくとうばん}のとき、{残食|ざんしょく}が{出|で}るのが{許|ゆる}せなくて……ゴミ{箱|ばこ}に{移|うつ}して{空|から}の{食缶|しょっかん}を{返|かえ}しちゃった。"
+        expression: thinking
+      - type: dialog
+        character: nikomi
+        text: "「{残食|ざんしょく}ゼロ = {正義|せいぎ}」だと{信|しん}じてた。でもCard5の{話|はなし}を{聞|き}いて——{僕|ぼく}がやったことは、リサイクルを{妨害|ぼうがい}してた。{正義|せいぎ}だと{思|おも}ってやったことが、かえって{悪|わる}い{結果|けっか}になってた。"
+        expression: determined
+      - type: sprite
+        character: nikomi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: misora
+        expression: thinking
+        position: left
+      - type: dialog
+        character: misora
+        text: "{統計|とうけい}で{異常|いじょう}を{見|み}つけることはできた。でもわたしも「{残食|ざんしょく}ゼロはいいこと」と{思|おも}い{込|こ}んでた。{自分|じぶん}の{推理|すいり}の{前提|ぜんてい}を{疑|うたが}う——メタ{認知|にんち}って{大事|だいじ}なんだね。"
+        expression: thinking
+      - type: sprite
+        character: misora
+        action: hide
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: sachiko
+        text: "ニコミの{報告|ほうこく}を{信|しん}じて0%と{記録|きろく}した。「{何|なに}か{変|へん}だな」と{思|おも}ったのに{確認|かくにん}しなかった。{記録係|きろくがかり}として、データの{信頼性|しんらいせい}を{守|まも}るべきだった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ニコミの「フードロスをなくしたい」という{気持|きも}ちは{素晴|すば}らしい。でも、{正義感|せいぎかん}が{暴走|ぼうそう}すると、{本当|ほんとう}に{守|まも}りたかったものを{壊|こわ}してしまうことがある。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{大切|たいせつ}なのは、「{自分|じぶん}の{考|かんが}えの{前提|ぜんてい}を{疑|うたが}うこと」。{残食|ざんしょく}ゼロは{素晴|すば}らしい{目標|もくひょう}。でもその{方法|ほうほう}が{正|ただ}しいかどうか、{立|た}ち{止|ど}まって{考|かんが}えよう。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{食育探偵団|しょくいくたんていだん}、{全|ぜん}10{巻|かん}をとおして{学|まな}んだこと——{三色食品群|さんしょくしょくひんぐん}、{砂糖|さとう}の{種類|しゅるい}、{食品表示|しょくひんひょうじ}、アレルギー、{保存方法|ほぞんほうほう}、{隠|かく}れた{塩分|えんぶん}、{加熱基準|かねつきじゅん}、{栄養|えいよう}バランス、{旬|しゅん}と{地産地消|ちさんちしょう}、そしてフードロス。
+      - type: narration
+        text: "{推理|すいり}スキルも{成長|せいちょう}した。{消去法|しょうきょほう}から{始|はじ}まり、{情報整理|じょうほうせいり}、{因果連鎖|いんがれんさ}、タイムライン{再構成|さいこうせい}、{仮説検証|かせつけんしょう}、{全探索|ぜんたんさく}、{情報欠落認識|じょうほうけつらくにんしき}、{認知|にんち}バイアス{自覚|じかく}、{帰納法|きのうほう}、そしてメタ{認知|にんち}。
+      - type: narration
+        text: "{食|た}べることは{生|い}きること。{知|し}ることは{守|まも}ること。これからも「なぜ？」を{大切|たいせつ}に、{食|た}べ{物|もの}のなぞを{解|と}き{続|つづ}けよう。
+      - type: effect
+        name: fade-out

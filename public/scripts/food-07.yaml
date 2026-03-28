@@ -1,0 +1,362 @@
+meta:
+  id: food-07
+  title: 加熱時間の罠
+  series: 食育探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: cooking-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は「{安全|あんぜん}な{調理|ちょうり}」{実習|じっしゅう}。{鶏肉|とりにく}のソテーを4{班|はん}で{作|つく}る{予定|よてい}だ。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今朝|けさ}、山田先生が{昨日|きのう}の{試作記録|しさくきろく}シートを{確認|かくにん}すると、{加熱時間|かねつじかん}の{欄|らん}だけが{書|か}き{換|か}えられていた！"
+      - type: narration
+        text: "{元|もと}の{記録|きろく}は「{加熱|かねつ}8{分|ぷん}（{中心温度|ちゅうしんおんど}75{度|ど}{達成|たっせい}）」だったのに、「{加熱|かねつ}3{分|ぷん}」に{変更|へんこう}されている。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "3{分|ぷん}で{調理|ちょうり}したら{生焼|なまや}けよ！ {食中毒|しょくちゅうどく}の{危険|きけん}があるわ。{誰|だれ}が、なぜ{書|か}き{換|か}えたの……？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: worried
+          - character: taberu
+            expression: surprised
+          - character: nikomi
+            expression: worried
+          - character: sachiko
+            expression: worried
+      - type: narration
+        text: "{食中毒|しょくちゅうどく}の{危険|きけん}——これは{今|いま}までで{一番|いちばん}{深刻|しんこく}な{事件|じけん}だ。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 加熱時間の罠
+        subtitle: 食育探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: cooking-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入退室記録を調べよう
+      - type: narration
+        text: "{準備室|じゅんびしつ}の{入退室記録|にゅうたいしつきろく}。{昨日|きのう}の{試作|しさく}のあと、{誰|だれ}がいつ{出入|でい}りしたか{確認|かくにん}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "14:45〜15:00 ミソラ —— {記録|きろく}シート{転記|てんき}"
+      - type: narration
+        text: "15:00〜15:10 サチコ —— {実習|じっしゅう}{前|まえ}の{確認|かくにん}"
+      - type: narration
+        text: "15:20〜15:55 ニコミ —— {記録|きろく}{確認|かくにん}"
+      - type: narration
+        text: "タベルの{名前|なまえ}はなし（{準備室|じゅんびしつ}には{入|はい}っていない）。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 食品衛生の加熱基準
+      - type: narration
+        text: "{鶏肉|とりにく}を{安全|あんぜん}に{食|た}べるための{基準|きじゅん}を{学|まな}ぼう。"
+      - type: narration
+        text: "{中心温度|ちゅうしんおんど}75{度|ど}{以上|いじょう}を1{分間|ぷんかん}{以上|いじょう}{保|たも}つこと。これが{鶏肉|とりにく}の{加熱基準|かねつきじゅん}だ。"
+      - type: narration
+        text: "{加熱|かねつ}3{分|ぷん} → {約|やく}55〜65{度|ど}（{危険|きけん}！ {細菌|さいきん}が{残|のこ}る）"
+      - type: narration
+        text: "{加熱|かねつ}5{分|ぷん} → {約|やく}70〜72{度|ど}（ギリギリ。{条件|じょうけん}による）"
+      - type: narration
+        text: "{加熱|かねつ}8{分|ぷん} → {約|やく}75〜80{度|ど}（{安全|あんぜん}！）"
+      - type: narration
+        text: "{表面|ひょうめん}が{焼|や}けていても、{中心部分|ちゅうしんぶぶん}の{温度|おんど}が75{度|ど}に{達|たっ}していなければ{細菌|さいきん}は{生|い}き{残|のこ}る。プロの{料理人|りょうりにん}も{必|かなら}ず{温度計|おんどけい}で{確認|かくにん}する。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 試作記録シート
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{今朝|けさ}の{試作記録|しさくきろく}シート。{加熱時間|かねつじかん}の{欄|らん}に{注目|ちゅうもく}しよう。"
+      - type: narration
+        text: "{加熱時間|かねつじかん}: 「3{分|ぷん}」—— {消|け}しゴムの{跡|あと}がある！ {数字|すうじ}がわずかに{浮|う}いている。"
+      - type: narration
+        text: "{中心温度|ちゅうしんおんど}: 75{度|ど}{達成|たっせい} / {焼|や}き{色|いろ}: きれい / ジューシーさ: いい"
+      - type: narration
+        text: "{食感|しょっかん}の{欄|らん}: {記入|きにゅう}なし / {評価欄|ひょうからん}: {空白|くうはく}"
+      - type: narration
+        text: "{消|け}しゴムの{跡|あと}は{何|なに}を{意味|いみ}する？ {元|もと}は{何|なに}が{書|か}いてあった？ ステップ2の{加熱基準|かねつきじゅん}と{照|て}らし{合|あ}わせよう。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ミソラの転記ノート
+      - type: sprite
+        character: misora
+        expression: normal
+        position: left
+      - type: dialog
+        character: misora
+        text: "{昨日|きのう}14{時|じ}45{分|ふん}に{記録|きろく}シートを{転記|てんき}したよ。そのとき{加熱時間|かねつじかん}は「8{分|ぷん}」って{書|か}いてあった。{中心温度|ちゅうしんおんど}75{度|ど}{達成|たっせい}もチェック{済|ず}み。"
+        expression: normal
+      - type: sprite
+        character: misora
+        action: hide
+      - type: sprite
+        character: sachiko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sachiko
+        text: "わたしも15{時|じ}に{確認|かくにん}したとき、「{加熱|かねつ}8{分|ぷん}」って{書|か}いてあった。{間違|まちが}いない。"
+        expression: thinking
+      - type: sprite
+        character: sachiko
+        action: hide
+      - type: narration
+        text: "14{時|じ}45{分|ふん}にも15{時|じ}にも「8{分|ぷん}」だった。{書|か}き{換|か}えは15{時|じ}10{分|ぷん}{以降|いこう}。その{時間帯|じかんたい}に{準備室|じゅんびしつ}にいたのは——？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ帳
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{記録|きろく}シートの{評価欄|ひょうからん}が{空白|くうはく}だったのは、わたしがメモ{帳|ちょう}に{書|か}いたからなの。その{内容|ないよう}を{見|み}つけたわ——"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{安全|あんぜん}: きれい。{食感|しょっかん}: △パサつき。{加熱|かねつ}しすぎの{影響|えいきょう}あり。もう{少|すこ}し{短|みじか}くしてもいいかもしれないが、{安全|あんぜん}{第一|だいいち}。8{分|ぷん}を{守|まも}ること」"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{食感|しょっかん}△パサつき」——この{評価|ひょうか}を{読|よ}んで、{誰|だれ}かが{悔|くや}しく{思|おも}った？ 「3{分|ぷん}でジューシーに{焼|や}ければ{認|みと}めてもらえる」と{考|かんが}えた{人|ひと}がいる。"
+      - type: narration
+        text: "{料理|りょうり}の{腕前|うでまえ}を{証明|しょうめい}したい{気持|きも}ちが、{安全基準|あんぜんきじゅん}を{無視|むし}する{行動|こうどう}につながった。では、15{時|じ}10{分|ぷん}{以降|いこう}に{準備室|じゅんびしつ}にいた{人|ひと}は{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: taberu
+        text: "{実|じつ}は、{昨日|きのう}の{試作中|しさくちゅう}にニコミが「3{分|ぷん}でも{大丈夫|だいじょうぶ}じゃないかな」って{言|い}ってたの、{聞|き}いてた。{確信|かくしん}はなかったけど……"
+        expression: thinking
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: narration
+        text: "{書|か}き{換|か}えは15{時|じ}10{分|ぷん}{以降|いこう}。その{時間帯|じかんたい}にいたのはニコミだけ。「{食感|しょっかん}△パサつき」への{悔|くや}しさ。そして「3{分|ぷん}でも{大丈夫|だいじょうぶ}」の{発言|はつげん}——"
+      - type: choice
+        id: q1
+        question: 記録シートを書き換えたのは誰？
+        options:
+          - text: ニコミ（15:10以降に唯一いて、「3分でも大丈夫」と言っていた）
+            value: nikomi
+            correct: true
+            feedback: "{正解|せいかい}！ ニコミは{料理|りょうり}の{腕前|うでまえ}を{認|みと}めてもらいたくて、「{食感|しょっかん}△パサつき」{評価|ひょうか}に{悔|くや}しさを{感|かん}じ、「8{分|ぷん}」を「3{分|ぷん}」に{書|か}き{換|か}えた。でも3{分|ぷん}では{食中毒|しょくちゅうどく}の{危険|きけん}がある。"
+          - text: ミソラ（記録シートを転記した人）
+            value: misora
+            feedback: "ミソラは{転記|てんき}しただけで、{元|もと}の{記録|きろく}が「8{分|ぷん}」だったことを{証明|しょうめい}する{側|がわ}だよ。"
+          - text: タベル（準備室に入っていない人）
+            value: taberu
+            feedback: "タベルは{入退室記録|にゅうたいしつきろく}に{名前|なまえ}がない。{準備室|じゅんびしつ}に{入|はい}っていないよ。"
+          - text: サチコ（15:00に確認した人）
+            value: sachiko
+            feedback: "サチコは15{時|じ}10{分|ぷん}に{退室|たいしつ}。その{時点|じてん}ではまだ「8{分|ぷん}」だった。{書|か}き{換|か}えは{後|あと}だね。"
+
+  # ==================== 真実：ニコミ ====================
+  - id: truth-nikomi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ニコミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nikomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nikomi
+        text: "……ごめんなさい。{記録|きろく}シートを{書|か}き{換|か}えたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: ニコミは{拳|こぶし}を{握|にぎ}りしめながら{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: nikomi
+        text: "{昨日|きのう}の{試作|しさく}、{一番|いちばん}{力|ちから}を{入|い}れたのに、先生の{評価|ひょうか}は「パサつき」だった。{悔|くや}しくて……「3{分|ぷん}でジューシーに{焼|や}ければ、{認|みと}めてもらえる」って{思|おも}って{書|か}き{換|か}えちゃった。"
+        expression: thinking
+      - type: dialog
+        character: nikomi
+        text: "でも{今日|きょう}、{加熱基準|かねつきじゅん}のことを{学|まな}んで……3{分|ぷん}じゃ{中心温度|ちゅうしんおんど}が{足|た}りない。みんなが{食中毒|しょくちゅうどく}になるところだった。{本当|ほんとう}にごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: nikomi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: misora
+        expression: worried
+        position: left
+      - type: dialog
+        character: misora
+        text: "{廊下|ろうか}でニコミらしき{声|こえ}が{聞|き}こえた。でも{確信|かくしん}がなくて……。{転記|てんき}ノートがなかったら{元|もと}の{数字|すうじ}を{証明|しょうめい}できなかったかも。{記録|きろく}の{大切|たいせつ}さを{実感|じっかん}したよ。"
+        expression: worried
+      - type: sprite
+        character: misora
+        action: hide
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: sachiko
+        text: "ニコミが「{加熱時間|かねつじかん}、もっと{短|みじか}くても{十分|じゅうぶん}じゃないかな」ってつぶやいてたの、{聞|き}いてたのに{止|と}めなかった。ごめんね。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ニコミの「おいしく{作|つく}りたい」という{気持|きも}ちは、{料理人|りょうりにん}として{素晴|すば}らしいわ。でも、おいしさのために{安全|あんぜん}を{犠牲|ぎせい}にしてはいけない。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "プロの{料理人|りょうりにん}は、どんなにおいしい{料理|りょうり}を{作|つく}るときも{温度計|おんどけい}で{中心温度|ちゅうしんおんど}を{確認|かくにん}するのよ。「{安全|あんぜん}でおいしい」を{両立|りょうりつ}する{方法|ほうほう}を、みんなで{考|かんが}えましょう。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{鶏肉|とりにく}の{加熱基準|かねつきじゅん}——{中心温度|ちゅうしんおんど}75{度|ど}で1{分|ぷん}{以上|いじょう}。{感覚|かんかく}ではなく{数字|すうじ}で{守|まも}る。{表面|ひょうめん}が{焼|や}けていても{中|なか}は{生|なま}かもしれない。
+      - type: narration
+        text: "「まだ{分|わ}かっていないことがある」と{気|き}づく{力|ちから}——{情報欠落認識|じょうほうけつらくにんしき}。{記録|きろく}シートの{評価欄|ひょうからん}が{空白|くうはく}だと{気|き}づけたら、{事件|じけん}の{核心|かくしん}に{近|ちか}づける。
+      - type: effect
+        name: fade-out

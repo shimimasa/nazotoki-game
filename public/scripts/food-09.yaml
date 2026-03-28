@@ -1,0 +1,342 @@
+meta:
+  id: food-09
+  title: 収穫データの矛盾
+  series: 食育探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は「{地産地消|ちさんちしょう}フェア」。{学校|がっこう}の{畑|はたけ}で{育|そだ}てた{野菜|やさい}の{収穫|しゅうかく}データを{使|つか}って「{旬|しゅん}の{食材|しょくざい}マップ」を{作|つく}る{実習|じっしゅう}だ。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今朝|けさ}、山田先生が{全班|ぜんはん}のデータを{比較|ひかく}すると、ミソラの{班|はん}のトマトの{収穫量|しゅうかくりょう}だけ{他|ほか}の3{班|はん}と{大|おお}きくずれている！"
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "1{班|はん}0.8kg、3{班|はん}0.5kg、4{班|はん}0.7kg——なのにミソラの{班|はん}だけ5kg？ 10{倍|ばい}もちがう。データの{改|かい}ざん？ {記録|きろく}ミス？"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: worried
+          - character: taberu
+            expression: thinking
+          - character: nikomi
+            expression: surprised
+          - character: sachiko
+            expression: thinking
+      - type: narration
+        text: 4{人|にん}は{収穫|しゅうかく}データの{表|ひょう}を{見|み}つめた。1つだけ{飛|と}び{抜|ぬ}けた{数字|すうじ}が、{不自然|ふしぜん}に{光|ひか}っている。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 収穫データの矛盾
+        subtitle: 食育探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: データ回収メモ
+      - type: se
+        sound: discover
+      - type: narration
+        text: "3{月|がつ}のトマト{収穫量|しゅうかくりょう}——1{班|はん}（サチコ）: 0.8kg / 2{班|はん}（ミソラ）: 5kg / 3{班|はん}（タベル）: 0.5kg / 4{班|はん}（ニコミ）: 0.7kg"
+      - type: narration
+        text: "ミソラの{班|はん}だけ5kg。{他|ほか}の3{班|はん}は0.5〜0.8kg。10{倍|ばい}の{差|さ}がある。"
+      - type: narration
+        text: "4{班|はん}のデータを{並|なら}べて、パターンを{探|さが}そう。3つの{班|はん}は{何|なに}が{共通|きょうつう}している？ 1つだけ{違|ちが}うのはどこ？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 収穫日の作業記録
+      - type: narration
+        text: "{先週|せんしゅう}{金曜日|きんようび}の{畑|はたけ}での{作業記録|さぎょうきろく}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "{参加者|さんかしゃ}: タベル（トマト{計測|けいそく}）、ニコミ（{補助|ほじょ}）、サチコ（キュウリ・ナス{記録|きろく}）"
+      - type: narration
+        text: "ミソラ——{欠席|けっせき}（{記録|きろく}{係|がかり}だが{不在|ふざい}）"
+      - type: narration
+        text: "タベルの{当日|とうじつ}{手書|てが}きメモ: 「2{班|はん}のトマト 0.5kg ← ミソラへ{渡|わた}すこと」"
+      - type: narration
+        text: "タベルは2{班|はん}のトマトを0.5kgと{計測|けいそく}した。でもミソラの{提出|ていしゅつ}データは5kg。4.5kgの{差|さ}はどこから？ そしてミソラは{収穫日|しゅうかくび}に{欠席|けっせき}していた。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 全班のデータ比較表
+      - type: narration
+        text: "{全班|ぜんはん}×5{種類|しゅるい}の{野菜|やさい}の{収穫|しゅうかく}データを{並|なら}べよう。トマト{以外|いがい}も{確認|かくにん}！"
+      - type: narration
+        text: "ホウレンソウ: 1.2 / 1.1 / 1.0 / 1.3（{全班|ぜんはん}ほぼ{同|おな}じ）"
+      - type: narration
+        text: "カブ: 0.9 / 0.8 / 1.0 / 0.9（{全班|ぜんはん}ほぼ{同|おな}じ）"
+      - type: narration
+        text: "トマト: 0.8 / 5.0 / 0.5 / 0.7（2{班|はん}だけ{異常|いじょう}！）"
+      - type: narration
+        text: "ブロッコリー: 0.6 / 0.5 / 0.7 / 0.6 / ハクサイ: 2.1 / 2.0 / 1.9 / 2.2（{全班|ぜんはん}ほぼ{同|おな}じ）"
+      - type: narration
+        text: "{帰納法|きのうほう}の{練習|れんしゅう}！ 1{班|はん}・3{班|はん}・4{班|はん}のトマトデータには「3{月|がつ}は{少量|しょうりょう}」というパターンがある。2{班|はん}だけそのパターンから{外|はず}れている。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 旬カレンダー
+      - type: narration
+        text: "{野菜|やさい}の{旬|しゅん}と{収穫量|しゅうかくりょう}の{目安|めやす}を{確認|かくにん}しよう。"
+      - type: narration
+        text: "トマトの{旬|しゅん}: 6〜9{月|がつ}（{夏|なつ}）。{旬|しゅん}の{収量|しゅうりょう}: 5〜8kg"
+      - type: narration
+        text: "3{月|がつ}のトマト: {旬外|しゅんはず}れ。{温室|おんしつ}でもせいぜい0.5〜1.0kg"
+      - type: narration
+        text: "1{班|はん}・3{班|はん}・4{班|はん}のデータ（0.5〜0.8kg）は「3{月|がつ}の{目安|めやす}」にぴったり。"
+      - type: narration
+        text: "2{班|はん}の5kgは——「{旬|しゅん}の7{月|がつ}の{目安|めやす}（5〜8kg）」と{一致|いっち}する！ 3{月|がつ}のデータなのに、{旬|しゅん}の{季節|きせつ}の{数字|すうじ}が{使|つか}われている？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 出席簿の記録
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sachiko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sachiko
+        text: "{出席簿|しゅっせきぼ}を{確認|かくにん}したよ。{先週|せんしゅう}{金曜日|きんようび}——{収穫日|しゅうかくび}の{記録|きろく}。"
+        expression: thinking
+      - type: sprite
+        character: sachiko
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{出席|しゅっせき}: タベル、ニコミ、サチコ"
+      - type: narration
+        text: "{欠席|けっせき}: ミソラ（{理由|りゆう}: {体調不良|たいちょうふりょう}）"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ミソラは{収穫日|しゅうかくび}に{欠席|けっせき}していた！ {現場|げんば}にいなかったのに、どうやってデータを{書|か}いた？"
+      - type: narration
+        text: "{旬|しゅん}の7{月|がつ}のデータ（5kg）を、3{月|がつ}の{欄|らん}に{推測|すいそく}で{書|か}いてしまった。タベルの{計測|けいそく}メモ（0.5kg）は{届|とど}いていなかった——"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: nikomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nikomi
+        text: "……{実|じつ}は、タベルのメモをミソラに{渡|わた}し{忘|わす}れちゃったんだ。タベルから「ミソラに{渡|わた}して」って{頼|たの}まれてたのに。{僕|ぼく}のせいでもある。ごめん。"
+        expression: worried
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: narration
+        text: "ミソラは{収穫日|しゅうかくび}に{欠席|けっせき}。タベルの{計測|けいそく}メモ（0.5kg）は{届|とど}かなかった。{空白|くうはく}を{埋|う}めるために{旬|しゅん}の{季節|きせつ}のデータを{推測|すいそく}で{書|か}いた——"
+      - type: choice
+        id: q1
+        question: データを書き換えたのは誰？
+        options:
+          - text: ミソラ（収穫日に欠席し、旬のデータを推測で記入した）
+            value: misora
+            correct: true
+            feedback: "{正解|せいかい}！ ミソラは{収穫日|しゅうかくび}に{欠席|けっせき}してデータが{空白|くうはく}だった。「{記録|きろく}{係|がかり}なのに{空白|くうはく}は{出|だ}せない」と{思|おも}い{込|こ}み、7{月|がつ}の{旬|しゅん}データ5kgを3{月|がつ}の{欄|らん}に{書|か}いてしまった。"
+          - text: タベル（トマトを計測した人）
+            value: taberu
+            feedback: "タベルの{計測|けいそく}メモには「2{班|はん}のトマト 0.5kg」と{正確|せいかく}に{書|か}いてあったよ。"
+          - text: ニコミ（メモを預かった人）
+            value: nikomi
+            feedback: "ニコミはメモを{渡|わた}し{忘|わす}れたけど、データ{自体|じたい}を{書|か}き{換|か}えてはいない。"
+          - text: サチコ（出席簿を確認した人）
+            value: sachiko
+            feedback: "サチコは{出席簿|しゅっせきぼ}を{確認|かくにん}した{側|がわ}。キュウリ・ナスの{記録|きろく}{担当|たんとう}でトマトには{関|かか}わっていないよ。"
+
+  # ==================== 真実：ミソラ ====================
+  - id: truth-misora
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミソラの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: misora
+        expression: worried
+        position: center
+      - type: dialog
+        character: misora
+        text: "……ごめんなさい。データを{推測|すいそく}で{書|か}いたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: ミソラは{栄養|えいよう}ノートを{開|ひら}いて{見|み}せた。
+      - type: dialog
+        character: misora
+        text: "{収穫日|しゅうかくび}に{体調|たいちょう}をくずして{休|やす}んじゃって。先生には「{来週|らいしゅう}{埋|う}めよう」って{言|い}われたけど、{記録|きろく}{係|がかり}なのに{空白|くうはく}を{出|だ}すのが{恥|は}ずかしくて……"
+        expression: thinking
+      - type: dialog
+        character: misora
+        text: "{自分|じぶん}のノートに{書|か}いてあった7{月|がつ}のトマトデータ「5kg」を{参考|さんこう}に{書|か}いちゃった。3{月|がつ}は{旬外|しゅんはず}れで{全然|ぜんぜん}ちがうなんて{知|し}らなかった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: misora
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nikomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nikomi
+        text: "タベルのメモを{渡|わた}し{忘|わす}れたのは{僕|ぼく}の{責任|せきにん}。{渡|わた}していれば、ミソラは{正|ただ}しい0.5kgを{知|し}ってたはず。ほんとうにごめん。"
+        expression: worried
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: taberu
+        text: "{僕|ぼく}もニコミに{頼|たの}むだけじゃなく、{自分|じぶん}で{直接|ちょくせつ}ミソラに{伝|つた}えるべきだった。{記録|きろく}の{受|う}け{渡|わた}しは{確実|かくじつ}にやらないと。"
+        expression: thinking
+      - type: sprite
+        character: taberu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミソラの「{記録|きろく}{係|がかり}として{責任|せきにん}を{果|は}たしたい」という{気持|きも}ちは{立派|りっぱ}よ。でも、「{分|わ}からないことは{正直|しょうじき}に{聞|き}く」ことのほうがもっと{大切|たいせつ}。{空白|くうはく}は{恥|はじ}じゃない。{推測|すいそく}で{埋|う}めるほうが{問題|もんだい}よ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "そしてトマトの{旬|しゅん}は6〜9{月|がつ}。3{月|がつ}は{温室|おんしつ}でもわずか。{旬|しゅん}を{知|し}ることは、{地産地消|ちさんちしょう}の{第一歩|だいいっぽ}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{帰納法|きのうほう}——{複数|ふくすう}のデータを{比|くら}べてパターンを{見|み}つけ、そこから{外|はず}れた1つを{発見|はっけん}する{力|ちから}。3つの{班|はん}のデータが「{少量|しょうりょう}」と{一致|いっち}しているなら、それが{法則|ほうそく}。{外|はず}れた1つにこそ{秘密|ひみつ}がある。
+      - type: narration
+        text: "{旬|しゅん}の{食材|しょくざい}は{量|りょう}が{多|おお}くて{味|あじ}もいい。{地産地消|ちさんちしょう}で{輸送|ゆそう}コストも{削減|さくげん}。{旬|しゅん}を{知|し}って、{地元|じもと}の{食|た}べ{物|もの}を{楽|たの}しもう。
+      - type: effect
+        name: fade-out

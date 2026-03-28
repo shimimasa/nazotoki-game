@@ -1,0 +1,349 @@
+meta:
+  id: food-08
+  title: お弁当の嘘
+  series: 食育探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は「お{弁当|べんとう}コンテスト」。4{人|にん}がそれぞれ{自慢|じまん}のお{弁当|べんとう}を{持参|じさん}し、{栄養|えいよう}バランスを{採点|さいてん}する{企画|きかく}だ。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{審査|しんさ}{前|まえ}に、サチコのお{弁当|べんとう}の{写真|しゃしん}が{掲示板|けいじばん}から{消|き}えた。さらにサチコの{栄養|えいよう}バランス{表|ひょう}が{別|べつ}の{内容|ないよう}に{差|さ}し{替|か}えられていた！"
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "サチコの{写真|しゃしん}がない！ それに{栄養|えいよう}バランス{表|ひょう}の{数値|すうち}もおかしい。{誰|だれ}がサチコの{記録|きろく}を{改|かい}ざんしたの？"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: surprised
+          - character: taberu
+            expression: thinking
+          - character: nikomi
+            expression: surprised
+          - character: sachiko
+            expression: worried
+      - type: narration
+        text: 4{人|にん}のお{弁当|べんとう}がテーブルに{並|なら}んでいる。でもサチコの{記録|きろく}だけが{改|かい}ざんされた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: お弁当の嘘
+        subtitle: 食育探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: コンテストのタイムライン
+      - type: se
+        sound: discover
+      - type: narration
+        text: "8:00 4{人|にん}がお{弁当|べんとう}を{提出|ていしゅつ}。山田先生が{写真|しゃしん}を{撮影|さつえい}→{掲示板|けいじばん}に{印刷|いんさつ}して{貼|は}る"
+      - type: narration
+        text: "8:15 4{人|にん}が{栄養|えいよう}バランス{表|ひょう}を{記入|きにゅう}・{提出|ていしゅつ}"
+      - type: narration
+        text: "8:20 {掲示板|けいじばん}を{閲覧|えつらん}——4{枚|まい}{全員分|ぜんいんぶん}の{写真|しゃしん}がある（ミソラ{目撃|もくげき}）"
+      - type: narration
+        text: "8:25 サチコが「{写真|しゃしん}を{確認|かくにん}したい」として{廊下|ろうか}へ"
+      - type: narration
+        text: "8:30 ミソラが「サチコの{写真|しゃしん}がない」と{気|き}づく"
+      - type: narration
+        text: "8:20には4{枚|まい}あった{写真|しゃしん}が、8:30には{消|き}えていた。この10{分間|ぷんかん}に{掲示板|けいじばん}の{前|まえ}にいたのは{誰|だれ}？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 栄養バランスの基準
+      - type: narration
+        text: "1{食|しょく}の{理想|りそう}バランス —— {主食|しゅしょく}3{割|わり}・{主菜|しゅさい}1{割|わり}・{副菜|ふくさい}2{割|わり}"
+      - type: narration
+        text: "{副菜|ふくさい}（{野菜|やさい}）の{目安量|めやすりょう}: 120〜200g{以上|いじょう}"
+      - type: narration
+        text: "1{食|しょく}の{塩分|えんぶん}{目標|もくひょう}: 2g{以下|いか}"
+      - type: narration
+        text: "{大事|だいじ}なこと——{手作|てづく}りのお{弁当|べんとう}でも{野菜|やさい}が{少|すく}なかったり{塩分|えんぶん}が{多|おお}すぎることがある。{市販品|しはんひん}でも{栄養成分表示|えいようせいぶんひょうじ}を{確認|かくにん}して{副菜|ふくさい}を{足|た}す{工夫|くふう}ができる。"
+      - type: narration
+        text: "{手作|てづく}りかどうかより、{中身|なかみ}の{栄養|えいよう}バランスを{意識|いしき}することが{大切|たいせつ}。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 4人の栄養バランス表
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ミソラ: {主食|しゅしょく}230g・{主菜|しゅさい}75g・{副菜|ふくさい}155g・{塩分|えんぶん}1.8g"
+      - type: narration
+        text: "タベル: {主食|しゅしょく}220g・{主菜|しゅさい}80g・{副菜|ふくさい}130g・{塩分|えんぶん}2.1g"
+      - type: narration
+        text: "ニコミ: {主食|しゅしょく}210g・{主菜|しゅさい}70g・{副菜|ふくさい}170g・{塩分|えんぶん}1.6g"
+      - type: narration
+        text: "サチコ: {主食|しゅしょく}230g・{主菜|しゅさい}70g・{副菜|ふくさい}350g！・{塩分|えんぶん}1.5g！"
+      - type: narration
+        text: "{他|ほか}の3{人|にん}の{副菜|ふくさい}は130〜170g。サチコだけ350g——2{倍|ばい}{以上|いじょう}！ {普通|ふつう}のお{弁当箱|べんとうばこ}に350gの{野菜|やさい}を{詰|つ}めるのは{現実的|げんじつてき}？ この{数値|すうち}は「{理想的|りそうてき}すぎる」のでは？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: タベルの観察メモ
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: taberu
+        text: "サチコのお{弁当|べんとう}を{見|み}たとき、{唐揚|からあ}げの{形|かたち}と{個数|こすう}、{卵焼|たまごや}きのサイズが、{学校|がっこう}の{近|ちか}くのコンビニのお{弁当|べんとう}にそっくりだった{気|き}がするんだ。{弁当箱|べんとうばこ}に{詰|つ}め{替|か}えてあったけど……{気|き}のせいかな。"
+        expression: thinking
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: narration
+        text: "もしコンビニ{弁当|べんとう}の{詰|つ}め{替|か}えだったら、{副菜|ふくさい}350gという{数値|すうち}は{実際|じっさい}のお{弁当|べんとう}と{合|あ}わない。{栄養|えいよう}バランス{表|ひょう}は{偽|いつわ}りの{数値|すうち}？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生のスマホの写真データ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{掲示板|けいじばん}の{写真|しゃしん}は{消|き}えたけど、わたしのスマホに{元|もと}のデータが{残|のこ}っていたわ。サチコのお{弁当|べんとう}の{写真|しゃしん}を{拡大|かくだい}してみると——"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{弁当箱|べんとうばこ}の{隅|すみ}に——「コンビニ {品質管理済|ひんしつかんりず}み」という{丸|まる}いシールが{貼|は}り{付|つ}いた{容器|ようき}の{一部|いちぶ}が{映|うつ}り{込|こ}んでいる！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「サチコの{手作|てづく}りのお{弁当|べんとう}」という{前提|ぜんてい}が{崩|くず}れた。コンビニ{弁当|べんとう}を{弁当箱|べんとうばこ}に{詰|つ}め{替|か}えていた。{写真|しゃしん}を{剥|は}がしたのは、このロゴシールが{映|うつ}り{込|こ}んでいたから！"
+      - type: narration
+        text: "{写真|しゃしん}を{消|き}し、{栄養|えいよう}バランス{表|ひょう}を{書|か}き{直|なお}したのは——{本人|ほんにん}しかいない。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: nikomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nikomi
+        text: "{実|じつ}は、{掲示板|けいじばん}に{貼|は}られた{写真|しゃしん}に「{使|つか}い{捨|す}て{容器|ようき}の{仕切|しき}り」が{映|うつ}ってるの、{見|み}てたんだ。{市販品|しはんひん}の{特徴|とくちょう}だなって。でも{確信|かくしん}がなくて……"
+        expression: thinking
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: narration
+        text: "{写真|しゃしん}にコンビニのロゴ。{副菜|ふくさい}350gという{理想的|りそうてき}すぎる{数値|すうち}。8:25に「{廊下|ろうか}へ」と{記録|きろく}されたサチコ。{写真|しゃしん}を{消|き}し、{栄養|えいよう}バランス{表|ひょう}を{偽|いつわ}ったのは——"
+      - type: choice
+        id: q1
+        question: 写真を消して栄養バランス表を改ざんしたのは誰？
+        options:
+          - text: サチコ（コンビニ弁当を隠すために自分で写真を消し、数値を偽った）
+            value: sachiko
+            correct: true
+            feedback: "{正解|せいかい}！ サチコは{今朝|けさ}{忙|いそが}しくてお{弁当|べんとう}を{作|つく}れず、コンビニ{弁当|べんとう}を{詰|つ}め{替|か}えた。{写真|しゃしん}にロゴが{映|うつ}り{込|こ}んでいることに{気|き}づき、{写真|しゃしん}を{剥|は}がして{栄養|えいよう}バランス{表|ひょう}も{書|か}き{直|なお}した。"
+          - text: ミソラ（写真がないことに気づいた人）
+            value: misora
+            feedback: "ミソラは{写真|しゃしん}がないことを{発見|はっけん}して{報告|ほうこく}した{側|がわ}だよ。"
+          - text: タベル（コンビニ弁当に似ていると気づいた人）
+            value: taberu
+            feedback: "タベルは{気|き}づいた{側|がわ}。{写真|しゃしん}を{消|き}す{理由|りゆう}がないよ。"
+          - text: ニコミ（市販品の特徴を見ていた人）
+            value: nikomi
+            feedback: "ニコミも{気|き}づいた{側|がわ}だね。{写真|しゃしん}を{消|き}したのは、ロゴが{映|うつ}り{込|こ}んで{困|こま}る{人|ひと}。"
+
+  # ==================== 真実：サチコ ====================
+  - id: truth-sachiko
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: サチコの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: center
+      - type: dialog
+        character: sachiko
+        text: "……ごめんなさい。{写真|しゃしん}を{消|き}して、{栄養|えいよう}バランス{表|ひょう}を{書|か}き{直|なお}したのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "サチコは{下|した}を{向|む}いた。{涙|なみだ}が{一粒|ひとつぶ}こぼれた。"
+      - type: dialog
+        character: sachiko
+        text: "{今朝|けさ}、お{母|かあ}さんが{急|きゅう}な{用事|ようじ}で{早|はや}く{出|で}かけちゃって、お{弁当|べんとう}を{作|つく}る{時間|じかん}がなかったの。{給食委員|きゅうしょくいいん}なのに{手作|てづく}りできなかった——{恥|は}ずかしくて。"
+        expression: thinking
+      - type: dialog
+        character: sachiko
+        text: "コンビニでお{弁当|べんとう}を{買|か}って、{家|いえ}の{弁当箱|べんとうばこ}に{詰|つ}め{替|か}えた。{写真|しゃしん}にロゴが{映|うつ}ってるのに{気|き}づいて、{慌|あわ}てて{剥|は}がしちゃった。{栄養|えいよう}バランス{表|ひょう}も、{本当|ほんとう}の{数値|すうち}じゃなくて{理想的|りそうてき}な{数値|すうち}に{書|か}き{直|なお}した。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: misora
+        expression: worried
+        position: left
+      - type: dialog
+        character: misora
+        text: "8{時|じ}15{分|ふん}にサチコが{記入中|きにゅうちゅう}の{数値|すうち}をちらっと{見|み}ちゃったんだ。「{野菜|やさい}80g・{塩分|えんぶん}3.8g」って{書|か}いてた。{提出|ていしゅつ}された{表|ひょう}と{全然|ぜんぜん}{違|ちが}うから{変|へん}だなと{思|おも}ってた。"
+        expression: worried
+      - type: sprite
+        character: misora
+        action: hide
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: taberu
+        text: "おかずの{形|かたち}がコンビニのお{弁当|べんとう}にそっくりだったんだ。{昨日|きのう}の{夕方|ゆうがた}にコンビニでサチコのお{母|かあ}さんを{見|み}かけたから、もしかしてと{思|おも}ったけど……{言|い}えなかった。"
+        expression: thinking
+      - type: sprite
+        character: taberu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "サチコ、コンビニ{弁当|べんとう}は{恥|は}ずかしいことじゃないわ。{忙|いそが}しいときは{誰|だれ}でもあるもの。{本当|ほんとう}に{恥|は}ずかしいのは、{嘘|うそ}をつくこと。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{手作|てづく}りかどうかより、{栄養|えいよう}バランスを{意識|いしき}することが{大切|たいせつ}よ。コンビニ{弁当|べんとう}でも、{栄養成分表示|えいようせいぶんひょうじ}を{見|み}て{副菜|ふくさい}を1{品|ひん}{足|た}す{工夫|くふう}ができるわ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{主食|しゅしょく}3{割|わり}・{主菜|しゅさい}1{割|わり}・{副菜|ふくさい}2{割|わり}。{副菜|ふくさい}は120〜200g{以上|いじょう}。{塩分|えんぶん}は1{食|しょく}2g{以下|いか}。この{基準|きじゅん}を{知|し}っていれば、{手作|てづく}りでも{市販品|しはんひん}でもバランスのよい{食事|しょくじ}ができる。
+      - type: narration
+        text: "「{手作|てづく}り = {健康|けんこう}」「{市販品|しはんひん} = {不健康|ふけんこう}」は{思|おも}い{込|こ}み。{大事|だいじ}なのは{中身|なかみ}を{確認|かくにん}すること。{認知|にんち}バイアスに{気|き}づく{力|ちから}を{身|み}につけよう。
+      - type: effect
+        name: fade-out
