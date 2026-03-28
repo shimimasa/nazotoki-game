@@ -1,0 +1,384 @@
+meta:
+  id: food-02
+  title: あまい罠
+  series: 食育探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: cooking-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}はひまわり{小学校|しょうがっこう}の「{食育|しょくいく}の{日|ひ}」。4{種類|しゅるい}の{砂糖|さとう}を{使|つか}ったお{菓子|かし}{作|づく}り{実習|じっしゅう}の{日|ひ}だ。"
+      - type: narration
+        text: "{上白糖|じょうはくとう}・グラニュー{糖|とう}・{三温糖|さんおんとう}・{粉砂糖|こなざとう}。4つの{容器|ようき}がきれいに{並|なら}んでいる——はずだった。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今朝|けさ}、山田先生が{家庭科室|かていかしつ}の{砂糖容器|さとうようき}を{確認|かくにん}すると、4つのうち2つのラベルが{入|い}れ{替|か}わっていた！"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "このままでは{実習|じっしゅう}が{台無|だいな}し。{昨日|きのう}の{放課後|ほうかご}、{家庭科室|かていかしつ}に{出入|でい}りしたのはあなたたち4{人|にん}。いったい{誰|だれ}が、なぜラベルを{入|い}れ{替|か}えたの……？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: thinking
+          - character: taberu
+            expression: worried
+          - character: nikomi
+            expression: surprised
+          - character: sachiko
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{砂糖|さとう}の{容器|ようき}を{見|み}つめた。{昨日|きのう}の{放課後|ほうかご}、{全員|ぜんいん}がこの{部屋|へや}に{出入|でい}りしていた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: あまい罠
+        subtitle: 食育探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: cooking-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入退室記録を調べよう
+      - type: narration
+        text: "{家庭科室|かていかしつ}の{入退室記録|にゅうたいしつきろく}。{昨日|きのう}と{今朝|けさ}、{誰|だれ}がいつ{出入|でい}りしたか{確認|かくにん}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{昨日|きのう} 14:00 山田先生 + サチコ —— ラベル{貼|は}り（14:30に{退室|たいしつ}）"
+      - type: narration
+        text: "{昨日|きのう} 14:30 ニコミ —— レシピ{確認|かくにん}（15:00に{退室|たいしつ}）"
+      - type: narration
+        text: "{昨日|きのう} 15:30 タベル —— {予習|よしゅう}（15:50に{退室|たいしつ}）"
+      - type: narration
+        text: "{今朝|けさ} 8:00 ミソラ —— {掃除|そうじ}{当番|とうばん}（8:20に{退室|たいしつ}）"
+      - type: narration
+        text: "{今朝|けさ} 8:30 山田先生 —— ラベル{異常|いじょう}{発見|はっけん}！"
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}にいた{時間帯|じかんたい}を、{順番|じゅんばん}に{整理|せいり}してみよう。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 砂糖4種類の特徴
+      - type: narration
+        text: "{今日|きょう}の{実習|じっしゅう}で{使|つか}う{砂糖|さとう}は4{種類|しゅるい}。それぞれ{見|み}た{目|め}も{触|さわ}った{感|かん}じもちがう。"
+      - type: narration
+        text: "{上白糖|じょうはくとう} —— {白|しろ}い。こまかい{粒|つぶ}。しっとり。ふだんの{料理|りょうり}に{使|つか}う"
+      - type: narration
+        text: "グラニュー{糖|とう} —— {白|しろ}い。やや{大|おお}きめの{粒|つぶ}。さらさら。クッキーやメレンゲに"
+      - type: narration
+        text: "{三温糖|さんおんとう} —— {茶色|ちゃいろ}。こまかい{粒|つぶ}。しっとり。コクのある{焼|や}き{菓子|がし}に"
+      - type: narration
+        text: "{粉砂糖|こなざとう} —— {白|しろ}い。{粉|こな}のようにこまかい。さらさら。ケーキのデコレーションに"
+      - type: narration
+        text: "4つの{砂糖|さとう}を{見分|みわ}けるポイントは？ {色|いろ}？ {粒|つぶ}の{大|おお}きさ？ さわった{感|かん}じ？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 4つの容器の記録
+      - type: narration
+        text: "{今朝|けさ}8{時|じ}30{分|ぷん}、山田先生が{確認|かくにん}した{結果|けっか}。ラベルと{中身|なかみ}の{見|み}た{目|め}を{比|くら}べてみよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{容器|ようき}A: ラベル「{上白糖|じょうはくとう}」→ {中身|なかみ}は{白|しろ}い・こまかい{粒|つぶ}・しっとり"
+      - type: narration
+        text: "{容器|ようき}B: ラベル「グラニュー{糖|とう}」→ {中身|なかみ}は{茶色|ちゃいろ}・こまかい{粒|つぶ}・しっとり"
+      - type: narration
+        text: "{容器|ようき}C: ラベル「{三温糖|さんおんとう}」→ {中身|なかみ}は{白|しろ}い・やや{大|おお}きめの{粒|つぶ}・さらさら"
+      - type: narration
+        text: "{容器|ようき}D: ラベル「{粉砂糖|こなざとう}」→ {中身|なかみ}は{白|しろ}い・{粉|こな}のようにこまかい・さらさら"
+      - type: narration
+        text: "ステップ2の{特徴|とくちょう}と{比|くら}べてみよう。ラベルと{中身|なかみ}が{合|あ}っていない{容器|ようき}はどれ？ {表|ひょう}にまとめて{確認|かくにん}してみて！"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: サチコのラベル貼りメモ
+      - type: narration
+        text: "サチコが{昨日|きのう}14{時|じ}にラベルを{貼|は}ったときのメモ。山田先生{確認済|かくにんず}みだ。"
+      - type: sprite
+        character: sachiko
+        expression: normal
+        position: left
+      - type: dialog
+        character: sachiko
+        text: "先生と{一緒|いっしょ}にラベルを{貼|は}りました。{容器|ようき}A={上白糖|じょうはくとう}、B=グラニュー{糖|とう}、C={三温糖|さんおんとう}、D={粉砂糖|こなざとう}。先生が「ぜんぶ{合|あ}ってるよ」って。"
+        expression: normal
+      - type: sprite
+        character: sachiko
+        action: hide
+      - type: narration
+        text: "14{時|じ}の{時点|じてん}ではラベルは{正|ただ}しかった。{容器|ようき}Bは「グラニュー{糖|とう}」で{白|しろ}いさらさら、{容器|ようき}Cは「{三温糖|さんおんとう}」で{茶色|ちゃいろ}しっとり。"
+      - type: narration
+        text: "でも{今朝|けさ}はBとCの{中身|なかみ}がラベルと{合|あ}わない。いつ{入|い}れ{替|か}わった？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ニコミの証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nikomi
+        expression: determined
+        position: center
+      - type: dialog
+        character: nikomi
+        text: "{昨日|きのう}15{時|じ}ごろ、{家庭科室|かていかしつ}を{出|で}る{前|まえ}に{容器|ようき}を{見|み}たんだ。そのとき、ラベルは{全部|ぜんぶ}{正|ただ}しかった。"
+        expression: determined
+      - type: dialog
+        character: nikomi
+        text: "{容器|ようき}Bは「グラニュー{糖|とう}」で、{中身|なかみ}も{白|しろ}くてさらさらだった。{容器|ようき}Cは「{三温糖|さんおんとう}」で、{中身|なかみ}も{茶色|ちゃいろ}でしっとりしてた。ちゃんと{合|あ}ってたよ。"
+        expression: normal
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "14:00 サチコ+先生がラベルを{貼|は}る → {全部|ぜんぶ}{正|ただ}しい"
+      - type: narration
+        text: "15:00 ニコミが{確認|かくにん} → まだ{全部|ぜんぶ}{正|ただ}しい"
+      - type: narration
+        text: "{今朝|けさ} 8:30 山田先生が{確認|かくにん} → BとCが{入|い}れ{替|か}わっている"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ラベルが{入|い}れ{替|か}わったのは、{昨日|きのう}15{時|じ}から{今朝|けさ}の{間|あいだ}！ その{時間帯|じかんたい}に{家庭科室|かていかしつ}にいた{人|ひと}は……{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: misora
+        expression: thinking
+        position: left
+      - type: dialog
+        character: misora
+        text: "{実|じつ}は{今朝|けさ}の{掃除|そうじ}のとき、{砂糖棚|さとうだな}の{近|ちか}くにタベルの{消|け}しゴムが{落|お}ちてたんだ。{名前|なまえ}が{書|か}いてあった。"
+        expression: thinking
+      - type: sprite
+        character: misora
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。15{時|じ}にはまだ{正|ただ}しかった。15{時|じ}30{分|ぷん}から15{時|じ}50{分|ぷん}に{家庭科室|かていかしつ}にいたのは——"
+      - type: choice
+        id: q1
+        question: ラベルを入れ替えたのは誰？
+        options:
+          - text: タベル（15時以降に家庭科室にいた唯一の人物）
+            value: taberu
+            correct: true
+            feedback: "{正解|せいかい}！ 15{時|じ}にはラベルが{正|ただ}しかった。そのあと{家庭科室|かていかしつ}にいたのはタベルだけ（15:30〜15:50）。しかも{砂糖棚|さとうだな}の{近|ちか}くにタベルの{消|け}しゴムが。"
+          - text: ミソラ（今朝の掃除で家庭科室にいた人）
+            value: misora
+            feedback: "ミソラは{今朝|けさ}8{時|じ}に{掃除|そうじ}で{入|はい}ったけど、{昨日|きのう}の{放課後|ほうかご}にはいなかったよ。{今朝|けさ}のラベルはすでに{入|い}れ{替|か}わっていたはず。"
+          - text: ニコミ（レシピ確認で来ていた人）
+            value: nikomi
+            feedback: "ニコミは15{時|じ}に{退室|たいしつ}したよ。そのとき{自分|じぶん}でラベルが{正|ただ}しいと{確認|かくにん}している。{入|い}れ{替|か}わったのは15{時|じ}のあとだね。"
+          - text: サチコ（ラベルを貼った給食委員）
+            value: sachiko
+            feedback: "サチコは14{時|じ}30{分|ぷん}に{退室|たいしつ}して、そのあと{家庭科室|かていかしつ}にはもどっていないよ。"
+
+  # ==================== 真実：タベル ====================
+  - id: truth-taberu
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: タベルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: taberu
+        expression: worried
+        position: center
+      - type: dialog
+        character: taberu
+        text: "……ごめん。ラベルを{入|い}れ{替|か}えちゃったのは、{僕|ぼく}なんだ。"
+        expression: worried
+      - type: narration
+        text: タベルは{目|め}を{伏|ふ}せながら、ぽつぽつと{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: taberu
+        text: "{昨日|きのう}、{明日|あした}の{実習|じっしゅう}のために{予習|よしゅう}しようと{思|おも}って、4つの{容器|ようき}を{開|あ}けて{中身|なかみ}を{見|み}たんだ。でも……グラニュー{糖|とう}と{三温糖|さんおんとう}を{間違|まちが}えて{別|べつ}の{容器|ようき}に{戻|もど}しちゃって。"
+        expression: thinking
+      - type: dialog
+        character: taberu
+        text: "あわててラベルを{貼|は}り{直|なお}したけど、2つを{逆|ぎゃく}に{貼|は}っちゃった。みんなから「{味覚|みかく}のプロ」って{言|い}われてるのに、{砂糖|さとう}を{間違|まちが}えたなんて……はずかしくて{言|い}えなかった。"
+        expression: worried
+      - type: dialog
+        character: taberu
+        text: "{実習|じっしゅう}を{台無|だいな}しにしたかったんじゃない。{予習|よしゅう}をがんばろうとして{起|お}きた{事故|じこ}だったんだ。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: taberu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: misora
+        expression: worried
+        position: left
+      - type: dialog
+        character: misora
+        text: "{消|け}しゴムを{見|み}つけたとき、タベルを{疑|うたが}いたくなかった。でも、{証拠|しょうこ}を{表|ひょう}にまとめたら……{見|み}えちゃったんだ。ごめんね。"
+        expression: worried
+      - type: sprite
+        character: misora
+        action: hide
+      - type: sprite
+        character: nikomi
+        expression: normal
+        position: right
+      - type: dialog
+        character: nikomi
+        text: "{実|じつ}は{昨日|きのう}、{容器|ようき}のフタを{勝手|かって}に{開|あ}けて{中身|なかみ}を{確認|かくにん}しちゃったんだ。先生に「{見|み}るだけ」って{言|い}われてたのに。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: left
+      - type: dialog
+        character: sachiko
+        text: "わたしもね……ラベルを{貼|は}るとき、{上白糖|じょうはくとう}とグラニュー{糖|とう}を{一瞬|いっしゅん}{間違|まちが}えそうになったの。先生が{直|なお}してくれたけど。{白|しろ}い{砂糖|さとう}って{見分|みわ}けにくいよね。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タベルが{予習|よしゅう}しようとした{気持|きも}ちは{立派|りっぱ}よ。{砂糖|さとう}の{見分|みわ}けは{大人|おとな}でもむずかしいもの。{間違|まちが}えたこと{自体|じたい}は{悪|わる}くない。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{間違|まちが}えたときに{正直|しょうじき}に{言|い}えていたら、すぐに{直|なお}せたわよね。{失敗|しっぱい}をかくすより、{正直|しょうじき}に{言|い}うほうが、ずっとかっこいい。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{上白糖|じょうはくとう}は{白|しろ}くてしっとり。グラニュー{糖|とう}は{白|しろ}くてさらさら。{三温糖|さんおんとう}は{茶色|ちゃいろ}でしっとり。{粉砂糖|こなざとう}は{白|しろ}い{粉|こな}。
+      - type: narration
+        text: "{見|み}た{目|め}も{触|さわ}った{感|かん}じもちがう{砂糖|さとう}たち。ちがいを{知|し}れば、お{菓子|かし}{作|づく}りがもっと{楽|たの}しくなる。
+      - type: narration
+        text: "{情報|じょうほう}を{表|ひょう}にまとめると、バラバラだった{手|て}がかりがつながる。{今日|きょう}{覚|おぼ}えた「{情報整理|じょうほうせいり}」のワザ、{他|ほか}のなぞときでも{使|つか}ってみてね。
+      - type: effect
+        name: fade-out

@@ -1,0 +1,388 @@
+meta:
+  id: food-01
+  title: 消えた給食
+  series: 食育探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: cooking-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: ひまわり{小学校|しょうがっこう}では、{明日|あした}は{月|つき}に1{度|ど}の「{食育|しょくいく}の{日|ひ}」。{栄養教諭|えいようきょうゆ}の山田先生が、とくべつメニュー「{三色|さんしょく}バランスカレー」を{作|つく}る{予定|よてい}だ。
+      - type: narration
+        text: "{赤|あか}・{黄|き}・{緑|みどり}の{食材|しょくざい}をぜんぶ{使|つか}った、{栄養|えいよう}まんてんのカレー。4{人|にん}の{食育探偵|しょくいくたんてい}たちも{楽|たの}しみにしている。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{放課後|ほうかご}、山田先生が{給食室|きゅうしょくしつ}にもどると、{明日|あした}のカレーに{使|つか}うはずの{食材|しょくざい}が3つ、{消|き}えていた！"
+      - type: narration
+        text: "{消|き}えたのは、{鶏肉|とりにく}・{卵|たまご}・{豆腐|とうふ}の3{品|しな}。にんじん・じゃがいも・たまねぎ・カレールウ・お{米|こめ}はそのまま{残|のこ}っている。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{放課後|ほうかご}に{給食室|きゅうしょくしつ}に{出入|でい}りしたのは、あなたたち4{人|にん}だけ。いったい{誰|だれ}が、なぜ{食材|しょくざい}を{持|も}ち{出|だ}したのかしら……"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: worried
+          - character: taberu
+            expression: surprised
+          - character: nikomi
+            expression: surprised
+          - character: sachiko
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{全員|ぜんいん}が{放課後|ほうかご}に{学校|がっこう}にのこっていた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた給食
+        subtitle: 食育探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: cooking-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 給食室ノートを調べよう
+      - type: narration
+        text: "{給食室|きゅうしょくしつ}に{入|はい}った{人|ひと}は、{名前|なまえ}と{時間|じかん}をノートに{書|か}くルールになっている。{放課後|ほうかご}の{記録|きろく}を{確認|かくにん}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "15:00 サチコ —— {食材|しょくざい}チェック"
+      - type: narration
+        text: "15:10 ニコミ —— レシピ{帳|ちょう}の{確認|かくにん}"
+      - type: narration
+        text: "15:25 ミソラ —— {忘|わす}れ{物|もの}を{取|と}りに"
+      - type: narration
+        text: "{退室時間|たいしつじかん}の{記入欄|きにゅうらん}はあるけど、3{人|にん}とも{書|か}いていない。そして——タベルの{名前|なまえ}はない。"
+      - type: narration
+        text: "{給食室|きゅうしょくしつ}に{入|はい}ったのは3{人|にん}。{入|はい}っていない{人|ひと}は{誰|だれ}だろう？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 三色食品群を確認しよう
+      - type: narration
+        text: "{今日|きょう}の{授業|じゅぎょう}で{習|なら}った{三色食品群|さんしょくしょくひんぐん}の{表|ひょう}だ。"
+      - type: narration
+        text: "{赤|あか}のグループ —— {体|からだ}をつくる。{肉|にく}・{魚|さかな}・{卵|たまご}・{大豆|だいず}・{豆腐|とうふ}・{牛乳|ぎゅうにゅう}"
+      - type: narration
+        text: "{黄|き}のグループ —— エネルギーになる。ごはん・パン・めん・いも・{油|あぶら}・{砂糖|さとう}"
+      - type: narration
+        text: "{緑|みどり}のグループ —— {体|からだ}の{調子|ちょうし}をととのえる。{野菜|やさい}・くだもの・きのこ・{海藻|かいそう}"
+      - type: narration
+        text: "{消|き}えた{食材|しょくざい}は{鶏肉|とりにく}・{卵|たまご}・{豆腐|とうふ}。これは{何色|なにいろ}のグループだろう？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 消えた食材と残った食材
+      - type: narration
+        text: "山田先生が16{時|じ}に{確認|かくにん}した{結果|けっか}。{消|き}えた{食材|しょくざい}と{残|のこ}った{食材|しょくざい}を{比|くら}べてみよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{消|き}えた{食材|しょくざい} —— {鶏肉|とりにく}200グラム、{卵|たまご}6{個|こ}、{豆腐|とうふ}2{丁|ちょう}"
+      - type: narration
+        text: "{残|のこ}った{食材|しょくざい} —— にんじん3{本|ぽん}、じゃがいも4{個|こ}、たまねぎ3{個|こ}、カレールウ1{箱|はこ}、お{米|こめ}2{合|ごう}"
+      - type: narration
+        text: "{消|き}えた{食材|しょくざい}と{残|のこ}った{食材|しょくざい}を、{三色食品群|さんしょくしょくひんぐん}で{色分|いろわ}けしてみよう。{何|なに}か{気|き}づくことはない？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ミソラの栄養ノート
+      - type: narration
+        text: "ミソラがいつも{持|も}ち{歩|ある}いている{栄養|えいよう}ノート。{今日|きょう}の{授業|じゅぎょう}メモのページが{開|ひら}いている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{赤|あか} = {体|からだ}をつくる → {鶏肉|とりにく}、{豚肉|ぶたにく}、{魚|さかな}、{卵|たまご}、{大豆|だいず}、{豆腐|とうふ}、{牛乳|ぎゅうにゅう}"
+      - type: narration
+        text: "{黄|き} = エネルギー → ごはん、パン、じゃがいも、さつまいも、{油|あぶら}"
+      - type: narration
+        text: "{緑|みどり} = {調子|ちょうし}をととのえる → にんじん、ほうれんそう、トマト、りんご、バナナ"
+      - type: narration
+        text: "そしてノートの{最後|さいご}にはこう{書|か}いてある——"
+      - type: narration
+        text: "「{赤|あか}をぜんぶぬいたら、カレーはどうなる？？？ → {体|からだ}をつくるざいりょうがない… → ためしてみたい！！」"
+      - type: narration
+        text: "このノートを{書|か}いた{人|ひと}は、{三色食品群|さんしょくしょくひんぐん}についてかなりくわしい。そして{最後|さいご}に{書|か}いてあること……{気|き}になるね。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: cooking-room
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{大事|だいじ}なことを{思|おも}い{出|だ}したわ。15{時|じ}20{分|ぷん}に、わたしが{冷蔵庫|れいぞうこ}を{最終|さいしゅう}チェックしたの。そのとき、{鶏肉|とりにく}も{卵|たまご}も{豆腐|とうふ}も、ぜんぶあったわ。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{次|つぎ}に{給食室|きゅうしょくしつ}にもどったのは16{時|じ}。そのとき、3{品|しな}が{消|き}えていたの。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "15:00 サチコのチェック → ぜんぶあった"
+      - type: narration
+        text: "15:20 山田先生のチェック → ぜんぶあった"
+      - type: narration
+        text: "16:00 山田先生がもどる → 3{品|しな}が{消|き}えていた"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{食材|しょくざい}が{消|き}えたのは、15{時|じ}20{分|ぷん}から16{時|じ}の{間|あいだ}！ その{時間帯|じかんたい}に{給食室|きゅうしょくしつ}にいた{人|ひと}は……{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: taberu
+        text: "……{実|じつ}は、15{時|じ}35{分|ふん}ごろに{廊下|ろうか}を{歩|ある}いていたら、{給食室|きゅうしょくしつ}の{中|なか}からガタガタッて{音|おと}がしたんだ。{冷蔵庫|れいぞうこ}の{扉|とびら}を{開|あ}け{閉|し}めする{音|おと}みたいだった。"
+        expression: thinking
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: sprite
+        character: nikomi
+        expression: normal
+        position: right
+      - type: dialog
+        character: nikomi
+        text: "{僕|ぼく}は15{時|じ}10{分|ぷん}に{入|はい}ったとき、{冷蔵庫|れいぞうこ}の{食材|しょくざい}はぜんぶ{見|み}えたよ。レシピ{帳|ちょう}は{冷蔵庫|れいぞうこ}の{横|よこ}の{棚|たな}にあったから。"
+        expression: normal
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。15{時|じ}20{分|ぷん}に{全品|ぜんぴん}あった。{消|き}えたのは{赤|あか}の{食品|しょくひん}だけ。ミソラのノートには「{赤|あか}をぬいたらどうなる？」——"
+      - type: choice
+        id: q1
+        question: 食材を持ち出したのは誰？
+        options:
+          - text: ミソラ（15:25以降に給食室にいて、赤の食品に詳しい）
+            value: misora
+            correct: true
+            feedback: "{正解|せいかい}！ 15{時|じ}20{分|ぷん}のあとに{給食室|きゅうしょくしつ}にいたのはミソラだけ。しかもミソラは{三色食品群|さんしょくしょくひんぐん}にくわしく、「{赤|あか}をぬいたら？」と{考|かんが}えていた。"
+          - text: タベル（廊下で物音を聞いた人）
+            value: taberu
+            feedback: "タベルは{給食室|きゅうしょくしつ}に{入|はい}っていないよ。ノートに{名前|なまえ}がないのを{確認|かくにん}してみよう。"
+          - text: ニコミ（給食室に15:10に入った人）
+            value: nikomi
+            feedback: "ニコミは15{時|じ}20{分|ぷん}ごろに{退室|たいしつ}したよ。山田先生が15{時|じ}20{分|ぷん}にチェックしたとき、{食材|しょくざい}はぜんぶあった。"
+          - text: サチコ（食材チェックをした給食委員）
+            value: sachiko
+            feedback: "サチコは15{時|じ}ちょうどにチェックしてすぐ{退室|たいしつ}したよ。15{時|じ}20{分|ぷん}のあとにはもういなかった。"
+
+  # ==================== 真実：ミソラ ====================
+  - id: truth-misora
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミソラの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: misora
+        expression: worried
+        position: center
+      - type: dialog
+        character: misora
+        text: "……ごめんなさい。{食材|しょくざい}を{持|も}ち{出|だ}したのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: ミソラはうつむきながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: misora
+        text: "{今日|きょう}の{授業|じゅぎょう}で{三色食品群|さんしょくしょくひんぐん}を{習|なら}ったとき、「{赤|あか}の{食品|しょくひん}をぜんぶぬいたら、カレーはどうなるんだろう？」って……{気|き}になってしかたなくなっちゃって。"
+        expression: thinking
+      - type: dialog
+        character: misora
+        text: "「{忘|わす}れ{物|もの}を{取|と}りに{行|い}く」って{言|い}って{給食室|きゅうしょくしつ}に{入|はい}って、{鶏肉|とりにく}・{卵|たまご}・{豆腐|とうふ}の3つを{理科準備室|りかじゅんびしつ}の{冷蔵庫|れいぞうこ}に{移|うつ}したの。「{実験|じっけん}」のつもりだった。"
+        expression: worried
+      - type: dialog
+        character: misora
+        text: "「すぐ{出|で}た」って{言|い}ったけど……{本当|ほんとう}は15{時|じ}25{分|ふん}から15{時|じ}40{分|ぷん}まで、15{分間|ふんかん}もいたの。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: misora
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: taberu
+        expression: worried
+        position: left
+      - type: dialog
+        character: taberu
+        text: "15{時|じ}35{分|ふん}に{物音|ものおと}を{聞|き}いたのに、{確認|かくにん}しなかった。{急|いそ}いでいたから{通|とお}り{過|す}ぎちゃったんだ……あのとき{見|み}ていれば、{止|と}められたのに。"
+        expression: worried
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: sprite
+        character: nikomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nikomi
+        text: "{実|じつ}は……山田先生のレシピ{帳|ちょう}を「{見|み}るだけ」って{言|い}われてたのに、スマホで{写真|しゃしん}に{撮|と}っちゃった。ルール{違反|いはん}、ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: nikomi
+        action: hide
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: left
+      - type: dialog
+        character: sachiko
+        text: "わたしも{正直|しょうじき}に{言|い}うね。{今日|きょう}の{食材|しょくざい}チェック、{友達|ともだち}との{約束|やくそく}に{遅|おく}れそうで……いつもより{手|て}をぬいちゃったの。{給食委員|きゅうしょくいいん}なのに、ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミソラの「{知|し}りたい」という{気持|きも}ちは、とても{大切|たいせつ}なものよ。{赤|あか}の{食品|しょくひん}だけぬいたらカレーはどうなるか——いい{疑問|ぎもん}だわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、みんなの{給食|きゅうしょく}に{使|つか}う{食材|しょくざい}で{実験|じっけん}するのは、やり{方|かた}がちがったわね。{先生|せんせい}に{相談|そうだん}してくれれば、{一緒|いっしょ}に{考|かんが}えられたのに。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{食材|しょくざい}は{理科準備室|りかじゅんびしつ}の{冷蔵庫|れいぞうこ}に{無事|ぶじ}に{保管|ほかん}されていた。{明日|あした}の{三色|さんしょく}バランスカレーは、ちゃんと{作|つく}れる！
+      - type: narration
+        text: "{三色食品群|さんしょくしょくひんぐん}——{赤|あか}は{体|からだ}をつくる、{黄|き}はエネルギーになる、{緑|みどり}は{体|からだ}の{調子|ちょうし}をととのえる。3つがそろって{初|はじ}めて、{栄養|えいよう}バランスのよい{食事|しょくじ}になる。
+      - type: narration
+        text: "{好奇心|こうきしん}は{素晴|すば}らしい。でも、やり{方|かた}を{考|かんが}えよう。{知|し}りたいことがあったら、まず{誰|だれ}かに{相談|そうだん}してみてね。
+      - type: effect
+        name: fade-out

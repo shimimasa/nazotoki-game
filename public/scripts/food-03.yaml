@@ -1,0 +1,371 @@
+meta:
+  id: food-03
+  title: ラベルの謎
+  series: 食育探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  misora:
+    name: ミソラ
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  taberu:
+    name: タベル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nikomi:
+    name: ニコミ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sachiko:
+    name: サチコ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: cooking-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}の「{食育|しょくいく}の{日|ひ}」は、{食品表示|しょくひんひょうじ}の{読|よ}み{方|かた}を{学|まな}ぶ{実習|じっしゅう}。4{種類|しゅるい}のジュースのパッケージを{使|つか}って、{原材料名|げんざいりょうめい}の{読|よ}み{比|くら}べをする{予定|よてい}だ。"
+      - type: narration
+        text: "りんご・ぶどう・みかん・もも。4{本|ほん}のジュースが{準備室|じゅんびしつ}に{並|なら}んでいる——はずだった。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今朝|けさ}、山田先生が{準備室|じゅんびしつ}のジュースを{確認|かくにん}すると、2つのおかしなことに{気|き}づいた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "4{本|ほん}のうち1{本|ぽん}、ももジュースだけ{賞味期限|しょうみきげん}のシールが{剥|は}がされている。それに、{原材料名|げんざいりょうめい}の{書|か}き{方|かた}がほかの3{本|ぼん}とちがうの……"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かがジュースを{入|い}れ{替|か}えた？ {食育探偵団|しょくいくたんていだん}のみんな、{調|しら}べてちょうだい！"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: misora
+            expression: thinking
+          - character: taberu
+            expression: thinking
+          - character: nikomi
+            expression: worried
+          - character: sachiko
+            expression: surprised
+      - type: narration
+        text: 4{人|にん}はジュースのラベルを{見|み}つめた。{昨日|きのう}の{放課後|ほうかご}、{全員|ぜんいん}が{準備室|じゅんびしつ}に{出入|でい}りしていた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ラベルの謎
+        subtitle: 食育探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: cooking-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入退室記録とレシート
+      - type: narration
+        text: "{準備室|じゅんびしつ}の{入退室記録|にゅうたいしつきろく}と、ニコミが{買|か}い{物|もの}したときのレシートを{確認|かくにん}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{昨日|きのう} 15:45 ニコミ —— ジュースを{並|なら}べる（15:55{退室|たいしつ}）"
+      - type: narration
+        text: "{昨日|きのう} 15:45 タベル —— ジュース{本数|ほんすう}{確認|かくにん}（16:00{退室|たいしつ}）"
+      - type: narration
+        text: "{昨日|きのう} 16:00 サチコ —— {全体|ぜんたい}チェック（16:10{退室|たいしつ}）"
+      - type: narration
+        text: "{今朝|けさ} 8:00 ミソラ —— {掃除|そうじ}{当番|とうばん}（8:15{退室|たいしつ}）"
+      - type: narration
+        text: "そしてニコミの{買|か}い{物|もの}レシート。りんご・ぶどう・みかんの3{本|ぼん}で{合計|ごうけい}630{円|えん}。"
+      - type: narration
+        text: "あれ？ レシートは3{本|ぼん}{分|ぶん}しかない。{準備室|じゅんびしつ}には4{本|ほん}あるのに……4{本|ほん}{目|め}のももジュースはどこから{来|き}た？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 食品表示のルール
+      - type: narration
+        text: "{今日|きょう}の{実習|じっしゅう}で{使|つか}う{予定|よてい}だったプリント。{食品表示|しょくひんひょうじ}のルールを{学|まな}ぼう。"
+      - type: narration
+        text: "{原材料名|げんざいりょうめい}の{順番|じゅんばん}ルール —— {使|つか}われている{量|りょう}が{多|おお}い{順|じゅん}に{書|か}く。いちばん{最初|さいしょ}のものが、いちばん{多|おお}く{入|はい}っている。"
+      - type: narration
+        text: "{果汁|かじゅう}100%ジュース —— {中身|なかみ}がぜんぶ{果物|くだもの}のしぼり{汁|じる}。{原材料名|げんざいりょうめい}の{最初|さいしょ}は{果物|くだもの}の{名前|なまえ}。"
+      - type: narration
+        text: "{果汁|かじゅう}{入|い}り{飲料|いんりょう}（10〜30%）—— {果汁|かじゅう}は{少|すこ}しだけ。{残|のこ}りは{水|みず}や{砂糖|さとう}。{原材料名|げんざいりょうめい}の{最初|さいしょ}は{砂糖|さとう}や{果糖|かとう}ぶどう{糖液糖|とうえきとう}。"
+      - type: narration
+        text: "{賞味期限|しょうみきげん}シールが{剥|は}がれている{食品|しょくひん}は、{期限|きげん}が{確認|かくにん}できない。{買|か}わない・{飲|の}まないのが{鉄則|てっそく}！"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: cooking-room
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 4本のジュースの原材料名
+      - type: narration
+        text: "山田先生が{今朝|けさ}、4{本|ほん}のジュースのラベルを{写|うつ}した{記録|きろく}。ステップ2のルールと{比|くら}べてみよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "りんごジュース —— {原材料名|げんざいりょうめい}: りんご、ビタミンC"
+      - type: narration
+        text: "ぶどうジュース —— {原材料名|げんざいりょうめい}: ぶどう、ビタミンC"
+      - type: narration
+        text: "みかんジュース —— {原材料名|げんざいりょうめい}: みかん、ビタミンC"
+      - type: narration
+        text: "ももジュース —— {原材料名|げんざいりょうめい}: {果糖|かとう}ぶどう{糖液糖|とうえきとう}、{砂糖|さとう}、もも、{香料|こうりょう}、ビタミンC"
+      - type: narration
+        text: "ももジュースだけ{最初|さいしょ}の{成分|せいぶん}がちがう！ りんご・ぶどう・みかんは{果物|くだもの}の{名前|なまえ}が{最初|さいしょ}なのに、ももは「{果糖|かとう}ぶどう{糖液糖|とうえきとう}」。これは{果汁|かじゅう}{何|なに}%のジュース？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: タベルのメモ
+      - type: sprite
+        character: taberu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: taberu
+        text: "{昨日|きのう}、{準備室|じゅんびしつ}で4{本|ほん}を{見|み}たとき、ももだけパッケージのデザインが{少|すこ}し{違|ちが}う{気|き}がしたんだ。フォントとかラベルの{色|いろ}とか……"
+        expression: thinking
+      - type: dialog
+        character: taberu
+        text: "{原材料名|げんざいりょうめい}も{見|み}たら、ももだけ{最初|さいしょ}が「{果糖|かとう}ぶどう{糖液糖|とうえきとう}」だった。これ、ジュースじゃなくて「ジュース{飲料|いんりょう}」なんじゃ……？ でも{確信|かくしん}がなくて{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: narration
+        text: "タベルの{気|き}づきとステップ2のルールを{合|あ}わせると——ももジュースは{果汁|かじゅう}100%ではない。{誰|だれ}かが{別|べつ}のジュースを{持|も}ち{込|こ}んだ？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: cooking-room
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ゴミ箱のシール切れ端
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: misora
+        expression: surprised
+        position: center
+      - type: dialog
+        character: misora
+        text: "{今朝|けさ}の{掃除|そうじ}のとき、{準備室|じゅんびしつ}のゴミ{箱|ばこ}の{底|そこ}に{小|ちい}さなシールの{切|き}れ{端|はし}を{見|み}つけたんだ。{何|なに}か{文字|もじ}が{書|か}いてあった。"
+        expression: surprised
+      - type: sprite
+        character: misora
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "シールの{切|き}れ{端|はし}に{書|か}かれていた{文字|もじ}——「{賞味期限|しょうみきげん}: 2026/3/13」"
+      - type: narration
+        text: "{今日|きょう}は3{月|がつ}27{日|にち}。このシールの{日付|ひづけ}は——2{週間|しゅうかん}{前|まえ}に{期限|きげん}が{切|き}れている！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{誰|だれ}かが{賞味期限切|しょうみきげんぎ}れのジュースを{持|も}ち{込|こ}んで、バレないようにシールを{剥|は}がしてゴミ{箱|ばこ}に{捨|す}てた！"
+      - type: narration
+        text: "{因果|いんが}をつなげよう。ももジュースの{原材料名|げんざいりょうめい}がおかしい → {果汁|かじゅう}100%ではない → {買|か}ったものと{別|べつ}のジュース → {賞味期限|しょうみきげん}シールを{剥|は}がして{隠|かく}した。では、ジュースを{並|なら}べたのは{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: sachiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: sachiko
+        text: "{実|じつ}は……{昨日|きのう}16{時|じ}にチェックしたとき、ももジュースに{賞味期限|しょうみきげん}シールがないことには{気|き}づいてたの。でも{面倒|めんどう}でスルーしちゃった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: sachiko
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。レシートは3{本|ぼん}{分|ぶん}。もものジュースは{果汁|かじゅう}100%ではない{別物|べつもの}。{賞味期限|しょうみきげん}シールは{剥|は}がされてゴミ{箱|ばこ}に。そして4{本|ほん}を{準備室|じゅんびしつ}に{並|なら}べたのは——"
+      - type: choice
+        id: q1
+        question: ジュースを入れ替えたのは誰？
+        options:
+          - text: ニコミ（買い出し係で、レシートは3本分だけ）
+            value: nikomi
+            correct: true
+            feedback: "{正解|せいかい}！ レシートは3{本|ぼん}{分|ぶん}。もも{売|う}り{切|き}れで{家|いえ}から{期限切|きげんぎ}れジュースを{持|も}ち{込|こ}み、バレないようにシールを{剥|は}がした。"
+          - text: タベル（原材料の違いに気づいていた人）
+            value: taberu
+            feedback: "タベルは{違和感|いわかん}に{気|き}づいていたけど、{気|き}づいた{側|がわ}の{人|ひと}だよ。ジュースを{並|なら}べたのはニコミだったね。"
+          - text: ミソラ（今朝ゴミ箱でシールを見つけた人）
+            value: misora
+            feedback: "ミソラは{今朝|けさ}の{掃除|そうじ}でシールを{見|み}つけた{側|がわ}。{昨日|きのう}の{放課後|ほうかご}には{準備室|じゅんびしつ}にいなかったよ。"
+          - text: サチコ（シールがないことに気づいていた人）
+            value: sachiko
+            feedback: "サチコは{気|き}づいてスルーした{側|がわ}だけど、ジュースを{持|も}ち{込|こ}んだのは{別|べつ}の{人|ひと}。レシートの{本数|ほんすう}を{確認|かくにん}してみて。"
+
+  # ==================== 真実：ニコミ ====================
+  - id: truth-nikomi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ニコミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nikomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nikomi
+        text: "……ごめんなさい。ももジュースを{入|い}れ{替|か}えたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: ニコミは{下|した}を{向|む}きながら、{正直|しょうじき}に{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: nikomi
+        text: "コンビニでりんご・ぶどう・みかんは{買|か}えたんだけど、ももだけ{売|う}り{切|き}れだったんだ。{買|か}い{出|だ}し{係|がかり}なのに4{本|ほん}そろえられなかったら、みんなに{迷惑|めいわく}かけちゃうって{焦|あせ}って……"
+        expression: thinking
+      - type: dialog
+        character: nikomi
+        text: "{家|いえ}の{冷蔵庫|れいぞうこ}にあった「ももジュース」を{持|も}ってきた。でも{並|なら}べたとき、{賞味期限|しょうみきげん}シールに「3{月|がつ}13{日|にち}」って{書|か}いてあって。2{週間|しゅうかん}も{前|まえ}に{切|き}れてた……"
+        expression: worried
+      - type: dialog
+        character: nikomi
+        text: "バレたくなくてシールを{剥|は}がしちゃった。しかも{家|いえ}のジュースは{果汁|かじゅう}10%で、{買|か}うはずだった{果汁|かじゅう}100%とは{全然|ぜんぜん}{違|ちが}うものだった。「もも{売|う}り{切|き}れでした」って{正直|しょうじき}に{言|い}えばよかった……"
+        expression: determined
+      - type: sprite
+        character: nikomi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: taberu
+        expression: worried
+        position: left
+      - type: dialog
+        character: taberu
+        text: "{僕|ぼく}、{昨日|きのう}ももジュースの{原材料名|げんざいりょうめい}が{変|へん}だって{気|き}づいてたのに、{確信|かくしん}がなくて{黙|だま}ってた。先生に{報告|ほうこく}していれば、{今朝|けさ}のさわぎは{防|ふせ}げたかもしれない。"
+        expression: worried
+      - type: sprite
+        character: taberu
+        action: hide
+      - type: sprite
+        character: misora
+        expression: thinking
+        position: right
+      - type: dialog
+        character: misora
+        text: "ゴミ{箱|ばこ}のシールに「3/13」って{書|か}いてあったの、{意味|いみ}が{分|わ}からなかった。{今日|きょう}{食品表示|しょくひんひょうじ}のルールを{学|まな}んで、やっとつながったよ。"
+        expression: thinking
+      - type: sprite
+        character: misora
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ニコミの「みんなに{迷惑|めいわく}をかけたくない」という{気持|きも}ちは{分|わ}かるわ。でも、{賞味期限切|しょうみきげんぎ}れの{飲|の}み{物|もの}をみんなに{飲|の}ませるところだった。{食|た}べ{物|もの}の{安全|あんぜん}は、{何|なに}より{大切|たいせつ}よ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「{売|う}り{切|き}れでした」と{正直|しょうじき}に{言|い}えば、{先生|せんせい}が{別|べつ}のお{店|みせ}を{探|さが}せたの。{焦|あせ}って{隠|かく}すより、{正直|しょうじき}に{相談|そうだん}することが{大事|だいじ}ね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{原材料名|げんざいりょうめい}は{多|おお}い{順|じゅん}に{書|か}いてある。{果汁|かじゅう}100%なら{最初|さいしょ}は{果物|くだもの}の{名前|なまえ}、{果汁|かじゅう}10%なら{砂糖|さとう}や{果糖|かとう}ぶどう{糖液糖|とうえきとう}が{先|さき}に{来|く}る。
+      - type: narration
+        text: "{賞味期限|しょうみきげん}シールが{剥|は}がれているものは{飲|の}まない。{食品|しょくひん}を{買|か}うときはラベルをよく{読|よ}もう。
+      - type: narration
+        text: "AだからB、BだからC——{原因|げんいん}をたどっていく「{因果連鎖|いんがれんさ}」のワザ。ひとつの{手|て}がかりから{次|つぎ}の{手|て}がかりにつなげる{力|ちから}を、{他|ほか}のなぞときでも{使|つか}ってみてね。
+      - type: effect
+        name: fade-out
