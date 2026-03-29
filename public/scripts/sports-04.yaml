@@ -1,0 +1,453 @@
+meta:
+  id: sports-04
+  title: プールの謎
+  series: 体育探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{火曜日|かようび}の4{時間目|じかんめ}。{体育探偵団|たいいくたんていだん}のみんなは{今日|きょう}もプールの{授業|じゅぎょう}だ。{安全|あんぜん}のために「バディシステム」——2{人|にん}1{組|くみ}で{確認|かくにん}し{合|あ}う{仕組|しく}み——を{使|つか}っている。"
+      - type: narration
+        text: "10{分|ぷん}ごとに{笛|ふえ}が{鳴|な}ると、バディ{同士|どうし}で{確認|かくにん}して「バディ{確認表|かくにんひょう}」に{記録|きろく}する。"
+      - type: narration
+        text: "{授業|じゅぎょう}が{終|お}わって、{先生|せんせい}がバディ{確認表|かくにんひょう}を{見|み}ると——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "10{時|じ}15{分|ぷん}の{記録|きろく}が{書|か}き{換|か}えられていた！ 元は「ミノリ：プールサイドで{休憩|きゅうけい}」だったのに、「ミノリ：プールで{泳|およ}いでいた」に{変|か}わっている！"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "バディ{確認表|かくにんひょう}の10{時|じ}15{分|ぷん}の{記録|きろく}が{書|か}き{換|か}えられています。{消|け}しゴムで{消|け}して、{同|おな}じ{鉛筆|えんぴつ}で{書|か}き{直|なお}した{跡|あと}があります。{誰|だれ}がやったのか——みんなで{調|しら}べてほしいのです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: surprised
+          - character: tsubasa
+            expression: thinking
+          - character: kakeru
+            expression: surprised
+          - character: minori
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。バディ{確認表|かくにんひょう}は{命|いのち}を{守|まも}るための{記録|きろく}——{誰|だれ}が、なぜ{書|か}き{換|か}えたのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: プールの謎
+        subtitle: 体育探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書き換えられたバディ確認表を調べよう
+      - type: narration
+        text: "プールサイドのバディ{確認表|かくにんひょう}を{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ミノリの{欄|らん}の「{場所|ばしょ}」が{書|か}き{換|か}えられている。"
+      - type: narration
+        text: "{元|もと}（{鉛筆|えんぴつ}）: プールサイドで{休憩|きゅうけい}"
+      - type: narration
+        text: "{書|か}き{換|か}え（{消|け}しゴムで{消|け}して{書|か}き{直|なお}し）: プールで{泳|およ}いでいた"
+      - type: narration
+        text: "{書|か}き{直|なお}しの{筆跡|ひっせき}は{元|もと}の{記録|きろく}と{同|おな}じ{鉛筆|えんぴつ}だ。{他|ほか}の3{人|にん}（ハヤテ・ツバサ・カケル）の{欄|らん}は{書|か}き{換|か}えなし。"
+      - type: narration
+        text: "バディ{確認表|かくにんひょう}はプールサイドのベンチに{置|お}いてある——{誰|だれ}でも{書|か}けるのだ。"
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{書|か}き{直|なお}しの{筆跡|ひっせき}が「{元|もと}の{記録|きろく}と{同|おな}じ{人|ひと}」って{書|か}いてある。バディ{確認表|かくにんひょう}のミノリの{欄|らん}を{書|か}くのは{誰|だれ}なんだろう？"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: バディ確認のルールを確認しよう
+      - type: narration
+        text: "バディ{確認表|かくにんひょう}の{記録|きろく}ルールを{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{誰|だれ}が{書|か}くか: バディ{確認表|かくにんひょう}は{自分|じぶん}のバディの{欄|らん}を{書|か}く。つまり——ミノリの{欄|らん}はバディのサキが{書|か}く。"
+      - type: narration
+        text: "10{時|じ}15{分|ぷん}のバディ{確認|かくにん}のとき、サキちゃんはプールサイドで{休憩|きゅうけい}していた。サキちゃんが「ミノリ：プールサイドで{休憩|きゅうけい}」と{書|か}いた——これが{元|もと}の{記録|きろく}だ。"
+      - type: narration
+        text: "{報告|ほうこく}{義務|ぎむ}: バディがプールにいない{場合|ばあい}（{休憩|きゅうけい}{中|ちゅう}・トイレ{等|など}）、{先生|せんせい}に{報告|ほうこく}する{義務|ぎむ}がある。「ミノリ：プールサイドで{休憩|きゅうけい}」の{記録|きろく} → {先生|せんせい}への{報告|ほうこく}が{必要|ひつよう}になる。"
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "サキちゃんが「プールサイドで{休憩|きゅうけい}」と{書|か}いた。でも{書|か}き{換|か}え{後|ご}は「プールで{泳|およ}いでいた」。{誰|だれ}が{書|か}き{換|か}えた？ そしてなぜ？"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 10時15分の目撃情報を集めよう
+      - type: narration
+        text: "10{時|じ}15{分|ぷん}のバディ{確認|かくにん}のとき、みんなが{見|み}たことを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hayate
+        expression: normal
+        position: left
+      - type: dialog
+        character: hayate
+        text: "バディ{確認|かくにん}の{笛|ふえ}の{後|あと}、プールサイドのベンチを{見|み}た。ミノリとサキの2{人|にん}がベンチに{座|すわ}っていたよ。"
+        expression: normal
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "プールから{上|あ}がるとき、ミノリがプールサイドでサキに{何|なに}か{話|はな}しかけているのが{見|み}えた。"
+        expression: normal
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: left
+      - type: dialog
+        character: kakeru
+        text: "{泳|およ}ぎに{夢中|むちゅう}で{周|まわ}りを{見|み}ていなかった。ごめんね。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: minori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minori
+        text: "わたし？ 10{時|じ}15{分|ぷん}はプールで{泳|およ}いでいたよ。バディ{確認表|かくにんひょう}にもそう{書|か}いてある。"
+        expression: thinking
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: "{矛盾|むじゅん}！ ハヤテとツバサは「ミノリがプールサイドにいた」と{目撃|もくげき}。でもバディ{確認表|かくにんひょう}（{書|か}き{換|か}え{後|ご}）は「プールで{泳|およ}いでいた」——{記録|きろく}と{目撃|もくげき}が{合|あ}わない！"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 書き換えのタイミングを調べよう
+      - type: narration
+        text: "バディ{確認表|かくにんひょう}はいつ{書|か}き{換|か}えられた？ タイムラインを{整理|せいり}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "10{時|じ}15{分|ぷん}: バディ{確認|かくにん}②。サキが「プールサイドで{休憩|きゅうけい}」と{記録|きろく}。"
+      - type: narration
+        text: "10{時|じ}16{分|ぷん}〜10{時|じ}24{分|ぷん}: {練習|れんしゅう}タイム{再開|さいかい}。{全員|ぜんいん}プールに{戻|もど}る。"
+      - type: narration
+        text: "10{時|じ}24{分|ぷん}ごろ: 3{回目|かいめ}のバディ{確認|かくにん}の{直前|ちょくぜん}……"
+      - type: sprite
+        character: tsubasa
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "10{時|じ}24{分|ぷん}に、ミノリがプールから{上|あ}がってベンチに{行|い}った。すぐ{戻|もど}ってきた。1{分|ぷん}くらいだった。バディ{確認表|かくにんひょう}はベンチの{上|うえ}にある……。"
+        expression: surprised
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: narration
+        text: "10{時|じ}24{分|ぷん}にミノリがベンチ（＝バディ{確認表|かくにんひょう}がある{場所|ばしょ}）に{行|い}った。1{分|ぷん}で{戻|もど}った——{書|か}き{換|か}える{時間|じかん}は……{十分|じゅうぶん}ある。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: サキちゃんの証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{授業|じゅぎょう}{後|あと}に、サキちゃんに{話|はなし}を{聞|き}きました。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "サキちゃんの{話|はなし}: 「わたし、{泳|およ}ぐのが{怖|こわ}いの。10{時|じ}15{分|ぷん}のとき、プールサイドで{休|やす}んでた。ミノリちゃんが『{大丈夫|だいじょうぶ}だよ、{一緒|いっしょ}にいるよ』って{隣|となり}に{座|すわ}ってくれた。」"
+      - type: narration
+        text: "「バディ{確認表|かくにんひょう}に『プールサイドで{休憩|きゅうけい}』って{書|か}いたら、{先生|せんせい}に『なぜ{泳|およ}がなかった？』って{聞|き}かれちゃうよね。ミノリちゃんが『{大丈夫|だいじょうぶ}、わたしが{何|なん}とかするから』って{言|い}ってた。」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ミノリはサキちゃんを{守|まも}るために{書|か}き{換|か}えた——「{泳|およ}がなかった」と{注意|ちゅうい}されないように。でも、バディ{確認表|かくにんひょう}は{命|いのち}を{守|まも}る{記録|きろく}……。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: バディ確認表を書き換えたのは誰だ？
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{証拠|しょうこ}カード③を{見|み}て。ハヤテとツバサは10{時|じ}15{分|ぷん}にミノリがプールサイドにいたと{目撃|もくげき}している。{確認表|かくにんひょう}の{書|か}き{換|か}え{後|ご}は「プールで{泳|およ}いでいた」——{記録|きろく}と{目撃|もくげき}が{矛盾|むじゅん}してる。"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: determined
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "{証拠|しょうこ}カード④だよ。10{時|じ}24{分|ぷん}にミノリがベンチに{行|い}った。バディ{確認表|かくにんひょう}があるベンチに。1{分|ぷん}で{戻|もど}ってきた——{書|か}き{換|か}える{時間|じかん}は{十分|じゅうぶん}あったはずだ。"
+        expression: determined
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。10{時|じ}15{分|ぷん}——ミノリはプールサイドにいた（{目撃|もくげき}{証言|しょうげん}）。10{時|じ}24{分|ぷん}——ミノリがバディ{確認表|かくにんひょう}のあるベンチに{行|い}った（ツバサ{目撃|もくげき}）。サキちゃんの{証言|しょうげん}——ミノリが「わたしが{何|なん}とかする」と{言|い}っていた。"
+      - type: choice
+        id: q1
+        question: バディ確認表を書き換えたのは誰？
+        options:
+          - text: ミノリ（10:24にベンチに行き、サキちゃんを「何とかする」と言っていた）
+            value: minori
+            correct: true
+            feedback: "{正解|せいかい}！ 10{時|じ}15{分|ぷん}にプールサイドにいたのに「{泳|およ}いでいた」と{記録|きろく}されたミノリ。10{時|じ}24{分|ぷん}にバディ{確認表|かくにんひょう}のあるベンチに{行|い}き、1{分|ぷん}で{戻|もど}った。サキちゃんへの「わたしが{何|なん}とかする」の{発言|はつげん}——すべてがつながる。"
+          - text: ハヤテ（データ分析が得意でバディ確認表を詳しく調べた人）
+            value: hayate
+            feedback: "ハヤテは10{時|じ}15{分|ぷん}にプールで{泳|およ}いでいて、バディの{確認|かくにん}も{問題|もんだい}なし。10{時|じ}24{分|ぷん}もプールの{中|なか}にいた。バディ{確認表|かくにんひょう}を{書|か}き{換|か}える{動機|どうき}も{機会|きかい}もないよ。"
+          - text: ツバサ（10:24にミノリがベンチに行くのを目撃した人）
+            value: tsubasa
+            feedback: "ツバサは10{時|じ}24{分|ぷん}にミノリがベンチに{行|い}くのを{目撃|もくげき}した{側|がわ}だよ。{目撃者|もくげきしゃ}が{犯人|はんにん}だと{思|おも}った？ でも{動機|どうき}がない。サキちゃんとの{特別|とくべつ}なつながりもないし。"
+          - text: カケル（泳ぎに夢中で何も見ていなかった人）
+            value: kakeru
+            feedback: "カケルは{泳|およ}ぎに{夢中|むちゅう}で10{時|じ}15{分|ぷん}の{状況|じょうきょう}を{全|まった}く{見|み}ていない。10{時|じ}24{分|ぷん}もプールにいた。バディ{確認表|かくにんひょう}に{近|ちか}づいていないよ。"
+
+  # ==================== 真実：ミノリの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミノリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: minori
+        expression: worried
+        position: center
+      - type: dialog
+        character: minori
+        text: "……{書|か}き{換|か}えたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: ミノリは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: minori
+        text: "サキちゃんは{泳|およ}ぐのが{怖|こわ}くて……10{時|じ}15{分|ぷん}のとき、{一緒|いっしょ}にプールサイドにいた。『{大丈夫|だいじょうぶ}だよ』って{励|はげ}ましてたの。"
+        expression: worried
+      - type: dialog
+        character: minori
+        text: "でも「プールサイドで{休憩|きゅうけい}」って{書|か}かれたら、サキちゃんが『なぜ{泳|およ}がなかった？』って{先生|せんせい}に{注意|ちゅうい}されちゃう。それが{嫌|いや}で……10{時|じ}24{分|ぷん}にベンチに{行|い}って、{消|け}しゴムで{消|け}して「プールで{泳|およ}いでいた」に{書|か}き{直|なお}した。"
+        expression: thinking
+      - type: dialog
+        character: minori
+        text: "サキちゃんを{守|まも}りたかったの。でも……バディ{確認表|かくにんひょう}を{書|か}き{換|か}えるのはダメだって、{分|わ}かってた。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hayate
+        expression: worried
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{実|じつ}は……10{時|じ}15{分|ぷん}にミノリがプールサイドにいるのを{見|み}て、「{確認表|かくにんひょう}と{違|ちが}う」って{気|き}づいてた。でもミノリを{疑|うたが}いたくなくて……{言|い}わなかった。"
+        expression: worried
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "10{時|じ}15{分|ぷん}に、ミノリがサキちゃんの{肩|かた}に{手|て}を{置|お}いて{優|やさ}しく{話|はな}しかけてた。サキちゃんは{少|すこ}し{泣|な}いてた。{泳|およ}ぐのが{怖|こわ}かったんだと{思|おも}う——ミノリの{気持|きも}ちは{分|わ}かる。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: left
+      - type: dialog
+        character: kakeru
+        text: "{泳|およ}ぎに{夢中|むちゅう}で{気|き}づかなかった。でも……ミノリが{前|まえ}の{授業|じゅぎょう}で「サキちゃんは{泳|およ}ぐのが{怖|こわ}いって{言|い}ってた。なんとかしてあげたい」って{話|はな}してたの、{覚|おぼ}えてる。ミノリの{優|やさ}しさだったんだよね。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミノリの「サキちゃんを{守|まも}りたい」という{気持|きも}ちは、とても{優|やさ}しいものです。{友達|ともだち}を{守|まも}ろうとする{心|こころ}は{素晴|すば}らしい。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも——バディ{確認表|かくにんひょう}は{命|いのち}を{守|まも}るための{記録|きろく}です。もしサキちゃんが{水|みず}の{中|なか}で{溺|おぼ}れていたとき、{確認表|かくにんひょう}が「{泳|およ}いでいた」になっていたら、「{大丈夫|だいじょうぶ}」と{見過|みす}ごされるかもしれない。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "サキちゃんが{怖|こわ}がっているなら、{正|ただ}しい{方法|ほうほう}は{先生|せんせい}に{相談|そうだん}すること。{先生|せんせい}が{一緒|いっしょ}に{考|かんが}えます。{一人|ひとり}で{何|なん}とかしようとしなくていいんですよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "バディシステムは{命|いのち}を{守|まも}る。2{人|にん}1{組|くみ}でお{互|たが}いの{安全|あんぜん}を{確認|かくにん}する{仕組|しく}み——{記録|きろく}は{正確|せいかく}でなければならない。"
+      - type: narration
+        text: "{友達|ともだち}を{守|まも}りたい{気持|きも}ちは{正|ただ}しい。でも{安全|あんぜん}{記録|きろく}の{書|か}き{換|か}えは{命|いのち}に{関|かか}わる。{困|こま}っている{友達|ともだち}がいたら——{先生|せんせい}に{相談|そうだん}しよう。"
+      - type: narration
+        text: "タイムラインを{並|なら}べ{直|なお}すと{矛盾|むじゅん}が{見|み}える。10{時|じ}15{分|ぷん}→10{時|じ}24{分|ぷん}→10{時|じ}25{分|ぷん}の{流|なが}れが、すべてを{語|かた}っていた。"
+      - type: effect
+        name: fade-out

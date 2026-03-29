@@ -1,0 +1,387 @@
+meta:
+  id: craft-02
+  title: 粘土の指紋
+  series: 図工探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図工|ずこう}の{時間|じかん}に「{粘土|ねんど}で{動物|どうぶつ}を{作|つく}ろう」という{課題|かだい}をした。4{人|にん}はそれぞれ{違|ちが}う{技法|ぎほう}で{作品|さくひん}を{作|つく}り、{棚|たな}に{並|なら}べて{乾|かわ}かした。"
+      - type: narration
+        text: "ツクルの「{恐竜|きょうりゅう}」は{背中|せなか}に6{本|ぽん}のトゲがあり、みんなから「カッコいい！」と{言|い}われていた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}、ツクルの{恐竜|きょうりゅう}の{背中|せなか}のトゲが1{本|ぽん}{折|お}れて、{別|べつ}の{技法|ぎほう}で{修復|しゅうふく}されていた！ ツクルは{直|なお}していない。いったい{誰|だれ}が{触|さわ}って{壊|こわ}し、こっそり{直|なお}そうとしたのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツクルの{恐竜|きょうりゅう}のトゲが1{本|ぽん}{折|お}れています。そして{折|お}れた{部分|ぶぶん}が{別|べつ}の{技法|ぎほう}で{修復|しゅうふく}されていますね。ツクルの{作品|さくひん}は「ひねり{出|だ}し」で{作|つく}ったはず。でも{修復|しゅうふく}の{跡|あと}は{違|ちが}う{技法|ぎほう}に{見|み}えます。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: thinking
+          - character: sumire
+            expression: worried
+          - character: tsukuru
+            expression: surprised
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{棚|たな}の{前|まえ}に{集|あつ}まった。{誰|だれ}がツクルの{作品|さくひん}を{触|さわ}ったのか。{修復|しゅうふく}した{技法|ぎほう}に{手|て}がかりがあるはずだ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 粘土の指紋
+        subtitle: 図工探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4人の作品と技法を確認しよう
+      - type: narration
+        text: "{図工|ずこう}の{授業|じゅぎょう}で4{人|にん}が{作|つく}った{粘土|ねんど}{作品|さくひん}の{記録|きろく}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— 「{家|いえ}」。{技法|ぎほう}：{板|いた}づくり。{壁|かべ}と{屋根|やね}を{板|いた}で{切|き}り{出|だ}して{組|く}み{立|た}てた。{面|めん}が{平|たい}ら。"
+      - type: narration
+        text: "スミレ —— 「{花|か}びん」。{技法|ぎほう}：{紐|ひも}づくり。{紐|ひも}を{丁寧|ていねい}に{巻|ま}いた{美|うつく}しい{曲線|きょくせん}。{表面|ひょうめん}に{紐|ひも}の{跡|あと}。"
+      - type: narration
+        text: "ツクル —— 「{恐竜|きょうりゅう}」。{技法|ぎほう}：ひねり{出|だ}し。大きなかたまりから{指|ゆび}で{大胆|だいたん}に{形|かたち}を{作|つく}った。{背中|せなか}に6{本|ぽん}のトゲ。"
+      - type: narration
+        text: "カナデ —— 「{猫|ねこ}」。{技法|ぎほう}：ひねり{出|だ}し+{板|いた}づくり。{体|からだ}は{指|ゆび}で、{耳|みみ}は{板|いた}で{作|つく}った。"
+      - type: narration
+        text: "{各自|かくじ}の{粘土|ねんど}の{色|いろ}にも{違|ちが}いがある。ヒナタ：ふつうの{灰色|はいいろ}。スミレ：やや{白|しろ}っぽい。ツクル：やや{茶色|ちゃいろ}っぽい。カナデ：ふつうの{灰色|はいいろ}。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{授業|じゅぎょう}は14:50に{終|お}わり。4{人|にん}は{作品|さくひん}を{棚|たな}に{並|なら}べて{出|で}た。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カナデ —— 15:10に{図工室|ずこうしつ}を{出|で}た。{一番|いちばん}に{帰|かえ}って{教室|きょうしつ}へ。"
+      - type: narration
+        text: "ヒナタ —— 15:10に{図工室|ずこうしつ}を{出|で}た。カナデと{一緒|いっしょ}に{出|で}て{教室|きょうしつ}で{記録|きろく}ノートを{書|か}いていた。"
+      - type: narration
+        text: "ツクル —— 15:15に{図工室|ずこうしつ}を{出|で}た。{恐竜|きょうりゅう}のトゲを{最後|さいご}に{確認|かくにん}してから{出|で}た。6{本|ぽん}{全部|ぜんぶ}OK。"
+      - type: narration
+        text: "スミレ —— 15:20に{図工室|ずこうしつ}を{出|で}た。{花|か}びんの{表面|ひょうめん}を{確認|かくにん}してから{出|で}た。"
+      - type: narration
+        text: "{図工室|ずこうしつ}は{先生|せんせい}が17:00にかぎをかける。15:15{時点|じてん}でトゲは6{本|ぽん}とも{無事|ぶじ}。{犯行|はんこう}は15:15{以降|いこう}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 修復痕を観察しよう
+      - type: narration
+        text: "{翌朝|よくあさ}、ツクルの{恐竜|きょうりゅう}をくわしく{観察|かんさつ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{折|お}れたトゲ（{背中|せなか}の{左|ひだり}から3{本|ぼん}{目|め}）—— {根元|ねもと}で{折|お}れていた。{折|お}れた{部分|ぶぶん}が{紐状|ひもじょう}の{粘土|ねんど}で{巻|ま}いて{接着|せっちゃく}されている。"
+      - type: narration
+        text: "{巻|ま}き{方|かた}は{丁寧|ていねい}で、{紐|ひも}の{太|ふと}さが{均一|きんいつ}。{慣|な}れた{人|ひと}の{仕事|しごと}に{見|み}える。{修復|しゅうふく}{部分|ぶぶん}の{粘土|ねんど}の{色|いろ}がやや{白|しろ}っぽい。{恐竜|きょうりゅう}{本体|ほんたい}（やや{茶色|ちゃいろ}っぽい）と{色|いろ}が{違|ちが}う。"
+      - type: narration
+        text: "{恐竜|きょうりゅう}の{本体|ほんたい}は{全体|ぜんたい}がひねり{出|だ}しで{作|つく}られている（{指|ゆび}の{跡|あと}が{残|のこ}っている）。トゲも{元々|もともと}ひねり{出|だ}しで{作|つく}った{細|ほそ}い{突起|とっき}だ。"
+      - type: narration
+        text: "{修復痕|しゅうふくあと}だけが{紐|ひも}づくりの{特徴|とくちょう}（{紐|ひも}の{巻|ま}き{跡|あと}）を{持|も}っている。ひねり{出|だ}しの{作品|さくひん}なのに、{修復|しゅうふく}だけ{紐|ひも}づくり。なぜ{違|ちが}う{技法|ぎほう}で{直|なお}した？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 棚の周りを調べよう
+      - type: narration
+        text: "{図工室|ずこうしつ}の{棚|たな}と{周辺|しゅうへん}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツクルの{恐竜|きょうりゅう}は{棚|たな}の{上|うえ}から2{段目|だんめ}に{置|お}いてあった。{取|と}り{出|だ}すには{両手|りょうて}で{持|も}ち{上|あ}げる{必要|ひつよう}がある。"
+      - type: narration
+        text: "{棚|たな}の{前|まえ}の{床|ゆか}に{小|ちい}さな{粘土|ねんど}のかけらが1つ{落|お}ちていた。{折|お}れたトゲの{先端|せんたん}{部分|ぶぶん}だ。{色|いろ}はやや{茶色|ちゃいろ}っぽい（ツクルの{粘土|ねんど}と{同|おな}じ{色|いろ}）。"
+      - type: narration
+        text: "{各自|かくじ}の{粘土|ねんど}は{図工室|ずこうしつ}のロッカーに{入|い}れてある。{修復|しゅうふく}に{使|つか}った{粘土|ねんど}を{取|と}り{出|だ}すにはロッカーを{開|あ}ける{必要|ひつよう}がある。"
+      - type: narration
+        text: "ロッカーにかぎはないが、{自分|じぶん}のロッカーの{場所|ばしょ}は{自分|じぶん}しか{知|し}らない。{修復|しゅうふく}に{自分|じぶん}の{粘土|ねんど}を{使|つか}ったなら、{粘土|ねんど}の{持|も}ち{主|ぬし}が{犯人|はんにん}だ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の分析
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "この{修復|しゅうふく}は{雑|ざつ}ではありません。{紐|ひも}の{太|ふと}さが{均一|きんいつ}で、{巻|ま}き{方|かた}も{丁寧|ていねい}です。{紐|ひも}づくりにかなり{慣|な}れている{人|ひと}の{仕事|しごと}ですね。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "それから、{修復|しゅうふく}の{仕方|しかた}を{見|み}ると、{壊|こわ}れたことを{隠|かく}そうとしたのではなく、ちゃんと{元通|もとどお}りにしようとしています。トゲの{角度|かくど}を{元|もと}と{同|おな}じにしようと、{何度|なんど}も{調整|ちょうせい}した{跡|あと}がありますね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "この{人|ひと}はツクルの{作品|さくひん}を{大切|たいせつ}に{思|おも}っていたんだと{思|おも}いますよ。{壊|こわ}したことは{問題|もんだい}ですが、{直|なお}そうとした{気持|きも}ちは{本物|ほんもの}です。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{紐|ひも}づくりに{慣|な}れていて、ツクルの{作品|さくひん}を{大切|たいせつ}に{思|おも}っている{人|ひと}……。{悪意|あくい}ではなく{善意|ぜんい}で{直|なお}そうとした{人|ひと}。それは{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hinata
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hinata
+        text: "{放課後|ほうかご}15:30ごろ、{廊下|ろうか}でスミレが{図工室|ずこうしつ}に{向|む}かって{歩|ある}いてるのを{見|み}た。「{忘|わす}れ{物|もの}？」って{聞|き}いたら「うん」って。でも……{手|て}ぶらで{戻|もど}ってきたんだ。"
+        expression: thinking
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{修復痕|しゅうふくあと}を{見|み}て{気|き}づいた。これはひねり{出|だ}しじゃない。{紐|ひも}づくりだ。{紐|ひも}の{巻|ま}き{跡|あと}が{残|のこ}ってる。{紐|ひも}づくりが{得意|とくい}なのは……"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{修復|しゅうふく}の{技法|ぎほう}は{紐|ひも}づくり。{紐|ひも}づくりを{使|つか}うのはスミレだけ。{修復|しゅうふく}{部分|ぶぶん}の{粘土|ねんど}はやや{白|しろ}っぽい——スミレの{粘土|ねんど}と{同|おな}じ{色|いろ}だ。"
+      - type: choice
+        id: q1
+        question: ツクルの作品を壊して直したのは誰？
+        options:
+          - text: スミレ（紐づくりが得意で、粘土の色が白っぽい）
+            value: sumire
+            correct: true
+            feedback: "{正解|せいかい}！ スミレは{紐|ひも}づくりが{得意|とくい}で、{修復痕|しゅうふくあと}の{技法|ぎほう}と{一致|いっち}する。{粘土|ねんど}の{色|いろ}もやや{白|しろ}っぽく、{修復|しゅうふく}{部分|ぶぶん}と{同|おな}じだ。ツクルの{技法|ぎほう}に{憧|あこが}れて{近|ちか}くで{見|み}たかったんだね。"
+          - text: ヒナタ（記録好きで、ツクルの恐竜をすごいと思っていた）
+            value: hinata
+            feedback: "ヒナタの{技法|ぎほう}は{板|いた}づくり。{修復痕|しゅうふくあと}は{紐|ひも}づくりだから{技法|ぎほう}が{合|あ}わないよ。ヒナタは15:10に{教室|きょうしつ}に{帰|かえ}って{記録|きろく}ノートを{書|か}いていたね。"
+          - text: ツクル（自分で壊して直した自作自演）
+            value: tsukuru
+            feedback: "ツクルの{技法|ぎほう}はひねり{出|だ}し。もし{自分|じぶん}で{直|なお}すなら{同|おな}じひねり{出|だ}しで{直|なお}すはず。{紐|ひも}づくりで{直|なお}す{理由|りゆう}がないよ。"
+          - text: カナデ（ツクルの恐竜のトゲをほめていた）
+            value: kanade
+            feedback: "カナデの{技法|ぎほう}はひねり{出|だ}し+{板|いた}づくり。{紐|ひも}づくりは{使|つか}っていない。15:10に{一番|いちばん}に{帰|かえ}っているし、{放課後|ほうかご}に{図工室|ずこうしつ}には{行|い}っていないよ。"
+
+  # ==================== 真実：スミレ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: スミレの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sumire
+        expression: worried
+        position: center
+      - type: dialog
+        character: sumire
+        text: "……ごめんなさい。ツクルの{恐竜|きょうりゅう}を{壊|こわ}したのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "スミレは{目|め}に{涙|なみだ}をためながら、ゆっくり{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: sumire
+        text: "ツクルのひねり{出|だ}しの{技法|ぎほう}がすごくて、{近|ちか}くで{見|み}たかったの。{背中|せなか}のトゲ、{指|ゆび}だけでどうやって{作|つく}ったんだろうって……{放課後|ほうかご}に{図工室|ずこうしつ}に{戻|もど}って、{棚|たな}から{持|も}ち{上|あ}げたの。"
+        expression: thinking
+      - type: dialog
+        character: sumire
+        text: "そしたら{手|て}が{滑|すべ}って、トゲが{折|お}れちゃった。{慌|あわ}てて{自分|じぶん}の{粘土|ねんど}で{直|なお}した。{紐|ひも}づくりしかできないから、{紐|ひも}で{巻|ま}いて{接着|せっちゃく}した。"
+        expression: worried
+      - type: dialog
+        character: sumire
+        text: "{元通|もとどお}りにしたかった。トゲの{角度|かくど}も{合|あ}わせようって{何度|なんど}も{調整|ちょうせい}した。でも{技法|ぎほう}が{違|ちが}うから……{目立|めだ}っちゃったよね。ツクル、ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: sumire
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{実|じつ}は……{修復痕|しゅうふくあと}を{見|み}て「これは{紐|ひも}づくりだ」って{気|き}づいてた。{紐|ひも}づくりが{得意|とくい}なのはスミレだって。でもスミレを{犯人|はんにん}{扱|あつか}いしたくなくて、{言|い}い{出|だ}せなかった。"
+        expression: thinking
+      - type: dialog
+        character: tsukuru
+        text: "{修復|しゅうふく}が{丁寧|ていねい}だったのは{分|わ}かってたよ。{雑|ざつ}に{壊|こわ}した{感|かん}じじゃなかった。……ありがとう、{直|なお}そうとしてくれて。"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: right
+      - type: dialog
+        character: hinata
+        text: "15:30にスミレが{図工室|ずこうしつ}に{向|む}かうのを{見|み}た。「{忘|わす}れ{物|もの}」って{言|い}ってたけど、{手|て}ぶらで{戻|もど}ってきた。{記録|きろく}ノートに{書|か}いてあったけど……スミレを{疑|うたが}うようなことは{言|い}いたくなかった。"
+        expression: worried
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanade
+        text: "{放課後|ほうかご}、スミレが「ツクルの{恐竜|きょうりゅう}、{背中|せなか}のトゲどうやって{作|つく}ったんだろう」って{言|い}ってたの{聞|き}いてた。ツクルの{技法|ぎほう}にすごく{興味|きょうみ}があったんだね。"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "スミレの「{上手|じょうず}になりたい」という{気持|きも}ちは{素晴|すば}らしいわ。{人|ひと}の{作品|さくひん}のいいところを{見|み}つけられるのは、{大|おお}きな{才能|さいのう}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{人|ひと}の{作品|さくひん}を{勝手|かって}に{触|さわ}るのはダメ。「{見|み}せて」「{持|も}ってもいい？」と{聞|き}けば、ツクルは{喜|よろこ}んで{見|み}せてくれたはずよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{粘土|ねんど}の{技法|ぎほう}は「{指紋|しもん}」のようなもの。ひねり{出|だ}しには{指|ゆび}の{跡|あと}、{板|いた}づくりには{平|たい}らな{面|めん}、{紐|ひも}づくりには{紐|ひも}の{巻|ま}き{跡|あと}。{作品|さくひん}の{表面|ひょうめん}を{見|み}れば、どの{技法|ぎほう}で{作|つく}ったか{分|わ}かる。"
+      - type: narration
+        text: "{修復|しゅうふく}の{跡|あと}にも{技法|ぎほう}の{特徴|とくちょう}が{残|のこ}る。{情報|じょうほう}を{表|ひょう}にまとめて{整理|せいり}すれば、{答|こた}えが{見|み}えてくる。"
+      - type: narration
+        text: "{憧|あこが}れは{素晴|すば}らしい。でも{方法|ほうほう}が{大切|たいせつ}。「{見|み}せて」の{一言|ひとこと}で、{友達|ともだち}はもっと{仲良|なかよ}くなれる。"
+      - type: effect
+        name: fade-out

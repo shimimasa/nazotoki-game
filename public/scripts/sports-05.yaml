@@ -1,0 +1,446 @@
+meta:
+  id: sports-05
+  title: 跳び箱の罠
+  series: 体育探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{水曜日|すいようび}の4{時間目|じかんめ}。{体育探偵団|たいいくたんていだん}のみんなは{今日|きょう}も{体育館|たいいくかん}に{集|あつ}まっていた。{今日|きょう}の{授業|じゅぎょう}は{跳|と}び{箱|ばこ}——先生が「{全員|ぜんいん}6{段|だん}に{挑戦|ちょうせん}！」と{言|い}った。"
+      - type: narration
+        text: "{跳|と}ぶ{順番|じゅんばん}はハヤテ→カケル→ツバサ→ミノリ。10{時|じ}10{分|ぷん}に{準備|じゅんび}{完了|かんりょう}。先生がマットの{位置|いち}を{確認|かくにん}した。"
+      - type: narration
+        text: "10{時|じ}12{分|ぷん}——ハヤテの{番|ばん}が{来|き}た。しかしハヤテは「まだ{準備|じゅんび}ができていない」と{言|い}って{順番|じゅんばん}をスキップした。"
+      - type: narration
+        text: "そして10{時|じ}13{分|ぷん}——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "カケルが{跳|と}んだ{瞬間|しゅんかん}、{着地|ちゃくち}マットが15cmずれていた！ カケルは{着地|ちゃくち}に{失敗|しっぱい}してしりもちをついた。{幸|さいわ}いケガはなかったが——マットは{誰|だれ}が{動|うご}かしたのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{練習前|れんしゅうまえ}にマットを{確認|かくにん}したときは{正|ただ}しい{位置|いち}でした。{着地|ちゃくち}の{衝撃|しょうげき}でずれたのか、{誰|だれ}かが{動|うご}かしたのか——みんなで{調|しら}べてほしいのです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: worried
+          - character: tsubasa
+            expression: thinking
+          - character: kakeru
+            expression: surprised
+          - character: minori
+            expression: normal
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。マットは{自然|しぜん}にずれたのか、それとも{誰|だれ}かが{意図的|いとてき}に{動|うご}かしたのか——{真相|しんそう}を{解明|かいめい}しなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 跳び箱の罠
+        subtitle: 体育探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: マットの状況を調べよう
+      - type: narration
+        text: "{着地|ちゃくち}マットの{状態|じょうたい}を{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マットが{跳|と}び{箱|ばこ}の{正面|しょうめん}から{右|みぎ}に15cmずれていた。マットの{重|おも}さは{約|やく}10kg——{簡単|かんたん}には{動|うご}かないが、{力|ちから}を{入|い}れれば{押|お}せる。"
+      - type: narration
+        text: "マットの{表面|ひょうめん}にカケルの{足跡|あしあと}（{着地|ちゃくち}の{跡|あと}）がある——**ずれた{位置|いち}**に{着地|ちゃくち}している。"
+      - type: narration
+        text: "つまりカケルはずれたマットの{上|うえ}に{着地|ちゃくち}した。2つの{可能性|かのうせい}: ①カケルの{着地|ちゃくち}でずれた ②{跳|と}ぶ{前|まえ}からずれていた。"
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "カケルの{足跡|あしあと}は「ずれた{位置|いち}」にある。もし{着地|ちゃくち}の{衝撃|しょうげき}でずれたなら、{足跡|あしあと}は「{正|ただ}しい{位置|いち}」に{残|のこ}るはずじゃないか？"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 跳び箱の力学を確認しよう
+      - type: narration
+        text: "{跳|と}び{箱|ばこ}の{着地|ちゃくち}とマットのずれの{関係|かんけい}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マットが15cmずれるために{必要|ひつよう}な{力|ちから}: {体重|たいじゅう}40kg{以上|いじょう}の{人|ひと}が{高|たか}い{位置|いち}（{約|やく}1m）から{落下|らっか}し、しかも**{横方向|よこほうこう}に{強|つよ}く{蹴|け}る{力|ちから}**が{必要|ひつよう}。"
+      - type: narration
+        text: "カケルの{着地|ちゃくち}データ: {体重|たいじゅう}{約|やく}35kg。{着地|ちゃくち}の{方向|ほうこう}は**ほぼ{真下|ました}**。{横|よこ}に{蹴|け}る{力|ちから}はなかった。"
+      - type: narration
+        text: "{結論|けつろん}: カケルの{着地|ちゃくち}で15cmのずれが{起|お}きる{可能性|かのうせい}は**{非常|ひじょう}に{低|ひく}い**。"
+      - type: sprite
+        character: tsubasa
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "カケルの{体重|たいじゅう}と{着地|ちゃくち}{方向|ほうこう}では、15cmもずれない。{力学的|りきがくてき}に{不可能|ふかのう}だ。マットは{跳|と}ぶ{前|まえ}からずれていたんじゃないか？"
+        expression: determined
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{着地|ちゃくち}した{瞬間|しゅんかん}、{足|あし}がマットの{端|はし}にかかった。{正面|しょうめん}じゃなくて{右|みぎ}にずれてた気がする——{跳|と}ぶ{前|まえ}から{位置|いち}がおかしかったんだと{思|おも}う。"
+        expression: surprised
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 跳ぶ順番と行動を確認しよう
+      - type: narration
+        text: "{跳|と}ぶ{順番|じゅんばん}と{各|かく}キャラの{行動|こうどう}を{整理|せいり}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "10{時|じ}10{分|ぷん}: {準備|じゅんび}{完了|かんりょう}。先生がマットを{確認|かくにん}——{正|ただ}しい{位置|いち}。"
+      - type: narration
+        text: "10{時|じ}11{分|ぷん}: {跳|と}ぶ{順番|じゅんばん}の{準備|じゅんび}。ハヤテが1{番|ばん}に{並|なら}ぶ。"
+      - type: narration
+        text: "10{時|じ}12{分|ぷん}: ハヤテの{番|ばん}→「まだ{準備|じゅんび}ができていない」とスキップ。"
+      - type: narration
+        text: "10{時|じ}13{分|ぷん}: カケルが{跳|と}ぶ→{着地|ちゃくち}マットがずれていて{失敗|しっぱい}！"
+      - type: narration
+        text: "{重要|じゅうよう}: {練習前|れんしゅうまえ}（10{時|じ}10{分|ぷん}）に先生がマットを{確認|かくにん}→{正|ただ}しい{位置|いち}。カケルが{跳|と}んだ（10{時|じ}13{分|ぷん}）→ずれていた。**10{時|じ}10{分|ぷん}〜10{時|じ}13{分|ぷん}の3{分間|ふんかん}にマットが{動|うご}いた**。"
+      - type: sprite
+        character: hayate
+        expression: worried
+        position: left
+      - type: dialog
+        character: hayate
+        text: "ハヤテはなぜパスしたんだろう……「{準備|じゅんび}ができていない」って、{本当|ほんとう}の{理由|りゆう}はなんだったんだろう？"
+        expression: worried
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 2つの仮説を検証しよう
+      - type: narration
+        text: "{事件|じけん}{後|ご}にみんなが{考|かんが}えた{仮説|かせつ}を{整理|せいり}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{仮説|かせつ}A（みんな）: 「カケルの{着地|ちゃくち}の{衝撃|しょうげき}でマットがずれた」"
+      - type: narration
+        text: "{仮説|かせつ}B（ツバサ）: 「{跳|と}ぶ{前|まえ}からずれていたのでは？」"
+      - type: narration
+        text: "{証拠|しょうこ}カード②によると、カケルの{着地|ちゃくち}では15cmのずれは{起|お}きない——**{仮説|かせつ}Aは{棄却|ききゃく}**。"
+      - type: narration
+        text: "{仮説|かせつ}Bが{正|ただ}しい{場合|ばあい}: 10{時|じ}10{分|ぷん}〜10{時|じ}13{分|ぷん}の3{分間|ふんかん}に{誰|だれ}かがマットを{動|うご}かした。この{間|あいだ}にマットに{近|ちか}づいた{人|ひと}は？"
+      - type: sprite
+        character: minori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minori
+        text: "ハヤテが10{時|じ}11{分|ぷん}〜10{時|じ}12{分|ぷん}に、{跳|と}び{箱|ばこ}の{横|よこ}を{通|とお}って{着地|ちゃくち}マットの{方|ほう}に{歩|ある}いていくのを{見|み}た。「マットの{位置|いち}を{確認|かくにん}してるのかな」って{思|おも}ったけど……"
+        expression: thinking
+      - type: sprite
+        character: minori
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "ハヤテは{跳|と}び{箱|ばこ}が{苦手|にがて}なのは{知|し}ってる。でも、マットの{方向|ほうこう}に{歩|ある}いて……その{後|あと}にパスした？"
+        expression: surprised
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ハヤテのノート
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハヤテのノートを{見|み}せてもらいました。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテのノートの{記録|きろく}: {助走速度|じょそうそくど}: {遅|おそ}い（みんなの{半分|はんぶん}くらい）。{踏切角度|ふみきりかくど}: {低|ひく}い（{怖|こわ}くて{強|つよ}く{踏|ふ}めない）。**{成功回数|せいこうかいすう}: 0{回|かい}（1{回|かい}も{跳|と}べたことがない）**。"
+      - type: narration
+        text: "10{月|がつ}5{日|にち}のメモ: 「{今日|きょう}も6{段|だん}に{挑戦|ちょうせん}する{授業|じゅぎょう}。みんなの{前|まえ}で{失敗|しっぱい}するのが{怖|こわ}い。どうすれば{跳|と}ばなくて{済|す}むだろう…」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ノートの{最後|さいご}のページ（{破|やぶ}れかけ）: 「マットがずれていたら、『{危険|きけん}だから{跳|と}べない』と{言|い}える。でもそんなこと…」"
+      - type: narration
+        text: "ハヤテは6{段|だん}が1{回|かい}も{跳|と}べない。「みんなの{前|まえ}で{失敗|しっぱい}するのが{怖|こわ}い」。そして「マットがずれていたら{跳|と}ばなくて{済|す}む」とメモに……。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: マットをずらしたのは誰だ？
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "{証拠|しょうこ}カード②を{見|み}て。カケルの{着地|ちゃくち}では15cmのずれは{力学的|りきがくてき}に{不可能|ふかのう}だ。マットは{跳|と}ぶ{前|まえ}からずれていた——{仮説|かせつ}Bが{正|ただ}しい。"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: right
+      - type: dialog
+        character: minori
+        text: "ハヤテが10{時|じ}11{分|ぷん}〜10{時|じ}12{分|ぷん}に、マットの{方向|ほうこう}に{歩|ある}いていくのを{見|み}た。その{後|あと}パスした。ハヤテの{表情|ひょうじょう}は……いつもの「データ{好|ず}き」の{顔|かお}じゃなかった。{怖|こわ}い{顔|かお}だった。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。マットは10{時|じ}10{分|ぷん}〜10{時|じ}13{分|ぷん}の3{分間|ふんかん}に{動|うご}いた。ハヤテは10{時|じ}11{分|ぷん}〜10{時|じ}12{分|ぷん}にマットの{方向|ほうこう}に{歩|ある}いた（ミノリ{目撃|もくげき}）。ノートに「マットがずれていたら{跳|と}ばなくて{済|す}む」と{記録|きろく}されていた——"
+      - type: choice
+        id: q1
+        question: マットをずらしたのは誰？
+        options:
+          - text: ハヤテ（10:11〜10:12にマット方向へ歩き、ノートに「ずれていたら跳ばなくて済む」と書いていた）
+            value: hayate
+            correct: true
+            feedback: "{正解|せいかい}！ 10{時|じ}10{分|ぷん}〜10{時|じ}13{分|ぷん}の{空白|くうはく}の3{分間|ふんかん}、ハヤテだけがマットの{近|ちか}くに{歩|ある}いている（ミノリ{目撃|もくげき}）。ノートの「マットがずれていたら{跳|と}ばなくて{済|す}む」というメモ、そしてカケルの{着地|ちゃくち}では15cmのずれは{力学的|りきがくてき}に{不可能|ふかのう}——すべてがつながる。"
+          - text: カケル（着地に失敗した被害者）
+            value: kakeru
+            feedback: "カケルは{被害者|ひがいしゃ}だよ。{着地|ちゃくち}データからも、カケルの{着地|ちゃくち}では15cmのずれは{起|お}きない（{証拠|しょうこ}カード②）。マットをずらす{動機|どうき}もない。"
+          - text: ツバサ（着地の力学を分析した人）
+            value: tsubasa
+            feedback: "ツバサは{跳|と}ぶ{順番|じゅんばん}が3{番|ばん}目で、10{時|じ}10{分|ぷん}〜10{時|じ}13{分|ぷん}の{間|あいだ}にマットの{近|ちか}くに{行|い}った{記録|きろく}はない。{着地|ちゃくち}の{力学|りきがく}を{分析|ぶんせき}して{真実|しんじつ}に{近|ちか}づいた{人物|じんぶつ}だよ。"
+          - text: ミノリ（ハヤテの行動を目撃した人）
+            value: minori
+            feedback: "ミノリは{跳|と}ぶ{順番|じゅんばん}が4{番|ばん}目で、10{時|じ}10{分|ぷん}〜10{時|じ}13{分|ぷん}の{間|あいだ}ずっと{待機|たいき}{列|れつ}にいた。ハヤテの{行動|こうどう}を{目撃|もくげき}した{側|がわ}だよ。"
+
+  # ==================== 真実：ハヤテの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハヤテの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hayate
+        expression: worried
+        position: center
+      - type: dialog
+        character: hayate
+        text: "……ごめんなさい。マットをずらしたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: ハヤテは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: hayate
+        text: "{跳|と}び{箱|ばこ}の6{段|だん}、1{回|かい}も{跳|と}べたことがないんだ。みんなの{前|まえ}で{失敗|しっぱい}するのが……{怖|こわ}くて。「マットがずれていて{危|あぶ}ないから{跳|と}べない」って{言|い}い{訳|わけ}しようと{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: hayate
+        text: "10{時|じ}11{分|ぷん}に{列|れつ}を{離|はな}れて、マットを15cm{右|みぎ}にずらした。3{秒|びょう}もあれば{十分|じゅうぶん}だった。でも——"
+        expression: thinking
+      - type: dialog
+        character: hayate
+        text: "{僕|ぼく}がパスした{後|あと}、カケルが{先|さき}に{跳|と}んでしまった。ずれたマットでカケルが{着地|ちゃくち}に{失敗|しっぱい}したのは……{僕|ぼく}のせいだ。{本当|ほんとう}にごめん。"
+        expression: determined
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "{実|じつ}は……{証拠|しょうこ}カード②を{分析|ぶんせき}したとき、「マットは{最初|さいしょ}からずれていた」って{確信|かくしん}した。でもそれは「{誰|だれ}かが{動|うご}かした」ってことだから……{怖|こわ}くて{言|い}い{出|だ}せなかった。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{跳|と}ぶ{番|ばん}になったとき、マットの{位置|いち}を{確認|かくにん}しなかった。{確認|かくにん}していれば……{後悔|こうかい}してる。でもハヤテが{怖|こわ}かったんだって{分|わ}かったら——{責|せ}める{気持|きも}ちにはなれない。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: "ハヤテが{跳|と}び{箱|ばこ}を{怖|こわ}がってるのは{前|まえ}から{知|し}ってた。マットの{方|ほう}に{歩|ある}いていくのを{見|み}て、「おかしいな」って{思|おも}ったの。{声|こえ}をかけていれば……ごめんね、ハヤテ。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハヤテの「{跳|と}べないことが{恥|はず}ずかしい、{怖|こわ}い」という{気持|きも}ちは、{誰|だれ}でも{感|かん}じることです。でも——{自分|じぶん}を{守|まも}るために{友達|ともだち}を{危険|きけん}にさらすのは{違|ちが}う。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「{跳|と}べない」と{先生|せんせい}に{正直|しょうじき}に{言|い}えていたら、「5{段|だん}から{練習|れんしゅう}しよう」となっていた。{困|こま}ったときは1{人|ひとり}で{抱|かか}え{込|こ}まず、{相談|そうだん}してくれていいのですよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{跳|と}び{箱|ばこ}の3ステップ——{助走|じょそう}・{踏切|ふみきり}・{着地|ちゃくち}。この3つの{力学|りきがく}の{関係|かんけい}がなければ、「カケルがずらした」{仮説|かせつ}を{否定|ひてい}できなかった。{体育|たいいく}の{知識|ちしき}が{推理|すいり}の{道具|どうぐ}になった。"
+      - type: narration
+        text: "{最初|さいしょ}に{思|おも}いついた{答|こた}えが{正|ただ}しいとは{限|かぎ}らない。「{着地|ちゃくち}でずれた」は{自然|しぜん}な{思|おも}い{込|こ}み——でも{力学|りきがく}で{検証|けんしょう}すると{崩|くず}れた。**{仮説|かせつ}を{立|た}てて{証拠|しょうこ}で{検証|けんしょう}する**ことが、{推理|すいり}の{基本|きほん}だ。"
+      - type: narration
+        text: "{跳|と}べないことは{恥|はず}ずかしくない。{練習|れんしゅう}すれば{跳|と}べるようになる。{一番|いちばん}{大切|たいせつ}なのは——{怖|こわ}いと{感|かん}じたとき、{逃|に}げるのではなく{相談|そうだん}すること。"
+      - type: effect
+        name: fade-out

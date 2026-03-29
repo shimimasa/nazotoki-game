@@ -1,0 +1,440 @@
+meta:
+  id: sports-08
+  title: チームプレーの嘘
+  series: 体育探偵団
+  volume: 8
+  estimatedMinutes: 22
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{水曜日|すいようび}の{体育|たいいく}。バスケットボールの3{対|たい}3ミニゲームだ。"
+      - type: narration
+        text: "チームBはツバサ・カケル・ミノリの3{人|にん}。チームAと{試合|しあい}をして——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**1{点差|てんさ}で{負|ま}けた。** {最後|さいご}の{場面|ばめん}で、ミノリがボールを{持|も}っていた。ツバサがゴール{近|ちか}くでフリーだったのに、ミノリはパスを{出|だ}さず{自分|じぶん}でシュートして{外|はず}した——"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{試合後|しあいご}に{先生|せんせい}のプレーシートを{確認|かくにん}したら——ミノリの「パスミス1{回|かい}」の{記録|きろく}が{消|き}えている！ {消|け}しゴムの{跡|あと}がある。{先生|せんせい}は「{記録|きろく}したはず」と{言|い}う。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: thinking
+          - character: tsubasa
+            expression: surprised
+          - character: kakeru
+            expression: surprised
+          - character: minori
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{記録|きろく}を{消|け}したのは{誰|だれ}か。そして——「パスを{出|だ}さなかった＝{自分勝手|じぶんかって}」は{本当|ほんとう}のことか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: チームプレーの嘘
+        subtitle: 体育探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: プレーシートの異変を調べよう
+      - type: narration
+        text: "{先生|せんせい}のプレーシート（チームBの{記録|きろく}）を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツバサ —— パス{成功|せいこう}: 3{回|かい}、パスミス: 0{回|かい}、シュート: 2{回|かい}、{得点|とくてん}: 1{点|てん}"
+      - type: narration
+        text: "カケル —— パス{成功|せいこう}: 2{回|かい}、パスミス: 0{回|かい}、シュート: 1{回|かい}、{得点|とくてん}: 1{点|てん}"
+      - type: narration
+        text: "ミノリ —— パス{成功|せいこう}: 2{回|かい}、パスミス: **{消|け}しゴムの{跡|あと}あり**、シュート: 1{回|かい}、{得点|とくてん}: 0{点|てん}"
+      - type: narration
+        text: "ミノリの「パスミス」の{欄|らん}だけに{消|け}しゴムの{跡|あと}がある。ツバサとカケルの{記録|きろく}はきれいなまま。{先生|せんせい}は「{全員|ぜんいん}の{記録|きろく}をつけた」と{証言|しょうげん}している。"
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{消|け}しゴムの{跡|あと}がある。もとは{何|なに}かの{数字|すうじ}が{書|か}いてあったのを{消|け}した——{誰|だれ}が、なぜ{消|け}した？"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: チームルールとパスの流れを確認しよう
+      - type: narration
+        text: "{先生|せんせい}が{決|き}めたチームルール:「シュートの{前|まえ}に、チーム{全員|ぜんいん}（3{人|にん}）にパスを1{回|かい}{以上|いじょう}{回|まわ}すこと。」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{最後|さいご}の{場面|ばめん}（{残|のこ}り1{分|ぷん}、2{対|たい}3で{負|ま}けている）のパスの{流|なが}れ:"
+      - type: narration
+        text: "① ツバサ → カケル　② カケル → ミノリ　③ ミノリ → **パスを{出|だ}さずシュート（{外|はず}れ）**"
+      - type: narration
+        text: "ミノリはカケルからパスを{受|う}けた{後|あと}、ツバサにパスを{出|だ}さずに{自分|じぶん}でシュートした。チームルール「{全員|ぜんいん}にパスを{回|まわ}す」を{守|まも}れていなかった。"
+      - type: sprite
+        character: tsubasa
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "ミノリは{試合|しあい}{中盤|ちゅうばん}に{僕|ぼく}への{パス成功|ぱすせいこう}が1{回|かい}ある。{最後|さいご}だけなぜ{出|だ}さなかった？"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 試合後の行動を確認しよう
+      - type: narration
+        text: "{試合後|しあいご}（10:46〜10:53）の{行動|こうどう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ —— ベンチでデータをノートに{写|うつ}していた。**プレーシートのすぐ{横|よこ}**"
+      - type: narration
+        text: "ツバサ —— コートでストレッチ。プレーシートから{離|はな}れている"
+      - type: narration
+        text: "カケル —— {給水所|きゅうすいじょ}で{水|みず}を{飲|の}んだ。プレーシートから{離|はな}れている"
+      - type: narration
+        text: "**ミノリ** —— {先生|せんせい}に「プレーシートを{見|み}せて」とお{願|ねが}いした → **シートをじっと{見|み}ていた**。プレーシートに{接触|せっしょく}"
+      - type: narration
+        text: "{先生|せんせい}は10:48に「ボールを{用具室|ようぐしつ}に{運|はこ}んでくるね」と{体育館|たいいくかん}を{出|で}た。**5{分間|ふんかん}{不在|ふざい}**。プレーシートはベンチの{上|うえ}に{置|お}いたまま。"
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{先生|せんせい}がいない10:48〜10:53の{間|あいだ}、プレーシートに{近|ちか}づけたのは——ハヤテとミノリ。どちらが「{消|け}す{理由|りゆう}」がある？"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 調査：証拠カード4（追加HO） ====================
+  - id: evidence-4
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 追加情報
+        subtitle: 最後の場面のコート位置図
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}が{試合|しあい}のビデオを{見|み}て、{最後|さいご}の{場面|ばめん}（{残|のこ}り1{分|ぷん}）のコート{位置図|いちず}を{書|か}き{起|お}こした。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "【コート{位置図|いちず}】"
+      - type: narration
+        text: "{上|うえ}: {相手|あいて}ゴール / [{相手|あいて}C] [{ツバサ}] ← ゴール{近|ちか}く{右側|みぎがわ}（フリー！）"
+      - type: narration
+        text: "[{相手|あいて}B] ← ミノリとツバサの{間|あいだ}！"
+      - type: narration
+        text: "[カケル] ← コート{中央|ちゅうおう}やや{後方|こうほう} / [{相手|あいて}A] ← ミノリの{正面|しょうめん}"
+      - type: narration
+        text: "[ミノリ●] ← コート{左外側|ひだりそとがわ}（ボールあり） / {下|した}: {自分|じぶん}チームゴール"
+      - type: narration
+        text: "**{重要|じゅうよう}**: ミノリからツバサへのパスコース上に、{相手|あいて}Bが{立|た}っている。パスは{通|とお}る？ そしてミノリの{位置|いち}からツバサが**{見|み}えた**？"
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "ゴール{右側|みぎがわ}で{僕|ぼく}はフリーだった。でも——ミノリとの{間|あいだ}に{相手|あいて}Bがいる。パスコースが{塞|ふさ}がれていた……？"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の証言と視野の話
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミノリの**パスミス1{回|かい}**をちゃんと{記録|きろく}しました。{試合|しあい}{中盤|ちゅうばん}（10:42ごろ）にミノリがツバサにパスを{出|だ}そうとして、{相手|あいて}にカットされた{場面|ばめん}です。**{消|け}したのは{私|わたし}ではありません。**"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "あの{場面|ばめん}のミノリを{見|み}ていました。ミノリはドリブルに{必死|ひっし}でボールを{見|み}ていた。**{初心者|しょしんしゃ}はドリブル{中|ちゅう}に{顔|かお}を{上|あ}げられない。{前|まえ}しか{見|み}えていなかったはず。**"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{視野|しや}の{説明|せつめい}: ふつうに{立|た}っている → {前方|ぜんぽう}{約|やく}180{度|ど}（{広|ひろ}い）"
+      - type: narration
+        text: "**ドリブル{中|ちゅう}（{初心者|しょしんしゃ}）** → **{前方|ぜんぽう}{約|やく}90{度|ど}（せまい）。{下|した}を{見|み}がち**"
+      - type: narration
+        text: "ミノリの{位置|いち}から{見|み}て: {相手|あいて}A → {真正面|まっしょうめん}（{見|み}える） / カケル → やや{右前方|みぎぜんぽう}（{見|み}える）"
+      - type: narration
+        text: "**ツバサ → {右後方|みぎこうほう}{約|やく}120{度|ど}の{位置|いち}（{視野|しや}の{外|そと}！ {見|み}えない！）**"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "つまり——ミノリは「パスを{出|だ}さなかった」のではなく、**「パスを{出|だ}す{相手|あいて}が{見|み}えなかった」**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 記録を消したのは誰だ？
+      - type: sprite
+        character: hayate
+        expression: determined
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{先生|せんせい}がいない{間|あいだ}にプレーシートに{近|ちか}づけたのはハヤテとミノリ。ハヤテは{記録係|きろくがかり}として{正確|せいかく}なデータを{守|まも}りたい。{自分|じぶん}が{記録|きろく}した{数字|すうじ}を{消|け}す{動機|どうき}はない。"
+        expression: determined
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: right
+      - type: dialog
+        character: minori
+        text: "プレーシートを「{見|み}せて」とお{願|ねが}いして……じっと{見|み}ていた。{記録|きろく}が{気|き}になったから……。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{先生|せんせい}はパスミスを{記録|きろく}した（{消|け}したのは{先生|せんせい}じゃない）。ハヤテには{消|け}す{動機|どうき}がない。ミノリは「プレーシートに{接触|せっしょく}」している——"
+      - type: choice
+        id: q1
+        question: プレーシートの記録を消したのは誰？
+        options:
+          - text: ミノリ（パスミスの記録が恥ずかしくて消した）
+            value: minori
+            correct: true
+            feedback: "{正解|せいかい}！ {先生|せんせい}がいない{間|あいだ}、プレーシートに{近|ちか}づけたのはハヤテとミノリ。ハヤテは{記録係|きろくがかり}で{消|け}す{動機|どうき}がない。ミノリは「パスミスの{記録|きろく}が{残|のこ}ると{恥|は}ずかしい」という{動機|どうき}がある。{先生|せんせい}の{証言|しょうげん}とも{一致|いっち}する。"
+          - text: ハヤテ（記録係として記録を修正した）
+            value: hayate
+            feedback: "ハヤテは{記録係|きろくがかり}として{正確|せいかく}なデータを{守|まも}る{役割|やくわり}。{自分|じぶん}が{手伝|てつだ}って{書|か}いた{記録|きろく}を{消|け}す{理由|りゆう}がない。{先生|せんせい}も「{消|け}したのは{私|わたし}ではない」と{証言|しょうげん}しているよ。"
+          - text: ツバサ（ミノリへの怒りから証拠を隠した）
+            value: tsubasa
+            feedback: "ツバサは10:46{以降|いこう}、コートでストレッチをしていた。プレーシートから{離|はな}れていて、{接触|せっしょく}する{機会|きかい}がなかったよ。{証拠|しょうこ}カード③の{行動|こうどう}を{確認|かくにん}してみよう。"
+          - text: カケル（チームを守るために消した）
+            value: kakeru
+            feedback: "カケルは{給水所|きゅうすいじょ}で{水|みず}を{飲|の}んでいた。{体育館|たいいくかん}の{反対側|はんたいがわ}にいて、プレーシートに{近|ちか}づく{時間|じかん}はなかったよ。{証拠|しょうこ}カード③の{行動|こうどう}を{確認|かくにん}してみよう。"
+
+  # ==================== 真実：ミノリの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミノリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: minori
+        expression: worried
+        position: center
+      - type: dialog
+        character: minori
+        text: "……{消|け}したのは、{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: ミノリは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: minori
+        text: "{試合|しあい}{中盤|ちゅうばん}に、ツバサにパスを{出|だ}そうとしたんだ。でも{相手|あいて}にカットされて——パスミス。{先生|せんせい}がそれを{記録|きろく}した。"
+        expression: thinking
+      - type: dialog
+        character: minori
+        text: "{最後|さいご}の{場面|ばめん}は……ドリブルに{必死|ひっし}で{下|した}を{向|む}いていた。{顔|かお}を{上|あ}げたとき、{前方|ぜんぽう}には{ディフェンス|でぃふぇんす}しかいなかった。ツバサがどこにいるか{見|み}えなかった。"
+        expression: worried
+      - type: dialog
+        character: minori
+        text: "シュートするしかなかった。でも{外|はず}した。チームは{負|ま}けた。「パスを{出|だ}さなかったから{負|ま}けた」「{自分勝手|じぶんかって}だ」——そう{言|い}われた。"
+        expression: worried
+      - type: dialog
+        character: minori
+        text: "プレーシートを{見|み}たら「パスミス1{回|かい}」と{書|か}いてあった。「パスも{下手|へた}な{人|ひと}」に{見|み}える。{恥|は}ずかしくて、{先生|せんせい}がいない{間|あいだ}に{消|け}しゴムで{消|け}した。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "{実|じつ}は……{試合後|しあいご}にミノリに「なんでパスくれなかったの！」と{強|つよ}く{言|い}ってしまった。ミノリが{泣|な}きそうな{顔|かお}をした。{言|い}い{過|す}ぎた、とずっと{後悔|こうかい}していた。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{最後|さいご}の{場面|ばめん}で、{自分|じぶん}もパスを{要求|ようきゅう}しなかった。ミノリだけを{責|せ}めるのは……フェアじゃないと{感|かん}じていた。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{先生|せんせい}がいない{間|あいだ}に、ミノリがベンチの{方|ほう}に{歩|ある}いてくるのを{見|み}た。でも{自分|じぶん}もノートに{集中|しゅうちゅう}していて……{声|こえ}をかけなかった。"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミノリは{悪|わる}い{子|こ}ではありません。「チームのために{頑張|がんば}りたい」{気持|きも}ちは{誰|だれ}より{強|つよ}かった。パスを{出|だ}そうとした（パスミス）。{出|だ}したかったけど{見|み}えなかった（{視野|しや}の{問題|もんだい}）。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「パスを{出|だ}さない＝{自分勝手|じぶんかって}」——そう{決|き}めつけてしまったのは、{私|わたし}たちの{思|おも}い{込|こ}みです。コートの{上|うえ}で{何|なに}が{見|み}えていたか、{相手|あいて}の{立場|たちば}から{考|かんが}えること。それが{本当|ほんとう}のチームプレー。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "コートの{中|なか}で{自分|じぶん}がいる{場所|ばしょ}によって、{見|み}えるものが{違|ちが}う。ドリブル{中|ちゅう}の{初心者|しょしんしゃ}は{前方|ぜんぽう}90{度|ど}しか{見|み}えない。ツバサは{右後方|みぎこうほう}120{度|ど}——{視野|しや}の{外|そと}だった。"
+      - type: narration
+        text: "パスコースに{相手|あいて}がいたらパスは{出|だ}せない。「{結果|けっか}だけ」で{判断|はんだん}すると{間違|まちが}える。「なぜそうなったか」を{考|かんが}えよう。"
+      - type: narration
+        text: "チームスポーツの{本当|ほんとう}のチームプレーは、{味方|みかた}の{視野|しや}を{理解|りかい}して、{声|こえ}で{伝|つた}え{合|あ}うこと。「こっちフリー！」の{一言|ひとこと}が{状況|じょうきょう}を{変|か}えるかもしれない。"
+      - type: effect
+        name: fade-out

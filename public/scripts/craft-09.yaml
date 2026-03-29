@@ -1,0 +1,385 @@
+meta:
+  id: craft-09
+  title: 鑑賞会の法則
+  series: 図工探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の{校内|こうない}{作品展|さくひんてん}が{開|ひら}かれた。{全校|ぜんこう}のみんなが{来場|らいじょう}して、4つのクラスの{作品|さくひん}を{見|み}てコメントカードに{感想|かんそう}と{評価|ひょうか}を{書|か}いた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{集計|しゅうけい}された{評価|ひょうか}データを{見|み}ると、3{組|くみ}だけ{全作品|ぜんさくひん}が「よかった」という{高|たか}{評価|ひょうか}。{他|ほか}の3クラスは{作品|さくひん}ごとにバラバラなのに、3{組|くみ}だけ{全部|ぜんぶ}{均一|きんいつ}。これはおかしい。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "3{組|くみ}の{評価|ひょうか}データだけが{全作品|ぜんさくひん}「よかった83・ふつう0・もう{少|すこ}し0」で{均一|きんいつ}になっています。{他|ほか}の3クラスは{作品|さくひん}ごとにばらつきがある。これは{不自然|ふしぜん}ですね。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: worried
+          - character: sumire
+            expression: thinking
+          - character: tsukuru
+            expression: surprised
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{集計表|しゅうけいひょう}を{見|み}つめた。{誰|だれ}かが3{組|くみ}の{評価|ひょうか}データを{書|か}き{換|か}えたのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 鑑賞会の法則
+        subtitle: 図工探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4クラスの評価データを比べよう
+      - type: narration
+        text: "4クラスの{評価|ひょうか}{集計|しゅうけい}データを{並|なら}べて{比較|ひかく}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1{組|くみ}——{作品|さくひん}ごとに「よかった」「ふつう」「もう{少|すこ}し」の{数字|すうじ}がバラバラ。{高|たか}いものも{低|ひく}いものもある。{自然|しぜん}な{評価|ひょうか}。"
+      - type: narration
+        text: "2{組|くみ}——{作品|さくひん}ごとに{数字|すうじ}がバラバラ。{自然|しぜん}な{評価|ひょうか}。"
+      - type: narration
+        text: "3{組|くみ}——{全|ぜん}6{作品|さくひん}が「よかった83・ふつう0・もう{少|すこ}し0」。{完全|かんぜん}に{均一|きんいつ}。83{人|にん}{全員|ぜんいん}が{全|ぜん}6{作品|さくひん}を{同|おな}じように「よかった」と{感|かん}じた？"
+      - type: narration
+        text: "4{組|くみ}——{作品|さくひん}ごとに{数字|すうじ}がバラバラ。{自然|しぜん}な{評価|ひょうか}。"
+      - type: narration
+        text: "1・2・4{組|くみ}はバラバラ。3{組|くみ}だけ{全部|ぜんぶ}{均一|きんいつ}。{自然|しぜん}な{評価|ひょうか}には{必|かなら}ずばらつきが{出|で}る。3{組|くみ}のデータは{不自然|ふしぜん}だ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 集計作業の記録を確認しよう
+      - type: narration
+        text: "{集計|しゅうけい}{作業|さぎょう}の{記録|きろく}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{集計|しゅうけい}{手順|てじゅん}——コメントカードを{回収|かいしゅう}→クラスごとに{仕分|しわ}け→「よかった・ふつう・もう{少|すこ}し」を{数|かぞ}えて{集計表|しゅうけいひょう}に{記入|きにゅう}→{先生|せんせい}に{提出|ていしゅつ}。"
+      - type: narration
+        text: "{集計|しゅうけい}{作業|さぎょう}を{担当|たんとう}したのはヒナタ（{集計係|しゅうけいがかり}）。1{人|り}で{教室|きょうしつ}にて{作業|さぎょう}を{実施|じっし}。"
+      - type: narration
+        text: "{集計|しゅうけい}{作業中|さぎょうちゅう}、カナデが{近|ちか}くを{通|とお}った。ヒナタが「{困|こま}った{顔|かお}」をしていたのを{目撃|もくげき}。"
+      - type: narration
+        text: "データを{変更|へんこう}する{機会|きかい}があったのは——ヒナタだけ（1{人|り}で{集計|しゅうけい}{作業|さぎょう}）。スミレ・ツクル・カナデは{集計|しゅうけい}{作業|さぎょう}に{関与|かんよ}なし。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: コメントカードの筆跡を調べよう
+      - type: narration
+        text: "{回収|かいしゅう}されたコメントカードを{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1・2・4{組|くみ}——コメントが{来場者|らいじょうしゃ}の{筆跡|ひっせき}でバラバラ。{自然|しぜん}な{状態|じょうたい}。"
+      - type: narration
+        text: "3{組|くみ}——「よかった」の{欄|らん}に{追加|ついか}された{文字|もじ}が1{人|にん}の{筆跡|ひっせき}に{見|み}えるものがある。「もう{少|すこ}し」の{欄|らん}は{全|すべ}て{空白|くうはく}。{修正|しゅうせい}された{痕跡|こんせき}が{見|み}られるカードもある。"
+      - type: narration
+        text: "{筆跡|ひっせき}が「1{人|にん}の{字|じ}」に{見|み}える{部分|ぶぶん}がある。{誰|だれ}かが{後|あと}から{書|か}き{足|た}した{可能性|かのうせい}——{集計|しゅうけい}の{際|さい}にデータを{変|か}えた{人|ひと}がいる。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 作品レベルを比べよう
+      - type: narration
+        text: "{展示|てんじ}{準備|じゅんび}を{担当|たんとう}した{人|ひと}の{観察|かんさつ}メモと、{先生|せんせい}の{評価|ひょうか}{記録|きろく}をまとめた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1{組|くみ}——{全体|ぜんたい}{的|てき}に{仕上|しあ}がりが{良|よ}い。2{組|くみ}——{全体|ぜんたい}{的|てき}に{仕上|しあ}がりが{良|よ}い。4{組|くみ}——{全体|ぜんたい}{的|てき}に{仕上|しあ}がりが{良|よ}い。"
+      - type: narration
+        text: "3{組|くみ}——{完成度|かんせいど}の{高|たか}い{作品|さくひん}と{低|ひく}い{作品|さくひん}が{混在|こんざい}。1{点|てん}だけ{明|あき}らかに{未完成|みかんせい}に{見|み}える{作品|さくひん}がある。{先生|せんせい}も「もう{少|すこ}し{丁寧|ていねい}に{仕上|しあ}げましょう」と{指導|しどう}。"
+      - type: narration
+        text: "{先生|せんせい}が「もう{少|すこ}し{丁寧|ていねい}に」と{指導|しどう}した{作品|さくひん}が、{集計|しゅうけい}では「{全員|ぜんいん}よかった」になっている。データと{実際|じっさい}の{作品|さくひん}レベルが{矛盾|むじゅん}している。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の統計分析
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "4クラスの{評価|ひょうか}データを{統計的|とうけいてき}に{分析|ぶんせき}しました。1・2・4{組|くみ}は{作品|さくひん}ごとに{評価|ひょうか}がバラバラ。これは{自然|しぜん}な{評価|ひょうか}です——83{人|にん}が{同|おな}じ{作品|さくひん}を{見|み}ても、{感|かん}じ{方|かた}は{人|ひと}それぞれ{違|ちが}うから。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "ところが3{組|くみ}は{全|ぜん}6{作品|さくひん}すべてが「よかった83」。{自然|しぜん}な{評価|ひょうか}には{必|かなら}ずばらつきが{出|で}ます。83{人|にん}{全員|ぜんいん}が{全|ぜん}6{作品|さくひん}を{同|おな}じように「よかった」と{感|かん}じるのは、{統計的|とうけいてき}にはほぼありえません。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "これは{誰|だれ}かが{人為的|じんいてき}に3{組|くみ}のデータを{均一化|きんいつか}した{可能性|かのうせい}を{示|しめ}しています。{正直|しょうじき}な{評価|ひょうか}はときに{厳|きび}しいこともある。でも{正直|しょうじき}な{評価|ひょうか}があってこそ、{次|つぎ}の{成長|せいちょう}につながるのです。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{自然|しぜん}な{評価|ひょうか}には{必|かなら}ずばらつきが{出|で}る」——この{法則|ほうそく}に3{組|くみ}だけが{当|あ}てはまらない。{誰|だれ}が、なぜ、3{組|くみ}のデータを{書|か}き{換|か}えた？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: sumire
+        expression: determined
+        position: left
+      - type: dialog
+        character: sumire
+        text: "3{組|くみ}だけ{全作品|ぜんさくひん}が{均一|きんいつ}に{高|たか}{評価|ひょうか}。{自然|しぜん}な{評価|ひょうか}にはばらつきが{出|で}るはず。3{組|くみ}だけパターンが{違|ちが}う。これは{誰|だれ}かが{変|か}えた{証拠|しょうこ}だ。"
+        expression: determined
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanade
+        text: "{集計|しゅうけい}{作業中|さぎょうちゅう}のヒナタの{様子|ようす}が{気|き}になってた。{困|こま}った{顔|かお}で{集計表|しゅうけいひょう}に{何|なに}かを{書|か}いてて、その{後|あと}「ふう」って{小|ちい}さく{息|いき}をついて{普通|ふつう}の{顔|かお}に{戻|もど}った。あの{表情|ひょうじょう}、{何|なに}かあったんじゃない？"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{展示|てんじ}{準備|じゅんび}で3{組|くみ}の{作品|さくひん}を{見|み}た。{正直|しょうじき}、1{点|てん}だけ{完成度|かんせいど}が{低|ひく}い{作品|さくひん}があった。それが{集計|しゅうけい}では「{全員|ぜんいん}よかった」になってる。{実際|じっさい}の{作品|さくひん}と{評価|ひょうか}が{合|あ}ってない。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: narration
+        text: "{帰納法|きのうほう}で{整理|せいり}しよう。3クラスのデータから「ばらつきがある={自然|しぜん}」という{法則|ほうそく}が{見|み}える。3{組|くみ}だけその{法則|ほうそく}に{当|あ}てはまらない。データを{変|か}える{機会|きかい}があったのはヒナタだけ——"
+      - type: choice
+        id: q1
+        question: 3組の評価データを書き換えたのは誰？
+        options:
+          - text: ヒナタ（集計係。1人で作業。3組の友達の低評価を見て書き換えた）
+            value: hinata
+            correct: true
+            feedback: "{正解|せいかい}！ ヒナタは{集計係|しゅうけいがかり}として1{人|り}で{作業|さぎょう}していた。3{組|くみ}の{友達|ともだち}の{作品|さくひん}への{低|てい}{評価|ひょうか}を{見|み}て「{可哀想|かわいそう}」と{思|おも}い、3{組|くみ}{全作品|ぜんさくひん}の{評価|ひょうか}を「よかった」に{書|か}き{換|か}えた。{責任感|せきにんかん}の{暴走|ぼうそう}だ。"
+          - text: スミレ（データの不自然さに一番詳しい）
+            value: sumire
+            feedback: "スミレはデータの{不自然|ふしぜん}さに{気|き}づいた{分析者|ぶんせきしゃ}であって、{集計|しゅうけい}{作業|さぎょう}には{関与|かんよ}していない。データを{変|か}える{機会|きかい}がなかったよ。"
+          - text: ツクル（3組の作品が低レベルだと知っていた）
+            value: tsukuru
+            feedback: "ツクルは{展示|てんじ}{準備|じゅんび}で{作品|さくひん}を{見|み}ただけ。{集計|しゅうけい}{作業|さぎょう}には{関与|かんよ}していないし、データを{書|か}き{換|か}える{動機|どうき}もないよ。"
+          - text: カナデ（ヒナタの異変に気づいていた目撃者）
+            value: kanade
+            feedback: "カナデは{来場者|らいじょうしゃ}{案内係|あんないがかり}で、{集計|しゅうけい}{作業|さぎょう}には{関与|かんよ}なし。ヒナタの{異変|いへん}を{目撃|もくげき}しただけで、データに{触|ふ}れる{機会|きかい}はなかったよ。"
+
+  # ==================== 真実：ヒナタ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒナタの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: center
+      - type: dialog
+        character: hinata
+        text: "……ごめんなさい。3{組|くみ}のデータを{書|か}き{換|か}えたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "ヒナタは{下|した}を{向|む}きながら、{静|しず}かに{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: hinata
+        text: "{集計|しゅうけい}をしてたら、3{組|くみ}のある{作品|さくひん}に「もう{少|すこ}し」がたくさんあった。その{作品|さくひん}を{作|つく}ったのは、{僕|ぼく}の{友達|ともだち}。{一生懸命|いっしょうけんめい}{作|つく}ったって{聞|き}いてたから……{低|てい}{評価|ひょうか}が{可哀想|かわいそう}で。"
+        expression: thinking
+      - type: dialog
+        character: hinata
+        text: "「{集計係|しゅうけいがかり}の{自分|じぶん}がやれば、{友達|ともだち}を{傷|きず}つけずに{済|す}む」って{思|おも}った。だから3{組|くみ}{全部|ぜんぶ}の{評価|ひょうか}を「よかった」に{変|か}えた。……{友達|ともだち}を{守|まも}りたかったんだ。でも{間違|まちが}ってた。"
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: sumire
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sumire
+        text: "データを{並|なら}べた{瞬間|しゅんかん}「3{組|くみ}だけ{均一|きんいつ}」って{気|き}づいた。{自然|しぜん}な{評価|ひょうか}にはばらつきが{出|で}る。{均一|きんいつ}は{不自然|ふしぜん}の{証拠|しょうこ}。{帰納法|きのうほう}でパターンの{不一致|ふいっち}を{見|み}つけたの。"
+        expression: thinking
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{展示|てんじ}{準備|じゅんび}で3{組|くみ}の{作品|さくひん}を{見|み}てた。「この{作品|さくひん}は{正直|しょうじき}、もう{少|すこ}しだな」って{思|おも}った{作品|さくひん}が「{全員|ぜんいん}よかった」になってて、おかしいと{思|おも}ってた。ヒナタの{気持|きも}ちは{分|わ}かるけど……{正直|しょうじき}な{評価|ひょうか}って{大事|だいじ}だよな。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanade
+        text: "ヒナタの「{困|こま}った{顔|かお}」、{忘|わす}れられない。{友達|ともだち}を{守|まも}りたいって{悩|なや}んでたんだね。{気持|きも}ちは{分|わ}かる。でも{正直|しょうじき}な{評価|ひょうか}があるから、{次|つぎ}に{頑張|がんば}れる。ヒナタ、{友達|ともだち}に{本当|ほんとう}の{評価|ひょうか}を{伝|つた}える{勇気|ゆうき}も、{優|やさ}しさだよ。"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒナタが{友達|ともだち}を{守|まも}りたかった{気持|きも}ちは{分|わ}かるわ。でも{評価|ひょうか}を{変|か}えても、{作品|さくひん}は{変|か}わらない。{正直|しょうじき}な{評価|ひょうか}があるから「{次|つぎ}はこうしよう」と{成長|せいちょう}できるの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{役割|やくわり}を{任|まか}されたからこそ、{正確|せいかく}さと{誠実|せいじつ}さが{大切|たいせつ}。{感情|かんじょう}でデータを{変|か}えると、{全体|ぜんたい}の{信頼|しんらい}が{崩|くず}れてしまうの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{帰納法|きのうほう}——{複数|ふくすう}のデータから「{法則|ほうそく}」を{見|み}つけ、その{法則|ほうそく}に{当|あ}てはまらないデータを「{不自然|ふしぜん}」と{判断|はんだん}する{推理|すいり}の{力|ちから}。「3クラスはバラバラ→ばらつきが{自然|しぜん}→3{組|くみ}だけ{均一|きんいつ}={不自然|ふしぜん}」。"
+      - type: narration
+        text: "{正直|しょうじき}な{評価|ひょうか}は{厳|きび}しいこともある。でも「もう{少|すこ}し」という{評価|ひょうか}があるから{次|つぎ}の{成長|せいちょう}がある。{全部|ぜんぶ}「よかった」では{本当|ほんとう}の{成長|せいちょう}はない。"
+      - type: narration
+        text: "{友達|ともだち}を{守|まも}りたい{気持|きも}ちは{大切|たいせつ}。でも「{正直|しょうじき}に{伝|つた}える」ことも{優|やさ}しさ。データは{事実|じじつ}をそのまま{記録|きろく}するためのもの。"
+      - type: effect
+        name: fade-out

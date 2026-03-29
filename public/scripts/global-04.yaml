@@ -1,0 +1,567 @@
+meta:
+  id: global-04
+  title: 伝わらない言葉
+  series: 国際理解探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  hiromu:
+    name: ヒロム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manabu:
+    name: マナブ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  koeru:
+    name: コエル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ブラジルから{転入|てんにゅう}してきたリナへの{歓迎|かんげい}メッセージボードを、4{人|にん}の{国際理解探偵団|こくさいりかいたんていだん}が{力|ちから}を{合|あ}わせて{作|つく}った。"
+      - type: narration
+        text: "{各自|かくじ}が{日本語|にほんご}メッセージと{担当|たんとう}の{外国語|がいこくご}ひとことを{書|か}いたカードを{廊下|ろうか}に{掲示|けいじ}した。ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: manabu
+        text: "ぼくのカードの{ポルトガル語|ポルトガルご}が……{書|か}き{換|か}えられてる！"
+        expression: surprised
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: right
+      - type: dialog
+        character: yamada
+        text: "「Vamos estudar juntos!」が「Vamos brincar juntos!」に{変|か}わっているわ。"estudar"は{勉強|べんきょう}、"brincar"は{遊|あそ}ぶ……{全然|ぜんぜん}{違|ちが}う{意味|いみ}よ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: hiromu, expression: surprised }
+          - { id: manabu, expression: worried }
+          - { id: koeru, expression: surprised }
+          - { id: tsumugi, expression: worried }
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。マナブの{翻訳|ほんやく}を{書|か}き{換|か}えたのは{誰|だれ}？ リナが{読|よ}む{前|まえ}に、{真相|しんそう}を{突|つ}き{止|と}めなければ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 伝わらない言葉
+        subtitle: 国際理解探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: hallway-sunset
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ボードの状況を調べよう
+      - type: narration
+        text: "{廊下|ろうか}の{歓迎|かんげい}メッセージボードを{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マナブのカードのポルトガル語{部分|ぶぶん}だけが{書|か}き{換|か}えられていた。"
+      - type: narration
+        text: "{元|もと}（{黒|くろ}ペン）: \"Vamos estudar juntos!\"（いっしょにべんきょうしよう）"
+      - type: narration
+        text: "{書|か}き{換|か}え後（{青|あお}ペン）: \"Vamos brincar juntos!\"（いっしょにあそぼう）"
+      - type: narration
+        text: "「{勉強|べんきょう}しよう」の "estudar" に{線|せん}を{引|ひ}いて "brincar" と{書|か}き{直|なお}してある。{日本語|にほんご}メッセージは{変|か}わっていない。"
+      - type: narration
+        text: "ヒロム・コエル・ツムギの{他|ほか}3{人|にん}のカードは{無事|ぶじ}。{廊下|ろうか}は{放課後|ほうかご}も{通|とお}れる（{鍵|かぎ}はない）。"
+      - type: narration
+        text: "{書|か}き{換|か}えた{人|ひと}は "brincar" というポルトガル語を{知|し}っている。{誰|だれ}がこの{単語|たんご}を{書|か}けるだろう？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: hallway-sunset
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: メッセージの内容と翻訳を確認しよう
+      - type: narration
+        text: "4{人|にん}が{書|か}いたメッセージと{正|ただ}しい{翻訳|ほんやく}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hiromu
+        expression: normal
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "{僕|ぼく}は{英語|えいご}{担当|たんとう}。\"Welcome to our school!\"——「わたしたちの{学校|がっこう}へようこそ！」って{書|か}いた。"
+        expression: normal
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{僕|ぼく}はポルトガル語{担当|たんとう}。\"Vamos estudar juntos!\"——「いっしょに{勉強|べんきょう}しよう！」って{書|か}いた。{辞書|じしょ}で3{回|かい}{確認|かくにん}したから{間違|まちが}いない！"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: normal
+        position: left
+      - type: dialog
+        character: koeru
+        text: "わたしは{韓国語|かんこくご}{担当|たんとう}。\"환영해!\"（ファニョンヘ）——「ようこそ！」って{書|か}いた。K-POPで{覚|おぼ}えた{言葉|ことば}よ。"
+        expression: normal
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "わたしはヒンディー語{担当|たんとう}。\"アープカー スヴァーガト ヘー\"——「ようこそ！」って{書|か}いたよ。"
+        expression: normal
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: narration
+        text: "マナブの{元|もと}の{翻訳|ほんやく}は{正|ただ}しかった。"estudar"は{勉強|べんきょう}、"brincar"は{遊|あそ}ぶ——{意味|いみ}が{全然|ぜんぜん}{違|ちが}う！ {書|か}き{換|か}えた{人|ひと}は "brincar" を{知|し}っている{人|ひと}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{月曜|げつよう}の{放課後|ほうかご}、4{人|にん}が{何|なに}をしていたか{聞|き}き{取|と}った。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "15{時|じ}15{分|ふん}に{廊下|ろうか}でボードをチェックしたよ。そのとき「Vamos estudar juntos!」と{書|か}いてあって、{正常|せいじょう}だった。その{後|あと}15{時|じ}30{分|ふん}から{職員室|しょくいんしつ}で{委員会|いいんかい}の{活動|かつどう}。{担任|たんにん}の{先生|せんせい}が{確認|かくにん}してくれた。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: normal
+        position: right
+      - type: dialog
+        character: manabu
+        text: "15{時|じ}30{分|ふん}に{図書室|としょしつ}でポルトガル語の{辞書|じしょ}を{返却|へんきゃく}した。{図書|としょ}の{先生|せんせい}が{確認|かくにん}してくれた。"
+        expression: normal
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: happy
+        position: left
+      - type: dialog
+        character: koeru
+        text: "15{時|じ}20{分|ぷん}に{下校|げこう}したよ。{正門|せいもん}の{先生|せんせい}が{確認|かくにん}してる。{家|いえ}に{帰|かえ}る{途中|とちゅう}で{友達|ともだち}のミカに{会|あ}ったけど……ま、いっか。"
+        expression: happy
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "15{時|じ}25{分|ふん}ごろに{廊下|ろうか}を{通|とお}って、15{時|じ}35{分|ふん}に{保健室|ほけんしつ}で{手|て}のキズの{手当|てあ}て。{保健|ほけん}の{先生|せんせい}が{確認|かくにん}してる。"
+        expression: normal
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: narration
+        text: "タイムラインを{整理|せいり}しよう。15{時|じ}15{分|ふん}にヒロムが{確認|かくにん}したとき、ボードは{正常|せいじょう}だった。15{時|じ}15{分|ふん}{以降|いこう}に{書|か}き{換|か}えが{起|お}きた——{誰|だれ}にチャンスがあった？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ポルトガル語の知識を確かめよう
+      - type: narration
+        text: "4{人|にん}に「ポルトガル語を{知|し}っている？」と{聞|き}いた。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "ポルトガル語は{全然|ぜんぜん}{分|わ}からない。"estudar" も "brincar" も{意味|いみ}を{知|し}らなかった——{今日|きょう}{初|はじ}めて{知|し}ったくらいだよ。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{僕|ぼく}は{辞書|じしょ}で{勉強|べんきょう}{中|ちゅう}。"estudar"（{勉強|べんきょう}する）は{書|か}けるけど、"brincar"（{遊|あそ}ぶ）は{辞書|じしょ}で{見|み}た{覚|おぼ}えがない。{自分|じぶん}のカードを{変|か}える{理由|りゆう}もない。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: normal
+        position: left
+      - type: dialog
+        character: koeru
+        text: "わたしはポルトガル語、{全|ぜん}く{知|し}らない。{韓国語|かんこくご}{専門|せんもん}だもん。"estudar" も "brincar" も{読|よ}めないよ。"
+        expression: normal
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "わたしはヒンディー語{担当|たんとう}だから……ポルトガル語は{知|し}らないかな。"
+        expression: thinking
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "\"brincar\" を{書|か}けるのは、ポルトガル語を{知|し}っている{人|ひと}だけ。マナブは{自分|じぶん}のカードを{変|か}える{理由|りゆう}がない。ツムギは「{知|し}らない」と{言|い}っているけど……{本当|ほんとう}にそうかな？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: hallway-sunset
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ミカの証言
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "リナと{同|おな}じブラジル{出身|しゅっしん}の{友達|ともだち}、ミカ（{隣|とな}りの{小学校|しょうがっこう}）に{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミカちゃんの{話|はなし}を{読|よ}むわね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「{去年|きょねん}、ツムギちゃんにポルトガル語を{少|すこ}し{教|おし}えたことがあります。ツムギちゃんは "brincar"（{遊|あそ}ぶ）を{気|き}に{入|い}って、よく{使|つか}っていました。」"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「"estudar"（{勉強|べんきょう}する）は……{教|おし}えたかな？ たぶん{教|おし}えていないと{思|おも}います。」"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツムギは「ポルトガル語は{知|し}らない」と{言|い}っていた。でもミカから "brincar" を{教|おし}わっていた！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "\"brincar\" を{書|か}けるのはマナブとツムギの2{人|にん}。マナブは{自分|じぶん}のカードを{変|か}える{理由|りゆう}がない。ツムギは……15{時|じ}25{分|ふん}に{廊下|ろうか}のボードの{前|まえ}にいた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "タイムラインを{整理|せいり}すると——15{時|じ}15{分|ふん}は{正常|せいじょう}。コエルは15{時|じ}20{分|ふん}に{下校|げこう}してボードに{近|ちか}づけない。マナブは15{時|じ}30{分|ふん}に{図書室|としょしつ}。{僕|ぼく}も15{時|じ}28{分|ふん}には{職員室|しょくいんしつ}に{向|む}かってた。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: koeru
+        text: "……あのね、{帰|かえ}り{道|みち}でミカに{会|あ}ったとき、「ツムギちゃんに "brincar" を{教|おし}えた」って{聞|き}いてたんだ。ツムギのことが{心配|しんぱい}で、{言|い}えなかったけど……"
+        expression: worried
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。15{時|じ}15{分|ふん}以降{ボード前|ぼうどまえ}にいたのはツムギだけ。"brincar" を{書|か}けるのはマナブとツムギだけ。マナブには{理由|りゆう}がない——"
+      - type: choice
+        id: q1
+        question: マナブのカードを書き換えたのは誰？
+        options:
+          - text: ツムギ（15:25に廊下のボード前にいた。brincarを書ける唯一の人物）
+            value: tsumugi
+            correct: true
+            feedback: "{正解|せいかい}！ 15{時|じ}15{分|ふん}に{正常|せいじょう}→ 15{時|じ}25{分|ふん}にツムギがボード{前|まえ}→ 15{時|じ}35{分|ふん}に{保健室|ほけんしつ}。ミカから "brincar" を{教|おし}わっていた。マナブは{自分|じぶん}のカードを{変|か}える{理由|りゆう}がない。ツムギしかいない。"
+          - text: マナブ（ポルトガル語を書ける。自分のカードを変えたのかも）
+            value: manabu
+            feedback: "マナブは{自分|じぶん}のカードに{正|ただ}しい{翻訳|ほんやく}を{書|か}いた{本人|ほんにん}。{辞書|じしょ}で3{回|かい}{確認|かくにん}した。{自分|じぶん}で{変|か}える{理由|りゆう}が{見|み}つからないよ。"
+          - text: コエル（帰り道でミカに会っていた）
+            value: koeru
+            feedback: "コエルは15{時|じ}20{分|ぷん}に{正門|せいもん}で{下校|げこう}{確認|かくにん}されている。15{時|じ}25{分|ふん}に{廊下|ろうか}には{戻|もど}れないよ。ポルトガル語も{全|ぜん}く{知|し}らない。"
+          - text: ヒロム（15:15にボードをチェックしていた）
+            value: hiromu
+            feedback: "ヒロムは15{時|じ}15{分|ふん}に{確認|かくにん}したとき{正常|せいじょう}だったと{言|い}っている。その{後|あと}15{時|じ}28{分|ふん}には{職員室|しょくいんしつ}に{向|む}かった。ポルトガル語も{全|ぜん}く{分|わ}からないよ。"
+
+  # ==================== 真実：条件付き開示 ====================
+  - id: truth-condition
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツムギの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: right
+      - type: dialog
+        character: yamada
+        text: "ツムギさん——{先週|せんしゅう}の{保護者面談|ほごしゃめんだん}の{手伝|てつだ}いをしてくれたわよね。リナのお{母|かあ}さんの{話|はなし}、{聞|き}いた？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "……{先生|せんせい}、{分|わ}かった？"
+        expression: worried
+      - type: narration
+        text: "ツムギはうつむきながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: tsumugi
+        text: "{保護者面談|ほごしゃめんだん}の{手伝|てつだ}いをしていたとき、リナのお{母|かあ}さんが「{日本|にほん}の{学校|がっこう}は{勉強|べんきょう}がきびしくて、リナが{心配|しんぱい}」って{話|はな}しているのが{聞|き}こえたの。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 真実：ツムギの告白 ====================
+  - id: truth-tsumugi
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "マナブのカードに「Vamos estudar juntos!」って{書|か}いてあるの{見|み}て……リナが{読|よ}んだら「{勉強|べんきょう}しなきゃ」ってプレッシャーになるかもって{思|おも}ったんだ。"
+        expression: determined
+      - type: dialog
+        character: tsumugi
+        text: "{去年|きょねん}ミカから{教|おし}わった "brincar"——{遊|あそ}ぼう、って{意味|いみ}。「{一緒|いっしょ}に{遊|あそ}ぼう」の{方|ほう}がリナは{安心|あんしん}できると{思|おも}って……"
+        expression: determined
+      - type: dialog
+        character: tsumugi
+        text: "マナブに{相談|そうだん}しないで、15{時|じ}25{分|ふん}に{廊下|ろうか}で{書|か}き{換|か}えちゃった。ごめんなさい……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: right
+      - type: dialog
+        character: manabu
+        text: "ツムギ……{気持|きも}ちは{分|わ}かるよ。でも、{一生懸命|いっしょうけんめい}{辞書|じしょ}で{調|しら}べた{翻訳|ほんやく}を{勝手|かって}に{変|か}えられたの、{正直|しょうじき}{悲|かな}しかった。"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "15{時|じ}15{分|ふん}に{確認|かくにん}したとき、{正常|せいじょう}だったのに……{防|ふせ}げなかったかな、って{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: koeru
+        text: "ミカの{話|はなし}をすぐ{言|い}えば、もっと{早|はや}く{分|わ}かったよね。ツムギを{疑|うたが}いたくなくて、{言|い}えなかった……。"
+        expression: worried
+      - type: sprite
+        character: koeru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツムギさんの「リナを{守|まも}りたい」という{気持|きも}ちは、とても{素敵|すてき}よ。でも、マナブに{相談|そうだん}せずに{勝手|かって}に{翻訳|ほんやく}を{変|か}えたのは{間違|まちが}い。{言葉|ことば}は{誰|だれ}かの{大切|たいせつな}な{思|おも}いが{込|こ}もっているの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「{勉強|べんきょう}しよう」が{励|はげ}ましにも{プレッシャーにも}なる——{言葉|ことば}の{意味|いみ}は{文化|ぶんか}や{状況|じょうきょう}で{変|か}わる、ということを{今日|きょう}{学|まな}んだわね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "\"estudar\"（{勉強|べんきょう}）と \"brincar\"（{遊|あそ}ぶ）——{言葉|ことば}ひとつで{メッセージの{印象|いんしょう}がまったく{変|か}わる}。{翻訳|ほんやく}は{単語|たんご}の{置|お}き{換|か}えではなく、{文化|ぶんか}や{状況|じょうきょう}への{理解|りかい}が{必要|ひつよう}だ。"
+      - type: narration
+        text: "{善意|ぜんい}でも、{相手|あいて}に{確認|かくにん}せずに{行動|こうどう}すると、{予想|よそう}しない{傷|きず}をつけてしまうことがある。{誰|だれ}かを「{守|まも}る」{方法|ほうほう}は、{一緒|いっしょ}に{考|かんが}えることだ。"
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "さあ、4{人|にん}で{一緒|いっしょ}にリナへの{新|あたら}しいメッセージを{考|かんが}えましょう。リナが{本当|ほんとう}に{安心|あんしん}できる{言葉|ことば}を、{みんなで}ね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: hiromu, expression: normal }
+          - { id: manabu, expression: happy }
+          - { id: koeru, expression: happy }
+          - { id: tsumugi, expression: determined }
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{言葉|ことば}の{奥|おく}には、{必|かなら}ず{人|ひと}の{気持|きも}ちがある。{伝|つた}えたいことを、{正|ただ}しく{伝|つた}えるための{冒険|ぼうけん}は、まだ{続|つづ}く。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

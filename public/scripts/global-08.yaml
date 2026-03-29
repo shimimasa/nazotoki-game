@@ -1,0 +1,438 @@
+meta:
+  id: global-08
+  title: 公正な値段
+  series: 国際理解探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  hiromu:
+    name: ヒロム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manabu:
+    name: マナブ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  koeru:
+    name: コエル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{国際理解探偵団|こくさいりかいたんていだん}の4{人|にん}は「{世界|せかい}のお{買|か}い{物|もの}{体験|たいけん}」イベントの{模擬店|もぎてん}を{準備|じゅんび}していた。"
+      - type: narration
+        text: "それぞれが{担当国|たんとうこく}の{商品|しょうひん}と{値段|ねだん}を{調|しら}べて、{価格表|かかくひょう}を{作|つく}った。マナブが{担当|たんとう}したのは「フェアトレードチョコレート」——{値段|ねだん}は{300円|さんびゃくえん}。"
+      - type: narration
+        text: "ところが、{翌朝|よくあさ}——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへん！ マナブくんが{作|つく}った{価格表|かかくひょう}の「フェアトレードチョコレート」の{値段|ねだん}が{書|か}き{換|か}えられているわ！ **{300円|さんびゃくえん}が{100円|ひゃくえん}に**なってる！"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: manabu
+            expression: surprised
+          - character: hiromu
+            expression: surprised
+          - character: koeru
+            expression: worried
+          - character: tsumugi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{準備室|じゅんびしつ}に{入|はい}れたのは、この4{人|にん}だけ。{誰|だれ}が{300円|さんびゃくえん}を{100円|ひゃくえん}に{書|か}き{換|か}えたのか……？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 公正な値段
+        subtitle: 国際理解探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 価格表の状況を調べよう
+      - type: narration
+        text: "マナブの{価格表|かかくひょう}を{調|しら}べてみた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「フェアトレードチョコレート」の{値段|ねだん}が{書|か}き{換|か}えられている。{元|もと}の{文字|もじ}（{黒|くろ}ペン）は**{300円|さんびゃくえん}**で、{赤|あか}ペンで{線|せん}を{引|ひ}いて**{100円|ひゃくえん}**と{書|か}き{直|なお}してある。"
+      - type: narration
+        text: "フェアトレードコーヒー{500円|ごひゃくえん}、フェアトレードバナナ{200円|にひゃくえん}は{変|か}わっていない。{準備室|じゅんびしつ}のカギはかかっていなかった。"
+      - type: narration
+        text: "なぜ「チョコだけ」{100円|ひゃくえん}に{変|か}えた？ {普通|ふつう}のチョコが{100円|ひゃくえん}だから「{高|たか}すぎる」と{思|おも}った？ その「{高|たか}すぎる」は{思|おも}い{込|こ}み？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: フェアトレードの仕組みを調べよう
+      - type: narration
+        text: "{先生|せんせい}が{作|つく}った「フェアトレード」の{説明|せつめい}カードがあった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "フェアトレードとは「{公正|こうせい}な{貿易|ぼうえき}」。{途上国|とじょうこく}の{生産者|せいさんしゃ}に**{正当|せいとう}な{報酬|ほうしゅう}**を{払|はら}うしくみだ。"
+      - type: narration
+        text: "{普通|ふつう}のチョコ（{100円|ひゃくえん}）の{生産者|せいさんしゃ}の{取|と}り{分|ぶん}は**{約|やく}{10円|じゅうえん}**。フェアトレードチョコ（{300円|さんびゃくえん}）は**{約|やく}{150円|ひゃくごじゅうえん}**。{児童労働|じどうろうどう}チェックも{環境|かんきょう}{配慮|はいりょ}もある。"
+      - type: narration
+        text: "フェアトレード{認証|にんしょう}の3{条件|じょうけん}: ①{生産者|せいさんしゃ}への{最低価格|さいていかかく}{保証|ほしょう} ②{児童労働|じどうろうどう}{禁止|きんし} ③{環境|かんきょう}に{配慮|はいりょ}した{生産|せいさん}{方法|ほうほう}。**{100円|ひゃくえん}だと{認証|にんしょう}{費用|ひよう}{50円|ごじゅうえん}が{払|はら}えず、{生産者|せいさんしゃ}の{最低価格|さいていかかく}も{保証|ほしょう}できない。**"
+      - type: narration
+        text: "「{100円|ひゃくえん}のほうが{安|やす}くてお{得|とく}」と{思|おも}わなかった？ でも{100円|ひゃくえん}だと{生産者|せいさんしゃ}は{10円|じゅうえん}しかもらえない。**「{安|やす}い＝{良|よ}い」は{本当|ほんとう}？**"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "4{人|にん}の{放課後|ほうかご}の{行動|こうどう}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒロム —— {15時15分|じゅうごじじゅうごふん}に{準備室|じゅんびしつ}で{価格表|かかくひょう}を{確認|かくにん}（{300円|さんびゃくえん}{正常|せいじょう}）→ {15時30分|じゅうごじさんじゅっぷん}に{職員室|しょくいんしつ}で{委員会|いいんかい}。{担任|たんにん}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "マナブ —— {15時30分|じゅうごじさんじゅっぷん}に{図書室|としょしつ}でフェアトレードの{追加調査|ついかちょうさ}。{図書|としょ}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "コエル —— {15時20分|じゅうごじにじゅっぷん}に{下校|げこう}。{正門|せいもん}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "ツムギ —— {15時20分|じゅうごじにじゅっぷん}ごろから{保健室|ほけんしつ}で{手|て}の{擦|す}りキズの{手当|てあ}て。{保健|ほけん}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "{15時15分|じゅうごじじゅうごふん}にヒロムが{確認|かくにん}した{時点|じてん}で{300円|さんびゃくえん}は{正常|せいじょう}。{全員|ぜんいん}にアリバイがありそう……でも「{15時20分|じゅうごじにじゅっぷん}ごろ」って{何時|なんじ}？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: コエルの「高い」発言を調べよう
+      - type: narration
+        text: "{14時45分|じゅうよじよんじゅうごふん}のブース{確認|かくにん}{時|じ}の{会話|かいわ}{記録|きろく}が{見|み}つかった。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: koeru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: koeru
+        text: "{300円|さんびゃくえん}のチョコ？ {高|たか}っ！ {誰|だれ}が{買|か}うの？"
+        expression: surprised
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "フェアトレードだから{300円|さんびゃくえん}なんだよ。{生産者|せいさんしゃ}に{正当|せいとう}な{報酬|ほうしゅう}を{払|はら}うため。{安|やす}いチョコだと{生産者|せいさんしゃ}は{10円|じゅうえん}しかもらえないんだ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: koeru
+        text: "あー、なるほど。そういうことか。じゃあ{300円|さんびゃくえん}でいいのか……{知|し}らなかった。"
+        expression: thinking
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: narration
+        text: "コエルは{説明|せつめい}を{聞|き}いて**{納得|なっとく}した**。じゃあコエルは{書|か}き{換|か}えない。では、マナブの{説明|せつめい}を**{聞|き}いていなかった{人|ひと}**は？ フェアトレードの{意味|いみ}を**{知|し}らないまま**だった{人|ひと}は？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 保健の先生の証言
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{保健|ほけん}の{先生|せんせい}に{直接|ちょくせつ}{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{保健|ほけん}の{先生|せんせい}のお{話|はなし}を{読|よ}むわね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「ツムギさんが{保健室|ほけんしつ}に{来|き}たのは**{15時35分|じゅうごじさんじゅうごふん}**です。{15時20分|じゅうごじにじゅっぷん}ではありません。」"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「{手|て}の{擦|す}りキズの{手当|てあ}てをしました。{5分|ごふん}で{終|お}わりました。ツムギさんは『ちょっと{遅|おく}れてすみません、**{準備室|じゅんびしつ}に{寄|よ}ってから{来|き}ました**』と{言|い}っていました。」"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{15時15分|じゅうごじじゅうごふん}にヒロムが{確認|かくにん}した{時点|じてん}で{300円|さんびゃくえん}は{正常|せいじょう}。{15時20分|じゅうごじにじゅっぷん}にコエルが{下校|げこう}。**{15時25分|じゅうごじにじゅうごふん}〜{15時33分|じゅうごじさんじゅうさんぷん}の{間|あいだ}**——ツムギは{準備室|じゅんびしつ}にいた！"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ツムギは「{15時20分|じゅうごじにじゅっぷん}から{保健室|ほけんしつ}」と{言|い}っていた。でも{実際|じっさい}は**{15時35分|じゅうごじさんじゅうごふん}{着|ちゃく}**。しかも「{準備室|じゅんびしつ}に{寄|よ}ってから{来|き}た」と{自分|じぶん}で{先生|せんせい}に{言|い}っている！"
+      - type: narration
+        text: "そしてツムギは……フェアトレードの{意味|いみ}を{知|し}っていた？ {知|し}らなかった？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "{15時15分|じゅうごじじゅうごふん}に{確認|かくにん}したとき、{300円|さんびゃくえん}は{正常|せいじょう}だった。{その後|そのご}に{書|か}き{換|か}えられたことは{間違|まちが}いない。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: right
+      - type: dialog
+        character: manabu
+        text: "コエルは{14時45分|じゅうよじよんじゅうごふん}に{説明|せつめい}を{聞|き}いて{納得|なっとく}してくれた。でも……あの{会話|かいわ}を{聞|き}いていなかった{人|ひと}がいるとしたら？"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: koeru
+        text: "{15時20分|じゅうごじにじゅっぷん}にわたしは{下校|げこう}した。アリバイは{正門|せいもん}の{先生|せんせい}が{確認|かくにん}してる。でも……「{安|やす}い＝{良|よ}い」って{思|おも}い{込|こ}んでた{自分|じぶん}もいたんだよね。"
+        expression: thinking
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ヒロムは{15時30分|じゅうごじさんじゅっぷん}から{委員会|いいんかい}でアリバイあり。マナブは{図書室|としょしつ}でアリバイあり。コエルは{15時20分|じゅうごじにじゅっぷん}に{下校|げこう}。ツムギは{15時25分|じゅうごじにじゅうごふん}〜{15時33分|じゅうごじさんじゅうさんぷん}に{準備室|じゅんびしつ}にいた——"
+      - type: choice
+        id: q1
+        question: 価格表を書き換えたのは誰？
+        options:
+          - text: ツムギ（保健室到着は15:35。「準備室に寄ってから来た」と自分で証言）
+            value: tsumugi
+            correct: true
+            feedback: "{正解|せいかい}！ ツムギは「{15時20分|じゅうごじにじゅっぷん}から{保健室|ほけんしつ}」と{言|い}っていたが、{実際|じっさい}は{15時35分|じゅうごじさんじゅうごふん}{着|ちゃく}。{15時25分|じゅうごじにじゅうごふん}〜{15時33分|じゅうごじさんじゅうさんぷん}に{準備室|じゅんびしつ}にいた。フェアトレードの{意味|いみ}を{知|し}らず、「{300円|さんびゃくえん}＝{高|たか}すぎる」と{思|おも}い{込|こ}んで{書|か}き{換|か}えた。"
+          - text: ヒロム（15:15に準備室を確認した）
+            value: hiromu
+            feedback: "ヒロムは{15時15分|じゅうごじじゅうごふん}に{確認|かくにん}したとき{300円|さんびゃくえん}は{正常|せいじょう}だった。{15時30分|じゅうごじさんじゅっぷん}からは{委員会|いいんかい}で{担任|たんにん}が{確認|かくにん}ずみ。しかもヒロムはマナブから{説明|せつめい}を{聞|き}いて{納得|なっとく}していたよ。"
+          - text: マナブ（自分の価格表を変えた可能性）
+            value: manabu
+            feedback: "マナブは{15時30分|じゅうごじさんじゅっぷん}から{図書室|としょしつ}で{図書|としょ}の{先生|せんせい}が{確認|かくにん}ずみ。そもそも{自分|じぶん}が{調|しら}べた{300円|さんびゃくえん}を{自分|じぶん}で{下|さ}げる{理由|りゆう}がないよ。"
+          - text: コエル（「高い」と言っていた）
+            value: koeru
+            feedback: "コエルは{15時20分|じゅうごじにじゅっぷん}に{正門|せいもん}を{通|とお}って{下校|げこう}し、{先生|せんせい}が{確認|かくにん}している。また{14時45分|じゅうよじよんじゅうごふん}に{説明|せつめい}を{聞|き}いて{納得|なっとく}もしていたよ。"
+
+  # ==================== 真相：ツムギ ====================
+  - id: truth-tsumugi
+    bg: hallway-sunset
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツムギの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsumugi
+        text: "……ごめんなさい。{書|か}き{換|か}えたのは、{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: "ツムギは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: tsumugi
+        text: "マナブの{価格表|かかくひょう}を{見|み}て……{300円|さんびゃくえん}は{高|たか}すぎるって{思|おも}ったの。{普通|ふつう}のチョコは{100円|ひゃくえん}なのに、3{倍|ばい}もするなんて。"
+        expression: worried
+      - type: dialog
+        character: tsumugi
+        text: "「フェアトレードって{何|なに}？」って{聞|き}きたかった。でも……みんなは{知|し}っているのに{自分|じぶん}だけ{知|し}らないのが**{恥|は}ずかしくて{聞|き}けなかった**んだ。"
+        expression: worried
+      - type: dialog
+        character: tsumugi
+        text: "{放課後|ほうかご}{15時25分|じゅうごじにじゅうごふん}に{準備室|じゅんびしつ}に{行|い}って……「マナブが{間違|まちが}えたのかも。{直|なお}してあげよう」って{思|おも}って、{自分|じぶん}の{赤|あか}ペンで{100円|ひゃくえん}に{書|か}き{換|か}えた。"
+        expression: determined
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 真相：ほかのメンバー ====================
+  - id: truth-others
+    bg: hallway-sunset
+    steps:
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{300円|さんびゃくえん}には{理由|りゆう}があるんだ。{生産者|せいさんしゃ}に{150円|ひゃくごじゅうえん}、{輸送|ゆそう}に{50円|ごじゅうえん}、お{店|みせ}に{50円|ごじゅうえん}、{認証|にんしょう}に{50円|ごじゅうえん}。{100円|ひゃくえん}にしたら、{生産者|せいさんしゃ}は{生活|せいかつ}できない……"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "{実|じつ}は{僕|ぼく}も、{最初|さいしょ}は「{300円|さんびゃくえん}は{高|たか}くない？」って{思|おも}ったんだ。マナブが{説明|せつめい}してくれて{分|わ}かった。「{安|やす}い＝{良|よ}い」って{思|おも}い{込|こ}みが{自分|じぶん}にもあったんだ。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: koeru
+        text: "わたしも「{高|たか}っ！」って{言|い}ったのに、マナブが{教|おし}えてくれた。「{知|し}らない」を{認|みと}めて{聞|き}いたから{分|わ}かった。**{知|し}らないことは{恥|はず}かしくないんだ。{聞|き}けばいい**んだよ。"
+        expression: thinking
+      - type: sprite
+        character: koeru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツムギの「{直|なお}してあげたい」という{気持|きも}ちは、{悪|わる}いことじゃないわ。でも{分|わ}からないことは**「{教|おし}えて」と{聞|き}く**のが{大切|たいせつ}。{知|し}らないことを{認|みと}めるのは、{勇気|ゆうき}があること。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "そしてね、{今日|きょう}{学|まな}んだこと——スーパーで{100円|ひゃくえん}のチョコと{300円|さんびゃくえん}のフェアトレードチョコが{並|なら}んでいたら、あなたはどちらを{選|えら}ぶ？ **{値段|ねだん}の{裏|うら}にある「{暮|く}らし」**を{想像|そうぞう}してみてね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{安|やす}い＝お{得|とく}とは{限|かぎ}らない。{安|やす}さの{裏|うら}に、{生産者|せいさんしゃ}が{苦|くる}しんでいる{場合|ばあい}がある。**「なぜ{自分|じぶん}はそう{思|おも}ったのか」を{振|ふ}り{返|かえ}る{力|ちから}**が{大切|たいせつ}だ。"
+      - type: narration
+        text: "{知|し}らないことは{恥|は}ずかしくない。{聞|き}くことは{学|まな}ぶこと。{聞|き}けなかったから{問題|もんだい}が{起|お}きた——それが{今日|きょう}の{一番|いちばん}{大切|たいせつ}な{教訓|きょうくん}だ。"
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: worried
+          - character: manabu
+            expression: determined
+          - character: hiromu
+            expression: happy
+          - character: koeru
+            expression: happy
+      - type: narration
+        text: "ツムギはマナブに{向|む}かってもう{一度|いちど}「ごめんね」と{言|い}った。マナブは{静|しず}かに{笑|わら}って、「{一緒|いっしょ}にフェアトレードのこと、みんなに{伝|つた}えよう」と{答|こた}えた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

@@ -1,0 +1,417 @@
+meta:
+  id: craft-05
+  title: 色彩の罠
+  series: 図工探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{絵画|かいが}コンテストに{出|だ}す「{心|こころ}に{残|のこ}る{風景|ふうけい}」を{描|えが}いている。4{人|にん}はそれぞれのテーマで{絵|え}を{描|か}き、{図工室|ずこうしつ}に{乾|かわ}かしている。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}、{図工室|ずこうしつ}に{来|き}ると、ヒナタの「{夕焼|ゆうや}けの{海|うみ}」の{背景|はいけい}が、オレンジ{色|いろ}から{紫|むらさき}っぽい{不思議|ふしぎ}な{色|いろ}に{変|か}わっていた！ {誰|だれ}かがいたずらで{塗|ぬ}り{替|か}えた？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒナタの{絵|え}の{背景|はいけい}が{変|か}わっていますね。{元|もと}はオレンジだったはず。{他|ほか}の3{人|にん}の{絵|え}は{無傷|むきず}です。ヒナタの{絵|え}だけ……。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: worried
+          - character: sumire
+            expression: thinking
+          - character: tsukuru
+            expression: surprised
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{絵|え}の{前|まえ}に{集|あつ}まった。ヒナタの{絵|え}だけが{変|か}わっている。いったい{誰|だれ}が、なぜ？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 色彩の罠
+        subtitle: 図工探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4人の絵と色を確認しよう
+      - type: narration
+        text: "4{人|にん}の{絵|え}と{使|つか}っている{色|いろ}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— 「{夕焼|ゆうや}けの{海|うみ}」。メイン：オレンジ（{夕焼|ゆうや}け）。{背景|はいけい}：{元|もと}はオレンジ → {今|いま}は{紫|むらさき}っぽい。{変色|へんしょく}あり。"
+      - type: narration
+        text: "スミレ —— 「{花畑|はなばたけ}」。メイン：{紫|むらさき}（{花|はな}）。{背景|はいけい}：{緑|みどり}（{草原|そうげん}）。{無傷|むきず}。"
+      - type: narration
+        text: "ツクル —— 「{冒険|ぼうけん}の{山|やま}」。メイン：{緑|みどり}（{山|やま}）。{背景|はいけい}：{青|あお}（{空|そら}）。{無傷|むきず}。"
+      - type: narration
+        text: "カナデ —— 「{虹|にじ}の{空|そら}」。メイン：{多色|たしょく}（{虹|にじ}）。{背景|はいけい}：{水色|みずいろ}（{空|そら}）。{無傷|むきず}。"
+      - type: narration
+        text: "ヒナタの{絵|え}だけが{変|か}わっている。{他|ほか}の3{人|にん}の{絵|え}は{無傷|むきず}。もし「いたずら」なら、なぜヒナタの{絵|え}だけ？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{放課後|ほうかご}の{行動|こうどう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "スミレ —— 15:10に{出発|しゅっぱつ}。{美術部|びじゅつぶ}へ。"
+      - type: narration
+        text: "ツクル —— 15:10に{出発|しゅっぱつ}。スミレと{一緒|いっしょ}に{出|で}た。{教室|きょうしつ}へ。"
+      - type: narration
+        text: "ヒナタ —— 15:15に{出発|しゅっぱつ}。「{教室|きょうしつ}で{本|ほん}を{読|よ}む」と{言|い}って{出|で}た。"
+      - type: narration
+        text: "カナデ —— 15:20に{出発|しゅっぱつ}。{最後|さいご}に{片|かた}づけて{出|で}た。"
+      - type: narration
+        text: "{図工室|ずこうしつ}は17:00まで{開|あ}いている。{放課後|ほうかご}に{図工室|ずこうしつ}に{戻|もど}れた{人|ひと}は{全員|ぜんいん}いるが……。"
+
+  # ==================== 調査：補色の知識 ====================
+  - id: color-theory
+    bg: classroom
+    steps:
+      - type: title_card
+        text: 色彩理論カード
+        subtitle: 補色と対比効果を学ぼう
+      - type: narration
+        text: "{図工室|ずこうしつ}の{本棚|ほんだな}にあった{色彩|しきさい}{理論|りろん}の{本|ほん}から。"
+      - type: narration
+        text: "{補色|ほしょく}とは、{色相環|しきそうかん}で{反対側|はんたいがわ}にある{色|いろ}のこと。{赤|あか}↔{緑|みどり}、オレンジ↔{青|あお}、{黄|き}↔{紫|むらさき}。"
+      - type: narration
+        text: "{暖色|だんしょく}の{絵|え}に{寒色|かんしょく}の{背景|はいけい}を{使|つか}うと、{主題|しゅだい}がより{鮮|あざ}やかに{映|は}える。これを{対比|たいひ}{効果|こうか}という。"
+      - type: narration
+        text: "{例|れい}：{夕焼|ゆうや}けの{絵|え}（オレンジ）に{青|あお}い{背景|はいけい}を{使|つか}うと、{夕焼|ゆうや}けがもっときれいに{見|み}える——{理論上|りろんじょう}は。"
+      - type: narration
+        text: "ただし{理論|りろん}と{実際|じっさい}は{違|ちが}うこともある。{実際|じっさい}に{塗|ぬ}ってみないと{分|わ}からないことも{多|おお}い。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ヒナタの絵を分析しよう
+      - type: narration
+        text: "ヒナタの{絵|え}の{背景|はいけい}を{詳|くわ}しく{観察|かんさつ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{背景|はいけい}の{色|いろ}の{構造|こうぞう}（{端|はし}の{薄|うす}い{部分|ぶぶん}で{確認|かくにん}）——1{層目|そうめ}：オレンジ（{元|もと}の{背景色|はいけいしょく}）。"
+      - type: narration
+        text: "2{層目|そうめ}：{青|あお}（{上|うえ}から{塗|ぬ}られた{色|いろ}）。{丁寧|ていねい}に{塗|ぬ}られている。{雑|ざつ}ないたずらの{塗|ぬ}り{方|かた}ではない。"
+      - type: narration
+        text: "3{層目|そうめ}：オレンジの{重|かさ}ね{塗|ぬ}り（{元|もと}に{戻|もど}そうとした{跡|あと}）。{急|いそ}いで{塗|ぬ}った{跡|あと}がある。"
+      - type: narration
+        text: "{結果|けっか}：{青|あお}+オレンジが{混|ま}ざって{紫|むらさき}っぽい{色|いろ}に。"
+      - type: narration
+        text: "「いたずら」なら1{回|かい}{塗|ぬ}って{終|お}わるはず。3{層|そう}あるのは{不自然|ふしぜん}だ。これは「{塗|ぬ}り{替|か}え→{後悔|こうかい}→{元|もと}に{戻|もど}そうとした」{行動|こうどう}パターンでは？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: パレットを調べよう
+      - type: narration
+        text: "{翌朝|よくあさ}の4{人|にん}のパレットを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタのパレット —— オレンジ{系|けい} + {青|あお}が{残|のこ}っている。「{夕焼|ゆうや}けの{海|うみ}」にはオレンジ{系|けい}しか{使|つか}わないはず。なのに{青|あお}がある。"
+      - type: narration
+        text: "スミレのパレット —— {紫|むらさき}{系|けい}・{緑|みどり}{系|けい}。{青|あお}はなし（{洗|あら}ってある）。"
+      - type: narration
+        text: "ツクルのパレット —— {緑|みどり}{系|けい}・{青|あお}{系|けい}。{洗|あら}ってある。"
+      - type: narration
+        text: "カナデのパレット —— {多色|たしょく}（{虹|にじ}{用|よう}）。{洗|あら}ってある。"
+      - type: narration
+        text: "ヒナタのパレットだけに{青|あお}が{残|のこ}っている。{授業中|じゅぎょうちゅう}の「{夕焼|ゆうや}けの{海|うみ}」に{青|あお}は{不要|ふよう}。では、{誰|だれ}がヒナタのパレットで{青|あお}を{使|つか}った？ ……{本人|ほんにん}では？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 図書室の記録
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{図工室|ずこうしつ}の{本棚|ほんだな}を{調|しら}べたところ、{色彩|しきさい}{理論|りろん}の{本|ほん}が1{冊|さつ}あった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{本|ほん}にはしおりが{挟|はさ}まっていた——ヒナタがいつも{使|つか}っている{青|あお}いしおりだ。{補色|ほしょく}と{対比|たいひ}{効果|こうか}のページに{折|お}り{目|め}がついている。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "この{本|ほん}を{読|よ}んだ{人|ひと}は、{補色|ほしょく}の{対比|たいひ}{効果|こうか}を{知|し}っています。もし{夕焼|ゆうや}けの{絵|え}を{描|か}いている{人|ひと}がこの{本|ほん}を{読|よ}んだら、「{背景|はいけい}を{青|あお}にしたらもっと{映|は}えるかも！」と{考|かんが}えるかもしれませんね。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でも{実際|じっさい}にやってみると、{思|おも}った{通|とお}りにいかないことも{多|おお}い。{色|いろ}の{実験|じっけん}は{失敗|しっぱい}しても{恥|は}ずかしいことではありません。{大切|たいせつ}なのは、{失敗|しっぱい}から{学|まな}ぶことです。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "この{本|ほん}を{読|よ}んでいたのはヒナタ。「{夕焼|ゆうや}けの{背景|はいけい}を{青|あお}にしたら{映|は}える」と{考|かんが}えた{人|ひと}は……もしかして{犯人|はんにん}は{外部|がいぶ}にいないのでは？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: sumire
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sumire
+        text: "{背景|はいけい}の{色|いろ}が3{層|そう}になってる。1{層目|そうめ}オレンジ、2{層目|そうめ}{青|あお}、3{層目|そうめ}またオレンジ。いたずらなら1{回|かい}で{終|お}わるはず。これは「{塗|ぬ}り{替|か}え→{後悔|こうかい}→{元|もと}に{戻|もど}そうとした」じゃない？"
+        expression: thinking
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanade
+        text: "ヒナタの{顔|かお}を{見|み}て。「いたずらされた」って{聞|き}いたとき、{怒|おこ}ってなかった。{下|した}を{向|む}いて{黙|だま}ってた。あれは{怒|いか}りじゃなくて……{恥|は}ずかしさに{見|み}えた。"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{帰|かえ}る{前|まえ}にヒナタが「{色|いろ}の{組|く}み{合|あ}わせをもうちょっと{研究|けんきゅう}したい」ってつぶやいてた。もしかして……{自分|じぶん}で{色|いろ}の{実験|じっけん}をした？"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: narration
+        text: "「いたずら{仮説|かせつ}」を{検証|けんしょう}しよう。いたずらなら{雑|ざつ}に{塗|ぬ}るはず→{実際|じっさい}は{丁寧|ていねい}。いたずらなら1{回|かい}で{終|お}わるはず→3{層|そう}ある。いたずらなら{他|ほか}の{絵|え}も{狙|ねら}うはず→ヒナタの{絵|え}だけ。——{仮説|かせつ}は{矛盾|むじゅん}だらけだ。"
+      - type: choice
+        id: q1
+        question: ヒナタの絵の背景を変えたのは誰？
+        options:
+          - text: ヒナタ自身（補色の実験をして失敗。恥ずかしくて言えなかった）
+            value: hinata
+            correct: true
+            feedback: "{正解|せいかい}！ ヒナタは{色彩|しきさい}{理論|りろん}の{本|ほん}で{補色|ほしょく}の{対比|たいひ}{効果|こうか}を{知|し}り、{背景|はいけい}を{青|あお}に{塗|ぬ}り{替|か}えた。でも{期待通|きたいどお}りにならず、{慌|あわ}てて{元|もと}のオレンジを{重|かさ}ね{塗|ぬ}り。{青|あお}+オレンジ={紫|むらさき}に。{犯人|はんにん}は{外部|がいぶ}にいなかった。"
+          - text: スミレ（色の違いに敏感で、ヒナタの絵を「改良」しようとした）
+            value: sumire
+            feedback: "スミレは{色|いろ}に{敏感|びんかん}だけど、{他人|たにん}の{絵|え}を{勝手|かって}に{変|か}える{理由|りゆう}がない。スミレのパレットに{青|あお}は{残|のこ}っていないし、3{層|そう}{構造|こうぞう}は「{自分|じぶん}の{行動|こうどう}を{修正|しゅうせい}しようとした{人|ひと}」のパターンだよ。"
+          - text: ツクル（冒険心でヒナタの絵にいたずらした）
+            value: tsukuru
+            feedback: "ツクルは15:10にスミレと{一緒|いっしょ}に{帰|かえ}っている。それに「いたずら」なら{丁寧|ていねい}に{塗|ぬ}らないし、3{層|そう}にもならない。ツクルのパレットにも{青|あお}は{残|のこ}っていないよ。"
+          - text: カナデ（ヒナタの絵を良くしようとして補色を使った）
+            value: kanade
+            feedback: "カナデは15:20に{出|で}て{教室|きょうしつ}へ。カナデのパレットに{青|あお}は{残|のこ}っていない。そしてヒナタのパレットに{青|あお}があるのは、ヒナタ{自身|じしん}が{使|つか}った{証拠|しょうこ}だよ。"
+
+  # ==================== 真実：ヒナタ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒナタの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: center
+      - type: dialog
+        character: hinata
+        text: "……ごめんなさい。{絵|え}の{背景|はいけい}を{変|か}えたのは、{僕|ぼく}です。{僕|ぼく}{自身|じしん}。"
+        expression: worried
+      - type: narration
+        text: "ヒナタはうつむきながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: hinata
+        text: "{色彩|しきさい}{理論|りろん}の{本|ほん}で「オレンジの{絵|え}には{青|あお}い{背景|はいけい}がいい」って{読|よ}んだ。{補色|ほしょく}の{対比|たいひ}{効果|こうか}。{夕焼|ゆうや}けがもっときれいに{見|み}えるはずだって……"
+        expression: thinking
+      - type: dialog
+        character: hinata
+        text: "{放課後|ほうかご}に{戻|もど}って、{背景|はいけい}を{青|あお}に{塗|ぬ}り{替|か}えた。でも{乾|かわ}いてみたら{全然|ぜんぜん}{違|ちが}った。{暗|くら}くて{重|おも}い{感|かん}じになって……{慌|あわ}てて{元|もと}のオレンジを{上|うえ}から{塗|ぬ}った。"
+        expression: worried
+      - type: dialog
+        character: hinata
+        text: "でも{青|あお}とオレンジが{混|ま}ざって{紫|むらさき}になっちゃった。{翌朝|よくあさ}みんなが「いたずらだ！」って{言|い}い{始|はじ}めて……{自分|じぶん}がやったって{言|い}い{出|だ}せなくなった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: sumire
+        expression: happy
+        position: left
+      - type: dialog
+        character: sumire
+        text: "3{層|そう}{構造|こうぞう}を{見|み}て「いたずらじゃない」って{気|き}づいてた。{丁寧|ていねい}に{塗|ぬ}られた2{層目|そうめ}と、{慌|あわ}てた3{層目|そうめ}。これは「{実験|じっけん}して{失敗|しっぱい}した{人|ひと}」の{行動|こうどう}だって。ヒナタ、{色彩|しきさい}{理論|りろん}に{挑戦|ちょうせん}したのすごいよ。"
+        expression: happy
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: happy
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "「{色|いろ}の{研究|けんきゅう}をしたい」ってつぶやいてたの、{聞|き}いてた。{最初|さいしょ}は「いたずら{犯|はん}を{見|み}つけてやる！」って{思|おも}ってたけど……{犯人|はんにん}がヒナタ{自身|じしん}だったなんて。でも{実験|じっけん}の{失敗|しっぱい}は{悪|わる}いことじゃないよ。"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: happy
+        position: left
+      - type: dialog
+        character: kanade
+        text: "ヒナタの{顔|かお}を{見|み}て「{怒|おこ}ってない、{恥|は}ずかしがってる」って{分|わ}かった。{言|い}い{出|だ}せなかったの、つらかったよね。{次|つぎ}は{一緒|いっしょ}に{実験|じっけん}しようよ！"
+        expression: happy
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒナタが{補色|ほしょく}の{対比|たいひ}{効果|こうか}に{挑戦|ちょうせん}したのは{素晴|すば}らしいわ。{理論|りろん}を{実際|じっさい}に{試|ため}す——それが{図工|ずこう}の{力|ちから}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも{失敗|しっぱい}したとき「{恥|は}ずかしい」と{思|おも}わなくていい。「こうなった」と{伝|つた}えれば、みんなで{一緒|いっしょ}に{考|かんが}えられるの。{失敗|しっぱい}は{学|まな}びの{第一歩|だいいっぽ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{補色|ほしょく}の{対比|たいひ}{効果|こうか}——オレンジと{青|あお}、{赤|あか}と{緑|みどり}、{黄|き}と{紫|むらさき}。{補色|ほしょく}を{隣|となり}に{置|お}くとお{互|たが}いが{鮮|あざ}やかに{見|み}える。"
+      - type: narration
+        text: "「たぶんこうだ」で{終|お}わらず、「もしそうなら○○のはず」と{検証|けんしょう}する。{矛盾|むじゅん}があれば{仮説|かせつ}を{捨|す}てる。それが{仮説|かせつ}{検証|けんしょう}の{力|ちから}だ。"
+      - type: narration
+        text: "そして——「{犯人|はんにん}は{外|そと}にいる」という{思|おも}い{込|こ}みに{気|き}をつけよう。{前提|ぜんてい}を{疑|うたが}う{勇気|ゆうき}が、{真実|しんじつ}への{近道|ちかみち}だ。"
+      - type: effect
+        name: fade-out

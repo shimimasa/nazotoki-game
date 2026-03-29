@@ -1,0 +1,457 @@
+meta:
+  id: global-07
+  title: 旅立ちの理由
+  series: 国際理解探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  hiromu:
+    name: ヒロム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manabu:
+    name: マナブ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  koeru:
+    name: コエル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}は「{世界|せかい}から{来|き}た{友|とも}だち」{紹介|しょうかい}パネルの{掲示|けいじ}{準備|じゅんび}の{日|ひ}。クラスに{転入|てんにゅう}してきたアミルの{パネルを|パネルを}{含|ふく}めた4{枚|まい}を{教室|きょうしつ}にはった。"
+      - type: narration
+        text: "{月曜日|げつようび}の15{時|じ}15{分|ぷん}。4{人|にん}でパネルを{確認|かくにん}したとき、アミルのパネルも{異常|いじょう}なし。"
+      - type: narration
+        text: "{翌朝|よくあさ}8{時|じ}30{分|ぷん}——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへん！ アミルの{紹介|しょうかい}パネルから「{日本|にほん}に{来|き}た{理由|りゆう}」の{部分|ぶぶん}だけが{切|き}り{取|と}られているわ！"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{名前|なまえ}も{好|す}きなことも、{出身地域|しゅっしんちいき}も、ぜんぶそのまま。なぜ「{理由|りゆう}」だけが{消|き}えているの……？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: surprised
+          - character: manabu
+            expression: surprised
+          - character: koeru
+            expression: worried
+          - character: tsumugi
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{理由|りゆう}」だけが{消|き}えている。{名前|なまえ}も{好|す}きなことも{無事|ぶじ}。なぜ「{理由|りゆう}」だけ？
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 旅立ちの理由
+        subtitle: 国際理解探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1・2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: パネルの状況を調べよう
+      - type: narration
+        text: "アミルの{紹介|しょうかい}パネルを{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "パネルは5つの{項目|こうもく}で{構成|こうせい}: {名前|なまえ} / {好|す}きなこと / {出身地域|しゅっしんちいき} / {日本|にほん}で{楽|たの}しいこと / {日本|にほん}に{来|き}た{理由|りゆう}"
+      - type: narration
+        text: "「{日本|にほん}に{来|き}た{理由|りゆう}」の{部分|ぶぶん}だけがハサミで{切|き}り{取|と}られている。{切|き}り{口|くち}はきれい——{丁寧|ていねい}に{切|き}った{跡|あと}だ。"
+      - type: narration
+        text: "ハサミは{教室|きょうしつ}の{引|ひ}き{出|だ}しのものと{同|おな}じ{大|おお}きさ。{他|ほか}の3{人|にん}のパネルは{無事|ぶじ}。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ポイント: なぜ「{理由|りゆう}」だけが{消|き}された？ {名前|なまえ}も{好|す}きなことも{消|き}されていない。「{理由|りゆう}」だけを{消|き}したかった{人|ひと}がいる。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 元の内容を確認しよう
+      - type: narration
+        text: "ヒロムがパネルの{元|もと}の{内容|ないよう}を{覚|おぼ}えていた。"
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "アミルに{確認|かくにん}してから{書|か}いたんだ。「{日本|にほん}に{来|き}た{理由|りゆう}」には「{家族|かぞく}の{事情|じじょう}で{日本|にほん}に{引|ひ}っ{越|こ}した」と{書|か}いた。"
+        expression: thinking
+      - type: dialog
+        character: hiromu
+        text: "アミルは「うん、それくらいならいいよ」って{言|い}ってくれた。でも……{少|すこ}し{表情|ひょうじょう}が{曇|くも}っていた{気|き}がして。"
+        expression: worried
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{家族|かぞく}の{事情|じじょう}で{引|ひ}っ{越|こ}した」——この{情報|じょうほう}のどこが{問題|もんだい}だった？ これを{知|し}られたくない{人|ひと}がいた？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: カード交換で情報をつなごう
+      - type: narration
+        text: "4{人|にん}はそれぞれ{個人|こじん}カードを{持|も}っていた。{情報|じょうほう}を{交換|こうかん}して{組|く}み{合|あ}わせてみよう。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: manabu
+        text: "ぼくが{調|しら}べたんだけど……「{家族|かぞく}の{事情|じじょう}で{国|くに}を{出|で}る」{人|ひと}の{中|なか}には、{安全|あんぜん}な{場所|ばしょ}を{求|もと}めて{移動|いどう}した{人|ひと}もいる。アミルの{出身地域|しゅっしんちいき}の{中東|ちゅうとう}には、{紛争|ふんそう}がある{場所|ばしょ}も{含|ふく}まれてるんだ。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "わたし……アミルが{転入|てんにゅう}した{初日|しょにち}に{先生|せんせい}に{話|はな}しているのを{聞|き}いちゃったの。「『なぜ{日本|にほん}に{来|き}たの？』って{聞|き}かれるのがイヤだ」って、{小|ちい}さな{声|こえ}で。"
+        expression: worried
+      - type: dialog
+        character: tsumugi
+        text: "「{普通|ふつう}の{子|こ}でいたいだけなのに」とも{言|い}ってた。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "アミル{自身|じしん}が「{理由|りゆう}を{知|し}られたくない」と{思|おも}っていた！ では、そのアミルの{気持|きも}ちを{知|し}っている{人|ひと}が「{守|まも}ろうとした」？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: hallway-sunset
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{放課後|ほうかご}の{行動|こうどう}を{整理|せいり}した。{全員|ぜんいん}が15{時|じ}15{分|ふん}にパネルを{確認|かくにん}。それ{以降|いこう}は——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒロム —— 15{時|じ}22{分|ぷん}に{図書室|としょしつ}{着|ちゃく}。{図書|としょ}の{先生|せんせい}が{確認|かくにん}ずみ。"
+      - type: narration
+        text: "マナブ —— 15{時|じ}25{分|ぷん}に{理科室|りかしつ}で{実験|じっけん}{片付|かたづ}け。{理科|りか}の{先生|せんせい}が{確認|かくにん}ずみ。"
+      - type: narration
+        text: "ツムギ —— 15{時|じ}30{分|ぷん}に{音楽室|おんがくしつ}でリコーダー{練習|れんしゅう}。{音楽|おんがく}の{先生|せんせい}が{確認|かくにん}ずみ。"
+      - type: narration
+        text: "コエル —— 「15{時|じ}20{分|ぷん}ごろ{下校|げこう}した」と{言|い}っている。でも、{先生|せんせい}の{確認|かくにん}がない。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "3{人|にん}は{先生|せんせい}が{確認|かくにん}してくれた。コエルの「15{時|じ}20{分|ぷん}{下校|げこう}」は{誰|だれ}が{確認|かくにん}した？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 正門の先生の証言
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{正門|せいもん}の{先生|せんせい}に{話|はな}を{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{正門|せいもん}には{下校|げこう}チェックの{記録|きろく}ノートがある。{確認|かくにん}したわ。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「コエルさんが{正門|せいもん}を{通|とお}ったのは15{時|じ}35{分|ぷん}です。15{時|じ}20{分|ぷん}ではありません。コエルさんの{名前|なまえ}の{横|よこ}に15{時|じ}35{分|ぷん}と{書|か}いてあります。{少|すこ}し{急|いそ}いでいるように{見|み}えました。」"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "コエルは「15{時|じ}20{分|ぷん}に{下校|げこう}」と{言|い}ったけど、{実際|じっさい}は15{時|じ}35{分|ぷん}。15{分間|ふんかん}の{空白|くうはく}。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "15{時|じ}15{分|ぷん}にパネルは{正常|せいじょう}だった。15{時|じ}20{分|ぷん}〜15{時|じ}35{分|ぷん}——コエルはどこにいた？ そして、コエルはアミルの{一番|いちばん}の{友|とも}だち。アミルの{気持|きも}ちを{一番|いちばん}よく{知|し}っている{人|ひと}……"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "ぼくは15{時|じ}22{分|ぷん}に{図書室|としょしつ}についた。{図書|としょ}の{先生|せんせい}に{確認|かくにん}してもらってる。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "ぼくは15{時|じ}25{分|ぷん}まで{理科室|りかしつ}にいた。{理科|りか}の{先生|せんせい}が{証言|しょうげん}してくれる。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "わたしは15{時|じ}30{分|ぷん}から{音楽室|おんがくしつ}にいた。{音楽|おんがく}の{先生|せんせい}が{確認|かくにん}してくれてる。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ヒロム・マナブ・ツムギは{先生|せんせい}が{確認|かくにん}ずみ。コエルの15{時|じ}20{分|ぷん}{下校|げこう}は{嘘|うそ}だった——{実際|じっさい}は15{時|じ}35{分|ぷん}。15{分間|ふんかん}の{空白|くうはく}。そしてコエルはアミルの{気持|きも}ちを{知|し}っていた……"
+      - type: choice
+        id: q1
+        question: パネルの「理由」を切り取ったのは誰？
+        options:
+          - text: コエル（アリバイに嘘があり、15:20〜15:35の空白時間がある）
+            value: koeru
+            correct: true
+            feedback: "{正解|せいかい}！ コエルは15{時|じ}20{分|ぷん}{下校|げこう}と{言|い}ったが{実際|じっさい}は15{時|じ}35{分|ぷん}。15{分間|ふんかん}の{空白|くうはく}に{教室|きょうしつ}でパネルを{切|き}り{取|と}った。アミルの{一番|いちばん}の{友|とも}だちとして、{秘密|ひみつ}を{守|まも}ろうとしたんだ。"
+          - text: ヒロム（パネルの元の内容を知っている）
+            value: hiromu
+            feedback: "ヒロムは15{時|じ}22{分|ぷん}に{図書室|としょしつ}にいたことを{図書|としょ}の{先生|せんせい}が{確認|かくにん}しているよ。アリバイがあるね。"
+          - text: マナブ（難民の背景を調べていた）
+            value: manabu
+            feedback: "マナブは15{時|じ}25{分|ぷん}まで{理科室|りかしつ}にいたことを{理科|りか}の{先生|せんせい}が{確認|かくにん}しているよ。アリバイがあるね。"
+          - text: ツムギ（アミルの気持ちを知っていた）
+            value: tsumugi
+            feedback: "ツムギは15{時|じ}30{分|ぷん}から{音楽室|おんがくしつ}にいたことを{音楽|おんがく}の{先生|せんせい}が{確認|かくにん}しているよ。アリバイがあるね。"
+
+  # ==================== 真実：コエルの告白 ====================
+  - id: truth-koeru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: コエルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: koeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: koeru
+        text: "……{切|き}り{取|と}ったのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: コエルは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: koeru
+        text: "アミルと{先週|せんしゅう}サッカーをしたあと、2{人|にん}で{話|はな}したの。アミルが「{自分|じぶん}の{家族|かぞく}は{大変|たいへん}な{事情|じじょう}があって{国|くに}を{出|で}た。でもみんなには{言|い}いたくない。{普通|ふつう}の{子|こ}として{見|み}てほしい」って{打|う}ち{明|あ}けてくれた。"
+        expression: thinking
+      - type: dialog
+        character: koeru
+        text: "アミルは{泣|な}きそうな{顔|かお}をしていて……「{約束|やくそく}して。{誰|だれ}にも{言|い}わないで」って。だから{約束|やくそく}したんだ。"
+        expression: worried
+      - type: dialog
+        character: koeru
+        text: "月曜日の15{時|じ}15{分|ぷん}、パネルを{見|み}たら「{家族|かぞく}の{事情|じじょう}で{日本|にほん}に{引|ひ}っ{越|こ}した」って{書|か}いてあった。「アミルが{知|し}られたくないって{言|い}ってたのに！」って{頭|あたま}が{真|ま}っ{白|しろ}になって——"
+        expression: determined
+      - type: dialog
+        character: koeru
+        text: "15{時|じ}25{分|ぷん}に{教室|きょうしつ}に{戻|もど}って、ハサミで「{理由|りゆう}」の{部分|ぶぶん}だけを{丁寧|ていねい}に{切|き}り{取|と}った。{名前|なまえ}も{好|す}きなことも、アミルは{気|き}にしていない。「{理由|りゆう}」だけは{守|まも}りたかった。"
+        expression: worried
+      - type: sprite
+        character: koeru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hiromu
+        expression: worried
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "ぼくが{書|か}いたとき、アミルの{表情|ひょうじょう}が{曇|くも}ったのに{気|き}づいてた。「それくらいならいいよ」って{言|い}ってくれたけど……もっとよく{聞|き}けばよかった。"
+        expression: worried
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "「{家族|かぞく}の{事情|じじょう}」には{深刻|しんこく}な{背景|はいけい}がある{可能性|かのうせい}があるって{本|ほん}で{読|よ}んでた。でも{推測|すいそく}でアミルのことを{話|はな}すのは{失礼|しつれい}だと{思|おも}って……{黙|だま}ってた。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "アミルが「{理由|りゆう}を{聞|き}かれるのがイヤ」って{言|い}ってたの、{知|し}ってた。でもバラしたらアミルをまた{傷|きず}つけると{思|おも}って……{言|い}えなかったの。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "コエルの「{友|とも}だちとの{約束|やくそく}を{守|まも}りたい」{気持|きも}ちは{素晴|すば}らしい。その{忠誠心|ちゅうせいしん}は{本物|ほんもの}よ。でも、パネルを{勝手|かって}に{切|き}るのではなく、{先生|せんせい}に{相談|そうだん}する{方法|ほうほう}もあったわ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "アミルのように、「{理由|りゆう}を{聞|き}かれたくない」{人|ひと}がいる。それを{知|し}ること、それだけで{十分|じゅうぶん}な{思|おも}いやりになるの。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{日本|にほん}に{住|す}む{外国|がいこく}{人|ひと}は{約|やく}300{万人|まんにん}。{理由|りゆう}はさまざまだ。{仕事|しごと}、{勉強|べんきょう}、{家族|かぞく}の{事情|じじょう}——それぞれの{物語|ものがたり}がある。"
+      - type: narration
+        text: "「{なぜ|なぜ}{来|き}たの？」と{聞|き}くことが、{時|とき}に{相手|あいて}を{傷|きず}つける。「{聞|き}かないこと」も{思|おも}いやり。でも「{気|き}にしないこと」とは{違|ちが}う。{困|こま}っていたら{助|たす}ける——"
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "さあ、アミルのパネルをどうするか、みんなで{相談|そうだん}しましょう。アミルの{気持|きも}ちを{一番|いちばん}に{考|かんが}えて。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: determined
+          - character: manabu
+            expression: thinking
+          - character: koeru
+            expression: worried
+          - character: tsumugi
+            expression: happy
+      - type: narration
+        text: 4{人|にん}は{静|しず}かにうなずいた。「{ない|ない}{情報|じょうほう}」に{気|き}づく{力|ちから}——{語|かた}られていないことの{中|なか}にこそ、{大切|たいせつ}なことが{隠|かく}れている。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

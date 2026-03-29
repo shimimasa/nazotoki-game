@@ -1,0 +1,424 @@
+meta:
+  id: sports-01
+  title: かけっこの秘密
+  series: 体育探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: 運動会の{練習|れんしゅう}がはじまった{小学校|しょうがっこう}。{体育|たいいく}の{授業|じゅぎょう}で50m{走|そう}のタイムを{測定|そくてい}し、{記録表|きろくひょう}を{体育倉庫|たいいくそうこ}に{保管|ほかん}した。
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}8{時|じ}30{分|ぷん}。ハヤテのタイムが「8.5{秒|びょう}」から「7.8{秒|びょう}」に{書|か}き{換|か}えられていた！ 0.7{秒|びょう}も{速|はや}くなっている。いったい{誰|だれ}が{書|か}き{換|か}えたのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{記録表|きろくひょう}はきのうの{放課後|ほうかご}、{体育倉庫|たいいくそうこ}に{保管|ほかん}しました。{書|か}き{換|か}えに{使|つか}われた{赤|あか}ペンは、ハヤテがいつもノートで{使|つか}っているものと{同|おな}じ{種類|しゅるい}です。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: surprised
+          - character: tsubasa
+            expression: thinking
+          - character: kakeru
+            expression: surprised
+          - character: minori
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が{書|か}き{換|か}えたのか。{全員|ぜんいん}が{放課後|ほうかご}に{学校|がっこう}にのこっていた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: かけっこの秘密
+        subtitle: 体育探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 記録表の状況を調べよう
+      - type: narration
+        text: "{体育倉庫|たいいくそうこ}の50m{走|そう}{記録表|きろくひょう}を{調|しら}べた。{書|か}き{換|か}えられていたのはハヤテのタイムだけだ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{元|もと}のタイム（{黒|くろ}ペン）: ハヤテ 8.5{秒|びょう}"
+      - type: narration
+        text: "{書|か}き{換|か}え（{赤|あか}ペン）: ハヤテ 7.8{秒|びょう}"
+      - type: narration
+        text: "ツバサ 7.9{秒|びょう}、カケル 8.2{秒|びょう}、ミノリ 9.1{秒|びょう} —— ほかの3{人|にん}のタイムは{変|か}わっていない。"
+      - type: narration
+        text: "{赤|あか}ペンはハヤテがいつもノートで{使|つか}っているものと{同|おな}じ{種類|しゅるい}。{体育倉庫|たいいくそうこ}は{放課後|ほうかご}も{鍵|かぎ}がかかっていない。"
+      - type: narration
+        text: "0.7{秒|びょう}も{速|はや}くなっている。0.7{秒|びょう}の{改善|かいぜん}には{何|なに}が{必要|ひつよう}だろう？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: フォーム分析表を確認しよう
+      - type: narration
+        text: "{体育|たいいく}の{先生|せんせい}が{作|つく}ったフォーム{分析|ぶんせき}表だ。4{人|にん}のタイムとフォームの{関係|かんけい}を{見|み}てみよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ 8.5{秒|びょう} —— {腕振|うでふ}り: 小さい、{前傾|ぜんけい}: やや{浅|あさ}い、ストライド{幅|はば}: {普通|ふつう}"
+      - type: narration
+        text: "ツバサ 7.9{秒|びょう} —— {腕振|うでふ}り: 大きい、{前傾|ぜんけい}: {深|ふか}い、ストライド{幅|はば}: {広|ひろ}い。フォームのお{手本|てほん}！"
+      - type: narration
+        text: "カケル 8.2{秒|びょう} —— {腕振|うでふ}り: {普通|ふつう}、{前傾|ぜんけい}: {普通|ふつう}、ストライド{幅|はば}: やや{広|ひろ}い"
+      - type: narration
+        text: "ミノリ 9.1{秒|びょう} —— {腕振|うでふ}り: 小さい、{前傾|ぜんけい}: {浅|あさ}い、ストライド{幅|はば}: {狭|せま}い"
+      - type: narration
+        text: "{腕振|うでふ}りを大きくする → 約0.3〜0.5{秒|びょう}{改善|かいぜん}。{前傾|ぜんけい}を{深|ふか}くする → 約0.2〜0.3{秒|びょう}{改善|かいぜん}。ストライドを{広|ひろ}くする → 約0.2〜0.3{秒|びょう}{改善|かいぜん}。"
+      - type: narration
+        text: "{重要|じゅうよう}：ハヤテの{現在|げんざい}のフォーム（{腕振|うでふ}り小さい・{前傾|ぜんけい}{浅|あさ}い）で7.8{秒|びょう}は{出|で}せない。7.8{秒|びょう}を{出|だ}すには{全|すべ}てを{改善|かいぜん}する{必要|ひつよう}があり、フォーム{改善|かいぜん}には{練習|れんしゅう}が{必要|ひつよう}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{放課後|ほうかご}、4{人|にん}はどこにいたのか。{先生|せんせい}に{確認|かくにん}した{結果|けっか}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ —— {職員室|しょくいんしつ}で{委員会|いいんかい}{活動|かつどう}（15:25ごろ）: {担任|たんにん}の{先生|せんせい}が{確認|かくにん}"
+      - type: narration
+        text: "ツバサ —— {図書室|としょしつ}で{調|しら}べ{物|もの}（15:30）: {図書|としょ}の{先生|せんせい}が{確認|かくにん}"
+      - type: narration
+        text: "カケル —— {下校|げこう}（15:20）: {正門|せいもん}の{先生|せんせい}が{確認|かくにん}"
+      - type: narration
+        text: "ミノリ —— {保健室|ほけんしつ}で{手当|てあて}て（15:30）: {保健|ほけん}の{先生|せんせい}が{確認|かくにん}"
+      - type: narration
+        text: "そして——15{時|じ}15{分|ぷん}、ツバサが{記録表|きろくひょう}を{確認|かくにん}。そのときは「8.5{秒|びょう}」で{正常|せいじょう}だった。{書|か}き{換|か}えは15{時|じ}15{分|ぷん}より{後|あと}のできごとだ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ハヤテの「計算」発言
+      - type: narration
+        text: "14{時|じ}35{分|ぷん}ごろ、{測定|そくてい}{終了後|しゅうりょうご}の{会話|かいわ}{記録|きろく}だ。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hayate
+        expression: happy
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{腕振|うでふ}りを大きくしたら0.5{秒|びょう}{速|はや}くなって、{前傾|ぜんけい}も{深|ふか}くしたら0.2{秒|びょう}。{合計|ごうけい}で7.8{秒|びょう}になるはず。{計算|けいさん}で{出|だ}した！"
+        expression: happy
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{計算|けいさん}で{速|はや}くなれるの？ すごい！"
+        expression: surprised
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "{計算|けいさん}は{合|あ}ってるかもしれないけど、{実際|じっさい}に{走|はし}らないと{分|わ}からないよ。"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hayate
+        text: "……でも{理論的|りろんてき}には{合|あ}ってるんだ。"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: narration
+        text: "ハヤテは「{計算|けいさん}で7.8{秒|びょう}になる」と{言|い}っていた。{記録表|きろくひょう}の7.8{秒|びょう}は「{実際|じっさい}に{走|はし}ったタイム」？ それとも「{計算|けいさん}で{出|だ}した{理論値|りろんち}」？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 担任の先生の証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハヤテくんが{職員室|しょくいんしつ}に{来|き}たのは15{時|じ}35{分|ぷん}です。15{時|じ}25{分|ぷん}ではありません。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{委員会|いいんかい}は15{時|じ}25{分|ぷん}{開始|かいし}だったので、『ハヤテくん、10{分|ぷん}{遅刻|ちこく}だよ』と{言|い}いました。ハヤテくんは『すみません、{体育倉庫|たいいくそうこ}に{忘|わす}れ{物|もの}を{取|と}りに{行|い}っていました』と{言|い}っていました。ノートを{持|も}っていましたね。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテは15{時|じ}25{分|ぷん}〜15{時|じ}35{分|ぷん}に{体育倉庫|たいいくそうこ}にいた！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "しかも「{体育倉庫|たいいくそうこ}に{行|い}った」と{先生|せんせい}に{自分|じぶん}で{言|い}っている。{記録表|きろくひょう}があるのは{体育倉庫|たいいくそうこ}。そしてハヤテは「{計算|けいさん}で7.8{秒|びょう}」と{言|い}っていた……。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "{証拠|しょうこ}カード②を{見|み}て。ハヤテの{現在|げんざい}のフォーム（{腕振|うでふ}り小さい・{前傾|ぜんけい}{浅|あさ}い）では、7.8{秒|びょう}は{絶対|ぜったい}に{出|で}せない。7.8{秒|びょう}は{実測|じっそく}じゃないはずだ。"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: right
+      - type: dialog
+        character: minori
+        text: "15{時|じ}25{分|ぷん}ごろ、{保健室|ほけんしつ}に{向|む}かう{途中|とちゅう}で……ハヤテが{体育倉庫|たいいくそうこ}の{方向|ほうこう}に{歩|ある}いているのを{見|み}た。ノートと{赤|あか}いペンみたいなものを{持|も}っていた。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。15{時|じ}15{分|ぷん}に{記録表|きろくひょう}は{正常|せいじょう}だった。ハヤテは15{時|じ}25{分|ぷん}〜35{分|ぷん}に{体育倉庫|たいいくそうこ}にいた。ハヤテは「{計算|けいさん}で7.8{秒|びょう}」と{発言|はつげん}していた。そしてハヤテの{現在|げんざい}のフォームでは7.8{秒|びょう}は{出|で}せない——"
+      - type: choice
+        id: q1
+        question: 記録表を書き換えたのは誰？
+        options:
+          - text: ハヤテ（15:25〜35に体育倉庫にいて、計算で7.8秒と発言していた）
+            value: hayate
+            correct: true
+            feedback: "{正解|せいかい}！ 15{時|じ}25{分|ぷん}〜35{分|ぷん}に{体育倉庫|たいいくそうこ}にいたのはハヤテだけ。しかも「{計算|けいさん}で7.8{秒|びょう}になる」と{言|い}っていた。{現在|げんざい}のフォームで7.8{秒|びょう}は{出|で}せないから、{記録表|きろくひょう}に{書|か}いたのは{計算|けいさん}で{出|だ}した{理論値|りろんち}だ。"
+          - text: ツバサ（15:15に記録表を確認した人）
+            value: tsubasa
+            feedback: "ツバサは15{時|じ}15{分|ぷん}に{記録表|きろくひょう}を{確認|かくにん}したとき、8.5{秒|びょう}で{正常|せいじょう}だった。その{後|あと}は15{時|じ}30{分|ぷん}に{図書室|としょしつ}にいて、{図書|としょ}の{先生|せんせい}が{確認|かくにん}しているよ。"
+          - text: カケル（放課後も学校にいた人）
+            value: kakeru
+            feedback: "カケルは15{時|じ}20{分|ぷん}に{下校|げこう}していて、{正門|せいもん}の{先生|せんせい}が{確認|かくにん}しているよ。15{時|じ}15{分|ぷん}{以降|いこう}、{体育倉庫|たいいくそうこ}に{入|はい}ることはできなかった。"
+          - text: ミノリ（体育倉庫の方向を目撃した人）
+            value: minori
+            feedback: "ミノリは15{時|じ}28{分|ぷん}に{保健室|ほけんしつ}に{着|つ}いて、{保健|ほけん}の{先生|せんせい}が{確認|かくにん}している。{体育倉庫|たいいくそうこ}に{行|い}く{時間|じかん}はなかったよ。"
+
+  # ==================== 真実：ハヤテ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハヤテの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hayate
+        expression: worried
+        position: center
+      - type: dialog
+        character: hayate
+        text: "……ごめんなさい。{記録表|きろくひょう}を{書|か}き{換|か}えたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: ハヤテは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: hayate
+        text: "{自分|じぶん}のフォームを{分析|ぶんせき}したんだ。{腕振|うでふ}りを大きくしたら0.5{秒|びょう}、{前傾|ぜんけい}を{深|ふか}くしたら0.2{秒|びょう}——{合計|ごうけい}で7.8{秒|びょう}になるって{計算|けいさん}で{出|だ}した。"
+        expression: thinking
+      - type: dialog
+        character: hayate
+        text: "{理論的|りろんてき}には{合|あ}ってるから……{記録表|きろくひょう}に{書|か}き{込|こ}んでしまった。{実際|じっさい}に{走|はし}ってないのに。「こうなるはず」を{記録表|きろくひょう}に{書|か}いた。"
+        expression: worried
+      - type: dialog
+        character: hayate
+        text: "{本当|ほんとう}は{忘|わす}れ{物|もの}なんてなかった。15{時|じ}25{分|ぷん}に{体育倉庫|たいいくそうこ}に{入|はい}って、{赤|あか}ペンで{書|か}き{換|か}えた。……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "{実|じつ}は……{僕|ぼく}は14{時|じ}35{分|ぷん}にハヤテの「{計算|けいさん}で7.8{秒|びょう}」って{発言|はつげん}を{聞|き}いたとき、「それは{実測|じっそく}じゃない」って{気|き}づいてた。でもハヤテに{言|い}わなかった。{言|い}っておけばよかった。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{僕|ぼく}も……ハヤテの「{計算|けいさん}で7.8{秒|びょう}になるはず」って{話|はなし}を{聞|き}いて「すごい！」って{思|おも}ってた。でも{本当|ほんとう}は{計算|けいさん}と{実際|じっさい}は{違|ちが}うって、{分|わ}かってたのに。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: "ハヤテが{体育倉庫|たいいくそうこ}に{向|む}かうのを{見|み}て、「おかしいな」って{思|おも}った。でも{友達|ともだち}を{疑|うたが}いたくなくて……{声|こえ}をかけなかった。ごめんね、ハヤテ。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハヤテの「{速|はや}くなりたい」という{気持|きも}ちと、データへの{好奇心|こうきしん}は{素晴|すば}らしいものよ。{計算|けいさん}で{理論値|りろんち}を{出|だ}せるなんて、{本当|ほんとう}にすごい。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{計算|けいさん}は「{予測|よそく}」。{本当|ほんとう}のタイムは{実際|じっさい}に{走|はし}って{出|だ}すものよ。{記録表|きろくひょう}は{事実|じじつ}を{書|か}く{場所|ばしょ}。{次|つぎ}は{練習|れんしゅう}で7.8{秒|びょう}を{証明|しょうめい}してね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "フォームがタイムを{決|き}める。{腕振|うでふ}り・{前傾|ぜんけい}・ストライド{幅|はば}——3つを{改善|かいぜん}すれば、{本当|ほんとう}に{速|はや}くなれる。でもフォーム{改善|かいぜん}には{実際|じっさい}の{練習|れんしゅう}が{必要|ひつよう}だ。"
+      - type: narration
+        text: "{計算|けいさん}と{実測|じっそく}は{違|ちが}う。「こうなるはず」は{予測|よそく}。「こうだった」は{事実|じじつ}。{記録表|きろくひょう}に{書|か}くのは{事実|じじつ}だけ。"
+      - type: narration
+        text: "そして——タイムだけが{体育|たいいく}の{楽|たの}しさじゃない。ミノリの9.1{秒|びょう}も{立派|りっぱ}。{一生懸命|いっしょうけんめい}{走|はし}ることが{大切|たいせつ}だ。"
+      - type: effect
+        name: fade-out

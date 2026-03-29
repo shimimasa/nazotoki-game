@@ -1,0 +1,389 @@
+meta:
+  id: craft-04
+  title: コラージュの時間割
+  series: 図工探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "4{人|にん}で「わたしたちの{町|まち}」という{大|おお}きなコラージュ{作品|さくひん}を{作|つく}っている。{色紙|いろがみ}や{布|ぬの}を{切|き}り{抜|ぬ}いてパーツを{作|つく}り、{大|おお}きな{台紙|だいし}にはりつける。"
+      - type: narration
+        text: "{昨日|きのう}の{授業|じゅぎょう}で{仮置|かりお}きまで{終|お}わった。{仮留|かりど}めテープでパーツを{台紙|だいし}に{止|と}めてある。{今日|きょう}はのりで{本貼|ほんば}りをする{予定|よてい}だ。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}、{図工室|ずこうしつ}に{来|き}ると、スミレの「{花壇|かだん}」のパーツが{昨日|きのう}と{違|ちが}う{場所|ばしょ}に{移動|いどう}していた！ {仮留|かりど}めテープの{位置|いち}が{変|か}わっている。{誰|だれ}がスミレのパーツを{動|うご}かしたのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "スミレさんの「{花壇|かだん}」のパーツが{移動|いどう}しています。{他|ほか}のパーツは{動|うご}いていません。{花壇|かだん}だけが{昨日|きのう}と{違|ちが}う{場所|ばしょ}にありますね。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: surprised
+          - character: sumire
+            expression: surprised
+          - character: tsukuru
+            expression: thinking
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{台紙|だいし}の{前|まえ}に{集|あつ}まった。{花壇|かだん}のパーツは{昨日|きのう}「{駅|えき}の{左|ひだり}」にあったのに、{今朝|けさ}は「{木|き}の{右隣|みぎどなり}」に{移動|いどう}している。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: コラージュの時間割
+        subtitle: 図工探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 配置タイムラインを確認しよう
+      - type: narration
+        text: "{昨日|きのう}の{午後|ごご}、4{人|にん}がパーツを{台紙|だいし}に{仮置|かりお}きした{記録|きろく}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "14:00 —— ヒナタが「{駅|えき}」を{台紙|だいし}の{右下|みぎした}に{配置|はいち}。"
+      - type: narration
+        text: "14:10 —— スミレが「{花壇|かだん}」を{駅|えき}の{左|ひだり}に{配置|はいち}。"
+      - type: narration
+        text: "14:15 —— ツクルが「{大|おお}きな{木|き}」を{花壇|かだん}のすぐ{上|うえ}に{配置|はいち}。{花壇|かだん}の{左半分|ひだりはんぶん}が{木|き}の{葉|は}に{重|かさ}なった。"
+      - type: narration
+        text: "14:20 —— カナデが「{虹|にじ}」を{空|そら}の{部分|ぶぶん}に{配置|はいち}。"
+      - type: narration
+        text: "14:30 —— {全員|ぜんいん}で{仮置|かりお}きを{確認|かくにん}。{全員|ぜんいん}が「この{配置|はいち}でいい」と{言|い}った。"
+      - type: narration
+        text: "14:15に{木|き}が{置|お}かれたとき、{花壇|かだん}が{半分|はんぶん}{隠|かく}れた。コラージュでは{先|さき}に{置|お}いたパーツの{上|うえ}に{後|あと}のパーツが{重|かさ}なる。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{放課後|ほうかご}、4{人|にん}はいつ{図工室|ずこうしつ}を{出|で}たか。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— 15:10に{出発|しゅっぱつ}。ツクルと{一緒|いっしょ}に{教室|きょうしつ}へ。"
+      - type: narration
+        text: "ツクル —— 15:10に{出発|しゅっぱつ}。ヒナタと{一緒|いっしょ}に{教室|きょうしつ}へ。"
+      - type: narration
+        text: "スミレ —— 15:15に{出発|しゅっぱつ}。{美術部|びじゅつぶ}の{活動|かつどう}へ。"
+      - type: narration
+        text: "カナデ —— 15:20に{出発|しゅっぱつ}。{最後|さいご}に{残|のこ}って{片|かた}づけた。"
+      - type: narration
+        text: "{図工室|ずこうしつ}は17:00まで{開|あ}いている。{花壇|かだん}が{動|うご}いたのは14:30（{全員|ぜんいん}OK）{以降|いこう}。{放課後|ほうかご}に{図工室|ずこうしつ}に{入|はい}れたのは{誰|だれ}？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 台紙を観察しよう
+      - type: narration
+        text: "{翌朝|よくあさ}のコラージュ{台紙|だいし}を{観察|かんさつ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{花壇|かだん}パーツの{位置|いち}——{昨日|きのう}は{駅|えき}の{左|ひだり}（{木|き}の{下|した}に{半分|はんぶん}{隠|かく}れる{位置|いち}）。{今朝|けさ}は{木|き}の{右隣|みぎどなり}（{花|はな}がよく{見|み}える{位置|いち}）。"
+      - type: narration
+        text: "{台紙|だいし}の「{駅|えき}の{左|ひだり}」にテープをはがした{跡|あと}が{残|のこ}っている。{元|もと}の{位置|いち}だ。「{木|き}の{右隣|みぎどなり}」には{新|あたら}しいテープで{貼|は}られている。{現在|げんざい}の{位置|いち}だ。"
+      - type: narration
+        text: "テープの{貼|は}り{方|かた}は{丁寧|ていねい}。{急|いそ}いだ{跡|あと}はない。{花壇|かだん}のパーツを{傷|きず}つけないように、そっとはがして{貼|は}り{直|なお}している。"
+      - type: narration
+        text: "{他|ほか}のパーツ（{駅|えき}・{大|おお}きな{木|き}・{虹|にじ}）は{位置|いち}が{変|か}わっていない。{花壇|かだん}だけが{移動|いどう}している。"
+      - type: narration
+        text: "{花壇|かだん}を{動|うご}かした{人|ひと}は、{花壇|かだん}の「{元|もと}の{位置|いち}」を{知|し}っていて、「{花|はな}がよく{見|み}える{位置|いち}」を{選|えら}んだ。この{人|ひと}はスミレの{作品|さくひん}をどう{思|おも}っていた？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 配置ルールを確認しよう
+      - type: narration
+        text: "{図工|ずこう}の{授業|じゅぎょう}で{先生|せんせい}が{決|き}めた{共同|きょうどう}{制作|せいさく}のルール。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ルール1：{配置|はいち}は{全員|ぜんいん}で{相談|そうだん}して{決|き}める。1{人|り}で{勝手|かって}にパーツを{動|うご}かしてはいけない。"
+      - type: narration
+        text: "ルール2：{仮留|かりど}めテープの{段階|だんかい}なら{配置|はいち}{変更|へんこう}は{可能|かのう}。ただし{全員|ぜんいん}の{同意|どうい}が{必要|ひつよう}。"
+      - type: narration
+        text: "ルール3：「のり」で{本貼|ほんば}りしたら、もう{動|うご}かせない。"
+      - type: narration
+        text: "14:30に{全員|ぜんいん}で{確認|かくにん}してOKが{出|で}た。その{後|あと}、{全員|ぜんいん}での{配置|はいち}{変更|へんこう}の{相談|そうだん}は{行|おこな}われていない。つまり{花壇|かだん}の{移動|いどう}はルール{違反|いはん}だ。"
+      - type: narration
+        text: "{花壇|かだん}を{動|うご}かした{人|ひと}は「ルール{違反|いはん}」と{分|わ}かっていたはず。それでも{動|うご}かした{理由|りゆう}は{何|なに}？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の分析
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{花壇|かだん}パーツの{裏|うら}を{見|み}ると、{仮留|かりど}めテープの{跡|あと}が2か{所|しょ}あります。1つ{目|め}は{元|もと}の{位置|いち}、2つ{目|め}は{今|いま}の{位置|いち}。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "テープの{貼|は}り{直|なお}し{方|かた}がとても{丁寧|ていねい}です。{花壇|かだん}のパーツを{傷|きず}つけないように、そっとはがしている。{花|はな}の{部分|ぶぶん}を{折|お}らないように{注意|ちゅうい}した{跡|あと}もあります。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "この{人|ひと}は{花壇|かだん}のパーツを{大切|たいせつ}に{扱|あつか}っています。{壊|こわ}そうとしたのではなく、{花|はな}がよく{見|み}えるように{移動|いどう}した。これは{悪意|あくい}ではなく{善意|ぜんい}の{行動|こうどう}です。でも……{共同|きょうどう}{制作|せいさく}のルールでは{全員|ぜんいん}の{同意|どうい}なく{動|うご}かすのはダメですね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{花壇|かだん}を「{大切|たいせつ}に{扱|あつか}った」{人|ひと}。{花|はな}がよく{見|み}えるように{動|うご}かした{人|ひと}。みんなの{気持|きも}ちを{大切|たいせつ}にする{人|ひと}——それは{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hinata
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hinata
+        text: "{記録|きろく}ノートを{見|み}ると、14:15にツクルの{木|き}が{置|お}かれたとき、スミレの{花壇|かだん}が{半分|はんぶん}{隠|かく}れた。スミレは「あ…」って{小|ちい}さく{声|こえ}を{出|だ}してた。{気|き}づいていたのに{何|なに}も{言|い}わなかった……ごめん。"
+        expression: thinking
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{花壇|かだん}に{木|き}が{重|かさ}なったの、{気|き}づいてた。でもOKもらったし……{自分|じぶん}の{木|き}のせいで{花壇|かだん}が{隠|かく}れたのかも。ごめん、スミレ。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{花壇|かだん}を{動|うご}かしたのは14:30{以降|いこう}。ヒナタとツクルは15:10に{一緒|いっしょ}に{帰|かえ}った（{相互|そうご}アリバイ）。スミレは{被害者|ひがいしゃ}。カナデは15:20に{最後|さいご}に{出|で}た——{放課後|ほうかご}に{戻|もど}る{機会|きかい}がある。"
+      - type: choice
+        id: q1
+        question: スミレの花壇を動かしたのは誰？
+        options:
+          - text: カナデ（みんなの気持ちを大切にする。最後に図工室を出た）
+            value: kanade
+            correct: true
+            feedback: "{正解|せいかい}！ カナデはスミレの{花壇|かだん}が{隠|かく}れるのを{見|み}て{胸|むね}が{痛|いた}くなった。3{時間|じかん}かけた{作品|さくひん}が{見|み}えなくなるのは{悲|かな}しすぎる。だから{放課後|ほうかご}に{戻|もど}り、{花|はな}がよく{見|み}える{場所|ばしょ}に{動|うご}かしたんだ。"
+          - text: ヒナタ（花壇が隠れたことに気づいていた）
+            value: hinata
+            feedback: "ヒナタは{花壇|かだん}が{隠|かく}れたことに{気|き}づいていたけど、15:10にツクルと{一緒|いっしょ}に{帰|かえ}った。{相互|そうご}アリバイがあるよ。"
+          - text: ツクル（自分の木が原因で花壇が隠れた）
+            value: tsukuru
+            feedback: "ツクルの{木|き}が{原因|げんいん}で{花壇|かだん}が{隠|かく}れたのは{事実|じじつ}。でもツクルは15:10にヒナタと{一緒|いっしょ}に{帰|かえ}った。{放課後|ほうかご}に{図工室|ずこうしつ}には{戻|もど}っていないよ。"
+          - text: スミレ（自分の花壇を見える場所に動かした自作自演）
+            value: sumire
+            feedback: "スミレは{被害者|ひがいしゃ}。{花壇|かだん}が{隠|かく}れて{悲|かな}しかったけど、15:15に{美術部|びじゅつぶ}に{行|い}っていて{図工室|ずこうしつ}には{戻|もど}っていない。{自作自演|じさくじえん}の{理由|りゆう}もないね。"
+
+  # ==================== 真実：カナデ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: カナデの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: center
+      - type: dialog
+        character: kanade
+        text: "……ごめんなさい。{花壇|かだん}を{動|うご}かしたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "カナデは{涙|なみだ}をこらえながら、ゆっくり{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: kanade
+        text: "14:15に{木|き}が{置|お}かれて、スミレの{花壇|かだん}が{半分|はんぶん}{隠|かく}れたとき、{胸|むね}が{痛|いた}くなった。スミレは3{時間|じかん}もかけて{花|はな}を1つずつ{切|き}り{出|だ}したのに……{見|み}えなくなるなんて。"
+        expression: thinking
+      - type: dialog
+        character: kanade
+        text: "14:30の{確認|かくにん}のとき、スミレの{顔|かお}を{見|み}て{分|わ}かった。「{本当|ほんとう}は{悲|かな}しいのに{我慢|がまん}してる」って。だから{放課後|ほうかご}に{図工室|ずこうしつ}に{戻|もど}って、{花壇|かだん}を{花|はな}がよく{見|み}える{場所|ばしょ}に{動|うご}かしたの。"
+        expression: worried
+      - type: dialog
+        character: kanade
+        text: "テープもそっとはがして、{花|はな}を{折|お}らないように{気|き}をつけた。スミレの{作品|さくひん}を{守|まも}りたかった。でも「{全員|ぜんいん}で{決|き}める」ルールを{破|やぶ}っちゃった……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: sumire
+        expression: worried
+        position: left
+      - type: dialog
+        character: sumire
+        text: "{正直|しょうじき}、{花壇|かだん}が{隠|かく}れたとき{悲|かな}しかった。でも「ツクルの{木|き}も{素敵|すてき}だし」って{自分|じぶん}で{納得|なっとく}した。OKしたのは{本当|ほんとう}。……でも{今朝|けさ}、{花壇|かだん}が{見|み}える{場所|ばしょ}に{動|うご}いてて、{嬉|うれ}しかったのも{本当|ほんとう}。ありがとう、カナデ。"
+        expression: worried
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{花壇|かだん}に{木|き}が{重|かさ}なったの、もっと{気|き}をつければよかった。スミレの{花壇|かだん}が{見|み}えにくくなるって、{考|かんが}えなかった。ごめんな、スミレ。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: determined
+        position: left
+      - type: dialog
+        character: hinata
+        text: "14:15に{花壇|かだん}が{隠|かく}れたの、{気|き}づいてたのに{何|なに}も{言|い}わなかった。「{花壇|かだん}が{見|み}えにくいよ」って{言|い}えばよかった。{言|い}ってたら、みんなで{相談|そうだん}できたのに。"
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カナデの「{友達|ともだち}の{作品|さくひん}を{守|まも}りたい」という{気持|きも}ちは{素晴|すば}らしいわ。スミレの{花壇|かだん}を{大切|たいせつ}に{思|おも}ったのね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも{共同|きょうどう}{制作|せいさく}は「{全員|ぜんいん}で{決|き}める」がルール。「{花壇|かだん}が{見|み}えにくいから{場所|ばしょ}を{変|か}えない？」と{提案|ていあん}すれば、みんなでもっと{良|よ}い{配置|はいち}を{考|かんが}えられたはず。{気持|きも}ちは{言葉|ことば}にしようね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "コラージュの{制作|せいさく}は、{下書|したが}き→{切|き}り{出|だ}し→{配置|はいち}→{貼|は}り{付|つ}け。「{配置|はいち}」は{作品|さくひん}の{見|み}た{目|め}を{決|き}める{大切|たいせつ}な{段階|だんかい}だ。"
+      - type: narration
+        text: "{出来事|できごと}を{時間|じかん}{順|じゅん}に{並|なら}べると「いつ{何|なに}が{起|お}きたか」が{見|み}えてくる。タイムラインは{推理|すいり}の{強|つよ}い{味方|みかた}だ。"
+      - type: narration
+        text: "{大切|たいせつ}なのは{気持|きも}ちを{言葉|ことば}にすること。「ちょっと{悲|かな}しい」「{場所|ばしょ}を{変|か}えたい」——その{一言|ひとこと}で、みんなで{話|はな}し{合|あ}える。"
+      - type: effect
+        name: fade-out

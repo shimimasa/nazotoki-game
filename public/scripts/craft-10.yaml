@@ -1,0 +1,421 @@
+meta:
+  id: craft-10
+  title: 作品の真実
+  series: 図工探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{校内|こうない}{図工|ずこう}コンクールが{終|お}わった。{最優秀賞|さいゆうしゅうしょう}はタカシ（NPC）の「{光|ひかり}の{海|うみ}」。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{匿名|とくめい}の{通報|つうほう}があった。「{最優秀|さいゆうしゅう}{作品|さくひん}は、{美術|びじゅつ}{雑誌|ざっし}に{掲載|けいさい}されていた{作品|さくひん}に{似|に}ているのではないか。{審査|しんさ}を{見直|みなお}してほしい」。"
+      - type: narration
+        text: "{手書|てが}きの{手紙|てがみ}。{折|お}り{目|め}がついた{白|しろ}い{紙|かみ}。{誰|だれ}が{通報|つうほう}したのか——そして{通報|つうほう}の{本当|ほんとう}の{目的|もくてき}とは？"
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: thinking
+          - character: sumire
+            expression: thinking
+          - character: tsukuru
+            expression: worried
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{通報文|つうほうぶん}を{見|み}つめた。このゲームでは{投票|とうひょう}が2{回|かい}ある。1{回目|かいめ}は{犯人|はんにん}{特定|とくてい}。2{回目|かいめ}は——{図工|ずこう}で{一番|いちばん}{大切|たいせつ}なことは{何|なに}か。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 作品の真実
+        subtitle: 図工探偵団 Vol.10（最終話）
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: コンクール結果と通報文
+      - type: narration
+        text: "{校内|こうない}{図工|ずこう}コンクールの{結果|けっか}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{最優秀賞|さいゆうしゅうしょう}：「{光|ひかり}の{海|うみ}」タカシ（NPC）。{技術点|ぎじゅつてん}48/{表現点|ひょうげんてん}46。"
+      - type: narration
+        text: "{優秀賞|ゆうしゅうしょう}：「{空|そら}の{色|いろ}」ヒナタ（44/40）。「{朝|あさ}の{公園|こうえん}」スミレ（42/41）。"
+      - type: narration
+        text: "{入選|にゅうせん}：「{秋|あき}の{収穫|しゅうかく}」カナデ（38/43）。「{街|まち}の{音|おと}」ツクル（40/35）。"
+      - type: narration
+        text: "{注目|ちゅうもく}——{技術点|ぎじゅつてん}が{高|たか}い{作品|さくひん}が{上位|じょうい}になっている。カナデの「{秋|あき}の{収穫|しゅうかく}」は{表現点|ひょうげんてん}が{高|たか}いが{順位|じゅんい}は4{位|い}。"
+      - type: narration
+        text: "{匿名|とくめい}{通報文|つうほうぶん}：「{最優秀|さいゆうしゅう}{作品|さくひん}は{美術|びじゅつ}{雑誌|ざっし}の{作品|さくひん}に{似|に}ている。{審査|しんさ}を{見直|みなお}してほしい」。{手書|てが}き、{白|しろ}い{紙|かみ}、{左上|ひだりうえ}→{右下|みぎした}{方向|ほうこう}の{折|お}り{癖|くせ}。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 通報文の紙を分析しよう
+      - type: narration
+        text: "{通報文|つうほうぶん}の{紙|かみ}の{特徴|とくちょう}を4{人|にん}のノートと{比較|ひかく}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタのメモ{帳|ちょう}——つるつるした{白|しろ}い{紙|かみ}。{折|お}り{癖|くせ}なし。{不一致|ふいっち}。"
+      - type: narration
+        text: "スミレのノート——{薄黄色|うすきいろ}の{罫線|けいせん}{紙|し}。たまに{折|お}り{癖|くせ}あるが{方向|ほうこう}が{違|ちが}う。{不一致|ふいっち}。"
+      - type: narration
+        text: "ツクルの{制作|せいさく}ノート——{少|すこ}しザラザラした{白|しろ}い{紙|かみ}（{画用紙|がようし}{切|き}れ{端|はし}）。{折|お}り{癖|くせ}：{左上|ひだりうえ}→{右下|みぎした}（{毎回|まいかい}{同|おな}じ）。{右上|みぎうえ}の{角|かど}が{折|お}れている（ポケットに{入|い}れる{癖|くせ}）。"
+      - type: narration
+        text: "カナデの{日記|にっき}——ピンクのノート。{折|お}り{癖|くせ}なし。{不一致|ふいっち}。"
+      - type: narration
+        text: "{通報文|つうほうぶん}の{紙質|かみしつ}・{折|お}り{癖|くせ}・{角|かど}の{折|お}れ{方|かた}は、ツクルの{制作|せいさく}ノートと{一致|いっち}している。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 似た作品を比較しよう
+      - type: narration
+        text: "{最優秀|さいゆうしゅう}{作品|さくひん}「{光|ひかり}の{海|うみ}」と{美術|びじゅつ}{雑誌|ざっし}の{作品|さくひん}を{詳|くわ}しく{比較|ひかく}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{共通点|きょうつうてん}——{青|あお}{系|けい}の{色|いろ}。{光|ひかり}の{表現|ひょうげん}に{工夫|くふう}。{海|うみ}をモチーフにしている。"
+      - type: narration
+        text: "{相違点|そういてん}——{構図|こうず}が{全|まった}く{違|ちが}う（{縦|たて}{構図|こうず}vs{横|よこ}{構図|こうず}）。{色|いろ}の{使|つか}い{方|かた}の{細部|さいぶ}が{別物|べつもの}。タッチが{明|あき}らかに{異|こと}なる。"
+      - type: narration
+        text: "{結論|けつろん}——{構図|こうず}も{色使|いろつか}いも{全然|ぜんぜん}{違|ちが}う。{共通点|きょうつうてん}は「{青|あお}くて{海|うみ}がある」だけ。これは{偶然|ぐうぜん}の{類似|るいじ}であり、{盗作|とうさく}ではない。"
+      - type: narration
+        text: "{盗作|とうさく}ではないのに{通報|つうほう}した？ {通報|つうほう}した{人|ひと}は{最初|さいしょ}から{盗作|とうさく}だと{思|おも}っていなかったのでは？ だとしたら{通報|つうほう}の{本当|ほんとう}の{目的|もくてき}は{何|なに}？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 4人のコンクールへの態度
+      - type: narration
+        text: "4{人|にん}のコンクールへの{態度|たいど}の「{温度差|おんどさ}」を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ——「{結果|けっか}を{出|だ}したい。でも{過程|かてい}も{大事|だいじ}」。{優秀賞|ゆうしゅうしょう}に{満足|まんぞく}。"
+      - type: narration
+        text: "スミレ——「{作品|さくひん}の{良|よ}さが{正確|せいかく}に{評価|ひょうか}されてほしい」。{優秀賞|ゆうしゅうしょう}に{満足|まんぞく}。"
+      - type: narration
+        text: "カナデ——「{描|か}くこと{自体|じたい}が{楽|たの}しい。{賞|しょう}はおまけ」。{入選|にゅうせん}でも{嬉|うれ}しい。"
+      - type: narration
+        text: "ツクル——「コンクール{用|よう}の{絵|え}と{本当|ほんとう}に{描|か}きたい{絵|え}は{別物|べつもの}」。{入選|にゅうせん}でも「これは{俺|おれ}の{本当|ほんとう}の{絵|え}じゃない」。コンクール{直前|ちょくぜん}に「{出|だ}したくない{気分|きぶん}」と{発言|はつげん}。"
+      - type: narration
+        text: "ツクルだけが「コンクール{用|よう}」と「{本当|ほんとう}に{作|つく}りたい」を{分|わ}けている。{審査|しんさ}{基準|きじゅん}に{最|もっと}も{批判的|ひはんてき}。この{態度|たいど}と{通報|つうほう}の{目的|もくてき}には{関係|かんけい}がある？"
+
+  # ==================== 推理・1回目投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 1回目の投票：通報者は誰？
+      - type: sprite
+        character: hinata
+        expression: determined
+        position: left
+      - type: dialog
+        character: hinata
+        text: "{通報文|つうほうぶん}の{紙質|かみしつ}と{折|お}り{癖|くせ}を{分析|ぶんせき}した。ツクルの{制作|せいさく}ノートと{完全|かんぜん}に{一致|いっち}する。{紙|かみ}は{嘘|うそ}をつかない。"
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: sumire
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sumire
+        text: "2{作品|さくひん}を{比|くら}べた。{構図|こうず}も{色使|いろつか}いも{全然|ぜんぜん}{違|ちが}う。これは{偶然|ぐうぜん}の{類似|るいじ}。{盗作|とうさく}じゃない。{通報|つうほう}した{人|ひと}は——{最初|さいしょ}から{盗作|とうさく}だと{思|おも}ってなかった？"
+        expression: thinking
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanade
+        text: "ツクルが{言|い}ってた。「コンクールって、{上手|じょうず}いかどうかで{決|き}まるじゃん。そうじゃない{絵|え}はダメなの？」って。{本当|ほんとう}に{描|か}きたい{絵|え}があるのに、{出|だ}さなかったって……"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{統合|とうごう}しよう。{紙|かみ}の{折|お}り{癖|くせ}はツクルと{一致|いっち}。{盗作|とうさく}ではなく{偶然|ぐうぜん}の{類似|るいじ}。ツクルだけが{審査|しんさ}{基準|きじゅん}に{批判的|ひはんてき}。{通報|つうほう}の{目的|もくてき}は{盗作|とうさく}{告発|こくはつ}ではなく——"
+      - type: choice
+        id: q1
+        question: 匿名通報をしたのは誰？
+        options:
+          - text: ツクル（紙の折り癖が一致。審査基準への疑問が動機）
+            value: tsukuru
+            correct: true
+            feedback: "{正解|せいかい}！ ツクルは{盗作|とうさく}だとは{思|おも}っていなかった。「コンクールの{審査|しんさ}{基準|きじゅん}を{見直|みなお}させるため」に、{偶然|ぐうぜん}{見|み}つけた{類似|るいじ}{作品|さくひん}を{利用|りよう}して{匿名|とくめい}{通報|つうほう}した。{正義感|せいぎかん}の{暴走|ぼうそう}だ。"
+          - text: ヒナタ（データ分析が得意で通報文を分析できた）
+            value: hinata
+            feedback: "ヒナタは{通報文|つうほうぶん}を{分析|ぶんせき}した{側|がわ}。{紙質|かみしつ}も{折|お}り{癖|くせ}もヒナタのメモ{帳|ちょう}とは{一致|いっち}しない。コンクールに{満足|まんぞく}しており{通報|つうほう}する{動機|どうき}がないよ。"
+          - text: スミレ（作品分析で盗作でないと気づいていた）
+            value: sumire
+            feedback: "スミレは{偶然|ぐうぜん}の{類似|るいじ}だと{気|き}づいた{分析者|ぶんせきしゃ}。{紙質|かみしつ}もスミレのノートとは{違|ちが}う。コンクールの{結果|けっか}にも{満足|まんぞく}していたよ。"
+          - text: カナデ（ツクルの葛藤を知っていた目撃者）
+            value: kanade
+            feedback: "カナデはツクルの{悩|なや}みを{知|し}っていただけ。{紙質|かみしつ}もカナデの{日記|にっき}とは{全|まった}く{違|ちが}う。{通報|つうほう}の{動機|どうき}もないよ。"
+
+  # ==================== 反転：証拠カード5（パラダイムシフト） ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: パラダイムシフト
+        subtitle: 作品の真実
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{通報文|つうほうぶん}の{折|お}り{癖|くせ}とツクルのノートは{一致|いっち}しています。ツクル——これを{書|か}いたのはあなたですか？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: narration
+        text: "ツクルは{長|なが}い{沈黙|ちんもく}の{後|あと}、{静|しず}かにうなずいた。"
+      - type: dialog
+        character: tsukuru
+        text: "……うん。{書|か}いたのは{僕|ぼく}だ。でも{盗作|とうさく}だとは{思|おも}ってなかった。"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "{最優秀|さいゆうしゅう}{作品|さくひん}は{上手|じょうず}い。でも「コンクール{受|う}けする{作|つく}り{方|かた}」に{見|み}えた。{技術|ぎじゅつ}が{高|たか}い{絵|え}が{勝|か}つ。{本当|ほんとう}に{作|つく}りたいものを{描|か}いた{絵|え}は{負|ま}ける——それっておかしくない？"
+        expression: thinking
+      - type: dialog
+        character: tsukuru
+        text: "{僕|ぼく}だって「コンクール{用|よう}の{絵|え}」を{描|か}いたんだ。「{街|まち}の{音|おと}」は{技術|ぎじゅつ}を{意識|いしき}して{描|か}いた。でも{本当|ほんとう}に{描|か}きたかったのは{全然|ぜんぜん}{違|ちが}う{絵|え}だった。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツクル、あなたのスケッチブックを{見|み}せてほしいのです。「{本当|ほんとう}に{描|か}きたかった{絵|え}」があるんですね？"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ツクルがスケッチブックを{取|と}り{出|だ}した。「{夜|よる}の{教室|きょうしつ}」——{誰|だれ}もいない{教室|きょうしつ}に{月明|つきあ}かりが{差|さ}し{込|こ}む{絵|え}。{静|しず}かで、{美|うつく}しくて、{寂|さび}しくて、でもどこか{温|あたた}かい。"
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "これは……すばらしい。なぜコンクールに{出|だ}さなかったの？"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: determined
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "……「コンクール{受|う}けしない」と{思|おも}ったから。{技術|ぎじゅつ}で{勝負|しょうぶ}する{絵|え}じゃないから{入|はい}らないって。でも——{本当|ほんとう}は{出|だ}したかった。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{上手|じょうず}い」と「{良|よ}い{作品|さくひん}」は{同|おな}じ？ {技術力|ぎじゅつりょく}だけが{大切|たいせつ}？ それとも{表現|ひょうげん}したい{気持|きも}ちが{大切|たいせつ}？"
+
+  # ==================== 2回目投票（価値判断） ====================
+  - id: vote-values
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 2回目の投票
+        subtitle: 図工で一番大切なことは？
+      - type: narration
+        text: "ツクルの「{夜|よる}の{教室|きょうしつ}」を{見|み}た{後|あと}——{図工|ずこう}で{一番|いちばん}{大切|たいせつ}なことは{何|なに}か。{考|かんが}えてみよう。"
+      - type: choice
+        id: q2
+        question: 図工で一番大切なことは？
+        options:
+          - text: 技術力と完成度（上手く描ける力が一番大切）
+            value: skill
+            feedback: "{技術力|ぎじゅつりょく}は{大切|たいせつ}だ。{上手|じょうず}に{描|か}ける{力|ちから}があれば、{自分|じぶん}の{気持|きも}ちをもっと{正確|せいかく}に{表現|ひょうげん}できる。でも{技術|ぎじゅつ}だけで「{良|よ}い{作品|さくひん}」と{言|い}えるかは——{考|かんが}え{続|つづ}けてほしい。"
+          - text: 表現したい気持ちと独自性（自分らしさが一番大切）
+            value: expression
+            feedback: "「{伝|つた}えたいこと」がある{作品|さくひん}は、{見|み}る{人|ひと}の{心|こころ}に{届|とど}く。ツクルの「{夜|よる}の{教室|きょうしつ}」のように。でも{気持|きも}ちだけで{技術|ぎじゅつ}がなかったら{伝|つた}わらないことも——バランスが{大切|たいせつ}かもしれない。"
+          - text: 技術も気持ちも両方大切
+            value: both
+            feedback: "{技術|ぎじゅつ}があれば{気持|きも}ちを{正確|せいかく}に{表現|ひょうげん}できる。{気持|きも}ちがあれば{技術|ぎじゅつ}に{命|いのち}が{吹|ふ}き{込|こ}まれる。{両方|りょうほう}{大切|たいせつ}——そう{思|おも}えることが、{図工|ずこう}の{本質|ほんしつ}かもしれない。"
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: sprite
+        character: hinata
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hinata
+        text: "{折|お}り{癖|くせ}と{紙質|かみしつ}で{分|わ}かってた。でもツクルの{気持|きも}ちを{聞|き}いて……{証拠|しょうこ}を{出|だ}すだけが{正|ただ}しいんじゃないって{思|おも}った。ツクルが{自分|じぶん}の{言葉|ことば}で{話|はな}せてよかった。"
+        expression: thinking
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: sumire
+        expression: happy
+        position: right
+      - type: dialog
+        character: sumire
+        text: "{偶然|ぐうぜん}の{類似|るいじ}だって{分|わ}かってた。でも「{通報|つうほう}の{本当|ほんとう}の{目的|もくてき}」が{気|き}になってた。{審査|しんさ}{基準|きじゅん}への{問|と}いかけ——ツクル、{間違|まちが}った{方法|ほうほう}だったけど、{疑問|ぎもん}{自体|じたい}は{大切|たいせつ}だと{思|おも}う。"
+        expression: happy
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: happy
+        position: left
+      - type: dialog
+        character: kanade
+        text: "ツクルが{悩|なや}んでるの、ずっと{知|し}ってた。「{本当|ほんとう}に{描|か}きたい{絵|え}を{出|だ}したらよかったのに」って{言|い}ったのに、「{入|はい}らないから」って。……「{夜|よる}の{教室|きょうしつ}」、すごくいい{絵|え}だよ、ツクル。"
+        expression: happy
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツクルの{疑問|ぎもん}は{間違|まちが}っていないわ。「{上手|じょうず}い={良|よ}い{作品|さくひん}」とは{限|かぎ}らない。{技術|ぎじゅつ}も{気持|きも}ちも、どちらも{大切|たいせつ}。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも{匿名|とくめい}{通報|つうほう}という{方法|ほうほう}は{間違|まちが}い。{自分|じぶん}の{意見|いけん}は{自分|じぶん}の{言葉|ことば}で{伝|つた}えよう。そしてツクル——「{夜|よる}の{教室|きょうしつ}」、{次|つぎ}のコンクールにぜひ{出|だ}してね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "Vol.1の{混色|こんしょく}からVol.10の{今日|きょう}まで——{図工探偵団|ずこうたんていだん}はたくさんの{推理|すいり}スキルを{学|まな}んだ。{消去法|しょうきょほう}、{情報|じょうほう}{整理|せいり}、{因果|いんが}{連鎖|れんさ}、タイムライン、{仮説|かせつ}{検証|けんしょう}、{全|ぜん}{探索|たんさく}、{情報|じょうほう}{欠落|けつらく}{認識|にんしき}、{認知|にんち}バイアス、{帰納法|きのうほう}、そしてメタ{認知|にんち}。"
+      - type: narration
+        text: "でも{一番|いちばん}{大切|たいせつ}なのは——「ものを{作|つく}る」とは{何|なに}か、{自分|じぶん}で{考|かんが}え{続|つづ}けること。{上手|じょうず}さだけじゃない。{気持|きも}ちだけでもない。{両方|りょうほう}を{大切|たいせつ}にして、{自分|じぶん}だけの{作品|さくひん}を{作|つく}ろう。"
+      - type: narration
+        text: "{図工探偵団|ずこうたんていだん}の{物語|ものがたり}はここで{終|お}わる。でも「{作品|さくひん}の{真実|しんじつ}」を{探|さが}す{旅|たび}は——{続|つづ}く。"
+      - type: effect
+        name: fade-out

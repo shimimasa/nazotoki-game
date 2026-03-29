@@ -1,0 +1,459 @@
+meta:
+  id: sports-02
+  title: ボールの行方
+  series: 体育探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{昼休|ひるやす}み。{学級費|がっきゅうひ}で{買|か}ったばかりの{新品|しんぴん}ボール5{個|こ}で、4{人|にん}はドッジボールの{練習|れんしゅう}をしていた。"
+      - type: narration
+        text: 13{時|じ}00{分|ふん}。{練習|れんしゅう}{終了|しゅうりょう}。ミノリがボールを{数|かぞ}えると——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "4{個|こ}しかない！ {新品|しんぴん}のボールが1{個|こ}{消|き}えた！ {校庭|こうてい}のどこを{探|さが}しても{見|み}つからない——いったい{誰|だれ}がどうしたのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{学級費|がっきゅうひ}で{購入|こうにゅう}した{新品|しんぴん}のボール1{個|こ}が{見当|みあ}たりません。{練習|れんしゅう}{中|ちゅう}、ボールは5{個|こ}ありました。{片付|かたづ}けのとき4{個|こ}に{減|へ}っていたのです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: surprised
+          - character: tsubasa
+            expression: thinking
+          - character: kakeru
+            expression: worried
+          - character: minori
+            expression: surprised
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。ボールはどこへ{消|き}えたのか。{全員|ぜんいん}が{練習|れんしゅう}{中|ちゅう}、{校庭|こうてい}にいた。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ボールの行方
+        subtitle: 体育探偵団 Vol.2
+      - type: effect
+        name: fade-in
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 消えたボールの状況を調べよう
+      - type: narration
+        text: "{練習後|れんしゅうご}のボールの{状態|じょうたい}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{新品|しんぴん}ボール5{個|こ}で12{時|じ}40{分|ぷん}から{練習|れんしゅう}{開始|かいし}。13{時|じ}00{分|ふん}にミノリが{片付|かたづ}けで{数|かぞ}えたら4{個|こ}。"
+      - type: narration
+        text: "4{個|こ}はすべて{校庭|こうてい}にあった（ゴールの{近|ちか}く・ベンチ{横|よこ}など）。5{個|こ}{目|め}だけが{校庭|こうてい}のどこにもない。{体育倉庫|たいいくそうこ}の{中|なか}も{確認|かくにん}したが、ない。"
+      - type: narration
+        text: "ボールは{校庭|こうてい}から{消|き}えた。{校庭|こうてい}の{外|そと}に{出|で}た？ それともどこかに{隠|かく}れている？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の投げ方と軌道を調べよう
+      - type: narration
+        text: "ツバサが{練習|れんしゅう}{中|ちゅう}に{観察|かんさつ}した4{人|にん}の{投|な}げ{方|かた}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ——サイドスロー。{横|よこ}から{振|ふ}り、{低|ひく}く{速|はや}い{直線|ちょくせん}{軌道|きどう}。コントロールが{良|よ}い。"
+      - type: narration
+        text: "ツバサ——オーバースロー（{約|やく}30{度|ど}）。きれいな{弧|こ}を{描|えが}き{遠|とお}くまで{飛|と}ぶ。フォームのお{手本|てほん}。"
+      - type: narration
+        text: "カケル——オーバースロー（{約|やく}50{度|ど}・{力|ちから}がとても{強|つよ}い）。{高|たか}く{上|あ}がって{近|ちか}め（8〜10m{先|さき}）に{落|お}ちる{軌道|きどう}。"
+      - type: narration
+        text: "ミノリ——アンダースロー。{下|した}から{投|な}げる{優|やさ}しい{弧|こ}。5m{以内|いない}に{落|お}ちる。"
+      - type: narration
+        text: "{重要|じゅうよう}：{角度|かくど}50{度|ど}では{体育倉庫|たいいくそうこ}の{屋根|やね}（{高|たか}さ3m）に{届|とど}くが、「{越|こ}える」には{角度|かくど}30{度|ど}{以下|いか}＋{非常|ひじょう}に{強|つよ}い{力|ちから}が{必要|ひつよう}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 練習中の立ち位置を確認しよう
+      - type: narration
+        text: "{練習|れんしゅう}{中|ちゅう}の4{人|にん}の{立|た}ち{位置|いち}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ——{校庭|こうてい}の{北東|ほくとう}（{体育倉庫|たいいくそうこ}の{横|よこ}）。{体育倉庫|たいいくそうこ}の{屋根|やね}が{横|よこ}から{見|み}える{位置|いち}。"
+      - type: narration
+        text: "ツバサ——{校庭|こうてい}{北西|ほくせい}。{体育倉庫|たいいくそうこ}の{正面|しょうめん}やや{左|ひだり}。"
+      - type: narration
+        text: "カケル——{校庭|こうてい}{南側|みなみがわ}。{体育倉庫|たいいくそうこ}が{正面|しょうめん}{遠|とお}くに{見|み}える{位置|いち}。"
+      - type: narration
+        text: "ミノリ——{校庭|こうてい}{中央|ちゅうおう}。{体育倉庫|たいいくそうこ}が{正面|しょうめん}に{見|み}える。"
+      - type: narration
+        text: "{視点|してん}の{違|ちが}い：カケルの{位置|いち}（{南側|みなみがわ}）からは{屋根|やね}の「{手前|てまえ}」と「{向|む}こう{側|がわ}」の{区別|くべつ}がつきにくい。ハヤテの{位置|いち}（{北東|ほくとう}・{横|よこ}）からは{屋根|やね}の{上|うえ}が{横|よこ}から{見|み}える。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 練習後の行動を確認しよう
+      - type: narration
+        text: "{練習後|れんしゅうご}（13{時|じ}00{分|ふん}〜13{時|じ}05{分|ふん}）の4{人|にん}の{行動|こうどう}だ。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hayate
+        expression: normal
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{僕|ぼく}はボールを4{個|こ}{集|あつ}めて{体育倉庫|たいいくそうこ}に{運|はこ}んだ。{校庭|こうてい}の{中|なか}は{全部|ぜんぶ}{探|さが}したよ。"
+        expression: normal
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "{僕|ぼく}も{校庭|こうてい}を{探|さが}し{回|まわ}った。でも{見|み}つからなかった。"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: "{私|わたし}はボールを{数|かぞ}えて「4{個|こ}しかない！」って{報告|ほうこく}した。それでね……カケルちゃんだけ、{体育倉庫|たいいくそうこ}の{裏側|うらがわ}を{見|み}に{行|い}ってたの。{他|ほか}の{子|こ}は{校庭|こうてい}の{中|なか}を{探|さが}してたのに、なんで{裏|うら}なんだろう？"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: "カケルだけが{体育倉庫|たいいくそうこ}の「{裏側|うらがわ}」を{探|さが}した——{校庭|こうてい}の{外|そと}に{飛|と}んだと{思|おも}っているなら、{裏側|うらがわ}（={屋根|やね}の{向|む}こう）を{見|み}に{行|い}くのは{自然|しぜん}？"
+
+  # ==================== 証言：カケルの様子 ====================
+  - id: testimony
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ5
+        subtitle: カケルに話を聞いてみよう
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "……{校庭|こうてい}の{中|なか}を{探|さが}したけど、{見|み}つからなかった。"
+        expression: worried
+      - type: dialog
+        character: kakeru
+        text: "（{目|め}を{逸|そ}らしながら）……{何|なん}でもない。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: minori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: minori
+        text: "カケルちゃん、{大丈夫|だいじょうぶ}って{聞|き}いたんだけど「{何|なん}でもない」って。いつも{元気|げんき}なのに、ボールの{話|はなし}になると{目|め}を{逸|そ}らすんだ……{何|なに}か{知|し}ってる{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: minori
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "カケルの{投|な}げ{方|かた}、{角度|かくど}が{高|たか}すぎるんだ。50{度|ど}くらい。あの{角度|かくど}だと{高|たか}く{上|あ}がるけど、{屋根|やね}を{越|こ}えるほど{遠|とお}くには{飛|と}ばないはずなんだよ。"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "12{時|じ}55{分|ふん}ごろ、カケルが{力|ちから}いっぱい{投|な}げたボールが{高|たか}く{上|あ}がるのを{見|み}た。{僕|ぼく}は{体育倉庫|たいいくそうこ}の{横|よこ}にいたから……{屋根|やね}の{方向|ほうこう}に{飛|と}んでいくのが{見|み}えた。"
+        expression: thinking
+      - type: dialog
+        character: hayate
+        text: "でも……{本当|ほんとう}に{見|み}えたのかな？ {思|おも}い{込|こ}みかもしれない。{自信|じしん}がないから、{言|い}い{出|だ}せなかった。"
+        expression: worried
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ハヤテの目撃情報
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hayate
+        expression: determined
+        position: center
+      - type: dialog
+        character: hayate
+        text: "……{僕|ぼく}、{思|おも}い{出|だ}した。{絶対|ぜったい}に{見|み}えてた。{体育倉庫|たいいくそうこ}の{横|よこ}（{北東|ほくとう}）にいたから、{屋根|やね}が{横|よこ}から{見|み}えたんだ。"
+        expression: determined
+      - type: dialog
+        character: hayate
+        text: "カケルのボールは{高|たか}い{弧|こ}を{描|えが}いて……{体育倉庫|たいいくそうこ}の{屋根|やね}の{上|うえ}に{落|お}ちた。{越|こ}えてないよ。{屋根|やね}の{上|うえ}に{乗|の}ったんだ！"
+        expression: determined
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ボールは{屋根|やね}の{上|うえ}にある！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "カケルの{位置|いち}（{南側|みなみがわ}）からは{屋根|やね}の{向|む}こうに{消|き}えたように{見|み}えた。でも{横|よこ}（{東側|ひがしがわ}）から{見|み}れば{屋根|やね}の{上|うえ}に{乗|の}っているのが{分|わ}かる——{見|み}る{場所|ばしょ}が{違|ちが}うと、{見|み}え{方|かた}が{違|ちが}う！"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ボールを消したのは誰だ？
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: "{証拠|しょうこ}カード②を{見|み}て。カケルの{投球|とうきゅう}（{角度|かくど}50{度|ど}・{強|つよ}い{力|ちから}）では{屋根|やね}を「{越|こ}える」のは{難|むずか}しい。{屋根|やね}には{届|とど}くけど、{越|こ}えられない。"
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: right
+      - type: dialog
+        character: minori
+        text: "カケルちゃんだけ{体育倉庫|たいいくそうこ}の{裏|うら}を{探|さが}してた。{屋根|やね}の{向|む}こう、つまり「{外|そと}に{飛|と}んだ」と{思|おも}ってたから{裏|うら}を{探|さが}したんじゃないかな。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。カケルの{投球|とうきゅう}（{角度|かくど}50{度|ど}）は{屋根|やね}を{越|こ}えない。カケルだけが{体育倉庫|たいいくそうこ}の{裏|うら}を{探|さが}した。ハヤテの{目撃|もくげき}「{屋根|やね}の{上|うえ}に{落|お}ちた」——{見|み}る{場所|ばしょ}によって{見|み}え{方|かた}が{違|ちが}う。"
+      - type: choice
+        id: q1
+        question: ボールを消したのは誰？
+        options:
+          - text: カケル（角度50度の投球で屋根方向に飛ばし、外に出たと誤解した）
+            value: kakeru
+            correct: true
+            feedback: "{正解|せいかい}！ カケルの{投球|とうきゅう}が{体育倉庫|たいいくそうこ}の{屋根|やね}の{上|うえ}に{乗|の}ったんだ。カケルは{南側|みなみがわ}からの{視点|してん}で「{屋根|やね}を{越|こ}えた」と{誤解|ごかい}して、{怖|こわ}くて{言|い}えなかった。{悪|わる}い{人|ひと}じゃない——{見|み}え{方|かた}の{違|ちが}いが{誤解|ごかい}を{生|う}んだんだ。"
+          - text: ハヤテ（体育倉庫の横にいてボールを目撃した人）
+            value: hayate
+            feedback: "ハヤテは{体育倉庫|たいいくそうこ}の{横|よこ}から{屋根|やね}の{上|うえ}にボールが{乗|の}るのを{目撃|もくげき}した{人|ひと}だよ。{証拠|しょうこ}カード⑤でボールの{場所|ばしょ}を{教|おし}えてくれた{重要|じゅうよう}な{目撃者|もくげきしゃ}だ。"
+          - text: ツバサ（フォーム分析をしていた人）
+            value: tsubasa
+            feedback: "ツバサは{練習|れんしゅう}後、{校庭|こうてい}を{探|さが}し{回|まわ}っていた。カケルの{投|な}げ{方|かた}を{分析|ぶんせき}して「{屋根|やね}を{越|こ}えない」と{知|し}っていた{観察者|かんさつしゃ}だよ。{証拠|しょうこ}カード②の{情報|じょうほう}を{提供|ていきょう}した{人|ひと}だ。"
+          - text: ミノリ（ボールを数えた人）
+            value: minori
+            feedback: "ミノリは{片付|かたづ}けでボールを{数|かぞ}えて{異変|いへん}に{気|き}づいた{人|ひと}だよ。カケルの{怪|あや}しい{行動|こうどう}（{体育倉庫|たいいくそうこ}の{裏|うら}に{行|い}く）を{目撃|もくげき}していた{証人|しょうにん}でもある。"
+
+  # ==================== 真実：カケルの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: カケルの誤解
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kakeru
+        text: "……{実|じつ}は、わたしが{投|な}げたボールが{屋根|やね}の{向|む}こうに{消|き}えたの。{南側|みなみがわ}から{見|み}たら、{屋根|やね}を{越|こ}えて{学校|がっこう}の{外|そと}に{出|で}ちゃったように{見|み}えた。"
+        expression: worried
+      - type: dialog
+        character: kakeru
+        text: "{新品|しんぴん}のボールをなくしちゃった……って{思|おも}って、{怖|こわ}くて{言|い}えなかった。{体育倉庫|たいいくそうこ}の{裏|うら}を{探|さが}したけど{見|み}つからなくて……みんな、ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hayate
+        expression: determined
+        position: left
+      - type: dialog
+        character: hayate
+        text: "カケル、{屋根|やね}に{乗|の}ったのが{見|み}えてたのに{自信|じしん}がなくて{言|い}えなかった。{証拠|しょうこ}カードの{角度|かくど}のデータを{見|み}て、{絶対|ぜったい}そうだって{確信|かくしん}できた。{早|はや}く{言|い}えばよかった。"
+        expression: determined
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "{実|じつ}は……カケルの{投球|とうきゅう}{角度|かくど}（50{度|ど}）では{屋根|やね}を{越|こ}えないって{分析|ぶんせき}してたんだ。でも「{投|な}げ{方|かた}が{悪|わる}い」って{批判|ひはん}するみたいで{言|い}いにくかった。{言|い}っておけばよかった。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: "カケルちゃんが{裏|うら}を{探|さが}してたとき、{何|なに}か{知|し}ってる{気|き}がしてた。でも{問|と}い{詰|つ}めたくなくて……{声|こえ}をかけなかった。ごめんね、カケルちゃん。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カケルの「{外|そと}に{飛|と}んだ」は{嘘|うそ}じゃなかった。{南側|みなみがわ}からの{見|み}え{方|かた}では、{本当|ほんとう}に{屋根|やね}を{越|こ}えたように{見|み}えたんです。{見|み}る{場所|ばしょ}が{違|ちが}うと、{同|おな}じ{出来事|できごと}が{違|ちが}って{見|み}える——これは{体育|たいいく}でも、{日常|にちじょう}でも{大切|たいせつ}な{視点|してん}です。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{投|な}げ{方|かた}（オーバー・サイド・アンダー）で{軌道|きどう}が{変|か}わる。{角度|かくど}50{度|ど}のオーバースローは{高|たか}く{上|あ}がるが{遠|とお}くには{飛|と}ばない。{知識|ちしき}と{複数|ふくすう}の{視点|してん}が、{誤解|ごかい}を{解|と}く{鍵|かぎ}でしたね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ボールは{体育倉庫|たいいくそうこ}の{屋根|やね}の{上|うえ}にあった。カケルのオーバースロー（{角度|かくど}50{度|ど}）は{高|たか}く{上|あ}がるが、{屋根|やね}を「{越|こ}える」ほどの{飛|ひ}{距離|きょり}は{出|で}ない。"
+      - type: narration
+        text: "{同|おな}じ{出来事|できごと}でも{見|み}る{位置|いち}が{違|ちが}うと{見|み}え{方|かた}が{変|か}わる。{複数|ふくすう}の{視点|してん}を{集|あつ}めて{情報|じょうほう}を{整理|せいり}することが、{本当|ほんとう}のことを{知|し}る{近|ちか}み{道|ち}だ。"
+      - type: narration
+        text: "カケルは{悪|わる}い{人|ひと}じゃない。「{見|み}え{方|かた}の{違|ちが}い」が{誤解|ごかい}を{生|う}み、{言|い}い{出|だ}せなくなった。{困|こま}ったときは1{人|ひと}で{抱|かか}え{込|こ}まず、みんなに{話|はな}すことが{大切|たいせつ}だ。"
+      - type: effect
+        name: fade-out

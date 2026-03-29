@@ -1,0 +1,443 @@
+meta:
+  id: sports-03
+  title: マットの足あと
+  series: 体育探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{体育|たいいく}の{授業|じゅぎょう}でマット{運動|うんどう}が{始|はじ}まった。{山田|やまだ}先生が「{上手|じょうず}にできた{人|ひと}に**マット{名人|めいじん}シール**をあげるよ！」と{発表|はっぴょう}した。"
+      - type: narration
+        text: みんな{張|は}り{切|き}って{練習|れんしゅう}している。
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{授業|じゅぎょう}が{終|お}わって{片|かた}づけようとしたとき、**5{枚|まい}目のマットに{見|み}たことのない{痕跡|こんせき}が{残|のこ}っていた！**"
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "これは……**{伸膝後転|しんしつこうてん}**の{跡|あと}だ。まだ{教|おし}えていない{技|わざ}だから**{禁止|きんし}**しているはずなのに！"
+        expression: surprised
+      - type: dialog
+        character: yamada
+        text: "5{枚|まい}目のマットは{先生|せんせい}の{許可制|きょかせい}。{誰|だれ}がルールを{破|やぶ}ってやったのか？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: surprised
+          - character: tsubasa
+            expression: worried
+          - character: kakeru
+            expression: surprised
+          - character: minori
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{全員|ぜんいん}が「やってない」と{言|い}っている。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: マットの足あと
+        subtitle: 体育探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: マットの痕跡を調べよう
+      - type: narration
+        text: "5{枚|まい}目のマットを{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マット{中央|ちゅうおう}に**{体|からだ}の{跡|あと}**がある。{後|うし}ろに{回|まわ}った{跡|あと}（{背中|せなか}→おしりの{順|じゅん}）。"
+      - type: narration
+        text: "{手|て}の{跡|あと}が**{後方|こうほう}に{深|ふか}く{強|つよ}く**{残|のこ}っている。{通常|つうじょう}の{後転|こうてん}の{手|て}の{跡|あと}と{比|くら}べて**2{倍|ばい}くらいの{深|ふか}さ**。"
+      - type: narration
+        text: "{足|あし}の{跡|あと}は**{膝|ひざ}が{伸|の}びた{状態|じょうたい}**で{着地|ちゃくち}している。{痕跡|こんせき}は**1{人分|にんぶん}**だけ。1{回|かい}だけやった。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yamada
+        text: "この{手|て}の{跡|あと}の{深|ふか}さは、{膝|ひざ}を{伸|の}ばして{回|まわ}った{証拠|しょうこ}。{伸膝後転|しんしつこうてん}だ。まだ{教|おし}えていないのに……"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{伸膝後転|しんしつこうてん}は{膝|ひざ}を{伸|の}ばしたまま{後転|こうてん}する{技|わざ}。{膝|ひざ}を{伸|の}ばすと{体|からだ}を{押|お}し{上|あ}げるのに**{大|おお}きな{力|ちから}**がいる → {手|て}に{力|ちから}が{入|はい}る → {跡|あと}が{深|ふか}くなる。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の実力表を確認しよう
+      - type: narration
+        text: "{山田|やまだ}先生が{授業中|じゅぎょうちゅう}に{観察|かんさつ}した4{人|にん}の{実力|じつりょく}表だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ —— {前転|ぜんてん}: ◎（{丁寧|ていねい}）、{後転|こうてん}: ○（できる）、{側転|そくてん}: △（やや{不安|ふあん}）— {総合|そうごう}: ★★★"
+      - type: narration
+        text: "ツバサ —— {前転|ぜんてん}: ◎（お{手本|てほん}）、{後転|こうてん}: ◎（お{手本|てほん}）、{側転|そくてん}: ◎（お{手本|てほん}）— **{総合|そうごう}: ★★★★★**"
+      - type: narration
+        text: "カケル —— {前転|ぜんてん}: ○（できる）、{後転|こうてん}: △（やや{不安|ふあん}）、{側転|そくてん}: ◎（{大胆|だいたん}）— {総合|そうごう}: ★★★"
+      - type: narration
+        text: "ミノリ —— {前転|ぜんてん}: ○（できる）、{後転|こうてん}: ◎（{丁寧|ていねい}）、{側転|そくてん}: △（やや{不安|ふあん}）— {総合|そうごう}: ★★★"
+      - type: narration
+        text: "{伸膝後転|しんしつこうてん}に{必要|ひつよう}な{条件|じょうけん}: {後転|こうてん}が「◎」レベルであること。{後転|こうてん}が{苦手|にがて}な{人|ひと}にはできない。"
+      - type: narration
+        text: "{後転|こうてん}が「◎」の{人|ひと}は……ツバサとミノリ。でもミノリの{後転|こうてん}は「ゆっくり{丁寧|ていねい}」。{伸膝後転|しんしつこうてん}に{必要|ひつよう}な「{素早|すばや}い{腕|うで}の{押|お}し{上|あ}げ」とは{違|ちが}う？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: マットの使用記録を見よう
+      - type: narration
+        text: "{授業中|じゅぎょうちゅう}（10{時|じ}10{分|ぷん}〜10{時|じ}35{分|ぷん}）に{誰|だれ}がどのマットを{使|つか}ったかの{記録|きろく}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ —— 1{枚|まい}目→2{枚|まい}目（10:10〜10:35）: {前転|ぜんてん}を{繰|く}り{返|かえ}し{練習|れんしゅう}"
+      - type: narration
+        text: "ツバサ —— 1{枚|まい}目→2{枚|まい}目→3{枚|まい}目（10:10〜10:35）: {前転|ぜんてん}→{後転|こうてん}→{側転|そくてん}を{順番|じゅんばん}に"
+      - type: narration
+        text: "カケル —— 3{枚|まい}目→4{枚|まい}目（10:10〜10:35）: {側転|そくてん}を{繰|く}り{返|かえ}し{練習|れんしゅう}"
+      - type: narration
+        text: "ミノリ —— 2{枚|まい}目（10:10〜10:35）: {後転|こうてん}を{繰|く}り{返|かえ}し{練習|れんしゅう}"
+      - type: narration
+        text: "**5{枚|まい}目マットの{使用|しよう}{記録|きろく}: なし**（{誰|だれ}も{使|つか}っていない……はず）"
+      - type: narration
+        text: "でも5{枚|まい}目には{伸膝後転|しんしつこうてん}の{痕跡|こんせき}がある。{使用|しよう}{記録|きろく}がないのに{痕跡|こんせき}がある——{誰|だれ}かが{記録|きろく}に{残|のこ}さずこっそり{使|つか}ったことになる。"
+      - type: narration
+        text: "{重要|じゅうよう}: {先生|せんせい}が**10{時|じ}20{分|ぷん}〜10{時|じ}25{分|ぷん}に{職員室|しょくいんしつ}に{離席|りせき}**。この5{分間|ふんかん}は{先生|せんせい}の{目|め}がない。"
+
+  # ==================== 調査：証拠カード4（証言） ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 4人の証言を聞こう
+      - type: narration
+        text: "{先生|せんせい}がいなかった10{時|じ}20{分|ぷん}〜25{分|ぷん}の{間|あいだ}、4{人|にん}はどこにいたのか。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "10{時|じ}22{分|ぷん}ごろ、ツバサが3{枚|まい}目のマットから{離|はな}れて、5{枚|まい}目のほうに{歩|ある}いていくのが{見|み}えた。でも……先生がいなかったから、{許可|きょか}をもらいに{行|い}ったわけじゃない。"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: determined
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "わたしは3{枚|まい}目と4{枚|まい}目しか{使|つか}ってない。5{枚|まい}目なんて{近|ちか}づいてもいないよ。{先生|せんせい}がいない{間|あいだ}も{側転|そくてん}の{練習|れんしゅう}をしてた。ミノリが{見|み}てたから{聞|き}いてみて。"
+        expression: determined
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: "{先生|せんせい}がいない{間|あいだ}（10{時|じ}20{分|ぷん}〜25{分|ぷん}）、カケルちゃんは4{枚|まい}目で{側転|そくてん}してた。ハヤテくんは1{枚|まい}目で{前転|ぜんてん}してた。でも……3{枚|まい}目にいるはずのツバサくんの{姿|すがた}が**{見|み}えなかった**。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "5{枚|まい}目のマットは{使|つか}っていない。1〜3{枚|まい}目で{練習|れんしゅう}してたよ。"
+        expression: normal
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: narration
+        text: "ツバサは「5{枚|まい}目は{使|つか}っていない」と{証言|しょうげん}する。でも——ハヤテが10{時|じ}22{分|ぷん}にツバサが5{枚|まい}目に{向|む}かうのを{目撃|もくげき}し、ミノリは{先生|せんせい}がいない{間|あいだ}にツバサの{姿|すがた}が{見|み}えなかったと{言|い}っている。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ツバサのもう1つの観察力
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "5{枚|まい}目の{伸膝後転|しんしつこうてん}の{痕跡|こんせき}を{見|み}ると——**フォームがとてもきれい**。{初|はじ}めてやった{人|ひと}の{跡|あと}じゃない。{後転|こうてん}の{基礎|きそ}がしっかりしている{人|ひと}の{痕跡|こんせき}だ。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "それと気づいたことがある。5{枚|まい}目のマットの{横|よこ}に、**{小|ちい}さなメモ**が{落|お}ちていた。{手書|てが}きで『{伸膝後転|しんしつこうてん}——ポイント: {膝|ひざ}をのばす、{手|て}でおしあげる、{背中|せなか}をまるくする』と{書|か}いてある。"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "フォームのポイントをメモする{子|こ}は……？"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ツバサは「フォーム{観察|かんさつ}の{達人|たつじん}」で、いつもフォームのポイントを{分析|ぶんせき}している。でもこのメモは「{自分用|じぶんよう}」だ。**{見|み}る{側|がわ}だったツバサが、やる{側|がわ}になった？**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{証拠|しょうこ}カード②を{見|み}て。{伸膝後転|しんしつこうてん}は{後転|こうてん}「◎」が{条件|じょうけん}。ツバサとミノリが{候補|こうほ}だけど、ミノリの{後転|こうてん}は「ゆっくり{丁寧|ていねい}」。{伸膝後転|しんしつこうてん}に{必要|ひつよう}な「{素早|すばや}い{押|お}し{上|あ}げ」とは{違|ちが}う。"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: right
+      - type: dialog
+        character: minori
+        text: "{先生|せんせい}がいない10{時|じ}20{分|ぷん}〜25{分|ぷん}の{間|あいだ}、カケルちゃんとハヤテくんはずっと{同|おな}じ{場所|ばしょ}にいた。でもツバサくんの{姿|すがた}が……{見|み}えなかった。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{後転|こうてん}「◎」は{条件|じょうけん}（Card②）。{先生|せんせい}の{離席|りせき}10{時|じ}20{分|ぷん}〜25{分|ぷん}に{機会|きかい}（Card③）。ハヤテが10{時|じ}22{分|ぷん}にツバサの5{枚|まい}目{移動|いどう}を{目撃|もくげき}（Card④-A）。ミノリが{先生|せんせい}がいない{間|あいだ}にツバサ{不在|ふざい}を{確認|かくにん}（Card④-D）。そして{見|み}る{側|がわ}のツバサが{書|か}いた「{自分用|じぶんよう}」フォームメモ——"
+      - type: choice
+        id: q1
+        question: 5枚目のマットで伸膝後転をやったのは誰？
+        options:
+          - text: ツバサ（後転◎で先生の離席中に5枚目に行った）
+            value: tsubasa
+            correct: true
+            feedback: "{正解|せいかい}！ {後転|こうてん}「◎」の{条件|じょうけん}（Card②）＋{先生|せんせい}{離席|りせき}の{機会|きかい}（Card③）＋5{枚|まい}目への{移動|いどう}{目撃|もくげき}（Card④-A）＋{不在|ふざい}{確認|かくにん}（Card④-D）＋{自分用|じぶんよう}フォームメモ（Card⑤）。{因果|いんが}{連鎖|れんさ}が{完成|かんせい}した！"
+          - text: ミノリ（後転◎で丁寧なフォームが得意）
+            value: minori
+            feedback: "ミノリの{後転|こうてん}は「ゆっくり{丁寧|ていねい}」タイプ。{伸膝後転|しんしつこうてん}に{必要|ひつよう}な「{素早|すばや}い{押|お}し{上|あ}げ」とは{異|こと}なる。それにミノリは{先生|せんせい}がいない{間|あいだ}、ずっと2{枚|まい}目で{後転|こうてん}してたよ。"
+          - text: カケル（何でも挑戦するタイプだから）
+            value: kakeru
+            feedback: "カケルの{後転|こうてん}は「△（やや{不安|ふあん}）」。{伸膝後転|しんしつこうてん}は{後転|こうてん}の{応用|おうよう}だから、{後転|こうてん}が{苦手|にがて}なカケルにはできないよ。ミノリがカケルのアリバイも{証言|しょうげん}している。"
+          - text: ハヤテ（データを記録していて動機がある）
+            value: hayate
+            feedback: "ハヤテの{後転|こうてん}は「○（できる）」レベル。{伸膝後転|しんしつこうてん}は「◎」が{必要|ひつよう}だから{条件|じょうけん}を{満|み}たしていない。ハヤテは{先生|せんせい}がいない{間|あいだ}も1{枚|まい}目で{前転|ぜんてん}の{練習|れんしゅう}をしていたよ。"
+
+  # ==================== 真実：ツバサ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツバサの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsubasa
+        text: "……{本当|ほんとう}のことを{話|はな}す。5{枚|まい}目のマットで{伸膝後転|しんしつこうてん}をやったのは……{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: ツバサは{下|した}を{向|む}いたまま、{静|しず}かに{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: tsubasa
+        text: "{先生|せんせい}が「マット{名人|めいじん}シールをあげる」って{言|い}ったとき……{一番|いちばん}にもらいたいって{思|おも}った。{前転|ぜんてん}も{後転|こうてん}も{側転|そくてん}も{全部|ぜんぶ}できる。でも**もっと{難|むずか}しい{技|わざ}ができれば{確実|かくじつ}だ**って。"
+        expression: thinking
+      - type: dialog
+        character: tsubasa
+        text: "{先生|せんせい}が{職員室|しょくいんしつ}に{行|い}った5{分間|ふんかん}に、5{枚|まい}目に{移動|いどう}して……フォームのポイントをメモに{書|か}いてから、1{回|かい}だけやってみた。{後転|こうてん}の{基礎|きそ}がしっかりしてるから、1{回|かい}できれいにできた。"
+        expression: determined
+      - type: dialog
+        character: tsubasa
+        text: "でも{分|わ}かってる。ルール{違反|いはん}だ。まだ{教|おし}わってない{技|わざ}を、{先生|せんせい}の{許可|きょか}なくやった。{手首|てくび}を{痛|いた}めるかもしれなかったのに。……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hayate
+        expression: worried
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{実|じつ}は……ツバサが5{枚|まい}目に{向|む}かうのを{見|み}たとき、「{先生|せんせい}がいないのに{何|なん}で？」って{思|おも}ってた。でもツバサなら{ちゃんとした|ちゃんとした}理由があるはずって……{言|い}いだせなかった。"
+        expression: worried
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: right
+      - type: dialog
+        character: minori
+        text: "{先生|せんせい}がいない{間|あいだ}、ツバサくんの{姿|すがた}が{見|み}えなかったとき「どこに{行|い}ったんだろう？」って{心配|しんぱい}した。でも{大ごと|おおごと}にしたくなくて……{声|こえ}をかけなかった。ごめんね、ツバサくん。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kakeru
+        text: "わたしは{側転|そくてん}の{練習|れんしゅう}に{夢中|むちゅう}で、ツバサが{消|き}えたことに{気|き}づかなかった。でもツバサが「{見|み}る{側|がわ}」だけじゃなくて「やる{側|がわ}」になりたかった{気持|きも}ち……{分|わ}かる{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツバサの「{上手|じょうず}になりたい」「{認|みと}められたい」という{気持|きも}ちは{素晴|すば}らしいものよ。フォームを{分析|ぶんせき}してポイントをメモする——それは{本当|ほんとう}の{努力|どりょく}。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、ルールには{理由|りゆう}がある。{伸膝後転|しんしつこうてん}を{禁止|きんし}していたのは{安全|あんぜん}のため。{手首|てくび}を{痛|いた}めたら{大好|だいす}きな{体育|たいいく}ができなくなる。{次|つぎ}は{先生|せんせい}に『{教|おし}えてください』って{言|い}ってね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "マット{運動|うんどう}では{技|わざ}によって{痕跡|こんせき}が{違|ちが}う。{前転|ぜんてん}・{後転|こうてん}・{側転|そくてん}、それぞれマットに{残|のこ}る{跡|あと}が{違|ちが}う。{伸膝後転|しんしつこうてん}は{膝|ひざ}を{伸|の}ばす → {手|て}で{強|つよ}く{押|お}し{上|あ}げる → {手|て}の{跡|あと}が{深|ふか}い。"
+      - type: narration
+        text: "{痕跡|こんせき}（{結果|けっか}）→ {技|わざ}（{原因|げんいん}）→ {実行者|じっこうしゃ}（さらに{原因|げんいん}）——これが**{因果|いんが}{連鎖|れんさ}**による{推理|すいり}だ。"
+      - type: narration
+        text: "「{上手|じょうず}になりたい{気持|きも}ち」は{正|ただ}しい。でも{安全|あんぜん}に{練習|れんしゅう}するには{先生|せんせい}の{指導|しどう}が{必要|ひつよう}。{ルール|ルール}には{理由|りゆう}がある。"
+      - type: effect
+        name: fade-out

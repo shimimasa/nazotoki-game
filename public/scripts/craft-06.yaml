@@ -1,0 +1,393 @@
+meta:
+  id: craft-06
+  title: 針金の謎
+  series: 図工探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図工|ずこう}の{時間|じかん}に{針金|はりがね}アートで{動物|どうぶつ}を{作|つく}る{課題|かだい}。4{人|にん}はそれぞれの{動物|どうぶつ}を{作|つく}り、{図工室|ずこうしつ}の{展示棚|てんじだな}に{並|なら}べた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}、スミレの「{蝶|ちょう}」の{羽|はね}の{形|かたち}が{変|か}わっていた！ 「{飛|と}び{立|た}つ{瞬間|しゅんかん}」を{表現|ひょうげん}した{左右|さゆう}{非対称|ひたいしょう}の{羽|はね}が、いつの{間|ま}にか{左右|さゆう}{対称|たいしょう}になっていた。"
+      - type: sprite
+        character: sumire
+        expression: worried
+        position: left
+      - type: dialog
+        character: sumire
+        text: "わたしの{蝶|ちょう}が{壊|こわ}された！ {飛|と}び{立|た}つ{瞬間|しゅんかん}のポーズが{消|き}えてる！ {誰|だれ}がやったの？"
+        expression: worried
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{蝶|ちょう}の{羽|はね}が{直|なお}ってると{思|おも}ったのに……"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: thinking
+          - character: sumire
+            expression: worried
+          - character: tsukuru
+            expression: worried
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "「{壊|こわ}された」とスミレは{言|い}う。でもツクルは「{直|なお}ってる」と{言|い}った。{同|おな}じ{変化|へんか}なのに、{言葉|ことば}が{違|ちが}う——。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 針金の謎
+        subtitle: 図工探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4人の作品を確認しよう
+      - type: narration
+        text: "4{人|にん}の{針金|はりがね}アート{作品|さくひん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— 「{家|いえ}」。{直角|ちょっかく}の{曲|ま}げを{使|つか}った{安定|あんてい}した{四角形|しかっけい}{構造|こうぞう}。{左右|さゆう}{対称|たいしょう}。{無傷|むきず}。"
+      - type: narration
+        text: "スミレ —— 「{蝶|ちょう}」。なめらかな{曲|ま}げ+ねじり{接合|せつごう}。{右|みぎ}の{羽|はね}が{下|さ}がっていた（{変化|へんか}あり）。{羽|はね}の{形|かたち}が{変|か}わった。"
+      - type: narration
+        text: "ツクル —— 「{恐竜|きょうりゅう}」。ねじり{接合|せつごう}+{曲|ま}げ。{大|おお}きな{構造|こうぞう}、{丈夫|じょうぶ}。{無傷|むきず}。"
+      - type: narration
+        text: "カナデ —— 「{花|はな}」。{優|やさ}しい{曲線|きょくせん}の{曲|ま}げ。{繊細|せんさい}で{対称|たいしょう}。{無傷|むきず}。"
+      - type: narration
+        text: "スミレの{蝶|ちょう}だけ{形|かたち}が{変|か}わっている。{他|ほか}の3{人|にん}の{作品|さくひん}は{無傷|むきず}。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{放課後|ほうかご}の{行動|こうどう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツクル —— 15:10に{出発|しゅっぱつ}。「ちょっと{早|はや}く{帰|かえ}ります」と{言|い}って{出|で}た。"
+      - type: narration
+        text: "カナデ —— 15:15に{出発|しゅっぱつ}。{廊下|ろうか}でツクルに{会|あ}って{少|すこ}し{話|はな}した。"
+      - type: narration
+        text: "ヒナタ —— 15:20に{出発|しゅっぱつ}。「{図書館|としょかん}に{行|い}く」と{言|い}って{出|で}た。"
+      - type: narration
+        text: "スミレ —— 15:25に{出発|しゅっぱつ}。{最後|さいご}の{仕上|しあ}げをして{出|で}た。{帰|かえ}るとき{蝶|ちょう}の{形|かたち}を{確認|かくにん}した——そのときは{無事|ぶじ}だった。"
+      - type: narration
+        text: "{犯行|はんこう}は15:25{以降|いこう}。{図工室|ずこうしつ}は17:00まで{開|あ}いている。15:25{以降|いこう}に{図工室|ずこうしつ}に{戻|もど}れた{人|ひと}は？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 蝶の変化を分析しよう
+      - type: narration
+        text: "スミレの{蝶|ちょう}の{羽|はね}の{部分|ぶぶん}を{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{変更前|へんこうまえ}：{右|みぎ}の{羽|はね}が{左|ひだり}の{羽|はね}より{少|すこ}し{下|さ}がっていた（{角度|かくど}がずれていた）。{右羽|みぎはね}のねじり{接合|せつごう}はゆるめだった。"
+      - type: narration
+        text: "{変更後|へんこうご}：{右|みぎ}の{羽|はね}と{左|ひだり}の{羽|はね}がほぼ{同|おな}じ{角度|かくど}になった（{左右|さゆう}{対称|たいしょう}に{近|ちか}くなった）。{右羽|みぎはね}のねじり{接合|せつごう}が{強|つよ}くなっている。"
+      - type: narration
+        text: "ねじり{接合|せつごう}を{強|つよ}くするには{専門|せんもん}の{知識|ちしき}が{必要|ひつよう}。{適当|てきとう}に{触|さわ}っただけではこんなにきれいに「{対称|たいしょう}」にはならない。"
+      - type: narration
+        text: "「{壊|こわ}そうとした」というより、「{修正|しゅうせい}しようとした」ように{見|み}える。ねじり{接合|せつごう}を{強|つよ}くできるのは、どんな{人|ひと}？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 4作品を全部比べよう
+      - type: narration
+        text: "4{人|にん}の{作品|さくひん}を{全部|ぜんぶ}{調|しら}べて、「{左右|さゆう}{対称|たいしょう}かどうか」を{記録|きろく}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタの「{家|いえ}」—— {対称|たいしょう}。{変化|へんか}なし。"
+      - type: narration
+        text: "スミレの「{蝶|ちょう}」—— {非対称|ひたいしょう}→{対称|たいしょう}に{変|か}わった。{変化|へんか}あり。"
+      - type: narration
+        text: "ツクルの「{恐竜|きょうりゅう}」—— おおむね{対称|たいしょう}。{変化|へんか}なし。"
+      - type: narration
+        text: "カナデの「{花|はな}」—— {対称|たいしょう}。{変化|へんか}なし。"
+      - type: narration
+        text: "4{作品|さくひん}の{中|なか}で「{最初|さいしょ}から{非対称|ひたいしょう}だったもの」はスミレの{蝶|ちょう}だけ。{他|ほか}の3{人|にん}の{作品|さくひん}は{全|すべ}て{対称|たいしょう}。スミレの{蝶|ちょう}の{非対称|ひたいしょう}だけが「{異質|いしつ}」に{見|み}えた——{誰|だれ}かが「{壊|こわ}れている」と{思|おも}った{可能性|かのうせい}がある。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のひとこと
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "スミレは{授業中|じゅぎょうちゅう}に「{飛|と}び{立|た}つ{瞬間|しゅんかん}を{表現|ひょうげん}したい」と{言|い}っていました。{蝶|ちょう}が{飛|と}び{立|た}つとき、{羽|はね}の{角度|かくど}は{左右|さゆう}で{少|すこ}しずれます。{完全|かんぜん}な{左右|さゆう}{対称|たいしょう}では、{止|と}まったポーズになってしまう。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{非対称|ひたいしょう}は{壊|こわ}れているのではなく、{動|うご}きの{表現|ひょうげん}です。もし{誰|だれ}かが「{対称|たいしょう}にしてあげた」としたら……その{人|ひと}は「{直|なお}した」と{思|おも}ったかもしれない。でもスミレにとっては「{壊|こわ}された」ことになります。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{人|ひと}の{作品|さくひん}の{意図|いと}を{確認|かくにん}せずに{変|か}えることは、{善意|ぜんい}でも{問題|もんだい}になります。{変|か}えたいときは、まず{作|つく}った{人|ひと}に「これ、わざとそうしたの？」と{聞|き}きましょう。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{壊|こわ}した」と「{直|なお}した」は{同|おな}じ{行動|こうどう}を{指|さ}している。{善意|ぜんい}の{誤解|ごかい}で{形|かたち}を{変|か}えてしまった{人|ひと}——ねじり{接合|せつごう}が{得意|とくい}で、15:25{以降|いこう}に{図工室|ずこうしつ}に{戻|もど}った{人|ひと}は{誰|だれ}？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanade
+        text: "{放課後|ほうかご}15:30ごろ、{廊下|ろうか}でツクルが{図工室|ずこうしつ}の{方|ほう}に{戻|もど}っていくのを{見|み}た。「あれ、{戻|もど}るの？」って{思|おも}ったけど、{声|こえ}はかけなかった……"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hinata
+        text: "{展示棚|てんじだな}に{並|なら}べるとき、スミレの{蝶|ちょう}の{右|みぎ}の{羽|はね}が{左|ひだり}より{下|さ}がってるのに{気|き}づいてた。「{形|かたち}が{崩|くず}れてない？」って{思|おも}ったけど、{声|こえ}をかけなかった。"
+        expression: thinking
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{蝶|ちょう}の{羽|はね}は「{壊|こわ}された」のではなく「{対称|たいしょう}に{修正|しゅうせい}された」。ねじり{接合|せつごう}を{強|つよ}くできるのはねじりが{得意|とくい}な{人|ひと}。15:30に{図工室|ずこうしつ}に{戻|もど}ったのはツクル——"
+      - type: choice
+        id: q1
+        question: スミレの蝶の羽の形を変えたのは誰？
+        options:
+          - text: ツクル（ねじり接合が得意。15:30に図工室に戻った。「直した」と思っていた）
+            value: tsukuru
+            correct: true
+            feedback: "{正解|せいかい}！ ツクルは{蝶|ちょう}の{右羽|みぎはね}が{下|さ}がっているのを{見|み}て「ねじりが{弱|よわ}い、{壊|こわ}れかけだ」と{思|おも}った。{善意|ぜんい}でねじりを{強|つよ}くして{対称|たいしょう}にした。でもスミレにとっては「{飛|と}び{立|た}つ{瞬間|しゅんかん}の{表現|ひょうげん}」が{消|き}された——「{壊|こわ}された」のだ。"
+          - text: ヒナタ（蝶の羽の形の違いに気づいていた）
+            value: hinata
+            feedback: "ヒナタは{羽|はね}の{形|かたち}に{気|き}づいていたけど、{声|こえ}をかけなかっただけ。ヒナタの{技法|ぎほう}は{直角|ちょっかく}の{曲|ま}げで、ねじり{接合|せつごう}は{得意|とくい}ではない。{放課後|ほうかご}は{図書館|としょかん}に{行|い}っていたよ。"
+          - text: カナデ（ツクルが戻ったのを見ていた目撃者）
+            value: kanade
+            feedback: "カナデは15:15に{出|で}て{教室|きょうしつ}に{帰|かえ}っている。ツクルが{戻|もど}るのを{見|み}ただけで、{自分|じぶん}は{図工室|ずこうしつ}に{入|はい}っていない。カナデの{技法|ぎほう}は{曲線|きょくせん}の{曲|ま}げで、ねじり{接合|せつごう}は{得意|とくい}ではないよ。"
+          - text: スミレ自身（自分で形を変えた自作自演）
+            value: sumire
+            feedback: "スミレは15:25に{蝶|ちょう}の{形|かたち}を{確認|かくにん}して{帰|かえ}った。そのときは{無事|ぶじ}だった。{飛|と}び{立|た}つ{瞬間|しゅんかん}の{表現|ひょうげん}に{誇|ほこ}りを{持|も}っているスミレが、{自分|じぶん}で{対称|たいしょう}に{戻|もど}す{理由|りゆう}はないよ。"
+
+  # ==================== 真実：ツクル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツクルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "……ごめんなさい。スミレの{蝶|ちょう}の{羽|はね}を{変|か}えたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "ツクルは{困|こま}った{顔|かお}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: tsukuru
+        text: "15:30に{図工室|ずこうしつ}に{戻|もど}ったとき、スミレの{蝶|ちょう}を{見|み}て「{右|みぎ}の{羽|はね}のねじりが{弱|よわ}い。このまま{倒|たお}れちゃう」って{思|おも}った。だから{優|やさ}しい{気持|きも}ちでねじりを{強|つよ}くして、{角度|かくど}を{対称|たいしょう}にした。"
+        expression: thinking
+      - type: dialog
+        character: tsukuru
+        text: "「{直|なお}してあげた」って{思|おも}ってた。スミレがわざとそうしてたなんて{知|し}らなかった。「{飛|と}び{立|た}つ{瞬間|しゅんかん}」の{表現|ひょうげん}だったなんて……ごめん、スミレ。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: sumire
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sumire
+        text: "……{怒|おこ}ってたけど、ツクルが「{壊|こわ}れかけだと{思|おも}った」って{聞|き}いて、{少|すこ}し{分|わ}かった。{美術館|びじゅつかん}で{蝶|ちょう}の{標本|ひょうほん}を{見|み}て「{飛|と}ぶ{瞬間|しゅんかん}は{非対称|ひたいしょう}」って{知|し}ったの。わたしも「これ、わざとだよ」って{説明|せつめい}すればよかった。"
+        expression: thinking
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: right
+      - type: dialog
+        character: hinata
+        text: "{展示棚|てんじだな}に{並|なら}べるとき、{右羽|みぎはね}が{下|さ}がってるの{気|き}づいてた。「{壊|こわ}れてない？」って{思|おも}ったけど、スミレに{聞|き}かなかった。{聞|き}いてたら「わざとだよ」って{教|おし}えてもらえたのに。"
+        expression: worried
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanade
+        text: "ツクルが{図工室|ずこうしつ}に{戻|もど}るの{見|み}てたのに、{声|こえ}をかけなかった。「どうしたの？」って{聞|き}けば、{止|と}められたかもしれない。……みんな「もう{一言|ひとこと}」が{足|た}りなかったんだね。"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{壊|こわ}した」と「{直|なお}した」——{同|おな}じ{行動|こうどう}なのに{言葉|ことば}が{違|ちが}う。これは{人|ひと}によって{見|み}え{方|かた}が{違|ちが}うからよ。{大切|たいせつ}なのは、{相手|あいて}の{意図|いと}を{確認|かくにん}すること。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「これ、わざとそうしたの？」——この{一言|ひとこと}があれば、{全|すべ}て{解決|かいけつ}したはず。{人|ひと}の{作品|さくひん}に{関|かか}わるときは、まず{聞|き}くことから{始|はじ}めようね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{針金|はりがね}アートの{構造|こうぞう}——{曲|ま}げ、ねじり、{接合|せつごう}。{作品|さくひん}の{表面|ひょうめん}を{見|み}れば、どの{技法|ぎほう}で{作|つく}ったか{分|わ}かる。4{作品|さくひん}を{全部|ぜんぶ}{比|くら}べる「{全|ぜん}{探索|たんさく}」で、{見落|みお}としをなくそう。"
+      - type: narration
+        text: "「{対称|たいしょう}={正|ただ}しい、{非対称|ひたいしょう}={壊|こわ}れている」は{思|おも}い{込|こ}みかもしれない。{非対称|ひたいしょう}は「{動|うご}きの{表現|ひょうげん}」でもある。"
+      - type: narration
+        text: "「{壊|こわ}した」と「{直|なお}した」——{言葉|ことば}の{意味|いみ}をそろえることが{大切|たいせつ}。そして「これ、わざと？」の{一言|ひとこと}が、{誤解|ごかい}を{防|ふせ}ぐ。"
+      - type: effect
+        name: fade-out

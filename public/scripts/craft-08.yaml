@@ -1,0 +1,406 @@
+meta:
+  id: craft-08
+  title: ポスターの思い込み
+  series: 図工探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のポスターコンクールの{校内|こうない}{審査|しんさ}。4{人|にん}はそれぞれポスターを{作|つく}り、{審査|しんさ}に{出|だ}した。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{結果|けっか}{発表|はっぴょう}の{前|まえ}に、{審査|しんさ}{用紙|ようし}の1{枚|まい}にスミレのポスターへの{低|てい}{評価|ひょうか}コメント「{色|いろ}が{地味|じみ}で{目立|めだ}たない」が{書|か}き{足|た}されていた！ {誰|だれ}がスミレのポスターに{不当|ふとう}な{低|てい}{評価|ひょうか}を{付|つ}けたのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{審査|しんさ}{用紙|ようし}にコメントが{書|か}き{足|た}されています。スミレさんのポスターの{欄|らん}に「{色|いろ}が{地味|じみ}で{目立|めだ}たない」と。{審査員|しんさいん}は{書|か}いていません。{誰|だれ}が{書|か}いたのでしょう。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: thinking
+          - character: sumire
+            expression: worried
+          - character: tsukuru
+            expression: surprised
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{審査|しんさ}{用紙|ようし}を{見|み}つめた。スミレのポスターだけに{低|てい}{評価|ひょうか}コメント。いったい{誰|だれ}が、なぜ？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ポスターの思い込み
+        subtitle: 図工探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4人のポスターを確認しよう
+      - type: narration
+        text: "4{人|にん}のポスターの{特徴|とくちょう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— 「{図書館|としょかん}{週間|しゅうかん}」。{整然|せいぜん}レイアウト。2{色|しょく}{使|つか}い。{読|よ}みやすい。{無傷|むきず}。"
+      - type: narration
+        text: "スミレ —— 「{読書|どくしょ}のすすめ」。{余白|よはく}{多|おお}め。{色数|いろかず}2{色|しょく}。{上品|じょうひん}なデザイン。{地味|じみ}に{見|み}える？ —— {低|てい}{評価|ひょうか}コメントあり。"
+      - type: narration
+        text: "ツクル —— 「{図工室|ずこうしつ}{開放|かいほう}」。{大胆|だいたん}な{色|いろ}{使|つか}い。5{色|しょく}{以上|いじょう}。{目|め}を{引|ひ}く。{派手|はで}。{無傷|むきず}。"
+      - type: narration
+        text: "カナデ —— 「{運動会|うんどうかい}{参加|さんか}よびかけ」。{多色|たしょく}{使|つか}い。{華|はな}やか。{楽|たの}しそう。{無傷|むきず}。"
+      - type: narration
+        text: "スミレのポスターだけに{低|てい}{評価|ひょうか}コメントが{書|か}き{足|た}されている。{他|ほか}の3{人|にん}のポスターは{無傷|むきず}。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 審査当日の行動を確認しよう
+      - type: narration
+        text: "{審査|しんさ}{当日|とうじつ}の{昼休|ひるやす}み、4{人|にん}の{行動|こうどう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— {廊下|ろうか}を{通|とお}りかかった（12:25ごろ）。{図工室|ずこうしつ}には{入|はい}っていない。"
+      - type: narration
+        text: "スミレ —— 「ちょっと{図工室|ずこうしつ}を{見|み}てくる」と{言|い}って{席|せき}を{外|はず}した。12:15〜12:55の{間|あいだ}に{訪問|ほうもん}あり。"
+      - type: narration
+        text: "ツクル —— {教室|きょうしつ}でクラスメイトと{過|す}ごした。アリバイあり。"
+      - type: narration
+        text: "カナデ —— {図書館|としょかん}にいた。アリバイあり。"
+      - type: narration
+        text: "{昼休|ひるやす}みの12:15〜12:55に{審査|しんさ}{用紙|ようし}が{図工室|ずこうしつ}に{一時的|いちじてき}に{置|お}かれていた。{図工室|ずこうしつ}に{入|はい}れたのはスミレだけ。"
+
+  # ==================== 調査：デザイン原則カード ====================
+  - id: design-principles
+    bg: classroom
+    steps:
+      - type: title_card
+        text: デザインの原則カード
+        subtitle: 良いポスターとは？
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{用意|ようい}した「デザインの{原則|げんそく}ミニカード」。"
+      - type: narration
+        text: "{原則|げんそく}1：{余白|よはく}の{力|ちから}。{余白|よはく}は「{何|なに}もない{場所|ばしょ}」ではなく「デザインの{呼吸|こきゅう}」。{余白|よはく}があることで{大切|たいせつ}な{情報|じょうほう}が{際立|きわだ}つ。"
+      - type: narration
+        text: "{原則|げんそく}2：{色数|いろかず}は{少|すく}なく。2〜3{色|しょく}が{基本|きほん}。{色|いろ}が{多|おお}すぎると{目|め}が{疲|つか}れてメッセージが{伝|つた}わりにくい。"
+      - type: narration
+        text: "{原則|げんそく}3：{視線|しせん}{誘導|ゆうどう}を{設計|せっけい}する。{人|ひと}は{左上|ひだりうえ}→{右|みぎ}→{下|した}に{目|め}を{動|うご}かす。{大切|たいせつ}な{情報|じょうほう}をその{流|なが}れの{最初|さいしょ}に{置|お}く。"
+      - type: narration
+        text: "{原則|げんそく}4：{派手|はで}さと{見|み}やすさは{別物|べつもの}。{目|め}を{引|ひ}くポスターが{必|かなら}ずしもメッセージを{伝|つた}えるとは{限|かぎ}らない。デザインの{目的|もくてき}は「{伝|つた}えること」。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: コメントの筆跡を分析しよう
+      - type: narration
+        text: "{審査|しんさ}{用紙|ようし}に{書|か}き{足|た}されたコメントの{筆跡|ひっせき}を{分析|ぶんせき}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "コメント：「{色|いろ}が{地味|じみ}で{目立|めだ}たない」。{筆跡|ひっせき}の{特徴|とくちょう}——「{色|いろ}」の{糸偏|いとへん}の{書|か}き{方|かた}が{独特|どくとく}。「{地|じ}」のはらいの{形|かたち}が{特徴的|とくちょうてき}。"
+      - type: narration
+        text: "4{人|にん}の{筆跡|ひっせき}と{比較|ひかく}——ヒナタ：{一致度|いっちど}{低|ひく}い。ツクル：{一致度|いっちど}{低|ひく}い。カナデ：{一致度|いっちど}{低|ひく}い。"
+      - type: narration
+        text: "スミレ：{糸偏|いとへん}の{書|か}き{方|かた}が{独特|どくとく}で{一致|いっち}。「{地|じ}」のはらいも{特徴|とくちょう}が{同|おな}じ。{一致度|いっちど}——{高|たか}い。"
+      - type: narration
+        text: "コメントの{筆跡|ひっせき}と{最|もっと}も{一致|いっち}するのはスミレの{字|じ}。でもスミレは「{被害者|ひがいしゃ}」のはず……？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: スミレの発言を確認しよう
+      - type: narration
+        text: "{審査|しんさ}の2{日前|かまえ}、スミレが{言|い}っていた{言葉|ことば}。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「どうせ{私|わたし}のは{地味|じみ}だし、{受賞|じゅしょう}は{無理|むり}だよね。{先|さき}に{自分|じぶん}でダメ{出|だ}ししておけば、{低|てい}{評価|ひょうか}がついてもショックじゃないもんね」"
+      - type: narration
+        text: "スミレのポスターへの{他|ほか}の3{人|にん}の{評価|ひょうか}——"
+      - type: narration
+        text: "ツクル：「シンプルだけどすごく{見|み}やすいと{思|おも}う」。カナデ：「{余白|よはく}があって{読|よ}みやすいし、メッセージがすっと{入|はい}ってくる」。ヒナタ：「デザイン{原則|げんそく}に{最|もっと}も{忠実|ちゅうじつ}な{作品|さくひん}」。"
+      - type: narration
+        text: "「{先|さき}に{自分|じぶん}でダメ{出|だ}しする」——この{言葉|ことば}が{行動|こうどう}に{移|うつ}されたとしたら？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の分析レポート
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "4{作品|さくひん}をデザイン{原則|げんそく}で{評価|ひょうか}しました。ヒナタ：A。ツクル：C（{色|いろ}が{多|おお}すぎる）。カナデ：C（{色|いろ}が{多|おお}すぎる）。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "そしてスミレ：S——{最高|さいこう}{評価|ひょうか}です。{余白|よはく}と{抑|おさ}えた{配色|はいしょく}こそ{計算|けいさん}されたデザイン。{目|め}がタイトルに{自然|しぜん}に{流|なが}れ、メッセージが{一番|いちばん}に{目|め}に{入|はい}る。デザイン{原則|げんそく}を{最|もっと}もよく{理解|りかい}した{作品|さくひん}です。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「{地味|じみ}だから{悪|わる}い」ではありません。「{見|み}やすく・{伝|つた}わりやすい」が{良|よ}いデザインの{本質|ほんしつ}です。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "なお、{低|てい}{評価|ひょうか}コメントの{筆跡|ひっせき}を{確認|かくにん}しました。このコメントはスミレ{本人|ほんにん}の{字|じ}と{一致|いっち}します。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "スミレのポスターが{最高|さいこう}{評価|ひょうか}——なのに{本人|ほんにん}が{低|てい}{評価|ひょうか}を{書|か}いた？ 「{派手|はで}={良|よ}い」という{思|おも}い{込|こ}みが、スミレ{自身|じしん}にもあったのでは——？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "スミレのポスター、じっくり{見|み}たら{気|き}づいた。{余白|よはく}がある{分|ぶん}、{目|め}がすーっと{動|うご}く。{文字|もじ}が{読|よ}みやすい。スミレのポスターの{方|ほう}が、{見|み}る{人|ひと}のことを{考|かんが}えてるなって。"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanade
+        text: "スミレが「{先|さき}に{自分|じぶん}でダメ{出|だ}ししておけばショックじゃない」って{言|い}ってた。それと……コメントが{見|み}つかったとき、スミレの{顔|かお}は「{怒|いか}り」でも「{悲|かな}しみ」でもなく「{焦|あせ}り」に{見|み}えた。"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{図工室|ずこうしつ}に{入|はい}れたのはスミレだけ。{筆跡|ひっせき}はスミレと{一致|いっち}。スミレは「{先|さき}にダメ{出|だ}し」と{発言|はつげん}。{表情|ひょうじょう}は「{焦|あせ}り」。そしてスミレのポスターこそデザイン{原則|げんそく}で{最高|さいこう}{評価|ひょうか}——"
+      - type: choice
+        id: q1
+        question: 低評価コメントを書いたのは誰？
+        options:
+          - text: スミレ自身（自信がなくて、先に自分でダメ出しした自己防衛）
+            value: sumire
+            correct: true
+            feedback: "{正解|せいかい}！ スミレは「{派手|はで}={良|よ}い」と{思|おも}い{込|こ}み、{自分|じぶん}の{上品|じょうひん}なデザインに{自信|じしん}が{持|も}てなかった。{傷|きず}つく{前|まえ}に{自分|じぶん}で{低|てい}{評価|ひょうか}を{書|か}いて「{予防線|よぼうせん}」を{張|は}った。でも{実|じつ}はスミレのポスターこそ{最高|さいこう}{評価|ひょうか}だった。"
+          - text: ヒナタ（筆跡を記録していたから怪しい）
+            value: hinata
+            feedback: "ヒナタは{廊下|ろうか}を{通|とお}りかかっただけで{図工室|ずこうしつ}には{入|はい}っていない。{筆跡|ひっせき}を{記録|きろく}していたのは{分析|ぶんせき}のためで、{書|か}いたからではないよ。"
+          - text: ツクル（スミレのポスターに嫉妬した）
+            value: tsukuru
+            feedback: "ツクルは{昼休|ひるやす}みずっと{教室|きょうしつ}にいた（アリバイあり）。それにツクルはスミレのポスターを「{見|み}やすい」と{評価|ひょうか}している。{嫉妬|しっと}の{動機|どうき}がないよ。"
+          - text: カナデ（受賞を狙ってライバルを蹴落とした）
+            value: kanade
+            feedback: "カナデは{昼休|ひるやす}みに{図書館|としょかん}にいた（アリバイあり）。カナデはスミレのポスターを「{余白|よはく}があって{読|よ}みやすい」と{褒|ほ}めていたよ。"
+
+  # ==================== 真実：スミレ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: スミレの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: sumire
+        expression: worried
+        position: center
+      - type: dialog
+        character: sumire
+        text: "……ごめんなさい。あのコメントを{書|か}いたのは、わたし{自身|じしん}です。"
+        expression: worried
+      - type: narration
+        text: "スミレは{涙|なみだ}をこらえながら、ゆっくり{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: sumire
+        text: "みんなのポスターが{派手|はで}できれいで……わたしのは{地味|じみ}で{目立|めだ}たないって{思|おも}ってた。{受賞|じゅしょう}なんて{無理|むり}だって。"
+        expression: thinking
+      - type: dialog
+        character: sumire
+        text: "{先|さき}に{自分|じぶん}でダメ{出|だ}ししておけば、{低|てい}{評価|ひょうか}がついてもショックじゃないって……。{昼休|ひるやす}みに{図工室|ずこうしつ}に{行|い}って、{審査|しんさ}{用紙|ようし}に「{色|いろ}が{地味|じみ}で{目立|めだ}たない」って{書|か}いた。"
+        expression: worried
+      - type: dialog
+        character: sumire
+        text: "でも{先生|せんせい}の{評価|ひょうか}を{聞|き}いて……わたしのポスター、{一番|いちばん}だったの？ 「{派手|はで}じゃないとダメ」って{思|おも}い{込|こ}んでたの、わたし{自身|じしん}だった。……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: sumire
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hinata
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hinata
+        text: "{筆跡|ひっせき}を{記録|きろく}してたから、コメントの{字|じ}がスミレの{字|じ}と{同|おな}じだって{気|き}づいてた。でも「スミレ{本人|ほんにん}が{書|か}いた」って{言|い}い{出|だ}せなかった。スミレのポスター、デザイン{原則|げんそく}に{一番|いちばん}{忠実|ちゅうじつ}だったのに。"
+        expression: thinking
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: happy
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{正直|しょうじき}、{僕|ぼく}も「{派手|はで}な{方|ほう}がいい」って{思|おも}ってた。でもスミレのポスターをじっくり{見|み}て{考|かんが}えが{変|か}わった。{余白|よはく}があるから{目|め}がスーッと{動|うご}く。{見|み}やすさって{大事|だいじ}だな。"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: happy
+        position: left
+      - type: dialog
+        character: kanade
+        text: "スミレが「ダメ{出|だ}し」って{言|い}ってたとき、もっと「そんなことないよ！」って{強|つよ}く{言|い}えばよかった。スミレのポスター、{本当|ほんとう}に{素敵|すてき}だよ。{自信|じしん}{持|も}って！"
+        expression: happy
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "スミレのポスターは{余白|よはく}と{配色|はいしょく}バランスが{素晴|すば}らしい。「{地味|じみ}」じゃなくて「{計算|けいさん}されたデザイン」よ。{自信|じしん}を{持|も}ってね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{派手|はで}={良|よ}い」は{思|おも}い{込|こ}み。デザインの{目的|もくてき}は「{伝|つた}えること」。{余白|よはく}・{配色|はいしょく}・{視線|しせん}{誘導|ゆうどう}——この{原則|げんそく}を{知|し}れば、{自分|じぶん}の{作品|さくひん}の{良|よ}さが{見|み}えてくるわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ポスターデザインの{原則|げんそく}——{余白|よはく}の{力|ちから}、{少|すく}ない{色数|いろかず}、{視線|しせん}{誘導|ゆうどう}、そして「{派手|はで}さ」と「{見|み}やすさ」は{別物|べつもの}。"
+      - type: narration
+        text: "「{被害者|ひがいしゃ}={無実|むじつ}」「{派手|はで}={良|よ}い」——{二重|にじゅう}の{思|おも}い{込|こ}みに{気|き}をつけよう。{仮説|かせつ}を{立|た}てて{検証|けんしょう}する。{矛盾|むじゅん}があれば{前提|ぜんてい}を{疑|うたが}う。"
+      - type: narration
+        text: "そして——「どうせ{無理|むり}」と{先|さき}に{諦|あきら}めるのは、{自分|じぶん}の{良|よ}さを{見|み}えなくする。{自信|じしん}を{持|も}って、{自分|じぶん}の{作品|さくひん}に{正直|しょうじき}に{向|む}き{合|あ}おう。"
+      - type: effect
+        name: fade-out

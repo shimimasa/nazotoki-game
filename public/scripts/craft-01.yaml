@@ -1,0 +1,390 @@
+meta:
+  id: craft-01
+  title: 消えた色
+  series: 図工探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図工|ずこう}の{時間|じかん}に「わたしの{好|す}きな{色|いろ}を{作|つく}ろう」という{課題|かだい}をした。{三原色|さんげんしょく}の{赤|あか}・{青|あお}・{黄|き}と{白|しろ}をまぜて、{自分|じぶん}だけのオリジナルの{色|いろ}を{作|つく}った。"
+      - type: narration
+        text: "8{枚|まい}の{色|いろ}カードを{図工室|ずこうしつ}のかべにはった。みんな{自信作|じしんさく}ばかりだ。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}、{図工室|ずこうしつ}に{来|き}ると、カナデの{自信作|じしんさく}「{夕|ゆう}やけオレンジ」の{色|いろ}カードだけが{消|き}えていた！ {他|ほか}の7{枚|まい}はそのまま。いったい{誰|だれ}が{持|も}っていったのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{色|いろ}カードは8{枚|まい}のうち1{枚|まい}だけなくなっています。カナデさんの「{夕|ゆう}やけオレンジ」です。{放課後|ほうかご}、{図工室|ずこうしつ}のかぎは17{時|じ}にかけました。それまでは{誰|だれ}でも{入|はい}れる{状態|じょうたい}でした。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: surprised
+          - character: sumire
+            expression: thinking
+          - character: tsukuru
+            expression: surprised
+          - character: kanade
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が{色|いろ}カードを{持|も}っていったのか。{全員|ぜんいん}が{放課後|ほうかご}に{学校|がっこう}にいた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた色
+        subtitle: 図工探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 色カード一覧表を確認しよう
+      - type: narration
+        text: "{図工室|ずこうしつ}のかべにはってあった8{枚|まい}の{色|いろ}カードを{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— 「そらいろ」（{青|あお}+{白|しろ}）と「わかば」（{黄|き}+{少|すこ}しの{青|あお}+{白|しろ}）。{青|あお}{系|けい}と{緑|みどり}{系|けい}の{色|いろ}だ。"
+      - type: narration
+        text: "スミレ —— 「すみれ{色|いろ}」（{赤|あか}+{青|あお}+{少|すこ}しの{白|しろ}）と「さくらいろ」（{赤|あか}+{白|しろ}）。{紫|むらさき}{系|けい}とピンク{系|けい}。"
+      - type: narration
+        text: "ツクル —— 「もりの{緑|みどり}」（{黄|き}+{青|あお}）と「うみいろ」（{青|あお}+{少|すこ}しの{黄|き}+{白|しろ}）。{緑|みどり}{系|けい}と{青|あお}{系|けい}。"
+      - type: narration
+        text: "カナデ —— 「{夕|ゆう}やけオレンジ」（{赤|あか}+{黄|き}）と「あかね」（{赤|あか}+{少|すこ}しの{黄|き}+{少|すこ}しの{白|しろ}）。オレンジ{系|けい}と{赤|あか}{系|けい}。"
+      - type: narration
+        text: "{翌朝|よくあさ}、「{夕|ゆう}やけオレンジ」だけがなくなっていた。{他|ほか}の7{枚|まい}はそのまま。オレンジ{色|いろ}を{作|つく}るには{赤|あか}と{黄|き}が{必要|ひつよう}だ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{授業|じゅぎょう}は14:45に{終|お}わり。4{人|にん}は{片|かた}づけをして{図工室|ずこうしつ}を{出|で}た。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "スミレ —— 15:10に{図工室|ずこうしつ}を{出|で}た。{掃除当番|そうじとうばん}のため{教室|きょうしつ}へ。"
+      - type: narration
+        text: "ヒナタ —— 15:15に{図工室|ずこうしつ}を{出|で}た。みんなと{一緒|いっしょ}に{片|かた}づけて{帰|かえ}った。"
+      - type: narration
+        text: "ツクル —— 15:15に{図工室|ずこうしつ}を{出|で}た。{教室|きょうしつ}へ{戻|もど}った。"
+      - type: narration
+        text: "カナデ —— 15:20に{図工室|ずこうしつ}を{出|で}た。かべの{色|いろ}カードを{確認|かくにん}してから{出|で}た。8{枚|まい}すべてあった。"
+      - type: narration
+        text: "{図工室|ずこうしつ}は{先生|せんせい}が17:00にかぎをかける。それまでは{誰|だれ}でも{入|はい}れる。{最後|さいご}に{出|で}たカナデが15:20に{確認|かくにん}したとき、{色|いろ}カードは{全部|ぜんぶ}あった。{犯行|はんこう}は15:20{以降|いこう}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: パレットを観察しよう
+      - type: narration
+        text: "{翌朝|よくあさ}、4{人|にん}のパレットを{観察|かんさつ}した。パレットは{前日|ぜんじつ}のまま、{図工室|ずこうしつ}の{机|つくえ}の{上|うえ}にある。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタのパレット —— {青|あお}+{白|しろ}（そらいろ{用|よう}）、{黄|き}+{青|あお}+{白|しろ}（わかば{用|よう}）。そして——"
+      - type: narration
+        text: "{赤|あか}+{黄|き}のオレンジ{系|けい}の{色|いろ}が5つ{並|なら}んでいる！ うすいオレンジ、ふつうのオレンジ、こいオレンジ、{赤|あか}みオレンジ、{黄|き}みオレンジ。5{段階|だんかい}だ。"
+      - type: narration
+        text: "スミレのパレット —— {赤|あか}+{青|あお}+{白|しろ}（すみれ{色|いろ}{用|よう}）、{赤|あか}+{白|しろ}（さくらいろ{用|よう}）。オレンジ{系|けい}の{色|いろ}はなし。"
+      - type: narration
+        text: "ツクルのパレット —— {黄|き}+{青|あお}（もりの{緑|みどり}{用|よう}）、{青|あお}+{黄|き}+{白|しろ}（うみいろ{用|よう}）。オレンジ{系|けい}の{色|いろ}はなし。"
+      - type: narration
+        text: "カナデのパレット —— {赤|あか}+{黄|き}（{夕|ゆう}やけオレンジ{用|よう}）、{赤|あか}+{黄|き}+{白|しろ}（あかね{用|よう}）。オレンジ{系|けい}は2{色|しょく}。{自分|じぶん}の{色|いろ}カード{用|よう}に{使|つか}った{分|ぶん}だ。"
+      - type: narration
+        text: "ヒナタの{色|いろ}カードは「そらいろ」と「わかば」。オレンジ{系|けい}は{使|つか}わないはず。なのにパレットにオレンジ{系|けい}が5つもあるのはなぜ？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 図工室の使用記録簿
+      - type: narration
+        text: "{放課後|ほうかご}に{図工室|ずこうしつ}を{使|つか}うときは、{入|い}り{口|ぐち}の「{使用記録簿|しようきろくぼ}」に{名前|なまえ}と{時刻|じこく}を{書|か}くルール。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{放課後|ほうかご}の{記録|きろく}は——{空白|くうはく}。{誰|だれ}も{名前|なまえ}を{書|か}いていない。"
+      - type: narration
+        text: "しかし{翌朝|よくあさ}{確認|かくにん}すると——{電気|でんき}のスイッチは{消|き}えていたが、{水道|すいどう}の{近|ちか}くに{小|ちい}さな{水|みず}たまりがあった。パレットを{洗|あら}った{跡|あと}だろうか？"
+      - type: narration
+        text: "{記録簿|きろくぼ}に{名前|なまえ}がないのに、{誰|だれ}かが{放課後|ほうかご}に{図工室|ずこうしつ}を{使|つか}った{形跡|けいせき}がある。{使用記録|しようきろく}を{書|か}かずに{入|はい}った{人|ひと}がいる。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "15:25ごろ、{図工室|ずこうしつ}の{前|まえ}を{通|とお}ったら、ドアが{少|すこ}し{開|あ}いていて{中|なか}に{明|あ}かりがついていました。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "のぞいたら、ヒナタくんがパレットの{前|まえ}にすわって、{絵|え}の{具|ぐ}をまぜていました。「まだ{練習|れんしゅう}しているのかな？ {熱心|ねっしん}だな」と{思|おも}って、{声|こえ}はかけずに{通|とお}り{過|す}ぎました。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{山田先生|やまだせんせい}は15:25に{図工室|ずこうしつ}でヒナタを{目撃|もくげき}した！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ヒナタは「15:15にみんなと{帰|かえ}った」と{言|い}っていたのに、15:25に{図工室|ずこうしつ}にいた。パレットで{絵|え}の{具|ぐ}をまぜていた。{何|なん}の{色|いろ}を{作|つく}っていたのだろう？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: sumire
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sumire
+        text: "15:30に{教室|きょうしつ}に{着|つ}いたとき、ヒナタはまだ{来|き}てなかった。15:40ごろ{来|き}て、「ちょっと{寄|よ}り{道|みち}した」って{言|い}ってた……"
+        expression: thinking
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "15:35ごろ、{忘|わす}れ{物|もの}を{取|と}りに{廊下|ろうか}を{歩|ある}いてたら、{図工室|ずこうしつ}の{明|あ}かりがついてた。{急|いそ}いでて{中|なか}は{見|み}なかったけど……"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。カナデが15:20に{確認|かくにん}したとき{色|いろ}カードは{全部|ぜんぶ}あった。ヒナタは15:25に{図工室|ずこうしつ}でパレットの{前|まえ}にいた。ヒナタのパレットにはオレンジ{系|けい}が5つ。ヒナタの{色|いろ}カードにオレンジ{系|けい}は{使|つか}っていないのに——"
+      - type: choice
+        id: q1
+        question: カナデの色カードを持っていったのは誰？
+        options:
+          - text: ヒナタ（15:25に図工室にいて、パレットにオレンジ系が5つ）
+            value: hinata
+            correct: true
+            feedback: "{正解|せいかい}！ ヒナタは15:25に{図工室|ずこうしつ}に{戻|もど}り、カナデの{色|いろ}カードを{持|も}ち{帰|かえ}って{同|おな}じ{色|いろ}を{再現|さいげん}しようと{実験|じっけん}していた。パレットの5{段階|だんかい}のオレンジは、{赤|あか}と{黄|き}の{量|りょう}を{変|か}えた{実験|じっけん}の{跡|あと}だ。"
+          - text: スミレ（色の違いに敏感で、オレンジに興味があった）
+            value: sumire
+            feedback: "スミレは15:10に{図工室|ずこうしつ}を{出|で}て{掃除当番|そうじとうばん}へ。パレットにオレンジ{系|けい}の{色|いろ}はなかったよ。"
+          - text: ツクル（放課後に廊下を歩いていた）
+            value: tsukuru
+            feedback: "ツクルは15:15に{図工室|ずこうしつ}を{出|で}て15:20に{教室|きょうしつ}に{着|つ}いた。15:35に{廊下|ろうか}を{通|とお}ったけど、{図工室|ずこうしつ}には{入|はい}っていない。パレットにオレンジ{系|けい}もないよ。"
+          - text: カナデ（自分の色カードを隠した自作自演）
+            value: kanade
+            feedback: "カナデは{被害者|ひがいしゃ}で、{自分|じぶん}の{大切|たいせつ}な{色|いろ}カードがなくなって{悲|かな}しんでいる。{自作自演|じさくじえん}する{理由|りゆう}はないね。"
+
+  # ==================== 真実：ヒナタ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒナタの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hinata
+        expression: worried
+        position: center
+      - type: dialog
+        character: hinata
+        text: "……ごめんなさい。カナデの{色|いろ}カードを{持|も}っていったのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "ヒナタは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: hinata
+        text: "カナデの「{夕|ゆう}やけオレンジ」がどんな{配合|はいごう}で{作|つく}られたか、ずっと{気|き}になってた。「{秘密|ひみつ}のレシピ」って{言|い}われたら、{余計|よけい}に{知|し}りたくなって……"
+        expression: thinking
+      - type: dialog
+        character: hinata
+        text: "15:15に{一度|いちど}{出|で}たけど、15:25にこっそり{図工室|ずこうしつ}に{戻|もど}った。{色|いろ}カードをかべからはがして、{自分|じぶん}のパレットで{同|おな}じ{色|いろ}を{作|つく}ろうと{実験|じっけん}した。"
+        expression: worried
+      - type: dialog
+        character: hinata
+        text: "{赤|あか}と{黄|き}の{量|りょう}を{変|か}えて5{回|かい}も{試|ため}した。でもカナデと{同|おな}じ{色|いろ}にはならなかった。……{明日|あした}{返|かえ}すつもりだった。{悪気|わるぎ}はなかったんだ。"
+        expression: determined
+      - type: sprite
+        character: hinata
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: sumire
+        expression: worried
+        position: left
+      - type: dialog
+        character: sumire
+        text: "{実|じつ}は……15:30に{教室|きょうしつ}に{着|つ}いたとき、ヒナタがまだいなかった。15:40ごろ{来|き}て「{寄|よ}り{道|みち}した」って{言|い}ってた。おかしいなと{思|おも}ったけど、わざわざ{言|い}うことでもないかなって……"
+        expression: worried
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "15:35に{廊下|ろうか}を{通|とお}ったとき、{図工室|ずこうしつ}の{明|あ}かりがついてた。{急|いそ}いでて{中|なか}は{見|み}なかったけど……{見|み}ていれば{誰|だれ}がいたか{分|わ}かったのに。ごめん。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanade
+        text: "わたしも{言|い}わなきゃいけないことがある。「{夕|ゆう}やけオレンジ」は{実|じつ}は{偶然|ぐうぜん}できた{色|いろ}なの。{手|て}がすべって{黄色|きいろ}が{多|おお}く{入|はい}ったら、{思|おも}いがけずきれいな{色|いろ}になった。"
+        expression: worried
+      - type: dialog
+        character: kanade
+        text: "「{秘密|ひみつ}のレシピだよ」ってカッコつけちゃった。{本当|ほんとう}は「{偶然|ぐうぜん}」って{言|い}えばよかった……ごめんね、ヒナタ。"
+        expression: determined
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒナタの「{同|おな}じ{色|いろ}を{作|つく}りたい」という{好奇心|こうきしん}は{素晴|すば}らしいわ。{色|いろ}の{配合|はいごう}に{興味|きょうみ}を{持|も}つなんて、{図工|ずこう}が{大好|だいす}きなのね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{人|ひと}のものを{勝手|かって}に{持|も}っていくのはダメ。「{見|み}せて」「{貸|か}して」と{聞|き}けば、カナデさんも{喜|よろこ}んで{教|おし}えてくれたはずよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{三原色|さんげんしょく}の{赤|あか}・{青|あお}・{黄|き}。この3{色|しょく}をまぜれば、オレンジも、むらさきも、{緑|みどり}も{作|つく}れる。まぜる{量|りょう}で、うすい{色|いろ}やこい{色|いろ}にもなる。"
+      - type: narration
+        text: "でも{同|おな}じ{赤|あか}+{黄|き}でも、{量|りょう}やまぜ{方|かた}で{全然|ぜんぜん}{違|ちが}う{色|いろ}になる。ヒナタが5{回|かい}{試|ため}してもカナデと{同|おな}じ{色|いろ}にならなかったように、{色|いろ}には「{偶然|ぐうぜん}の{美|うつく}しさ」がある。"
+      - type: narration
+        text: "{好奇心|こうきしん}は{素晴|すば}らしい。でもその{使|つか}い{方|かた}が{大切|たいせつ}。「{見|み}せて」「{貸|か}して」の{一言|ひとこと}で、{世界|せかい}はもっと{広|ひろ}がる。"
+      - type: effect
+        name: fade-out

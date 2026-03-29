@@ -1,0 +1,499 @@
+meta:
+  id: global-03
+  title: 学校のルール
+  series: 国際理解探偵団
+  volume: 3
+  estimatedMinutes: 22
+
+characters:
+  hiromu:
+    name: ヒロム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manabu:
+    name: マナブ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  koeru:
+    name: コエル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{国際理解|こくさいりかい}の{授業|じゅぎょう}で「{世界|せかい}の{学校|がっこう}ルール{比較|ひかく}ポスター」を4{人|にん}で{作|つく}った。{日本|にほん}・フィンランド・{韓国|かんこく}・インドの4カ{国|こく}の{学校|がっこう}のルールを、{大|おお}きな{模造紙|もぞうし}にまとめて{教室|きょうしつ}の{壁|かべ}に{貼|は}って{帰|かえ}った。"
+      - type: narration
+        text: "{翌朝|よくあさ}——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへん！ {教室|きょうしつ}の{壁|かべ}のポスターが{書|か}き{換|か}えられているわ！ {韓国|かんこく}の「{休|やす}み{時間|じかん}」が「10{分|ぷん}」から「5{分|ぷん}」に{変|か}えられて、「フィンランドの{学校|がっこう}は{休|やす}みが{一番|いちばん}{長|なが}い！ すごい！」と{書|か}き{足|た}されている！"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: koeru
+        text: "え……{私|わたし}が{調|しら}べた{韓国|かんこく}の{休|やす}み{時間|じかん}は{絶対|ぜったい}10{分|ぷん}だった！ 3つの{資料|しりょう}で{確認|かくにん}したのに！"
+        expression: surprised
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: surprised
+          - character: manabu
+            expression: worried
+          - character: koeru
+            expression: determined
+          - character: tsumugi
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{放課後|ほうかご}の{教室|きょうしつ}に{入|はい}れたのは、この4{人|にん}のうちの{誰|だれ}かのはずだ。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 学校のルール
+        subtitle: 国際理解探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ポスターを調べよう
+      - type: narration
+        text: "{教室|きょうしつ}の{壁|かべ}のポスター「{世界|せかい}の{学校|がっこう}ルール{比較表|ひかくひょう}」を{調|しら}べてみた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{韓国|かんこく}の「{休|やす}み{時間|じかん}」の{欄|らん}が{書|か}き{換|か}えられていた。{元|もと}の{文字|もじ}（{黒|くろ}マジック）は「10{分|ぷん}」——その{上|うえ}に{青|あお}ペンで「5{分|ぷん}」と{上書|うわが}きされている。"
+      - type: narration
+        text: "ポスターの{下|した}に{青|あお}ペンで「フィンランドの{学校|がっこう}は{休|やす}みが{一番|いちばん}{長|なが}い！ すごい！」と{書|か}き{足|た}されていた。{青|あお}ペンは{教室|きょうしつ}の{先生|せんせい}の{机|つくえ}の{引|ひ}き{出|だ}しにあるものと{同|おな}じ{種類|しゅるい}だ。"
+      - type: narration
+        text: "{他|ほか}の{情報|じょうほう}（{日本|にほん}・インド・フィンランド）は{変|か}わっていない。{教室|きょうしつ}の{鍵|かぎ}は{放課後|ほうかご}かかっていなかった。"
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hiromu
+        text: "{書|か}き{換|か}えたのと{書|か}き{足|た}したのは{同|おな}じ{人|ひと}かな？ 「フィンランドが{一番|いちばん}」と{書|か}いた{人|ひと}は、フィンランドのことをよく{知|し}っているはずだ。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 正しい学校ルールを確認しよう
+      - type: narration
+        text: "{先生|せんせい}が{作|つく}った「{正|ただ}しい{情報|じょうほう}の{比較表|ひかくひょう}」を{見|み}た。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{日本|にほん}——{登校|とうこう}8:00、{授業|じゅぎょう}45{分|ぷん}、{休|やす}み10{分|ぷん}、{掃除|そうじ}は{生徒|せいと}がやる。{先生|せんせい}が{教室|きょうしつ}に{来|く}る。"
+      - type: narration
+        text: "フィンランド——{登校|とうこう}9:00、{授業|じゅぎょう}45{分|ぷん}、{休|やす}み15{分|ぷん}、{宿題|しゅくだい}なし。{外遊|そとあそ}び{推奨|すいしょう}。"
+      - type: narration
+        text: "{韓国|かんこく}——{登校|とうこう}8:00、{授業|じゅぎょう}40{分|ぷん}、{休|やす}み10{分|ぷん}、{生徒|せいと}が{教室|きょうしつ}を{移動|いどう}する。"
+      - type: narration
+        text: "インド——{登校|とうこう}8:30、{授業|じゅぎょう}35{分|ぷん}、{休|やす}み10{分|ぷん}、{週|しゅう}6{日制|にちせい}。ティフィン{持参|じさん}。"
+      - type: sprite
+        character: koeru
+        expression: determined
+        position: left
+      - type: dialog
+        character: koeru
+        text: "{韓国|かんこく}の{正|ただ}しい{休|やす}み{時間|じかん}は10{分|ぷん}。ポスターの「5{分|ぷん}」は{間違|まちが}いだ。{書|か}き{換|か}えた{人|ひと}は、{正|ただ}しい{情報|じょうほう}を{知|し}っていたはずなのに……"
+        expression: determined
+      - type: sprite
+        character: koeru
+        action: hide
+
+  # ==================== 調査：証拠カード3（個人カード交換） ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 各国の詳しい情報を共有しよう
+      - type: narration
+        text: "4{人|にん}はそれぞれ{担当|たんとう}の{国|くに}について{詳|くわ}しい{個人|こじん}カードを{持|も}っていた。{カード{交換|こうかん}タイム}で{情報|じょうほう}を{見|み}せ{合|あ}った。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: koeru
+        expression: determined
+        position: left
+      - type: dialog
+        character: koeru
+        text: "{韓国|かんこく}の{学校|がっこう}では、{授業|じゅぎょう}ごとに{生徒|せいと}が{教室|きょうしつ}を{移動|いどう}するの。{校舎|こうしゃ}が{大|おお}きくて、{教室|きょうしつ}{移動|いどう}に3{分|ぷん}かかることがあるんだ。"
+        expression: determined
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hiromu
+        text: "じゃあ……{休|やす}み{時間|じかん}が5{分|ぷん}だったら、{移動|いどう}3{分|ぷん}+トイレで{全然|ぜんぜん}{足|た}りないじゃないか！"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: happy
+        position: left
+      - type: dialog
+        character: manabu
+        text: "フィンランドの{休|やす}み{時間|じかん}は15{分|ぷん}で、{毎時間|まいじかん}{後|ご}に{必|かなら}ず{外|そと}で{遊|あそ}ぶのが{基本|きほん}なんだ。マイナス20{度|ど}でも{外|そと}に{出|で}るんだよ！"
+        expression: happy
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "インドは{週|しゅう}6{日制|にちせい}で{土曜日|どようび}も{授業|じゅぎょう}があるの。「ティフィン」っていう{金属|きんぞく}の{段重|だんがさ}ね{弁当箱|べんとうばこ}を{持|も}っていくんだって。"
+        expression: normal
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{月曜|げつよう}の{放課後|ほうかご}、4{人|にん}が{何|なに}をしていたか{聞|き}き{取|と}った。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒロム——15:30に{職員室|しょくいんしつ}で{委員会|いいんかい}{活動|かつどう}。{担任|たんにん}の{先生|せんせい}が{確認|かくにん}済み。"
+      - type: narration
+        text: "マナブ——15:30ごろ、{図書室|としょしつ}で{本|ほん}を{返却|へんきゃく}していた。（{確認|かくにん}した{先生|せんせい}はいない）"
+      - type: narration
+        text: "コエル——15:20に{下校|げこう}。{正門|せいもん}の{先生|せんせい}が{確認|かくにん}済み。"
+      - type: narration
+        text: "ツムギ——15:30に{保健室|ほけんしつ}で{手|て}の{擦|す}りキズの{手当|てあ}て。{保健|ほけん}の{先生|せんせい}が{確認|かくにん}済み。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "3{人|にん}は{先生|せんせい}が{確認|かくにん}している。マナブだけ{確認|かくにん}がない——{本当|ほんとう}に15:30に{図書室|としょしつ}にいた？"
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "{保健室|ほけんしつ}に{行|い}く{途中|とちゅう}の{廊下|ろうか}でね……マナブが{教室|きょうしつ}の{方向|ほうこう}に{歩|ある}いているのを{見|み}たの。15:25ごろのことだった。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 図書の先生の証言
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{図書|としょ}の{先生|せんせい}に{話|はなし}を{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{図書|としょ}の{先生|せんせい}の{証言|しょうげん}を{読|よ}むわね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「{月曜|げつよう}の{放課後|ほうかご}ですか？ 15:00〜16:00のあいだ、{図書室|としょしつ}には{誰|だれ}も{来|き}ていません。その{時間|じかん}は{私|わたし}がずっと{図書室|としょしつ}にいました。マナブくんが{来|き}た{記憶|きおく}はありません。」"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「あ、でも{月曜|げつよう}の5{時間目|じかんめ}（13:00ごろ）にマナブくんたち4{人|にん}が{調|しら}べ{学習|がくしゅう}に{来|き}ましたよ。その{時|とき}は{確|たし}かにいました。」"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マナブは「{放課後|ほうかご}15:30に{図書室|としょしつ}で{本|ほん}を{返|かえ}した」と{言|い}っていた。でも{図書|としょ}の{先生|せんせい}は「{誰|だれ}も{来|き}ていない」と{言|い}っている——"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "マナブのアリバイが{崩|くず}れた。{放課後|ほうかご}の15:25〜15:40に{教室|きょうしつ}の{方向|ほうこう}に{歩|ある}いていたのは……"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "{放課後|ほうかご}、{職員室|しょくいんしつ}に{行|い}く{途中|とちゅう}で{教室|きょうしつ}の{前|まえ}を{通|とお}ったら、{教室|きょうしつ}の{電気|でんき}がついていた。15:25ごろのことだ。「{誰|だれ}かまだいるのかな」って{思|おも}ったけど、{委員会|いいんかい}に{遅|おく}れそうで……"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: determined
+        position: right
+      - type: dialog
+        character: koeru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{韓国|かんこく}の{教室|きょうしつ}{移動|いどう}は3{分|ぷん}かかる。{休|やす}み{時間|じかん}が5{分|ぷん}だったら、{移動|いどう}3{分|ぷん}+トイレで{全然|ぜんぜん}{足|た}りない。だから「5{分|ぷん}」の{書|か}き{換|か}えは{事実|じじつ}じゃない。"
+        expression: determined
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "「フィンランドが{一番|いちばん}！」と{書|か}いた{人|ひと}は、フィンランドをよく{見|み}せたかった{人|ひと}……フィンランド{担当|たんとう}のマナブ……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ヒロム・コエル・ツムギの{放課後|ほうかご}は{先生|せんせい}が{確認|かくにん}済み。マナブだけ{アリバイ|あらいばい}がない——しかも{廊下|ろうか}で{教室|きょうしつ}{方向|ほうこう}に{向|む}かう{姿|すがた}を{目撃|もくげき}されている。"
+      - type: choice
+        id: q1
+        question: ポスターを書き換えたのは誰？
+        options:
+          - text: マナブ（アリバイがなく、教室方向に歩く姿を目撃された。フィンランド担当）
+            value: manabu
+            correct: true
+            feedback: "{正解|せいかい}！ マナブは「{図書室|としょしつ}にいた」と{言|い}ったが{図書|としょ}の{先生|せんせい}が{否定|ひてい}。15:25〜15:40に{教室|きょうしつ}にいて、フィンランドの{休|やす}みを{目立|めだ}たせようと{韓国|かんこく}の「10{分|ぷん}」を「5{分|ぷん}」に{書|か}き{換|か}えた。"
+          - text: ヒロム（教室の電気がついているのを見た）
+            value: hiromu
+            feedback: "ヒロムは15:30に{職員室|しょくいんしつ}で{委員会|いいんかい}{活動|かつどう}をしていたことを{担任|たんにん}の{先生|せんせい}が{確認|かくにん}しているよ。{電気|でんき}に{気|き}づいたのは{通|とお}りかかっただけだね。"
+          - text: コエル（自分の調べた情報を守ろうとした）
+            value: koeru
+            feedback: "コエルは15:20に{下校|げこう}済みで、{正門|せいもん}の{先生|せんせい}が{確認|かくにん}しているよ。{書|か}き{換|か}えで{損|そん}をしているのはコエルだね。"
+          - text: ツムギ（廊下でマナブを見た）
+            value: tsumugi
+            feedback: "ツムギは15:30に{保健室|ほけんしつ}にいたことを{保健|ほけん}の{先生|せんせい}が{確認|かくにん}しているよ。{廊下|ろうか}でマナブを{見|み}たのは{保健室|ほけんしつ}に{向|む}かう{途中|とちゅう}のことだね。"
+
+  # ==================== 真実：マナブの告白 ====================
+  - id: truth-manabu
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マナブの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: center
+      - type: dialog
+        character: manabu
+        text: "……{僕|ぼく}が{書|か}き{換|か}えました。ごめんなさい。"
+        expression: worried
+      - type: narration
+        text: マナブはうつむきながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: manabu
+        text: "フィンランドの{学校|がっこう}を{調|しら}べていたら、すごすぎてびっくりしたんだ。{休|やす}みが15{分|ぷん}もあって、{宿題|しゅくだい}がないのに{学力|がくりょく}テストで{世界|せかい}トップで。{発表会|はっぴょうかい}で「{僕|ぼく}の{調|しら}べたフィンランドってすごいね！」って{褒|ほ}めてもらいたかった。"
+        expression: thinking
+      - type: dialog
+        character: manabu
+        text: "でもポスターを{見|み}たら、{韓国|かんこく}も10{分|ぷん}で、フィンランドと5{分|ぷん}しか{差|さ}がない。「もっと{差|さ}があれば、フィンランドのすごさが{伝|つた}わるのに……」って{思|おも}って、{放課後|ほうかご}に{教室|きょうしつ}に{戻|もど}って{書|か}き{換|か}えた。"
+        expression: worried
+      - type: dialog
+        character: manabu
+        text: "{韓国|かんこく}の{本当|ほんとう}の{休|やす}み{時間|じかん}は10{分|ぷん}だって{知|し}ってた。でも……{嘘|うそ}をついてまですることじゃなかった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: koeru
+        expression: worried
+        position: left
+      - type: dialog
+        character: koeru
+        text: "マナブ……{私|わたし}のデータを{書|か}き{換|か}えたのはショックだった。でもフィンランドに{感動|かんどう}した{気持|きも}ちは{分|わ}かる。{正|ただ}しいデータのままでも、フィンランドの{学校|がっこう}はすごいよ。"
+        expression: worried
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "{廊下|ろうか}でマナブを{見|み}たとき、「{忘|わす}れ{物|もの}かな」って{思|おも}って{言|い}えなかった。もし{早|はや}く{言|い}えていたら……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: worried
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "{教室|きょうしつ}の{電気|でんき}がついていたのを{見|み}て、「{誰|だれ}かいるのかな」って{思|おも}ったのに、{委員会|いいんかい}が{気|き}になって{声|こえ}をかけなかった。あのとき{立|た}ち{止|と}まれば{良|よ}かった……"
+        expression: worried
+      - type: sprite
+        character: hiromu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マナブの「フィンランドの{学校|がっこう}を{褒|ほ}めてもらいたい」という{気持|きも}ちは{自然|しぜん}なことよ。{自分|じぶん}が{調|しら}べたことを{認|みと}めてもらいたい——そういう{気持|きも}ちは{誰|だれ}にでもあるわ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "でも{大切|たいせつ}なのはね、**{事実|じじつ}を{変|か}えずに{正直|しょうじき}に{勝負|しょうぶ}すること**。フィンランドの{学校|がっこう}は{正|ただ}しいデータのままでも{十分|じゅうぶん}すごい。{嘘|うそ}なしで{伝|つた}える{方|ほう}が、ずっとカッコいいわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{日本|にほん}の{休|やす}み10{分|ぷん}・フィンランドの15{分|ぷん}・{韓国|かんこく}の10{分|ぷん}・インドの10{分|ぷん}——{数字|すうじ}が{違|ちが}うのは、それぞれの{文化|ぶんか}や{学校|がっこう}の{仕組|しく}みが{違|ちが}うから。"
+      - type: narration
+        text: "{大切|たいせつ}なのは「どの{国|くに}が{一番|いちばん}か」を{決|き}めることじゃない。{違|ちが}いを{知|し}って、{理由|りゆう}を{考|かんが}えること。それが{比較|ひかく}の{本当|ほんとう}の{意味|いみ}だ。"
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "そして{今日|きょう}{学|まな}んだ「{因果|いんが}{連鎖|れんさ}」を{忘|わす}れないでね。{教室|きょうしつ}{移動|いどう}3{分|ぷん}→5{分|ぷん}では{足|た}りない→だから{書|か}き{換|か}えは{嘘|うそ}。AだからB、BだからC——この{考|かんが}え{方|かた}は{日常|にちじょう}でも{使|つか}えるわ！"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: determined
+          - character: manabu
+            expression: worried
+          - character: koeru
+            expression: determined
+          - character: tsumugi
+            expression: happy
+      - type: narration
+        text: マナブはみんなに{謝|あやま}った。コエルは「{正|ただ}しいデータで{勝負|しょうぶ}しよう」と{言|い}った。{世界|せかい}の{学校|がっこう}ルールを{学|まな}ぶ{冒険|ぼうけん}は、まだ{始|はじ}まったばかりだ。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

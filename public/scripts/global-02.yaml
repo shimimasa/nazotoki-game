@@ -1,0 +1,474 @@
+meta:
+  id: global-02
+  title: お弁当ワールド
+  series: 国際理解探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  hiromu:
+    name: ヒロム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manabu:
+    name: マナブ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  koeru:
+    name: コエル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{国際理解|こくさいりかい}の{授業|じゅぎょう}で「{世界|せかい}のお{弁当|べんとう}{発表会|はっぴょうかい}」の{準備|じゅんび}が{進|すす}んでいる。4{人|にん}の{国際理解探偵団|こくさいりかいたんていだん}は、それぞれ1カ{国|こく}のお{弁当|べんとう}と{食|た}べ{方|かた}を{調|しら}べて、{食|た}べ{方|かた}カードを{作|つく}った。"
+      - type: narration
+        text: "{月曜日|げつようび}の{放課後|ほうかご}、{家庭科室|かていかしつ}の{展示|てんじ}テーブルに4{枚|まい}のカードを{並|なら}べて{帰|かえ}った。{火曜日|かようび}の{朝|あさ}——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: tsumugi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: tsumugi
+        text: "え……わたしのカード！ 「フォークとナイフで{食|た}べる」って{書|か}いたのに、「{手|て}で{食|た}べる」に{書|か}き{換|か}えられてる！"
+        expression: surprised
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツムギさんのブラジル{用|よう}「{食|た}べ{方|かた}カード」が{書|か}き{換|か}えられているわ。{誰|だれ}が、なぜ{書|か}き{換|か}えたのか……{国際理解探偵団|こくさいりかいたんていだん}の{力|ちから}で{解|と}き{明|あ}かしましょう！"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: surprised
+          - character: manabu
+            expression: surprised
+          - character: koeru
+            expression: worried
+          - character: tsumugi
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{月曜|げつよう}の{放課後|ほうかご}に{家庭科室|かていかしつ}に{入|はい}れたのは、この4{人|にん}のうちの{誰|だれ}かのはずだ。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: お弁当ワールド
+        subtitle: 国際理解探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書き換えられたカードを調べよう
+      - type: narration
+        text: "ツムギのブラジル{用|よう}「{食|た}べ{方|かた}カード」を{調|しら}べてみた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{元|もと}の{文字|もじ}は{黒|くろ}ペンで「フォークとナイフで{食|た}べる」と{書|か}かれていた。"
+      - type: narration
+        text: "その{上|うえ}から{赤|あか}ペンで{線|せん}を{引|ひ}いて{消|け}し、「{手|て}で{食|た}べる」と{書|か}き{直|なお}されていた。{赤|あか}ペンは{家庭科室|かていかしつ}の{引|ひ}き{出|だ}しにあるものと{同|おな}じ{種類|しゅるい}だ。"
+      - type: narration
+        text: "{書|か}き{換|か}えられたのは{月曜|げつよう}の{放課後|ほうかご}〜{火曜|かよう}の{朝|あさ}のあいだ。ツムギは{月曜|げつよう}15:20に{下校|げこう}して、{火曜|かよう}8:30に{発見|はっけん}した。"
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "3{日|にち}もかけて{調|しら}べた{情報|じょうほう}なのに……{本当|ほんとう}に{悲|かな}しい。ブラジルは{絶対|ぜったい}フォークとナイフのはずなんだ。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 世界の食べ方を確認しよう
+      - type: narration
+        text: "{先生|せんせい}が{図書室|としょしつ}の{本|ほん}「{世界|せかい}の{食|しょく}と{暮|く}らし」から{作|つく}った{正|ただ}しい{情報|じょうほう}カードを{見|み}た。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{日本|にほん}の{基本|きほん}の{食|た}べ{方|かた}は「{箸|はし}」。{挨拶|あいさつ}は「いただきます・ごちそうさま」。"
+      - type: narration
+        text: "{インド|いんど}の{基本|きほん}の{食|た}べ{方|かた}は「{右手|みぎて}で{食|た}べる」。{左手|ひだりて}は{使|つか}わない。ナンをちぎって{食|た}べる。"
+      - type: narration
+        text: "{韓国|かんこく}の{基本|きほん}の{食|た}べ{方|かた}は「{箸|はし}＋スプーン」。{器|うつわ}は{持|も}ち{上|あ}げない。{年長者|ねんちょうしゃ}が{先|さき}に{食|た}べる。"
+      - type: narration
+        text: "{ブラジル|ぶらじる}の{基本|きほん}の{食|た}べ{方|かた}は「フォークとナイフ」。ピザもフォークで{食|た}べる。{手|て}で{食|た}べるのは{屋台|やたい}フードだけ。"
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "ツムギのカード「フォークとナイフで{食|た}べる」は{正|ただ}しかったってことだ。{書|か}き{換|か}えた{人|ひと}は、ブラジルの{食|た}べ{方|かた}を{誤解|ごかい}していたことになる。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "{月曜|げつよう}の{放課後|ほうかご}、4{人|にん}がそれぞれ{何|なに}をしていたか{聞|き}き{取|と}った。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒロム——15:30に{図書室|としょしつ}で{本|ほん}を{返却|へんきゃく}。{図書|としょ}の{先生|せんせい}が{確認|かくにん}済み。"
+      - type: narration
+        text: "マナブ——15:30に{理科室|りかしつ}で{実験|じっけん}の{片付|かたづ}け。{理科|りか}の{先生|せんせい}が{確認|かくにん}済み。"
+      - type: narration
+        text: "コエル——15:30ごろから{体育館|たいいくかん}でバスケットボール。{確認|かくにん}した{先生|せんせい}はいない。"
+      - type: narration
+        text: "ツムギ——15:20に{下校|げこう}。{正門|せいもん}の{先生|せんせい}が{確認|かくにん}済み。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "3{人|にん}は{先生|せんせい}が{確認|かくにん}してくれているね。コエルだけ{先生|せんせい}の{確認|かくにん}がない。コエルは{本当|ほんとう}に15:30から{体育館|たいいくかん}にいた？"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 家庭科室の入退室記録を調べよう
+      - type: narration
+        text: "{家庭科室|かていかしつ}には{入退室|にゅうたいしつ}ノートがある。{月曜|げつよう}の{記録|きろく}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "13:00 {入室|にゅうしつ}——ヒロム・マナブ・コエル・ツムギ（5{時間目|じかんめ}）"
+      - type: narration
+        text: "13:45 {退室|たいしつ}——{全員|ぜんいん}（カード{完成|かんせい}）"
+      - type: narration
+        text: "15:25 {入室|にゅうしつ}——{名前|なまえ}が{書|か}いていない"
+      - type: narration
+        text: "15:40 {退室|たいしつ}——{名前|なまえ}が{書|か}いていない"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "15:25〜15:40に{誰|だれ}かが{家庭科室|かていかしつ}に{入|はい}っている。{名前|なまえ}を{書|か}かずに{入|はい}った{人|ひと}がいる——"
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "15:25〜15:40に{家庭科室|かていかしつ}にいた{人|ひと}は{誰|だれ}だろう。{証拠|しょうこ}カード③の「{放課後|ほうかご}の{行動|こうどう}」と{照|て}らし{合|あ}わせてみよう。{表|ひょう}にまとめると{分|わ}かりやすいよ。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 給食の先生の証言
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{給食|きゅうしょく}の{先生|せんせい}に{話|はなし}を{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{給食|きゅうしょく}の{先生|せんせい}の{証言|しょうげん}を{読|よ}むわね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「{月曜|げつよう}の15:30ごろ、{家庭科室|かていかしつ}の{前|まえ}を{通|とお}りかかったんです。{中|なか}から{声|こえ}が{聞|き}こえました。」"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「『これ{間違|まちが}ってるから{直|なお}さなきゃ。テレビで{見|み}たもん』と{言|い}っていました。{女|おんな}の{子|こ}の{声|こえ}でしたね。{何|なに}かカードのようなものを{書|か}き{直|なお}しているようでした。」"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "15:30に{家庭科室|かていかしつ}にいたのは{女|おんな}の{子|こ}。「テレビで{見|み}た」と{言|い}っている——"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ツムギは15:20に{下校|げこう}済み。15:30に{家庭科室|かていかしつ}にいた{女|おんな}の{子|こ}は……もう1{人|にん}の{女|おんな}の{子|こ}だ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: left
+      - type: dialog
+        character: manabu
+        text: "5{時間目|じかんめ}に{家庭科室|かていかしつ}でカードを{作|つく}っているとき、コエルが「ブラジルって{手|て}で{食|た}べるんでしょ？ テレビで{見|み}たよ」って{言|い}っていたんだ。あのとき{気|き}になったんだけど、{言|い}えなかった……"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "{誰|だれ}かが「ブラジルは{手|て}で{食|た}べる」と{思|おも}い{込|こ}んで、{私|わたし}のカードを{間違|まちが}いだと{思|おも}ったの？ テレビだけで{全部|ぜんぶ}分かるわけじゃないのに……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "{図書室|としょしつ}で「{世界|せかい}の{食|た}べ{物|もの}{図鑑|ずかん}」を{読|よ}んでいたら、「ブラジルの{食事|しょくじ}はフォークとナイフが{基本|きほん}。{手|て}で{食|た}べるのは{屋台|やたい}のストリートフードだけ」って{書|か}いてあった。ツムギのカードが{正|ただ}しかったことは、{分|わ}かってたんだ。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ヒロム・マナブ・ツムギは{先生|せんせい}が{確認|かくにん}済み。15:25〜15:40に{家庭科室|かていかしつ}にいた{女|おんな}の{子|こ}で、「テレビで{見|み}た」と{言|い}っていた{人|ひと}は……"
+      - type: choice
+        id: q1
+        question: 食べ方カードを書き換えたのは誰？
+        options:
+          - text: コエル（先生の確認がなく、テレビでブラジルを見ていたと話していた）
+            value: koeru
+            correct: true
+            feedback: "{正解|せいかい}！ コエルは15:25〜15:40に{家庭科室|かていかしつ}にいた。{体育館|たいいくかん}に{着|つ}いたのは15:45ごろ。「テレビで{見|み}たもん」はコエルの{独|ひと}り{言|ごと}だった。"
+          - text: ヒロム（ブラジルの食べ方を知っていたのに黙っていた）
+            value: hiromu
+            feedback: "ヒロムは15:30に{図書室|としょしつ}にいたことを{図書|としょ}の{先生|せんせい}が{確認|かくにん}しているよ。{知|し}っていたのに{伝|つた}えなかったのは{別|べつ}の{問題|もんだい}だね。"
+          - text: マナブ（コエルの発言を聞いていた）
+            value: manabu
+            feedback: "マナブは15:30に{理科室|りかしつ}にいたことを{理科|りか}の{先生|せんせい}が{確認|かくにん}しているよ。{給食|きゅうしょく}の{先生|せんせい}が{聞|き}いたのは{女|おんな}の{子|こ}の{声|こえ}だったね。"
+          - text: ツムギ（自分のカードを書き直した）
+            value: tsumugi
+            feedback: "ツムギは15:20に{下校|げこう}済みで、{正門|せいもん}の{先生|せんせい}が{確認|かくにん}しているよ。{被害者|ひがいしゃ}のツムギが{自分|じぶん}のカードを{書|か}き{換|か}える{理由|りゆう}もないよね。"
+
+  # ==================== 真実：コエルの告白 ====================
+  - id: truth-koeru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: コエルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: koeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: koeru
+        text: "……{私|わたし}です。カードを{書|か}き{換|か}えたのは{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: コエルは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: koeru
+        text: "{先週|せんしゅう}テレビで「ブラジルの{屋台|やたい}グルメ{旅|たび}」って{番組|ばんぐみ}を{見|み}たの。ブラジルの{人|ひと}が{串焼|くしや}きやコシーニャを{手|て}で{食|た}べてたから……「ブラジルでは{手|て}で{食|た}べるのが{普通|ふつう}なんだ」って{思|おも}い{込|こ}んだ。"
+        expression: thinking
+      - type: dialog
+        character: koeru
+        text: "{放課後|ほうかご}、{忘|わす}れ{物|もの}を{取|と}りに{家庭科室|かていかしつ}に{寄|よ}ったら、ツムギのカードに「フォークとナイフで{食|た}べる」って{書|か}いてあって。「これ{間違|まちが}いだ！ ツムギのために{直|なお}してあげよう」って……"
+        expression: worried
+      - type: dialog
+        character: koeru
+        text: "{善意|ぜんい}でやったの。でも……{私|わたし}のほうが{間違|まちが}えてたんだ。テレビで{見|み}たのは{屋台|やたい}の{映像|えいぞう}だけで、ブラジルの{食文化|しょくぶんか}{全部|ぜんぶ}じゃなかった。"
+        expression: determined
+      - type: sprite
+        character: koeru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "コエル……イタズラじゃなかったの？ {私|わたし}のために{直|なお}してくれようとしたの？ でも、{悲|かな}しかったよ。3{日|にち}かけて{調|しら}べたのに……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: left
+      - type: dialog
+        character: manabu
+        text: "5{時間目|じかんめ}にコエルが「ブラジルって{手|て}で{食|た}べるんでしょ」って{言|い}ってたの、{聞|き}こえてたんだ。「{違|ちが}うかも」って{思|おも}ったのに、{言|い}えなかった。あのとき{言|い}えばよかった……"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: worried
+        position: right
+      - type: dialog
+        character: hiromu
+        text: "{図鑑|ずかん}でブラジルの{食|た}べ{方|かた}は「フォークとナイフ」って{確認|かくにん}してたのに、{誰|だれ}にも{伝|つた}えなかった。「{知|し}ってたのになぜ{言|い}わなかったの？」って{思|おも}われるのが{嫌|いや}だったから……ごめん。"
+        expression: worried
+      - type: sprite
+        character: hiromu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "コエルの「ツムギのために{直|なお}してあげよう」という{気持|きも}ちは{素晴|すば}らしいわ。でもね、{直|なお}す{前|まえ}に「{本当|ほんとう}にそう？」って{確認|かくにん}することが{大切|たいせつ}なの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "テレビで{見|み}た{映像|えいぞう}は、ブラジルの{食文化|しょくぶんか}のほんの{一部|いちぶ}だった。{屋台|やたい}の{場面|ばめん}だけで「ブラジル{全体|ぜんたい}」を{決|き}めつけてしまったのね。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{箸|はし}・{右手|みぎて}・{箸|はし}とスプーン・フォークとナイフ——{世界|せかい}には{色|いろ}々な{食|た}べ{方|かた}がある。どれが{正|ただ}しい・{間違|まちが}いではなく、{文化|ぶんか}の{違|ちが}い。"
+      - type: narration
+        text: "{大切|たいせつ}なのは、「テレビで{見|み}た」だけで{全部|ぜんぶ}{分|わ}かったと{思|おも}わないこと。{本|ほん}や{図鑑|ずかん}で{調|しら}べたり、その{国|くに}の{人|ひと}に{聞|き}いたり、いろいろな{方法|ほうほう}で{確認|かくにん}すること。"
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "そして、{友達|ともだち}のカードが{間違|まちが}っていると{思|おも}ったら、{勝手|かって}に{直|なお}すのではなく、まず{本人|ほんにん}に{聞|き}いてみましょう。それが{相手|あいて}を{大切|たいせつ}にすることよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: determined
+          - character: manabu
+            expression: happy
+          - character: koeru
+            expression: worried
+          - character: tsumugi
+            expression: happy
+      - type: narration
+        text: コエルはツムギに{謝|あやま}った。ツムギはコエルの{善意|ぜんい}に{気|き}づいて、{少|すこ}し{表情|ひょうじょう}がやわらいだ。{世界|せかい}の{食文化|しょくぶんか}を{学|まな}ぶ{冒険|ぼうけん}は、まだ{始|はじ}まったばかりだ。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

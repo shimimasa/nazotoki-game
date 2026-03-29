@@ -1,0 +1,438 @@
+meta:
+  id: global-01
+  title: あいさつミステリー
+  series: 国際理解探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  hiromu:
+    name: ヒロム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manabu:
+    name: マナブ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  koeru:
+    name: コエル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今日|きょう}はひまわり{小学校|しょうがっこう}の{国際交流|こくさいこうりゅう}ウィーク{最終日|さいしゅうび}。「{世界|せかい}のあいさつ{体験|たいけん}」イベントがもうすぐ{始|はじ}まる。"
+      - type: narration
+        text: "アメリカ・タイ・フランス・ブラジルの4カ{国|こく}からゲストの{先生|せんせい}が{来|き}てくれた。4{人|にん}の{国際理解探偵団|こくさいりかいたんていだん}は、それぞれ1カ{国|こく}の「おもてなし{係|がかり}」だ。"
+      - type: narration
+        text: あいさつのリハーサルも{順調|じゅんちょう}に{進|すす}んでいた。ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへん！ {準備室|じゅんびしつ}に{置|お}いてあった**フランスの{歓迎|かんげい}メッセージカード10{枚|まい}**がなくなっているわ！ イベントまであと30{分|ぷん}しかないのに……"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: surprised
+          - character: manabu
+            expression: surprised
+          - character: koeru
+            expression: worried
+          - character: tsumugi
+            expression: worried
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{準備室|じゅんびしつ}に{入|はい}れたのは、この4{人|にん}と{先生|せんせい}たちだけだ。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: あいさつミステリー
+        subtitle: 国際理解探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 準備室を調べよう
+      - type: narration
+        text: "{準備室|じゅんびしつ}（ふだんは{理科室|りかしつ}）を{調|しら}べてみた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "フランスのメッセージカード10{枚|まい}がなくなっている。アメリカ・タイ・ブラジルのカードは{無事|ぶじ}。"
+      - type: narration
+        text: "テーブルの{上|うえ}に**{花瓶|かびん}が{横倒|よこだお}し**になっていた。{水|みず}がこぼれた{跡|あと}がある。"
+      - type: narration
+        text: "{水|みず}がこぼれた{場所|ばしょ}は、**フランスのカードが{置|お}いてあったあたり**だ。"
+      - type: narration
+        text: "{花瓶|かびん}が{倒|たお}れたことと、カードがなくなったことは{関係|かんけい}がありそうだね。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 10時の行動を確認しよう
+      - type: narration
+        text: "4{人|にん}が「10{時|じ}ごろ{何|なに}をしていたか」を{聞|き}き{取|と}った。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒロム —— 10:00に{体育館|たいいくかん}でスミス{先生|せんせい}（アメリカ）と{握手|あくしゅ}の{練習|れんしゅう}"
+      - type: narration
+        text: "マナブ —— 10:00に{体育館|たいいくかん}でソムチャイ{先生|せんせい}（タイ）とワイの{練習|れんしゅう}"
+      - type: narration
+        text: "コエル —— 10:00に{多目的室|たもくてきしつ}でデュポン{先生|せんせい}（フランス）とビズの{練習|れんしゅう}"
+      - type: narration
+        text: "ツムギ —— 10:00に{図書室|としょしつ}でシルバ{先生|せんせい}（ブラジル）に{絵本|えほん}{紹介|しょうかい}"
+      - type: narration
+        text: "{全員|ぜんいん}が「10{時|じ}にゲストと{一緒|いっしょ}にいた」と{言|い}っている。{本当|ほんとう}かな？ {確認|かくにん}できる{方法|ほうほう}はあるかな？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 先生たちの目撃情報 その1
+      - type: narration
+        text: "{先生|せんせい}たちに{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: left
+      - type: dialog
+        character: yamada
+        text: "10{時|じ}に{体育館|たいいくかん}をのぞいたら、**マナブくんがタイのソムチャイ{先生|せんせい}と{手|て}を{合|あ}わせて{練習|れんしゅう}していた**わ。ワイの{練習|れんしゅう}ね。とても{上手|じょうず}だった。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{図工|ずこう}の{先生|せんせい}の{証言|しょうげん}——"
+      - type: narration
+        text: "「10{時|じ}ごろ、{多目的室|たもくてきしつ}の{前|まえ}を{通|とお}ったら、**コエルさんがフランスのデュポン{先生|せんせい}とほほを{近|ちか}づけて{笑|わら}っていた**よ。ビズの{練習|れんしゅう}だね。」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マナブとコエルが「10{時|じ}にゲストと{一緒|いっしょ}」は{先生|せんせい}が{確認|かくにん}してくれた。{残|のこ}りの2{人|にん}は……？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 先生たちの目撃情報 その2
+      - type: narration
+        text: "もう{少|すこ}し{聞|き}いてみた。"
+      - type: narration
+        text: "{図書|としょ}の{先生|せんせい}の{証言|しょうげん} ——「10{時|じ}に{図書室|としょしつ}にいたら、**ツムギさんがブラジルのシルバ{先生|せんせい}に{日本|にほん}の{絵本|えほん}を{紹介|しょうかい}していた**。シルバ{先生|せんせい}はとても{喜|よろこ}んでいたよ。」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{校長|こうちょう}{先生|せんせい}の{証言|しょうげん} ——「9{時|じ}30{分|ぷん}にゲストが{到着|とうちゃく}して、{校長室|こうちょうしつ}でお{話|はなし}をしました。」"
+      - type: narration
+        text: "「タイ・フランス・ブラジルのゲストは9{時|じ}45{分|ふん}に{児童|じどう}が{迎|むか}えに{来|き}ました。」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「**アメリカのスミス{先生|せんせい}だけ、{交流会|こうりゅうかい}の{打|う}ち{合|あ}わせがあったので10{時|じ}15{分|ふん}まで{校長室|こうちょうしつ}にいました**。」"
+      - type: narration
+        text: "スミス{先生|せんせい}は10{時|じ}15{分|ふん}まで{校長室|こうちょうしつ}にいた。ヒロムは「10{時|じ}に{体育館|たいいくかん}でスミス{先生|せんせい}と{握手|あくしゅ}していた」と{言|い}っているけど……？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: スミス先生からのメモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "アメリカのスミス{先生|せんせい}に{直接|ちょくせつ}{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "スミス{先生|せんせい}のメモを{読|よ}むわね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「わたしは**10{時|じ}から10{時|じ}15{分|ふん}まで{校長室|こうちょうしつ}にいました**。{校長|こうちょう}{先生|せんせい}と{打|う}ち{合|あ}わせをしていました。」"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「ヒロムくんが{校長室|こうちょうしつ}に{迎|むか}えに{来|き}てくれたのは**10{時|じ}15{分|ふん}ごろ**です。それから{一緒|いっしょ}に{体育館|たいいくかん}に{行|い}きました。」"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「ヒロムくんは{少|すこ}し{息|いき}が{上|あ}がっていて、{走|はし}ってきたみたいでした。」"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒロムは「10{時|じ}に{体育館|たいいくかん}で{握手|あくしゅ}の{練習|れんしゅう}」と{言|い}っていた。でもスミス{先生|せんせい}は「10{時|じ}15{分|ふん}に{初|はじ}めて{会|あ}った」と{言|い}っている。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "10{時|じ}から10{時|じ}15{分|ふん}のあいだ、ヒロムは**どこにいた**？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: manabu
+        text: "……{実|じつ}は、10{時|じ}に{体育館|たいいくかん}でソムチャイ{先生|せんせい}とワイの{練習|れんしゅう}をしていたとき、ヒロムはまだ{来|き}ていなかった。ヒロムが{来|き}たのは10{時|じ}15{分|ふん}ごろだった。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: koeru
+        text: "わたしも{言|い}いにくいんだけど……9{時|じ}55{分|ふん}ごろ、{廊下|ろうか}で**ヒロムが{準備室|じゅんびしつ}の{方向|ほうこう}に{急|いそ}いで{歩|ある}いている**のを{見|み}た。"
+        expression: worried
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "あの{花瓶|かびん}……{朝|あさ}、わたしがテーブルの{端|はし}に{置|お}いたの。{倒|たお}れやすい{場所|ばしょ}だったかも。もし{花瓶|かびん}が{倒|たお}れてカードに{水|みず}がかかったのなら……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。マナブ・コエル・ツムギは{先生|せんせい}が{確認|かくにん}ずみ。ヒロムだけアリバイがない。しかも{準備室|じゅんびしつ}に{向|む}かう{姿|すがた}を{目撃|もくげき}されている——"
+      - type: choice
+        id: q1
+        question: メッセージカードを持ち出したのは誰？
+        options:
+          - text: ヒロム（10:00〜10:15のアリバイがなく、準備室に向かう姿を目撃された）
+            value: hiromu
+            correct: true
+            feedback: "{正解|せいかい}！ スミス{先生|せんせい}は10:15まで{校長室|こうちょうしつ}にいた。ヒロムが{体育館|たいいくかん}にいたのは10:15{以降|いこう}。10:00〜10:15に{準備室|じゅんびしつ}にいたのはヒロムだけだ。"
+          - text: マナブ（体育館にいたが、ヒロムの遅刻に気づいていた）
+            value: manabu
+            feedback: "マナブは10{時|じ}に{体育館|たいいくかん}にいたことを山田{先生|せんせい}が{確認|かくにん}しているよ。アリバイがあるね。"
+          - text: コエル（準備室の方向にいた人を目撃した）
+            value: koeru
+            feedback: "コエルは10{時|じ}に{多目的室|たもくてきしつ}にいたことを{図工|ずこう}の{先生|せんせい}が{確認|かくにん}しているよ。{目撃|もくげき}したのはコエル{自身|じしん}ではなくヒロムだ。"
+          - text: ツムギ（花瓶を置いた人）
+            value: tsumugi
+            feedback: "ツムギは10{時|じ}に{図書室|としょしつ}にいたことを{図書|としょ}の{先生|せんせい}が{確認|かくにん}しているよ。{花瓶|かびん}を{置|お}いたのは{朝|あさ}のことだね。"
+
+  # ==================== 真実：ヒロム ====================
+  - id: truth-hiromu
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒロムの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hiromu
+        expression: worried
+        position: center
+      - type: dialog
+        character: hiromu
+        text: "……ごめんなさい。カードを{持|も}ち{出|だ}したのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: ヒロムはうつむきながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: hiromu
+        text: "スミス{先生|せんせい}が「{世界|せかい}のあいさつ{図鑑|ずかん}」っていう{珍|めずら}しい{本|ほん}を{持|も}っていると{聞|き}いて……どうしても{先|さき}に{見|み}たかったんだ。"
+        expression: thinking
+      - type: dialog
+        character: hiromu
+        text: "10{時|じ}ごろ、リハーサルに{行|い}くふりをして{準備室|じゅんびしつ}に{入|はい}った。ゲストの{荷物|にもつ}{置|お}き{場|ば}で{本|ほん}を{探|さが}していたら、{肘|ひじ}で{花瓶|かびん}を{倒|たお}しちゃって……"
+        expression: worried
+      - type: dialog
+        character: hiromu
+        text: "{水|みず}がフランスのカードにかかって、{文字|もじ}がにじんじゃった。パニックになって、ぬれたカードをリュックに{隠|かく}したの。ごめん……"
+        expression: determined
+      - type: sprite
+        character: hiromu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: left
+      - type: dialog
+        character: manabu
+        text: "ヒロムが{体育館|たいいくかん}に{来|き}たのが{遅|おそ}かったの、気づいてたんだ。でも「{遅刻|ちこく}しただけかな」って、{深|ふか}く{考|かんが}えなかった……"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: koeru
+        text: "{廊下|ろうか}でヒロムが{準備室|じゅんびしつ}の{方|ほう}に{歩|ある}いているの、{見|み}ちゃったんだ。でも{友達|ともだち}を{疑|うたが}いたくなくて、{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{花瓶|かびん}をテーブルの{端|はし}に{置|お}いたの、わたし。もっと{安全|あんぜん}な{場所|ばしょ}に{置|お}いていれば、{倒|たお}れなかったかもしれない……ごめんね。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒロムの「{知|し}りたい」という{気持|きも}ちは{素晴|すば}らしいわ。でも{勝手|かって}に{人|ひと}の{荷物|にもつ}を{触|さわ}るのはダメよ。「{見|み}せてください」って{言|い}えばよかったの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "そしてね、{今日|きょう}{学|まな}んだ「{世界|せかい}のあいさつ」を{思|おも}い{出|だ}してみて。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{握手|あくしゅ}、ワイ、ビズ、アブラッソ——{世界|せかい}には{色|いろ}々なあいさつがある。どれが{正|ただ}しい・{間違|まちが}いではなく、**{文化|ぶんか}の{違|ちが}い**。
+      - type: narration
+        text: "{大切|たいせつ}なのは、{相手|あいて}のあいさつの{仕方|しかた}を{知|し}ること。そして「{知|し}りたい」{気持|きも}ちを、{正|ただ}しい{方法|ほうほう}で{伝|つた}えること。
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "さあ、カードは{乾|かわ}かして{作|つく}り{直|なお}しましょう。みんなで{力|ちから}を{合|あ}わせれば、イベントに{間|ま}に{合|あ}うわ！"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: determined
+          - character: manabu
+            expression: happy
+          - character: koeru
+            expression: happy
+          - character: tsumugi
+            expression: happy
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせて{笑|わら}った。{世界|せかい}のあいさつを{学|まな}ぶ{冒険|ぼうけん}は、まだ{始|はじ}まったばかりだ。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

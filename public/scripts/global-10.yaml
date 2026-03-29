@@ -1,0 +1,566 @@
+meta:
+  id: global-10
+  title: 誰も残さない
+  series: 国際理解探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  hiromu:
+    name: ヒロム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  manabu:
+    name: マナブ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  koeru:
+    name: コエル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{国際理解探偵団|こくさいりかいたんていだん}の4{人|にん}は、{国際理解|こくさいりかい}フェスティバルに{向|む}けてSDGs（{持続可能|じぞくかのう}な{開発目標|かいはつもくひょう}）の{紹介|しょうかい}パネルをそれぞれ{作|つく}った。これが{探偵団|たんていだん}として{最後|さいご}の{活動|かつどう}だ。"
+      - type: narration
+        text: "ところが——{翌朝|よくあさ}、ヒロムが{書|か}いた**「{目標|もくひょう}10: {不平等|ふびょうどう}をなくそう」のパネルが{改ざん|かいざん}されていた**。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへん！ ヒロムくんのパネルが{書|か}き{換|か}えられているわ！ **「{支援|しえん}してあげよう」が「{一緒|いっしょ}に{考|かんが}えよう」**に{変|か}わっている！"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hiromu
+            expression: surprised
+          - character: manabu
+            expression: thinking
+          - character: koeru
+            expression: surprised
+          - character: tsumugi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。パネルを{改ざん|かいざん}したのは{誰|だれ}か——そして{改ざん|かいざん}した{人|ひと}の{言|い}い{分|ぶん}は、{正|ただ}しかったのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 誰も残さない
+        subtitle: 国際理解探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: パネルの状況を調べよう
+      - type: narration
+        text: "ヒロムの「{目標|もくひょう}10: {不平等|ふびょうどう}をなくそう」パネルを{調|しら}べてみた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{結論部分|けつろんぶぶん}が{改ざん|かいざん}されている。{元|もと}の{文字|もじ}（{黒|くろ}ペン）は**「{途上国|とじょうこく}の{子|こ}どもたちを{支援|しえん}してあげよう」**だ。"
+      - type: narration
+        text: "それが**{緑|みどり}ペン**で{線|せん}を{引|ひ}かれ、**「{途上国|とじょうこく}の{子|こ}どもたちと{一緒|いっしょ}に{考|かんが}えよう」**と{書|か}き{直|なお}してある。"
+      - type: narration
+        text: "さらに{緑|みどり}ペンで「**"{かわいそう}"と{決|き}めつけないで。{対等|たいとう}なパートナーとして。**」と{書|か}き{足|た}されている。{他|ほか}の3{枚|まい}のパネルは{変|か}わっていない。"
+      - type: narration
+        text: "{改ざん|かいざん}の{内容|ないよう}をよく{読|よ}んでみて。「{支援|しえん}してあげよう」と「{一緒|いっしょ}に{考|かんが}えよう」——どちらがSDGsの{合言葉|あいことば}「{誰|だれ}一人{取|と}り{残|のこ}さない」に{近|ちか}い？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: SDGsの本質を確認しよう
+      - type: narration
+        text: "{先生|せんせい}が{作|つく}った「SDGsの{本当|ほんとう}の{意味|いみ}」カードを{調|しら}べてみた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "SDGs {目標|もくひょう}10: {人|ひと}や{国|くに}の{不平等|ふびょうどう}をなくそう。"
+      - type: narration
+        text: "{上|うえ}から{目線|めせん}の{支援|しえん}——「{助|たす}けてあげる」「{かわいそうだから}」「{先進国|せんしんこく}が{教|おし}える」"
+      - type: narration
+        text: "SDGsの{本質|ほんしつ}——「{一緒|いっしょ}に{考|かんが}える」「{対等|たいとう}なパートナーとして」「お{互|たが}いから{学|まな}ぶ」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{現地|げんち}NGOの{声|こえ}：「"{助|たす}けてあげる"と{言|い}われると{悲|かな}しい。{私|わたし}たちは{かわいそうではない}。**{一緒|いっしょ}に{考|かんが}えてほしい。**」"
+      - type: narration
+        text: "SDGsの{合言葉|あいことば}：「**{誰|だれ}一人{取|と}り{残|のこ}さない（Leave No One Behind）**」= {全員|ぜんいん}が{対等|たいとう}なパートナーとして、{一緒|いっしょ}に{問題|もんだい}を{解決|かいけつ}すること。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 放課後の行動を確認しよう
+      - type: narration
+        text: "4{人|にん}の{放課後|ほうかご}の{行動|こうどう}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒロム —— {15時30分|じゅうごじさんじゅっぷん}から{職員室|しょくいんしつ}で{委員会|いいんかい}。{担任|たんにん}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "マナブ —— {15時25分|じゅうごじにじゅうごふん}ごろから{図書室|としょしつ}で{調|しら}べ{物|もの}。{図書|としょ}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "コエル —— {15時20分|じゅうごじにじゅっぷん}に{下校|げこう}。{正門|せいもん}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "ツムギ —— {15時30分|じゅうごじさんじゅっぷん}から{音楽室|おんがくしつ}でリコーダー{練習|れんしゅう}。{音楽|おんがく}の{先生|せんせい}が{確認|かくにん}。"
+      - type: narration
+        text: "{15時15分|じゅうごじじゅうごふん}に{全員|ぜんいん}でパネルを{確認|かくにん}したとき、{正常|せいじょう}だった。{全員|ぜんいん}にアリバイがある……。「{15時25分|じゅうごじにじゅうごふん}ごろ」は{正確|せいかく}に{何時|なんじ}？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: マナブの「正義」発言を調べよう
+      - type: narration
+        text: "{月曜|げつようび}{12時30分|じゅうにじさんじゅっぷん}ごろの{会話|かいわ}{記録|きろく}が{見|み}つかった。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: left
+      - type: dialog
+        character: manabu
+        text: "SDGsを{調|しら}べて{分|わ}かったんだけど、**「{助|たす}けてあげる」ってSDGsじゃないんだよ**。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hiromu
+        text: "え？ でも{助|たす}けるのはいいことじゃない？"
+        expression: surprised
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: manabu
+        text: "{現地|げんち}の{人|ひと}は「{かわいそう}」って{言|い}われるのが{嫌|いや}なんだって。**{対等|たいとう}に{一緒|いっしょ}に{考|かんが}えてほしい**って。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: koeru
+        text: "ふーん。「あげる」って{確|たし}かに{上|うえ}から{目線|めせん}かも。"
+        expression: thinking
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: left
+      - type: dialog
+        character: manabu
+        text: "**このフェスティバルで、{本当|ほんとう}のSDGsを{伝|つた}えなきゃ。{間違|まちが}った{情報|じょうほう}を{出|だ}すわけにはいかない。**"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: narration
+        text: "マナブはSDGsの{本質|ほんしつ}を{知|し}っている。そして「{間違|まちが}った{情報|じょうほう}を{出|だ}すわけにはいかない」と{強|つよ}い{信念|しんねん}を{持|も}っている——{改ざん|かいざん}の{動機|どうき}が{見|み}えてきた？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 図書の先生の証言
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{図書|としょ}の{先生|せんせい}に{直接|ちょくせつ}{聞|き}いてみた。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{図書|としょ}の{先生|せんせい}のお{話|はなし}を{読|よ}むわね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「マナブくんが{図書室|としょしつ}に{来|き}たのは**{15時35分|じゅうごじさんじゅうごふん}**です。{15時25分|じゅうごじにじゅうごふん}ではありません。『SDGsの{本|ほん}をもう1{冊|さつ}{読|よ}みたい』と{言|い}って{来|き}ました。」"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マナブは{15時25分|じゅうごじにじゅうごふん}〜{15時33分|じゅうごじさんじゅうさんぷん}に{教室|きょうしつ}にいた{可能性|かのうせい}がある——アリバイが{崩|くず}れた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "そして{改ざん|かいざん}の**「{内容|ないよう}」**はどうだった？ 「{支援|しえん}してあげよう」と「{一緒|いっしょ}に{考|かんが}えよう」——SDGsの{本質|ほんしつ}に{近|ちか}いのは……**{改ざん後|かいざんご}の「{一緒|いっしょ}に{考|かんが}えよう」だった**。"
+      - type: narration
+        text: "{改ざん|かいざん}の「{方法|ほうほう}」は{間違|まちが}い。でも「{内容|ないよう}」は{実|じつ}はSDGsの{本質|ほんしつ}に{合|あ}っていた——これがVol.10の{核心|かくしん}だ。"
+
+  # ==================== 推理タイム（1回目投票：犯人特定） ====================
+  - id: deduction-1
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？（1回目の投票）
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{15時25分|じゅうごじにじゅうごふん}ごろ、{音楽室|おんがくしつ}に{向|む}かう{途中|とちゅう}で……**マナブが{怒|おこ}った{顔|かお}で{教室|きょうしつ}{方向|ほうこう}に{急|いそ}いで{歩|ある}いている**のを{見|み}た。{図書室|としょしつ}は{反対方向|はんたいほうこう}なのに……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: koeru
+        text: "マナブは{昼休|ひるやす}みに「{間違|まちが}った{情報|じょうほう}を{出|だ}すわけにはいかない」って{言|い}ってた。それに……{改ざん|かいざん}に{使|つか}われた{緑|みどり}ペンって、マナブがいつも{持|も}ってるやつじゃない？"
+        expression: thinking
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: hiromu
+        expression: worried
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "……「{支援|しえん}してあげよう」は{善意|ぜんい}で{書|か}いた。でも{改ざん後|かいざんご}の「{一緒|いっしょ}に{考|かんが}えよう」を{読|よ}んで、「あげよう」って{上|うえ}から{目線|めせん}だったかも……と{少|すこ}し{思|おも}い{始|はじ}めてる。"
+        expression: worried
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ヒロム・コエル・ツムギは{先生|せんせい}が{確認|かくにん}ずみのアリバイあり。マナブだけ「{15時25分|じゅうごじにじゅうごふん}ごろ{図書室|としょしつ}」と{言|い}っていたが、{実際|じっさい}は{15時35分着|じゅうごじさんじゅうごふんちゃく}。{動機|どうき}も{機会|きかい}も——"
+      - type: choice
+        id: q1
+        question: パネルを改ざんしたのは誰？（1回目の投票）
+        options:
+          - text: マナブ（15:25〜15:33のアリバイがなく、動機と緑ペンが一致する）
+            value: manabu
+            correct: true
+            feedback: "{正解|せいかい}！ マナブは「{15時25分|じゅうごじにじゅうごふん}から{図書室|としょしつ}」と{言|い}っていたが、{図書|としょ}の{先生|せんせい}は「{15時35分着|じゅうごじさんじゅうごふんちゃく}」と{証言|しょうげん}。{15時25分|じゅうごじにじゅうごふん}〜{15時33分|じゅうごじさんじゅうさんぷん}に{教室|きょうしつ}で{改ざん|かいざん}し、{15時35分|じゅうごじさんじゅうごふん}に{図書室|としょしつ}に{着|つ}いた。「{間違|まちが}った{情報|じょうほう}を{出|だ}すわけにはいかない」——{正義感|せいぎかん}が{爆発|ばくはつ}した。"
+          - text: ヒロム（自分のパネルを書き直したかった可能性）
+            value: hiromu
+            feedback: "ヒロムは{15時30分|じゅうごじさんじゅっぷん}から{職員室|しょくいんしつ}にいたことを{担任|たんにん}の{先生|せんせい}が{確認|かくにん}している。{自分|じぶん}のパネルを{改ざん|かいざん}する{理由|りゆう}も{薄|うす}いよ。"
+          - text: コエル（「上から目線」に最初から違和感を持っていた）
+            value: koeru
+            feedback: "コエルは{15時20分|じゅうごじにじゅっぷん}に{下校|げこう}し、{正門|せいもん}の{先生|せんせい}が{確認|かくにん}している。{改ざん|かいざん}を{行|おこな}う{時間|じかん}も{場所|ばしょ}もなかったよ。"
+          - text: ツムギ（マナブが怒った顔で歩くのを目撃した）
+            value: tsumugi
+            feedback: "ツムギは{15時28分|じゅうごじにじゅうはちふん}に{音楽室|おんがくしつ}に{着|つ}いており、{音楽|おんがく}の{先生|せんせい}が{確認|かくにん}している。{目撃|もくげき}したのはツムギ{自身|じしん}ではなく{教室|きょうしつ}に{向|む}かったマナブだよ。"
+
+  # ==================== 議論フェーズ（第2層） ====================
+  - id: discussion
+    bg: classroom-blackboard
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: 第2層の謎
+        subtitle: 誰一人取り残さないために大切なことは？
+      - type: narration
+        text: "{犯人|はんにん}は{分|わ}かった。でもここからが**{本当|ほんとう}の{謎|なぞ}**だ。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{改ざん|かいざん}の「{方法|ほうほう}」は{間違|まちが}い。でも——**{改ざん|かいざん}の「{内容|ないよう}」はどうだった？**"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ヒロムの「{支援|しえん}してあげよう」は{善意|ぜんい}だった。でも「あげよう」は{上|うえ}から{目線|めせん}。{途上国|とじょうこく}を「{助|たす}けられる{側|がわ}」に{固定|こてい}する{言葉|ことば}だった。"
+      - type: narration
+        text: "マナブが{書|か}いた「{一緒|いっしょ}に{考|かんが}えよう」は、**実|じつはSDGsの{本質|ほんしつ}に{合|あ}っていた**。{方法|ほうほう}は{間違|まちが}い。でも{内容|ないよう}は{正|ただ}しかった。"
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "……{自分|じぶん}が{書|か}いた「{支援|しえん}してあげよう」が{上|うえ}から{目線|めせん}だったなんて、{気|き}づかなかった。{善意|ぜんい}だったのに。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: determined
+        position: right
+      - type: dialog
+        character: koeru
+        text: "「{内容|ないよう}は{正|ただ}しい。でも{方法|ほうほう}が{間違|まちが}い」——この2つは{矛盾|むじゅん}しない。{勝手|かって}に{書|か}き{換|か}えるんじゃなくて、{話|はな}し{合|あ}いで{伝|つた}えるべきだったよ。"
+        expression: determined
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "「{誰|だれ}一人{取|と}り{残|のこ}さない」の「{誰|だれ}」には……マナブも、ヒロムも、{途上国|とじょうこく}の{人|ひと}も、{全員|ぜんいん}{含|ふく}まれてるんじゃないかな。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: narration
+        text: "さあ、みんなで{考|かんが}えてみよう。**「{誰|だれ}一人{取|と}り{残|のこ}さない」ために{本当|ほんとう}に{大切|たいせつ}なことは{何|なに}か？**"
+
+  # ==================== 収束（2回目投票：価値判断） ====================
+  - id: deduction-2
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: title_card
+        text: 2回目の問い
+        subtitle: 誰一人取り残さないために大切なことは？
+      - type: narration
+        text: "{改ざん|かいざん}した{人|ひと}はマナブだった。でも——{改ざん|かいざん}の{内容|ないよう}「{一緒|いっしょ}に{考|かんが}えよう」は、SDGsの{本質|ほんしつ}に{合|あ}っていた。"
+      - type: narration
+        text: "「{内容|ないよう}は{正|ただ}しい、でも{方法|ほうほう}は{間違|まちが}い」——この2つは{両立|りょうりつ}する。そして「{内容|ないよう}が{正|ただ}しいなら、なぜ{話|はな}し{合|あ}いで{伝|つた}えなかったのか？」——それがマナブの{正義暴走|せいぎぼうそう}の{教訓|きょうくん}だ。"
+      - type: narration
+        text: "さあ——Vol.1のあいさつの{違|ちが}いからVol.10のSDGsまで、「{違|ちが}い」をどう{受|う}け{止|と}めてきたか{振|ふ}り{返|かえ}りながら、この{問|と}いに{答|こた}えてほしい。"
+      - type: choice
+        id: q2
+        question: 誰一人取り残さないために本当に大切なことは何？（2回目の投票・正解は1つではない）
+        options:
+          - text: 相手の声を聞いてから一緒に考えること
+            value: listen_together
+            feedback: "その{通|とお}り！ 「{支援|しえん}してあげる」ではなく、まず{相手|あいて}の{声|こえ}を{聞|き}く。そして**{一緒|いっしょ}に{考|かんが}える**——これがSDGsの「{誰|だれ}一人{取|と}り{残|のこ}さない」の{本質|ほんしつ}だ。"
+          - text: 正しいことを伝えたいなら話し合いで伝えること
+            value: dialogue
+            feedback: "その{通|とお}り！ {内容|ないよう}が{正|ただ}しくても、{勝手|かって}に{変|か}えるのは{相手|あいて}の{意思|いし}を{無視|むし}すること。**{話|はな}し{合|あ}いで{伝|つた}える**——それが「{誰|だれ}一人{取|と}り{残|のこ}さない」の{方法|ほうほう}だ。"
+          - text: 「かわいそう」という思い込みに気づいて手放すこと
+            value: awareness
+            feedback: "その{通|とお}り！ 「{途上国|とじょうこく} = {かわいそう}」「{支援|しえん} = {正|ただ}しい」は**{思|おも}い{込|こ}み**だった。{自分|じぶん}のバイアスに{気|き}づく——それが{全員|ぜんいん}を{対等|たいとう}に{見|み}る{第一歩|だいいっぽ}だ。"
+          - text: 全員が対等なパートナーとして問題を解決すること
+            value: equal_partnership
+            feedback: "その{通|とお}り！ 「{助|たす}ける/{助|たす}けられる」の{二項対立|にこうたいりつ}を{超|こ}えて、**{全員|ぜんいん}が{対等|たいとう}**——それがSDGsの{理想|りそう}だ。"
+
+  # ==================== 真相：マナブの告白 ====================
+  - id: truth-manabu
+    bg: hallway-sunset
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マナブの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: center
+      - type: dialog
+        character: manabu
+        text: "……ごめんなさい。パネルを{改ざん|かいざん}したのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "マナブは{静|しず}かな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: manabu
+        text: "{現地|げんち}NGOの{人|ひと}の{言葉|ことば}に、{衝撃|しょうげき}を{受|う}けたんだ。**「"{助|たす}けてあげる"と{言|い}われると{悲|かな}しい。{私|わたし}たちは"{かわいそう}"ではない。{対等|たいとう}なパートナーとして{一緒|いっしょ}に{考|かんが}えてほしい」**——。"
+        expression: thinking
+      - type: dialog
+        character: manabu
+        text: "ヒロムのパネル「{支援|しえん}してあげよう」を{見|み}て、「これは{途上国|とじょうこく}を"{かわいそう}"と{決|き}めつけてる！ {本当|ほんとう}のSDGsを{伝|つた}えなければ！」って{正義感|せいぎかん}が{爆発|ばくはつ}した。"
+        expression: determined
+      - type: dialog
+        character: manabu
+        text: "{15時25分|じゅうごじにじゅうごふん}に{教室|きょうしつ}に{戻|もど}って、{緑|みどり}ペンで{書|か}き{換|か}えた。{方法|ほうほう}は{間違|まちが}いだった。でも……{内容|ないよう}は{撤回|てっかい}しない。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 真相：ほかのメンバー ====================
+  - id: truth-others
+    bg: hallway-sunset
+    steps:
+      - type: sprite
+        character: hiromu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hiromu
+        text: "……マナブの{言|い}う{通|とお}りかもしれない。「{支援|しえん}してあげよう」は{善意|ぜんい}だった。でも「あげよう」には{上|うえ}から{見|み}る{気持|きも}ちが{混|ま}じっていた。{本当|ほんとう}は{話|はな}し{合|あ}いで{伝|つた}えてほしかった——でも{気持|きも}ちは{分|わ}かるよ。"
+        expression: thinking
+      - type: sprite
+        character: hiromu
+        action: hide
+      - type: sprite
+        character: koeru
+        expression: determined
+        position: right
+      - type: dialog
+        character: koeru
+        text: "「{内容|ないよう}は{正|ただ}しい、{方法|ほうほう}は{間違|まちが}い」——この2つは{両立|りょうりつ}する。{正|ただ}しいことを{伝|つた}えるには{正|ただ}しい{方法|ほうほう}がある。それが「{誰|だれ}一人{取|と}り{残|のこ}さない」の{実践|じっせん}だよ。"
+        expression: determined
+      - type: sprite
+        character: koeru
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "マナブが{怒|おこ}った{顔|かお}で{歩|ある}いていたの{見|み}た{時|とき}……{正義感|せいぎかん}から{来|く}てるって{感|かん}じた。でも{間違|まちが}いは{間違|まちが}い。{次|つぎ}はちゃんと{話|はな}してね。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マナブの「{本当|ほんとう}のSDGsを{伝|つた}えたい」という{気持|きも}ちは{素晴|すば}らしいわ。でも{勝手|かって}にパネルを{書|か}き{換|か}えるのはダメよ。**{正|ただ}しいことを{伝|つた}えるにも、{正|ただ}しい{方法|ほうほう}がある**の。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "そしてヒロム——「{善意|ぜんい}だった」は{言|い}い{訳|わけ}にならない。でも**{気|き}づいたことが{大切|たいせつ}**。それが{成長|せいちょう}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "Vol.1のあいさつの{違|ちが}いから、Vol.10のSDGsの{本質|ほんしつ}まで——「{違|ちが}い」をどう{受|う}け{止|と}めるか、10{回|かい}かけて{考|かんが}えてきた。"
+      - type: narration
+        text: "SDGsの「{誰|だれ}一人{取|と}り{残|のこ}さない」の{本当|ほんとう}の{意味|いみ}は——「{かわいそうだから|助|たす}ける」ではなく、**「{対等|たいとう}なパートナーとして、{一緒|いっしょ}に{問題|もんだい}を{解決|かいけつ}する}」**こと。"
+      - type: narration
+        text: "{方法|ほうほう}は{間違|まちが}い。でも{内容|ないよう}は{正|ただ}しかった。この2つは{矛盾|むじゅん}しない。そして「{内容|ないよう}が{正|ただ}しければ、{話|はな}し{合|あ}いで{伝|つた}えられる」——それが{大切|たいせつ}なことだ。"
+      - type: sprite_group
+        characters:
+          - character: manabu
+            expression: worried
+          - character: hiromu
+            expression: thinking
+          - character: koeru
+            expression: determined
+          - character: tsumugi
+            expression: happy
+      - type: narration
+        text: "マナブはヒロムに{向|む}かって「ごめん。{話|はな}し{合|あ}いで{伝|つた}えればよかった」と{言|い}った。ヒロムは{少|すこ}し{考|かんが}えて、「……うん。{僕|ぼく}も"あげよう"を{見|み}直|なお}すよ」と{答|こた}えた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "10{回|かい}の{冒険|ぼうけん}、お{疲|つか}れさまでした。みなさんは{立派|りっぱ}な{国際理解探偵|こくさいりかいたんてい}です。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: fade-out

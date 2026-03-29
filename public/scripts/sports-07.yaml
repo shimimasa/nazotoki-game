@@ -1,0 +1,430 @@
+meta:
+  id: sports-07
+  title: 持久走の証拠
+  series: 体育探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{持久走|じきゅうそう}{大会|たいかい}（1km）の{練習|れんしゅう}{日|び}。{先生|せんせい}が200mごとのラップタイムを{記録|きろく}しながら、4{人|にん}はコースを{走|はし}った。"
+      - type: narration
+        text: "{練習|れんしゅう}が{終|お}わって、{先生|せんせい}が{記録|きろく}を{確認|かくにん}すると——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "カケルの3{周|しゅう}{目|め}（400m〜600m{区間|くかん}）のラップタイムが**{空欄|くうらん}**になっている！ しかも{消|け}しゴムの{跡|あと}がある。{先生|せんせい}は「{全員|ぜんいん}のラップを{記録|きろく}したはず」と{言|い}う。{誰|だれ}かが{記録|きろく}を{消|け}した？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{練習後|れんしゅうご}に{記録表|きろくひょう}を{確認|かくにん}したら、カケルの3{周|しゅう}{目|め}だけが{空欄|くうらん}になっていました。{消|け}しゴムの{跡|あと}があります。{私|わたし}は{全員|ぜんいん}のラップを{書|か}きました。{誰|だれ}かが{消|け}したはずです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: surprised
+          - character: tsubasa
+            expression: thinking
+          - character: kakeru
+            expression: worried
+          - character: minori
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{練習後|れんしゅうご}、{全員|ぜんいん}がベンチ{付近|ふきん}にいた。{記録表|きろくひょう}はベンチの{上|うえ}に{置|お}いてあった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 持久走の証拠
+        subtitle: 体育探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 消えたラップタイムを調べよう
+      - type: narration
+        text: "カケルのラップタイム{記録表|きろくひょう}を{詳|くわ}しく{調|しら}べた。{消|け}しゴムの{跡|あと}が{残|のこ}っている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1{周|しゅう}{目|め}（0-200m）: 2{分|ふん}10{秒|びょう}"
+      - type: narration
+        text: "2{周|しゅう}{目|め}（200-400m）: 2{分|ふん}10{秒|びょう}"
+      - type: narration
+        text: "3{周|しゅう}{目|め}（400-600m）: **{空欄|くうらん}——{消|け}しゴムの{跡|あと}あり**"
+      - type: narration
+        text: "4{周|しゅう}{目|め}（600-800m）: 2{分|ふん}10{秒|びょう}"
+      - type: narration
+        text: "5{周|しゅう}{目|め}（800-1000m）: 2{分|ふん}10{秒|びょう}"
+      - type: narration
+        text: "{合計|ごうけい}タイム: **12{分|ふん}10{秒|びょう}**（{消|け}されずに{残|のこ}っている）"
+      - type: narration
+        text: "{先生|せんせい}は「{全員|ぜんいん}のラップを{記録|きろく}した」と{証言|しょうげん}。3{周|しゅう}{目|め}は「{記録|きろく}がない」のではなく「**{消|け}された**」——{消|け}しゴムの{跡|あと}がその{証拠|しょうこ}だ。{合計|ごうけい}タイム12{分|ふん}10{秒|びょう}は{消|け}されていない。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: ラップタイムを計算しよう
+      - type: narration
+        text: "カケルの3{周|しゅう}{目|め}のラップタイムを{逆算|ぎゃくさん}してみよう。{合計|ごうけい}と{分|わ}かっている4{周|しゅう}{分|ぶん}のデータを{使|つか}う。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{分|わ}かっていること: {合計|ごうけい}タイム **12{分|ふん}10{秒|びょう}**"
+      - type: narration
+        text: "1・2・4・5{周|しゅう}{目|め}のラップ: 2{分|ふん}10{秒|びょう} × 4{周|しゅう} = **8{分|ふん}40{秒|びょう}**"
+      - type: narration
+        text: "{計算|けいさん}: 3{周|しゅう}{目|め} = 12{分|ふん}10{秒|びょう} − 8{分|ふん}40{秒|びょう} = **3{分|ふん}30{秒|びょう}**"
+      - type: narration
+        text: "{比較|ひかく}: カケルの{通常|つうじょう}ペース（{他|ほか}の4{周|しゅう}{平均|へいきん}）は **2{分|ふん}10{秒|びょう}**。3{周|しゅう}{目|め}は **3{分|ふん}30{秒|びょう}**。**1{分|ふん}20{秒|びょう}も{遅|おそ}い**。"
+      - type: narration
+        text: "200mを3{分|ふん}30{秒|びょう} = {分速|ふんそく}57m。これは**{歩|ある}く{速|はや}さ**。{走|はし}っていたなら{分速|ふんそく}92m（2{分|ふん}10{秒|びょう}）のはず。カケルは3{周|しゅう}{目|め}に**{歩|ある}いていた**？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 練習後の行動を確認しよう
+      - type: narration
+        text: "{練習後|れんしゅうご}（10{時|じ}17{分|ぷん}〜10{時|じ}25{分|ぷん}）の4{人|にん}の{行動|こうどう}と、{記録表|きろくひょう}への{接近|せっきん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ —— ベンチで{休憩|きゅうけい}。ノートにデータを{記録|きろく}していた。{記録表|きろくひょう}のベンチ{横|よこ}にいた。"
+      - type: narration
+        text: "ツバサ —— ストレッチをしていた。フォームの{振|ふ}り{返|かえ}り。**ベンチから{離|はな}れていた**。"
+      - type: narration
+        text: "カケル —— **{給水後|きゅうすいご}にベンチに{座|すわ}りに{行|い}った。{記録表|きろくひょう}をじっと{見|み}てため{息|いき}をついた**。{記録表|きろくひょう}のすぐ{横|よこ}にいた。"
+      - type: narration
+        text: "ミノリ —— ハヤテの{隣|となり}でベンチに{座|すわ}っていた。**カケルの{動|うご}きを{見|み}ていた**。"
+      - type: narration
+        text: "{給水|きゅうすい}ルール: {持久走|じきゅうそう}の{後|あと}は{必|かなら}ず{水|みず}を{飲|の}む。{給水|きゅうすい}{場所|ばしょ}はベンチの{横|よこ}。{記録表|きろくひょう}もベンチの{上|うえ}にある——カケルが{記録表|きろくひょう}の{横|よこ}にいた{理由|りゆう}は{給水|きゅうすい}で{説明|せつめい}できる。でも{記録表|きろくひょう}をじっと{見|み}てため{息|いき}をついたのは？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: カード交換で情報を集めよう
+      - type: narration
+        text: "{探索|たんさく}{中|ちゅう}のカード{交換|こうかん}で、4{人|にん}はそれぞれが{持|も}つ{特別|とくべつ}{情報|じょうほう}を{共有|きょうゆう}した。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{僕|ぼく}のノートの{計算|けいさん}だと——{合計|ごうけい}12{分|ふん}10{秒|びょう}から4{周|しゅう}{分|ぶん}（8{分|ふん}40{秒|びょう}）を{引|ひ}くと、3{周|しゅう}{目|め}は**3{分|ふん}30{秒|びょう}**。200mを3{分|ふん}30{秒|びょう}は{歩|ある}いた{速|はや}さだ。カケルは3{周|しゅう}{目|め}に{歩|ある}いていたはずだ。"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "3{周|しゅう}{目|め}（400-600m{区間|くかん}）でカケルのフォームが{変|か}わった。**{走|はし}るフォームではなく、{歩|ある}くフォームになっていた**。{腕振|うでふ}りが{止|と}まって、{足|あし}が{地面|じめん}をするように{動|うご}いていた。バテたんだと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: "カケルちゃんが{給水|きゅうすい}のあと、ベンチの{上|うえ}の{記録表|きろくひょう}をじっと{見|み}ていた。それから**ポケットから{消|け}しゴムを{出|だ}したような{気|き}がする**……でもはっきりは{見|み}えなかった。{表情|ひょうじょう}が{曇|くも}ってた。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "3{周|しゅう}{目|め}は……{普通|ふつう}に{走|はし}ったよ。たしかにちょっとペースは{落|お}ちたかもしれないけど、{歩|ある}いてはいない。{記録表|きろくひょう}には{触|さわ}ってない。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: narration
+        text: "ハヤテの{計算|けいさん}とツバサの{目撃|もくげき}が{一致|いっち}する——カケルは3{周|しゅう}{目|め}に{歩|ある}いていた（3{分|ふん}30{秒|びょう} = {歩|ある}く{速|はや}さ）。カケルの「{普通|ふつう}に{走|はし}った」は3{分|ふん}30{秒|びょう}と{矛盾|むじゅん}する。そしてミノリが{消|け}しゴムを{目撃|もくげき}していた——"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カケルの3{周|しゅう}{目|め}のラップタイムは**ちゃんと{記録|きろく}しました**。{書|か}いた{数字|すうじ}を{覚|おぼ}えています。**3{分|ふん}30{秒|びょう}**です。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "3{分|ふん}30{秒|びょう}は{他|ほか}の{周|しゅう}（2{分|ふん}10{秒|びょう}）と{比|くら}べて1{分|ふん}20{秒|びょう}も{遅|おそ}い。「あれ、カケル{歩|ある}いた？」と{思|おも}った。でも{練習|れんしゅう}だから{注意|ちゅうい}はしなかった。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "でも{今|いま}、そのタイムが**{消|け}しゴムで{消|け}されている**。3{分|ふん}30{秒|びょう}と{書|か}いてあったのに{空欄|くうらん}になっている。**{記録|きろく}を{消|け}したのは{先生|せんせい}ではない**。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先生|せんせい}は3{分|ふん}30{秒|びょう}と{記録|きろく}した。それが{消|け}されている。{先生|せんせい}は{消|け}していない——"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{消|け}しゴムでタイムを{消|け}した{人物|じんぶつ}は、3{分|ふん}30{秒|びょう}を{見|み}て「{歩|ある}いたことがバレる」と{感|かん}じた{人|ひと}だ。{練習後|れんしゅうご}に{記録表|きろくひょう}の{横|よこ}にいて、{消|け}しゴムを{持|も}っていた——"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{証拠|しょうこ}カード②を{見|み}て。{合計|ごうけい}タイムから{計算|けいさん}すると、3{周|しゅう}{目|め}は3{分|ふん}30{秒|びょう}。これは**{歩|ある}く{速|はや}さ**だ。カケルは「{普通|ふつう}に{走|はし}った」と{言|い}っているけど、3{分|ふん}30{秒|びょう}とは{矛盾|むじゅん}している。"
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "{僕|ぼく}は3{周|しゅう}{目|め}にカケルのフォームが**{走|はし}りから{歩|ある}きに{変|か}わった**のを{見|み}た。{腕振|うでふ}りが{止|と}まって{足|あし}がすり{足|あし}になっていた。{計算|けいさん}（ハヤテ）と{目撃|もくげき}（{僕|ぼく}）で{一致|いっち}する。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。カード①で{消|け}しゴムの{跡|あと}が{確認|かくにん}できた。カード②の{計算|けいさん}で3{周|しゅう}{目|め}は3{分|ふん}30{秒|びょう}（{歩|ある}く{速|はや}さ）と{分|わ}かった。カード③で{練習後|れんしゅうご}に{記録表|きろくひょう}の{横|よこ}にいたのはカケルと{判明|はんめい}。カード⑤で{先生|せんせい}が「3{分|ふん}30{秒|びょう}と{書|か}いた。{消|け}したのは{自分|じぶん}ではない」と{証言|しょうげん}——"
+      - type: choice
+        id: q1
+        question: 3周目のラップタイムを消したのは誰？
+        options:
+          - text: カケル（練習後に記録表の横にいて、消しゴムを持っていた）
+            value: kakeru
+            correct: true
+            feedback: "{正解|せいかい}！ カード③で{記録表|きろくひょう}の{横|よこ}にいたのはカケル。ミノリが{消|け}しゴムを{目撃|もくげき}（カード④）。{先生|せんせい}は「3{分|ふん}30{秒|びょう}と{書|か}いた、{消|け}したのは{自分|じぶん}ではない」と{証言|しょうげん}（カード⑤）。{計算|けいさん}で{分|わ}かる3{分|ふん}30{秒|びょう}は**{歩|ある}く{速|はや}さ**——カケルは3{周|しゅう}{目|め}に{歩|ある}いたことを{隠|かく}したかった。"
+          - text: ハヤテ（記録表のベンチ横にいた人）
+            value: hayate
+            feedback: "ハヤテはベンチ{横|よこ}にいたが、**ノートにデータを{記録|きろく}していた**。{自分|じぶん}のラップタイムは{正常|せいじょう}。{隠|かく}したい{数字|すうじ}がない。カード④でハヤテは{逆算|ぎゃくさん}{計算|けいさん}で3{分|ふん}30{秒|びょう}を{導|みちび}き{出|だ}した——{消|け}した{人物|じんぶつ}は3{分|ふん}30{秒|びょう}を{見|み}て「{歩|ある}いたことがバレる」と{思|おも}った{人|ひと}だよ。"
+          - text: ツバサ（カケルのフォーム変化を目撃した人）
+            value: tsubasa
+            feedback: "ツバサは{練習後|れんしゅうご}**ベンチから{離|はな}れてストレッチ**していた（カード③）。{記録表|きろくひょう}に{近|ちか}づく{機会|きかい}がなかった。またツバサの{ラップタイム|らっぷたいむ}（2{分|ふん}05{秒|びょう}×5）は{全部|ぜんぶ}{正常|せいじょう}——{消|け}す{理由|りゆう}がないよ。"
+          - text: ミノリ（カケルの様子を見ていた人）
+            value: minori
+            feedback: "ミノリは{練習後|れんしゅうご}ハヤテの{隣|となり}でベンチに{座|すわ}っていた。**カケルの{動|うご}きを{目撃|もくげき}した{側|がわ}**だよ。ミノリのラップタイム（2{分|ふん}30{秒|びょう}×5）は{全部|ぜんぶ}{正常|せいじょう}で{隠|かく}すものがない。カード④でミノリは{消|け}しゴムを{見|み}た、と{言|い}っている——{消|け}した{側|がわ}ではなく{見|み}た{側|がわ}だ。"
+
+  # ==================== 真実：カケルの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: カケルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kakeru
+        text: "……ごめんなさい。3{周|しゅう}{目|め}のラップタイムを{消|け}したのは、{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: カケルは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: kakeru
+        text: "3{周|しゅう}{目|め}……{体|からだ}が{動|うご}かなくなった。1・2{周|しゅう}{目|め}に{飛|と}ばしすぎたんだと{思|おも}う。{走|はし}れなくて、{歩|ある}いちゃった。"
+        expression: worried
+      - type: dialog
+        character: kakeru
+        text: "{給水|きゅうすい}してベンチに{行|い}ったら、{記録表|きろくひょう}に「3{分|ふん}30{秒|びょう}」って{書|か}いてあった。{他|ほか}の{周|しゅう}は2{分|ふん}10{秒|びょう}なのに……{一目|ひとめ}で「{歩|ある}いたの、バレる」って{分|わ}かった。"
+        expression: worried
+      - type: dialog
+        character: kakeru
+        text: "{私|わたし}、{速|はや}く{走|はし}れる{自分|じぶん}が{好|す}きだった。「{歩|ある}いた」ってみんなに{知|し}られたくなくて……ポケットの{消|け}しゴムで{消|け}した。{合計|ごうけい}タイムから{計算|けいさん}できるなんて、{気|き}づかなかった。"
+        expression: determined
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hayate
+        expression: worried
+        position: left
+      - type: dialog
+        character: hayate
+        text: "{実|じつ}は……{計算|けいさん}で3{分|ふん}30{秒|びょう}って{出|で}た{時|とき}、カケルが{歩|ある}いたんだって{分|わ}かってた。でもカケルに{直接|ちょくせつ}{言|い}うのが{怖|こわ}くて、{黙|だま}ってた。{言|い}っておけばよかった。"
+        expression: worried
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubasa
+        text: "3{周|しゅう}{目|め}にカケルのフォームが{変|か}わったのを{見|み}てた。「バテたんだな」って{思|おも}った。でも{走|はし}り{終|お}わった{後|あと}、{声|こえ}をかけなかった。{気|き}にしてないふりをしてたんだ。"
+        expression: worried
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: "カケルちゃんが{記録表|きろくひょう}を{見|み}て{表情|ひょうじょう}が{曇|くも}ったとき、「{何|なに}かあったのかな」って{思|おも}った。でも{問|と}い{詰|つ}めたくなくて……{声|こえ}をかけなかった。ごめんね、カケルちゃん。"
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カケルの「{速|はや}い{自分|じぶん}でいたい」という{気持|きも}ちは、{本当|ほんとう}によく{分|わ}かるよ。{持久走|じきゅうそう}で{歩|ある}いてしまうことは、{誰|だれ}にでもある。{恥|は}ずかしくない。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも——{記録表|きろくひょう}は{事実|じじつ}を{書|か}く{場所|ばしょ}。{記録|きろく}を{消|け}しても{合計|ごうけい}タイムから{計算|けいさん}できる。**{データの|でーたの}{欠落|けつらく}は「{何|なに}もなかった」ではない**。{逆算|ぎゃくさん}すれば{分|わ}かってしまう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{持久走|じきゅうそう}はペース{配分|はいぶん}が{命|いのち}。1・2{周|しゅう}{目|め}に{飛|と}ばしすぎると{後半|こうはん}バテる——これがカケルに{起|お}きたことだ。{一定|いってい}ペースで{走|はし}れば、{全|すべ}てのラップタイムはほぼ{同|おな}じになる。"
+      - type: narration
+        text: "「{記録|きろく}がない」は「{何|なに}もなかった」ではない。{合計|ごうけい} − {分|わ}かっている{部分|ぶぶん} = {欠落|けつらく}{部分|ぶぶん}。{計算|けいさん}で{真実|しんじつ}は{復元|ふくげん}できる。**データの{欠落|けつらく}に{気|き}づく{力|ちから}**が、{今日|きょう}{学|まな}んだ{推理|すいり}スキルだ。"
+      - type: narration
+        text: "そして——{失敗|しっぱい}を{隠|かく}しても{事実|じじつ}は{変|か}わらない。{認|みと}めて{練習|れんしゅう}することが、{本当|ほんとう}の{上達|じょうたつ}への{道|みち}だ。カケルはペース{配分|はいぶん}を{学|まな}べば、{次|つぎ}は{最後|さいご}まで{走|はし}りきれる。"
+      - type: effect
+        name: fade-out

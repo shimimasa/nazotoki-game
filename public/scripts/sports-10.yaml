@@ -1,0 +1,497 @@
+meta:
+  id: sports-10
+  title: フェアプレーの真実
+  series: 体育探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  hayate:
+    name: ハヤテ
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsubasa:
+    name: ツバサ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kakeru:
+    name: カケル
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minori:
+    name: ミノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: 運動会の400mリレー。{赤|あか}チームのメンバーは ハヤテ（1{走|そう}）→ リュウ（2{走|そう}）→ ツバサ（3{走|そう}）→ カケル（4{走|そう}）。{赤|あか}チームは2{位|い}でゴールした。
+      - type: narration
+        text: {審判|しんぱん}の{先生|せんせい}は2{走|そう}→3{走|そう}のバトンパスで**ゾーン{違反|いはん}**を{記録|きろく}した——ところが。
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: 運動会が{終|お}わって{先生|せんせい}が{審判|しんぱん}{記録|きろく}を{確認|かくにん}すると、バトンパス{違反|いはん}の{記録|きろく}が{消|き}えている！ 消しゴムの{跡|あと}がある。
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{審判|しんぱん}{記録|きろく}には{確|たし}かに「{赤|あか}チームの2{走|そう}→3{走|そう}でゾーン{違反|いはん}」と{書|か}いた。でも{戻|もど}って{確認|かくにん}したら——{記録|きろく}が{消|き}えていた。消しゴムの{跡|あと}がある。{自分|じぶん}では{消|き}していません。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hayate
+            expression: surprised
+          - character: tsubasa
+            expression: worried
+          - character: kakeru
+            expression: surprised
+          - character: minori
+            expression: thinking
+      - type: narration
+        text: 4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が{記録|きろく}を{消|き}したのか。そして——ゾーン{違反|いはん}はなぜ{起|お}きたのか。
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: フェアプレーの真実
+        subtitle: 体育探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 審判記録の異変を調べよう
+      - type: narration
+        text: {審判|しんぱん}{記録|きろく}の{用紙|ようし}を{調|しら}べた。{消|き}しゴムの{跡|あと}は{赤|あか}チームの「バトンパスゾーン{違反|いはん}: 2{走|そう}→3{走|そう}」の{欄|らん}だけ。
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{白|しろ}チーム・{青|あお}チーム・{黄|き}チームの{記録|きろく}はきれいなまま。{赤|あか}チームだけに{消|き}しゴムの{跡|あと}がある。"
+      - type: narration
+        text: {審判|しんぱん}の{先生|せんせい}は「{赤|あか}チームの2{走|そう}→3{走|そう}でゾーン{違反|いはん}を{確認|かくにん}し、{記録|きろく}した。{消|き}したのは{自分|じぶん}ではない」と{言|い}っている。
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: {赤|あか}チームの2{走|そう}はリュウ、3{走|そう}はツバサ。このバトンパスで{違反|いはん}があった。そして{記録|きろく}が{消|き}された——{誰|だれ}が{消|き}せた？
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: バトンパスゾーンのルールと走順
+      - type: narration
+        text: バトンパスゾーンのルールを{確認|かくにん}した。ゾーンは20m。この{中|なか}でバトンを{渡|わた}さないとゾーン{違反|いはん}になる。
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{受|う}ける{人|ひと}がゾーンの{外|そと}に{出|で}てバトンを{受|う}けた{場合|ばあい}も「ゾーン{違反|いはん}」。{審判|しんぱん}が{記録|きろく}する。"
+      - type: narration
+        text: "{赤|あか}チームの{走順|はしりじゅん}: ハヤテ（1{走|そう}）→ リュウ（2{走|そう}）→ ツバサ（3{走|そう}）→ カケル（4{走|そう}・アンカー）"
+      - type: narration
+        text: ゾーン{違反|いはん}は「2{走|そう}→3{走|そう}」。リュウからツバサへのバトンパスで{違反|いはん}が{起|お}きた——ツバサがゾーンの{外|そと}に{出|で}たということだ。
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: ツバサがバトンを{受|う}けるとき、なぜゾーンの{外|そと}に{出|で}たんだろう？ リュウが{普通|ふつう}に{走|はし}っていれば、ゾーンの{中|なか}で{渡|わた}せるはずだけど——
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: リレー後の行動を確認しよう
+      - type: narration
+        text: リレー{後|ご}（13:04〜13:45）の{行動|こうどう}と、{先生|せんせい}の{不在|ふざい}{時間|じかん}を{調|しら}べた。
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハヤテ: ベンチで{区間|くかん}タイムをノートに{記録|きろく}。{審判|しんぱん}テーブルから{離|はな}れている。"
+      - type: narration
+        text: "ツバサ: ストレッチの{後|あと}、{審判|しんぱん}テーブルの{方|ほう}に{歩|ある}いていった。{審判|しんぱん}テーブルの{近|ちか}く。"
+      - type: narration
+        text: "カケル: {給水所|きゅうすいじょ}で{水|みず}を{飲|の}んだ{後|あと}、{片付|かたづ}けへ。{審判|しんぱん}テーブルから{離|はな}れている。"
+      - type: narration
+        text: "ミノリ: {応援席|おうえんせき}の{片付|かたづ}け。{審判|しんぱん}テーブルから{離|はな}れている。"
+      - type: narration
+        text: "{先生|せんせい}の{行動|こうどう}: 13:35に{閉会式|へいかいしき}の{準備|じゅんび}で{体育館|たいいくかん}へ{移動|いどう}。10{分間|ふんかん}{不在|ふざい}。{審判|しんぱん}{記録|きろく}はテーブルに{置|お}いたまま。"
+      - type: sprite
+        character: minori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minori
+        text: {先生|せんせい}がいない13:35〜13:45の{間|あいだ}、{審判|しんぱん}テーブルに{近|ちか}づいたのは——ツバサだけ。
+        expression: thinking
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== 反転：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 新たな証拠
+        subtitle: リュウの証言と区間タイム
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: 2{走|そう}のリュウ（NPC）の{証言|しょうげん}と、{区間|くかん}タイムの{分析|ぶんせき}が{明|あ}かされた。
+      - type: se
+        sound: discover
+      - type: narration
+        text: "リュウの{証言|しょうげん}: 「2{走|そう}の{途中|とちゅう}で{急|きゅう}に{足|あし}が{痛|いた}くなった。{右足|みぎあし}のふくらはぎ。ゾーンが{近|ちか}づいてきたけど、{足|あし}が{痛|いた}くてスピードが{出|で}ない。ゾーンの{手前|てまえ}で{体|からだ}が{止|と}まりそうだった。そのとき、ツバサがゾーンの{外|そと}に{出|で}てきてバトンを{取|と}ってくれた。」"
+      - type: narration
+        text: "{区間|くかん}タイムの{分析|ぶんせき}: ハヤテ（1{走|そう}）16.5{秒|びょう}、リュウ（2{走|そう}）19.8{秒|びょう}、ツバサ（3{走|そう}）15.3{秒|びょう}、カケル（4{走|そう}）15.0{秒|びょう}"
+      - type: narration
+        text: リュウだけが{約|やく}4{秒|びょう}{遅|おそ}い。{途中|とちゅう}で{足|あし}を{痛|いた}めた{証拠|しょうこ}だ。ゾーン{手前|てまえ}でリュウが{減速|げんそく}→ツバサがゾーンの{外|そと}に{出|で}て{受|う}けた。
+      - type: sprite
+        character: hayate
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hayate
+        text: ゾーン{違反|いはん}は「{悪|わる}い」ルール{違反|いはん}じゃなかった……ツバサはリュウがバトンを{落|お}とさないように——
+        expression: surprised
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: もしツバサがゾーンの{外|そと}に{出|で}なかったら、リュウはバトンを{落|お}としていた。チームは{失格|しっかく}。リュウが一番{辛|つら}い{思|おも}いをしていた——
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 議論・推理 ====================
+  - id: deduction
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム（1回目）
+        subtitle: 審判記録を消したのは誰？
+      - type: sprite
+        character: tsubasa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubasa
+        text: {証拠|しょうこ}カード③を{見|み}て。{先生|せんせい}がいない{間|あいだ}、{審判|しんぱん}テーブルに{近|ちか}づいたのは{誰|だれ}だけ？
+        expression: thinking
+      - type: sprite
+        character: tsubasa
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: right
+      - type: dialog
+        character: minori
+        text: リュウが{走|はし}る{前|まえ}、{集合|しゅうごう}{場所|ばしょ}でリュウが{足|あし}を{少|すこ}し{引|ひ}きずっていたのを{見|み}た。「{大丈夫|だいじょうぶ}？」って{聞|き}いたら——「{大丈夫|だいじょうぶ}。{走|はし}れる。{誰|だれ}にも{言|い}わないで」って。
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+      - type: narration
+        text: {証拠|しょうこ}を{整理|せいり}しよう。{審判|しんぱん}テーブルに{近|ちか}づいたのはツバサだけ。ツバサはゾーン{違反|いはん}の{当事者|とうじしゃ}（3{走|そう}）。リュウは{走|はし}る{前|まえ}から{足|あし}を{痛|いた}めていた——これらはつながる？
+      - type: choice
+        id: q1
+        question: 審判記録を消したのは誰？
+        options:
+          - text: ツバサ（審判テーブルに近づいた。ゾーン違反の当事者）
+            value: tsubasa
+            correct: true
+            feedback: "{正解|せいかい}！ {先生|せんせい}がいない{間|あいだ}、{審判|しんぱん}テーブルに{近|ちか}づいたのはツバサだけ。そしてツバサは2{走|そう}→3{走|そう}のゾーン{違反|いはん}の{当事者|とうじしゃ}。{記録|きろく}を{消|き}す{理由|りゆう}も{機会|きかい}も——ツバサにあった。"
+          - text: ハヤテ（区間タイムを分析していた人）
+            value: hayate
+            feedback: "ハヤテはベンチで{区間|くかん}タイムをノートに{記録|きろく}していて、{審判|しんぱん}テーブルから{離|はな}れた{位置|いち}にいた。{先生|せんせい}がいない{間|あいだ}にテーブルに{近|ちか}づく{機会|きかい}がなかったよ。"
+          - text: カケル（ツバサの異変に気づいた人）
+            value: kakeru
+            feedback: "カケルは{給水所|きゅうすいじょ}で{水|みず}を{飲|の}んだ{後|あと}、{片付|かたづ}けに{行|い}っていた。{審判|しんぱん}テーブルには{近|ちか}づいていないよ。"
+          - text: ミノリ（応援席にいた人）
+            value: minori
+            feedback: "ミノリは{応援席|おうえんせき}の{片付|かたづ}けをしていた。{審判|しんぱん}テーブルからは{遠|とお}く{離|はな}れていたよ。"
+
+  # ==================== 証拠カード5：ツバサの告白 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 証拠カード5
+        subtitle: フェアプレーの真実
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{審判|しんぱん}{記録|きろく}を{確認|かくにん}しました。{記録|きろく}を{消|き}せたのは、{審判|しんぱん}テーブルの{近|ちか}くにいた{人|ひと}だけ。——ツバサの{指|ゆび}に消しゴムの{粉|こな}が{付|つ}いていました。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: sprite
+        character: tsubasa
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsubasa
+        text: ……{僕|ぼく}が{消|き}しました。
+        expression: worried
+      - type: narration
+        text: ツバサは{下|した}を{向|む}きながら、{静|しず}かに{話|はな}し{始|はじ}めた。
+      - type: dialog
+        character: tsubasa
+        text: あのとき、リュウがゾーンの{手前|てまえ}で{足|あし}を{引|ひ}きずっていた。バトンを{落|お}としそうだった。バトンを{落|お}としたら{失格|しっかく}。リュウが一番{辛|つら}い{思|おも}いをする。だからゾーンの{外|そと}に{出|で}てバトンを{受|う}けた。
+        expression: thinking
+      - type: dialog
+        character: tsubasa
+        text: "{審判|しんぱん}{記録|きろく}に{違反|いはん}が{残|のこ}ったら、みんなが「なぜ{違反|いはん}したか」を{調|しら}べる。そうしたらリュウが{足|あし}を{痛|いた}めていたことがバレる。リュウは「チームに{迷惑|めいわく}をかけた」と{自分|じぶん}を{責|せ}める。それが一番{辛|つら}い。リュウを{守|まも}りたかった。"
+        expression: worried
+      - type: dialog
+        character: tsubasa
+        text: だから{記録|きろく}を{消|き}した。ルール{違反|いはん}だと{分|わ}かっている。でもリュウを{守|まも}りたかった。
+        expression: determined
+      - type: sprite
+        character: tsubasa
+        action: hide
+
+  # ==================== 価値判断：2回目投票 ====================
+  - id: value-judgment
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 考えてみよう
+        subtitle: フェアプレーで一番大切なことは？
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: ツバサの{行動|こうどう}を{考|かんが}えてみましょう。ゾーンの{外|そと}に{出|で}てバトンを{受|う}けた——ルール{違反|いはん}。でも{足|あし}を{痛|いた}めたリュウがバトンを{落|お}とさないようにした——{仲間|なかま}を{助|たす}けた。{審判|しんぱん}{記録|きろく}を{消|き}した——{記録|きろく}の{改竄|かいざん}。でもリュウが「{自分|じぶん}のせいだ」と{責|せ}められないようにした——{友達|ともだち}を{守|まも}った。
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: hayate
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hayate
+        text: ルール{違反|いはん}＝{悪|わる}いって、{最初|さいしょ}はそう{思|おも}った。でも——ツバサの{気持|きも}ちを{聞|き}いたら、{簡単|かんたん}に「{悪|わる}い」とは{言|い}えなくなった。
+        expression: thinking
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: minori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minori
+        text: リュウが「{誰|だれ}にも{言|い}わないで」って{言|い}っていた{気持|きも}ちも{分|わ}かる。{走|はし}りたかったんだもの。でもだから{余計|よけい}に——{正直|しょうじき}に{話|はな}すってことが{大事|だいじ}な{気|き}がする。
+        expression: thinking
+      - type: sprite
+        character: minori
+        action: hide
+      - type: choice
+        id: q2
+        question: フェアプレーで一番大切なことは何？
+        options:
+          - text: "A: ルールを守ること——ルールがなければスポーツは成り立たない"
+            value: rule
+            feedback: ルールを{守|まも}ることはとても{大切|たいせつ}。ルールがあるからこそ、{公平|こうへい}に{競|きそ}うことができる。ツバサが{正直|しょうじき}に{先生|せんせい}に{話|はな}せば、ルールを{守|まも}りながらリュウを{守|まも}ることもできたかもしれない。
+          - text: "B: 仲間を助けること——困っている人を助けるのがスポーツマンシップ"
+            value: friendship
+            feedback: {仲間|なかま}を{助|たす}ける{気持|きも}ちはスポーツの{大切|たいせつ}な{精神|せいしん}。ツバサがリュウを{助|たす}けたかった{気持|きも}ちは{間違|まちが}っていない。でも{方法|ほうほう}も{大切|たいせつ}——{正直|しょうじき}に{話|はな}すことが{一番|いちばん}の{助|たす}け{方|かた}だったかもしれない。
+          - text: "C: 正直であること——記録を消さず、理由を正直に話せばよかった"
+            value: honesty
+            feedback: "{正直|しょうじき}であることはフェアプレーの{核心|かくしん}。ツバサが「リュウが{足|あし}を{痛|いた}めた。だからゾーン{外|そと}に{出|で}た」と{先生|せんせい}に{正直|しょうじき}に{話|はな}せば——ルール{違反|いはん}の{記録|きろく}はあっても、{理由|りゆう}まで{記録|きろく}できた。リュウも{守|まも}られたかもしれない。
+
+  # ==================== 真相 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 二重構造の解決
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{審判|しんぱん}{記録|きろく}を{消|き}したのは——ツバサでした。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: ツバサはゾーンの{外|そと}に{出|で}てバトンを{受|う}けた。ルール{違反|いはん}。でもその{理由|りゆう}は——{足|あし}を{痛|いた}めたリュウがバトンを{落|お}とさないようにするためだった。
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: ツバサは{悪|わる}い{人|ひと}ではありません。{仲間|なかま}を{守|まも}りたかった。でも{記録|きろく}を{消|き}すという{手段|しゅだん}は{間違|まちが}いでした。{正直|しょうじき}に「リュウが{足|あし}を{痛|いた}めた。だからゾーン{外|そと}でバトンを{受|う}けた」と{先生|せんせい}に{話|はな}せばよかった。
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ==================== 真相：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hayate
+        expression: worried
+        position: left
+      - type: dialog
+        character: hayate
+        text: リュウの{区間|くかん}タイムが19.8{秒|びょう}——{他|ほか}の3{人|にん}より4{秒|びょう}{遅|おそ}い。データで{気|き}づいていた。でも{足|あし}の{怪我|けが}とは{思|おも}わなかった。{気|き}づいていたのに「なぜ？」を{追|お}いかけなかった——{次|つぎ}は{気|き}づいたら{追|お}いかける。
+        expression: worried
+      - type: sprite
+        character: hayate
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: ツバサからバトンを{受|う}けたとき、ツバサの{表情|ひょうじょう}が{固|かた}かった。{走|はし}り{出|だ}しも{遅|おそ}かった。「{何|なに}かあった？」って{思|おも}ったけど、{聞|き}けなかった。{友達|ともだち}のことをもっと{信頼|しんらい}して{聞|き}けばよかった。
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: minori
+        expression: worried
+        position: left
+      - type: dialog
+        character: minori
+        text: リュウと「{誰|だれ}にも{言|い}わないで」という{約束|やくそく}をしていた。でも{今|いま}{振|ふ}り{返|かえ}ると——{約束|やくそく}を{守|まも}ることよりも、{正直|しょうじき}に{話|はな}すことの{方|ほう}が、リュウのためになったかもしれない。
+        expression: worried
+      - type: sprite
+        character: minori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: ツバサの「リュウを{守|まも}りたい」という{気持|きも}ちは{素晴|すば}らしいものよ。{仲間|なかま}を{大切|たいせつ}にするスポーツマンシップの{心|こころ}。
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: でも——「{正|ただ}しいと{思|おも}ったことでも、やり{方|かた}が{間違|まちが}うことがある」。{記録|きろく}を{消|き}すのではなく、{先生|せんせい}に{正直|しょうじき}に{話|はな}すことが{一番|いちばん}の{方法|ほうほう}だった。
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: フェアプレーの{本当|ほんとう}の{意味|いみ}は——ルールを{守|まも}ること、{仲間|なかま}を{大切|たいせつ}にすること、{正直|しょうじき}であること。この3つは{全部|ぜんぶ}{大切|たいせつ}で、1つだけでは{不十分|ふじゅうぶん}だ。
+      - type: narration
+        text: そして——「ルール{違反|いはん}＝{悪|わる}い」と{最初|さいしょ}に{思|おも}った{自分|じぶん}の{前提|ぜんてい}を{振|ふ}り{返|かえ}ってみよう。その{前提|ぜんてい}はどこから{来|き}たのか。なぜ{変|か}わったのか。それを{考|かんが}えること——それが「メタ{認知|にち}」だ。
+      - type: narration
+        text: 体育探偵団Vol.1からVol.10まで。{消去法|しょうきょほう}・{情報整理|じょうほうせいり}・{因果連鎖|いんがれんさ}・タイムライン・{仮説検証|かせつけんしょう}・{全探索|ぜんたんさく}・{情報欠落|じょうほうけつらく}・{認知|にち}バイアス・{帰納法|きのうほう}——そして{今日|きょう}の「メタ{認知|にち}+{複合|ふくごう}{推理|すいり}」。
+      - type: narration
+        text: {体育|たいいく}で{大切|たいせつ}なことは{何|なに}だと{思|おも}いますか？ {勝|か}つこと？ ルール？ {仲間|なかま}？ それとも——?
+      - type: effect
+        name: fade-out

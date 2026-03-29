@@ -1,0 +1,390 @@
+meta:
+  id: craft-03
+  title: のこぎりの跡
+  series: 図工探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  hinata:
+    name: ヒナタ
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sumire:
+    name: スミレ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  tsukuru:
+    name: ツクル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanade:
+    name: カナデ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図工|ずこう}の{時間|じかん}に「{木|き}を{使|つか}って{生活|せいかつ}に{役立|やくだ}つものを{作|つく}ろう」という{課題|かだい}をしている。のこぎりで{板|いた}を{切|き}って、{小物入|こものい}れや{本立|ほんた}てを{作|つく}っている。"
+      - type: narration
+        text: "{提出|ていしゅつ}{期限|きげん}は{来週|らいしゅう}の{月曜日|げつようび}。みんな{頑張|がんば}って{作業|さぎょう}している。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}、{図工室|ずこうしつ}に{来|き}ると、{共用|きょうよう}の{木材|もくざい}{置|お}き{場|ば}にあった{板|いた}が1{枚|まい}、{勝手|かって}に{切|き}られていた。しかも{切|き}り{口|くち}が{変|へん}だ。{途中|とちゅう}で{切|き}り{方|かた}が{変|か}わっている。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{共用|きょうよう}の{板|いた}が1{枚|まい}{切|き}られています。しかも{切断面|せつだんめん}を{見|み}ると、{途中|とちゅう}で{切|き}り{方|かた}が{変|か}わっていますね。{最初|さいしょ}は{横引|よこび}き、{途中|とちゅう}から{縦引|たてび}きに{変|か}わっています。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hinata
+            expression: thinking
+          - character: sumire
+            expression: thinking
+          - character: tsukuru
+            expression: worried
+          - character: kanade
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}は{切|き}られた{板|いた}を{見|み}つめた。{誰|だれ}が{勝手|かって}に{共用|きょうよう}の{板|いた}を{切|き}ったのか。{切断面|せつだんめん}に{手|て}がかりがあるはずだ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: のこぎりの跡
+        subtitle: 図工探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4人の作品と進み具合を確認しよう
+      - type: narration
+        text: "4{人|にん}が{作|つく}っている{作品|さくひん}と、{進|すす}み{具合|ぐあい}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒナタ —— 「{小物入|こものい}れ」。{横引|よこび}き{中心|ちゅうしん}。あと1{枚|まい}{切|き}れば{完成|かんせい}。{自分|じぶん}の{板|いた}で{足|た}りる。"
+      - type: narration
+        text: "スミレ —— 「{写真立|しゃしんた}て」。{縦引|たてび}き{中心|ちゅうしん}。{飾|かざ}りつけの{段階|だんかい}。{板|いた}を{切|き}る{必要|ひつよう}はもうない。"
+      - type: narration
+        text: "ツクル —— 「{本立|ほんた}て」。{横引|よこび}き+{縦引|たてび}き。{遅|おく}れぎみ。{授業中|じゅぎょうちゅう}に{板|いた}を1{枚|まい}{切|き}り{間違|まちが}えて、2cm{足|た}りなくなった。"
+      - type: narration
+        text: "カナデ —— 「ペン{立|た}て」。{横引|よこび}き+{縦引|たてび}き。{組|く}み{立|た}ての{段階|だんかい}。{板|いた}を{切|き}る{必要|ひつよう}はもうない。"
+      - type: narration
+        text: "{新|あたら}しい{板|いた}が{必要|ひつよう}なのはツクルだけ。{提出|ていしゅつ}{期限|きげん}は{来週|らいしゅう}{月曜日|げつようび}。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 安全チェックシートを確認しよう
+      - type: narration
+        text: "のこぎりを{使|つか}うときは「{安全|あんぜん}チェックシート」に{名前|なまえ}・{日時|にちじ}・{使|つか}う{道具|どうぐ}を{書|か}くルール。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{授業中|じゅぎょうちゅう}（14:00〜14:50）—— ヒナタ、ツクル、カナデがのこぎりを{使用|しよう}。スミレは{授業中|じゅぎょうちゅう}もやすりがけだけ。"
+      - type: narration
+        text: "{放課後|ほうかご}の{使用|しよう}{記録|きろく}は——なし。{誰|だれ}も{名前|なまえ}を{書|か}いていない。"
+      - type: narration
+        text: "カナデ —— 15:10に{出発|しゅっぱつ}。ヒナタと{一緒|いっしょ}に{教室|きょうしつ}へ。"
+      - type: narration
+        text: "ヒナタ —— 15:10に{出発|しゅっぱつ}。カナデと{一緒|いっしょ}に{教室|きょうしつ}へ。"
+      - type: narration
+        text: "スミレ —— 15:15に{出発|しゅっぱつ}。{美術部|びじゅつぶ}の{活動|かつどう}へ。"
+      - type: narration
+        text: "ツクル —— 15:20に{出発|しゅっぱつ}。「みんなと{一緒|いっしょ}に{帰|かえ}った」。"
+      - type: narration
+        text: "{放課後|ほうかご}にのこぎりを{使|つか}った{記録|きろく}がない。でも{板|いた}は{切|き}られている。チェックシートに{名前|なまえ}を{書|か}かずに{使|つか}った{人|ひと}がいる。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 切断面を観察しよう
+      - type: narration
+        text: "{切|き}られた{共用|きょうよう}の{板|いた}の{切断面|せつだんめん}を{詳|くわ}しく{観察|かんさつ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{板|いた}の{端|はし}から{最初|さいしょ}の3cmくらいは、{断面|だんめん}がガサガサ。{繊維|せんい}が{切|き}れた{跡|あと}が{見|み}える。これは{横引|よこび}きの{特徴|とくちょう}だ。"
+      - type: narration
+        text: "3cm{地点|ちてん}から{先|さき}は、{断面|だんめん}がわりと{滑|なめ}らか。{繊維|せんい}に{沿|そ}った{跡|あと}。これは{縦引|たてび}きの{特徴|とくちょう}。{途中|とちゅう}で{切|き}り{方|かた}が{変|か}わっている！"
+      - type: narration
+        text: "{切|き}り{替|か}わった{部分|ぶぶん}に、のこぎりの{刃|は}が{一度|いちど}{止|と}まった{跡|あと}がある。"
+      - type: narration
+        text: "この{板|いた}の{繊維|せんい}は{縦方向|たてほうこう}に{走|はし}っている。「{幅|はば}を{細|ほそ}くする」なら{縦引|たてび}きが{正解|せいかい}。{犯人|はんにん}は{幅|はば}を{細|ほそ}くしたかったのに、{最初|さいしょ}に{横引|よこび}きで{切|き}り{始|はじ}めてしまった。なぜ？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: のこぎりと木くずを調べよう
+      - type: narration
+        text: "{翌朝|よくあさ}、のこぎりの{状態|じょうたい}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{図工室|ずこうしつ}には{横引|よこび}き{用|よう}と{縦引|たてび}き{用|よう}の2{本|ほん}のこぎりがある。{両方|りょうほう}の{刃|は}に{木|き}くずが{付|つ}いていた。{前日|ぜんじつ}の{授業後|じゅぎょうご}、{先生|せんせい}が{拭|ふ}いたはずなのに。"
+      - type: narration
+        text: "{木|き}くずの{色|いろ}は{薄|うす}い{茶色|ちゃいろ}。{共用|きょうよう}の{板|いた}（{杉材|すぎざい}）の{色|いろ}と{一致|いっち}する。"
+      - type: narration
+        text: "{各自|かくじ}の{板|いた}の{種類|しゅるい}を{確認|かくにん}しよう。ヒナタ：ヒノキ（やや{白|しろ}い）。スミレ：シナ{合板|ごうはん}（クリーム{色|いろ}）。ツクル：{杉材|すぎざい}（{薄|うす}い{茶色|ちゃいろ}）。カナデ：シナ{合板|ごうはん}（クリーム{色|いろ}）。"
+      - type: narration
+        text: "のこぎりに{残|のこ}った{木|き}くずは{共用|きょうよう}の{板|いた}と{同|おな}じ{杉材|すぎざい}の{色|いろ}。{共用|きょうよう}の{板|いた}と{同|おな}じ{種類|しゅるい}の{木|き}を{使|つか}っているのはツクルだけだ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の検証
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "この{切|き}り{方|かた}には「{物語|ものがたり}」があります。{最初|さいしょ}に{横引|よこび}きで{切|き}り{始|はじ}めた。でも3cmほど{切|き}ったところで{止|と}まっている。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "ここで{切|き}っている{人|ひと}は「あ、{繊維|せんい}の{向|む}きが{違|ちが}う！」と{気|き}づいたんです。だから{縦引|たてび}きに{切|き}り{替|か}えた。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "つまり{犯人|はんにん}は——{急|いそ}いでいた（{繊維|せんい}の{確認|かくにん}を{忘|わす}れるほど）。のこぎりの{使|つか}い{方|かた}は{知|し}っている（{横引|よこび}きと{縦引|たてび}きの{違|ちが}いが{分|わ}かった）。{途中|とちゅう}で{間違|まちが}いに{気|き}づいて{修正|しゅうせい}できた。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{急|いそ}いでいた」+「のこぎりの{使|つか}い{方|かた}を{知|し}っている」+「{板|いた}が{必要|ひつよう}だった」。これを{全部|ぜんぶ}{満|み}たす{人|ひと}は——？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: sumire
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sumire
+        text: "{切断面|せつだんめん}を{見|み}て{気|き}づいた。{最初|さいしょ}の3cmは{横引|よこび}きで、そこから{縦引|たてび}きに{変|か}わってる。{焦|あせ}って{繊維|せんい}の{向|む}きを{確認|かくにん}せずに{切|き}り{始|はじ}めた{人|ひと}の{仕事|しごと}だ。"
+        expression: thinking
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanade
+        text: "{授業|じゅぎょう}の{終|お}わりに、ツクルが「やばい、{板|いた}が{短|みじか}い。2cm{足|た}りない」って{焦|あせ}ってた。「{先生|せんせい}に{聞|き}いてみたら？」って{言|い}ったんだけど、「……うん、なんとかする」って。"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{因果|いんが}の{連鎖|れんさ}で{整理|せいり}しよう。{板|いた}を{切|き}り{間違|まちが}えた → {新|あたら}しい{板|いた}が{必要|ひつよう} → {放課後|ほうかご}に{図工室|ずこうしつ}に{戻|もど}った → {焦|あせ}って{横引|よこび}きで{切|き}り{始|はじ}めた → {繊維|せんい}の{向|む}きに{気|き}づいて{縦引|たてび}きに{変|か}えた。この{連鎖|れんさ}が{成|な}り{立|た}つのは——"
+      - type: choice
+        id: q1
+        question: 共用の板を勝手に切ったのは誰？
+        options:
+          - text: ツクル（板を切り間違えて2cm足りない。焦っていた）
+            value: tsukuru
+            correct: true
+            feedback: "{正解|せいかい}！ ツクルは{板|いた}を{切|き}り{間違|まちが}えて{焦|あせ}り、{放課後|ほうかご}に{共用|きょうよう}の{板|いた}を{切|き}った。{横引|よこび}き→{縦引|たてび}きの{切|き}り{替|か}えは「{焦|あせ}って{繊維|せんい}を{確認|かくにん}しなかった」{因果|いんが}の{連鎖|れんさ}だ。"
+          - text: ヒナタ（のこぎりの木くずを最初に発見した）
+            value: hinata
+            feedback: "ヒナタの{板|いた}はヒノキ（やや{白|しろ}い）。のこぎりの{木|き}くずは{杉材|すぎざい}（{薄|うす}い{茶色|ちゃいろ}）で{色|いろ}が{違|ちが}う。ヒナタの{作品|さくひん}は{順調|じゅんちょう}で、{共用|きょうよう}の{板|いた}を{切|き}る{理由|りゆう}がないよ。"
+          - text: スミレ（切断面の違いに詳しかった）
+            value: sumire
+            feedback: "スミレの{作品|さくひん}はもう{飾|かざ}りつけの{段階|だんかい}で、{板|いた}を{切|き}る{必要|ひつよう}がない。スミレは{縦引|たてび}きが{得意|とくい}だから、{最初|さいしょ}から{縦引|たてび}きで{切|き}るはず。{横引|よこび}きから{始|はじ}めることはないよ。"
+          - text: カナデ（横引きと縦引きを使い分けられる）
+            value: kanade
+            feedback: "カナデの{作品|さくひん}はもう{組|く}み{立|た}ての{段階|だんかい}で、{板|いた}を{切|き}る{必要|ひつよう}がない。カナデは{慎重|しんちょう}に{繊維|せんい}の{向|む}きを{確認|かくにん}してから{切|き}るタイプだよ。"
+
+  # ==================== 真実：ツクル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツクルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "……ごめんなさい。{共用|きょうよう}の{板|いた}を{勝手|かって}に{切|き}ったのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "ツクルは{拳|こぶし}をぎゅっと{握|にぎ}りながら、{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: tsukuru
+        text: "{授業中|じゅぎょうちゅう}に{板|いた}を{切|き}り{間違|まちが}えて、2cm{足|た}りなくなった。{提出|ていしゅつ}{期限|きげん}に{間|ま}に{合|あ}わないって{焦|あせ}って……{放課後|ほうかご}に1{人|り}で{図工室|ずこうしつ}に{戻|もど}った。"
+        expression: thinking
+      - type: dialog
+        character: tsukuru
+        text: "{共用|きょうよう}の{板|いた}を{取|と}って、のこぎりで{切|き}り{始|はじ}めた。でも{焦|あせ}ってたから{繊維|せんい}の{向|む}きを{確認|かくにん}しなかった。{横引|よこび}きで{切|き}り{始|はじ}めて、{途中|とちゅう}で「あ、{繊維|せんい}の{向|む}きが{違|ちが}う」って{気|き}づいて{縦引|たてび}きに{変|か}えた。"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "{安全|あんぜん}チェックシートにも{名前|なまえ}を{書|か}かなかった。ルール{違反|いはん}だって{分|わ}かってた。……{先生|せんせい}に{相談|そうだん}すればよかった。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hinata
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hinata
+        text: "{翌朝|よくあさ}、のこぎりの{刃|は}に{木|き}くずが{残|のこ}ってるのを{見|み}つけた。{前|まえ}の{日|ひ}に{先生|せんせい}が{拭|ふ}いたはずなのに。{木|き}くずの{色|いろ}は{共用|きょうよう}の{板|いた}と{同|おな}じ{杉材|すぎざい}の{色|いろ}だった。"
+        expression: thinking
+      - type: sprite
+        character: hinata
+        action: hide
+      - type: sprite
+        character: sumire
+        expression: determined
+        position: right
+      - type: dialog
+        character: sumire
+        text: "{切断面|せつだんめん}を{観察|かんさつ}して、{横引|よこび}きから{縦引|たてび}きに{変|か}わってることに{気|き}づいた。{焦|あせ}って{繊維|せんい}の{向|む}きを{確認|かくにん}しなかった{人|ひと}の{仕事|しごと}だって。でも「{詳|くわ}しすぎて{怪|あや}しい」って{思|おも}われるかもって……{言|い}い{出|だ}しにくかった。"
+        expression: determined
+      - type: sprite
+        character: sumire
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanade
+        text: "ツクルが「なんとかする」って{言|い}ったとき、もっと{止|と}めればよかった。「{一緒|いっしょ}に{先生|せんせい}に{言|い}いに{行|い}こう」って{言|い}えばよかったのに……ごめんね、ツクル。"
+        expression: worried
+      - type: sprite
+        character: kanade
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツクルの「{作品|さくひん}を{完成|かんせい}させたい」という{気持|きも}ちは{素晴|すば}らしいわ。{失敗|しっぱい}してもやり{直|なお}そうとする{姿勢|しせい}は{立派|りっぱ}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{安全|あんぜん}ルールを{守|まも}ることと、{先生|せんせい}に{相談|そうだん}することは{大切|たいせつ}。「{板|いた}を{切|き}り{間違|まちが}えました」と{言|い}えば、{追加|ついか}の{板|いた}をあげたのにね。{失敗|しっぱい}は{恥|は}ずかしいことじゃない。{相談|そうだん}する{勇気|ゆうき}が{大切|たいせつ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "のこぎりの{横引|よこび}きと{縦引|たてび}き。{繊維|せんい}に{直角|ちょっかく}に{切|き}れば{断面|だんめん}がガサガサ、{繊維|せんい}に{平行|へいこう}に{切|き}れば{断面|だんめん}が{滑|なめ}らか。{切|き}る{前|まえ}に{繊維|せんい}の{向|む}きを{確認|かくにん}しよう。"
+      - type: narration
+        text: "{切断面|せつだんめん}には「{物語|ものがたり}」がある。AだからB、BだからC——{因果|いんが}の{連鎖|れんさ}をたどれば、{何|なに}が{起|お}きたか{見|み}えてくる。"
+      - type: narration
+        text: "{失敗|しっぱい}は{成長|せいちょう}のチャンス。でも{方法|ほうほう}が{大切|たいせつ}。{困|こま}ったら「{先生|せんせい}、{相談|そうだん}があります」の{一言|ひとこと}を。"
+      - type: effect
+        name: fade-out
