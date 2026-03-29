@@ -1,5 +1,32 @@
 # 進捗ログ
 
+## 2026-03-29 11:56
+- Add conversion notes for art, global, sports series (previously missing)
+
+## 2026-03-29 11:36
+- Sync catalog: add global/sports 20本 + craft未登録分（214→234エントリ）
+
+## 2026-03-29 11:33
+- Add 30 game scripts: global/sports/craft series + catalog 214 entries
+
+## 2026-03-28 13:39
+- Complete food series Vol.7-10 game scripts + catalog (204 entries)
+
+## 2026-03-28 13:28
+- Add food series Vol.4-6 game scripts + catalog update (200 entries)
+
+## 2026-03-28 13:20
+- Add food series Vol.1-3 game scripts + catalog update (197 entries)
+
+## 2026-03-27 19:31
+- Add art series game scripts Vol.1-10 (complete series)
+
+## 2026-03-27 17:41
+- Add music series game scripts Vol.1-10 (complete series)
+
+## 2026-03-27 10:39
+- Update game design spec status, UI labels, and catalog sync
+
 ## 2026-03-25 21:21
 - fix: catalog.json meta extraction - add series→subject mapping
 
