@@ -1,0 +1,392 @@
+meta:
+  id: media-06
+  title: アンケートの罠
+  series: メディアリテラシー探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}2{組|くみ}で「お{楽|たの}しみ{会|かい}で{何|なに}をやるか」を{決|き}めるために、{企画係|きかくがかり}の3人がアンケートを{作|つく}って{配布|はいふ}した。"
+      - type: narration
+        text: "クラス30人に{配|くば}って{回収|かいしゅう}した{結果|けっか}が{発表|はっぴょう}された——"
+      - type: narration
+        text: "お{化|ば}け{屋敷|やしき}が25{票|ひょう}、ドッジボールが5{票|ひょう}。{圧勝|あっしょう}だ！"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ところが、マコトが{首|くび}をかしげた。「30{人|にん}{中|ちゅう}25{票|ひょう}って、{偏|かたよ}りすぎじゃない？ アンケートって、{質問|しつもん}の{作|つく}り{方|かた}{次第|しだい}で{結果|けっか}が{変|か}わるって{聞|き}いたことがある」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{質問文|しつもんぶん}を{確認|かくにん}すると——「{楽|たの}しくてドキドキするお{化|ば}け{屋敷|やしき}と、いつもの{退屈|たいくつ}なドッジボール、どちらがいいですか？」と{書|か}かれていました。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "この{質問|しつもん}、{公平|こうへい}に{書|か}けているでしょうか？ メディアリテラシー{探偵団|たんていだん}の{出番|でばん}です。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: makoto
+            expression: thinking
+          - character: nozomu
+            expression: surprised
+          - character: shiori
+            expression: thinking
+          - character: akari
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。25{票|ひょう}という{数字|すうじ}は、{本当|ほんとう}にクラス{全員|ぜんいん}の{意見|いけん}なのか——"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: アンケートの罠
+        subtitle: メディアリテラシー探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 集計結果を確認しよう
+      - type: narration
+        text: "{企画係|きかくがかり}が{発表|はっぴょう}した{集計|しゅうけい}{結果|けっか}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "お{化|ば}け{屋敷|やしき}：25{票|ひょう}、ドッジボール：5{票|ひょう}、{合計|ごうけい}：30{票|ひょう}——そうなっている。"
+      - type: narration
+        text: "でも、クラスは30人なのに{回収|かいしゅう}できた{回答|かいとう}{用紙|ようし}は25{枚|まい}だ。{残|のこ}りの5人は？"
+      - type: narration
+        text: "{発表|はっぴょう}の「30{票|ひょう}」という{数字|すうじ}と、{実際|じっさい}の「{回収|かいしゅう}25{枚|まい}」が{合|あ}っていない。{数字|すうじ}に{矛盾|むじゅん}がある。"
+      - type: narration
+        text: "{回答率|かいとうりつ}は25÷30で83%。{約|やく}5人に1人が{答|こた}えていない{計算|けいさん}だ。これで「クラスの{意見|いけん}」と{言|い}えるのだろうか？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 質問文を読んでみよう
+      - type: narration
+        text: "{実際|じっさい}のアンケート{用紙|ようし}に{書|か}かれていた{質問文|しつもんぶん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{楽|たの}しくてドキドキするお{化|ば}け{屋敷|やしき}と、いつもの{退屈|たいくつ}なドッジボール、どちらがいいですか？」"
+      - type: narration
+        text: "お{化|ば}け{屋敷|やしき}には「{楽|たの}しくてドキドキする」という{良|よ}い{印象|いんしょう}の{言葉|ことば}がついている。ドッジボールには「いつもの{退屈|たいくつ}な」という{悪|わる}い{印象|いんしょう}の{言葉|ことば}がついている。"
+      - type: narration
+        text: "{選択肢|せんたくし}は2つだけ。「{工作|こうさく}」や「{映画|えいが}{鑑賞|かんしょう}」など{他|ほか}の{選|えら}び{方|かた}がない。「どちらもイヤ」という{選択肢|せんたくし}もない。"
+      - type: narration
+        text: "これは{誘導|ゆうどう}{質問|しつもん}だ——{片方|かたほう}だけを{良|よ}く{書|か}くことで、{答|こた}える人を{特定|とくてい}の{方向|ほうこう}に{導|みちび}いている。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 全30枚の回答用紙を調べよう
+      - type: narration
+        text: "山田{先生|せんせい}が{回答|かいとう}{用紙|ようし}を全部{持|も}ってきた。1{枚|まい}ずつ{確認|かくにん}していく。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "お{化|ば}け{屋敷|やしき}に〇をつけた{用紙|ようし}：20{枚|まい}。ドッジボールに〇をつけた{用紙|ようし}：5{枚|まい}。{合計|ごうけい}25{枚|まい}。"
+      - type: narration
+        text: "{発表|はっぴょう}では「お{化|ば}け{屋敷|やしき}25{票|ひょう}」だったのに、{実際|じっさい}に{数|かぞ}えるとお{化|ば}け{屋敷|やしき}は20{票|ひょう}しかない！ {数字|すうじ}が{違|ちが}う。"
+      - type: narration
+        text: "{未回答|みかいとう}の5人の{名前|なまえ}も{判明|はんめい}した——アヤ、ユウタ、メイ、ハルカ、リク。この5人はなぜ{答|こた}えなかったのだろう？"
+      - type: narration
+        text: "{全探索|ぜんたんさく}して{初|はじ}めて{分|わ}かった。{数字|すうじ}だけ見ていたら、この「{抜|ぬ}け」には{気|き}づけなかった。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 未回答5人に聞き取ろう
+      - type: narration
+        text: "山田{先生|せんせい}が{未回答|みかいとう}の5人に{理由|りゆう}を{聞|き}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "アヤ——「{選択肢|せんたくし}が2つしかなくて{選|えら}べなかった。{工作|こうさく}がしたかったのに、{工作|こうさく}がなかった」"
+      - type: narration
+        text: "ユウタ——「お{化|ば}け{屋敷|やしき}は{怖|こわ}いからイヤだけど、ドッジボールも『{退屈|たいくつ}な』って{書|か}いてあって……{退屈|たいくつ}なものを{選|えら}ぶのもイヤだったから、{出|だ}さなかった」"
+      - type: narration
+        text: "メイ——「お{化|ば}け{屋敷|やしき}に『{楽|たの}しくてドキドキする』って{書|か}いてあるのを{読|よ}んで、{何|なん}かフェアじゃないなって{思|おも}った」　ハルカ——「{映画|えいが}{鑑賞|かんしょう}がしたかった。でも{選択肢|せんたくし}にないから{書|か}けなかった」"
+      - type: narration
+        text: "5人の{理由|りゆう}を{整理|せいり}すると——{選択肢|せんたくし}が{足|た}りなかった（アヤ・ハルカ・リク）、{質問|しつもん}の{書|か}き方に{違和感|いわかん}があった（ユウタ・メイ）。"
+      - type: narration
+        text: "{質問文|しつもんぶん}そのものが、{答|こた}えられない人を{生|う}み出していた。{未回答|みかいとう}は{忘|わす}れたからではなく、アンケートの{設計|せっけい}に{問題|もんだい}があったからだ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 企画係の記録と中立版の再投票
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{企画係|きかくがかり}の{活動|かつどう}{記録|きろく}を{見|み}てください。{役割|やくわり}{分担|ぶんたん}が{書|か}いてあります——アンケートの{質問文|しつもんぶん}を{書|か}く{担当|たんとう}は、アカリさんです。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{注目|ちゅうもく}してください。{活動|かつどう}{記録|きろく}の{質問文|しつもんぶん}は「お{化|ば}け{屋敷|やしき}とドッジボール、どちらがいい？」——でも{実際|じっさい}のアンケートには「{楽|たの}しくてドキドキする」「いつもの{退屈|たいくつ}な」がついている。{印刷|いんさつ}の{前日|ぜんじつ}に、{修飾語|しゅうしょくご}が{追加|ついか}されたのです。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{質問文|しつもんぶん}{担当|たんとう}＝アカリが{確定|かくてい}した！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "さらに——山田{先生|せんせい}が{中立的|ちゅうりつてき}な{表現|ひょうげん}に{書|か}き直して{再投票|さいとうひょう}した{結果|けっか}：お{化|ば}け{屋敷|やしき}12{票|ひょう}、ドッジボール8{票|ひょう}、{工作|こうさく}5{票|ひょう}、{映画|えいが}{鑑賞|かんしょう}5{票|ひょう}——{大接戦|だいせっせん}！"
+      - type: narration
+        text: "「25{票|ひょう}の{圧勝|あっしょう}」は、{質問|しつもん}の{書|か}き方が{生|う}み出した{幻想|げんそう}だった。{質問文|しつもんぶん}{次第|しだい}で、{結果|けっか}はここまで{変|か}わる。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誘導したのは誰だ？
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{回答|かいとう}{用紙|ようし}を全部{数|かぞ}えるまで、お{化|ば}け{屋敷|やしき}が25{票|ひょう}だと{思|おも}いこんでいた。{全探索|ぜんたんさく}しないと、{数字|すうじ}の{矛盾|むじゅん}には{気|き}づけない。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: determined
+        position: right
+      - type: dialog
+        character: shiori
+        text: "{企画係|きかくがかり}の{活動|かつどう}{記録|きろく}には「{中立|ちゅうりつ}な{質問|しつもん}」と{書|か}いてある。でも{実際|じっさい}の{用紙|ようし}には{誘導|ゆうどう}が入っていた。{印刷|いんさつ}の{前日|ぜんじつ}に{書|か}き{加|くわ}えたのは、{質問文|しつもんぶん}{担当|たんとう}の{人物|じんぶつ}しかいない。"
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{企画係|きかくがかり}の{活動|かつどう}{記録|きろく}で{質問文|しつもんぶん}{担当|たんとう}が{判明|はんめい}した。{中立版|ちゅうりつばん}との{比較|ひかく}で、{誘導|ゆうどう}が{結果|けっか}を{歪|ゆが}めていたことが{証明|しょうめい}された——"
+      - type: choice
+        id: q1
+        question: 誘導的なアンケートを書いたのは誰？
+        options:
+          - text: アカリ（企画係で質問文担当。前日に修飾語を書き加えた）
+            value: akari
+            correct: true
+            feedback: "{正解|せいかい}！ アカリは{企画係|きかくがかり}で{質問文|しつもんぶん}{担当|たんとう}だった。{最初|さいしょ}は{中立的|ちゅうりつてき}に{書|か}いていたが、{配布|はいふ}の{前日|ぜんじつ}に「{分|わ}かりやすくしよう」と{誘導的|ゆうどうてき}な{修飾語|しゅうしょくご}を{追加|ついか}した。{悪意|あくい}はなく、「{公平|こうへい}なアンケート」の{作|つく}り方を{知|し}らなかっただけだ。"
+          - text: マコト（最初に数字の違和感に気づいた）
+            value: makoto
+            feedback: "マコトは{結果|けっか}の{違和感|いわかん}に{最初|さいしょ}に{気|き}づいた{側|がわ}だ。{企画係|きかくがかり}ではなく、{質問文|しつもんぶん}も{書|か}いていないよ。"
+          - text: ノゾム（お化け屋敷が好きで盛り上がっていた）
+            value: nozomu
+            feedback: "ノゾムはお{化|ば}け{屋敷|やしき}が{好|す}きで{結果|けっか}を{喜|よろこ}んでいたけど、{企画係|きかくがかり}の{文面|ぶんめん}{担当|たんとう}ではない。{配布|はいふ}を{手伝|てつだ}っただけだよ。"
+          - text: シオリ（アンケートの罠に詳しかった）
+            value: shiori
+            feedback: "シオリは{図書室|としょしつ}の{本|ほん}で「アンケートの3つの{罠|わな}」を{学|まな}んでいた{側|がわ}だ。{公平|こうへい}さの{問題|もんだい}を{見抜|みぬ}いたのはシオリで、{書|か}いた{記録|きろく}はどこにもないよ。"
+
+  # ==================== 真実：アカリ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: アカリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: akari
+        expression: worried
+        position: center
+      - type: dialog
+        character: akari
+        text: "……{私|わたし}が{質問文|しつもんぶん}を{書|か}き{直|なお}しました。{企画係|きかくがかり}として「{早|はや}くみんなの{意見|いけん}をまとめなきゃ」って{焦|あせ}っていて……"
+        expression: worried
+      - type: narration
+        text: "アカリは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: akari
+        text: "{最初|さいしょ}は「お{化|ば}け{屋敷|やしき}とドッジボール、どちらがいい？」って{中立|ちゅうりつ}に{書|か}いたの。でも{火曜日|かようび}の{夜|よる}、「もっと{分|わ}かりやすく{書|か}いた{方|ほう}がいいかな」って{思|おも}って——"
+        expression: thinking
+      - type: dialog
+        character: akari
+        text: "お{化|ば}け{屋敷|やしき}は{絶対|ぜったい}{楽|たの}しいから「{楽|たの}しくてドキドキする」ってつけた。ドッジボールは「みんないつもやってるし」って{思|おも}って「いつもの{退屈|たいくつ}な」ってつけた。{悪意|あくい}はなかったの……"
+        expression: worried
+      - type: dialog
+        character: akari
+        text: "{誘導|ゆうどう}{質問|しつもん}っていう{言葉|ことば}、{知|し}らなかった。「みんなもきっとお{化|ば}け{屋敷|やしき}がいいはず」って{思|おも}い{込|こ}んでいて、{自分|じぶん}の{希望|きぼう}が{質問文|しつもんぶん}に{入|はい}ってしまったんだ。"
+        expression: determined
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{発表|はっぴょう}の{数字|すうじ}と{実際|じっさい}の{枚数|まいすう}が{合|あ}わないのに、{最初|さいしょ}はスルーしそうになってた。30{枚|まい}を全部{数|かぞ}えて{初|はじ}めて「20{票|ひょう}しかない」って{気|き}づけた。{全探索|ぜんたんさく}って、やっぱり{大事|たいせつ}だ。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomu
+        text: "「25{票|ひょう}！ お{化|ば}け{屋敷|やしき}最高！」って{喜|よろこ}んでたけど……タカシが「ドッジボールに『{退屈|たいくつ}』って{書|か}いてあったから{選|えら}びにくかった」って{言|い}ってたの、もっと{早|はや}く{伝|つた}えればよかった。"
+        expression: worried
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: determined
+        position: left
+      - type: dialog
+        character: shiori
+        text: "{実|じつ}は、アンケート{用紙|ようし}を{受|う}け{取|と}ったとき{違和感|いわかん}があった。「{楽|たの}しくてドキドキする」と「いつもの{退屈|たいくつ}な」——{片方|かたほう}にだけ{良|よ}い{言葉|ことば}がついてる。もっと{早|はや}く{声|こえ}に{出|だ}せばよかった。"
+        expression: determined
+      - type: dialog
+        character: shiori
+        text: "それと……{火曜日|かようび}の{放課後|ほうかご}に{家庭科室|かていかしつ}の{前|まえ}を{通|とお}ったら、アカリが1人で{何|なに}かを{書|か}き直していた。{配布|はいふ}の{前日|ぜんじつ}——あの{時|とき}だったんだね。"
+        expression: thinking
+      - type: sprite
+        character: shiori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "アカリさんの「みんなのためにまとめたかった」という{気持|きも}ちは{本物|ほんもの}です。でも「{分|わ}かりやすく」しようとした{善意|ぜんい}が、{結果|けっか}を{歪|ゆが}めてしまいました。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{公平|こうへい}なアンケートの{第一歩|だいいっぽ}は「{自分|じぶん}の{意見|いけん}が{質問|しつもん}に{入|はい}っていないか？」を{確認|かくにん}すること。{書|か}いたら{誰|だれ}かに{読|よ}んでもらうのもいい{方法|ほうほう}です。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{楽|たの}しくてドキドキする」と「いつもの{退屈|たいくつ}な」——たった{二|ふた}つの{修飾語|しゅうしょくご}が、25{票|ひょう}の{圧勝|あっしょう}を12{票|ひょう}の{大接戦|だいせっせん}に{変|か}えた。"
+      - type: narration
+        text: "{悪意|あくい}はなくても、{誘導|ゆうどう}は{起|お}きる。「{自分|じぶん}はこう{思|おも}う」という{気持|きも}ちが、{無意識|むいしき}のうちに{言葉|ことば}の{選|えら}び{方|かた}に{表|あらわ}れてしまうから。"
+      - type: narration
+        text: "テレビやインターネットで「○○%の人が{賛成|さんせい}！」と見たとき——{質問|しつもん}はどう{書|か}かれていたか？ {選択肢|せんたくし}は{公平|こうへい}か？ {答|こた}えなかった人はいないか？ そう{問|と}い{返|かえ}せる人が、{本当|ほんとう}のメディアリテラシー{探偵|たんてい}だ。"
+      - type: effect
+        name: fade-out

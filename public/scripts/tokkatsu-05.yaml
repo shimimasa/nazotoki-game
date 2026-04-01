@@ -1,0 +1,377 @@
+meta:
+  id: tokkatsu-05
+  title: 空席のいす
+  series: 特別活動探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{科学|かがく}クラブの{部員|ぶいん}リナが、とつぜん{退部届|たいぶとどけ}を出した。"
+      - type: narration
+        text: "リナはこれまで{実験|じっけん}を{楽|たの}しそうにしていた。{先週|せんしゅう}の{金曜日|きんようび}には、{発表会|はっぴょうかい}に{向|む}けた{最後|さいご}の{準備|じゅんび}もしていた。"
+      - type: narration
+        text: "それなのに、どうして{急|きゅう}に「やめる」と{決|き}めたのだろう——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "リナさんが{退部届|たいぶとどけ}を{出|だ}しました。{理由|りゆう}の{欄|らん}は{空欄|くうらん}のままです。「{自分|じぶん}で{決|き}めました」とだけ{書|か}いてありました。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "でも、リナさんはずっとクラブを{頑張|がんば}っていたので、{先生|せんせい}はとても{心配|しんぱい}しています。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: thinking
+          - character: ayumu
+            expression: surprised
+          - character: mamoru
+            expression: worried
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{自分|じぶん}で{決|き}めた」——その{言葉|ことば}の{裏|うら}に、いったい{何|なに}があったのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 空席のいす
+        subtitle: 特別活動探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 活動記録を確認しよう
+      - type: narration
+        text: "{科学|かがく}クラブの{活動記録|かつどうきろく}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "リナの{班|はん}は{金曜日|きんようび}15:40に{活動|かつどう}を「{途中|とちゅう}で{中断|ちゅうだん}」と{書|か}かれていた。ほかの{班|はん}は{予定|よてい}どおり{終了|しゅうりょう}している。"
+      - type: narration
+        text: "リナの{班|はん}だけ、なぜ{途中|とちゅう}で{止|と}まったのか。{発表会|はっぴょうかい}の{準備|じゅんび}が{終|お}わらなかった{理由|りゆう}は{何|なん}だろう。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 退部届を調べよう
+      - type: narration
+        text: "{退部届|たいぶとどけ}の{写|うつ}しを{見|み}た。{名前|なまえ}の{欄|らん}には「リナ」と{書|か}かれている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{理由|りゆう}の{欄|らん}は——{空欄|くうらん}。{何|なに}も{書|か}いていない。"
+      - type: narration
+        text: "ひとことの{欄|らん}には「{自分|じぶん}で{決|き}めました」とだけある。{理由|りゆう}が{書|か}けない、あるいは{書|か}きたくない{事情|じじょう}があるのだろうか。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ぬれた観察シートを調べよう
+      - type: narration
+        text: "リナの{班|はん}の{記録|きろく}シートを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{発表用|はっぴょうよう}のグラフが{水|みず}でにじんでいる！ {端|はし}に「{金曜|きんよう}15:40　まとめ{直|なお}し」と{書|か}かれている。"
+      - type: narration
+        text: "{班|はん}の{担当|たんとう}は——{記録|きろく}まとめがリナ、{測定|そくてい}{係|がかり}がマモル。15:40ごろ、{マモルの関|マモルのかか}わる{何|なん}らかの{出来事|できごと}があって、{観察|かんさつ}シートがぬれた{可能性|かのうせい}が{高|たか}い。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 放課後の聞きとりメモを読もう
+      - type: narration
+        text: "ノゾミが{放課後|ほうかご}にまとめた{聞|き}きとりメモが{見|み}つかった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{金曜|きんよう}15:42ごろ——マモルの{言葉|ことば}:「もう{発表|はっぴょう}はむずかしいかも。やめたほうが{楽|らく}かも」"
+      - type: narration
+        text: "そのあとリナは、うつむいたまま{何|なに}も{言|い}わなかった。"
+      - type: narration
+        text: "{言|い}った{人|ひと}は{助言|じょげん}のつもりでも、{聞|き}いた{人|ひと}にはどう{聞|き}こえただろう？ リナに{残|のこ}っていた{選択肢|せんたくし}は、このとき{何|なん}だったのか。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: リナのメモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "リナのノートのはしに、{小|ちい}さなメモが{見|み}つかった——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「もう{無理|むり}かも。{私|わたし}がいないほうが{班|はん}も{楽|らく}になるかもしれない。{自分|じぶん}で{決|き}めるしかない」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{自分|じぶん}で{決|き}めた」——でも、このメモが{示|しめ}すのは、リナが{本当|ほんとう}に{自由|じゆう}に{選|えら}べていたわけではなかったことだ。"
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "「{自分|じぶん}で{決|き}めるしかない」……これって、{他|ほか}に{選|えら}べる{道|みち}がなかったってこと？"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsumugi
+        text: "{活動記録|かつどうきろく}で{見|み}た{空欄|くうらん}も、この{気持|きも}ちと{繋|つな}がってる……"
+        expression: thinking
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: リナの決定に影響した人は誰？
+      - type: sprite
+        character: ayumu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ayumu
+        text: "{金曜|きんよう}15:45ごろ、マモルとリナの{間|あいだ}に{重|おも}い{空気|くうき}が{流|なが}れてた。{部長|ぶちょう}として、あのとき{声|こえ}をかけるべきだった……"
+        expression: worried
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "{実験|じっけん}で{水|みず}をこぼして……{発表|はっぴょう}がむずかしくなったのは、{僕|ぼく}のせいだった。リナへの{言葉|ことば}は{助言|じょげん}のつもりだったんだ。"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{金曜|きんよう}15:40に{観察|かんさつ}シートがぬれた。{測定|そくてい}{係|がかり}はマモル。15:42にマモルが「やめたほうが{楽|らく}かも」と{言|い}った。リナはうつむいたまま。そして{退部届|たいぶとどけ}の{理由|りゆう}は{空欄|くうらん}——"
+      - type: choice
+        id: q1
+        question: リナの決定に一番大きく影響した人は誰？
+        options:
+          - text: マモル（水をこぼし、「やめたほうが楽かも」と言った）
+            value: mamoru
+            correct: true
+            feedback: "{正解|せいかい}！ マモルの{失敗|しっぱい}と「やめたほうが{楽|らく}かも」という{言葉|ことば}が、リナの{選択肢|せんたくし}をせばめた。マモルは{助言|じょげん}のつもりだったが、リナには「もうここにいてはいけない」と{聞|き}こえた。"
+          - text: ツムギ（記録のズレに気づいていたのに言わなかった）
+            value: tsumugi
+            feedback: "ツムギは{記録|きろく}の{変化|へんか}に{気|き}づいていたが、リナへ{直接|ちょくせつ}{言葉|ことば}をかけてはいない。{選択肢|せんたくし}をせばめた{直接|ちょくせつ}の{原因|げんいん}ではないよ。"
+          - text: アユム（部長として止められなかった）
+            value: ayumu
+            feedback: "アユムは{部長|ぶちょう}として{空気|くうき}の{重|おも}さに{気|き}づきながら{声|こえ}をかけられなかった。それは{反省|はんせい}すべき{点|てん}だけど、{直接|ちょくせつ}リナの{選択肢|せんたくし}をせばめた{言葉|ことば}をかけた{人|ひと}ではないよ。"
+          - text: ノゾミ（その場で止められなかった）
+            value: nozomi
+            feedback: "ノゾミはマモルの{言葉|ことば}を{聞|き}いて{止|と}められなかったことを{後悔|こうかい}している。でも、リナの{選択肢|せんたくし}を{直接|ちょくせつ}せばめたのは、「やめたほうが{楽|らく}かも」と{言|い}ったマモルだよ。"
+
+  # ==================== 真実：マモルの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マモルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamoru
+        text: "……{本当|ほんとう}のことを{話|はな}します。{金曜日|きんようび}、{僕|ぼく}が{水|みず}をこぼして、リナがまとめていた{観察|かんさつ}シートをぬらしてしまいました。"
+        expression: worried
+      - type: narration
+        text: "マモルは{下|した}を{向|む}きながら、ゆっくり{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: mamoru
+        text: "{発表会|はっぴょうかい}が{近|ちか}かったのに、{自分|じぶん}のミスでデータが{使|つか}えなくなった。{怖|こわ}くて、あせってた。それで……「もう{発表|はっぴょう}はむずかしいかも。やめたほうが{楽|らく}かも」って{言|い}ってしまった。"
+        expression: thinking
+      - type: dialog
+        character: mamoru
+        text: "{助言|じょげん}のつもりだった。でも、リナをおいこんだのは{僕|ぼく}の{言葉|ことば}だったと{分|わ}かった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{記録|きろく}から{何|なに}か{起|お}きたと{分|わ}かってた。でも{犯人|はんにん}を{決|き}める{材料|ざいりょう}がないからって、{黙|だま}っていた。もっと{早|はや}く{言|い}えばよかった。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: worried
+        position: right
+      - type: dialog
+        character: ayumu
+        text: "{部長|ぶちょう}として{空気|くうき}の{重|おも}さに{気|き}づいていたのに、「{後|あと}で{聞|き}こう」と{思|おも}ったまま{時間|じかん}が{過|す}ぎた。{早|はや}く{声|こえ}をかけていれば、リナに{選択肢|せんたくし}が{残|のこ}ったかもしれない。"
+        expression: worried
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "マモルがリナに{言|い}っているのを{聞|き}いた。「やさしそうな{言|い}い{方|かた}でも、{追|お}いこむことがある」って{分|わ}かっていたのに、その{場|ば}で{止|と}められなかった。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "「{言|い}わなくていいか」じゃなくて、{早|はや}く{伝|つた}えるべきだったと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マモルの「{助言|じょげん}のつもりだった」という{気持|きも}ちは{分|わ}かります。でも、{言葉|ことば}は{言|い}った{人|ひと}のつもりではなく、{聞|き}いた{人|ひと}の{受|う}け{取|と}り{方|かた}で{決|き}まることがあります。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{自分|じぶん}で{決|き}めるためには、{安心|あんしん}して{相談|そうだん}できることと、{他|ほか}の{道|みち}が{見|み}えていることが{必要|ひつよう}です。リナには、その{両方|りょうほう}が{足|た}りなかった。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{自分|じぶん}で{決|き}めた」という{言葉|ことば}には、3つの{意味|いみ}がある。①{本当|ほんとう}に{自発的|じはつてき}に{決|き}めた。②{誰|だれ}かの{影響|えいきょう}を{受|う}けて{自分|じぶん}で{決|き}めたように{感|かん}じている。③{選択肢|せんたくし}がなくなって「{決|き}めた」と{表現|ひょうげん}した——"
+      - type: narration
+        text: "マモルの{言葉|ことば}が、リナを③に{追|お}いやった。{助言|じょげん}と{圧力|あつりょく}は、{言|い}った{側|がわ}ではなく{受|う}け{取|と}った{側|がわ}が{決|き}める。"
+      - type: narration
+        text: "{相手|あいて}の{選択肢|せんたくし}を{守|まも}る{言葉|ことば}は、どんな{言葉|ことば}だろう。その{問|と}いを{持|も}ち{続|つづ}けることが、{本当|ほんとう}の「{自己決定|じこけってい}を{尊重|そんちょう}する」ことにつながる。"
+      - type: effect
+        name: fade-out

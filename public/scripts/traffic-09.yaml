@@ -1,0 +1,331 @@
+meta:
+  id: traffic-09
+  title: 安全マップのまちがい
+  series: 交通安全探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{交通|こうつう}{安全|あんぜん}{探偵団|たんていだん}が{作|つく}った{安全|あんぜん}マップで「{安全|あんぜん}」と{書|か}かれた{交差点|こうさてん}を{通|とお}った{低学年|ていがくねん}の{子|こ}が、{車|くるま}とぶつかりそうになった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{実際|じっさい}にはその{場所|ばしょ}は{見通|みとお}しが{悪|わる}く、ガードレールもなかった。マップの{情報|じょうほう}がまちがっていたのだ。だれが{書|か}いたのか——。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{安全|あんぜん}マップに{間違|まちが}った{情報|じょうほう}が{書|か}かれていました。{低学年|ていがくねん}の{子|こ}がそれを{信|しん}じて{危|あぶ}ない{目|め}にあいました。だれが{間違|まちが}った{情報|じょうほう}を{書|か}いたのかを{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: thinking
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 安全マップのまちがい
+        subtitle: 交通安全探偵団 Vol.9
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ヒヤリハット報告を確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{低学年|ていがくねん}の{子|こ}がマップで「{安全|あんぜん}」と{書|か}かれた{交差点|こうさてん}を{通|とお}った。{実際|じっさい}には{見通|みとお}しが{悪|わる}く、ガードレールもなかった。{車|くるま}が{急|きゅう}に{曲|ま}がってきた。"
+      - type: sprite
+        character: towa
+        expression: worried
+        position: left
+      - type: dialog
+        character: towa
+        text: "マップで「{安全|あんぜん}」って{書|か}いてあったから{信|しん}じて{通|とお}ったんだ。{安全|あんぜん}マップの{情報|じょうほう}は、{誰|だれ}かが{信|しん}じて{使|つか}うもの。{間違|まちが}いは{命|いのち}に{関|かか}わる。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: チェックリストを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{危険|きけん}{箇所|かしょ}チェックリスト —— {見通|みとお}し{距離|きょり}、{歩道|ほどう}の{有無|うむ}、{信号|しんごう}の{有無|うむ}、ガードレールの{有無|うむ}、{横断歩道|おうだんほどう}の{有無|うむ}、{交通量|こうつうりょう}、{車|くるま}のスピード{感|かん}、{子|こ}どもの{通行|つうこう}{人数|にんずう}、{写真|しゃしん}、{調査|ちょうさ}{時刻|じこく}。"
+      - type: sprite
+        character: michika
+        expression: determined
+        position: right
+      - type: dialog
+        character: michika
+        text: "ちゃんと{調|しら}べたなら、これだけの{項目|こうもく}が{全部|ぜんぶ}そろうはず。{項目|こうもく}が{少|すく}ない{記録|きろく}は、{本当|ほんとう}に{現場|げんば}に{行|い}ったのか{疑問|ぎもん}が{残|のこ}る。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 調査記録を比べよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "3{人|にん}の{記録|きろく}にはほとんどの{場所|ばしょ}で{写真|しゃしん}がついている。しかしある{調査者|ちょうさしゃ}の{記録|きろく}だけ{写真|しゃしん}がない{場所|ばしょ}がいくつかある。"
+      - type: narration
+        text: "その{記録|きろく}はコメントも{短|みじか}く、「{安全|あんぜん}」「だいじょうぶ」が{多|おお}い。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{写真|しゃしん}がない、コメントが{短|みじか}い、「{安全|あんぜん}」と{書|か}くだけ——ちゃんと{現場|げんば}に{行|い}った{人|ひと}の{記録|きろく}とは{書|か}き{方|かた}が{違|ちが}う。{本当|ほんとう}に{見|み}に{行|い}ったのか？"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 調査時刻を確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{同|おな}じ{調査者|ちょうさしゃ}が、{近|ちか}い{時刻|じこく}に{別|べつ}の{場所|ばしょ}を{調|しら}べたことになっている。{地図|ちず}で{見|み}ると、その2{箇所|かしょ}は{歩|ある}いてすぐではない。"
+      - type: narration
+        text: "1{回|かい}だけでなく、{似|に}たような{時刻|じこく}の{重|かさ}なりがある。"
+      - type: sprite
+        character: michika
+        expression: surprised
+        position: right
+      - type: dialog
+        character: michika
+        text: "{時刻|じこく}の{矛盾|むじゅん}！ {歩|ある}いて{移動|いどう}できない{距離|きょり}なのに{同|おな}じ{時間帯|じかんたい}に{調|しら}べたことになってる。「{本当|ほんとう}に{行|い}った{記録|きろく}ではない」パターンが{見|み}えてきた。"
+        expression: surprised
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の再調査
+      - type: effect
+        name: fade-in
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{山田先生|やまだせんせい}が「{安全|あんぜん}」と{書|か}かれた{場所|ばしょ}を{全部|ぜんぶ}{見|み}て{回|まわ}った。{問題|もんだい}の{場所|ばしょ}は{見通|みとお}し{不良|ふりょう}・ガードレールなし・{交通量|こうつうりょう}{多|おお}めで、{明|あき}らかに{危険|きけん}だった。"
+      - type: narration
+        text: "{記録|きろく}の{時刻|じこく}を{地図|ちず}に{重|かさ}ねると、ハシルは{同|おな}じ{時間帯|じかんたい}に2{箇所|かしょ}{以上|いじょう}にいたことになった。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ハシルは{行|い}っていない{場所|ばしょ}も{調査|ちょうさ}したことにしていた！ 「たくさん{回|まわ}ったと{思|おも}われたくて」——{嘘|うそ}の{安全|あんぜん}{情報|じょうほう}が{命|いのち}を{危|あぶ}なくした。"
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 間違った情報を書いたのは誰だ？
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{写真|しゃしん}がない。{項目|こうもく}が{少|すく}ない。{時刻|じこく}が{重|かさ}なっている——このパターンが{全部|ぜんぶ}{同|おな}じ{人|ひと}の{記録|きろく}に{集中|しゅうちゅう}している。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: choice
+        id: q1
+        question: 間違った情報を安全マップに書いたのは誰？
+        options:
+          - text: ハシル（行っていない場所も調査したことにした）
+            value: hashiru
+            correct: true
+            feedback: "{正解|せいかい}！ ハシルは「{自分|じぶん}がいちばんたくさん{調|しら}べた」と{思|おも}われたくて、{行|い}っていない{場所|ばしょ}も「{安全|あんぜん}」と{書|か}いてしまった。{安全|あんぜん}マップは{誰|だれ}かが{信|しん}じて{使|つか}う{情報|じょうほう}。{嘘|うそ}の{記録|きろく}は{命|いのち}を{危|あぶ}なくする。"
+          - text: ヒカル（記録を分析していて怪しい）
+            value: hikaru
+            feedback: "ヒカルは{記録|きろく}を{比較|ひかく}{分析|ぶんせき}した{情報型|じょうほうがた}。パターンを{見|み}つけた{側|がわ}で、{間違|まちが}った{情報|じょうほう}を{書|か}いたのはヒカルではないよ。"
+          - text: ミチカ（チェックリストに詳しいのに見逃した）
+            value: michika
+            feedback: "ミチカはチェックリストの{基準|きじゅん}を{知|し}る{観察型|かんさつがた}。{時刻|じこく}の{矛盾|むじゅん}に{気|き}づいた{側|がわ}。{間違|まちが}った{情報|じょうほう}を{書|か}いたのはミチカではないよ。"
+          - text: トワ（低学年の子を心配していた）
+            value: towa
+            feedback: "トワは{低学年|ていがくねん}の{安全|あんぜん}を{心配|しんぱい}する{感情型|かんじょうがた}。{間違|まちが}った{情報|じょうほう}を{書|か}いたのはトワではないよ。"
+
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハシルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hashiru
+        text: "……{間違|まちが}った{情報|じょうほう}を{書|か}いたのは、おれです。"
+        expression: worried
+      - type: dialog
+        character: hashiru
+        text: "「{自分|じぶん}がいちばんたくさん{調|しら}べた」って{思|おも}われたくて、{行|い}ってない{場所|ばしょ}も{書|か}いちゃったんだ。「{見通|みとお}し{良好|りょうこう}」「{安全|あんぜん}」って、{適当|てきとう}に。"
+        expression: thinking
+      - type: dialog
+        character: hashiru
+        text: "{最初|さいしょ}は{大|おお}きな{問題|もんだい}になるなんて{思|おも}ってなかった。でも{安全|あんぜん}マップは{誰|だれ}かが{信|しん}じて{使|つか}う{情報|じょうほう}だった。おれの{嘘|うそ}のせいで{低学年|ていがくねん}の{子|こ}が{危|あぶ}ない{目|め}にあった……ごめん。"
+        expression: determined
+      - type: sprite
+        character: hashiru
+        action: hide
+
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "1{枚|まい}の{記録|きろく}だけ{見|み}ていたら{気|き}づかなかった。4{人分|にんぶん}を{比|くら}べて{共通|きょうつう}するパターンを{見|み}つけたから{分|わ}かった。{情報|じょうほう}は{比較|ひかく}することが{大事|だいじ}だ。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: towa
+        text: "たくさんやったように{見|み}せたい{気持|きも}ちは{分|わ}かる。でも{安全|あんぜん}{情報|じょうほう}の{嘘|うそ}は、{誰|だれ}かの{命|いのち}を{危|あぶ}なくする。「{正直|しょうじき}に{少|すく}ない」は「{嘘|うそ}で{多|おお}い」よりずっと{価値|かち}がある。"
+        expression: thinking
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{安全|あんぜん}マップは{誰|だれ}かが{信|しん}じて{使|つか}う{情報|じょうほう}です。{嘘|うそ}の{記録|きろく}は{命|いのち}に{関|かか}わります。{正直|しょうじき}に{少|すく}ないほうが、{嘘|うそ}で{多|おお}いよりずっと{大切|たいせつ}。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{写真|しゃしん}がない。{項目|こうもく}が{少|すく}ない。{時刻|じこく}が{重|かさ}なっている——1つの{記録|きろく}だけでは{分|わ}からなくても、{全員|ぜんいん}の{記録|きろく}を{比|くら}べればパターンが{見|み}える。"
+      - type: narration
+        text: "{情報|じょうほう}の{信頼性|しんらいせい}は、{比較|ひかく}と{検証|けんしょう}で{確|たし}かめる。たくさんやったように{見|み}せたい{気持|きも}ちより、{正確|せいかく}な1つの{記録|きろく}のほうが{人|ひと}の{命|いのち}を{守|まも}る。"
+      - type: effect
+        name: fade-out

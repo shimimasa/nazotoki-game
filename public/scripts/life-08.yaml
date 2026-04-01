@@ -1,0 +1,413 @@
+meta:
+  id: life-08
+  title: 弱っていく魚
+  series: 生命探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{教室|きょうしつ}の{水|みず}そうで{飼|か}っている{金魚|きんぎょ}3{匹|ひき}が、ここ1{週間|しゅうかん}でだんだん{元気|げんき}をなくしていた。{泳|およ}ぎがのろくなり、エサも{残|のこ}すようになった。"
+      - type: narration
+        text: "{水槽係|すいそうがかり}の4{人|にん}が{水質|すいしつ}をチェックすると、{水温|すいおん}とpHに{異常|いじょう}な{変化|へんか}が{見|み}られる。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{誰|だれ}かが{水|みず}そうに{毒|どく}を{入|い}れたのか。それとも、よいと{思|おも}ってしたことが{原因|げんいん}なのか。{金魚|きんぎょ}が{弱|よわ}った{原因|げんいん}を{突|つ}き{止|と}めなければならない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{水|みず}そうの{金魚|きんぎょ}たちが1{週間|しゅうかん}ほどで{急|きゅう}に{元気|げんき}をなくしています。{水質|すいしつ}データも{変化|へんか}しています。{原因|げんいん}を{作|つく}った{人|ひと}を{突|つ}き{止|と}めて、{金魚|きんぎょ}を{助|たす}けてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: worried
+          - character: kakeru
+            expression: surprised
+          - character: shizuku
+            expression: thinking
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{水質|すいしつ}データを{分析|ぶんせき}し、{変更|へんこう}{記録|きろく}を{照|て}らし{合|あ}わせれば——{原因|げんいん}が{見|み}えてくるはずだ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 弱っていく魚
+        subtitle: 生命探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 金魚の様子を確認しよう
+      - type: narration
+        text: "{先週|せんしゅう}{前半|ぜんはん}から{今週|こんしゅう}{月曜日|げつようび}にかけての{金魚|きんぎょ}の{様子|ようす}を{記録|きろく}でたどった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先週|せんしゅう}{前半|ぜんはん} —— {金魚|きんぎょ}は{元気|げんき}よく{泳|およ}いでいた。エサもすぐに{食|た}べていた。"
+      - type: narration
+        text: "{先週|せんしゅう}{後半|こうはん} —— {動|うご}きが{鈍|にぶ}くなってきた。エサを{残|のこ}すことが{増|ふ}えた。"
+      - type: narration
+        text: "{月曜日|げつようび}{朝|あさ} —— 3{匹|ひき}とも{底|そこ}の{方|ほう}でじっとしている。{様子|ようす}が{明|あき}らかにおかしい。"
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "{先週|せんしゅう}{前半|ぜんはん}は{元気|げんき}だったのに、{後半|こうはん}から{急|きゅう}に{悪|わる}くなっている。{急|きゅう}に{変|か}わったなら、{何|なに}か{原因|げんいん}があるはず。{先週|せんしゅう}{中|なか}ごろに{何|なに}か{変化|へんか}があったんじゃないかな。"
+        expression: determined
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "「だんだん{悪|わる}くなった」——{徐々|じょじょ}に{進|すす}む{変化|へんか}は、{慢性的|まんせいてき}な{原因|げんいん}を{示|しめ}している。{急性|きゅうせい}の{毒|どく}ではなく、{継続的|けいぞくてき}に{水|みず}に{影響|えいきょう}を{与|あた}えているものがあるのかもしれない。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 水質データを調べよう
+      - type: narration
+        text: "{毎日|まいにち}{記録|きろく}していた{水質|すいしつ}データを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{水温|すいおん} —— ほぼ{一定|いってい}（{異常|いじょう}なし）。"
+      - type: narration
+        text: "pH —— {先週|せんしゅう}{前半|ぜんはん}は7.0{前後|ぜんご}（{正常|せいじょう}）。{先週|せんしゅう}{中|なか}ごろから{上|あが}り{始|はじ}め、{先週|せんしゅう}{後半|こうはん}には8.5を{超|こ}えた（{高|たか}すぎる）。"
+      - type: narration
+        text: "アンモニア{濃度|のうど} —— {先週|せんしゅう}{後半|こうはん}から{増|ふ}え{始|はじ}め、{現在|げんざい}は{危険|きけん}{水準|すいじゅん}に{達|たっ}している。"
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "pHとアンモニアが{同|おな}じ{時期|じき}に{悪化|あっか}している。{水温|すいおん}は{問題|もんだい}ないから、{熱|ねつ}が{原因|げんいん}じゃない。{水|みず}の{中|なか}に{何|なに}か{別|べつ}のものが{入|い}って、pHもアンモニアも{変|か}えているんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "pHとアンモニアの{変化|へんか}のタイミングが{一致|いっち}している——{先週|せんしゅう}{中|なか}ごろから{変|か}わった。この「{中|なか}ごろ」に{何|なに}があったのか、{変更|へんこう}{記録|きろく}と{照合|しょうごう}する{必要|ひつよう}がある。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 変更記録を調べよう
+      - type: narration
+        text: "{水|みず}そうの{変更|へんこう}{記録|きろく}ノートをひらいた。{水|みず}そうに{何|なに}かを{加|くわ}えたり{変|か}えたりしたときに{書|か}くルールになっている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先週|せんしゅう}{前半|ぜんはん} —— {記録|きろく}なし（{特|とく}に{変更|へんこう}なし）。"
+      - type: narration
+        text: "{先週|せんしゅう}{中|なか}ごろ —— 「{石|いし}・{葉|は}を{追加|ついか}」と{書|か}いてある。{名前|なまえ}の{欄|らん}は{空白|くうはく}。"
+      - type: narration
+        text: "{先週|せんしゅう}{後半|こうはん}〜{今週|こんしゅう} —— {記録|きろく}なし。"
+      - type: sprite
+        character: kakeru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{石|いし}と{葉|は}を{追加|ついか}した{日|ひ}と、pHが{変|か}わり{始|はじ}めた{日|ひ}が{同|おな}じ「{先週|せんしゅう}{中|なか}ごろ」だ！ これは{偶然|ぐうぜん}じゃない。{石|いし}と{葉|は}が{原因|げんいん}を{作|つく}っている——でも{誰|だれ}が{入|い}れたの？ {名前|なまえ}が{書|か}いてない。"
+        expression: surprised
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: narration
+        text: "{変更|へんこう}{記録|きろく}のタイミングと{水質|すいしつ}データの{変化|へんか}が{完全|かんぜん}に{一致|いっち}した。{問題|もんだい}の{原因|げんいん}は「{先週|せんしゅう}{中|なか}ごろに{入|い}れられた{石|いし}と{落|お}ち{葉|は}」だ。{誰|だれ}が、どんな{理由|りゆう}で{入|い}れたのか——。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 水そうは閉じた環境だ
+      - type: narration
+        text: "{図書室|としょしつ}で{理科|りか}の{参考書|さんこうしょ}を{調|しら}べた。{水|みず}そうと{自然|しぜん}の{川|かわ}の{違|ちが}いについてのページがあった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{川|かわ}や{池|いけ}は{水|みず}が{流|なが}れて{広|ひろ}い{空間|くうかん}があるため、{石|いし}や{落|お}ち{葉|は}の{影響|えいきょう}が{分散|ぶんさん}される。」"
+      - type: narration
+        text: "「{水|みず}そうは{閉|と}じた{環境|かんきょう}で{水量|すいりょう}が{少|すく}ないため、{同|おな}じものを{入|い}れても{影響|えいきょう}が{何倍|なんばい}にも{大|おお}きく{出|で}る。{自然|しぜん}のものでも{水|みず}そうでは{毒|どく}になることがある。」"
+      - type: sprite
+        character: shizuku
+        expression: determined
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "「{自然|しぜん}のものなら{安全|あんぜん}」は{間違|まちが}いだった。{水|みず}そうは{閉|と}じた{環境|かんきょう}だから、{同|おな}じ{石|いし}でも{影響|えいきょう}が{全然|ぜんぜん}{違|ちが}う。{川|かわ}で{普通|ふつう}に{使|つか}われている{石|いし}でも、{水|みず}そうでは{水|みず}を{大|おお}きく{変|か}えてしまうかもしれない。"
+        expression: determined
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "「{自然|しぜん}＝{安全|あんぜん}」という{思|おも}い{込|こ}みが{崩|くず}れた。{石|いし}と{葉|は}を{入|い}れた{人|ひと}は、{悪意|あくい}ではなく「{良|よ}いことをしている」と{信|しん}じていたのではないか——。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 点検結果メモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{水|みず}そうから{石|いし}と{葉|は}を{取|と}り{出|だ}して{調|しら}べた{結果|けっか}が{届|とど}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{石|いし}は{石灰岩|せっかいがん}らしい。{水|みず}に{溶|と}けてアルカリ{性|せい}に{近|ちか}づける{性質|せいしつ}がある。」"
+      - type: narration
+        text: "「{落|お}ち{葉|は}は{腐敗|ふはい}が{始|はじ}まっている。{分解|ぶんかい}でアンモニアが{発生|はっせい}する。」"
+      - type: narration
+        text: "「{先生|せんせい}メモ: {石灰岩|せっかいがん}は{水|みず}をアルカリ{性|せい}へ{近|ちか}づける。{金魚|きんぎょ}に{適|てき}したpHは6.5〜7.5。{現在|げんざい}の8.5は{危険|きけん}{水準|すいじゅん}。」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{石灰岩|せっかいがん}がpHを{上|あ}げ、{腐|くさ}った{落|お}ち{葉|は}がアンモニアを{増|ふ}やした——{水質|すいしつ}データの{変化|へんか}と{完全|かんぜん}に{一致|いっち}する！ では{誰|だれ}がこの{石|いし}と{落|お}ち{葉|は}を「{自然|しぜん}に{近|ちか}い{環境|かんきょう}のため」と{信|しん}じて{入|い}れたのか——。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 原因を作ったのは誰だ？
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "「{自然|しぜん}に{近|ちか}い{環境|かんきょう}が{良|よ}い」と{言|い}っていたのを{聞|き}いたことがある。{石|いし}を{洗|あら}って{持|も}ってきていたのも{見|み}た。{金魚|きんぎょ}のためを{思|おも}ってしていたんだろうけど——"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: determined
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "{変更|へんこう}{記録|きろく}に「{石|いし}・{葉|は}を{追加|ついか}」とある。{名前|なまえ}がないのは{書|か}き{忘|わす}れたか、{書|か}きたくなかったか。{石灰岩|せっかいがん}を{校庭|こうてい}で{拾|ひろ}って{水|みず}そうに{入|い}れた{人|ひと}は1{人|ひと}だけだよ。"
+        expression: determined
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{先週|せんしゅう}{中|なか}ごろに{石|いし}と{落|お}ち{葉|は}が{追加|ついか}された。{石灰岩|せっかいがん}がpHを{上|あ}げ、{落|お}ち{葉|は}がアンモニアを{増|ふ}やした。{石|いし}を{洗|あら}って{持|も}ってきているのを{目撃|もくげき}されていた——"
+      - type: choice
+        id: q1
+        question: 原因を作ったのは誰？
+        options:
+          - text: ミコト（自然に近づけたいと思い石と落ち葉を入れた）
+            value: mikoto
+            correct: true
+            feedback: "{正解|せいかい}！ ミコトは「{金魚|きんぎょ}がかわいそう、{自然|しぜん}に{近|ちか}い{環境|かんきょう}にしてあげたい」と{思|おも}い、{校庭|こうてい}で{拾|ひろ}った{石|いし}と{落|お}ち{葉|は}を{水|みず}そうに{入|い}れた。「{自然|しぜん}のものなら{安全|あんぜん}」という{思|おも}い{込|こ}みが、{閉|と}じた{環境|かんきょう}では{逆効果|ぎゃくこうか}になってしまった。"
+          - text: イノリ（水質データを読んでいて怪しい）
+            value: inori
+            feedback: "イノリは{水質|すいしつ}データの{変化|へんか}を{分析|ぶんせき}した{情報型|じょうほうがた}。{変更|へんこう}{記録|きろく}のタイミングを{特定|とくてい}したのもイノリ。{石|いし}を{持|も}ち{込|こ}んだのはイノリではないよ。"
+          - text: カケル（石を洗っているのを見た本人が怪しい）
+            value: kakeru
+            feedback: "カケルは「{石|いし}を{洗|あら}って{持|も}ってきているのを{見|み}た」と{言|い}った{目撃者|もくげきしゃ}の{立場|たちば}。{行動型|こうどうがた}で{議論|ぎろん}が{得意|とくい}だけど、{石|いし}を{水|みず}そうに{入|い}れたのはカケルではないよ。"
+          - text: シズク（石灰岩の性質を知っていた）
+            value: shizuku
+            feedback: "シズクは{石灰岩|せっかいがん}の{性質|せいしつ}を{読|よ}み{解|と}いた{観察型|かんさつがた}。「{自然|しぜん}のものでも{害|がい}になる」を{説明|せつめい}できたのはシズクの{知識|ちしき}があるから。{水|みず}そうに{石|いし}を{入|い}れたのはシズクではないよ。"
+
+  # ==================== 真実：ミコト ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミコトの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: center
+      - type: dialog
+        character: mikoto
+        text: "……{石|いし}と{落|お}ち{葉|は}を{入|い}れたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "ミコトは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: mikoto
+        text: "{金魚|きんぎょ}たちが{水|みず}そうの{中|なか}だけで{暮|く}らしているのが、{何|なん}だかかわいそうで……「{自然|しぜん}に{近|ちか}い{環境|かんきょう}にしてあげたい」って{思|おも}った。"
+        expression: thinking
+      - type: dialog
+        character: mikoto
+        text: "{校庭|こうてい}の{石|いし}は{川|かわ}でも{使|つか}われているから{安全|あんぜん}だって{思|おも}った。{落|お}ち{葉|は}も{自然|しぜん}のものだから{大丈夫|だいじょうぶ}だって……{毒|どく}になるなんて{思|おも}わなかったの。"
+        expression: worried
+      - type: dialog
+        character: mikoto
+        text: "{金魚|きんぎょ}のためにしたのに、{逆|ぎゃく}に{苦|くる}しめてしまった。{自然|しぜん}のものが{悪|わる}いなんて、{考|かんが}えもしなかった……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: inori
+        expression: worried
+        position: left
+      - type: dialog
+        character: inori
+        text: "{水質|すいしつ}データが{変|か}わり{始|はじ}めた{日|ひ}と{変更|へんこう}{記録|きろく}が{一致|いっち}したとき、「{石|いし}と{葉|は}だ」とは{気|き}づいていた。でも{誰|だれ}が{入|い}れたか{聞|き}けなかった。もっと{早|はや}く{全員|ぜんいん}に{言|い}えば{良|よ}かった。"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "ミコトが{石|いし}を{洗|あら}って{持|も}ってきているのを{見|み}た。「{水|みず}そう{用|よう}かな？」と{思|おも}ったけど、{声|こえ}をかけなかった。「{川|かわ}の{石|いし}と{水|みず}そうの{石|いし}は{違|ちが}う」って{言|い}っていれば、{止|と}められたかもしれない。ごめん。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "{水|みず}そうに{白|しろ}っぽい{石|いし}が{入|い}っているのは{気|き}づいていた。「{石灰岩|せっかいがん}っぽい」と{思|おも}ったけど、{自信|じしん}がなくて{言|い}えなかった。{気|き}づいたことは、{断定|だんてい}できなくても{早|はや}めに{共有|きょうゆう}するべきだった。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミコトの「{金魚|きんぎょ}を{自然|しぜん}に{近|ちか}い{環境|かんきょう}で{育|そだ}てたい」という{気持|きも}ちはとても{素晴|すば}らしいわ。{生|い}き{物|もの}を{思|おも}いやる{心|こころ}は{大切|たいせつ}。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも{水|みず}そうは{閉|と}じた{環境|かんきょう}よ。{川|かわ}では{問題|もんだい}ないものでも、{水|みず}そうでは{大|おお}きな{影響|えいきょう}が{出|で}ることがある。「{自然|しぜん}＝{安全|あんぜん}」ではなく、「{場所|ばしょ}に{合|あ}った{知識|ちしき}」が{必要|ひつよう}なの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{金魚|きんぎょ}に{適|てき}したpHは6.5〜7.5。{石灰岩|せっかいがん}は{水|みず}に{溶|と}けてアルカリ{性|せい}に{近|ちか}づけるため、pHが8.5まで{上|あ}がってしまった。{落|お}ち{葉|は}は{腐|くさ}るとアンモニアを{出|だ}して{水|みず}を{汚|よご}す。"
+      - type: narration
+        text: "{川|かわ}では{水|みず}が{流|なが}れて{希釈|きしゃく}され、{広|ひろ}い{空間|くうかん}の{微生物|びせいぶつ}が{分解|ぶんかい}する。でも{水|みず}そうは{閉|と}じた{空間|くうかん}——{同|おな}じものが{何倍|なんばい}もの{影響|えいきょう}を{持|も}つ。"
+      - type: narration
+        text: "{生|い}き{物|もの}を{守|まも}るには「{気持|きも}ち」だけでなく「{知識|ちしき}」が{必要|ひつよう}だ。{思|おも}いやりは{素晴|すば}らしい。でもその{行動|こうどう}が{本当|ほんとう}に{相手|あいて}のためになっているか——{確|たし}かめることが{大切|たいせつ}。"
+      - type: effect
+        name: fade-out

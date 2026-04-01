@@ -1,0 +1,418 @@
+meta:
+  id: media-01
+  title: 噂のみなもと
+  series: メディアリテラシー探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}2{組|くみ}には「ひまわりボード」というクラス{専用|せんよう}のメッセージアプリがある。{連絡事項|れんらくじこう}や{知|し}らせを{共有|きょうゆう}するためのものだ。"
+      - type: narration
+        text: "ある{放課後|ほうかご}——ひまわりボードに{一件|いっけん}の{投稿|とうこう}があった。"
+      - type: narration
+        text: "「{大変|たいへん}！ {給食室|きゅうしょくしつ}でゴキブリが{出|で}たらしい！ {明日|あした}の{給食|きゅうしょく}は{中止|ちゅうし}になるかも！」"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "その{投稿|とうこう}を{見|み}た{子|こ}たちが「えーっ！」「{本当|ほんとう}？」と{大騒|おおさわ}ぎ。あっという{間|ま}にクラス{中|じゅう}に{広|ひろ}まった。"
+      - type: narration
+        text: "ところが{翌朝|よくあさ}——{給食室|きゅうしょくしつ}にゴキブリはいなかった。{給食|きゅうしょく}も{予定通|よていどお}りだ。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{誰|だれ}が{最初|さいしょ}にこの{噂|うわさ}を{投稿|とうこう}したの？」——{山田先生|やまだせんせい}が{聞|き}くと、4{人|にん}のメディアリテラシー{探偵団|たんていだん}が{名乗|なの}り{出|で}ました。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{放課後|ほうかご}にひまわりボードを{使|つか}ったのは、この4{人|にん}だけです。でも4{人|にん}とも「{自分|じぶん}が{最初|さいしょ}に{投稿|とうこう}したんじゃない」と{言|い}っています。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: akari
+            expression: worried
+          - character: makoto
+            expression: worried
+          - character: nozomu
+            expression: surprised
+          - character: shiori
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が「ひまわりボード」に{最初|さいしょ}の{投稿|とうこう}をしたのか——{噂|うわさ}の{みなもと|みなもと}を{探|さが}せ！"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 噂のみなもと
+        subtitle: メディアリテラシー探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ひまわりボードの投稿を確認しよう
+      - type: narration
+        text: "ひまわりボードに{残|のこ}っている{投稿|とうこう}を{確認|かくにん}した。{放課後|ほうかご}の{全員|ぜんいん}の{投稿|とうこう}が{記録|きろく}されている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "16:42 — {匿名投稿|とくめいとうこう}：「{大変|たいへん}！ {給食室|きゅうしょくしつ}でゴキブリが{出|で}たらしい！ {明日|あした}の{給食|きゅうしょく}は{中止|ちゅうし}になるかも！」"
+      - type: narration
+        text: "16:43 — ノゾム：「えっ、マジ！？ {本当|ほんとう}に？」。16:44 — アカリ：「{給食|きゅうしょく}のおばさんたち{大丈夫|だいじょうぶ}かな……」"
+      - type: narration
+        text: "16:45 — シオリ：「{本当|ほんとう}に{見|み}たの？ ソースは？」。16:47 — {匿名|とくめい}（{同|おな}じアカウント）：「……」（{返信|へんしん}なし）"
+      - type: narration
+        text: "{注目|ちゅうもく}ポイント：{最初|さいしょ}の{投稿|とうこう}に「らしい」という{言葉|ことば}がある。「らしい」は{自分|じぶん}で{直接|ちょくせつ}{見|み}た{人|ひと}の{言|い}い{方|かた}か？ それとも{誰|だれ}かから{聞|き}いた{人|ひと}の{言|い}い{方|かた}か？"
+      - type: sprite
+        character: shiori
+        expression: thinking
+        position: center
+      - type: dialog
+        character: shiori
+        text: "「らしい」って{書|か}いてある……これって{自分|じぶん}で{実際|じっさい}に{見|み}た{人|ひと}の{言|い}い{方|かた}じゃないと{思|おも}う。{誰|だれ}かから{聞|き}いて{投稿|とうこう}した{可能性|かのうせい}がある。ソースが{気|き}になる。"
+        expression: thinking
+      - type: sprite
+        character: shiori
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の放課後の行動を確認しよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が4{人|にん}に{聞|き}き{取|と}りをした。{放課後|ほうかご}の{行動|こうどう}を{時刻順|じこくじゅん}に{整理|せいり}する。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マコト — 15:50{ごろ|ごろ}{教室|きょうしつ}で{片付|かたづ}け。16:00{ごろ|ごろ}から1{階|かい}の{廊下|ろうか}を{歩|ある}いて{用事|ようじ}を{済|す}ませていた。16:30{ごろ|ごろ}{教室|きょうしつ}に{戻|もど}ってタブレット{使用|しよう}。"
+      - type: narration
+        text: "ノゾム — 15:50{ごろ|ごろ}{校庭|こうてい}へ{移動|いどう}。16:35{ごろ|ごろ}まで{校庭|こうてい}でサッカー。16:35{ごろ|ごろ}{教室|きょうしつ}に{戻|もど}る。"
+      - type: narration
+        text: "シオリ — 15:50{ごろ|ごろ}{図書室|としょしつ}へ{移動|いどう}。16:00〜16:30は{図書室|としょしつ}で{図書委員|としょいいん}の{仕事|しごと}。16:30{ごろ|ごろ}{教室|きょうしつ}に{戻|もど}る。"
+      - type: narration
+        text: "アカリ — 15:50〜16:20{ごろ|ごろ}{教室|きょうしつ}で{友|とも}だちとおしゃべり。16:20〜16:45は{教室|きょうしつ}で{宿題|しゅくだい}。{一度|いちど}も{給食室|きゅうしょくしつ}に{近|ちか}づいていない。"
+      - type: narration
+        text: "{投稿|とうこう}は16:42。この{時刻|じこく}にタブレットを{使|つか}える{場所|ばしょ}にいた{人|ひと}は{誰|だれ}か？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 投稿ログとアリバイを照らし合わせよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}がひまわりボードの{管理|かんり}{画面|がめん}を{確認|かくにん}した。{放課後|ほうかご}の{全投稿|ぜんとうこう}の{記録|きろく}が{残|のこ}っていた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "15:55 — シオリ：「{図書室|としょしつ}の{新刊|しんかん}リスト、まとめました」。→ シオリは15:55に{図書室|としょしつ}からタブレットで{投稿|とうこう}できた。"
+      - type: narration
+        text: "16:37 — ノゾム：「{今日|きょう}のサッカー、3{対|たい}2で{勝|か}った！」。→ ノゾムは16:37には{教室|きょうしつ}に{戻|もど}っていた。ゴキブリの{投稿|とうこう}（16:42）はまだ{存在|そんざい}していない。"
+      - type: narration
+        text: "16:42 — ???（{匿名設定|とくめいせってい}）：「{大変|たいへん}！ ゴキブリが……」。→ この{時刻|じこく}に{教室|きょうしつ}か{図書室|としょしつ}にいてタブレットを{使|つか}えた{人|ひと}は{誰|だれ}か？"
+      - type: narration
+        text: "{注目|ちゅうもく}：ノゾムは16:42の{直前|ちょくぜん}（16:37）に{自分|じぶん}の{名前|なまえ}で{投稿|とうこう}している。{匿名|とくめい}で{別|べつ}の{投稿|とうこう}をする{理由|りゆう}はない。シオリは16:30に{図書室|としょしつ}を{出|で}て16:35に{教室|きょうしつ}でボードを{確認|かくにん}——その{時点|じてん}で{投稿|とうこう}はなかった。"
+      - type: sprite
+        character: nozomu
+        expression: surprised
+        position: center
+      - type: dialog
+        character: nozomu
+        text: "ぼくは16:37に「サッカー{勝|か}った！」って{投稿|とうこう}してる。その{後|あと}で{匿名|とくめい}で{別|べつ}の{投稿|とうこう}なんかしてないよ。16:42に{投稿|とうこう}したのはぼくじゃない！"
+        expression: determined
+      - type: sprite
+        character: nozomu
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: タブレット使用ルールを確認しよう
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}のタブレット{使用|しよう}ルールを{確認|かくにん}した。{場所|ばしょ}によって{使|つか}えるかどうかが{決|き}まっている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{教室|きょうしつ}：OK。{図書室|としょしつ}：OK。{校庭|こうてい}：{禁止|きんし}（{壊|こわ}れる{危険|きけん}があるため）。{廊下|ろうか}：{禁止|きんし}（{歩|ある}きスマホ{防止|ぼうし}）。{給食室|きゅうしょくしつ}：{禁止|きんし}（{衛生|えいせい}上の{理由|りゆう}）。"
+      - type: narration
+        text: "{校庭|こうてい}では{禁止|きんし}。ノゾムは16:35まで{校庭|こうてい}にいたので、16:35{以前|いぜん}は{投稿|とうこう}できない。16:37の{投稿|とうこう}は{教室|きょうしつ}に{戻|もど}ってからのもの。"
+      - type: narration
+        text: "{廊下|ろうか}でも{禁止|きんし}。マコトは16:00〜16:30に1{階|かい}の{廊下|ろうか}にいた。この{間|あいだ}、タブレットは{使|つか}えない。{教室|きょうしつ}に{戻|もど}った16:30{以降|いこう}が{投稿可能|とうこうかのう}な{時間帯|じかんたい}だ。"
+      - type: narration
+        text: "{消去法|しょうきょほう}のまとめ：ノゾム（16:42に{別投稿|べつとうこう}あり→{否定|ひてい}）、シオリ（16:35に{確認|かくにん}→その{時点|じてん}で{投稿|とうこう}なし→{否定|ひてい}）、アカリ（ずっと{教室|きょうしつ}→{動機|どうき}なし→{否定|ひてい}）。{残|のこ}るのは——？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 給食調理員・田中さんの証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{給食調理員|きゅうしょくちょうりいん}の{田中|たなか}さんに{話|はなし}を{聞|き}きました。{昨日|きのう}の{放課後|ほうかご}に{何|なに}があったか——{大事|だいじ}な{証言|しょうげん}です。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「16:00{ごろ|ごろ}、{換気|かんき}のために{窓|まど}を{開|あ}けていたら、{小|ちい}さなハエが1{匹|ぴき}{入|はい}ってきたんです。『あっ、{虫|むし}がいた！ ちょっと{来|き}て！』と{同僚|どうりょう}に{声|こえ}をかけて{追|お}い{払|はら}いました」"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「ゴキブリなんかいませんよ。{給食室|きゅうしょくしつ}は{毎日|まいにち}{衛生|えいせい}チェックをしています。{給食|きゅうしょく}{中止|ちゅうし}なんてあり{得|え}ません。それと——{窓|まど}の{外|そと}に{誰|だれ}かいた{気|き}がします。16:00{すぎ|すぎ}のことです」"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{田中|たなか}さんの{声|こえ}「{虫|むし}がいた！」を{外|そと}から{聞|き}いた{人|ひと}がいる！ {実際|じっさい}には{小|ちい}さなハエ1{匹|ぴき}——ゴキブリではなかった。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "16:00{すぎ|すぎ}に1{階|かい}の{廊下|ろうか}にいて、{給食室|きゅうしょくしつ}の{前|まえ}を{通|とお}った{可能性|かのうせい}があるのは——{証拠|しょうこ}カード2によると、マコトだけだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 噂のみなもとは誰だ？
+      - type: sprite
+        character: akari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: akari
+        text: "16:15{ごろ|ごろ}、{教室|きょうしつ}の{窓|まど}から{外|そと}を{見|み}ていたら……マコトが1{階|かい}の{廊下|ろうか}を{歩|ある}いているのが{見|み}えた。{給食室|きゅうしょくしつ}の{方|ほう}に{向|む}かって、{窓|まど}の{前|まえ}で{立|た}ち{止|と}まったような……"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomu
+        text: "{実|じつ}は……ひまわりボードのゴキブリの{投稿|とうこう}を{見|み}て、{確認|かくにん}もしないで{友|とも}だち3{人|にん}にLINEで{転送|てんそう}した。「{給食|きゅうしょく}{中止|ちゅうし}らしい！」って。{自分|じぶん}も{確認|かくにん}しないで{広|ひろ}めちゃったんだ。"
+        expression: worried
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①「らしい」という{言葉|ことば}→{投稿者|とうこうしゃ}は{自分|じぶん}で{見|み}ていない。②16:00{すぎ|すぎ}に1{階|かい}の{廊下|ろうか}にいたのはマコトだけ。③{田中|たなか}さんが「{窓|まど}の{外|そと}に{誰|だれ}かいた」と{証言|しょうげん}。④マコトは16:30に{教室|きょうしつ}に{戻|もど}り、16:42に{投稿|とうこう}。"
+      - type: choice
+        id: q1
+        question: 噂をひまわりボードに最初に投稿したのは誰？
+        options:
+          - text: マコト（16:00すぎに給食室の前を通り、田中さんの声を聞いた）
+            value: makoto
+            correct: true
+            feedback: "{正解|せいかい}！ マコトは{田中|たなか}さんの「{虫|むし}がいた！」という{声|こえ}を{聞|き}いて、ゴキブリだと{思|おも}い{込|こ}んだ。{自分|じぶん}の{目|め}では{確認|かくにん}せずに{投稿|とうこう}した——「{聞|き}いたこと」を「{見|み}たこと」だと{勘違|かんちが}いした{典型例|てんけいれい}だ。"
+          - text: ノゾム（情報をいち早くキャッチするのが得意）
+            value: nozomu
+            feedback: "ノゾムは16:35まで{校庭|こうてい}にいて{タブレット|たぶれっと}は{使|つか}えなかった。16:37には{自分|じぶん}の{名前|なまえ}で{別|べつ}の{投稿|とうこう}もしている。{匿名投稿|とくめいとうこう}（16:42）はノゾムじゃないよ。"
+          - text: シオリ（投稿の文体が気になっていた）
+            value: shiori
+            feedback: "シオリは16:00〜16:30に{図書室|としょしつ}（2{階|かい}）にいた。{給食室|きゅうしょくしつ}（1{階|かい}{奥|おく}）の{声|こえ}は{聞|き}こえない。16:35に{教室|きょうしつ}で{確認|かくにん}したとき、まだ{投稿|とうこう}はなかった。シオリじゃないよ。"
+          - text: アカリ（給食室の近くにいた可能性がある）
+            value: akari
+            feedback: "アカリは15:50〜16:45ずっと{教室|きょうしつ}（2{階|かい}）にいた。1{階|かい}の{給食室|きゅうしょくしつ}には{一度|いちど}も{近|ちか}づいていない。アカリじゃないよ。"
+
+  # ==================== 真実：マコト ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マコトの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: makoto
+        expression: worried
+        position: center
+      - type: dialog
+        character: makoto
+        text: "……{投稿|とうこう}したのは、{僕|ぼく}です。ごめんなさい。"
+        expression: worried
+      - type: narration
+        text: "マコトは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: makoto
+        text: "16:05{ごろ|ごろ}、1{階|かい}の{廊下|ろうか}を{歩|ある}いていたら{給食室|きゅうしょくしつ}の{前|まえ}を{通|とお}った。{中|なか}から{田中|たなか}さんの{声|こえ}が{聞|き}こえたんだ。「あっ、{虫|むし}がいた！ ちょっと{来|き}て！」って。"
+        expression: thinking
+      - type: dialog
+        character: makoto
+        text: "{窓|まど}から{中|なか}を{覗|のぞ}こうとしたけど、よく{見|み}えなかった。「{虫|むし}がいた」って{声|こえ}を{聞|き}いて……「{給食室|きゅうしょくしつ}に{虫|むし}＝ゴキブリ＝{不衛生|ふえいせい}＝{給食|きゅうしょく}{中止|ちゅうし}かも！」って{思|おも}い{込|こ}んだんだ。"
+        expression: worried
+      - type: dialog
+        character: makoto
+        text: "{教室|きょうしつ}に{戻|もど}って、「みんなに{早|はや}く{教|おし}えなきゃ」って{思|おも}って{投稿|とうこう}した。{匿名|とくめい}にしたのは、{間違|まちが}いだったとき{怖|こわ}かったから。……シオリに「{本当|ほんとう}に{見|み}たの？」って{聞|き}かれて、{自分|じぶん}は{直接|ちょくせつ}{見|み}ていないって{気|き}づいた。でも{投稿|とうこう}はもう{拡散|かくさん}された{後|あと}だった。"
+        expression: determined
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomu
+        text: "{僕|ぼく}も{言|い}わなきゃいけないことがある。ゴキブリの{投稿|とうこう}を{見|み}て、すぐ{確認|かくにん}しないで{友|とも}だち3{人|にん}にLINEで{転送|てんそう}した。「{給食|きゅうしょく}{中止|ちゅうし}らしい！」って。{自分|じぶん}も{同|おな}じだったんだ。{確認|かくにん}しないで{広|ひろ}めちゃった。"
+        expression: worried
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shiori
+        text: "{実|じつ}は……{投稿|とうこう}の{文体|ぶんたい}が「マコトっぽい」と{感|かん}じていた。「{大変|たいへん}！」で{始|はじ}まる{投稿|とうこう}が{多|おお}いし、いつもは{数字|すうじ}や{根拠|こんきょ}をつけるのに、今{回|かい}は「らしい」という{伝聞表現|でんぶんひょうげん}だけ。でも{確証|かくしょう}がなくて……{推測|すいそく}で{名指|なざ}しするのは、{噂|うわさ}を{広|ひろ}めるのと{同|おな}じだと{思|おも}ったから{言|い}えなかった。"
+        expression: thinking
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "16:15{ごろ|ごろ}、{教室|きょうしつ}の{窓|まど}からマコトが{給食室|きゅうしょくしつ}の{方|ほう}に{歩|ある}いているのを{見|み}てた。でも{投稿|とうこう}と{結|むす}びつけていなかったから……{言|い}えばよかったのにって{後悔|こうかい}してる。"
+        expression: worried
+      - type: dialog
+        character: akari
+        text: "でも、{誰|だれ}も{悪気|わるぎ}はなかった。マコトは「みんなに{教|おし}えてあげたかった」だけ。ノゾムも「{面白|おもしろ}いニュース」だと{思|おも}って{転送|てんそう}した。{給食|きゅうしょく}の{田中|たなか}さんが{一番|いちばん}{傷|きず}ついたのに……"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マコトの「みんなに{早|はや}く{教|おし}えたい」という{気持|きも}ちは{素晴|すば}らしい。でも{大切|たいせつ}なことを{一|ひと}つ{忘|わす}れていたね——「{本当|ほんとう}に{見|み}たか？」という{確認|かくにん}。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{虫|むし}がいた」という{声|こえ}を{聞|き}いただけで、{自分|じぶん}の{目|め}でゴキブリを{見|み}てはいない。「{聞|き}いた{情報|じょうほう}」は「{二次|にじ}ソース」。「{自分|じぶん}で{見|み}た{情報|じょうほう}」が「{一次|いちじ}ソース」。この{違|ちが}いが{大切|たいせつ}なの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{情報|じょうほう}には2{種類|しゅるい}ある。「{一次|いちじ}ソース」——{自分|じぶん}が{直接|ちょくせつ}{見|み}た・{聞|き}いた{情報|じょうほう}。「{二次|にじ}ソース」——{人|ひと}から{聞|き}いた・SNSで{読|よ}んだ{情報|じょうほう}。マコトは「{聞|き}いた」という{二次|にじ}ソースを「{見|み}た」{一次|いちじ}ソースだと{思|おも}い{込|こ}んだ。"
+      - type: narration
+        text: "「{虫|むし}がいた→ゴキブリ→{不衛生|ふえいせい}→{給食|きゅうしょく}{中止|ちゅうし}」という{連想|れんそう}の{連鎖|れんさ}。{一|ひと}つ{一|ひと}つは{飛躍|ひやく}している。{途中|とちゅう}で「{本当|ほんとう}にゴキブリ？」と{確認|かくにん}すれば{防|ふせ}げた。"
+      - type: narration
+        text: "SNSに{投稿|とうこう}する{前|まえ}に——「{自分|じぶん}は{本当|ほんとう}に{見|み}たか？」「{見|み}ていないなら{誰|だれ}から{聞|き}いたか？」「その{人|ひと}は{見|み}たか？」——この3つを{自分|じぶん}に{問|と}いかける{習慣|しゅうかん}が{情報|じょうほう}を{守|まも}る{力|ちから}になる。"
+      - type: effect
+        name: fade-out

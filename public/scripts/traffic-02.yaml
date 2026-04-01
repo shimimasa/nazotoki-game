@@ -1,0 +1,409 @@
+meta:
+  id: traffic-02
+  title: ヘルメットのうそ
+  series: 交通安全探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{今朝|けさ}の{自転車|じてんしゃ}{通学|つうがく}の{安全|あんぜん}チェックで、4{人|にん}{全員|ぜんいん}が「ヘルメットをかぶっていた」と{言|い}った。"
+      - type: narration
+        text: "ところが{校門|こうもん}{前|まえ}で、{名前|なまえ}シールがはがされたヘルメットが1つ{見|み}つかった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "さらに{先生|せんせい}は「あごひもをしていない{子|こ}がいた」と{話|はな}した。ただ{頭|あたま}にのせていただけでも「かぶっていた」と{言|い}えるのだろうか。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{校門|こうもん}{前|まえ}でヘルメットが{落|お}ちていました。{名前|なまえ}シールがはがされています。あごひもを{止|と}めていない{子|こ}もいたようです。だれが{正|ただ}しくヘルメットを{着用|ちゃくよう}していなかったのか、{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: surprised
+          - character: hashiru
+            expression: thinking
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{全員|ぜんいん}「かぶっていた」と{言|い}ったのに——{誰|だれ}かが{正|ただ}しく{着用|ちゃくよう}していなかったのだ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ヘルメットのうそ
+        subtitle: 交通安全探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 落ちていたヘルメットを調べよう
+      - type: narration
+        text: "{校門|こうもん}{前|まえ}で{見|み}つかったヘルメットを{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{名前|なまえ}シールがはがれている。"
+      - type: narration
+        text: "{内側|うちがわ}に{長|なが}い{髪|かみ}の{毛|け}が{数本|すうほん}はさまっている。"
+      - type: narration
+        text: "あごひもが{片方|かたほう}だけのびている。"
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: michika
+        text: "あごひもが{片方|かたほう}のびているということは、ちゃんと{止|と}めていなかったんだ。{正|ただ}しい{着用|ちゃくよう}には3つの{条件|じょうけん}がある——おでこが{見|み}える{位置|いち}、あごひもをしっかり{止|と}める、ぐらぐらしない。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+      - type: narration
+        text: "あごひもがゆるければ、{転|ころ}んだときにヘルメットが{外|はず}れて{頭|あたま}を{守|まも}れない。「のっていた」と「{正|ただ}しく{着用|ちゃくよう}していた」は{違|ちが}うのだ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 先生の目撃を確認しよう
+      - type: narration
+        text: "{先生|せんせい}の{目撃|もくげき}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{校門|こうもん}{前|まえ}で「あごひもを{止|と}めていない{子|こ}」を{見|み}た。その{子|こ}は「かぶってはいた」ように{見|み}えた。"
+      - type: narration
+        text: "{坂|さか}を{下|くだ}ってきたあと、{急|いそ}いで{校門|こうもん}へ{入|はい}っていった。"
+      - type: sprite
+        character: hashiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{坂道|さかみち}の{手前|てまえ}で、{風|かぜ}でぐらついているヘルメットを{見|み}たんだ。あごひもを{止|と}めていないから{風|かぜ}で{浮|う}いたんだと{思|おも}う。{誰|だれ}のか{分|わ}かった{気|き}がしたけど……。"
+        expression: thinking
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: narration
+        text: "あごひもを{止|と}めていない{子|こ}が{坂道|さかみち}を{下|くだ}った。{風|かぜ}でぐらついた——では{落|お}としたのは{誰|だれ}か。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 朝のようすを調べよう
+      - type: narration
+        text: "{朝|あさ}の{登校|とうこう}のようすを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "トワのメモ —— ヒカルは{新|あたら}しいヘルメットの{見|み}た{目|め}を{気|き}にしていた。「ちょっとダサいかも」と{言|い}っていた。"
+      - type: narration
+        text: "ヒカルの{記録|きろく} —— {自分|じぶん}はヘルメットをかぶって{登校|とうこう}した。"
+      - type: sprite
+        character: towa
+        expression: worried
+        position: left
+      - type: dialog
+        character: towa
+        text: "ヒカルが「ダサいかも」って{言|い}ってたの、{気|き}になってた。{見|み}た{目|め}を{気|き}にして、あごひもをゆるめたりしてなかったかな……。{恥|は}ずかしさで{安全|あんぜん}をおろそかにすることって、あると{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "ヒカルは{新|あたら}しいヘルメットの{見|み}た{目|め}を{気|き}にしていた。{見|み}た{目|め}を{気|き}にした{人|ひと}が、あごひもをゆるめた{可能性|かのうせい}がある——。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 正しい着用を確認しよう
+      - type: narration
+        text: "{正|ただ}しいヘルメットのかぶり{方|かた}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{条件|じょうけん}1: おでこが{見|み}える{位置|いち}でかぶる。"
+      - type: narration
+        text: "{条件|じょうけん}2: あごひもをしっかり{止|と}める。"
+      - type: narration
+        text: "{条件|じょうけん}3: {頭|あたま}の{上|うえ}でぐらぐらしない。"
+      - type: sprite
+        character: michika
+        expression: determined
+        position: right
+      - type: dialog
+        character: michika
+        text: "この3つが{全部|ぜんぶ}そろって{初|はじ}めて「{正|ただ}しく{着用|ちゃくよう}している」と{言|い}える。{頭|あたま}にのっているだけじゃダメなんだ。あごひもがゆるければ、{転|ころ}んだときに{外|はず}れて{頭|あたま}を{守|まも}れない。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+      - type: narration
+        text: "「かぶっていた」と「{正|ただ}しく{着用|ちゃくよう}していた」は{別|べつ}の{話|はなし}。{安全|あんぜん}のためには3{条件|じょうけん}{全|すべ}てが{必要|ひつよう}だ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 防犯カメラの映像
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{校門|こうもん}{前|まえ}の{防犯|ぼうはん}カメラの{映像|えいぞう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{坂道|さかみち}の{途中|とちゅう}で、ヘルメットが{一度|いちど}{風|かぜ}に{持|も}ち{上|あ}がっている。"
+      - type: narration
+        text: "その{子|こ}はあごひもを{止|と}めておらず、{手|て}で{押|お}さえようとしている。"
+      - type: narration
+        text: "{校門|こうもん}{前|まえ}では、{落|お}としたあとに{拾|ひろ}ってかぶり{直|なお}していた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "あごひもを{止|と}めずにかぶっていたから{風|かぜ}で{飛|と}んだ。{落|お}としたあとにかぶり{直|なお}したから「かぶっていた」と{言|い}った——でもそれは{正|ただ}しい{着用|ちゃくよう}ではない！"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 正しく着用していなかったのは誰だ？
+      - type: sprite
+        character: hashiru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{坂道|さかみち}でぐらついていたヘルメット、{誰|だれ}のか{見|み}えた{気|き}がした。{新|あたら}しいヘルメットの{見|み}た{目|め}を{気|き}にしていた{人|ひと}が、あごひもをゆるめていたんだ。"
+        expression: determined
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: towa
+        text: "「ダサいかも」って{言|い}ってたあの{言葉|ことば}……{見|み}た{目|め}を{気|き}にしてあごひもをゆるめた。{落|お}としたあとにかぶり{直|なお}したから「うそじゃない」って{思|おも}ってたんだね。"
+        expression: thinking
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{新|あたら}しいヘルメットの{見|み}た{目|め}を{気|き}にしていた。あごひもを{止|と}めていなかった。{坂道|さかみち}で{飛|と}ばされて{落|お}とした。かぶり{直|なお}して「かぶっていた」と{言|い}った——"
+      - type: choice
+        id: q1
+        question: 正しくヘルメットを着用していなかったのは誰？
+        options:
+          - text: ヒカル（見た目を気にしてあごひもをゆるめた）
+            value: hikaru
+            correct: true
+            feedback: "{正解|せいかい}！ ヒカルは{新|あたら}しいヘルメットの{見|み}た{目|め}が{気|き}になり、あごひもをゆるめて{浅|あさ}く{頭|あたま}にのせていた。{坂道|さかみち}で{風|かぜ}に{飛|と}ばされて{落|お}としたが、かぶり{直|なお}して「かぶっていた」と{思|おも}い{込|こ}んでいた。"
+          - text: ハシル（ぐらつきを見ていたのが怪しい）
+            value: hashiru
+            feedback: "ハシルは{坂道|さかみち}でぐらつくヘルメットを{目撃|もくげき}した{行動型|こうどうがた}。{誰|だれ}のか{気|き}づいていたが{言|い}い{出|だ}せなかった。あごひもをゆるめたのはハシルではないよ。"
+          - text: ミチカ（着用条件に詳しいのが逆に怪しい）
+            value: michika
+            feedback: "ミチカは{正|ただ}しい{着用|ちゃくよう}3{条件|じょうけん}を{知|し}っている{観察型|かんさつがた}。{先生|せんせい}の{証言|しょうげん}から{推理|すいり}した{側|がわ}。あごひもをゆるめたのはミチカではないよ。"
+          - text: トワ（ヒカルの様子を気にしていた）
+            value: towa
+            feedback: "トワはヒカルが{見|み}た{目|め}を{気|き}にしていたことに{気|き}づいていた{感情型|かんじょうがた}。{声|こえ}をかけられなかった{後悔|こうかい}がある。あごひもをゆるめたのはトワではないよ。"
+
+  # ==================== 真実：ヒカル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒカルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hikaru
+        text: "……{正|ただ}しくかぶっていなかったのは、おれです。"
+        expression: worried
+      - type: narration
+        text: "ヒカルは{目|め}をそらしながら、{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: hikaru
+        text: "{新|あたら}しいヘルメット、ちょっとダサいかもって{思|おも}って……あごひもをゆるめて、{浅|あさ}く{頭|あたま}にのせるようにしてた。"
+        expression: thinking
+      - type: dialog
+        character: hikaru
+        text: "{坂道|さかみち}で{風|かぜ}を{受|う}けたときに{飛|と}んじゃって、{落|お}としたんだ。{拾|ひろ}ってかぶり{直|なお}したから「かぶっていた」って{言|い}っても{嘘|うそ}じゃないって{思|おも}ってた。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "でも「{頭|あたま}にのっていたか」じゃなくて、「{転|ころ}んだときに{守|まも}れるか」が{大事|だいじ}だったんだ。{見|み}た{目|め}を{気|き}にして{安全|あんぜん}をおろそかにしてた……ごめん。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hashiru
+        text: "{坂道|さかみち}でぐらついてたの、ヒカルだって{分|わ}かってた。でも{強|つよ}く{言|い}い{出|だ}せなかった。「{危|あぶ}ないよ」って{声|こえ}をかけていれば、{防|ふせ}げたかもしれない。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: michika
+        text: "{先生|せんせい}の{話|はなし}を{聞|き}いて「あごひもがゆるい{子|こ}だ」と{思|おも}った。でも{最初|さいしょ}は「のっていたならセーフかも」って{少|すこ}し{迷|まよ}った。{正|ただ}しい{着用|ちゃくよう}の{基準|きじゅん}を{知|し}っていても、{判断|はんだん}を{甘|あま}くしてしまうことがあるんだ。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: sprite
+        character: towa
+        expression: worried
+        position: right
+      - type: dialog
+        character: towa
+        text: "ヒカルが{見|み}た{目|め}を{気|き}にしてたの、{知|し}ってた。{朝|あさ}の「ダサいかも」も{聞|き}こえてた。でもその{場|ば}で{声|こえ}をかけられなかった。{友|とも}だちの{安全|あんぜん}のために、{恥|は}ずかしさより{大事|だいじ}なことがあるって{分|わ}かってたのに。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヘルメットは「ある」だけではダメ。{正|ただ}しく{着用|ちゃくよう}して{初|はじ}めて{頭|あたま}を{守|まも}れます。おでこが{見|み}える{位置|いち}、あごひもをしっかり、ぐらぐらしない——この3つがそろって{初|はじ}めて「{着用|ちゃくよう}している」と{言|い}えるの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{見|み}た{目|め}や{気分|きぶん}より、{安全|あんぜん}の{基準|きじゅん}を{優先|ゆうせん}する。「つもり」と「{実際|じっさい}」はちがうことがあります。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ヘルメットのあごひもは、{転|ころ}んだときに{外|はず}れないようにするためにある。ゆるければ{意味|いみ}がない。"
+      - type: narration
+        text: "「かぶっていた」と「{正|ただ}しく{着用|ちゃくよう}していた」は{違|ちが}う。{自分|じぶん}では{安全|あんぜん}だと{思|おも}い{込|こ}んでいても、{基準|きじゅん}を{知|し}らなければ「つもり」で{終|お}わってしまう。"
+      - type: narration
+        text: "{見|み}た{目|め}の{恥|は}ずかしさより、{命|いのち}を{守|まも}ること。{友|とも}だちが{手抜|てぬ}きをしていたら、「{危|あぶ}ないよ」と{声|こえ}をかける{勇気|ゆうき}を{持|も}とう。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,392 @@
+meta:
+  id: tokkatsu-01
+  title: 消えた一票
+  series: 特別活動探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}のお{楽|たの}しみ{会|かい}の{内容|ないよう}を{多数決|たすうけつ}で{決|き}めることになった。えらぶのは3つ——ドッジボール、{宝探|たからさが}し、クイズ{大会|たいかい}。"
+      - type: narration
+        text: "{投票|とうひょう}のお{手伝|てつだ}いをしていたのは、マモル・ツムギ・アユム・ノゾミの4{人|にん}。みんなで{公正|こうせい}な{多数決|たすうけつ}を{守|まも}ろうと{張|は}り{切|き}っていた。"
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "では{結果|けっか}を{発表|はっぴょう}します。ドッジボール12{票|ひょう}、{宝探|たからさが}し11{票|ひょう}、クイズ{大会|たいかい}8{票|ひょう}。いちばん{多|おお}かったドッジボールに{決定|けってい}です。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tsumugi
+        text: "ちょっと{待|ま}って。{今日|きょう}のクラスは32{人|にん}だよね。12たす11たす8は31。1{枚|まい}{足|た}りないよ。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{教室|きょうしつ}がしんとなった。もし{足|た}りない1{票|ひょう}が{宝探|たからさが}しだったら、ドッジボール12{票|ひょう}・{宝探|たからさが}し12{票|ひょう}で{同数|どうすう}になる。{決|き}め{方|かた}をやり{直|なお}さなければいけない。"
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: worried
+          - character: ayumu
+            expression: surprised
+          - character: mamoru
+            expression: worried
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{投票箱|とうひょうばこ}のまわりでお{手伝|てつだ}いをしていたのは、この4{人|にん}だ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた一票
+        subtitle: 特別活動探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 学級会の結果メモを確認しよう
+      - type: narration
+        text: "{記録係|きろくがかり}のツムギが{書|か}いた{結果|けっか}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "5{年|ねん}1{組|くみ} お{楽|たの}しみ{会|かい}{投票|とうひょう} {結果|けっか}——"
+      - type: narration
+        text: "ドッジボール 12{票|ひょう}、{宝探|たからさが}し 11{票|ひょう}、クイズ{大会|たいかい} 8{票|ひょう}。{合計|ごうけい} 31{票|ひょう}。{今日|きょう}の{出席|しゅっせき} 32{人|にん}・{欠席|けっせき} 0{人|にん}。"
+      - type: narration
+        text: "32{人|にん}が1{人|にん}1{枚|まい}ずつ{投票|とうひょう}したなら、{投票用紙|とうひょうようし}は32{枚|まい}あるはず。31{枚|まい}しかないのは、どこかで1{枚|まい}が{投票箱|とうひょうばこ}に{入|はい}らなかったことを{意味|いみ}する。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 投票中の役割表を確認しよう
+      - type: narration
+        text: "{投票|とうひょう}のときの{役割|やくわり}を{整理|せいり}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マモル……{投票箱|とうひょうばこ}の{見|み}はり。{投票箱|とうひょうばこ}の{近|ちか}くにずっといた。"
+      - type: narration
+        text: "ツムギ……{記録係|きろくがかり}。{黒板|こくばん}の{近|ちか}くで{人数|にんずう}と{順番|じゅんばん}をメモしていた。"
+      - type: narration
+        text: "アユム……{列|れつ}の{整理係|せいりかかり}。{教室|きょうしつ}の{前|まえ}と{後|うし}ろを{何回|なんかい}も{行|い}き{来|き}していた。"
+      - type: narration
+        text: "ノゾミ……えんぴつ{係|がかり}。{投票用紙|とうひょうようし}を{書|か}く{机|つくえ}の{近|ちか}くで、えんぴつがない{人|ひと}に{貸|か}していた。"
+      - type: narration
+        text: "{投票箱|とうひょうばこ}の{近|ちか}くにずっといたのはマモルだけ。{投票箱|とうひょうばこ}に{入|い}らなかった1{枚|まい}に、いちばん{気|き}づきやすかったのはだれだろう？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ツムギの記録メモを読もう
+      - type: narration
+        text: "ツムギの{正|せい}の{字|じ}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "14:15 {投票|とうひょう}スタート。14:16 10{人|にん}{通過|つうか}。14:18 20{人|にん}{通過|つうか}。14:20 32{人|にん}{通過|つうか}。"
+      - type: narration
+        text: "メモの{特記|とっき}——「{全員|ぜんいん}{前|まえ}に{来|き}た」「{投票箱|とうひょうばこ}の{近|ちか}くにはマモル」「アユムは{最後|さいご}のほうで{後|うし}ろの{席|せき}まで{呼|よ}びに{行|い}っていた」。"
+      - type: narration
+        text: "「{全員|ぜんいん}{前|まえ}に{来|き}た」のに31{枚|まい}しかない。{誰|だれ}かが{投票|とうひょう}しなかったのではなく、{別|べつ}のことが{起|お}きたのだ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 投票箱まわりの目撃メモ
+      - type: narration
+        text: "ノゾミとアユムの{目撃|もくげき}メモを{読|よ}んだ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ノゾミ——えんぴつを2{回|かい}{貸|か}した。そのあいだ、{投票箱|とうひょうばこ}の{横|よこ}には{行|い}っていない。"
+      - type: narration
+        text: "アユム——{最後|さいご}の3{人|にん}をせかしに{後|うし}ろの{席|せき}へ{行|い}った。その1{分|ぷん}くらいは{投票箱|とうひょうばこ}の{前|まえ}にいなかった。"
+      - type: narration
+        text: "{共通|きょうつう}の{目撃|もくげき}——マモルが{投票|とうひょう}の{終|お}わりごろ、{一度|いちど}だけ{足元|あしもと}を{見|み}てしゃがんだ。"
+      - type: narration
+        text: "しゃがんだ{理由|りゆう}は{何|なん}だろう？ただ{見|み}ただけか、それとも{何|なに}かを{拾|ひろ}ったのだろうか？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 投票箱の点検結果
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{投票箱|とうひょうばこ}を{点検|てんけん}しました。{下|した}のすきまに、{紙|かみ}がこすれたような{白|しろ}い{折|お}れあとがありました。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "そして、ゴミ{箱|ばこ}の{中|なか}から「{宝探|たからさが}し」と{書|か}かれた{投票用紙|とうひょうようし}が1{枚|まい}{見|み}つかりました。{紙|かみ}の{角|かど}の{折|お}れ{方|かた}が、{投票箱|とうひょうばこ}の{下|した}の{角|かど}と{同|おな}じ{向|む}きでした。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ゴミ{箱|ばこ}から「{宝探|たからさが}し」の{投票用紙|とうひょうようし}が！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "この{紙|かみ}は「{書|か}きまちがえたごみ」だったのか？ それとも、{投票箱|とうひょうばこ}から{落|お}ちた{本当|ほんとう}の1{票|ひょう}なのか？ {折|お}れあとの{向|む}きが{投票箱|とうひょうばこ}の{角|かど}と{一致|いっち}している……"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 1票を投票箱に入れなかったのは誰？
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{投票|とうひょう}の{終|お}わりごろ、マモルが{一度|いちど}だけゴミ{箱|ばこ}のふたを{開|あ}けたのを{見|み}た。{何|なに}かを{入|い}れたのかも……"
+        expression: thinking
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "わたしも{見|み}た。マモルが{少|すこ}しかたまってから、ゴミ{箱|ばこ}に{何|なに}かを{入|い}れたように{見|み}えた。でも、まじめなマモルがそんなこと……"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ayumu
+        text: "{自分|じぶん}は{後|うし}ろの{席|せき}に{行|い}ってたから、{投票箱|とうひょうばこ}の{前|まえ}にいなかった{時間|じかん}があった。その{間|あいだ}、{投票箱|とうひょうばこ}の{横|よこ}にいたのはマモルだけだ。"
+        expression: thinking
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{全員|ぜんいん}{前|まえ}に{来|き}たのに31{枚|まい}しかない。{投票箱|とうひょうばこ}の{近|ちか}くにずっといたのはマモル。マモルが{足元|あしもと}を{見|み}てしゃがんだ。ゴミ{箱|ばこ}から「{宝探|たからさが}し」の{投票用紙|とうひょうようし}が{見|み}つかった——"
+      - type: choice
+        id: q1
+        question: 1票を投票箱に入れなかったのは誰？
+        options:
+          - text: マモル（投票箱のそばで足元を見てしゃがみ、ゴミ箱に何かを入れた）
+            value: mamoru
+            correct: true
+            feedback: "{正解|せいかい}！ マモルは{床|ゆか}に{落|お}ちた{投票用紙|とうひょうようし}を「{書|か}きまちがいのごみ」と{思|おも}いこみ、{自分|じぶん}でゴミ{箱|ばこ}に{捨|す}てた。{悪意|あくい}はなかったが、「{勝手|かって}に{判断|はんだん}してよかったのか」が{今日|きょう}の{学|まな}びだ。"
+          - text: ツムギ（31枚しかないとすぐ気づいた）
+            value: tsumugi
+            feedback: "ツムギは{黒板|こくばん}の{横|よこ}で{記録|きろく}していて、{投票箱|とうひょうばこ}の{横|よこ}には{行|い}っていない。31{枚|まい}に{最初|さいしょ}に{気|き}づいたのも、{正直|しょうじき}に{声|こえ}を{上|あ}げたからだよ。"
+          - text: アユム（早く決めたい気持ちが強かった）
+            value: ayumu
+            feedback: "アユムは{後|うし}ろの{席|せき}に{呼|よ}びに{行|い}っていた{時間|じかん}があり、{投票箱|とうひょうばこ}の{前|まえ}にいなかった。ゴミ{箱|ばこ}に{近|ちか}づける{立場|たちば}ではなかったよ。"
+          - text: ノゾミ（宝探しに投票していた）
+            value: nozomi
+            feedback: "ノゾミは{投票用紙|とうひょうようし}を{書|か}く{机|つくえ}の{近|ちか}くにいて、{投票箱|とうひょうばこ}の{横|よこ}にはあまり{行|い}っていない。{宝探|たからさが}しに{投票|とうひょう}したことは{公開情報|こうかいじょうほう}で、{後|あと}ろめたいことではないよ。"
+
+  # ==================== 真実：マモル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マモルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamoru
+        text: "……{分|わ}かった。{話|はな}す。{投票|とうひょう}の{終|お}わりごろ、{床|ゆか}に1{枚|まい}の{紙|かみ}が{落|お}ちているのを{見|み}つけた。「{宝探|たからさが}し」と{書|か}いてあった。"
+        expression: worried
+      - type: dialog
+        character: mamoru
+        text: "{僕|ぼく}は「{誰|だれ}かが{書|か}きまちがえて{落|お}とした、いらない{紙|かみ}だ」と{思|おも}った。{管理係|かんりがかり}として、{関係|かんけい}のない{紙|かみ}は{片|かた}づけるべきだって……だからゴミ{箱|ばこ}に{入|い}れた。"
+        expression: thinking
+      - type: dialog
+        character: mamoru
+        text: "でも{本当|ほんとう}は……{投票箱|とうひょうばこ}のすきまから{落|お}ちた{本当|ほんとう}の1{票|ひょう}だったんだ。{誰|だれ}かに{確認|かくにん}すればよかった。{自分|じぶん}だけで{決|き}めてしまった。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{実|じつ}は……31{枚|まい}に{気|き}づいたとき、マモルがゴミ{箱|ばこ}を{開|あ}けたのを{見|み}ていた。{証拠|しょうこ}がないままうたがいたくなくて、すぐに{言|い}えなかった。ごめんね。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ayumu
+        text: "{正直|しょうじき}に{言|い}うと……「{早|はや}く{決|き}まればいい」と{少|すこ}し{思|おも}ってしまった。でも{宝探|たからさが}しに{入|い}れた{子|こ}の{気持|きも}ちを{考|かんが}えたら、やっぱりフェアじゃない{決|き}まり{方|かた}はだめだと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "わたしは{宝探|たからさが}しに{投票|とうひょう}した。マモルがゴミ{箱|ばこ}に{何|なに}かを{入|い}れたように{見|み}えたけど、まじめなマモルを{疑|うたが}えなかった。もっと{早|はや}く{言|い}えばよかったかも……"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マモルの「{管理係|かんりがかり}として{片|かた}づけなきゃ」という{気持|きも}ちは{素晴|すば}らしいわ。{真剣|しんけん}に{役割|やくわり}を{果|は}たそうとしていたんだもの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{自分|じぶん}だけで{判断|はんだん}するのではなく、「{先生|せんせい}、これはどうしますか？」と{確認|かくにん}すれば{良|よ}かった。{多数決|たすうけつ}は{数|かず}が{多|おお}い{方|ほう}を{選|えら}ぶだけじゃなく、{全員|ぜんいん}の{票|ひょう}が{正|ただ}しく{数|かぞ}えられることが{前提|ぜんてい}なの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{手続|てつづ}きが{公正|こうせい}でないと、{結果|けっか}が{正|ただ}しく{見|み}えても{本当|ほんとう}に{公平|こうへい}とは{言|い}えない。32{人|にん}いるなら32{枚|まい}——この{当|あ}たり{前|まえ}を{守|まも}ることが、{話|はな}し{合|あ}いの{土台|どだい}になる。"
+      - type: narration
+        text: "ルールを{守|まも}ろうとした{善意|ぜんい}でも、{自分|じぶん}だけで{決|き}めるとまちがえることがある。「{確認|かくにん}する{勇気|ゆうき}」が{公正|こうせい}な{多数決|たすうけつ}を{守|まも}る。"
+      - type: narration
+        text: "{数|かず}が{合|あ}わないときは、「{誰|だれ}が{悪|わる}いか」より{先|さき}に「{何|なに}が{起|お}きたか」を{整理|せいり}するとよい——ツムギが{最初|さいしょ}に{声|こえ}を{上|あ}げたように。"
+      - type: effect
+        name: fade-out

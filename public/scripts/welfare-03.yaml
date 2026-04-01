@@ -1,0 +1,380 @@
+meta:
+  id: welfare-03
+  title: 聞こえない声
+  series: 福祉探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}5{年|ねん}1{組|くみ}には、サトウさんという{クラスメイト|くらすめいと}がいる。サトウさんには「{伝音性|でんおんせい}{難聴|なんちょう}」——{左|ひだり}{耳|みみ}が{聞|き}こえにくい{障|しょう}がいがある。"
+      - type: narration
+        text: "サトウさんの{席|せき}は、{担任|たんにん}の{山田|やまだ}{先生|せんせい}と{相談|そうだん}して「{教壇|きょうだん}の{右側|みぎがわ}・{最前列|さいぜんれつ}」に{決|き}められていた。{右|みぎ}{耳|みみ}で{先生|せんせい}の{声|こえ}が{聞|き}こえやすい{位置|いち}だ。"
+      - type: narration
+        text: "ところが——{今朝|けさ}——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "サトウさんが{教室|きょうしつ}に{来|き}ると、{自分|じぶん}の{席|せき}が「{教壇|きょうだん}の{左側|ひだりがわ}・2{列目|れつめ}」に{移動|いどう}されていた。「{先生|せんせい}の{声|こえ}が{聞|き}こえにくくなりました。{誰|だれ}が{変|か}えたんですか？」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "サトウさんの{席|せき}が{勝手|かって}に{動|うご}かされています。{山田|やまだ}{先生|せんせい}は{席替|せきが}えを{指示|しじ}していません。{昨日|きのう}の{放課後|ほうかご}、{掃除|そうじ}の{時間|じかん}に{教室|きょうしつ}にいた4{人|にん}の{中|なか}に、{席|せき}を{動|うご}かした{人|ひと}がいるようです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。サトウさんの{席|せき}には{理由|りゆう}があった。それを{知|し}らずに{動|うご}かした{人|ひと}がいるのか——？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 聞こえない声
+        subtitle: 福祉探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: サトウさんの報告を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}がサトウさんの{状況|じょうきょう}をまとめた{報告書|ほうこくしょ}を{見|み}せてくれた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "サトウさんの{聞|き}こえ{方|かた}——「{左|ひだり}{耳|みみ}に{伝音性|でんおんせい}{難聴|なんちょう}がある。{右|みぎ}{耳|みみ}は{普通|ふつう}に{聞|き}こえる」。"
+      - type: narration
+        text: "{元|もと}の{席|せき}——「{教壇|きょうだん}の{右側|みぎがわ}・{最前列|さいぜんれつ}」。{移動先|いどうさき}の{席|せき}——「{教壇|きょうだん}の{左側|ひだりがわ}・2{列目|れつめ}」。"
+      - type: narration
+        text: "サトウさんの{訴|うった}え——「{先生|せんせい}の{声|こえ}が{聞|き}こえにくくなった。{前|まえ}の{席|せき}の{方|ほう}が{聞|き}こえやすかった」。{席|せき}が{変|か}わったのは「{昨日|きのう}（{木曜日|もくようび}）の{放課後|ほうかご}」の{間|あいだ}だ。"
+      - type: narration
+        text: "{元|もと}の{席|せき}と{移動先|いどうさき}の{席|せき}——{何|なに}が{違|ちが}うのだろう？ サトウさんの{聞|き}こえ{方|かた}と{関係|かんけい}がある？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の放課後の行動を調べよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{掃除|そうじ}の{時間|じかん}に{教室|きょうしつ}にいた4{人|にん}に{聞|き}き{取|と}りをした。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユズル —— {担当|たんとう}は「{教室|きょうしつ}の{後方|こうほう}」。15:30〜15:50。{教壇|きょうだん}の{近|ちか}くには{行|い}っていない。15:50に{下校|げこう}。"
+      - type: narration
+        text: "イブキ —— {担当|たんとう}は「{教室|きょうしつ}の{前方|ぜんぽう}（{黒板|こくばん}・{教壇|きょうだん}{周|まわ}り）」。15:30〜16:00。**{教壇|きょうだん}の{周|まわ}りを{掃除|そうじ}**した。{最後|さいご}まで{教室|きょうしつ}にいた。"
+      - type: narration
+        text: "ワカナ —— {担当|たんとう}は「{窓拭|まどふ}き」。15:30〜15:45。{窓|まど}{側|がわ}だけで{作業|さぎょう}。15:45に{図書室|としょしつ}へ。"
+      - type: narration
+        text: "コハル —— {担当|たんとう}は「{ゴミ捨|ごみす}て」。15:30〜15:50（15:40〜15:50は{教室|きょうしつ}{外|そと}）。{ゴミ|ごみ}を{集|あつ}めて{外|そと}へ。"
+      - type: narration
+        text: "{教壇|きょうだん}の{近|ちか}くに{行|い}った{人|ひと}は{誰|だれ}？ {席|せき}を{移動|いどう}させる{時間|じかん}があった{人|ひと}は{誰|だれ}？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 教室の座席表を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{教室|きょうしつ}の{座席表|ざせきひょう}を{見|み}せてくれた。{元|もと}の{席|せき}と{移動先|いどうさき}の{位置|いち}を{確認|かくにん}しよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{元|もと}の{席|せき}（●）—— {教壇|きょうだん}の{右側|みぎがわ}・{最前列|さいぜんれつ}。{先生|せんせい}が{右|みぎ}{耳|みみ}{側|がわ}にいる{位置|いち}だ。"
+      - type: narration
+        text: "{移動先|いどうさき}（▲）—— {教壇|きょうだん}の{左側|ひだりがわ}・2{列目|れつめ}。{窓際|まどぎわ}で{明|あか}るい。しかし{先生|せんせい}が{左|ひだり}{耳|みみ}{側|がわ}になる{位置|いち}だ。"
+      - type: narration
+        text: "サトウさんの{左|ひだり}{耳|みみ}は{聞|き}こえにくい。{移動先|いどうさき}では{先生|せんせい}の{声|こえ}が{聞|き}こえにくい{側|がわ}からくることになる——"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 聴覚特性図を読み解こう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{保健室|ほけんしつ}の{資料|しりょう}から{聴覚|ちょうかく}{特性|とくせい}{図|ず}を{持|も}ってきた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "サトウさんの{聞|き}こえ{方|かた}——{左|ひだり}{耳|みみ}：{伝音性|でんおんせい}{難聴|なんちょう}。{音|おと}が{小|ちい}さく{聞|き}こえる。{右|みぎ}{耳|みみ}：{正常|せいじょう}な{聴力|ちょうりょく}。"
+      - type: narration
+        text: "{左|ひだり}から{話|はな}しかけられると —— {聞|き}き{取|と}りにくい。{右|みぎ}から{話|はな}しかけられると —— よく{聞|き}こえる。"
+      - type: narration
+        text: "★この{図|ず}と{座席表|ざせきひょう}（ステップ3）を{並|なら}べてみよう！ {元|もと}の{席|せき}（{教壇|きょうだん}の{右側|みぎがわ}）→ {先生|せんせい}の{声|こえ}が{右|みぎ}{耳|みみ}{側|がわ}から → {聞|き}こえやすい○。{移動先|いどうさき}（{教壇|きょうだん}の{左側|ひだりがわ}）→ {先生|せんせい}の{声|こえ}が{左|ひだり}{耳|みみ}{側|がわ}から → {聞|き}こえにくい×。"
+      - type: narration
+        text: "サトウさんの{元|もと}の{席|せき}が「{教壇|きょうだん}の{右側|みぎがわ}」だった{理由|りゆう}が{分|わ}かった——{授業|じゅぎょう}に{参加|さんか}するための、{合理的|ごうりてき}{配慮|はいりょ}だったのだ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: サトウさんの直接証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{山田|やまだ}{先生|せんせい}がサトウさんを{福祉|ふくし}{探偵|たんてい}{団|だん}に{紹介|しょうかい}しました。サトウさんが{直接|ちょくせつ}{話|はな}してくれます。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "サトウさんの{証言|しょうげん}——「{私|わたし}の{席|せき}が{右側|みぎがわ}の{最前列|さいぜんれつ}だったのには{理由|りゆう}があります。{私|わたし}は{右|みぎ}{耳|みみ}で{先生|せんせい}の{声|こえ}を{聞|き}いています。{教壇|きょうだん}の{右側|みぎがわ}に{座|すわ}れば、{先生|せんせい}が{右|みぎ}{耳|みみ}{側|がわ}にいるから{聞|き}こえやすい。でも{左側|ひだりがわ}に{移動|いどう}されたら、{先生|せんせい}が{左|ひだり}{耳|みみ}{側|がわ}——{聞|き}こえにくい{方|ほう}——になってしまいます」"
+      - type: narration
+        text: "「{最前列|さいぜんれつ}が{恥|は}ずかしいとか、{目立|めだ}つとか、そんなふうに{思|おも}う{人|ひと}がいるかもしれません。でも{私|わたし}にとっては、あの{席|せき}が{授業|じゅぎょう}に{参加|さんか}するための{席|せき}なんです」"
+      - type: narration
+        text: "「{私|わたし}のためにしてくれたことだったのかもしれません。でも、**{私|わたし}に{聞|き}いてほしかった**です。{私|わたし}の{聞|き}こえ{方|かた}は{私|わたし}にしか{分|わ}からない。『かわいそう』と{思|おも}って{動|うご}くより、『どうしたらいい？』と{聞|き}いてほしい」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "サトウさんの{声|こえ}が{響|ひび}く——{本人|ほんにん}に{聞|き}かずに、{自分|じぶん}の{判断|はんだん}で{動|うご}いてしまった{人|ひと}がいる。{席|せき}を{動|うご}かせた{立場|たちば}にいたのは{誰|だれ}だ？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 席を動かしたのは誰？
+      - type: sprite
+        character: yuzuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "{掃除|そうじ}の{時間|じかん}、{僕|ぼく}は{後方|こうほう}を{担当|たんとう}していた。でも15:40ごろ、{教壇|きょうだん}の{近|ちか}くでイブキが{机|つくえ}を{動|うご}かしているのを{ちらっと|ちらっと}{見|み}た。{掃除|そうじ}で{動|うご}かしているんだと{思|おも}って、{気|き}にしなかったけど……"
+        expression: thinking
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: worried
+        position: right
+      - type: dialog
+        character: wakana
+        text: "{私|わたし}は15:45に{教室|きょうしつ}を{出|で}た。{図書室|としょしつ}の{本|ほん}で「{合理的|ごうりてき}{配慮|はいりょ}」を{調|しら}べたことがある。サトウさんの{席|せき}は{合理的|ごうりてき}{配慮|はいりょ}の{一|ひと}つ——{本人|ほんにん}の{同意|どうい}なく{変|か}えてはいけないはずよ。"
+        expression: worried
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{教壇|きょうだん}の{近|ちか}くに{行|い}ったのはイブキだけ（Card 2）。ユズルは15:40ごろにイブキが{教壇|きょうだん}{付近|ふきん}で{机|つくえ}を{動|うご}かすのを{目撃|もくげき}（Card 2の{行動|こうどう}）。イブキは「サトウさんが{最前列|さいぜんれつ}で{目立|めだ}っていて{かわいそう|かわいそう}だと{思|おも}っていた」と{言|い}っている——"
+      - type: choice
+        id: q1
+        question: サトウさんの席を動かしたのは誰？
+        options:
+          - text: イブキ（教壇の前方を掃除・16:00まで教室にいた）
+            value: ibuki
+            correct: true
+            feedback: "{正解|せいかい}！ イブキは「サトウさんが{最前列|さいぜんれつ}で{目立|めだ}っていて{かわいそう|かわいそう}」と{思|おも}い、{善意|ぜんい}で{席|せき}を{動|うご}かした。しかしサトウさんの{左|ひだり}{耳|みみ}が{難聴|なんちょう}で{右|みぎ}{耳|みみ}で{聞|き}いていることを{知|し}らなかった。{本人|ほんにん}に{聞|き}かずに{行動|こうどう}したことが{問題|もんだい}の{核心|かくしん}だ。"
+          - text: ユズル（目撃情報を知っているのに黙っていた）
+            value: yuzuru
+            feedback: "ユズルは{教室|きょうしつ}の{後方|こうほう}を{担当|たんとう}していて、{教壇|きょうだん}には{近|ちか}づいていない。{目撃|もくげき}{情報|じょうほう}を{知|し}っているのは{別|べつ}の{話|はなし}——{見|み}た{事実|じじつ}と、した{行動|こうどう}は{違|ちが}うよ。"
+          - text: ワカナ（席配置の意味を知っていたのに何もしなかった）
+            value: wakana
+            feedback: "ワカナは15:45に{教室|きょうしつ}を{出|で}て{図書室|としょしつ}へ{行|い}った。それ{以降|いこう}は{教室|きょうしつ}にいない。{知識|ちしき}を{持|も}っていたことと、{席|せき}を{動|うご}かしたことは{別|べつ}の{問題|もんだい}だよ。"
+          - text: コハル（15:40〜15:50に教室の外にいて、アリバイが怪しい）
+            value: koharu
+            feedback: "コハルは15:40〜15:50に{ゴミ捨|ごみす}てで{教室|きょうしつ}{外|そと}にいた。{教室|きょうしつ}に{戻|もど}ったときには{掃除|そうじ}が{終|お}わって{下校|げこう}の{準備|じゅんび}をしていた。{教壇|きょうだん}の{近|ちか}くには{行|い}っていないよ。"
+
+  # ==================== 真実：イブキ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イブキの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "……{私|わたし}が{動|うご}かしました。サトウさんの{机|つくえ}を、{左側|ひだりがわ}の2{列目|れつめ}に。"
+        expression: worried
+      - type: narration
+        text: "イブキは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: ibuki
+        text: "サトウさんがいつも{最前列|さいぜんれつ}に{座|すわ}っているのが{気|き}になっていた。「{障|しょう}がいがあるから{前|まえ}の{席|せき}」って{思|おも}われているんじゃないかって、{かわいそう|かわいそう}で……"
+        expression: thinking
+      - type: dialog
+        character: ibuki
+        text: "{掃除|そうじ}の{時間|じかん}、{教壇|きょうだん}の{前|まえ}を{掃除|そうじ}していたとき、「{窓際|まどぎわ}の2{列目|れつめ}なら{明|あか}るくて{目立|めだ}たない。サトウさんを『{普通|ふつう}の{席|せき}』にしてあげよう」って{思|おも}いついた。"
+        expression: worried
+      - type: dialog
+        character: ibuki
+        text: "でも……サトウさんの{耳|みみ}のことを{詳|くわ}しく{知|し}らなかった。「{耳|みみ}が{聞|き}こえにくい」とは{知|し}っていたけど、「{右|みぎ}{耳|みみ}で{聞|き}いている」「{右側|みぎがわ}に{先生|せんせい}がいないと{聞|き}こえない」は{知|し}らなかった。サトウさんに{聞|き}けば{良|よ}かった……"
+        expression: determined
+      - type: sprite
+        character: ibuki
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: yuzuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "{実|じつ}は……15:40ごろ、イブキが{教壇|きょうだん}{付近|ふきん}で{机|つくえ}を{動|うご}かしているのを{見|み}ていた。{掃除|そうじ}で{動|うご}かしているんだと{思|おも}って、{声|こえ}をかけなかった。{確認|かくにん}していれば{良|よ}かった——{データ|でーた}で{確|たし}かめる{前|まえ}に、{声|こえ}をかけるべきだった。"
+        expression: worried
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: worried
+        position: right
+      - type: dialog
+        character: wakana
+        text: "{合理的|ごうりてき}{配慮|はいりょ}は「{本人|ほんにん}の{同意|どうい}なく{変|か}えてはいけない」もの。サトウさんの{席|せき}配置|はいち}はその{典型例|てんけいれい}。{知|し}っていたのに、{席|せき}が{変|か}わる{前|まえ}に{何|なに}もできなかった……"
+        expression: worried
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "サトウさんから{直接|ちょくせつ}{聞|き}いたことがある。「{右|みぎ}{耳|みみ}{側|がわ}に{先生|せんせい}がいれば{授業|じゅぎょう}は{大丈夫|だいじょうぶ}」って。その{情報|じょうほう}をもっと{早|はや}く{伝|つた}えるべきだった。サトウさんのプライバシーを{守|まも}ろうとしたけど……サトウさんが{困|こま}っている{今|いま}は、{伝|つた}えるべきだった。"
+        expression: determined
+      - type: sprite
+        character: koharu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "イブキの「サトウさんを{守|まも}りたい」という{気持|きも}ちは{本物|ほんもの}よ。{思|おも}いやりがある{証拠|しょうこ}。でも{大切|たいせつ}なことを{一|ひと}つ、{忘|わす}れていた——"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「どうすれば{良|よ}いか」を{決|き}めるのは、{困|こま}っている{人|ひと}{自身|じしん}よ。「かわいそう」と{思|おも}って{動|うご}く{前|まえ}に、「どうしたらいい？」と{聞|き}く。それが{一番|いちばん}の{配慮|はいりょ}なの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "サトウさんの{席|せき}には{理由|りゆう}があった。{合理的|ごうりてき}{配慮|はいりょ}——{障|しょう}がいのある{人|ひと}が{他|ほか}の{人|ひと}と{同|おな}じように{活動|かつどう}できるよう、{状況|じょうきょう}に{合|あ}わせて{工夫|くふう}すること。「{特別扱|とくべつあつか}い」ではなく「スタートラインを{揃|そろ}えること」だ。"
+      - type: narration
+        text: "イブキは「{最前列|さいぜんれつ}＝{目立|めだ}つ＝{恥|は}ずかしい」と{思|おも}った。でもサトウさんにとって「あの{席|せき}が{授業|じゅぎょう}に{参加|さんか}するための{席|せき}」だった。{聞|き}こえる{人|ひと}の{常識|じょうしき}は、{聞|き}こえにくい{人|ひと}には{通|つう}じないことがある。"
+      - type: narration
+        text: "「かわいそう」と{思|おも}って{動|うご}くより、「どうしたらいい？」と{聞|き}く——その{一言|ひとこと}が、{本当|ほんとう}の{思|おも}いやりへの{第|だい}一{歩|ぽ}だ。"
+      - type: effect
+        name: fade-out

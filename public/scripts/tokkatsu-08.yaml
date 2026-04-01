@@ -1,0 +1,374 @@
+meta:
+  id: tokkatsu-08
+  title: 匿名の投書箱
+  series: 特別活動探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{児童会|じどうかい}の{目安箱|めやすばこ}は、{教室|きょうしつ}の{入|い}り{口|ぐち}に{置|お}いてある{小|ちい}さな{木箱|きばこ}だ。{名前|なまえ}を{書|か}かなくてもいい。{言|い}いにくいことでも{正直|しょうじき}に{伝|つた}えられるようにと、{先生|せんせい}たちが{用意|ようい}してくれた{仕組|しく}みだ。"
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、{児童会長|じどうかいちょう}のアユムが{目安箱|めやすばこ}を{開|あ}けると、「{給食|きゅうしょく}のおかわりルールをもっと{公平|こうへい}にしてください」という{投書|とうしょ}が5{通|つう}{入|はい}っていた。"
+      - type: narration
+        text: "しかも——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "5{通|つう}の{内容|ないよう}はほとんど{同|おな}じで、{字|じ}もよく{似|に}ていた。「1{人|ひと}で5{通|つう}{入|い}れたならルール{違反|いはん}だ」——アユムは{問題|もんだい}にした。でも{投書|とうしょ}は{匿名|とくめい}。だれが{書|か}いたか、{名前|なまえ}はない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{目安箱|めやすばこ}のルールは「1{人|ひと}1{通|つう}まで」です。でも5{通|つう}は{内容|ないよう}がほぼ{同|おな}じで、{字|じ}にも{共通点|きょうつうてん}があるように{見|み}えます。{本当|ほんとう}に5{人|にん}の{声|こえ}なのか、それとも1{人|ひと}が5{回|かい}{書|か}いたのか——{調|しら}べてもらえますか。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: thinking
+          - character: ayumu
+            expression: worried
+          - character: mamoru
+            expression: surprised
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{本当|ほんとう}に5{人|にん}の{声|こえ}なのか。もし1{人|ひと}が{数|かず}をごまかしたなら、{匿名|とくめい}の{仕組|しく}みが{悪用|あくよう}されたことになる。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 匿名の投書箱
+        subtitle: 特別活動探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 5通の投書を確認しよう
+      - type: narration
+        text: "{目安箱|めやすばこ}から{取|と}り{出|だ}した5{通|つう}の{投書|とうしょ}を{並|なら}べて{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "5{通|つう}とも「{給食|きゅうしょく}のおかわりルールをもっと{公平|こうへい}にしてください」と{書|か}かれている。{内容|ないよう}はほぼ{同|おな}じだ。"
+      - type: narration
+        text: "{字|じ}の{大|おお}きさは5{通|つう}でバラバラ。でも——「す」の{字|じ}に{注目|ちゅうもく}すると、5{通|つう}すべて{最後|さいご}のはねが{丸|まる}くなっている。"
+      - type: narration
+        text: "{本当|ほんとう}に5{人|にん}の{違|ちが}う{人|ひと}が{書|か}いたなら、「す」のはね{方|かた}がみんな{同|おな}じになるだろうか？ {字|じ}のくせは{人|ひと}によってちがう——それが{最初|さいしょ}の{疑問|ぎもん}だ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 目安箱のルールを確認しよう
+      - type: narration
+        text: "{目安箱|めやすばこ}の{使|つか}い{方|かた}が{書|か}かれた{貼|は}り{紙|がみ}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ルール1——{名前|なまえ}は{書|か}かなくてもよい。ルール2——1{人|ひと}1{通|つう}まで。ルール3——{内容|ないよう}で{考|かんが}える。"
+      - type: narration
+        text: "「1{人|ひと}1{通|つう}まで」というルールが{決|き}まっている。もし1{人|ひと}が5{通|つう}{入|い}れていたら、これはルール{違反|いはん}になる。"
+      - type: narration
+        text: "{匿名|とくめい}の{仕組|しく}みは「{言|い}いにくい{意見|いけん}を{守|まも}るため」にある。{数|かず}を{増|ふ}やして{見|み}せるためではない——このルールがある{理由|りゆう}が{重要|じゅうよう}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 学級会のメモを読もう
+      - type: narration
+        text: "{金曜日|きんようび}の{学級会|がっきゅうかい}のメモが{見|み}つかった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{金曜日|きんようび}14:30——{学級会|がっきゅうかい}で「おかわりルール」の{話題|わだい}が{出|で}る。"
+      - type: narration
+        text: "{金曜日|きんようび}14:40——{多数決|たすうけつ}で「{変更|へんこう}なし」になる。ノゾミは{変更|へんこう}に{強|つよ}く{賛成|さんせい}していた。アユムは「{別|べつ}の{方法|ほうほう}で{意見|いけん}を{伝|つた}えよう」と{言|い}った。"
+      - type: narration
+        text: "{多数決|たすうけつ}で{負|ま}けたあと、ノゾミはとても{悔|くや}しそうにしていた。「{意見|いけん}が{通|とお}らなかった」と{強|つよ}く{感|かん}じた{人|ひと}が、あとで{強|つよ}い{行動|こうどう}をとる{可能性|かのうせい}がある。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 文字見本カードを調べよう
+      - type: narration
+        text: "{連絡|れんらく}カードに{書|か}かれた4{人|にん}の「す」の{字|じ}を{比|くら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツムギの「す」——{最後|さいご}のはねがまっすぐ。マモルの「す」——{最後|さいご}のはねがやや{上|うえ}に{向|む}く。アユムの「す」——{最後|さいご}のはねが{細|ほそ}い。"
+      - type: narration
+        text: "ノゾミの「す」——{最後|さいご}のはねだけが{丸|まる}い！ 4{人|にん}の{中|なか}で、ノゾミだけが{独特|どくとく}の{丸|まる}いはね{方|かた}をしている。"
+      - type: narration
+        text: "5{通|つう}の{投書|とうしょ}の「す」の{字|じ}——{最後|さいご}のはねが{丸|まる}かった。4{人|にん}の{中|なか}で、その「す」に{一番|いちばん}{近|ちか}いのはノゾミの{字|じ}だ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 目安箱前の見回りメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: center
+      - type: dialog
+        character: mamoru
+        text: "{金曜日|きんようび}15:10ごろの{見回|みまわ}りメモに、{気|き}になる{記録|きろく}があった。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{目安箱|めやすばこ}の{前|まえ}に1{人|ひと}だけ{長|なが}く{立|た}っていた——そのあと、まとめて{紙|かみ}を{入|い}れる{音|おと}が{何回|なんかい}もした。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「5{通|つう}＝5{人|にん}」という{前提|ぜんてい}が{崩|くず}れた！ {金曜日|きんようび}15:10、{学級会|がっきゅうかい}で{多数決|たすうけつ}が{終|お}わって30{分|ぷん}——1{人|ひと}が{何枚|なんまい}も{紙|かみ}を{入|い}れていた{可能性|かのうせい}が{高|たか}い。"
+      - type: narration
+        text: "{筆跡|ひっせき}のくせ（ノゾミの「す」）と、{行動|こうどう}の{記録|きろく}（15:10に1{人|ひと}が{何枚|なんまい}も{投書|とうしょ}）と、{学級会|がっきゅうかい}の{記録|きろく}（ノゾミが{強|つよ}く{悔|くや}しがった）——3つの{証拠|しょうこ}がそろった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 5通を書いたのは誰だ？
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "5{通|つう}の「す」を{並|なら}べてみたら、はね{方|かた}がみんな{同|おな}じだった。{字|じ}の{大|おお}きさは{変|か}えていても、くせまでは{変|か}えきれなかったのかな……"
+        expression: thinking
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: worried
+        position: right
+      - type: dialog
+        character: ayumu
+        text: "{学級会|がっきゅうかい}のあと、ノゾミがずっと{悔|くや}しそうだった。「1{人|ひと}の{声|こえ}では{変|か}わらない」ってつぶやいてたのを{思|おも}い{出|だ}したよ……"
+        expression: worried
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①5{通|つう}の「す」のはね{方|かた}はノゾミのくせと{一致|いっち}する。②{金曜日|きんようび}15:10に1{人|ひと}が{何枚|なんまい}も{目安箱|めやすばこ}へ{入|い}れる{音|おと}がした。③ノゾミは{学級会|がっきゅうかい}で{多数決|たすうけつ}に{負|ま}け、{強|つよ}く{悔|くや}しがっていた。"
+      - type: choice
+        id: q1
+        question: 5通の投書を書いたのは誰？
+        options:
+          - text: ノゾミ（「す」のくせが一致。15:10に目安箱前にいた可能性）
+            value: nozomi
+            correct: true
+            feedback: "{正解|せいかい}！ ノゾミは{学級会|がっきゅうかい}で{多数決|たすうけつ}に{負|ま}けたあと、「1{人|ひと}の{声|こえ}では{変|か}わらない、たくさんの{声|こえ}に{見|み}せればいい」と{考|かんが}え、{同|おな}じ{内容|ないよう}の{投書|とうしょ}を5{通|つう}{書|か}いて{目安箱|めやすばこ}に{入|い}れた。{字|じ}を{変|か}えたつもりだったが、「す」のくせが{残|のこ}っていた。"
+          - text: ツムギ（字のくせに敏感で、投書の違いに気づいていた）
+            value: tsumugi
+            feedback: "ツムギは{字|じ}のくせを{分析|ぶんせき}する{側|がわ}だよ。{学級会|がっきゅうかい}でおかわりルール{変更|へんこう}を{強|つよ}く{求|もと}めていたのはノゾミで、ツムギには{動機|どうき}がない。"
+          - text: マモル（ルールを一番よく知っていたから逆用した）
+            value: mamoru
+            feedback: "マモルは{目安箱|めやすばこ}のルールを{大切|たいせつ}にしている{側|がわ}。{学級会|がっきゅうかい}ではおかわりルール{変更|へんこう}に{反対|はんたい}していたから、{動機|どうき}がないね。"
+          - text: アユム（児童会長として意見を集めたかった）
+            value: ayumu
+            feedback: "アユムは{児童会長|じどうかいちょう}として{目安箱|めやすばこ}を{管理|かんり}する{立場|たちば}。{学級会|がっきゅうかい}では「{別|べつ}の{方法|ほうほう}で{伝|つた}えよう」と{言|い}っていて、{自分|じぶん}で{投書|とうしょ}する{理由|りゆう}はないよ。"
+
+  # ==================== 真実：ノゾミの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ノゾミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomi
+        text: "……{私|わたし}が5{通|つう}とも{書|か}きました。"
+        expression: worried
+      - type: narration
+        text: "ノゾミは{下|した}を{向|む}いて、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: nozomi
+        text: "{学級会|がっきゅうかい}で{多数決|たすうけつ}に{負|ま}けたとき、「1{人|ひと}の{声|こえ}では{弱|よわ}い」って{思|おも}った。{給食|きゅうしょく}のおかわりルール、{本当|ほんとう}に{不公平|ふこうへい}だって{思|おも}ってたから……"
+        expression: thinking
+      - type: dialog
+        character: nozomi
+        text: "「たくさんの{声|こえ}に{見|み}せればいい」って{考|かんが}えて、{同|おな}じ{内容|ないよう}を5{通|つう}{書|か}いた。{字|じ}を{変|か}えたつもりだったけど、「す」のくせまでは{変|か}えられなかった。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "みんなのためにって{思|おも}ってた。でも……{数|かず}をごまかすことと、{本当|ほんとう}にたくさんの{人|ひと}が{望|のぞ}んでいることは、{違|ちが}うんだね。"
+        expression: determined
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{投書|とうしょ}を{並|なら}べたとき「{同|おな}じ{人|ひと}かもしれない」って{感|かん}じてた。{内容|ないよう}の{正|ただ}しさと、{書|か}き{方|かた}の{正|ただ}しさは{別|べつ}に{考|かんが}えないといけなかったんだ。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "15:10に{目安箱|めやすばこ}の{前|まえ}で1{人|ひと}が{長|なが}く{立|た}っているのを{遠|とお}くから{見|み}た。{顔|かお}までは{分|わ}からなかったけど、{何枚|なんまい}も{入|い}れているように{見|み}えた。もっと{早|はや}く{言|い}えばよかった。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: worried
+        position: left
+      - type: dialog
+        character: ayumu
+        text: "{学級会|がっきゅうかい}のあと「{別|べつ}の{方法|ほうほう}で{伝|つた}えよう」って{言|い}ったのに、ノゾミがどれだけ{悔|くや}しかったかを{ちゃんと|ちゃんと}{受|う}け{止|と}めてなかった。もっと{話|はな}を{聞|き}けばよかった。"
+        expression: worried
+      - type: dialog
+        character: ayumu
+        text: "{意見|いけん}の{内容|ないよう}は{正|ただ}しいかもしれない。でも、やり{方|かた}は{違|ちが}った。{両方|りょうほう}をちゃんと{見|み}ることが{大切|たいせつ}だね。"
+        expression: determined
+      - type: sprite
+        character: ayumu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾミの「{不公平|ふこうへい}を{正|ただ}したい」という{気持|きも}ちは{素晴|すば}らしい。{強|つよ}く{感|かん}じたからこそ、{行動|こうどう}できたのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{数|かず}をごまかして「たくさんの{声|こえ}」に{見|み}せることは、{匿名|とくめい}の{仕組|しく}みを{悪用|あくよう}することになる。{本当|ほんとう}に{多|おお}くの{人|ひと}が{望|のぞ}んでいることと、1{人|ひと}が5{回|かい}{書|か}いたことは{全然|ぜんぜん}{違|ちが}う。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{匿名|とくめい}の{仕組|しく}みには{大切|たいせつ}な{役割|やくわり}がある。{言|い}いにくい{意見|いけん}でも{正直|しょうじき}に{伝|つた}えられるようにするためだ。その{仕組|しく}みを{守|まも}るために、「1{人|ひと}1{通|つう}」というルールがある。"
+      - type: narration
+        text: "「{数|かず}が{多|おお}い＝{正|ただ}しい{意見|いけん}」とは{限|かぎ}らない。{本当|ほんとう}に{大切|たいせつ}なのは、{何人|なんにん}が{書|か}いたかではなく、{内容|ないよう}をちゃんと{考|かんが}えることだ。"
+      - type: narration
+        text: "ノゾミが{気|き}づいたこと——「{正|ただ}しいと{思|おも}うこと」と「{正|ただ}しいやり{方|かた}」は{同|おな}じではない。{多数決|たすうけつ}で{負|ま}けた{意見|いけん}にも、{正|ただ}しい{届|とど}け{方|かた}がある。"
+      - type: effect
+        name: fade-out

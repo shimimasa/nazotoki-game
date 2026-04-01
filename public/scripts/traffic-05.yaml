@@ -1,0 +1,391 @@
+meta:
+  id: traffic-05
+  title: 雨の日のブレーキ
+  series: 交通安全探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{雨|あめ}の{日|ひ}の{下校中|げこうちゅう}、ミチカが{自転車|じてんしゃ}で{横断歩道|おうだんほどう}の{手前|てまえ}で{止|と}まりきれず、{歩行者|ほこうしゃ}の{横|よこ}をすり{抜|ぬ}けてしまった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ミチカは「ブレーキが{壊|こわ}れていた」と{言|い}っている。でも{本当|ほんとう}にそうだろうか——。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミチカが{横断歩道|おうだんほどう}で{止|と}まれなかったそうです。「ブレーキが{壊|こわ}れていた」と{言|い}っていますが、{本当|ほんとう}の{原因|げんいん}を{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: thinking
+          - character: hashiru
+            expression: thinking
+          - character: michika
+            expression: worried
+          - character: towa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{止|と}まれなかった」{原因|げんいん}は{本当|ほんとう}にブレーキの{故障|こしょう}なのか——{別|べつ}の{理由|りゆう}があるのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 雨の日のブレーキ
+        subtitle: 交通安全探偵団 Vol.5
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ミチカの話を聞こう
+      - type: narration
+        text: "ミチカの{説明|せつめい}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{横断歩道|おうだんほどう}の{手前|てまえ}でブレーキをかけた。でも{止|と}まりきれず、{歩行者|ほこうしゃ}の{横|よこ}をすり{抜|ぬ}けた。"
+      - type: narration
+        text: "「ブレーキが{壊|こわ}れていた」と{思|おも}った。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "「{止|と}まれなかった」{原因|げんいん}は3つ{考|かんが}えられる。①ブレーキの{故障|こしょう}、②{路面|ろめん}の{状態|じょうたい}、③スピードの{出|だ}しすぎ。{全部|ぜんぶ}{調|しら}べないと{分|わ}からない。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "「ブレーキが{壊|こわ}れていた」は{本当|ほんとう}か。{他|ほか}の{原因|げんいん}も{考|かんが}えなければならない。"
+
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 雨の日の安全を確認しよう
+      - type: narration
+        text: "{雨|あめ}の{日|ひ}の{交通|こうつう}{安全|あんぜん}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ぬれた{路面|ろめん}はすべりやすい。{雨|あめ}の{日|ひ}は{停止|ていし}{距離|きょり}が{長|なが}くなる。"
+      - type: narration
+        text: "いつもより{早|はや}めにブレーキをかける{必要|ひつよう}がある。"
+      - type: sprite
+        character: hashiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{雨|あめ}の{日|ひ}は{止|と}まりにくい。{晴|は}れの{日|ひ}と{同|おな}じタイミングでブレーキをかけても、{止|と}まれないことがある。ミチカも「いつも{通|どお}り」にかけたのかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: narration
+        text: "{雨|あめ}の{日|ひ}の{停止|ていし}{距離|きょり}は{晴|は}れの{日|ひ}より{長|なが}い。「いつも{通|どお}り」では{止|と}まれない——{故障|こしょう}ではなく{路面|ろめん}の{問題|もんだい}かもしれない。"
+
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 現場のようすを調べよう
+      - type: narration
+        text: "{現場|げんば}のようすを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{横断歩道|おうだんほどう}の{手前|てまえ}の{路面|ろめん}はかなりぬれていた。タイヤのあとが{少|すこ}しすべってのびている。"
+      - type: narration
+        text: "{歩行者|ほこうしゃ}はすでに{渡|わた}り{始|はじ}めていた。"
+      - type: sprite
+        character: michika
+        expression: worried
+        position: left
+      - type: dialog
+        character: michika
+        text: "タイヤのあとがのびている……ブレーキはかかっていたんだ。でも{路面|ろめん}がぬれていたから、すべって{止|と}まれなかった。{故障|こしょう}じゃなかったのかも……。"
+        expression: worried
+      - type: sprite
+        character: michika
+        action: hide
+      - type: narration
+        text: "ブレーキはかかっていた。でもぬれた{路面|ろめん}ですべった——{故障|こしょう}ではなく{路面|ろめん}とスピードの{問題|もんだい}だ。"
+
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 下校前のようすを確認しよう
+      - type: narration
+        text: "{下校|げこう}{前|まえ}のようすを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ミチカは「{早|はや}く{帰|かえ}りたいな」と{言|い}っていた。その{日|ひ}は{傘|かさ}を{忘|わす}れていた。"
+      - type: narration
+        text: "{雨|あめ}は{少|すこ}し{強|つよ}くなっていた。"
+      - type: sprite
+        character: towa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: towa
+        text: "ミチカは{傘|かさ}を{忘|わす}れてて「{早|はや}く{帰|かえ}りたい」って{言|い}ってた。{急|いそ}ぎたい{気持|きも}ちで、いつもより{速|はや}く{走|はし}っていたのかもしれない。{急|いそ}いでいるときほど、{安全|あんぜん}がおろそかになる。"
+        expression: thinking
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "{傘|かさ}を{忘|わす}れて{急|いそ}いでいた。いつもより{速|はや}いスピード＋ぬれた{路面|ろめん}——{止|と}まれなかった{本当|ほんとう}の{原因|げんいん}が{見|み}えてきた。"
+
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 整備員の点検結果
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{自転車|じてんしゃ}{整備員|せいびいん}の{点検|てんけん}{結果|けっか}が{届|とど}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ブレーキは{正常|せいじょう}に{動|うご}く。{壊|こわ}れていない。"
+      - type: narration
+        text: "ただし{雨|あめ}の{日|ひ}の{停止|ていし}{距離|きょり}は{晴|は}れの{日|ひ}よりかなり{長|なが}くなる。{速|はや}いままだと、さらに{止|と}まりにくい。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ブレーキは{壊|こわ}れていなかった！ {本当|ほんとう}の{原因|げんいん}は{雨|あめ}で{停止|ていし}{距離|きょり}が{長|なが}くなっていたことと、{急|いそ}いでスピードを{出|だ}していたこと——{両方|りょうほう}が{重|かさ}なった{結果|けっか}だ。"
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 本当の原因を作ったのは誰だ？
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "3つの{仮説|かせつ}を{比|くら}べよう。①{故障|こしょう}→{整備員|せいびいん}が{否定|ひてい}。②{路面|ろめん}→ぬれていた。③スピード→{急|いそ}いでいた。{原因|げんいん}は②と③の{組|く}み{合|あ}わせだ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: towa
+        text: "ミチカは「{壊|こわ}れていた」って{思|おも}いたかったんだと{思|おも}う。{自分|じぶん}のミスだと{認|みと}めたくなかったんだ。でも{気持|きも}ちと{安全|あんぜん}、どちらを{優先|ゆうせん}すべきかは{明|あき}らかだよね。"
+        expression: thinking
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ブレーキは{正常|せいじょう}。{路面|ろめん}はぬれていた。{傘|かさ}を{忘|わす}れて{急|いそ}いでいた。いつもより{速|はや}いスピードで{走|はし}っていた——"
+      - type: choice
+        id: q1
+        question: 本当の原因を作ったのは誰？
+        options:
+          - text: ミチカ（急いでスピードを出し、雨の停止距離を考えなかった）
+            value: michika
+            correct: true
+            feedback: "{正解|せいかい}！ ミチカは{傘|かさ}を{忘|わす}れて{早|はや}く{帰|かえ}りたい{気持|きも}ちで、いつもより{速|はや}く{走|はし}っていた。{雨|あめ}で{停止|ていし}{距離|きょり}が{長|なが}くなっていることを{考|かんが}えず、「いつも{通|どお}り」のタイミングでブレーキをかけた。ブレーキは{壊|こわ}れていなかった。"
+          - text: ヒカル（3つの仮説を立てていたのが怪しい）
+            value: hikaru
+            feedback: "ヒカルは{故障|こしょう}・{路面|ろめん}・スピードの3{仮説|かせつ}を{考|かんが}えた{情報型|じょうほうがた}。{分析|ぶんせき}する{側|がわ}で、{原因|げんいん}を{作|つく}ったのはヒカルではないよ。"
+          - text: ハシル（雨の日の体感を知っていた）
+            value: hashiru
+            feedback: "ハシルは{雨|あめ}の{日|ひ}の{自転車|じてんしゃ}が{止|と}まりにくいと{体感|たいかん}していた{行動型|こうどうがた}。{原因|げんいん}を{作|つく}ったのはハシルではないよ。"
+          - text: トワ（ミチカの気持ちに気づいていた）
+            value: towa
+            feedback: "トワはミチカの「{早|はや}く{帰|かえ}りたい」{気持|きも}ちに{気|き}づいていた{感情型|かんじょうがた}。{原因|げんいん}を{作|つく}ったのはトワではないよ。"
+
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミチカの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: michika
+        expression: worried
+        position: center
+      - type: dialog
+        character: michika
+        text: "……{本当|ほんとう}の{原因|げんいん}を{作|つく}ったのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "ミチカは{下|した}を{向|む}きながら、{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: michika
+        text: "{傘|かさ}を{忘|わす}れてて、{雨|あめ}に{濡|ぬ}れたくなくて……いつもより{速|はや}くこいでた。{横断歩道|おうだんほどう}が{見|み}えてブレーキをかけたけど、{全然|ぜんぜん}{止|と}まれなかった。"
+        expression: thinking
+      - type: dialog
+        character: michika
+        text: "「ブレーキが{壊|こわ}れていた」って{思|おも}いたかった。{自分|じぶん}のせいだって{認|みと}めたくなかったの。でも{本当|ほんとう}は、{雨|あめ}なのにスピードを{出|だ}していたから{止|と}まれなかっただけだった。"
+        expression: worried
+      - type: dialog
+        character: michika
+        text: "「{効|き}かなかった」と「{壊|こわ}れていた」は{同|おな}じじゃない。{雨|あめ}の{日|ひ}は{早|はや}めにブレーキをかけなきゃいけなかったのに……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{最初|さいしょ}は{故障|こしょう}ならしかたないって{思|おも}いかけた。でも{仮説|かせつ}を3つ{並|なら}べて{比|くら}べたら、{故障|こしょう}じゃないと{分|わ}かった。{思|おも}い{込|こ}みで{止|と}まらないことが{大事|だいじ}だ。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: hashiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{雨|あめ}の{日|ひ}は{止|と}まりにくいって{体|からだ}で{分|わ}かってた。ミチカも{少|すこ}し{急|いそ}いでたんじゃないかって{思|おも}ったけど、{体感|たいかん}だけで{決|き}めつけたくなかった。{証拠|しょうこ}で{確|たし}かめるのが{大事|だいじ}だ。"
+        expression: thinking
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: worried
+        position: right
+      - type: dialog
+        character: towa
+        text: "ミチカの「{早|はや}く{帰|かえ}りたい」って{気持|きも}ち、{分|わ}かる。でも{歩行者|ほこうしゃ}のこわさも{想像|そうぞう}してほしい。{気持|きも}ちと{安全|あんぜん}がぶつかったとき、{安全|あんぜん}を{選|えら}べるようになろう。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{停止|ていし}{距離|きょり}は「{気|き}づいてから{進|すす}む{距離|きょり}」と「ブレーキで{止|と}まる{距離|きょり}」の{両方|りょうほう}で{決|き}まります。{雨|あめ}の{日|ひ}は{晴|は}れの{日|ひ}より{止|と}まりにくい。スピードを{出|だ}すと、さらに{長|なが}くなります。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{効|き}かなかった」と「{壊|こわ}れていた」は{同|おな}じではありません。{急|いそ}いでいるときほど、いつもより{早|はや}めに{止|と}まる{準備|じゅんび}が{必要|ひつよう}です。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{雨|あめ}の{日|ひ}はぬれた{路面|ろめん}でタイヤがすべりやすい。{晴|は}れの{日|ひ}の「いつも{通|どお}り」では{止|と}まれないことがある。"
+      - type: narration
+        text: "{急|いそ}ぎたい{気持|きも}ちがあるときほど、スピードが{上|あ}がりやすい。でも{安全|あんぜん}は{気分|きぶん}で{変|か}えてはいけない。"
+      - type: narration
+        text: "{雨|あめ}の{日|ひ}の{自転車|じてんしゃ}——いつもより{早|はや}めにブレーキをかける。スピードをおさえる。それが{自分|じぶん}も{歩行者|ほこうしゃ}も{守|まも}る{方法|ほうほう}だ。"
+      - type: effect
+        name: fade-out

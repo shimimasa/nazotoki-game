@@ -1,0 +1,387 @@
+meta:
+  id: traffic-04
+  title: 見えない角
+  series: 交通安全探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{登校|とうこう}{時間|じかん}、{通学路|つうがくろ}の{見通|みとお}しの{悪|わる}い{交差点|こうさてん}で、1{年生|ねんせい}のユイちゃんと{自転車|じてんしゃ}の{高校生|こうこうせい}がぶつかりそうになった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{高校生|こうこうせい}は「{急|きゅう}に{飛|と}び{出|だ}してきた」と{言|い}い、ユイちゃんは「ちゃんと{止|と}まった」と{言|い}う。{同|おな}じ{出来事|できごと}なのに、{見|み}え{方|かた}が{違|ちが}う。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{見通|みとお}しの{悪|わる}い{交差点|こうさてん}でヒヤリハットがありました。{高校生|こうこうせい}とユイちゃんの{話|はなし}が{食|く}い{違|ちが}っています。{何|なに}が{起|お}きたのか、だれの{行動|こうどう}がきっかけだったのかを{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: thinking
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{死角|しかく}のある{交差点|こうさてん}で{何|なに}が{起|お}きたのか——{両方|りょうほう}の{話|はなし}を{照|て}らし{合|あ}わせよう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 見えない角
+        subtitle: 交通安全探偵団 Vol.4
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 高校生の話を聞こう
+      - type: narration
+        text: "{高校生|こうこうせい}の{証言|しょうげん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{急|きゅう}に{飛|と}び{出|だ}してきた」——{角|かど}の{向|む}こうは{見|み}えにくかった。"
+      - type: narration
+        text: "{急|きゅう}ブレーキで{止|と}まった。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{高校生|こうこうせい}からは「{急|きゅう}に{飛|と}び{出|だ}した」ように{見|み}えた。でも{本当|ほんとう}に「{急|きゅう}に」だったのかな。ブロック{塀|べい}で{見|み}えなかっただけかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{高校生|こうこうせい}には「{飛|と}び{出|だ}し」に{見|み}えた。でもユイちゃんは「{止|と}まった」と{言|い}っている。{同|おな}じ{出来事|できごと}の{見|み}え{方|かた}が{違|ちが}うのはなぜだろう。"
+
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: ユイちゃんの話を聞こう
+      - type: narration
+        text: "ユイちゃんの{証言|しょうげん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「ちゃんと{止|と}まった」——「お{姉|ねえ}ちゃんといっしょだった」。"
+      - type: narration
+        text: "まだ{犬|いぬ}のことは{話|はな}していない。"
+      - type: sprite
+        character: hashiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "ユイちゃんは「{止|と}まった」と{言|い}ってるけど、{高校生|こうこうせい}は「{飛|と}び{出|だ}した」と{言|い}ってる。{両方|りょうほう}{本当|ほんとう}だとしたら、いったん{止|と}まったあとに{急|きゅう}に{動|うご}いたのかも。"
+        expression: thinking
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: narration
+        text: "「{止|と}まった」のに「{飛|と}び{出|だ}した」——いったん{止|と}まったあとに{急|きゅう}に{動|うご}いた{可能性|かのうせい}がある。{誰|だれ}かが{手|て}を{引|ひ}いたのだろうか。"
+
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 交差点の構造を確認しよう
+      - type: narration
+        text: "{交差点|こうさてん}の{見取|みと}り{図|ず}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ブロック{塀|べい}とワゴン{車|しゃ}で{角|かど}が{見|み}えにくい。{歩行者|ほこうしゃ}も{自転車|じてんしゃ}も{直前|ちょくぜん}まで{見|み}えない{位置|いち}がある。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{図|ず}にすると{分|わ}かる。ブロック{塀|べい}とワゴン{車|しゃ}で{死角|しかく}ができている。{歩|ある}く{人|ひと}からも{自転車|じてんしゃ}からも{見|み}えない。{両方|りょうほう}にとって{危険|きけん}な{場所|ばしょ}だ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{死角|しかく}は{両方向|りょうほうこう}にある。{近|ちか}くに{犬|いぬ}がいたという{目撃|もくげき}もある——{何|なに}があったのだろう。"
+
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 目撃者の情報を確認しよう
+      - type: narration
+        text: "{近|ちか}くにいた{人|ひと}のメモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "トワがユイちゃんの{手|て}を{引|ひ}いていた。{近|ちか}くで{大|おお}きな{犬|いぬ}がほえていた。"
+      - type: narration
+        text: "ユイちゃんはいったん{立|た}ち{止|ど}まっていた。"
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: michika
+        text: "{犬|いぬ}がほえていて、ユイちゃんが{止|と}まった。トワが{手|て}を{引|ひ}いた——{守|まも}ろうとしたんだ。でもそのとき、{反対側|はんたいがわ}の{死角|しかく}から{来|く}る{自転車|じてんしゃ}を{見|み}ていたかな？"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: narration
+        text: "トワは{犬|いぬ}から{守|まも}ろうとしてユイちゃんの{手|て}を{引|ひ}いた。でも{反対側|はんたいがわ}の{死角|しかく}には{気|き}づいていなかった——？"
+
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ユイちゃんの追加証言
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "ユイちゃんの{追加|ついか}{証言|しょうげん}が{届|とど}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{犬|いぬ}がこわくて{止|と}まっちゃった」。"
+      - type: narration
+        text: "「お{姉|ねえ}ちゃんが『{早|はや}く{渡|わた}ろう』って{手|て}を{引|ひ}いてくれた」。"
+      - type: narration
+        text: "「{車|くるま}は{見|み}ていなかった」。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "トワは{犬|いぬ}から{守|まも}ることだけに{集中|しゅうちゅう}し、{死角|しかく}の{方向|ほうこう}を{確認|かくにん}せずに{渡|わた}らせた！ 1つの{危険|きけん}だけを{見|み}ていると、{別|べつ}の{死角|しかく}から{来|く}る{危険|きけん}に{気|き}づけない。"
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ヒヤリハットのきっかけを作ったのは誰だ？
+      - type: sprite
+        character: hashiru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "ユイちゃんは{犬|いぬ}がこわくて{止|と}まった。トワが「{早|はや}く{渡|わた}ろう」って{手|て}を{引|ひ}いた。でもそのとき{反対側|はんたいがわ}を{見|み}ていなかった。"
+        expression: determined
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: michika
+        text: "トワは{守|まも}ろうとしたんだ。でも「{守|まも}ること」と「{安全|あんぜん}{確認|かくにん}すること」は{両方|りょうほう}{必要|ひつよう}。{犬|いぬ}だけに{気|き}を{取|と}られて、{死角|しかく}の{方向|ほうこう}を{見落|みお}としてしまった。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{犬|いぬ}がこわくてユイちゃんが{止|と}まった。トワが{手|て}を{引|ひ}いて{渡|わた}らせた。{死角|しかく}の{方向|ほうこう}を{確認|かくにん}しなかった——"
+      - type: choice
+        id: q1
+        question: ヒヤリハットのきっかけを作ったのは誰？
+        options:
+          - text: トワ（犬から守ろうとして死角を見落とした）
+            value: towa
+            correct: true
+            feedback: "{正解|せいかい}！ トワは{犬|いぬ}がこわがるユイちゃんを{守|まも}ろうとして「{早|はや}く{渡|わた}ろう」と{手|て}を{引|ひ}いた。でも{犬|いぬ}だけに{集中|しゅうちゅう}して、{死角|しかく}の{方向|ほうこう}から{来|く}る{自転車|じてんしゃ}を{確認|かくにん}しなかった。{善意|ぜんい}の{行動|こうどう}でも、{安全|あんぜん}{確認|かくにん}をしないと{別|べつ}の{危険|きけん}を{生|う}むことがある。"
+          - text: ヒカル（死角の構造に詳しくて怪しい）
+            value: hikaru
+            feedback: "ヒカルは{交差点|こうさてん}の{構造|こうぞう}を{分析|ぶんせき}した{情報型|じょうほうがた}。{死角|しかく}を{図|ず}で{説明|せつめい}できる{立場|たちば}。きっかけを{作|つく}ったのはヒカルではないよ。"
+          - text: ハシル（飛び出しの原因を追った）
+            value: hashiru
+            feedback: "ハシルは{高校生|こうこうせい}の{証言|しょうげん}と{合|あ}わせて{考|かんが}えた{行動型|こうどうがた}。{真相|しんそう}に{気|き}づく{役割|やくわり}。きっかけを{作|つく}ったのはハシルではないよ。"
+          - text: ミチカ（目撃情報を分析していた）
+            value: michika
+            feedback: "ミチカは{犬|いぬ}の{存在|そんざい}と{守|まも}ろうとした{可能性|かのうせい}を{考|かんが}えた{観察型|かんさつがた}。きっかけを{作|つく}ったのはミチカではないよ。"
+
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: トワの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: towa
+        expression: worried
+        position: center
+      - type: dialog
+        character: towa
+        text: "……ヒヤリハットのきっかけを{作|つく}ったのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "トワは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: towa
+        text: "{犬|いぬ}がほえて、ユイちゃんが{固|かた}まっちゃったの。こわがってて、とにかく{早|はや}く{渡|わた}らせてあげたくて、{手|て}を{引|ひ}いたの。"
+        expression: thinking
+      - type: dialog
+        character: towa
+        text: "でもそのとき、{反対側|はんたいがわ}の{死角|しかく}から{来|く}る{自転車|じてんしゃ}を{全然|ぜんぜん}{見|み}ていなかった。{守|まも}ろうとしたのに、{別|べつ}の{危険|きけん}を{作|つく}ってしまった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{最初|さいしょ}は{高校生|こうこうせい}が{悪|わる}いと{思|おも}い{込|こ}んでいた。でも{図|ず}にしたら、{両方|りょうほう}に{死角|しかく}があった。{見|み}え{方|かた}が{違|ちが}うのは、{立場|たちば}によって{見|み}えるものが{違|ちが}うからだ。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "「{飛|と}び{出|だ}した」だけでは{説明|せつめい}が{足|た}りないと{感|かん}じてた。{目|め}の{前|まえ}の{危険|きけん}に{気|き}を{取|と}られると、{別|べつ}の{方向|ほうこう}を{見落|みお}とす——おれも{気|き}をつけなきゃ。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: michika
+        text: "{犬|いぬ}の{存在|そんざい}が{大|おお}きいと{思|おも}ってた。トワは「{守|まも}ろうとした」んだ。でも{理由|りゆう}が{分|わ}かっても、{安全|あんぜん}{確認|かくにん}をしなかったのは{事実|じじつ}。{気持|きも}ちと{行動|こうどう}、{両方|りょうほう}{大事|だいじ}。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "トワはユイちゃんを{守|まも}ろうとしました。その{気持|きも}ちはとても{大切|たいせつ}。でも「{守|まも}ること」と「{安全|あんぜん}{確認|かくにん}すること」は{両方|りょうほう}{必要|ひつよう}です。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{死角|しかく}がある{交差点|こうさてん}では「{止|と}まる・{見|み}る・{待|ま}つ」。{目|め}の{前|まえ}の{危険|きけん}があるときほど、{別|べつ}の{方向|ほうこう}も{確認|かくにん}しましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{死角|しかく}とは、{建物|たてもの}や{車|くるま}で{見|み}えなくなる{場所|ばしょ}。{歩|ある}く{人|ひと}にも{自転車|じてんしゃ}にも{見|み}えない{場所|ばしょ}がある。"
+      - type: narration
+        text: "1つの{危険|きけん}だけを{見|み}ていると、{別|べつ}の{死角|しかく}から{来|く}る{危険|きけん}に{気|き}づけない。{善意|ぜんい}の{行動|こうどう}でも、{安全|あんぜん}{確認|かくにん}をしないと{新|あたら}たな{危険|きけん}を{生|う}む。"
+      - type: narration
+        text: "{小|ちい}さい{子|こ}といっしょに{交差点|こうさてん}を{渡|わた}るとき——まず{止|と}まる。{全|すべ}ての{方向|ほうこう}を{見|み}る。{安全|あんぜん}を{確認|かくにん}してから{渡|わた}る。それが{本当|ほんとう}に{守|まも}るということだ。"
+      - type: effect
+        name: fade-out

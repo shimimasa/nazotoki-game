@@ -1,0 +1,414 @@
+meta:
+  id: media-10
+  title: 真実のコスト
+  series: メディアリテラシー探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{昼休|ひるやす}み、{学校|がっこう}{放送|ほうそう}で{突然|とつぜん}{速報|そくほう}が{流|なが}れた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「{緊急|きんきゅう}！ {運動場|うんどうじょう}の{遊具|ゆうぐ}が{壊|こわ}れて○○さんがけがをしました！ {近|ちか}づかないでください！」"
+      - type: narration
+        text: "{教室|きょうしつ}は{大騒|おおさわ}ぎになった。{運動場|うんどうじょう}への{立|た}ち{入|い}りが{一時|いちじ}{禁止|きんし}に。{保護者|ほごしゃ}への{連絡|れんらく}まで{準備|じゅんび}されかけた。"
+      - type: narration
+        text: "ところが{調|しら}べてみると——{遊具|ゆうぐ}は{壊|こわ}れていなかった。{修理|しゅうり}{業者|ぎょうしゃ}が{来|き}て{修理中|しゅうりちゅう}だっただけ。{転|ころ}んだ{子|こ}の{傷|きず}は{擦|す}り{傷|きず}のみ。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かが{確認|かくにん}もしないまま{速報|そくほう}を{流|なが}してしまいました。メディアリテラシー{探偵団|たんていだん}のみなさん、{調査|ちょうさ}をお{願|ねが}いします。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: akari
+            expression: worried
+          - character: makoto
+            expression: thinking
+          - character: nozomu
+            expression: normal
+          - character: shiori
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{速報|そくほう}を{出|だ}したのは{誰|だれ}か。そして、{情報|じょうほう}を{伝|つた}えるとき{本当|ほんとう}に{大切|たいせつ}なことは{何|なに}か。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実のコスト
+        subtitle: メディアリテラシー探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 放送の録音内容を確認しよう
+      - type: narration
+        text: "12:50に{学校|がっこう}{放送|ほうそう}で{流|なが}れた{速報|そくほう}の{録音|ろくおん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{緊急|きんきゅう}！ {緊急|きんきゅう}です！ {運動場|うんどうじょう}の{遊具|ゆうぐ}が{壊|こわ}れて、3{年生|ねんせい}の○○さんがけがをしました！ {運動場|うんどうじょう}の{遊具|ゆうぐ}には{近|ちか}づかないでください！」"
+      - type: narration
+        text: "{声|こえ}は{焦|あせ}っていて{息|いき}が{上|あ}がっている。「{壊|こわ}れて」「けがをしました」「{近|ちか}づかないで」という{表現|ひょうげん}が{繰|く}り{返|かえ}されている。"
+      - type: narration
+        text: "{放送|ほうそう}の{声|こえ}は{男子|だんし}。{語尾|ごび}が{上|あ}がる{話|はな}し{方|かた}の{癖|くせ}がある。マコトは「この{話|はな}し{方|かた}に{聞|き}き{覚|おぼ}えがある……」と{感|かん}じた。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 放送室の使用記録を調べよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が13:10に{確認|かくにん}した{放送室|ほうそうしつ}の{使用|しよう}{記録|きろく}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "12:30 — {放送|ほうそう}{委員|いいん}・{佐々木|ささき}さんが{給食|きゅうしょく}{音楽|おんがく}{放送|ほうそう}。12:40 — {佐々木|ささき}さん{退室|たいしつ}。そして——"
+      - type: narration
+        text: "12:50 — {使用者|しようしゃ}{欄|らん}が**{空白|くうはく}**。{名前|なまえ}が{書|か}かれていない！"
+      - type: narration
+        text: "{放送室|ほうそうしつ}のルールでは「{使用|しよう}するときは{記録|きろく}ノートに{名前|なまえ}と{時刻|じこく}を{書|か}く」となっている。しかし12:50の{時刻|じこく}だけが{青|あお}ペンで{書|か}かれていて、{名前|なまえ}が{空白|くうはく}だ。"
+      - type: narration
+        text: "{他|ほか}の{記録|きろく}は{黒|くろ}ペン。12:50の{欄|らん}だけ{青|あお}ペン——この{青|あお}ペンは{誰|だれ}の{普段|ふだん}の{筆記用具|ひっきようぐ}だろう？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 運動場にいた子たちの証言を比べよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が12:45ごろ{運動場|うんどうじょう}にいた{子|こ}たちに{聞|き}き{取|と}りをした{記録|きろく}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "【{証言|しょうげん}A・ハルカ】「ブランコの{横|よこ}にブルーシートがかかっていて、{作業服|さぎょうふく}のおじさんが{工具|こうぐ}を{持|も}って{何|なに}かしていました。ユウキくんはブルーシートの{近|ちか}くで{走|はし}っていて{転|ころ}んだ。{遊具|ゆうぐ}には{触|さわ}っていなかったと{思|おも}います。」"
+      - type: narration
+        text: "【{証言|しょうげん}B・ケンタ】「{放送|ほうそう}の{前|まえ}に、ノゾムが{運動場|うんどうじょう}から{校舎|こうしゃ}の{方|ほう}に{走|はし}っていくのを{見|み}ました。すごく{急|いそ}いでいるように{見|み}えました。{時間|じかん}は12:48くらいだったと{思|おも}います。」"
+      - type: narration
+        text: "【{証言|しょうげん}C・リナ】「ユウキくんが{転|ころ}んで{泣|な}いていて、{近|ちか}くにいた{修理|しゅうり}の{人|ひと}が『{大丈夫|だいじょうぶ}？ {保健室|ほけんしつ}に{行|い}こう』と{言|い}っていました。{遊具|ゆうぐ}が{壊|こわ}れたようには{見|み}えなかったです。」"
+      - type: narration
+        text: "3つの{証言|しょうげん}が{示|しめ}すもの——{遊具|ゆうぐ}の{横|よこ}に{修理|しゅうり}{業者|ぎょうしゃ}がいた。ノゾムが{速報|そくほう}{直前|ちょくぜん}の12:48に{校舎|こうしゃ}に{走|はし}っていった。{放送|ほうそう}の「{遊具|ゆうぐ}が{壊|こわ}れた」という{内容|ないよう}と{証言|しょうげん}が{食|く}い{違|ちが}っている。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 保健室の記録を確認しよう
+      - type: narration
+        text: "{保健室|ほけんしつ}の{養護|ようご}{教諭|きょうゆ}が{記録|きろく}した、ユウキの{来室|らいしつ}{記録|きろく}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{来室|らいしつ}{日時|にちじ}: 13:00 ／ {来室者|らいしつしゃ}: 3{年|ねん}1{組|くみ} ユウキ ／ {付|つ}き{添|そ}い: {修理|しゅうり}{業者|ぎょうしゃ}の{方|かた}"
+      - type: narration
+        text: "【けがの{内容|ないよう}】{部位|ぶい}: {右|みぎ}ひざ ／ {種類|しゅるい}: {擦|す}り{傷|きず}（{軽度|けいど}）／ {処置|しょち}: {消毒|しょうどく}+{絆創膏|ばんそうこう}"
+      - type: narration
+        text: "【けがの{原因|げんいん}】「ブルーシートの{横|よこ}を{走|はし}っていて{石|いし}につまずいて{転|ころ}んだとのことです。**{遊具|ゆうぐ}には{触|さわ}っていません。{遊具|ゆうぐ}の{故障|こしょう}によるけがではありません。**」"
+      - type: narration
+        text: "【{修理|しゅうり}{業者|ぎょうしゃ}の{証言|しょうげん}】「{午前中|ごぜんちゅう}からブランコの{修理|しゅうり}に{来|き}ています。{遊具|ゆうぐ}は{壊|こわ}れたのではなく、{定期|ていき}{点検|てんけん}で{修理中|しゅうりちゅう}です。」"
+      - type: narration
+        text: "{放送|ほうそう}では「{遊具|ゆうぐ}が{壊|こわ}れてけがをした」と{言|い}っていた。しかし{保健室|ほけんしつ}の{記録|きろく}は「{遊具|ゆうぐ}の{故障|こしょう}によるけがではない」——この{矛盾|むじゅん}が{何|なに}を{意味|いみ}するか？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ノゾムの速報の全経緯
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{山田先生|やまだせんせい}がノゾムに{聞|き}き{取|と}りをしました。{速報|そくほう}を{出|だ}した{経緯|けいい}の{全容|ぜんよう}が{明|あき}らかになりました。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "12:45 — ノゾムは{運動場|うんどうじょう}でユウキが{遊具|ゆうぐ}の{近|ちか}くで{転|ころ}んで{泣|な}いているのを{見|み}た。{遊具|ゆうぐ}にブルーシートがかかっていた。"
+      - type: narration
+        text: "「{壊|こわ}れているからブルーシートがかかっている！ {危|あぶ}ない！ {早|はや}くみんなに{知|し}らせなきゃ！」——ノゾムは{修理|しゅうり}{業者|ぎょうしゃ}がいることに{気|き}づかず、ユウキが{石|いし}につまずいたことも{確認|かくにん}しないまま{即断|そくだん}した。"
+      - type: narration
+        text: "12:48 — {校舎|こうしゃ}に{走|はし}って{戻|もど}り{放送室|ほうそうしつ}へ。{放送|ほうそう}{委員|いいん}の{許可|きょか}なし、先生の{指示|しじ}なし、{名前|なまえ}を{記録|きろく}ノートに{書|か}かずに{青|あお}ペンで{時刻|じこく}だけ{書|か}いて{放送|ほうそう}を{開始|かいし}。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{修理|しゅうり}{業者|ぎょうしゃ}の{報告|ほうこく}——「ブランコの{定期|ていき}{点検|てんけん}+ネジ{交換|こうかん}で{修理中|しゅうりちゅう}でした。{遊具|ゆうぐ}は{壊|こわ}れたのではない。」"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾムの{放送|ほうそう}を{聞|き}いたとき、みなさんはどう{思|おも}いましたか？ {遊具|ゆうぐ}が{壊|こわ}れた、{危|あぶ}ない、って{信|しん}じましたか？ **{私|わたし}たちも、ノゾムと{同|おな}じように、{確認|かくにん}せずに{信|しん}じていなかったでしょうか？**"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 2つの謎に答えよう
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{証拠|しょうこ}カードを{整理|せいり}しよう。Card2の{青|あお}ペン——ノゾムはいつも{青|あお}ペンを{使|つか}う。Card3のケンタが12:48に{校舎|こうしゃ}に{走|はし}っていくのを{見|み}た。{放送|ほうそう}の{声|こえ}の{特徴|とくちょう}も……"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shiori
+        text: "{図書室|としょしつ}の{窓|まど}から{見|み}たんだけど、{遊具|ゆうぐ}の{横|よこ}に{作業服|さぎょうふく}の{大人|おとな}がいた。{壊|こわ}れたんじゃなくて{修理中|しゅうりちゅう}だった{可能性|かのうせい}が{高|たか}い。Card4の{保健室|ほけんしつ}{記録|きろく}も{遊具|ゆうぐ}の{故障|こしょう}は{関係|かんけい}ないって{言|い}ってる。"
+        expression: thinking
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "{速報|そくほう}のせいで{教室|きょうしつ}のみんながパニックになって、{運動場|うんどうじょう}{立|た}ち{入|い}り{禁止|きんし}になって、{修理|しゅうり}{作業|さぎょう}まで{中断|ちゅうだん}された。{保護者|ほごしゃ}への{連絡|れんらく}まで{準備|じゅんび}されかけた。{速報|そくほう}ひとつでこんなに{大|おお}きな{被害|ひがい}の{連鎖|れんさ}が……"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{青|あお}ペン+タイムライン+{放送|ほうそう}の{声|こえ}+{証言|しょうげん}——{全|すべ}てがひとつの{答|こた}えを{指|さ}している。"
+      - type: choice
+        id: q1
+        question: 学校放送で未確認の速報を出したのは誰？
+        options:
+          - text: ノゾム（12:48に校舎に走っていった。青ペン。放送の声の特徴が一致）
+            value: nozomu
+            correct: true
+            feedback: "{正解|せいかい}！ {証拠|しょうこ}カード2の{青|あお}ペン・Card3のケンタの{証言|しょうげん}・{放送|ほうそう}の{声|こえ}の{特徴|とくちょう}——{全|すべ}てがノゾムを{指|さ}していた。ノゾムは「{壊|こわ}れている」と「{修理中|しゅうりちゅう}」の{違|ちが}いに{気|き}づかず、{確認|かくにん}せずに{速報|そくほう}を{流|なが}した。"
+          - text: マコト（放送の声を分析していた。何かを隠している？）
+            value: makoto
+            feedback: "マコトは{放送|ほうそう}の{声|こえ}を{分析|ぶんせき}していたけれど、{放送室|ほうそうしつ}には{行|い}っていない。{青|あお}ペンは{使|つか}わないし、12:48に{校舎|こうしゃ}を{走|はし}ったのもマコトじゃないよ。"
+          - text: シオリ（図書室の窓から現場を見ていた。目撃者だから？）
+            value: shiori
+            feedback: "シオリは{図書室|としょしつ}の{窓|まど}から{運動場|うんどうじょう}を{見|み}ていた。でもシオリは{放送室|ほうそうしつ}には{行|い}っていない。{証言|しょうげん}の{比較|ひかく}が{得意|とくい}な{観察|かんさつ}タイプで、{犯人|はんにん}ではないよ。"
+          - text: アカリ（速報の影響を詳しく記録していた。知りすぎている？）
+            value: akari
+            feedback: "アカリは{速報|そくほう}がもたらした{被害|ひがい}の{連鎖|れんさ}を{詳|くわ}しく{記録|きろく}していた。でも「{影響|えいきょう}に{気|き}づいた{人|ひと}」と「{速報|そくほう}を{出|だ}した{人|ひと}」は{別|べつ}だよ。{青|あお}ペンも{使|つか}わないし、12:48に{走|はし}ってもいない。"
+      - type: choice
+        id: q2
+        question: 情報を伝えるとき、何が一番大切？
+        options:
+          - text: 早く伝えること（命に関わるかもしれない）
+            value: speed
+            feedback: "{命|いのち}に{関|かか}わる{場面|ばめん}では{速|はや}さが{最|もっと}も{大切|たいせつ}。でも{今回|こんかい}のように{確認|かくにん}が{足|た}りないと{混乱|こんらん}が{生|う}まれる。「{速|はや}さ」と「{正確|せいかく}さ」のバランスが{大事|だいじ}。"
+          - text: 正確に伝えること（間違った情報は混乱を生む）
+            value: accuracy
+            feedback: "{間違|まちが}った{情報|じょうほう}はパニックを{生|う}む。{正確|せいかく}さがあれば{信頼|しんらい}される。でも{正確|せいかく}さを{求|もと}めすぎて{伝|つた}えるのが{遅|おそ}くなる{危険|きけん}もある。"
+          - text: 伝える前に確かめること（確認してから伝えれば両方できる）
+            value: verify
+            feedback: "{確認|かくにん}すれば「{速|はや}さ」と「{正確|せいかく}さ」の{両方|りょうほう}を{実現|じつげん}できる。でも{確認|かくにん}に{時間|じかん}がかかると、{本当|ほんとう}に{命|いのち}に{関|かか}わる{情報|じょうほう}が{遅|おく}れることもある。"
+          - text: 状況によって違う（一律に決められない）
+            value: depends
+            feedback: "{火事|かじ}や{地震|じしん}なら{速|はや}さ{優先|ゆうせん}。{噂|うわさ}やSNSなら{正確|せいかく}さ{優先|ゆうせん}。{状況|じょうきょう}を{見|み}きわめる{力|ちから}が{大切|たいせつ}——どれも{間違|まちが}いじゃないよ。"
+
+  # ==================== 真実：ノゾムの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ノゾムの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomu
+        text: "……{僕|ぼく}が{放送|ほうそう}した。ユウキが{転|ころ}んで{泣|な}いてて、ブルーシートを{見|み}て『{壊|こわ}れてる！ {危|あぶ}ない！』って{思|おも}って……"
+        expression: worried
+      - type: dialog
+        character: nozomu
+        text: "{確|たし}かめないで{走|はし}って{放送室|ほうそうしつ}に{行|い}った。みんなを{守|まも}りたかっただけなのに……{修理中|しゅうりちゅう}だったなんて{知|し}らなかった。"
+        expression: worried
+      - type: narration
+        text: "ノゾムは「{危険|きけん}を{早|はや}く{知|し}らせることが{正|ただ}しい」と{信|しん}じていた。{悪意|あくい}はなかった。でも{確認|かくにん}せずに{伝|つた}えたことで、パニックが{起|お}き、{修理|しゅうり}{作業|さぎょう}が{中断|ちゅうだん}し、{保護者|ほごしゃ}への{連絡|れんらく}まで{準備|じゅんび}された。"
+      - type: dialog
+        character: nozomu
+        text: "「{速|はや}く{伝|つた}えること」が「{正確|せいかく}に{伝|つた}えること」を{犠牲|ぎせい}にしてしまった。これが……「{正義感|せいぎかん}の{暴走|ぼうそう}」なんだ。"
+        expression: thinking
+      - type: sprite
+        character: nozomu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{放送|ほうそう}の{声|こえ}がノゾムに{似|に}ていると{思|おも}っていた。{記録|きろく}ノートの{青|あお}ペンもノゾムの{普段|ふだん}の{色|いろ}。でも「{声|こえ}が{似|に}ている」だけでは{証拠|しょうこ}にならないから、{確実|かくじつ}な{裏付|うらづ}けを{取|と}りたかった。{確認|かくにん}してから{判断|はんだん}する——それが{大切|たいせつ}だって{思|おも}ったから。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shiori
+        text: "{図書室|としょしつ}の{窓|まど}からノゾムが{全力|ぜんりょく}で{走|はし}っていくのを{見|み}た。{修理|しゅうり}{業者|ぎょうしゃ}もいたから、「{壊|こわ}れたのではなく{修理中|しゅうりちゅう}では？」という{仮説|かせつ}を{立|た}てていた。でも{確実|かくじつ}な{証拠|しょうこ}が{揃|そろ}うまでは{慎重|しんちょう}に。"
+        expression: thinking
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "{速報|そくほう}が{流|なが}れた{瞬間|しゅんかん}、{私|わたし}も「{大変|たいへん}！」って{慌|あわ}てた。{確認|かくにん}せずに{信|しん}じてしまった。ノゾムだけが{間違|まちが}えたんじゃなくて……{聞|き}いた{私|わたし}たちにも「{確認|かくにん}する{責任|せきにん}」があったんだ。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾムは{悪|わる}い{子|こ}ではありません。「みんなを{守|まも}りたかった」という{気持|きも}ちは{本物|ほんもの}です。でも「{本当|ほんとう}かな？」と{立|た}ち{止|ど}まることが、{情報|じょうほう}を{扱|あつか}う{人|ひと}にとって{一番|いちばん}{大切|たいせつ}な{力|ちから}なのです。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "Vol.1で{噂|うわさ}のみなもとを{追|お}い、Vol.9でデータの{嘘|うそ}を{見抜|みぬ}いた。あなたはこの10本で{何|なに}を{学|まな}んだ？ {次|つぎ}に『{本当|ほんとう}かな？』と{思|おも}ったとき、あなたはどうする？"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{速|はや}く{伝|つた}えること」と「{正確|せいかく}に{伝|つた}えること」——この{二|ふた}つは{時|とき}に{矛盾|むじゅん}する。でも「{伝|つた}える{前|まえ}に{確|たし}かめること」は、その{橋|はし}を{架|か}ける{方法|ほうほう}かもしれない。"
+      - type: narration
+        text: "{情報|じょうほう}を{出|だ}す{人|ひと}にも、{受|う}け{取|と}る{人|ひと}にも、「{確認|かくにん}する{責任|せきにん}」がある。ノゾムの「{正義感|せいぎかん}の{暴走|ぼうそう}」は、{私|わたし}たち{全員|ぜんいん}への{問|と}いかけだった。"
+      - type: narration
+        text: "メディアリテラシー{探偵団|たんていだん}Vol.10——{全|すべ}てのスキルを{統合|とうごう}した{最後|さいご}の{謎|なぞ}が、{解|と}けた。"
+      - type: effect
+        name: fade-out

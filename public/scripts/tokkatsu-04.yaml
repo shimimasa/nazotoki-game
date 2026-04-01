@@ -1,0 +1,389 @@
+meta:
+  id: tokkatsu-04
+  title: 消された意見
+  series: 特別活動探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}の{学級会|がっきゅうかい}で、「{今年|ことし}の{学級目標|がっきゅうもくひょう}をどうするか」を{話|はな}し{合|あ}った。{書記|しょき}のツムギが{黒板|こくばん}に、みんなの{意見|いけん}を6つ{書|か}き{出|だ}した。"
+      - type: narration
+        text: "1. {元気|げんき}いっぱい　2. {時間|じかん}を{守|まも}る　3. {助|たす}け{合|あ}う　4. チャレンジする　5. みんなちがって、みんないい　6. {最後|さいご}までやりぬく"
+      - type: narration
+        text: "{学級会|がっきゅうかい}は{結論|けつろん}が{出|で}ず、{次|つぎ}の{週|しゅう}に{持|も}ち{越|こ}しになった。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}、{教室|きょうしつ}に{来|き}ると{黒板|こくばん}の{意見|いけん}が5つに{減|へ}っていた！ {消|き}えていたのは「みんなちがって、みんないい」という{意見|いけん}だ。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{書記|しょき}のツムギさんに{聞|き}いたところ、「{私|わたし}は{消|け}していない」と{言|い}っています。{黒板|こくばん}の{意見|いけん}は{全員|ぜんいん}のもの。{勝手|かって}に{消|け}すことには{大|おお}きな{意味|いみ}があります。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: worried
+          - character: ayumu
+            expression: surprised
+          - character: mamoru
+            expression: determined
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{放課後|ほうかご}に{教室|きょうしつ}にいたのは、この4{人|にん}だ。{誰|だれ}が{黒板|こくばん}の{意見|いけん}を{消|け}したのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消された意見
+        subtitle: 特別活動探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 学級会の黒板メモを確認しよう
+      - type: narration
+        text: "{学級会|がっきゅうかい}のときに{黒板|こくばん}に{書|か}かれた6つの{意見|いけん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1. {元気|げんき}いっぱい　2. {時間|じかん}を{守|まも}る　3. {助|たす}け{合|あ}う　4. チャレンジする　5. みんなちがって、みんないい　6. {最後|さいご}までやりぬく"
+      - type: narration
+        text: "{水曜|すいよう}の{朝|あさ}には5だけが{消|き}えていた。{他|ほか}の5つはそのまま{黒板|こくばん}に{残|のこ}っている。"
+      - type: narration
+        text: "「みんなちがって、みんないい」は{学級会|がっきゅうかい}で{話|はな}し{合|あ}いのテーマになった{意見|いけん}だ。{消|き}えたのは、{偶然|ぐうぜん}ではないかもしれない。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 書記ノートの写しを読もう
+      - type: narration
+        text: "{書記|しょき}のツムギが{書|か}いた{学級会|がっきゅうかい}の{記録|きろく}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "15:10 テーマ{確認|かくにん}。15:15 {意見|いけん}を6つ{黒板|こくばん}に{書|か}く。15:22 {理由|りゆう}を{言|い}い{合|あ}う。15:28 {決|き}まらず、{次回|じかい}も{話|はな}すことにする。15:30 {終了|しゅうりょう}。"
+      - type: narration
+        text: "{学級会|がっきゅうかい}が{終|お}わった{時点|じてん}では、{意見|いけん}を{消|け}す{予定|よてい}はなかった。{黒板|こくばん}は{翌日|よくじつ}も{話|はな}し{合|あ}うために{残|のこ}していたはずだ。"
+      - type: narration
+        text: "つまり、{意見|いけん}は{学級会|がっきゅうかい}のあと、{放課後|ほうかご}から{翌朝|よくあさ}の{間|あいだ}に{消|け}されたことになる。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 放課後の行動メモを確認しよう
+      - type: narration
+        text: "{火曜日|かようび} 15:35〜15:40の{行動|こうどう}を{整理|せいり}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツムギ——{議事|ぎじ}ノートを{職員室|しょくいんしつ}へ{持|も}って{行|い}った。{教室|きょうしつ}には{戻|もど}っていない。"
+      - type: narration
+        text: "マモル——ろうかの{見回|みまわ}り{当番|とうばん}。{教室|きょうしつ}の{外|そと}を{歩|ある}いていた。"
+      - type: narration
+        text: "アユム——{体育委員|たいいくいいん}の{仕事|しごと}で{体育館|たいいくかん}へ{向|む}かった。15:35には{体育館|たいいくかん}にいた。"
+      - type: narration
+        text: "ノゾミ——ハルカと{話|はな}したあと{教室|きょうしつ}へ{戻|もど}った。"
+      - type: narration
+        text: "この{時間|じかん}に{黒板|こくばん}のある{教室|きょうしつ}へ{戻|もど}れたのは、{誰|だれ}だろう？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ハルカの学級会カードを読もう
+      - type: narration
+        text: "{学級会|がっきゅうかい}で{意見|いけん}カードを{配|くば}っていたが、1{枚|まい}だけ{返却|へんきゃく}されていなかった。それがハルカのカードだ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハルカのカード——「みんなちがって、みんないい」。{理由|りゆう}: いろいろな{人|ひと}がいても、{誰|だれ}も{一人|ひとり}にしないクラスがいい。"
+      - type: narration
+        text: "{消|き}えた{意見|いけん}は、ハルカが{出|だ}した{意見|いけん}だった。{学級会|がっきゅうかい}{中|ちゅう}、{誰|だれ}かが「きれいごとみたい」と{言|い}った。そのあと、ハルカは{少|すこ}し{元気|げんき}がなかった。"
+      - type: narration
+        text: "ハルカが{傷|きず}ついていたとしたら、{誰|だれ}かがその{気持|きも}ちに{気|き}づいていたかもしれない。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 返却されなかったメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハルカの{消|け}しゴムケースに、{小|ちい}さく{折|お}りたたんだ{紙|かみ}が{入|はい}っていました。{本人|ほんにん}は{知|し}らなかったと{言|い}っています。{読|よ}みます。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「できれば、あの{意見|いけん}、{消|け}してほしい。みんなの{前|まえ}に{残|のこ}るのがつらい。下に{小|ちい}さく『ノゾミへ』と{書|か}かれています。」"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハルカがノゾミに「{意見|いけん}を{消|け}してほしい」と{頼|たの}んでいた！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ノゾミは{放課後|ほうかご}にハルカと{話|はな}したあと{教室|きょうしつ}へ{戻|もど}っていた。このメモとノゾミの{行動|こうどう}は——つながっているのだろうか？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 黒板の意見を消したのは誰？
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "15:35に{職員室|しょくいんしつ}へ{行|い}ったとき、{教室|きょうしつ}には{誰|だれ}かが{残|のこ}っていた。{戻|もど}ってきたら{黒板|こくばん}の{前|まえ}に{誰|だれ}もいなかったけど……"
+        expression: thinking
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "15:38ごろ、ろうかでノゾミがハルカに{近|ちか}づいて{小|ちい}さな{声|こえ}で{話|はな}しているのを{見|み}た。その{少|すこ}しあとに、ノゾミが{教室|きょうしつ}へ{入|はい}っていった。"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ayumu
+        text: "{消|け}した{人|ひと}が{悪|わる}い、って{言|い}い{切|き}れないかもしれない……でも、{意見|いけん}を{勝手|かって}に{消|け}すのは{記録|きろく}を{消|け}すことだよ。"
+        expression: thinking
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{放課後|ほうかご}に{教室|きょうしつ}へ{戻|もど}れたのはノゾミだ。ハルカはノゾミへ「{消|け}してほしい」と{頼|たの}むメモを{渡|わた}していた。ノゾミは15:38にハルカと{話|はな}し、そのあと{教室|きょうしつ}へ{向|む}かった——"
+      - type: choice
+        id: q1
+        question: 黒板の意見を消したのは誰？
+        options:
+          - text: ノゾミ（ハルカを守るために教室へ戻って消した）
+            value: nozomi
+            correct: true
+            feedback: "{正解|せいかい}！ ノゾミはハルカから「{消|け}してほしい」と{頼|たの}まれ、{友|とも}だちを{守|まも}りたいという{気持|きも}ちから{教室|きょうしつ}に{戻|もど}って{意見|いけん}を{消|け}した。{悪意|あくい}はなかったが、{記録|きろく}を{消|け}すことは{意見|いけん}を{出|だ}した{人|ひと}の{存在|そんざい}も{消|け}すことになる。"
+          - text: ツムギ（書記として意見の管理をしていた）
+            value: tsumugi
+            feedback: "ツムギは15:35に{職員室|しょくいんしつ}へ{行|い}っていて、その{間|あいだ}{教室|きょうしつ}には{戻|もど}っていない。{書記|しょき}として{意見|いけん}は{残|のこ}すべきと{考|かんが}えていたよ。"
+          - text: マモル（ルール違反が気になって自分で処理した）
+            value: mamoru
+            feedback: "マモルはろうかの{見回|みまわ}り{当番|とうばん}で、{教室|きょうしつ}には{入|はい}っていない。それに、マモルはルール{違反|いはん}に{厳|きび}しい{方|ほう}だから、{勝手|かって}に{消|け}すとは{考|かんが}えにくいよ。"
+          - text: アユム（学級会の空気が重くて早く終わらせたかった）
+            value: ayumu
+            feedback: "アユムは15:35には{体育館|たいいくかん}の{仕事|しごと}に{行|い}っていた。{教室|きょうしつ}に{戻|もど}る{時間|じかん}はなかったよ。"
+
+  # ==================== 真実：ノゾミ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ノゾミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomi
+        text: "……{私|わたし}が{消|け}しました。ハルカを{守|まも}りたかっただけなんです。"
+        expression: worried
+      - type: narration
+        text: "ノゾミは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: nozomi
+        text: "{学級会|がっきゅうかい}の{途中|とちゅう}で「きれいごとみたい」って{言|い}われたとき、ハルカが{下|した}を{向|む}いた。{絶対|ぜったい}に{傷|きず}ついてると{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "{放課後|ほうかご}、ハルカから「できれば{消|け}してほしい」って{言|い}われた。それで……{友|とも}だちが{傷|きず}つかないように、{私|わたし}が{消|け}せばいいって{思|おも}ったんです。"
+        expression: thinking
+      - type: dialog
+        character: nozomi
+        text: "でも……{本当|ほんとう}に{守|まも}ることになったかどうか、{自分|じぶん}でも{分|わ}からなくなってきた。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{私|わたし}も{学級会|がっきゅうかい}のとき、ハルカが{傷|きず}ついているように{見|み}えた。でも{書記|しょき}として{意見|いけん}を{書|か}いた{後|あと}、{職員室|しょくいんしつ}に{行|い}ってしまって……{声|こえ}をかけられなかった。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "ノゾミがハルカと{話|はな}していた{様子|ようす}を{見|み}た。{友|とも}だちのことを{大切|たいせつ}にしてるなって{思|おも}ったけど……{黒板|こくばん}の{意見|いけん}を{消|け}すのはルール{違反|いはん}だ。{理由|りゆう}まで{考|かんが}えないといけなかった。"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ayumu
+        text: "{学級会|がっきゅうかい}のとき、{空気|くうき}が{重|おも}くなったのを{感|かん}じた。ハルカに{声|こえ}をかけようと{思|おも}ったのに、{体育館|たいいくかん}の{仕事|しごと}に{行|い}ってしまった。{後悔|こうかい}してる。"
+        expression: thinking
+      - type: sprite
+        character: ayumu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾミの{行動|こうどう}は、{友|とも}だちへのやさしさから{生|う}まれたものです。その{気持|きも}ちは{素晴|すば}らしい。でも、{意見|いけん}を{消|け}すことは、その{意見|いけん}が{黒板|こくばん}にあった{事実|じじつ}まで{消|け}してしまいます。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{学級会|がっきゅうかい}では、{出|で}た{意見|いけん}は{全員|ぜんいん}のものです。{記録|きろく}として{残|のこ}すことで、{次|つぎ}の{話|はな}し{合|あ}いで{見直|みなお}せる。{勝手|かって}に{消|け}すことは、{意見|いけん}を{言|い}った{人|ひと}の{存在|そんざい}を{消|け}すことに{等|ひと}しいのです。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ノゾミが{守|まも}ろうとしたのは、ハルカの{気持|きも}ちだ。でも{本当|ほんとう}に{守|まも}るべきだったのは、{安心|あんしん}して{意見|いけん}を{言|い}える{学級会|がっきゅうかい}そのものだったかもしれない。"
+      - type: narration
+        text: "「{消|け}してほしい」と{頼|たの}むハルカ。「{消|け}すことで{守|まも}れる」と{思|おも}ったノゾミ。2{人|にん}の{気持|きも}ちはやさしさで{結|むす}ばれていた。でも、{意見|いけん}は{消|け}えても、{傷|きず}ついた{気持|きも}ちは{消|け}えない。"
+      - type: narration
+        text: "「{消|け}す」のではなく、「{言|い}い{方|かた}を{変|か}える」「{場|ば}のルールを{作|つく}る」——もっとやさしい{守|まも}り{方|かた}が、きっとあった。"
+      - type: effect
+        name: fade-out

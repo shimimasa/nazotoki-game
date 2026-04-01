@@ -1,0 +1,379 @@
+meta:
+  id: welfare-02
+  title: 車いすの通れない道
+  series: 福祉探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school-entrance
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}の{正門|せいもん}{前|まえ}には、{車|くるま}いすの{人|ひと}も{通|とお}れるスロープがある。{先週|せんしゅう}、スロープのまわりを「バリアフリー{工事|こうじ}」できれいにした。{通路|つうろ}を{整備|せいび}して、{花|はな}だんも{新|あたら}しくしたのだ。"
+      - type: narration
+        text: "4{人|にん}の{福祉|ふくし}{探偵|たんてい}{団|だん}も{工事|こうじ}のお{手伝|てつだ}いをした。{工事|こうじ}が{完成|かんせい}したとき、みんなは「きれいになった！」と{喜|よろこ}んだ。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今日|きょう}、{近所|きんじょ}に{住|す}むミヤケさん（{車|くるま}いすユーザーの{大人|おとな}）から{学校|がっこう}に{連絡|れんらく}がきた。「{工事|こうじ}の{後|あと}から、スロープ{横|よこ}の{通路|つうろ}が{狭|せま}くて{車|くるま}いすで{通|とお}れません。{前|まえ}は{問題|もんだい}なく{通|とお}れていたのに——」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{通路|つうろ}の{幅|はば}を{測|はか}ってみたら、**75cm**しかありませんでした。{車|くるま}いすが{通|とお}るには**90cm{以上|いじょう}**{必要|ひつよう}なんです（JIS{基準|きじゅん}）。{工事|こうじ}{前|まえ}は105cmあったはずなのに、{誰|だれ}かが{通路|つうろ}を{狭|せま}くしてしまったようです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。バリアフリー{工事|こうじ}をしたのに、{逆|ぎゃく}にバリアを{作|つく}ってしまった？ {誰|だれ}が{通路|つうろ}を{狭|せま}くしてしまったのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 車いすの通れない道
+        subtitle: 福祉探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ミヤケさんの連絡を確認しよう
+      - type: narration
+        text: "ミヤケさんから{学校|がっこう}に{電話|でんわ}がかかってきた。{山田|やまだ}{先生|せんせい}が{内容|ないよう}を{記録|きろく}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「バリアフリー{工事|こうじ}をしてくれたと{聞|き}いて{楽|たの}しみにしていました。ところがスロープ{横|よこ}の{通路|つうろ}が{狭|せま}くなっていて、{車|くるま}いすの{車輪|しゃりん}が{花|はな}だんにぶつかってしまうんです。{前|まえ}は{問題|もんだい}なく{通|とお}れていたのに、{工事|こうじ}の{後|あと}から{通|とお}れなくなりました」"
+      - type: narration
+        text: "{車|くるま}いすの{通行|つうこう}に{必要|ひつよう}な{幅|はば}のデータ: {車|くるま}いすの{横|よこ}{幅|はば}（{標準|ひょうじゅん}）は{約|やく}63〜65cm。JIS{基準|きじゅん}の{通路|つうろ}{幅|はば}は**90cm{以上|いじょう}**。{現在|げんざい}の{通路|つうろ}{幅|はば}（{実測|じっそく}）は**75cm**だ。"
+      - type: narration
+        text: "{車|くるま}いすは{本体|ほんたい}の{横|よこ}{幅|はば}だけでなく、{手|て}で{車輪|しゃりん}を{回|まわ}すスペース（ハンドリム{操作|そうさ}）や、{壁|かべ}・{花|はな}だんにぶつからない{余裕|よゆう}が{必要|ひつよう}だ。だからJIS{基準|きじゅん}は90cm{以上|いじょう}と{決|き}めている。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の作業内容を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}がバリアフリー{工事|こうじ}に{参加|さんか}した4{人|にん}に{聞|き}き{取|と}りをした。{先週|せんしゅう}{火曜日|かようび}の{午後|ごご}、13:30〜の{作業|さぎょう}の{記録|きろく}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユズル —— {計測|けいそく}・{記録|きろく}{係|がかり}。13:30〜15:00にスロープ{周辺|しゅうへん}（{通路|つうろ}{幅|はば}・{勾配|こうばい}を{計測|けいそく}）。"
+      - type: narration
+        text: "イブキ —— {掃除|そうじ}・{塗装|とそう}。13:30〜15:30にスロープ{本体|ほんたい}（{手|て}すり{塗装|とそう}{含|ふく}む）。"
+      - type: narration
+        text: "ワカナ —— {安全|あんぜん}{確認|かくにん}{係|がかり}。13:30〜14:30にスロープ（{勾配|こうばい}の{基準|きじゅん}チェック）。14:30{以降|いこう}は{図書室|としょしつ}。"
+      - type: narration
+        text: "コハル —— {花|はな}だんの{整備|せいび}。13:30〜15:30に{花|はな}だんA（{花|はな}の{植|う}え{替|か}え・{見栄|みば}えの{整備|せいび}）。{通路|つうろ}が{狭|せま}くなった{原因|げんいん}は「{何|なに}かが{動|うご}いた」から。{花|はな}だんに{手|て}をつけたのは{誰|だれ}？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 設計図と作業記録を調べよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{工事|こうじ}の{設計|せっけい}{図|ず}を{見|み}せてくれた。{設計|せっけい}{図|ず}の{数値|すうち}: {通路|つうろ}{幅|はば}（スロープ{横|よこ}）は**105cm**（{設計|せっけい}{通|どお}り）。{花|はな}だんA（スロープ{側|がわ}）の{幅|はば}は60cm。{花|はな}だんB（{壁|かべ}{側|がわ}）の{幅|はば}は60cm。スロープ{勾配|こうばい}は1/12（{基準|きじゅん}{通|どお}り）。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{作業|さぎょう}{記録|きろく}の{抜粋|ばっすい}: ユズル——13:30に{通路|つうろ}{幅|はば}を{計測|けいそく}→**105cm**と{記録|きろく}。ワカナ——14:30にスロープ{勾配|こうばい}を{確認|かくにん}→**1/12で{基準|きじゅん}{通|どお}り**と{報告|ほうこく}。イブキ——{手|て}すり{塗装|とそう}{完了|かんりょう}。スロープ{本体|ほんたい}のみ{作業|さぎょう}。コハル——{花|はな}だんAの{花|はな}を{植|う}え{替|か}え。「{見栄|みば}えをよくした」と{記載|きさい}。"
+      - type: narration
+        text: "{注目|ちゅうもく}ポイント: {設計|せっけい}{図|ず}では{通路|つうろ}{幅|はば}は105cm。ユズルの{計測|けいそく}でも105cm→{設計|せっけい}{通|どお}り。{今|いま}の{通路|つうろ}{幅|はば}は75cm→**30cm{狭|せま}くなっている**。スロープの{勾配|こうばい}は{問題|もんだい}なし。{花|はな}だんBは{壁|かべ}に{固定|こてい}されていて{動|うご}かせない。{花|はな}だんAを{動|うご}かせるのは、{花|はな}だんAの{整備|せいび}を{担当|たんとう}した{人|ひと}だけ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 通路の断面図を見よう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{通路|つうろ}の{断面|だんめん}{図|ず}を{描|えが}いてくれた。{設計|せっけい}{図|ず}（{工事|こうじ}{直後|ちょくご}）では: {壁|かべ}|{花|はな}だんB（60cm）|← {通路|つうろ}（105cm）→|{花|はな}だんA（60cm）|スロープ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{現在|げんざい}の{状態|じょうたい}では: {壁|かべ}|{花|はな}だんB（60cm）|← {通路|つうろ}（75cm）→|{花|はな}だんA（60cm）|スロープ。{花|はな}だんAが{通路|つうろ}{側|がわ}に**30cm**{移動|いどう}している！"
+      - type: narration
+        text: "{注目|ちゅうもく}ポイント: {花|はな}だんAが{通路|つうろ}{側|がわ}に30cm{移動|いどう}している。{通路|つうろ}{幅|はば}が105cm→75cmに{狭|せま}まっている。{花|はな}だんBは{壁|かべ}に{固定|こてい}されていて{動|うご}かせない→{花|はな}だんAだけが{動|うご}いた。{花|はな}だんAの{整備|せいび}を{担当|たんとう}したのは**コハル**。{花|はな}だんAを{動|うご}かせるのは、{花|はな}だんAの{作業|さぎょう}を{担当|たんとう}した{人|ひと}だけ。それは{誰|だれ}？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ミヤケさんの直接証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{山田|やまだ}{先生|せんせい}がミヤケさんを{教室|きょうしつ}に{招|まね}きました。ミヤケさんが{直接|ちょくせつ}{話|はな}してくれます。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ミヤケさんの{証言|しょうげん}: 「{私|わたし}は{毎週|まいしゅう}この{通路|つうろ}を{通|とお}って、{隣|となり}の{公園|こうえん}に{行|い}きます。{工事|こうじ}の{前|まえ}は{問題|もんだい}なく{通|とお}れていました。ところが{工事|こうじ}の{後|あと}、{花|はな}だんが{通路|つうろ}に{迫|せ}り{出|で}していて、{車|くるま}いすの{車輪|しゃりん}がぶつかるんです」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ミヤケさんの{車|くるま}いすの{説明|せつめい}: 「{車|くるま}いすの{横|よこ}{幅|はば}は{約|やく}65cmあります。でも、ただ{通|とお}れればいいわけではありません。ハンドリム——{車輪|しゃりん}の{外側|そとがわ}にある{金属|きんぞく}のリングを{手|て}で{回|まわ}して{進|すす}むんです。その{動作|どうさ}には、{車|くるま}いすの{横|よこ}に{少|すく}なくとも12〜13cmの{余裕|よゆう}が{必要|ひつよう}です。だからJIS{基準|きじゅん}は90cm{以上|いじょう}としているんです」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「バリアフリー{工事|こうじ}をしてくれたこと{自体|じたい}は、とても{嬉|うれ}しいんです。でも、**{数字|すうじ}を{確認|かくにん}しないまま{物|もの}を{動|うご}かすと、{良|よ}かれと{思|おも}った{工事|こうじ}がバリアになる**ことがあります。90cmという{数字|すうじ}には{意味|いみ}があるんです」"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 通路を狭くしたのは誰だ？
+      - type: sprite
+        character: yuzuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "{設計|せっけい}{図|ず}では{通路|つうろ}{幅|はば}は105cm。{僕|ぼく}が13:30に{計測|けいそく}したときも105cmだった。でも{今|いま}は75cm。**30cm{狭|せま}くなっている**。"
+        expression: thinking
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: determined
+        position: right
+      - type: dialog
+        character: wakana
+        text: "JIS{基準|きじゅん}は{通路|つうろ}{幅|はば}90cm{以上|いじょう}。{今|いま}は75cm——**15cm{足|た}りない**。これは{基準|きじゅん}{違反|いはん}よ。{花|はな}だんBは{壁|かべ}に{固定|こてい}されて{動|うご}かせない。じゃあ{動|うご}いたのは{花|はな}だんAだけ。"
+        expression: determined
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "……{実|じつ}は、15:00ごろ、コハルが{花|はな}だんAのプランターを{通路|つうろ}{側|がわ}に{動|うご}かしているのを{見|み}た。「お{花|はな}がスロープから{見|み}えるようにしたい」って{言|い}ってた。「きれいになるね！」って{声|こえ}をかけただけで、{通路|つうろ}{幅|はば}のことは{気|き}にしなかった……"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。13:30に{通路|つうろ}{幅|はば}は105cmあった（ユズルの{計測|けいそく}）。15:00ごろ、コハルが{花|はな}だんAを{通路|つうろ}{側|がわ}に{動|うご}かしているのをイブキが{目撃|もくげき}した。{今|いま}の{通路|つうろ}{幅|はば}は75cm——30cm{狭|せま}くなっている。{花|はな}だんAの{担当|たんとう}はコハル。"
+      - type: choice
+        id: q1
+        question: 通路を狭くしてしまったのは誰？
+        options:
+          - text: コハル（花壇Aの担当で、花壇を30cm動かした）
+            value: koharu
+            correct: true
+            feedback: "{正解|せいかい}！ コハルは「スロープを{通|とお}る{人|ひと}に{花|はな}が{見|み}えるようにしたい」と{善意|ぜんい}で{花|はな}だんAを30cm{動|うご}かした。{通路|つうろ}{幅|はば}は105cm→75cmになり、JIS{基準|きじゅん}の90cmを{下|した}{回|まわ}ってしまった。{悪意|わるい}はなかったが、**{数字|すうじ}を{確認|かくにん}しなかった**ことが{問題|もんだい}だった。"
+          - text: ユズル（計測担当で、通路幅を記録していた）
+            value: yuzuru
+            feedback: "ユズルは13:30に{通路|つうろ}{幅|はば}を105cmと{計測|けいそく}し、{正確|せいかく}に{記録|きろく}していた。15:00{以降|いこう}は{教室|きょうしつ}にいて、{花|はな}だんには{手|て}をつけていないよ。"
+          - text: イブキ（スロープの塗装担当だった）
+            value: ibuki
+            feedback: "イブキはスロープ{本体|ほんたい}の{掃除|そうじ}と{塗装|とそう}を{担当|たんとう}した。{花|はな}だんには{手|て}をつけていない。コハルが{花|はな}だんを{動|うご}かすのを{見|み}たが、{声|こえ}をかけなかったのは{反省|はんせい}ポイントだけど、{通路|つうろ}を{狭|せま}くした{人|ひと}ではないよ。"
+          - text: ワカナ（安全確認係だった）
+            value: wakana
+            feedback: "ワカナはスロープの{勾配|こうばい}{確認|かくにん}を{担当|たんとう}した。14:30に{作業|さぎょう}を{終|お}えて{図書室|としょしつ}へ{行|い}った。{花|はな}だんには{手|て}をつけていないよ。JIS{基準|きじゅん}を{知|し}っていたのに{通路|つうろ}{幅|はば}を{確認|かくにん}しなかったのは{反省|はんせい}点だけど、{動|うご}かしたのはコハルだ。"
+
+  # ==================== 真実：コハル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: コハルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: center
+      - type: dialog
+        character: koharu
+        text: "……{私|わたし}です。{私|わたし}が{花|はな}だんAを{動|うご}かしました。"
+        expression: worried
+      - type: narration
+        text: "コハルは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: koharu
+        text: "{花|はな}だんAの{花|はな}がスロープから{見|み}えにくかった。スロープを{通|とお}る{人|ひと}に{花|はな}を{見|み}て{笑顔|えがお}になってほしくて……15:00ごろ、プランターを{通路|つうろ}{側|がわ}に30cm{動|うご}かしたの。"
+        expression: thinking
+      - type: dialog
+        character: koharu
+        text: "{通路|つうろ}が{少|すこ}し{狭|せま}くなることには{気|き}づいてた。でも「{人|ひと}が{歩|ある}くには{十分|じゅうぶん}な{幅|はば}がある」と{思|おも}った。**{車|くるま}いすの{通行|つうこう}に90cm{以上|いじょう}{必要|ひつよう}だということを、{知|し}らなかった**んです。"
+        expression: worried
+      - type: dialog
+        character: koharu
+        text: "{元|もと}の{通路|つうろ}{幅|はば}は105cm。{花|はな}だんを30cm{動|うご}かしたから、105cm−30cm＝**75cm**になった。JIS{基準|きじゅん}の90cmを**15cm**も{下回|したまわ}ってた……{知|し}らなかったとはいえ、ミヤケさんに{申|もう}し{訳|わけ}なかった。"
+        expression: determined
+      - type: sprite
+        character: koharu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "{私|わたし}も{言|い}わなきゃいけないことがある。15:00ごろ、コハルが{花|はな}だんを{動|うご}かしているのを{見|み}てた。{車|くるま}いす{体験|たいけん}で{通路|つうろ}{幅|はば}の{大切|たいせつ}さを{知|し}ってたのに……「きれいになるね」って{言|い}っただけで、{何|なに}も{注意|ちゅうい}しなかった。ごめんね。"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: worried
+        position: right
+      - type: dialog
+        character: wakana
+        text: "{私|わたし}はJIS{基準|きじゅん}（{通路|つうろ}{幅|はば}90cm{以上|いじょう}）を{知|し}っていた。でも{自分|じぶん}の{担当|たんとう}は{勾配|こうばい}{確認|かくにん}だったから、{通路|つうろ}{幅|はば}はユズルが{確認|かくにん}すると{思|おも}って……{安全|あんぜん}{確認|かくにん}{係|がかり}なのに、{通路|つうろ}{幅|はば}をチェックしなかった。{反省|はんせい}してる。"
+        expression: worried
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: sprite
+        character: yuzuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "{僕|ぼく}は13:30に{通路|つうろ}{幅|はば}105cmと{記録|きろく}した。でも15:00{以降|いこう}は{教室|きょうしつ}に{戻|もど}って、その{後|あと}の{変化|へんか}を{確認|かくにん}しなかった。{記録|きろく}{係|がかり}として、{最後|さいご}に{数値|すうち}を{再確認|さいかくにん}すべきだった。データは{変化|へんか}する——それを{忘|わす}れてた。"
+        expression: worried
+      - type: sprite
+        character: yuzuru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school-entrance
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "コハルの「{花|はな}でスロープを{通|とお}る{人|ひと}を{笑顔|えがお}にしたい」という{気持|きも}ちは{素晴|すば}らしいわ。バリアフリーに{積極的|せっきょくてき}に{関|かか}わろうとした{心|こころ}は、{本当|ほんとう}に{大切|たいせつ}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、バリアフリーは「{見|み}た{目|め}」ではなく「**{数字|すうじ}**」で{判断|はんだん}するもの。{何|なに}かを{動|うご}かす{前|まえ}に、90cmという{数字|すうじ}を{確認|かくにん}するひと{手間|てま}があれば、ミヤケさんは{困|こま}らなかった。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{車|くるま}いすの{横|よこ}{幅|はば}は{約|やく}65cm。でもそれだけではだめで、{手|て}で{車輪|しゃりん}を{回|まわ}す{余裕|よゆう}が{左右|さゆう}に12〜13cmずつ{必要|ひつよう}だ。だからJIS{基準|きじゅん}は90cm{以上|いじょう}。この{数字|すうじ}にはミヤケさんが{安全|あんぜん}に{通行|つうこう}するための{意味|いみ}が{詰|つ}まっている。"
+      - type: narration
+        text: "コハルは{悪|わる}い{人|ひと}ではない。でも「{人|ひと}が{歩|ある}くには{十分|じゅうぶん}」と{感覚|かんかく}で{判断|はんだん}したことが{問題|もんだい}だった。{善意|ぜんい}でも、{数字|すうじ}を{確認|かくにん}しないと、{良|よ}かれと{思|おも}った{行動|こうどう}がバリアになることがある。"
+      - type: narration
+        text: "「{前|まえ}は{通|とお}れた{道|みち}が{通|とお}れなくなった」——ミヤケさんにとって、それは{自由|じゆう}を{奪|うば}われることと{同|おな}じだ。バリアフリーは「{見|み}た{目|め}のきれいさ」と「{数字|すうじ}で{確認|かくにん}する{機能|きのう}」の{両方|りょうほう}が{大切|たいせつ}だと、4{人|にん}は{学|まな}んだ。"
+      - type: effect
+        name: fade-out

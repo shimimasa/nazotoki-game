@@ -1,0 +1,378 @@
+meta:
+  id: welfare-07
+  title: 助けすぎの罠
+  series: 福祉探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{福祉|ふくし}{探偵|たんてい}{団|だん}の4{人|にん}は、{隣|となり}の{町|まち}に{住|す}む{中学生|ちゅうがくせい}のカワグチさんのお{宅|たく}にボランティアで{通|かよ}っていた。カワグチさんは{車|くるま}いすで{生活|せいかつ}していて、{腕|うで}は{普通|ふつう}に{動|うご}く。1カ{月|げつ}{前|まえ}は{自分|じぶん}で{買|か}い{物|もの}にも{行|い}けていたし、{料理|りょうり}も{掃除|そうじ}も{自分|じぶん}でこなしていた。"
+      - type: narration
+        text: "そして——1カ{月|げつ}が{経|た}った。ボランティア{記録|きろく}が{山田|やまだ}{先生|せんせい}のもとに{届|とど}いた。"
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{先生|せんせい}は{記録|きろく}を{見|み}て、{顔|かお}色|いろを{変|か}えた。カワグチさんが{自分|じぶん}でやっていた{項目|こうもく}が、{週|しゅう}を{追|お}うごとに{減|へ}っている。そして{今|いま}、カワグチさんは「1{人|り}では{何|なに}もしたくない」と{言|い}っているという。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "1カ{月|げつ}{前|まえ}、カワグチさんは{自分|じぶん}で{車|くるま}いすを{操作|そうさ}してスーパーに{行|い}き、{買|か}い{物|もの}をして、{料理|りょうり}もしていました。ところが{今|いま}は——「1{人|り}では{何|なに}もしたくない」と{言|い}っています。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "ボランティアの{手伝|てつだ}いが{増|ふ}えるにつれて、カワグチさんが{自分|じぶん}でやっていたことが{減|へ}っている。**いつから「{助|たす}ける」が「{妨|さまた}げる」に{変|か}わったのか。{誰|だれ}の{手伝|てつだ}いが{問題|もんだい}だったのか。**{調|しら}べてください。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}かの{善意|ぜんい}が、カワグチさんの{自立|じりつ}を{奪|うば}ってしまった。{記録|きろく}の{中|なか}に、{答|こた}えがある。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 助けすぎの罠
+        subtitle: 福祉探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 山田先生の報告を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{福祉|ふくし}{探偵|たんてい}{団|だん}に、ボランティアの{目的|もくてき}と{今|いま}の{状況|じょうきょう}を{説明|せつめい}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ボランティアの{目的|もくてき}は「カワグチさんが{自分|じぶん}で{生活|せいかつ}できるように{助|たす}けること」——つまり{自立|じりつ}{支援|しえん}だ。「{何|なん}でもやってあげる」のは{自立|じりつ}{支援|しえん}ではない。"
+      - type: narration
+        text: "{自立|じりつ}{支援|しえん}の3{原則|げんそく}: ①エンパワメント（{力|ちから}を{引|ひ}き{出|だ}す）、②{本人|ほんにん}{主体|しゅたい}（{本人|ほんにん}が{決|き}める）、③{最小限|さいしょうげん}の{支援|しえん}（{必要|ひつよう}な{分|ぶん}だけ）。"
+      - type: narration
+        text: "そしてカワグチさんの{変化|へんか}——1カ{月|げつ}{前|まえ}は「{自分|じぶん}でできることは{自分|じぶん}でやりたい」と{言|い}っていた。{今|いま}は「1{人|り}では{何|なに}もしたくない」。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の役割を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が4{人|にん}のボランティア{担当|たんとう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユズル —— {日用品|にちようひん}リスト{管理|かんり}・{週|しゅう}2{回|かい}（{火|か}・{木|もく}）。カワグチさんの{必要|ひつよう}なものをリスト{化|か}・{整理|せいり}。"
+      - type: narration
+        text: "イブキ —— {買|か}い{物|もの}・{家事|かじ}の{手伝|てつだ}い・{毎日|まいにち}（{月|げつ}〜{金|きん}）。カワグチさんが{頼|たの}んだことを{手伝|てつだ}う。4{人|にん}の{中|なか}で{唯一|ゆいいつ}{毎日|まいにち}の{訪問|ほうもん}。"
+      - type: narration
+        text: "ワカナ —— {通院|つういん}{付|つ}き{添|そ}い・{月|つき}2{回|かい}（{隔週|かくしゅう}{水|すい}{曜|よう}）。コハル —— {話|はな}し{相手|あいて}・{相談|そうだん}{役|やく}・{週|しゅう}2{回|かい}（{月|げつ}・{金|きん}）。"
+      - type: narration
+        text: "{注目|ちゅうもく}: イブキだけが{毎日|まいにち}{訪問|ほうもん}。{担当|たんとう}は「{頼|たの}まれたことを{手伝|てつだ}う」。でも{実際|じっさい}はどうだったのだろう？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ボランティア記録の推移を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が1カ{月|げつ}{分|ぶん}のボランティア{記録|きろく}を{週|しゅう}{別|べつ}にまとめた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1{週|しゅう}{目|め}: カワグチさんが{自分|じぶん}でやった{項目|こうもく} = 8{項目|こうもく}（{買|か}い{物|もの}・{料理|りょうり}・{洗濯|せんたく}・{掃除|そうじ}・ゴミ{出|だ}し・{洗|あら}い{物|もの}・アイロン・お{風呂|ふろ}{掃除|そうじ}）。"
+      - type: narration
+        text: "2{週|しゅう}{目|め}: {自分|じぶん}でやった = 6{項目|こうもく}。{買|か}い{物|もの}・{料理|りょうり}が「→イブキ」に{変化|へんか}。"
+      - type: narration
+        text: "3{週|しゅう}{目|め}: {自分|じぶん}でやった = 3{項目|こうもく}。{掃除|そうじ}・{洗|あら}い{物|もの}・アイロンも「→イブキ」に。4{週|しゅう}{目|め}: {自分|じぶん}でやった = 1{項目|こうもく}（お{風呂|ふろ}{掃除|そうじ}のみ）。{洗濯|せんたく}・ゴミ{出|だ}しも「→イブキ」に。"
+      - type: narration
+        text: "「→イブキ」は{増|ふ}えるのに、カワグチさんの「{自分|じぶん}でやったこと」は8→1に{減|へ}った。「→」の{先|さき}は{全部|ぜんぶ}イブキ。{他|ほか}の3{人|にん}の{名前|なまえ}は{一度|いちど}も{出|で}てこない。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 1カ月前のカワグチさんを確認しよう
+      - type: narration
+        text: "ボランティアが{始|はじ}まる{前|まえ}に、{山田|やまだ}{先生|せんせい}がカワグチさんに{聞|き}き{取|と}りした「{今|いま}の{生活|せいかつ}」の{記録|きろく}。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カワグチさんの{言葉|ことば}（1カ{月|げつ}{前|まえ}）: 「{自分|じぶん}でできることは{自分|じぶん}でやりたいんです。{車|くるま}いすに{乗|の}っていても、ほとんどのことは{自分|じぶん}でできます。」"
+      - type: narration
+        text: "「できないことは『{高|たか}い{場所|ばしょ}のもの』と『{重|おも}い{荷物|にもつ}を{運|はこ}ぶこと』くらい。それ{以外|いがい}は{助|たす}けてもらう{必要|ひつよう}はありません」"
+      - type: narration
+        text: "{現在|げんざい}との{比較|ひかく}: 1カ{月|げつ}{前|まえ}の{気持|きも}ち「{自分|じぶん}でできることは{自分|じぶん}でやりたい」→{現在|げんざい}「1{人|り}では{何|なに}もしたくない」。{記録|きろく}に「{書|か}かれていないこと」——カワグチさんが{断|ことわ}ったという{記録|きろく}はどこにもない。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: カワグチさん本人の声
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{山田|やまだ}{先生|せんせい}がカワグチさんから{直接|ちょくせつ}お{話|はなし}をうかがいました。カワグチさん{本人|ほんにん}の{声|こえ}を{聞|き}いてください。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カワグチさんの{言葉|ことば}: 「みんながボランティアに{来|き}てくれて、{最初|さいしょ}は{嬉|うれ}しかった。でも……{途中|とちゅう}から、{自分|じぶん}でやりたかったことまで、やってもらうようになった」"
+      - type: narration
+        text: "「{買|か}い{物|もの}は{自分|じぶん}で{行|い}きたかった。スーパーまでの{道|みち}は、{自分|じぶん}で{車|くるま}いすを{押|お}す{練習|れんしゅう}にもなっていたから。{料理|りょうり}も{好|す}きだった。でも、『やっておいたよ！』って{言|い}われると、『ありがとう』としか{言|い}えなかった」"
+      - type: narration
+        text: "「**『ありがとう』って{言|い}ったのは、{本当|ほんとう}に{助|たす}かったからじゃない。{断|ことわ}れなかったから**。{一生懸命|いっしょうけんめい}やってくれているのに、『やらなくていい』なんて{言|い}えなかった」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{今|いま}は、{自分|じぶん}で{何|なに}もしなくなった。{前|まえ}はできていたのに。**{前|まえ}は『1{人|り}でもできる』って{自信|じしん}があった**のに。{今|いま}は**『1{人|り}じゃ{何|なに}もできない{気|き}がする』**。……{自分|じぶん}でやる{力|ちから}が、なくなっちゃった{気|き}がする」"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 助けすぎたのは誰だ？
+      - type: sprite
+        character: yuzuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "データを{整理|せいり}すると——3{週|しゅう}{目|め}から「→イブキ」の{項目|こうもく}が{急増|きゅうぞう}している。3{週|しゅう}{目|め}に{カワグチさんのリスト|カワグチさんのリスト}を{見|み}たとき、カワグチさんの{表情|ひょうじょう}が{嬉|うれ}しそうじゃなかった……"
+        expression: thinking
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: right
+      - type: dialog
+        character: koharu
+        text: "3{週|しゅう}{目|め}の{月|げつ}{曜日|ようび}、カワグチさんが「{最近|さいきん}、{自分|じぶん}で{何|なに}もしなくなっちゃった。{自分|じぶん}がいなくてもいいみたい」って……それを{聞|き}いたとき、{何|なに}か{言|い}えばよかった。でも{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。カワグチさんは1カ{月|げつ}{前|まえ}に「{助|たす}けてもらう{必要|ひつよう}はほとんどない」と{言|い}っていた。{記録|きろく}の「→イブキ」は{週|しゅう}ごとに{増|ふ}え、3{週|しゅう}{目|め}から{急増|きゅうぞう}した。カワグチさんは「{断|ことわ}れなかった」と{言|い}っている。"
+      - type: choice
+        id: q1
+        question: カワグチさんの自立を妨げたのは誰？
+        options:
+          - text: イブキ（毎日訪問で、週ごとに手伝いを増やした）
+            value: ibuki
+            correct: true
+            feedback: "{正解|せいかい}！ イブキは「もっと{助|たす}けたい」という{責任感|せきにんかん}から、{週|しゅう}ごとに{手伝|てつだ}いを{増|ふ}やした。3{週|しゅう}{目|め}からカワグチさんに{聞|き}かずに「やっておいたよ！」{スタイル|スタイル}に{変|か}わり、カワグチさんが{自分|じぶん}でやる{機会|きかい}を{奪|うば}ってしまった。"
+          - text: ユズル（記録の異変に気づいていたのに報告しなかった）
+            value: yuzuru
+            feedback: "ユズルは{週|しゅう}2{回|かい}しか{訪問|ほうもん}していなかったし、{記録|きろく}の{管理|かんり}が{担当|たんとう}だ。{異変|いへん}に{気|き}づいても{言|い}えなかった{後悔|こうかい}はあるけど、{直接|ちょくせつ}カワグチさんの{自立|じりつ}を{妨|さまた}げた{行動|こうどう}はしていないよ。"
+          - text: ワカナ（ボランティアのルール違反を指摘しなかった）
+            value: wakana
+            feedback: "ワカナは{月|つき}2{回|かい}の{通院|つういん}{付|つ}き{添|そ}いが{担当|たんとう}。{ルール|ルール}{違反|いはん}に{気|き}づいていたけど、{手伝|てつだ}いを{増|ふ}やしたのはワカナではないよ。{記録|きろく}の「→ワカナ」は1{件|けん}もない。"
+          - text: コハル（カワグチさんの変化を見ていたのに相談しなかった）
+            value: koharu
+            feedback: "コハルは{話|はな}し{相手|あいて}{担当|たんとう}で、カワグチさんの{気持|きも}ちの{変化|へんか}を{感|かん}じていた。でも{実際|じっさい}に{手伝|てつだ}いを{増|ふ}やして{自立|じりつ}を{妨|さまた}げた{行動|こうどう}はしていない。{記録|きろく}に「→コハル」は{出|で}てこないよ。"
+
+  # ==================== 真実：イブキ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イブキの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "……わかった。{助|たす}けすぎていたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "イブキは{下|した}を{向|む}きながら、{少|すこ}しずつ{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: ibuki
+        text: "1{週|しゅう}{目|め}は、カワグチさんが「{頼|たの}んだこと」だけ{手伝|てつだ}っていた。{高|たか}い{棚|たな}のものとか、{重|おも}い{荷物|にもつ}とか。でも2{週|しゅう}{目|め}に、カワグチさんが{買|か}い{物|もの}に{行|い}こうとしているのを{見|み}て——「{大変|たいへん}そうだから{僕|ぼく}が{行|い}くよ！」って{申|もう}し{出|で}てしまった。"
+        expression: thinking
+      - type: dialog
+        character: ibuki
+        text: "カワグチさんが「ありがとう」って{言|い}ってくれた。それが{嬉|うれ}しくて……3{週|しゅう}{目|め}からは「もっと{手伝|てつだ}えることはないか」って{考|かんが}えて、{聞|き}かずに「やっておいたよ！」って{報告|ほうこく}するスタイルになった。"
+        expression: worried
+      - type: dialog
+        character: ibuki
+        text: "「たくさん{手伝|てつだ}えている！」って{満足|まんぞく}していた。でも……カワグチさんの「ありがとう」は、{本当|ほんとう}に{助|たす}かったんじゃなかったんだ。{断|ことわ}れなかっただけだったんだ。"
+        expression: determined
+      - type: sprite
+        character: ibuki
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: yuzuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "3{週|しゅう}{目|め}にデータの{異変|いへん}に{気|き}づいていた。カワグチさんのリストを{書|か}かなくなったのも{見|み}ていた。でも……{数字|すうじ}で{見|み}せたら、イブキが「{悪|わる}い{人|ひと}」に{見|み}えてしまうかもって{思|おも}って、{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: right
+      - type: dialog
+        character: koharu
+        text: "カワグチさんが「{自分|じぶん}がいなくてもいいみたい」って{言|い}ったとき、{心|こころ}が{痛|いた}かった。イブキの{善意|ぜんい}を{否定|ひてい}するのは{辛|つら}いって{思|おも}って……{何|なに}も{言|い}えなかった。ごめんね。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: worried
+        position: left
+      - type: dialog
+        character: wakana
+        text: "「ボランティアの{心得|こころえ}」に「{本人|ほんにん}ができることは{本人|ほんにん}にやってもらう」って{書|か}いてあった。3{週|しゅう}{目|め}の{通院|つういん}のとき、カワグチさんが「{押|お}してもらっていい？」って{言|い}って——{自分|じぶん}で{押|お}せるのに、って{思|おも}った。でも{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: wakana
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "イブキの「もっと{助|たす}けたい」という{気持|きも}ちは、{本物|ほんもの}です。{悪意|わるい}は{一切|いっさい}なかった。でも——「{助|たす}ける」と「{助|たす}けすぎる」は、{違|ちが}います。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{自立|じりつ}{支援|しえん}で{一番|いちばん}{大事|だいじ}なことは、「{何|なに}を{手伝|てつだ}う？」と{聞|き}くこと。{本人|ほんにん}が{決|き}めること。{自分|じぶん}でできる{機会|きかい}を{守|まも}ること。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "カワグチさんは「できなくなった」のではなかった。「しなくなった」のだ。{身体|からだ}の{能力|のうりょく}は{変|か}わっていない。{変|か}わったのは、「{自分|じぶん}でやる{機会|きかい}」が{奪|うば}われたことだ。"
+      - type: narration
+        text: "「ありがとう」の{裏側|うらがわ}に、{本当|ほんとう}の{気持|きも}ちが{隠|かく}れていることがある。{表面|ひょうめん}の{言葉|ことば}だけで「{助|たす}かっている」と{判断|はんだん}してはいけない。"
+      - type: narration
+        text: "{助|たす}けることの{勇気|ゆうき}と、{見守|みまも}ることの{勇気|ゆうき}——どちらも{大切|たいせつ}だ。「{何|なに}を{手伝|てつだ}う？」の{一言|ひとこと}が、{自立|じりつ}と{依存|いぞん}の{分|わ}かれ{道|みち}になる。"
+      - type: effect
+        name: fade-out

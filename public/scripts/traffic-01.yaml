@@ -1,0 +1,407 @@
+meta:
+  id: traffic-01
+  title: 消えた標識
+  series: 交通安全探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、{通学路|つうがくろ}の{交差点|こうさてん}にある「{止|と}まれ」{標識|ひょうしき}が、{根元|ねもと}から{折|お}れてたおれていた。"
+      - type: narration
+        text: "この{交差点|こうさてん}はブロック{塀|べい}で{見通|みとお}しが{悪|わる}く、{標識|ひょうしき}がないと{車|くるま}が{止|と}まらないかもしれない。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「いつ{危|あぶ}ない{状態|じょうたい}になったのか」「だれの{行動|こうどう}がきっかけだったのか」を{調|しら}べなければならない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{通学路|つうがくろ}の「{止|と}まれ」{標識|ひょうしき}がたおれています。{見通|みとお}しの{悪|わる}い{交差点|こうさてん}なので、とても{危険|きけん}です。いつ{危|あぶ}ない{状態|じょうたい}になったのか、だれがきっかけを{作|つく}ったのかを{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: thinking
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: worried
+          - character: towa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{金曜日|きんようび}の{点検|てんけん}と{月曜日|げつようび}の{倒壊|とうかい}——この{間|あいだ}に{何|なに}が{起|お}きたのだろう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた標識
+        subtitle: 交通安全探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 月曜日の現場を確認しよう
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}の{現場|げんば}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{止|と}まれ」{標識|ひょうしき}が{歩道|ほどう}{側|がわ}へたおれている。"
+      - type: narration
+        text: "{柱|はしら}の{下|した}の{土|つち}が{少|すこ}しえぐれている。"
+      - type: narration
+        text: "{交差点|こうさてん}の{角|かど}はブロック{塀|べい}で{見通|みとお}しが{悪|わる}い。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "「{止|と}まれ」は{規制|きせい}{標識|ひょうしき}だ。{見通|みとお}しの{悪|わる}い{交差点|こうさてん}で、{車|くるま}に{必|かなら}ず{止|と}まってもらうための{大切|たいせつ}な{標識|ひょうしき}。これがなくなると、{車|くるま}が{止|と}まらないかもしれない。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{標識|ひょうしき}がたおれたのは{月曜日|げつようび}の{朝|あさ}。でも「{危|あぶ}ない{状態|じょうたい}になった{日|ひ}」と「たおれた{日|ひ}」は{同|おな}じとは{限|かぎ}らない。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 金曜日の行動を調べよう
+      - type: narration
+        text: "{金曜日|きんようび}の{放課後|ほうかご}、4{人|にん}で{安全|あんぜん}{点検|てんけん}をしたときの{記録|きろく}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒカルのメモ —— 4{人|にん}で{交差点|こうさてん}の{安全|あんぜん}{点検|てんけん}をした。ミチカが「{根元|ねもと}が{赤|あか}くなってる」と{言|い}って{近|ちか}くで{見|み}ていた。"
+      - type: narration
+        text: "ハシルのメモ —— {自分|じぶん}は{車|くるま}が{来|こ}ないか{少|すこ}し{離|はな}れた{場所|ばしょ}で{見|み}ていた。だれかが{標識|ひょうしき}の{柱|はしら}に{手|て}を{当|あ}てていた。"
+      - type: sprite
+        character: hashiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{遠|とお}くから{見|み}ていたけど、{柱|はしら}に{手|て}を{当|あ}てていた{人|ひと}がいた。{点検|てんけん}でさわっただけかもしれないけど……そのとき{標識|ひょうしき}が{少|すこ}し{揺|ゆ}れた{気|き}がしたんだ。"
+        expression: thinking
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: narration
+        text: "{金曜日|きんようび}の{点検|てんけん}で、{誰|だれ}かが{標識|ひょうしき}の{柱|はしら}に{手|て}を{当|あ}てていた。{根元|ねもと}を{見|み}ていたのはミチカ——。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 天気と気づきを確認しよう
+      - type: narration
+        text: "{土日|どにち}の{天気|てんき}と、{金曜日|きんようび}の{気|き}づきを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "トワのメモ —— {土曜|どよう}と{日曜|にちよう}は{風|かぜ}が{強|つよ}く、{雨|あめ}もふった。{月曜|げつよう}の{朝|あさ}、{標識|ひょうしき}が{歩道|ほどう}{側|がわ}へたおれていた。"
+      - type: narration
+        text: "ミチカのメモ —— {金曜|きんよう}に{根元|ねもと}を{見|み}たとき、{少|すこ}しグラつく{感|かん}じがした。「あとで{先生|せんせい}に{言|い}えばいい」と{少|すこ}し{思|おも}った。"
+      - type: sprite
+        character: towa
+        expression: worried
+        position: left
+      - type: dialog
+        character: towa
+        text: "{土日|どにち}の{風|かぜ}と{雨|あめ}でたおれたのかもしれない。でも……{金曜日|きんようび}の{時点|じてん}で、もう{標識|ひょうしき}は{安全|あんぜん}じゃなかったんじゃないかな。{週末|しゅうまつ}の{天気|てんき}だけでは{全部|ぜんぶ}{説明|せつめい}できない{気|き}がする。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "{金曜日|きんようび}にグラついていた{標識|ひょうしき}が、{土日|どにち}の{風雨|ふうう}で{完全|かんぜん}にたおれた——という{流|なが}れが{見|み}えてきた。では{金曜日|きんようび}に{何|なに}が{起|お}きたのか。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 標識の役目を考えよう
+      - type: narration
+        text: "{交通|こうつう}{安全|あんぜん}ミニカードを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{赤|あか}い{逆三角形|ぎゃくさんかくけい}の「{止|と}まれ」は{規制|きせい}{標識|ひょうしき}。{見通|みとお}しの{悪|わる}い{交差点|こうさてん}で{車|くるま}に{必|かなら}ず{止|と}まってもらう{役目|やくめ}がある。"
+      - type: narration
+        text: "{少|すこ}しかたむいただけでも、{見|み}えにくくなると{危険|きけん}。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "「{止|と}まれ」がなくなると、{車|くるま}が{止|と}まらないかもしれない。「まだ{立|た}っているから{大丈夫|だいじょうぶ}」じゃない。{少|すこ}しかたむいただけでも、もう{危険|きけん}なんだ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{標識|ひょうしき}は「たおれたとき」が{危険|きけん}なのではない。「かたむいたとき」からすでに{危険|きけん}だった。{金曜日|きんようび}の{時点|じてん}で{危|あぶ}ない{状態|じょうたい}だったのだ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の点検結果
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}が{標識|ひょうしき}を{詳|くわ}しく{調|しら}べた{結果|けっか}が{届|とど}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{標識|ひょうしき}の{根元|ねもと}は{中|なか}までサビていた。"
+      - type: narration
+        text: "{柱|はしら}のまわりの{土|つち}には、{手|て}で{押|お}したような{新|あたら}しいずれがある。"
+      - type: narration
+        text: "{金曜日|きんようび}の{夕方|ゆうがた}の{写真|しゃしん}では、{標識|ひょうしき}がすでに{少|すこ}し{歩道|ほどう}{側|がわ}へかたむいていた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{金曜日|きんようび}の{時点|じてん}ですでにかたむいていた！ {土|つち}のずれも{新|あたら}しい——{金曜日|きんようび}に{誰|だれ}かが{柱|はしら}に{力|ちから}をかけて、{危|あぶ}ない{状態|じょうたい}を{作|つく}ったのだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 標識を危ない状態にしたのは誰だ？
+      - type: sprite
+        character: hashiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{金曜日|きんようび}、{柱|はしら}に{手|て}を{当|あ}てていた{人|ひと}がいた。{遠|とお}くからだったけど、{標識|ひょうしき}が{揺|ゆ}れたのは{見|み}えた。{根元|ねもと}を{近|ちか}くで{見|み}ていたのは——"
+        expression: thinking
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: determined
+        position: left
+      - type: dialog
+        character: towa
+        text: "{風|かぜ}と{雨|あめ}だけでたおれたんじゃない。{金曜日|きんようび}の{時点|じてん}で{危|あぶ}ない{状態|じょうたい}になっていた。{点検|てんけん}で{根元|ねもと}を{確|たし}かめようとして、{柱|はしら}を{押|お}してしまった{人|ひと}がいる——"
+        expression: determined
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{金曜日|きんようび}に{根元|ねもと}を{見|み}ていたのはミチカ。{柱|はしら}に{手|て}を{当|あ}てていた。{金曜|きんよう}の{写真|しゃしん}ですでにかたむいていた。{土|つち}のずれも{新|あたら}しい——"
+      - type: choice
+        id: q1
+        question: 標識を危ない状態にしたきっかけを作ったのは誰？
+        options:
+          - text: ミチカ（点検で柱を押してかたむけてしまった）
+            value: michika
+            correct: true
+            feedback: "{正解|せいかい}！ ミチカは{交通|こうつう}{安全|あんぜん}{係|がかり}として{根元|ねもと}のサビを{確|たし}かめようと{柱|はしら}を{手|て}で{押|お}した。{思|おも}ったより{大|おお}きくかたむいてしまったが、「{少|すこ}しかたむいただけ。{月曜日|げつようび}に{先生|せんせい}へ{言|い}えばいい」と{思|おも}って{帰|かえ}ってしまった。"
+          - text: ヒカル（点検メモを取っていて怪しい）
+            value: hikaru
+            feedback: "ヒカルは{情報型|じょうほうがた}で、{記録|きろく}や{地図|ちず}を{整理|せいり}する{役割|やくわり}。{標識|ひょうしき}の{種類|しゅるい}に{詳|くわ}しく、ミチカが{根元|ねもと}を{見|み}ていたことを{覚|おぼ}えていた。{柱|はしら}を{押|お}したのはヒカルではないよ。"
+          - text: ハシル（柱に手を当てていた人を見た本人が怪しい）
+            value: hashiru
+            feedback: "ハシルは{行動型|こうどうがた}で、{遠|とお}くから{車|くるま}の{見張|みは}りをしていた{目撃者|もくげきしゃ}。{柱|はしら}に{手|て}を{当|あ}てていた{人|ひと}を{見|み}たが、{自分|じぶん}は{離|はな}れた{場所|ばしょ}にいた。{柱|はしら}を{押|お}したのはハシルではないよ。"
+          - text: トワ（土日の天気を気にしていて怪しい）
+            value: towa
+            feedback: "トワは{感情型|かんじょうがた}で、{危|あぶ}ない{思|おも}いをする{人|ひと}の{気持|きも}ちを{考|かんが}える{役割|やくわり}。{土日|どにち}の{天気|てんき}を{心配|しんぱい}していたが、{柱|はしら}を{押|お}したのはトワではないよ。"
+
+  # ==================== 真実：ミチカ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミチカの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: michika
+        expression: worried
+        position: center
+      - type: dialog
+        character: michika
+        text: "……{標識|ひょうしき}を{危|あぶ}ない{状態|じょうたい}にしたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "ミチカは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: michika
+        text: "{金曜日|きんようび}の{点検|てんけん}で、{根元|ねもと}のサビを{確|たし}かめようとして{柱|はしら}を{手|て}で{押|お}したの。そしたら{思|おも}ったより{大|おお}きくかたむいてしまって……。"
+        expression: thinking
+      - type: dialog
+        character: michika
+        text: "「{少|すこ}しかたむいただけ。{月曜日|げつようび}に{先生|せんせい}に{言|い}えばいい」って{思|おも}った。わざとじゃないし、ちょっとだけだから{大丈夫|だいじょうぶ}だって……。"
+        expression: worried
+      - type: dialog
+        character: michika
+        text: "でも{土日|どにち}の{風|かぜ}と{雨|あめ}で{完全|かんぜん}にたおれてしまった。{点検|てんけん}しようとしただけなのに、すぐ{報告|ほうこく}しなかったから{危険|きけん}を{広|ひろ}げてしまった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "ミチカが{根元|ねもと}を{見|み}ていたとき、「ちょっとグラつくかも」って{声|こえ}が{聞|き}こえた。でもその{場|ば}で{先生|せんせい}へ{伝|つた}えようと{言|い}えなかった。{自分|じぶん}もすぐ{報告|ほうこく}すべきだった。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{柱|はしら}に{手|て}を{当|あ}てていたのがミチカだと{見|み}えた。{標識|ひょうしき}が{揺|ゆ}れた{気|き}もした。でも「{点検|てんけん}だから{大丈夫|だいじょうぶ}かな」って{見|み}すごしてしまった。ごめん。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: towa
+        text: "{金曜日|きんようび}のあと、「あの{標識|ひょうしき}、{大丈夫|だいじょうぶ}かな」って{気|き}になっていた。{土日|どにち}の{風|かぜ}を{見|み}て{不安|ふあん}になったのに、{先生|せんせい}に{伝|つた}えなかった。わたしも{声|こえ}をあげるべきだった。"
+        expression: thinking
+      - type: sprite
+        character: towa
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミチカは{交通|こうつう}{安全|あんぜん}{係|がかり}として{点検|てんけん}しようとしました。その{気持|きも}ちは{正|ただ}しい。でも{善意|ぜんい}の{点検|てんけん}でも、やり{方|かた}をまちがえると{危険|きけん}を{広|ひろ}げることがあります。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "いちばん{大切|たいせつ}なのは、{危険|きけん}を{見|み}つけたとき「あとで」ではなく、その{場|ば}ですぐ{報告|ほうこく}すること。「{少|すこ}しだから{大丈夫|だいじょうぶ}」は{通|つう}じません。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{止|と}まれ」は{規制|きせい}{標識|ひょうしき}。{見通|みとお}しの{悪|わる}い{交差点|こうさてん}で{車|くるま}に{必|かなら}ず{止|と}まってもらうための{命|いのち}を{守|まも}る{標識|ひょうしき}だ。"
+      - type: narration
+        text: "「{事故|じこ}が{起|お}きた{日|ひ}」と「{危険|きけん}が{作|つく}られた{日|ひ}」は{同|おな}じとは{限|かぎ}らない。{金曜日|きんようび}にかたむいた{標識|ひょうしき}が、{土日|どにち}の{風雨|ふうう}でたおれた——{小|ちい}さな{危険|きけん}が{大|おお}きな{危険|きけん}に{変|か}わった。"
+      - type: narration
+        text: "{危険|きけん}を{見|み}つけたら、「あとで」ではなくその{場|ば}ですぐ{報告|ほうこく}する。それが{自分|じぶん}も{他|ほか}の{人|ひと}も{守|まも}る{第一歩|だいいっぽ}だ。"
+      - type: effect
+        name: fade-out

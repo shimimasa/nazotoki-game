@@ -1,0 +1,374 @@
+meta:
+  id: tokkatsu-09
+  title: 予定表のカオス
+  series: 特別活動探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{林間学校|りんかんがっこう}の{班別行動|はんべつこうどう}{予定表|よていひょう}が、ついに8{班|はん}ぶんそろった。{実行委員|じっこういいん}の4{人|にん}が{金曜日|きんようび}の{放課後|ほうかご}に{最終確認|さいしゅうかくにん}をして、{予定表|よていひょう}ボードに{貼|は}り{出|だ}した。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}8{時|じ}、{提出|ていしゅつ}の{当日|とうじつ}に{見|み}ると、3{班|はん}ぶんの「{午後|ごご}の{自由時間|じゆうじかん}の{行|い}き{先|さき}」が{書|か}きかわっていた。2{班|はん}・5{班|はん}・8{班|はん}、すべて「{渓流|けいりゅう}コース」から「{展望台|てんぼうだい}コース」への{変更|へんこう}だ。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "3{班|はん}の{予定|よてい}が{書|か}きかわっています。3つとも{同|おな}じ{渓流|けいりゅう}コースから{展望台|てんぼうだい}コースへの{変更|へんこう}です。いたずらでしょうか。それとも{何|なに}か{同|おな}じ{理由|りゆう}があるのでしょうか。{調|しら}べてもらえますか。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: thinking
+          - character: ayumu
+            expression: worried
+          - character: mamoru
+            expression: surprised
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{全部|ぜんぶ}ちがう{班|はん}なのに、{変|か}わり{方|かた}は{同|おな}じだ。3つの{書|か}きかえに{共通|きょうつう}のパターンがある——ということは、{同|おな}じ{理由|りゆう}が{隠|かく}れているのかもしれない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 予定表のカオス
+        subtitle: 特別活動探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書きかえられた3班を確認しよう
+      - type: narration
+        text: "{予定表|よていひょう}ボードから、{書|か}きかわった3{班|はん}の{記録|きろく}を{取|と}り{出|だ}して{並|なら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "2{班|はん}——{変更前|へんこうまえ}「{渓流|けいりゅう}コース」、{変更後|へんこうご}「{展望台|てんぼうだい}コース」。"
+      - type: narration
+        text: "5{班|はん}——{変更前|へんこうまえ}「{渓流|けいりゅう}コース」、{変更後|へんこうご}「{展望台|てんぼうだい}コース」。"
+      - type: narration
+        text: "8{班|はん}——{変更前|へんこうまえ}「{渓流|けいりゅう}コース」、{変更後|へんこうご}「{展望台|てんぼうだい}コース」。"
+      - type: narration
+        text: "3つとも{同|おな}じ{方向|ほうこう}の{変更|へんこう}だ。「{展望台|てんぼうだい}→{渓流|けいりゅう}」への{変更|へんこう}は1つもない。{渓流|けいりゅう}コースを{選|えら}んでいた{班|はん}だけが{変|か}わっている——これが{最初|さいしょ}の{手|て}がかりだ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 予定変更のルールを確認しよう
+      - type: narration
+        text: "{予定表|よていひょう}ボードの{横|よこ}に「{林間学校|りんかんがっこう}{予定変更|よていへんこう}のルール」が{貼|は}ってあった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ルール1——{安全上|あんぜんじょう}の{理由|りゆう}があるときは{先生|せんせい}へ{報告|ほうこく}する。ルール2——{変更前|へんこうまえ}に{班|はん}へ{説明|せつめい}する。ルール3——{実行委員長|じっこういいんちょう}だけで{勝手|かって}に{書|か}きかえない。"
+      - type: narration
+        text: "「{勝手|かって}に{書|か}きかえない」というルールが{明記|めいき}されている。{理由|りゆう}が{正|ただ}しくても、{手続|てつづ}きを{飛|と}ばして{変更|へんこう}するのはルール{違反|いはん}になる。"
+      - type: narration
+        text: "{変更|へんこう}した{人|ひと}は「{正|ただ}しい{理由|りゆう}があった」と{思|おも}っているのかもしれない。でも、{手続|てつづ}きを{飛|と}ばしたことが{問題|もんだい}になっている——「{理由|りゆう}」と「{手続|てつづ}き」は{別|べつ}に{考|かんが}えないといけない。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 実行委員の机メモを読もう
+      - type: narration
+        text: "{実行委員会|じっこういいんかい}の{机|つくえ}の{上|うえ}に、{金曜日|きんようび}16:10の{最終確認|さいしゅうかくにん}のメモが{残|のこ}っていた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{金曜日|きんようび}16:10——{予定表|よていひょう}ファイルを{最後|さいご}に{確認|かくにん}していた{人|ひと}: アユム。「{もう一度|もういちど}だけ{確認|かくにん}する」と{話|はな}していた。"
+      - type: narration
+        text: "{金曜日|きんようび}16:20——{予定表|よていひょう}をボードへ{貼|は}り、{全員|ぜんいん}が{帰宅|きたく}した。このとき{予定表|よていひょう}に{変更|へんこう}はなかった。"
+      - type: narration
+        text: "アユムが「{もう一度|もういちど}だけ{確認|かくにん}する」と{言|い}ったのは、{何|なに}かを{心配|しんぱい}していたからかもしれない。{金曜日|きんようび}の{夜|よる}から{月曜日|げつようび}の{朝|あさ}の{間|あいだ}に{変更|へんこう}が{起|お}きた。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 全班の予定を比較しよう
+      - type: narration
+        text: "8{班|はん}{全部|ぜんぶ}の{予定表|よていひょう}を{並|なら}べて、{変|か}わった{班|はん}と{変|か}わっていない{班|はん}を{表|ひょう}にした。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{変|か}わっていない{班|はん}——1{班|はん}「{展望台|てんぼうだい}→{展望台|てんぼうだい}」、3{班|はん}「{展望台|てんぼうだい}→{展望台|てんぼうだい}」、4{班|はん}「{渓流|けいりゅう}→{渓流|けいりゅう}」、6{班|はん}「{展望台|てんぼうだい}→{展望台|てんぼうだい}」、7{班|はん}「{渓流|けいりゅう}→{渓流|けいりゅう}」。"
+      - type: narration
+        text: "{重要|じゅうよう}な{発見|はっけん}——4{班|はん}と7{班|はん}も{渓流|けいりゅう}コースを{選|えら}んでいるのに、{変|か}わっていない。{変|か}わった2{班|はん}・5{班|はん}・8{班|はん}と{変|か}わっていない4{班|はん}・7{班|はん}、{渓流|けいりゅう}{同士|どうし}なのに{差|さ}があるのはなぜだろう？"
+      - type: narration
+        text: "{変|か}わった3つと{変|か}わらなかった2つを{比|くら}べると、{何|なに}か{違|ちが}う{条件|じょうけん}がある{可能性|かのうせい}が{見|み}えてくる。{帰納法|きのうほう}で{考|かんが}えよう——「{全部|ぜんぶ}{渓流|けいりゅう}→{展望台|てんぼうだい}」という{法則|ほうそく}には{必|かなら}ず{理由|りゆう}がある。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 安全基準表の発見
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: center
+      - type: dialog
+        character: mamoru
+        text: "{実行委員会|じっこういいんかい}のファイルの{中|なか}に、{林間学校|りんかんがっこう}の{安全基準表|あんぜんきじゅんひょう}が{入|はい}っていた！"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{安全基準表|あんぜんきじゅんひょう}には{明確|めいかく}に{書|か}かれていた——「{雨天予報|うてんよほう}が{出|で}た{場合|ばあい}、{渓流|けいりゅう}コースは{禁止|きんし}。{展望台|てんぼうだい}コースへ{変更|へんこう}すること」。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{渓流|けいりゅう}コースには{雨天時|うてんじ}に{安全基準|あんぜんきじゅん}がある！ 3{班|はん}の{変更|へんこう}はこのルールに{沿|そ}っていた。つまり、{変更|へんこう}した{人|ひと}は「{安全|あんぜん}のため」と{思|おも}っていた{可能性|かのうせい}が{高|たか}い。"
+      - type: narration
+        text: "しかし——なぜ4{班|はん}と7{班|はん}は{変|か}わっていないのか。{追加|ついか}ハンドアウトの{天気予報|てんきよほう}と{合|あ}わせると、{変更|へんこう}した{人|ひと}の{動機|どうき}がはっきり{見|み}えてくる。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 予定表を書きかえたのは誰だ？
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "3つの{変更|へんこう}を{表|ひょう}にしたら、{全部|ぜんぶ}「{渓流|けいりゅう}→{展望台|てんぼうだい}」だった。{逆|ぎゃく}は1つもない。{安全基準|あんぜんきじゅん}と{天気予報|てんきよほう}を{合|あ}わせると、{変更|へんこう}した{人|ひと}は{雨|あめ}の{危険|きけん}を{知|し}っていたと{思|おも}う……"
+        expression: thinking
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "{渓流|けいりゅう}を{楽|たの}しみにしていた{班|はん}の{子|こ}たち、{朝|あさ}{来|き}たら{予定|よてい}が{変|か}わってて{驚|おどろ}いてた。{理由|りゆう}も{説明|せつめい}もなかったから、{余計|よけい}に{困惑|こんわく}してたよ……"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①3{件|けん}の{変更|へんこう}は{全部|ぜんぶ}「{渓流|けいりゅう}→{展望台|てんぼうだい}」。②{安全基準表|あんぜんきじゅんひょう}に「{雨天予報|うてんよほう}なら{渓流|けいりゅう}コース{禁止|きんし}」とある。③{追加|ついか}ハンドアウトで{前日夜|ぜんじつよる}の{降水確率|こうすいかくりつ}は70%。④{予定表|よていひょう}ファイルを{最後|さいご}に{確認|かくにん}したのはアユム。"
+      - type: choice
+        id: q1
+        question: 予定表を書きかえたのは誰？
+        options:
+          - text: アユム（予定表を最後に確認。安全のため3班を変更した）
+            value: ayumu
+            correct: true
+            feedback: "{正解|せいかい}！ アユムは{実行委員長|じっこういいんちょう}として{前日|ぜんじつ}の{夜|よる}に{天気予報|てんきよほう}を{確認|かくにん}し、{午後|ごご}から{雨|あめ}の{可能性|かのうせい}を{知|し}った。{安全基準|あんぜんきじゅん}では「{雨天予報|うてんよほう}なら{渓流|けいりゅう}{禁止|きんし}」と{決|き}まっていたため、{渓流|けいりゅう}を{選|えら}んでいた3{班|はん}を{展望台|てんぼうだい}へ{書|か}きかえた。みんなの{安全|あんぜん}を{守|まも}りたかったのだ。しかし{先生|せんせい}にも{班|はん}にも{相談|そうだん}せず、{独断|どくだん}で{変更|へんこう}してしまった。"
+          - text: ツムギ（パターン分析が得意で、変更を正当化できる知識がある）
+            value: tsumugi
+            feedback: "ツムギは{変更|へんこう}の{後|あと}でパターンを{分析|ぶんせき}する{役割|やくわり}。{実行委員長|じっこういいんちょう}でないツムギには{予定表|よていひょう}ファイルへのアクセスも{動機|どうき}もないよ。"
+          - text: マモル（安全基準表を知っていて、ルールに従って変更した）
+            value: mamoru
+            feedback: "マモルは{安全基準|あんぜんきじゅん}の{知識|ちしき}があるけど、{予定表|よていひょう}ファイルを{最後|さいご}に{確認|かくにん}したのはアユムだ。マモルには{変更|へんこう}を{実行|じっこう}できた{機会|きかい}がないよ。"
+          - text: ノゾミ（渓流を楽しみにしていた班を心配して変えた）
+            value: nozomi
+            feedback: "ノゾミは{渓流|けいりゅう}を{楽|たの}しみにしていた{班|はん}の{気持|きも}ちを{心配|しんぱい}している{側|がわ}だよ。{予定|よてい}を{変更|へんこう}する{立場|たちば}ではなく、むしろ{変更|へんこう}によって{困|こま}っている{人|ひと}の{声|こえ}を{代弁|だいべん}している。"
+
+  # ==================== 真実：アユムの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: アユムの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ayumu
+        expression: worried
+        position: center
+      - type: dialog
+        character: ayumu
+        text: "……{予定表|よていひょう}を{書|か}きかえたのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "アユムは{少|すこ}し{間|ま}を{置|お}いてから、{静|しず}かに{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: ayumu
+        text: "{金曜日|きんようび}の{夜|よる}、{天気予報|てんきよほう}を{見|み}たら{午後|ごご}から{雨|あめ}の{可能性|かのうせい}が70%だった。{実行委員長|じっこういいんちょう}として{安全基準表|あんぜんきじゅんひょう}を{知|し}っていた。「{雨天予報|うてんよほう}なら{渓流|けいりゅう}コース{禁止|きんし}」って{書|か}いてあった。"
+        expression: thinking
+      - type: dialog
+        character: ayumu
+        text: "{渓流|けいりゅう}で{事故|じこ}が{起|お}きたらどうしよう、って{思|おも}ったら{不安|ふあん}で{仕方|しかた}なかった。みんなの{安全|あんぜん}を{守|まも}るのが{実行委員長|じっこういいんちょう}の{仕事|しごと}だと{思|おも}って……{月曜日|げつようび}の{朝|あさ}{早|はや}く{来|き}て、{渓流|けいりゅう}の3{班|はん}の{予定|よてい}を{展望台|てんぼうだい}に{変|か}えた。"
+        expression: worried
+      - type: dialog
+        character: ayumu
+        text: "でも……{先生|せんせい}に{報告|ほうこく}もしなかった。{班|はん}にも{説明|せつめい}しなかった。「{安全|あんぜん}のためだから{大丈夫|だいじょうぶ}」って{思|おも}ったけど、{勝手|かって}に{決|き}めたのは{間違|まちが}いだった。"
+        expression: determined
+      - type: sprite
+        character: ayumu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "3つの{変更|へんこう}を{表|ひょう}にしたとき、「{何|なに}か{同|おな}じ{理由|りゆう}があるはずだ」と{感|かん}じてた。{安全基準表|あんぜんきじゅんひょう}を{見|み}て、アユムが{心配|しんぱい}していたのかもって{気|き}づいた。でも{先|さき}に{言|い}えばよかったな……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "{安全基準|あんぜんきじゅん}はルールとして{正|ただ}しい。でも{理由|りゆう}が{正|ただ}しくても、{手続|てつづ}きを{飛|と}ばしたら{問題|もんだい}になる。「{理由|りゆう}」と「{手続|てつづ}き」は{別|べつ}に{考|かんが}えないといけないと{改|あらた}めて{分|わ}かった。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "{金曜日|きんようび}の{帰|かえ}り、アユムが{予定表|よていひょう}の{前|まえ}でずっと{考|かんが}えこんでいた。「{何|なに}か{心配|しんぱい}ごとがあるのかな」って{思|おも}ったけど、{声|こえ}をかけなかった。あのとき{話|はな}を{聞|き}いてあげていたら、こうならなかったかもしれない。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "{安全|あんぜん}は{大切|たいせつ}。でも{渓流|けいりゅう}を{楽|たの}しみにしていた{班|はん}にも{説明|せつめい}してほしかった。みんなの{安全|あんぜん}とみんなの{納得|なっとく}、{両方|りょうほう}{大事|だいじだ}だよ。"
+        expression: determined
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "アユムの「みんなの{安全|あんぜん}を{守|まも}りたい」という{気持|きも}ちは{本当|ほんとう}に{素晴|すば}らしい。{実行委員長|じっこういいんちょう}としての{責任感|せきにんかん}をちゃんと{持|も}っていたのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{安全|あんぜん}のためであっても、{相談|そうだん}・{報告|ほうこく}・{承認|しょうにん}の{手順|てじゅん}は{必要|ひつよう}よ。{独断|どくだん}での{変更|へんこう}は、{仲間|なかま}の{納得|なっとく}と{信頼|しんらい}をこわしてしまうの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{帰納法|きのうほう}で{考|かんが}えてみよう。3つの{書|か}きかえを{並|なら}べると「{全部|ぜんぶ}{渓流|けいりゅう}→{展望台|てんぼうだい}」という{法則|ほうそく}が{見|み}えた。その{法則|ほうそく}から「{渓流|けいりゅう}をさけたい{理由|りゆう}がある」と{推理|すいり}できた。{複数|ふくすう}のデータをくらべると、{共通|きょうつう}パターンから{真実|しんじつ}が{見|み}えてくる。"
+      - type: narration
+        text: "{正|ただ}しい{理由|りゆう}があれば、{勝手|かって}に{動|うご}いていいわけではない。{安全|あんぜん}を{守|まも}る{行動|こうどう}でも、「{相談|そうだん}する・{報告|ほうこく}する・{承認|しょうにん}をもらう」という{手順|てじゅん}が{必要|ひつよう}だ。{手順|てじゅん}があることで、{仲間|なかま}は{納得|なっとく}し、{信頼|しんらい}がつながる。"
+      - type: narration
+        text: "アユムが{気|き}づいたこと——{リーダー|りーだー}の{善意|ぜんい}の{独断|どくだん}は、{仲間|なかま}の{信頼|しんらい}をこわすことがある。{急|いそ}いで{判断|はんだん}したくなるときこそ、{一言|ひとこと}{相談|そうだん}することが{大切|たいせつ}だ。"
+      - type: effect
+        name: fade-out

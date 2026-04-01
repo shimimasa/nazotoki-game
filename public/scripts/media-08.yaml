@@ -1,0 +1,376 @@
+meta:
+  id: media-08
+  title: 見出しの魔力
+  series: メディアリテラシー探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}{新聞|しんぶん}「ひまわりジャーナル」の{最新号|さいしんごう}が{配布|はいふ}された{月曜日|げつようび}。{新聞委員会|しんぶんいいんかい}の4人が{毎月|まいつき}{作|つく}っている{人気|にんき}の{新聞|しんぶん}だ。"
+      - type: narration
+        text: "ところが{今月号|こんげつごう}の{見出|みだ}しを{読|よ}んだ{瞬間|しゅんかん}、{校内|こうない}は大{騒|さわ}ぎになった。"
+      - type: narration
+        text: "「{衝撃|しょうげき}！ {田中|たなか}先生が{学校|がっこう}を{去|さ}る！」"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「えっ、{田中|たなか}先生がやめちゃうの！？」——{廊下|ろうか}でも{教室|きょうしつ}でも、みんながこの{話題|わだい}で{持|も}ちきりだ。{田中|たなか}先生のもとには「{本当|ほんとう}にやめるんですか？」と{生徒|せいと}が{殺到|さっとう}した。"
+      - type: narration
+        text: "ところが——{本文|ほんぶん}を{最後|さいご}まで{読|よ}んだマコトが{気|き}づいた。「{本文|ほんぶん}には『{担当|たんとう}{教科|きょうか}が{変|か}わる』としか{書|か}いていない。{学校|がっこう}をやめるなんて{一言|ひとこと}も{書|か}いていないよ」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{見出|みだ}しは「{学校|がっこう}を{去|さ}る」——でも{本文|ほんぶん}は「{担当|たんとう}{教科|きょうか}の{変更|へんこう}」。{見出|みだ}しと{本文|ほんぶん}がまるで{違|ちが}います。{誰|だれ}がこんな{見出|みだ}しを{書|か}いたのか、{調査|ちょうさ}してください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: makoto
+            expression: thinking
+          - character: nozomu
+            expression: surprised
+          - character: shiori
+            expression: worried
+          - character: akari
+            expression: worried
+      - type: narration
+        text: "4人は{顔|かお}を{見合|みあ}わせた。{見出|みだ}しと{本文|ほんぶん}がこんなに{違|ちが}う——いったい{誰|だれ}が、なぜ書き換えたのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 見出しの魔力
+        subtitle: メディアリテラシー探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 見出しを読んでみよう
+      - type: narration
+        text: "「ひまわりジャーナル」3{月号|がつごう}の{表紙|ひょうし}に、{大|おお}きな{文字|もじ}で{見出|みだ}しが{書|か}かれている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{衝撃|しょうげき}！ {田中|たなか}先生が{学校|がっこう}を{去|さ}る！」——{田中|たなか}先生の{写真|しゃしん}と、{大|おお}きな「！」マークがついている。"
+      - type: narration
+        text: "{校内|こうない}の{反応|はんのう}: ノゾム「えっ、{田中|たなか}先生やめるの！？」 / 3{年生|ねんせい}のミサキ「{嘘|うそ}でしょ！」 / {田中|たなか}先生のもとに{生徒|せいと}が{殺到|さっとう}して、先生も{困|こま}っていた。"
+      - type: narration
+        text: "{見出|みだ}しを{読|よ}んだ{生徒|せいと}の{多|おお}くが「{田中|たなか}先生が{退職|たいしょく}する」と{解釈|かいしゃく}した。「{学校|がっこう}を{去|さ}る」——{本当|ほんとう}にそういう{意味|いみ}なのだろうか？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 本文を確認しよう
+      - type: narration
+        text: "「ひまわりジャーナル」の{記事|きじ}{本文|ほんぶん}（ノゾムが{執筆|しっぴつ}）を{読|よ}んでみる。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{田中|たなか}先生は4月から{担当|たんとう}{教科|きょうか}が{変|か}わります。これまで{理科|りか}を{教|おし}えていた{田中|たなか}先生が、4月からは{算数|さんすう}を{担当|たんとう}することになりました」"
+      - type: narration
+        text: "「{田中|たなか}先生は『{算数|さんすう}も{楽|たの}しい{教科|きょうか}です。{新|あたら}しい{挑戦|ちょうせん}を{楽|たの}しみにしています』と{笑顔|えがお}で{話|はな}してくれました。{田中|たなか}先生は{引|ひ}き{続|つづ}き、ひまわり{小学校|しょうがっこう}で{教|おし}えます」"
+      - type: narration
+        text: "{見出|みだ}しと{本文|ほんぶん}を{比|くら}べると——{見出|みだ}し「{学校|がっこう}を{去|さ}る」vs{本文|ほんぶん}「{担当|たんとう}{教科|きょうか}が{変|か}わる」。{見出|みだ}しだけ{読|よ}んだ人と、{本文|ほんぶん}まで{読|よ}んだ人で{受|う}ける{印象|いんしょう}がまるで{違|ちが}う。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 制作タイムラインを調べよう
+      - type: narration
+        text: "「ひまわりジャーナル」3{月号|がつごう}の{制作|せいさく}スケジュール。{新聞委員会|しんぶんいいんかい}の{活動|かつどう}{記録|きろく}から{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{役割分担|やくわりぶんたん}: シオリ（{編集長|へんしゅうちょう}・{見出|みだ}し・{最終|さいしゅう}チェック）、ノゾム（{記者|きしゃ}・{本文|ほんぶん}{執筆|しっぴつ}）、マコト（{校正|こうせい}{担当|たんとう}）、アカリ（レイアウト{担当|たんとう}）。"
+      - type: narration
+        text: "{制作|せいさく}タイムライン: {月曜日|げつようび}={取材|しゅざい}、{水曜日|すいようび}={本文|ほんぶん}{完成|かんせい}、{木曜日|もくようび}={校正|こうせい}・レイアウト、{金曜日|きんようび}（{締|し}め{切|き}り）={見出|みだ}しを{最後|さいご}に{書|か}いて{印刷|いんさつ}。"
+      - type: narration
+        text: "{注目|ちゅうもく}ポイント: {見出|みだ}しは{制作|せいさく}の{最後|さいご}（{金曜日|きんようび}）に{書|か}かれた。{見出|みだ}しの{担当|たんとう}は{編集長|へんしゅうちょう}のシオリ。{本文|ほんぶん}を{書|か}いたノゾムは{見出|みだ}しに{関|かか}わっていない。{見出|みだ}しを{書|か}いたのは{誰|だれ}？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: メンバーの証言を聞こう
+      - type: narration
+        text: "{新聞委員会|しんぶんいいんかい}のメンバーと山田先生に{話|はなし}を聞いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ノゾムの{証言|しょうげん}: 「{僕|ぼく}が{書|か}いた{本文|ほんぶん}には『{担当|たんとう}{教科|きょうか}が{変|か}わる』って{書|か}いた。{田中|たなか}先生のインタビューをそのまま{書|か}いた。{見出|みだ}しは{編集長|へんしゅうちょう}が{最後|さいご}につけるから{僕|ぼく}じゃないよ」"
+      - type: narration
+        text: "マコトの{証言|しょうげん}: 「{木曜日|もくようび}に{校正|こうせい}したとき{本文|ほんぶん}は{事実|じじつ}どおりだった。でも{金曜日|きんようび}の{見出|みだ}しは{確認|かくにん}できなかった。{締|し}め{切|き}りギリギリで{印刷|いんさつ}されたから」"
+      - type: narration
+        text: "アカリの{証言|しょうげん}: 「{写真|しゃしん}と{配置|はいち}は{木曜日|もくようび}に{終|お}わらせた。{金曜日|きんようび}に{見出|みだ}しが{入|はい}ったのをチラッと見たけど、{中身|なかみ}までは{読|よ}まなかった。{印刷|いんさつ}{直前|ちょくぜん}で{忙|いそが}しかったから」"
+      - type: narration
+        text: "山田先生の{報告|ほうこく}: 「{編集長|へんしゅうちょう}の{下書|したが}きノートが{見|み}つかりました。{最初|さいしょ}の{見出|みだ}しは{今|いま}のものとは{違|ちが}ったようです」——{提出|ていしゅつ}{直前|ちょくぜん}に{書|か}き{換|か}えられた？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: シオリの下書きノート
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{新聞委員会|しんぶんいいんかい}の{活動室|かつどうしつ}から、{編集長|へんしゅうちょう}シオリの{下書|したが}きノートが{見|み}つかりました。{時刻|じこく}まで{書|か}いてあります。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{金曜日|きんようび}14:00「{田中|たなか}先生の{担当|たんとう}が{変|か}わります」→ 15:00「{田中|たなか}先生、{新|あたら}しい{挑戦|ちょうせん}へ」→ 15:30「{衝撃|しょうげき}！ {学校|がっこう}を{去|さ}る！」。メモには——「{読|よ}んでもらわなきゃ{意味|いみ}がない」"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{締|し}め{切|き}り30分前に{見出|みだ}しが「{衝撃|しょうげき}！ {学校|がっこう}を{去|さ}る！」に{書|か}き{換|か}えられた！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{最初|さいしょ}の{見出|みだ}しは「{担当|たんとう}が{変|か}わります」——{本文|ほんぶん}と{一致|いっち}していた。なのに{焦|あせ}りの中で「インパクト」を{優先|ゆうせん}してしまったのだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 見出しを書き換えたのは誰だ？
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{本文|ほんぶん}は{木曜日|もくようび}に{校正|こうせい}した。{事実|じじつ}どおりで{問題|もんだい}なかった。でも{金曜日|きんようび}の{見出|みだ}しは{確認|かくにん}できなかった——{締|し}め{切|き}りギリギリだったから。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: right
+      - type: dialog
+        character: akari
+        text: "{先月|せんげつ}の{新聞|しんぶん}があまり{読|よ}まれなくて、シオリが「{来月|らいげつ}こそ{読|よ}んでもらえる{新聞|しんぶん}にしたい」って{悔|くや}しそうにしてたの。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{見出|みだ}しの{担当|たんとう}はシオリ（{編集長|へんしゅうちょう}）。{下書|したが}きノートには15:30に「{衝撃|しょうげき}！ {学校|がっこう}を{去|さ}る！」への{書|か}き{換|か}え。メモ「{読|よ}んでもらわなきゃ{意味|いみ}がない」。{他|ほか}の3人は{見出|みだ}しの{制作|せいさく}に{関|かか}わっていない——"
+      - type: choice
+        id: q1
+        question: 見出しを書き換えたのは誰？
+        options:
+          - text: シオリ（編集長で見出し担当。下書きノートに書き換えの跡）
+            value: shiori
+            correct: true
+            feedback: "{正解|せいかい}！ {編集長|へんしゅうちょう}のシオリが、{締|し}め{切|き}り30分前の{焦|あせ}りから「{読|よ}んでもらわなきゃ{意味|いみ}がない」と{思|おも}い、{正確|せいかく}な{見出|みだ}しをクリックベイトに{書|か}き{換|か}えてしまった。{悪意|あくい}はなかったが、{焦|あせ}りが{情報|じょうほう}の{質|しつ}を{落|お}とした。"
+          - text: マコト（木曜日に校正を担当していた）
+            value: makoto
+            feedback: "マコトは{木曜日|もくようび}までの{校正|こうせい}{担当|たんとう}。{金曜日|きんようび}の{見出|みだ}しは{確認|かくにん}していないよ。{見出|みだ}しの{制作|せいさく}には{関|かか}わっていない。"
+          - text: ノゾム（記者で本文を執筆した）
+            value: nozomu
+            feedback: "ノゾムは{本文|ほんぶん}{担当|たんとう}。「{見出|みだ}しは{編集長|へんしゅうちょう}が{最後|さいご}につける」ルールだから、{見出|みだ}しの{制作|せいさく}には{関|かか}わっていないよ。"
+          - text: アカリ（レイアウト担当で金曜日に見出しを見た）
+            value: akari
+            feedback: "アカリは{写真|しゃしん}と{配置|はいち}の{担当|たんとう}。{金曜日|きんようび}に{見出|みだ}しが{入|はい}ったのを「チラッと見た」だけで、{中身|なかみ}は{決|き}めていない。{レイアウト|れいあうと}と{見出|みだ}しは{別|べつ}の{担当|たんとう}だよ。"
+
+  # ==================== 真実：シオリ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: シオリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: shiori
+        expression: worried
+        position: center
+      - type: dialog
+        character: shiori
+        text: "……{書|か}き{換|か}えたのは、{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: "シオリは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: shiori
+        text: "{金曜日|きんようび}の{締|し}め{切|き}りが{迫|せま}っていた。{先月号|せんげつごう}があまり{読|よ}まれなくて……「{今月|こんげつ}こそ{読|よ}んでもらいたい」って{気持|きも}ちが{強|つよ}くて。"
+        expression: thinking
+      - type: dialog
+        character: shiori
+        text: "「{読|よ}んでもらわなきゃ{意味|いみ}がない」——そう{思|おも}って「{学校|がっこう}を{去|さ}る」に{書|か}き{換|か}えた。{理科|りか}の{担当|たんとう}を「{去|さ}る」という{意味|いみ}のつもりで……でも{読|よ}んだ人が「{退職|たいしょく}」と{解釈|かいしゃく}するとは{思|おも}わなかった。"
+        expression: worried
+      - type: dialog
+        character: shiori
+        text: "{嘘|うそ}をつくつもりじゃなかった。でも{焦|あせ}って「インパクト」を{選|えら}んだら、{正確|せいかく}さが{消|き}えてしまった。"
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomu
+        text: "{田中|たなか}先生のインタビューで「{学校|がっこう}をやめるわけじゃないよ」って{言|い}ってたのに……{僕|ぼく}の{本文|ほんぶん}まで{全然|ぜんぜん}{違|ちが}う{記事|きじ}みたいに{見|み}えてしまった。{記者|きしゃ}として{悔|くや}しいよ。"
+        expression: worried
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: makoto
+        text: "{最初|さいしょ}に{入|はい}った{印象|いんしょう}が{強|つよ}いと、あとから{本文|ほんぶん}を{読|よ}んでも{引|ひ}きずられる。これが「{確証|かくしょう}バイアス」だね。{見出|みだ}しで「{退職|たいしょく}」と{思|おも}い{込|こ}んだら、{本文|ほんぶん}の「{引|ひ}き{続|つづ}き{教|おし}える」がすぐ{頭|あたま}に{入|はい}ってこなかった。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "{田中|たなか}先生に「大丈夫ですか？」って{聞|き}きに{行|い}ったら、{笑|わら}いながらも「{困|こま}ったなあ。やめないんだけどなあ」って。{見出|みだ}し1つで{名前|なまえ}を{出|だ}された先生まで{傷|きず}ついてしまうんだ。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "シオリの「{読|よ}んでもらいたい」という{気持|きも}ちは{素晴|すば}らしい。{新聞|しんぶん}の{役割|やくわり}を{真剣|しんけん}に{考|かんが}えていたから{悔|くや}しかったのね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも「{読|よ}まれること」と「{正確|せいかく}であること」の{両方|りょうほう}を{守|まも}ることが、{本当|ほんとう}の{編集長|へんしゅうちょう}の{仕事|しごと}よ。{焦|あせ}ったときほど、{見出|みだ}しと{本文|ほんぶん}を{見比|みくら}べる{習慣|しゅうかん}をつけましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{衝撃|しょうげき}！」「{驚|おどろ}き！」という{言葉|ことば}のついた{見出|みだ}しを{見|み}たとき、人の{脳|のう}は「{大事|たいじ}なことが{起|お}きた！」と{信|しん}じてしまう。これが「{確証|かくしょう}バイアス」の{入|い}り口だ。"
+      - type: narration
+        text: "{見出|みだ}しで「{退職|たいしょく}」と{思|おも}い{込|こ}んだ{後|あと}に{本文|ほんぶん}を{読|よ}んでも、「{担当|たんとう}{変更|へんこう}」という{事実|じじつ}がすぐに{頭|あたま}に{入|はい}ってこない。{先|さき}に{入|はい}った{情報|じょうほう}が、{後|あと}の{判断|はんだん}を{歪|ゆが}めてしまう。"
+      - type: narration
+        text: "{強|つよ}い{言葉|ことば}ほど{本文|ほんぶん}と{見比|みくら}べる——その{習慣|しゅうかん}を{持|も}てば、どんな{記事|きじ}も{正確|せいかく}に{読|よ}むことができる。"
+      - type: effect
+        name: fade-out

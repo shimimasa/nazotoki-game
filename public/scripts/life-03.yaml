@@ -1,0 +1,410 @@
+meta:
+  id: life-03
+  title: しおれた花だん
+  series: 生命探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学級|がっきゅう}{花|はな}だんは4つの{区画|くかく}に{分|わ}かれていて、4{人|にん}でそれぞれ{世話|せわ}をしている。{同|おな}じ{日|ひ}に、{同|おな}じたねをまいて、{毎日|まいにち}{水|みず}やりもしていた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{今週|こんしゅう}、カケルの{区画|くかく}だけ{植物|しょくぶつ}が{葉|は}をしおれさせてしまった！ {他|ほか}の3{区画|くかく}は{元気|げんき}なのに——。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{水|みず}やり{記録|きろく}を{見|み}ると、カケルは{毎日|まいにち}○がついています。でも{金曜日|きんようび}の{朝|あさ}、カケルの{区画|くかく}の{土|つち}はかなりぬれていて、{葉|は}はしおれていました。{理由|りゆう}が{見|み}えません。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: thinking
+          - character: kakeru
+            expression: worried
+          - character: shizuku
+            expression: thinking
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{水|みず}やりをさぼったの？」「でも{記録|きろく}は{毎日|まいにち}ついてるよ？」——{答|こた}えはどこにある？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: しおれた花だん
+        subtitle: 生命探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 区画のようすメモを確認しよう
+      - type: narration
+        text: "{金曜日|きんようび}の{朝|あさ}、{生命探偵団|せいめいたんていだん}は{花|はな}だんを{詳|くわ}しく{観察|かんさつ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カケルの{区画|くかく}だけ{葉|は}がしおれている。{他|ほか}の3{区画|くかく}は{元気|げんき}だ。"
+      - type: narration
+        text: "{土|つち}はカケルの{区画|くかく}だけかなりしめっている。{葉|は}がしおれているのに、{土|つち}はぬれている——これはどういうことだろう？"
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "おかしくない？ {水|みず}が{足|た}りないなら{土|つち}がかわくはずなのに、カケルの{区画|くかく}の{土|つち}はずっとぬれてる。{水|みず}が{足|た}りないのとは{別|べつ}の{何|なに}かが{起|お}きてるのかも。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "{シズク|しずく}の{言|い}う{通|とお}り。「しおれている＝{水|みず}が{足|た}りない」とは{限|かぎ}らない。{別|べつ}の{理由|りゆう}があるかもしれない。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 水やり記録表を確認しよう
+      - type: narration
+        text: "{水|みず}やり{記録表|きろくひょう}を{取|と}り{出|だ}した。{月曜日|げつようび}から{木曜日|もくようび}まで4{日間|にちかん}の{記録|きろく}がある。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カケル —— 月・火・水・木、{毎日|まいにち}「2」が{記録|きろく}されている（じょうろ1{杯|はい}）。"
+      - type: narration
+        text: "イノリ・シズク・ミコト —— {毎日|まいにち}「1」が{記録|きろく}されている（じょうろ{半分|はんぶん}）。"
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "{数字|すうじ}が{違|ちが}う！ カケルだけ{毎日|まいにち}「2」——{他|ほか}の{人|ひと}の{倍|ばい}の{量|りょう}を{入|い}れてる。ここに{何|なに}かある{気|き}がする……"
+        expression: thinking
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "カケルの{水|みず}やり{量|りょう}は{他|ほか}の{人|ひと}の{倍|ばい}。{毎日|まいにち}{続|つづ}いていた。これは{重要|じゅうよう}な{手|て}がかりだ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 区画別の日当たり表を確認しよう
+      - type: narration
+        text: "{区画|くかく}ごとの{日当|ひあ}たりを{記録|きろく}した{表|ひょう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カケルの{区画|くかく} —— {午後|ごご}によく{日|ひ}が{当|あ}たる。{他|ほか}の{区画|くかく} —— {午前|ごぜん}〜{昼|ひる}にほどよく{当|あ}たる。"
+      - type: narration
+        text: "{日|ひ}が{当|あ}たると{土|つち}から{水|みず}が{蒸発|じょうはつ}しやすくなる。でもカケルの{区画|くかく}は{午後|ごご}に{日|ひ}が{当|あ}たるのに、{土|つち}は{金曜|きんよう}{朝|あさ}もまだぬれていた。"
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "{記録表|きろくひょう}と{日当|ひあ}たり{表|ひょう}を{合|あ}わせてみると……カケルの{区画|くかく}は{水|みず}が{多|おお}くて、しかも{蒸発|じょうはつ}しにくい{条件|じょうけん}がかさなってる？"
+        expression: thinking
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "2{枚|まい}のカードを{組|く}み{合|あ}わせると{新|あたら}しい{意味|いみ}が{見|み}えてきた。{水|みず}の{量|りょう}が{多|おお}く、{土|つち}がずっとぬれている{状態|じょうたい}が{続|つづ}いた——それが{問題|もんだい}なのかもしれない。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 木曜帰りの目撃メモを確認しよう
+      - type: narration
+        text: "{木曜日|もくようび}の{帰|かえ}り{際|ぎわ}、{花|はな}だんの{近|ちか}くで{目撃|もくげき}された{場面|ばめん}がある。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カケルが{木曜|もくよう}の{帰|かえ}り、もう1{回|かい}{水|みず}をかけていた。「もっと{元気|げんき}になるといいな」と{言|い}っていた。"
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "わたし{見|み}てた……カケルが「{元気|げんき}がない{気|き}がして」って{言|い}いながら、もう1{回|かい}{水|みず}をあげてた。{植物|しょくぶつ}のことを{心配|しんぱい}して——やさしさからだよ。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "つまり{木曜日|もくようび}だけで、カケルは{記録表|きろくひょう}の「2」に{加|くわ}えてさらに{追加|ついか}で{水|みず}をかけた。{植物|しょくぶつ}への{思|おも}いは{本物|ほんもの}——でも{結果|けっか}はどうなった？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 根と土の点検結果
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "GMが{新|あたら}しい{手|て}がかりを{発表|はっぴょう}した。カケルの{区画|くかく}の{根|ね}と{土|つち}の{中|なか}を{点検|てんけん}した{結果|けっか}が{明|あ}らかになる——。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カケルの{区画|くかく}の{根|ね}は{先|さき}が{黒|くろ}っぽくなっている。{土|つち}は{表面|ひょうめん}だけでなく{中|なか}までしめっている。{先生|せんせい}メモ: {水|みず}が{多|おお}すぎると{根|ね}が{苦|くる}しくなることがある。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{水|みず}が{足|た}りない」のではなく——「{水|みず}が{多|おお}すぎた」！ {土|つち}の{中|なか}に{水|みず}がたまりすぎると、{根|ね}が{空気|くうき}をすえなくなって{弱|よわ}ってしまう。これを「{根腐|ねぐさ}れ」という。"
+      - type: sprite
+        character: shizuku
+        expression: determined
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "{根|ね}の{先|さき}が{黒|くろ}っぽいのは{根腐|ねぐさ}れの{形跡|けいせき}だ。{水|みず}やり{量|りょう}2{倍|ばい}＋{追加|ついか}{水|みず}やり＋{土|つち}の{中|なか}まで{湿|しめ}った——{因果|いんが}がつながった！"
+        expression: determined
+      - type: sprite
+        character: shizuku
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 花だんがしおれた理由は？
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "{水|みず}やり{記録|きろく}のカケルの{数字|すうじ}は{毎日|まいにち}2。{他|ほか}の{人|ひと}は1。4{日間|にちかん}{続|つづ}いて、{木曜|もくよう}には{追加|ついか}までした。{土|つち}の{中|なか}まで{水|みず}がたまり{続|つづ}けた。"
+        expression: thinking
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "カケルの{気持|きも}ちは「{守|まも}りたい」だったのに、{結果|けっか}は{逆|ぎゃく}になってしまった……「たくさんしてあげる」が、いつも{正|ただ}しいとは{限|かぎ}らないのかな。"
+        expression: thinking
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。カケルは{毎日|まいにち}{他|ほか}の{倍|ばい}の{水|みず}をやっていた。{木曜|もくよう}にはさらに{追加|ついか}した。{根|ね}は{黒|くろ}っぽくなり、{土|つち}は{中|なか}までぬれていた——「{根腐|ねぐさ}れ」の{状態|じょうたい}だ。"
+      - type: choice
+        id: q1
+        question: 花だんをしおれさせた大きな原因を作ったのは誰？
+        options:
+          - text: カケル（毎日2倍の水やり＋木曜に追加で水をかけた）
+            value: kakeru
+            correct: true
+            feedback: "{正解|せいかい}！ カケルは「{元気|げんき}にしたい」という{思|おも}いから{毎日|まいにち}{他|ほか}の{倍|ばい}の{水|みず}をやり、{木曜日|もくようび}には{追加|ついか}でもかけた。{水|みず}が{多|おお}すぎて{根|ね}が{空気|くうき}をすえなくなり、{根腐|ねぐさ}れを{起|お}こしていた。やさしさが{裏目|うらめ}に{出|で}てしまった。"
+          - text: イノリ（記録を見て、問題に気づけなかった）
+            value: inori
+            feedback: "イノリは{記録表|きろくひょう}をきちんと{見|み}て{数字|すうじ}のちがいに{気|き}づいていた。{問題|もんだい}の{原因|げんいん}を{作|つく}ったわけではないよ。"
+          - text: シズク（土のようすを早くに報告しなかった）
+            value: shizuku
+            feedback: "{シズク|しずく}は{土|つち}のぬれ{方|かた}や{根|ね}の{色|いろ}に{気|き}づいていた{観察型|かんさつがた}。{水|みず}の{量|りょう}を{決|き}めたわけではないよ。"
+          - text: ミコト（木曜に追加水やりを止めなかった）
+            value: mikoto
+            feedback: "ミコトは{木曜日|もくようび}の{追加|ついか}{水|みず}やりを{目撃|もくげき}して、カケルの{気持|きも}ちに{気|き}づいていた。でも{水|みず}やり{量|りょう}を{決|き}めたのはカケルだよ。"
+
+  # ==================== 真実：カケル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: カケルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kakeru
+        text: "……{自分|じぶん}でも、どうしてしおれたか{分|わ}からなかった。{毎日|まいにち}ちゃんと{水|みず}やりしてたのに——。"
+        expression: worried
+      - type: narration
+        text: "カケルは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: kakeru
+        text: "「{水|みず}は{多|おお}い{方|ほう}が{元気|げんき}になる」って{思|おも}ってた。だから{他|ほか}の{人|ひと}より{多|おお}くあげた。{木曜日|もくようび}、{葉|は}が{少|すこ}し{元気|げんき}なさそうに{見|み}えて……もう1{回|かい}かけた。"
+        expression: thinking
+      - type: dialog
+        character: kakeru
+        text: "{植物|しょくぶつ}を{守|まも}りたかった。{根腐|ねぐさ}れなんて{知|し}らなかった。{水|みず}が{多|おお}すぎると{根|ね}が{苦|くる}しくなるなんて——{逆|ぎゃく}になるとは{思|おも}わなかった。"
+        expression: determined
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: inori
+        expression: worried
+        position: left
+      - type: dialog
+        character: inori
+        text: "{実|じつ}は……{水|みず}やり{記録|きろく}の{数字|すうじ}がちがうのに、{最初|さいしょ}はすぐ{言|い}えなかった。{数字|すうじ}だけで{決|き}めつけるのがこわくて……{言|い}えていたら、もっと{早|はや}く{気|き}づけたかもしれない。ごめん。"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "「しおれているのに{土|つち}がぬれてる」——{最初|さいしょ}から{変|へん}だと{思|おも}ってた。{水|みず}{不足|ぶそく}じゃないなら、{反対|はんたい}に{何|なに}かが{起|お}きてるって。でも{言葉|ことば}にするのに{時間|じかん}がかかった。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: mikoto
+        text: "カケルは{植物|しょくぶつ}を{大切|たいせつ}にしてた。それは{本当|ほんとう}のこと。でも「たくさんしてあげる」が{苦|くる}しめることになるなんて……{植物|しょくぶつ}さん、ごめんね。"
+        expression: worried
+      - type: dialog
+        character: mikoto
+        text: "「{守|まも}りたい{気持|きも}ち」と「{正|ただ}しい{方法|ほうほう}」は{別々|べつべつ}に{考|かんが}えないといけないんだね。"
+        expression: determined
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カケルの「{元気|げんき}にしてあげたい」という{気持|きも}ちは{素晴|すば}らしいわ。{植物|しょくぶつ}への{愛情|あいじょう}があるから{多|おお}くあげたかったのよね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{植物|しょくぶつ}には「ちょうどいい{量|りょう}」がある。{水|みず}も{日光|にっこう}も{土|つち}も、{多|おお}すぎても{少|すく}なすぎてもいけないの。{命|いのち}を{守|まも}るには、{気持|きも}ちだけでなく、{正|ただ}しい{量|りょう}や{条件|じょうけん}を{知|し}ることが{必要|ひつよう}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{植物|しょくぶつ}が{育|そだ}つには{水|みず}・{日光|にっこう}・{土|つち}の3つの{条件|じょうけん}が{必要|ひつよう}だ。でも、どれかが{多|おお}すぎても{少|すく}なすぎても{問題|もんだい}が{起|お}きる。{水|みず}がたまりすぎると{根|ね}が{空気|くうき}をすえなくなる——これが「{根腐|ねぐさ}れ」だ。"
+      - type: narration
+        text: "{水|みず}やり{記録|きろく}と{日当|ひあ}たり{表|ひょう}を{組|く}み{合|あ}わせることで、「{量|りょう}が{多|おお}すぎた」という{原因|げんいん}が{見|み}えてきた。1{枚|まい}のカードだけでは{分|わ}からなかったことが、2{枚|まい}を{重|かさ}ねることで{浮|う}かび{上|あ}がる。"
+      - type: narration
+        text: "「たくさん」と「ちょうどいい」は{違|ちが}う。{守|まも}りたい{気持|きも}ちは{大切|たいせつ}——でも、その{使|つか}い{方|かた}が{正|ただ}しくないと、{逆|ぎゃく}に{傷|きず}つけてしまうことがある。カケルの{経験|けいけん}が、みんなへの{学|まな}びになった。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,436 @@
+meta:
+  id: media-07
+  title: 消えた記事
+  series: メディアリテラシー探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}2{組|くみ}では、{学校|がっこう}ブログ「ひまわりタイムズ」を{運営|うんえい}していた。{遠足|えんそく}のこと、{給食|きゅうしょく}のこと——いろんな{記事|きじ}をみんなで{書|か}いて、{保護者|ほごしゃ}や{他|ほか}のクラスの{人|ひと}にも{読|よ}んでもらっていた。"
+      - type: narration
+        text: "これまでに10{本|ほん}の{記事|きじ}を{公開|こうかい}していた。ところが——"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: makoto
+        expression: surprised
+        position: center
+      - type: dialog
+        character: makoto
+        text: "あれ？ {記事|きじ}が9{本|ほん}しかない。1, 2, 3, 4, 5, 6, 8, 9, 10……7{番|ばん}がない！"
+        expression: surprised
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: narration
+        text: "マコトが{記事|きじ}一{覧|らん}を{見|み}て{気|き}づいた。「{前|まえ}は10{本|ほん}あったはずなのに。{記事|きじ}7はどこにいったんだろう？」"
+      - type: narration
+        text: "{更新|こうしん}ログを{調|しら}べると、{木曜日|もくようび}の16:20に{記事|きじ}7が{削除|さくじょ}されていた。タイトルは「{遠足|えんそく}のハプニング{大賞|たいしょう}！」——でも、{誰|だれ}がなぜ{消|け}したのかは{分|わ}からない。"
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{放課後|ほうかご}の16:20に{記事|きじ}7が{削除|さくじょ}されました。ブログの{管理|かんり}{画面|がめん}にアクセスできるのは、パソコン{室|しつ}のパソコンだけです。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "メディアリテラシー{探偵団|たんていだん}の{皆|みな}さん、{消|き}えた{記事|きじ}の{真相|しんそう}を{解明|かいめい}してください。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: makoto
+            expression: thinking
+          - character: nozomu
+            expression: surprised
+          - character: shiori
+            expression: worried
+          - character: akari
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が{記事|きじ}を{消|け}したのか。「あるべきものがない」——この{謎|なぞ}を{解|と}くことが、{今回|こんかい}のミッションだ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた記事
+        subtitle: メディアリテラシー探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 記事一覧の欠番を確認しよう
+      - type: narration
+        text: "「ひまわりタイムズ」の{記事|きじ}一{覧|らん}を{調|しら}べた。{番号|ばんごう}は{自動|じどう}で{振|ふ}られる——つまり、{欠番|けつばん}があるということは{記事|きじ}が{削除|さくじょ}された{証拠|しょうこ}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{記事|きじ}1「5{年|ねん}2{組|くみ}スタート！」（4{月|がつ}15{日|にち}）から{記事|きじ}6「{夏休|なつやす}みの{自由|じゆう}{研究|けんきゅう}{発表|はっぴょう}」（9{月|がつ}8{日|にち}）まで{連続|れんぞく}している。"
+      - type: narration
+        text: "ところが——{記事|きじ}7の{欄|らん}は{空白|くうはく}。{記事|きじ}8「{学習|がくしゅう}{発表会|はっぴょうかい}の{準備|じゅんび}」（10{月|がつ}20{日|にち}）へと{直接|ちょくせつ}{飛|と}んでいる。"
+      - type: narration
+        text: "6{番|ばん}（9{月|がつ}8{日|にち}）と8{番|ばん}（10{月|がつ}20{日|にち}）の{間|あいだ}に{記事|きじ}が1{本|ほん}あったはずだ。「ないものに{気|き}づく」——これが{今回|こんかい}の{推理|すいり}の{出発点|しゅっぱつてん}。"
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{記事|きじ}{番号|ばんごう}が{飛|と}んでいる。7{番|ばん}がない。{削除|さくじょ}されたということは、{誰|だれ}かが{意図的|いとてき}に{消|け}したはず。{更新|こうしん}ログを{確認|かくにん}しよう。"
+        expression: determined
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 更新ログで削除時刻を調べよう
+      - type: narration
+        text: "山田{先生|せんせい}がブログの{更新|こうしん}ログを{印刷|いんさつ}してくれた。{直近|ちょっきん}2{週間|しゅうかん}分の{記録|きろく}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "先々{週|しゅう}の{火曜日|かようび} 15:30 —— {記事|きじ}7「{遠足|えんそく}のハプニング{大賞|たいしょう}！」を{公開|こうかい}。{記事|きじ}{担当|たんとう}はシオリ。"
+      - type: narration
+        text: "先々{週|しゅう}の{水曜日|すいようび} 12:10 —— {閲覧|えつらん}{数|すう}45→78に{増加|ぞうか}。クラスメイトに{大人気|だいにんき}だった。"
+      - type: narration
+        text: "先{週|しゅう}の{木曜日|もくようび} 16:20 —— {記事|きじ}7が{削除|さくじょ}。{更新|こうしん}ログには「{誰|だれ}が」{操作|そうさ}したかは{記録|きろく}されていない。"
+      - type: narration
+        text: "{削除|さくじょ}するにはパソコン{室|しつ}でブログの{管理|かんり}{画面|がめん}にログインする{必要|ひつよう}がある。つまり、{木曜日|もくようび}の16:20にパソコン{室|しつ}にいた{人|ひと}が{怪|あや}しい。"
+      - type: sprite
+        character: shiori
+        expression: worried
+        position: right
+      - type: dialog
+        character: shiori
+        text: "{私|わたし}が{書|か}いた{記事|きじ}が{勝手|かって}に{消|け}されたの……？ {更新|こうしん}ログを{全部|ぜんぶ}{確認|かくにん}すれば、いつ・{何|なに}が{起|お}きたか{分|わ}かるはず。ソースは？"
+        expression: worried
+      - type: sprite
+        character: shiori
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 木曜放課後の行動表を照合しよう
+      - type: narration
+        text: "先{週|しゅう}の{木曜日|もくようび}の{放課後|ほうかご}、4{人|にん}がどこにいたかの{記録|きろく}を{調|しら}べた。{削除|さくじょ}は16:20——この{時刻|じこく}にパソコン{室|しつ}にいた{人|ひと}を{絞|しぼ}り{込|こ}む。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マコト —— 15:50〜16:30、{図書室|としょしつ}で{調|しら}べもの。16:20は{図書室|としょしつ}にいた。→ パソコン{室|しつ}には{行|い}っていない。"
+      - type: narration
+        text: "ノゾム —— 16:00にパソコン{室|しつ}に{移動|いどう}。16:10〜16:30は**パソコン{室|しつ}で{作業|さぎょう}**。→ 16:20にパソコン{室|しつ}にいた！"
+      - type: narration
+        text: "シオリ —— {図書室|としょしつ}で{読書|どくしょ}の後、16:20に{昇降口|しょうこうぐち}を{通|とお}って{下校|げこう}。→ 16:20にパソコン{室|しつ}にはいない。"
+      - type: narration
+        text: "アカリ —— {家庭科室|かていかしつ}で{係|かかり}{活動|かつどう}の後、16:15に{下校|げこう}。→ すでに{下校|げこう}{済|ず}み。"
+      - type: narration
+        text: "{削除|さくじょ}{時刻|じこく}16:20にパソコン{室|しつ}にいた{可能性|かのうせい}があるのは**ノゾムだけ**。でも「パソコン{室|しつ}にいた」と「{記事|きじ}を{消|け}した」は{同|おな}じこと？ ログイン{記録|きろく}も{確認|かくにん}しよう。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ログイン記録でアカウントを特定しよう
+      - type: narration
+        text: "ブログの{管理|かんり}{画面|がめん}には、4{人|にん}の{探偵団|たんていだん}メンバーがそれぞれ{自分|じぶん}のアカウントでログインできる。{木曜日|もくようび}のログイン{記録|きろく}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "15:35 —— shiori-account がログイン。{記事|きじ}9の{下書|したが}きを{編集|へんしゅう}し、15:45にログアウト。"
+      - type: narration
+        text: "16:18 —— nozomu-account がログイン。"
+      - type: narration
+        text: "16:20 —— そのセッション{内|ない}で{記事|きじ}7が{削除|さくじょ}。"
+      - type: narration
+        text: "16:25 —— nozomu-account がログアウト。マコトとアカリのアカウントは{木曜日|もくようび}にログイン{記録|きろく}なし。"
+      - type: narration
+        text: "{削除|さくじょ}の2{分|ふん}{前|まえ}（16:18）にノゾムのアカウントでログイン。{行動|こうどう}表と{一致|いっち}する——16:20にパソコン{室|しつ}にいたのはノゾムだけ。ログイン{記録|きろく}でもノゾムのアカウントが{浮上|ふじょう}した。"
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomu
+        text: "……{僕|ぼく}のアカウント？ えっと……その{時間|じかん}、パソコン{室|しつ}にはいたけど……ちょっと{調|しら}べものを……"
+        expression: worried
+      - type: sprite
+        character: nozomu
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: キャッシュから復元された記事
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "Googleキャッシュで{検索|けんさく}したところ、{削除|さくじょ}されたはずの{記事|きじ}7のコピーが{見|み}つかりました。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{記事|きじ}7のタイトルは「{遠足|えんそく}のハプニング{大賞|たいしょう}！」。{第|だい}1{位|い}は——ノゾムが川{渡|わた}りで{足|あし}を{滑|すべ}らせて{水|みず}に{落|お}ちたエピソード。{写真|しゃしん}つきでした。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: crash
+      - type: narration
+        text: "{削除|さくじょ}されたはずの{記事|きじ}が——キャッシュに{残|のこ}っていた！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{記事|きじ}7の「{第|だい}1{位|い}」はノゾムの{転倒|てんとう}エピソード（{写真|しゃしん}つき）。{削除|さくじょ}に{使|つか}われたのはノゾムのアカウント。{削除|さくじょ}{時刻|じこく}（16:20）にパソコン{室|しつ}にいたのはノゾムだけ。"
+      - type: narration
+        text: "ノゾムが{自分|じぶん}の{恥|は}ずかしいエピソードが{載|の}った{記事|きじ}を{消|け}した。でも——インターネットに{一度|いちど}出した{情報|じょうほう}は、{完全|かんぜん}には{消|け}せない。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "先{週|しゅう}の{水曜日|すいようび}の{昼休|ひるやす}み、ノゾムがクラスメイトに「あのドボン{写真|しゃしん}、{最高|さいこう}！」って{笑|わら}われてた。ノゾムは「やめろよ……もういいだろ……」って{小|ちい}さい{声|こえ}で{言|い}ってた。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shiori
+        text: "{水曜日|すいようび}にノゾムが{閲覧|えつらん}{数|すう}を{聞|き}いてきたとき、「もう50{超|こ}えてるよ」って{答|こた}えたら……{一瞬|いっしゅん}{表情|ひょうじょう}が{曇|くも}った。「{記事|きじ}に{載|の}せる前にノゾムに{確認|かくにん}すべきだった」って、{今|いま}は{思|おも}ってる。"
+        expression: thinking
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{記事|きじ}一{覧|らん}の{欠番|けつばん}（Card1）→{削除|さくじょ}{時刻|じこく}16:20（Card2）→{行動|こうどう}表でノゾムだけがパソコン{室|しつ}（Card3）→ノゾムのアカウントがログイン（Card4）→キャッシュで{記事|きじ}7の{内容|ないよう}が{判明|はんめい}（Card5）。"
+      - type: choice
+        id: q1
+        question: ブログの記事7を削除したのは誰？
+        options:
+          - text: ノゾム（16:20にパソコン室にいて、自分のアカウントでログイン）
+            value: nozomu
+            correct: true
+            feedback: "{正解|せいかい}！ ノゾムは{記事|きじ}7に{自分|じぶん}の{恥|は}ずかしい{転倒|てんとう}エピソードが{写真|しゃしん}つきで{載|の}っていて、クラスメイトに{笑|わら}われ{続|つづ}けた。{木曜日|もくようび}の{放課後|ほうかご}、パソコン{室|しつ}から{自分|じぶん}のアカウントで{記事|きじ}を{削除|さくじょ}した。でも——キャッシュに{残|のこ}っていた。{一度|いちど}インターネットに出した{情報|じょうほう}は{完全|かんぜん}には{消|け}せないのだ。"
+          - text: シオリ（記事7の作者で、消した動機があるかもしれない）
+            value: shiori
+            feedback: "シオリは{記事|きじ}7の{作者|さくしゃ}だけど、{木曜日|もくようび}16:20は{昇降口|しょうこうぐち}を{通|とお}って{下校|げこう}中だった。ログイン{記録|きろく}は15:35〜15:45（{記事|きじ}9の{下書|したが}き{編集|へんしゅう}）で、{削除|さくじょ}した{時刻|じこく}とは{一致|いっち}しないよ。"
+          - text: マコト（欠番を最初に発見した。証拠隠滅かもしれない）
+            value: makoto
+            feedback: "マコトは{木曜日|もくようび}15:50〜16:30、{図書室|としょしつ}で{調|しら}べものをしていた。ログイン{記録|きろく}もなし。{欠番|けつばん}を{最初|さいしょ}に{見|み}つけたのは{正直|しょうじき}さの{証拠|しょうこ}で、{隠蔽|いんぺい}ではないよ。"
+          - text: アカリ（ノゾムが笑われていたのを目撃。庇うため自分が消した）
+            value: akari
+            feedback: "アカリは{木曜日|もくようび}16:15に{下校|げこう}{済|ず}み。ログイン{記録|きろく}もない。{水曜日|すいようび}にノゾムが{笑|わら}われていたのを{目撃|もくげき}したのは、{動機|どうき}の{手|て}がかりを{提供|ていきょう}するためだよ。"
+
+  # ==================== 真実：ノゾム ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ノゾムの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomu
+        text: "……{消|け}したのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "ノゾムは{下|した}を{向|む}きながら、{静|しず}かに{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: nozomu
+        text: "{記事|きじ}7の「{第|だい}1{位|い}」に、{僕|ぼく}が川{渡|わた}りで{水|みず}に{落|お}ちた{写真|しゃしん}が{載|の}ってた。{最初|さいしょ}は「まぁ{面白|おもしろ}かったし」って{思|おも}ってたんだけど……クラスメイトに「あのドボン{写真|しゃしん}！」「{保護者|ほごしゃ}のページでも{見|み}られるんだって！」って{何度|なんど}も{笑|わら}われて。"
+        expression: thinking
+      - type: dialog
+        character: nozomu
+        text: "だんだん{恥|は}ずかしくなってきた。「{消|け}してしまえば{誰|だれ}も{見|み}ない」って{思|おも}って……{木曜日|もくようび}の{放課後|ほうかご}、パソコン{室|しつ}で{自分|じぶん}のアカウントでログインして、{削除|さくじょ}した。"
+        expression: worried
+      - type: dialog
+        character: nozomu
+        text: "シオリが{書|か}いた{記事|きじ}を{勝手|かって}に{消|け}したのは、{悪|わる}かったと{思|おも}ってる。でも——{消|け}したのに、キャッシュに{残|のこ}ってるの……？ {嘘|うそ}でしょ……"
+        expression: surprised
+      - type: sprite
+        character: nozomu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: shiori
+        expression: worried
+        position: left
+      - type: dialog
+        character: shiori
+        text: "ノゾムに{記事|きじ}に{載|の}せていいか{確認|かくにん}していなかった。{水曜日|すいようび}に{閲覧|えつらん}{数|すう}を{聞|き}いてきたとき、{表情|ひょうじょう}が{曇|くも}った。あのとき{気|き}づくべきだったのに……「{載|の}せる{側|がわ}の{責任|せきにん}」を{考|かんが}えてなかった。"
+        expression: worried
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: right
+      - type: dialog
+        character: akari
+        text: "{水曜日|すいようび}の{昼休|ひるやす}み、ノゾムが{笑|わら}われているのを{見|み}た。「やめろよ……」って{言|い}ってたのに、{声|こえ}をかけるタイミングを{逃|のが}してしまった。{消|け}した人を{責|せ}めるだけじゃなくて、なぜ{消|け}したかったのかも{考|かんが}えてあげたい。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{記事|きじ}{番号|ばんごう}の{欠番|けつばん}から{始|はじ}まって、{更新|こうしん}ログ→{行動|こうどう}表→ログイン{記録|きろく}→キャッシュ。「ないものに{気|き}づく」ことが{全部|ぜんぶ}の{出発点|しゅっぱつてん}だった。{情報|じょうほう}は「あるもの」だけじゃなくて「ないもの」も{大切|たいせつ}なんだ。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾムの「{消|け}したかった{気持|きも}ち」は{自然|しぜん}なことよ。{自分|じぶん}の{恥|は}ずかしい{写真|しゃしん}がブログに{残|のこ}り{続|つづ}けるのが{嫌|いや}だったんでしょう。その{気持|きも}ちは{理解|りかい}できます。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも——{一度|いちど}インターネットに出した{情報|じょうほう}は、{完全|かんぜん}には{消|け}せません。キャッシュ、{他|ほか}の{人|ひと}の{保存|ほぞん}、スクリーンショット——コピーが{残|のこ}る{可能性|かのうせい}がある。だからこそ、{載|の}せるときに{慎重|しんちょう}に{考|かんが}えることが{大切|たいせつ}なの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "シオリも{覚|おぼ}えておいてね。{友|とも}だちの{写真|しゃしん}や{話|はなし}をブログやSNSに{載|の}せるとき、{本人|ほんにん}に「{載|の}せていい？」と{確認|かくにん}すること。これはとても{大切|たいせつ}なルールよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{更新|こうしん}ログ、{行動|こうどう}表、ログイン{記録|きろく}——インターネット{上|じょう}の{行動|こうどう}は{記録|きろく}に{残|のこ}る。「{誰|だれ}がいつ{何|なに}をしたか」が{追跡|ついせき}できる。これをデジタルフットプリントという。"
+      - type: narration
+        text: "そして{削除|さくじょ}した{記事|きじ}がキャッシュに{残|のこ}っていたように、{情報|じょうほう}は「{消|け}した」と{思|おも}っても{別|べつ}の{場所|ばしょ}にコピーが{残|のこ}っていることがある。{一度|いちど}ネットに{出|だ}した{情報|じょうほう}は{完全|かんぜん}には{消|け}せない。"
+      - type: narration
+        text: "「ないものに{気|き}づく」「{消|き}えた{情報|じょうほう}を{追|お}う」「{載|の}せる前に{確認|かくにん}する」——{今日|きょう}、{探偵団|たんていだん}は{情報|じょうほう}リテラシーの{大切|たいせつ}な3つを{学|まな}んだ。"
+      - type: effect
+        name: fade-out

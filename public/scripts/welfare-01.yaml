@@ -1,0 +1,395 @@
+meta:
+  id: welfare-01
+  title: 消えた点字ブロック
+  series: 福祉探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}の{通学路|つうがくろ}には、{黄色|きいろ}い「{点字|てんじ}ブロック」がしいてある。{目|め}の{見|み}えない{人|ひと}や{見|み}えにくい{人|ひと}が、{足|あし}のうらの{感覚|かんかく}で{道|みち}を{確認|かくにん}するための{大切|たいせつ}なブロックだ。"
+      - type: narration
+        text: "きのうの{月曜日|げつようび}は「{花|はな}いっぱい{運動|うんどう}」の{作業|さぎょう}があった。4{人|にん}は{通学路|つうがくろ}のそれぞれのエリアに、プランターを{配置|はいち}した。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌朝|よくあさ}8{時|じ}ごろ、{近所|きんじょ}に{住|す}むタカギさんから{学校|がっこう}に{電話|でんわ}がかかってきた。「{通学路|つうがくろ}の{点字|てんじ}ブロックの{上|うえ}に、{何|なに}か{硬|かた}いものがあります。{先|さき}に{進|すす}めなくなりました」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{山田先生|やまだせんせい}が{見|み}に{行|い}くと、{中央|ちゅうおう}エリアの{点字|てんじ}ブロックの{上|うえ}に、プランター10{個|こ}が5メートルにわたって{並|なら}べられていました。「{花|はな}いっぱい{運動|うんどう}」の{作業|さぎょう}で、{誰|だれ}かがプランターを{点字|てんじ}ブロックの{上|うえ}に{置|お}いてしまったようです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}がプランターを{点字|てんじ}ブロックの{上|うえ}に{置|お}いたのか。{全員|ぜんいん}が{花|はな}いっぱい{運動|うんどう}の{作業|さぎょう}に{参加|さんか}していた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた点字ブロック
+        subtitle: 福祉探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: タカギさんの連絡を確認しよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{学校|がっこう}に{届|とど}いた{連絡|れんらく}を{読|よ}み{上|あ}げた。タカギさんは{視覚|しかく}{障|しょう}がいのある{大人|おとな}で、{毎朝|まいあさ}{通学路|つうがくろ}を{歩|ある}いている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{毎朝|まいあさ}8{時|じ}ごろ、{白杖|はくじょう}で{点字|てんじ}ブロックを{確|たし}かめながら{歩|ある}くのですが、{今朝|けさ}は{途中|とちゅう}で{点字|てんじ}ブロックの{上|うえ}に{何|なに}か{硬|かた}いものがありました。ぶつかってしまって、そこから{先|さき}に{進|すす}めなくなりました」"
+      - type: narration
+        text: "{点字|てんじ}ブロックには2つの{種類|しゅるい}がある。**{誘導|ゆうどう}ブロック**は{線状|せんじょう}の{突起|とっき}で「この{方向|ほうこう}に{進|すす}んでください」という{意味|いみ}。**{警告|けいこく}ブロック**は{点状|てんじょう}の{突起|とっき}で「ここに{注意|ちゅうい}してください」という{意味|いみ}だ。"
+      - type: narration
+        text: "{視覚|しかく}{障|しょう}がいのある{人|ひと}は、{白杖|はくじょう}や{足|あし}のうらで{点字|てんじ}ブロックの{突起|とっき}を{感|かん}じながら{歩|ある}く。{点字|てんじ}ブロックの{上|うえ}に{物|もの}があると、{道|みち}が{分|わ}からなくなってしまう。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の行動を確認しよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{花|はな}いっぱい{運動|うんどう}に{参加|さんか}した4{人|にん}に{聞|き}き{取|と}りをした。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユズル —— {担当|たんとう}は「{中央|ちゅうおう}エリア」。{作業|さぎょう}{時間|じかん}は15:50〜16:20。プランター10{個|こ}を50cmずつ{間隔|かんかく}をあけて{歩道|ほどう}{沿|ぞ}いに{一列|いちれつ}に{並|なら}べた。{作業|さぎょう}{後|ご}は{配置|はいち}{記録|きろく}を{先生|せんせい}に{提出|ていしゅつ}。"
+      - type: narration
+        text: "イブキ —— {担当|たんとう}は「{東門|ひがしもん}エリア」。{作業|さぎょう}{時間|じかん}は15:50〜16:10。{歩道|ほどう}の{外側|そとがわ}（{花壇|かだん}スペース）に{配置|はいち}。16:10〜16:30は{校庭|こうてい}で{他|ほか}の{班|はん}の{手伝|てつだ}いをしていた。"
+      - type: narration
+        text: "ワカナ —— {担当|たんとう}は「{正門|せいもん}エリア」。{作業|さぎょう}{時間|じかん}は15:50〜16:25。{作業手順書|さぎょうてじゅんしょ}を{読|よ}みながら{丁寧|ていねい}に{配置|はいち}。{歩道|ほどう}の{端|はし}に{寄|よ}せて{並|なら}べた。"
+      - type: narration
+        text: "コハル —— {担当|たんとう}は「{校庭|こうてい}（{苗|なえ}の{準備|じゅんび}）」。{作業|さぎょう}{時間|じかん}は15:50〜16:15。{通学路|つうがくろ}のプランター{配置|はいち}には{参加|さんか}していない。16:15{以降|いこう}は{教室|きょうしつ}で{片付|かたづ}け。"
+      - type: narration
+        text: "{考|かんが}えてみよう。{通学路|つうがくろ}でプランター{配置|はいち}{作業|さぎょう}をしたのは{誰|だれ}と{誰|だれ}と{誰|だれ}？ {通学路|つうがくろ}の{作業|さぎょう}をしなかったのは{誰|だれ}？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 作業記録と担当エリアを調べよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{花|はな}いっぱい{運動|うんどう}の{作業|さぎょう}{記録|きろく}を{確認|かくにん}した。{担当|たんとう}エリアの{分担表|ぶんたんひょう}が{出|で}てきた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{東門|ひがしもん}エリア —— イブキが{担当|たんとう}。プランター6{個|こ}を{歩道|ほどう}の{外側|そとがわ}（{花壇|かだん}スペース）に{配置|はいち}。{歩道|ほどう}には{出|で}ていない。"
+      - type: narration
+        text: "{中央|ちゅうおう}エリア —— ユズルが{担当|たんとう}。プランター10{個|こ}を50cm{間隔|かんかく}で{歩道|ほどう}{沿|ぞ}いに{一列|いちれつ}に{配置|はいち}。ここが{点字|てんじ}ブロックの{通|とお}っているエリアだ。"
+      - type: narration
+        text: "{正門|せいもん}エリア —— ワカナが{担当|たんとう}。プランター8{個|こ}を{歩道|ほどう}の{端|はし}に{寄|よ}せて{配置|はいち}。{作業手順書|さぎょうてじゅんしょ}{通|どお}り。"
+      - type: narration
+        text: "{校庭|こうてい} —— コハルが{担当|たんとう}。{苗|なえ}をプランターに{植|う}える{作業|さぎょう}のみ。{通学路|つうがくろ}のプランター{配置|はいち}には{参加|さんか}していない。"
+      - type: narration
+        text: "{注目|ちゅうもく}ポイント: コハルは{通学路|つうがくろ}の{作業|さぎょう}に{参加|さんか}していない。イブキの{配置|はいち}は{歩道|ほどう}の{外側|そとがわ}。ワカナの{配置|はいち}は{歩道|ほどう}の{端|はし}で{手順書|てじゅんしょ}{通|どお}り。ユズルの{配置|はいち}は{歩道|ほどう}{沿|ぞ}いに{一列|いちれつ}——ここが{点字|てんじ}ブロックのあるエリアだ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 通学路の地図を確認しよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{通学路|つうがくろ}の{地図|ちず}を{描|えが}いてくれた。3つのエリアと{点字|てんじ}ブロックの{位置|いち}{関係|かんけい}が{分|わ}かる。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{地図|ちず}によると、{点字|てんじ}ブロックは**{中央|ちゅうおう}エリア**を{通|とお}っている。5メートルの{区間|くかん}だ。{東門|ひがしもん}エリアと{正門|せいもん}エリアには{点字|てんじ}ブロックは{通|とお}っていない。"
+      - type: narration
+        text: "プランター10{個|こ}が{置|お}かれていたのは、{点字|てんじ}ブロックの{上|うえ}——{中央|ちゅうおう}エリアだ。{中央|ちゅうおう}エリアを{担当|たんとう}したのはユズルだ。"
+      - type: narration
+        text: "{点字|てんじ}ブロックの{上|うえ}にプランターを{置|お}けるのは、{中央|ちゅうおう}エリアを{担当|たんとう}した{人|ひと}だけ。{東門|ひがしもん}エリア（イブキ）にも、{正門|せいもん}エリア（ワカナ）にも、{点字|てんじ}ブロックは{通|とお}っていない。コハルは{通学路|つうがくろ}の{配置|はいち}{作業|さぎょう}に{参加|さんか}していない。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タカギさんの証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{山田先生|やまだせんせい}がタカギさんを{教室|きょうしつ}に{招|まね}きました。タカギさんが{福祉|ふくし}{探偵|たんてい}{団|だん}に{直接|ちょくせつ}{話|はな}してくれます。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{点字|てんじ}ブロックがないと、どこを{歩|ある}けばいいか{分|わ}かりません。{白杖|はくじょう}で{地面|じめん}を{確|たし}かめながら{歩|ある}きますが、{点字|てんじ}ブロックがなければ、{歩道|ほどう}と{車道|しゃどう}の{区別|くべつ}もつきにくいんです。{車道|しゃどう}に{出|で}てしまうかもしれない」"
+      - type: narration
+        text: "「{今朝|けさ}はプランターにぶつかって、{反対|はんたい}{側|がわ}——つまり{車道|しゃどう}の{方|ほう}によろけそうになりました。とても{怖|こわ}かったです」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "タカギさんは{続|つづ}けた。「{白杖|はくじょう}は、こうやって{左右|さゆう}に{振|ふ}りながら{歩|ある}きます。{点字|てんじ}ブロックの{線|せん}の{向|む}きで『こっちに{進|すす}めばいい』と{分|わ}かる。{点|てん}の{突起|とっき}があれば『ここは{交差点|こうさてん}だから{止|と}まろう』と{分|わ}かる。{点字|てんじ}ブロックは、{私|わたし}にとっての**{地図|ちず}**なんです」"
+      - type: narration
+        text: "「プランターを{置|お}いた{人|ひと}を{責|せ}めたいんじゃないんです。ただ、{点字|てんじ}ブロックがどんな{役割|やくわり}をしているか、{知|し}ってほしいんです。{知|し}っていれば、きっと{置|お}かなかったと{思|おも}いますから」"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "{実|じつ}は……{作業|さぎょう}のとき、{中央|ちゅうおう}エリアでユズルが{黄色|きいろ}い{線|せん}の{上|うえ}にもプランターを{並|なら}べているのが{見|み}えた。「きれいに{並|なら}べてるな」と{思|おも}っただけで、{声|こえ}をかけなかった……"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: determined
+        position: right
+      - type: dialog
+        character: wakana
+        text: "{作業手順書|さぎょうてじゅんしょ}を{読|よ}んだけど、{点字|てんじ}ブロックについての{記載|きさい}はなかった。「{歩道|ほどう}の{端|はし}に{寄|よ}せて」とだけ{書|か}いてあった。{手順書|てじゅんしょ}に{書|か}いてあれば、{防|ふせ}げたはず……"
+        expression: thinking
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "{校庭|こうてい}で{作業|さぎょう}していた{月曜日|げつようび}の16:00ごろ、タカギさんが{白杖|はくじょう}をついて{通学路|つうがくろ}を{歩|ある}いているのを{見|み}た。そのときは{点字|てんじ}ブロックの{上|うえ}には{何|なに}もなくて、タカギさんは{穏|おだ}やかに{歩|ある}いていた。プランターが{置|お}かれたのは、それ{以降|いこう}だ。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{点字|てんじ}ブロックは{中央|ちゅうおう}エリアを{通|とお}っている。コハルは{通学路|つうがくろ}の{配置|はいち}{作業|さぎょう}に{参加|さんか}していない。イブキの{担当|たんとう}{東門|ひがしもん}エリアには{点字|てんじ}ブロックがない。ワカナの{担当|たんとう}{正門|せいもん}エリアにも{点字|てんじ}ブロックがない。{中央|ちゅうおう}エリアを{担当|たんとう}したのは——"
+      - type: choice
+        id: q1
+        question: プランターを点字ブロックの上に置いたのは誰？
+        options:
+          - text: ユズル（中央エリア担当。点字ブロックの上に一列に並べた）
+            value: yuzuru
+            correct: true
+            feedback: "{正解|せいかい}！ ユズルは{中央|ちゅうおう}エリアで{点字|てんじ}ブロックの{上|うえ}にプランターを{並|なら}べた。「{黄色|きいろ}い{線|せん}」が{何|なん}のためにあるか{知|し}らなかったため、{道路|どうろ}のデザインだと{思|おも}って{配置|はいち}してしまった。"
+          - text: イブキ（東門エリア担当。作業後に中央エリアに移動したかも）
+            value: ibuki
+            feedback: "イブキの{担当|たんとう}{東門|ひがしもん}エリアには{点字|てんじ}ブロックが{通|とお}っていないよ。16:10〜16:30は{校庭|こうてい}で{他|ほか}の{班|はん}の{手伝|てつだ}いをしていた。{中央|ちゅうおう}エリアのプランターを{置|お}く{機会|きかい}はなかったね。"
+          - text: ワカナ（正門エリア担当。手順書通りでないことをしたかも）
+            value: wakana
+            feedback: "ワカナは{正門|せいもん}エリアで{作業手順書|さぎょうてじゅんしょ}{通|どお}りに{配置|はいち}した。{正門|せいもん}エリアには{点字|てんじ}ブロックは{通|とお}っていないよ。{中央|ちゅうおう}エリアのプランターを{置|お}けるのは{中央|ちゅうおう}エリア{担当|たんとう}の{人|ひと}だけだ。"
+          - text: コハル（校庭担当。通学路の様子を知っていた）
+            value: koharu
+            feedback: "コハルは{校庭|こうてい}で{苗|なえ}の{準備|じゅんび}をしていた。{通学路|つうがくろ}のプランター{配置|はいち}{作業|さぎょう}には{参加|さんか}していないよ。16:00ごろには{通学路|つうがくろ}にまだプランターがなかったことを{目撃|もくげき}しているのはコハル{自身|じしん}だ。"
+
+  # ==================== 真実：ユズル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ユズルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuzuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: yuzuru
+        text: "……{僕|ぼく}です。プランターを{点字|てんじ}ブロックの{上|うえ}に{置|お}いたのは、{僕|ぼく}でした。"
+        expression: worried
+      - type: narration
+        text: "ユズルは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: yuzuru
+        text: "{通学路|つうがくろ}に{黄色|きいろ}い{線|せん}があることには{気|き}づいてた。でも、それが{何|なん}のためにあるか、{知|し}らなかった。「{道路|どうろ}のデザインの{一部|いちぶ}」だと{思|おも}ってた……"
+        expression: thinking
+      - type: dialog
+        character: yuzuru
+        text: "{通学路|つうがくろ}を{美|うつく}しくしたくて、プランターをきれいに50cm{間隔|かんかく}で{並|なら}べた。{黄色|きいろ}い{線|せん}の{上|うえ}にも、{均等|きんとう}に{揃|そろ}えて{配置|はいち}した。{誇|ほこ}りに{思|おも}ってた……それが、タカギさんを{危険|きけん}にさらすとは{思|おも}っていなかった。"
+        expression: worried
+      - type: dialog
+        character: yuzuru
+        text: "タカギさんの「{知|し}ってほしい」という{言葉|ことば}を{聞|き}いて……「{知|し}らなかった」だけじゃ{済|す}まないと{分|わ}かった。{知|し}った{今|いま}は、もう{絶対|ぜったい}{置|お}かない。"
+        expression: determined
+      - type: sprite
+        character: yuzuru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "{実|じつ}は、{地域|ちいき}のボランティアで「{点字|てんじ}ブロックの{上|うえ}に{物|もの}を{置|お}かないで」って{教|おそ}わったことがあった。ユズルが{黄色|きいろ}い{線|せん}の{上|うえ}に{並|なら}べているのを{見|み}たとき、{声|こえ}をかけていれば{防|ふせ}げたのに……ごめん、ユズル。"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: wakana
+        text: "{作業手順書|さぎょうてじゅんしょ}に「{点字|てんじ}ブロック」の{記載|きさい}がなかった。{調|しら}べたら「バリアフリー{新|しん}{法|ほう}」という{法律|ほうりつ}で、{公道|こうどう}の{点字|てんじ}ブロックを{塞|ふさ}ぐことは{法律|ほうりつ}{違反|いはん}になる{可能性|かのうせい}があるって{分|わ}かった。ユズルだけじゃなくて、{手順書|てじゅんしょ}を{作|つく}った{仕組|しく}みの{側|がわ}にも{問題|もんだい}があった。"
+        expression: determined
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "{月曜日|げつようび}の16:00ごろ、{校庭|こうてい}からタカギさんが{通学路|つうがくろ}を{歩|ある}いているのを{見|み}てた。そのとき、タカギさんはとても{穏|おだ}やかな{表情|ひょうじょう}で{歩|ある}いていた。{点字|てんじ}ブロックがあれば、タカギさんは{安心|あんしん}して{歩|ある}けるんだって{分|わ}かった。"
+        expression: worried
+      - type: dialog
+        character: koharu
+        text: "タカギさんは「かわいそうな{人|ひと}」じゃない。{道|みち}が{塞|ふさ}がれて{困|こま}っている{人|ひと}。{問題|もんだい}はタカギさんの{側|がわ}にあるんじゃなくて、{道|みち}を{塞|ふさ}いだ{社会|しゃかい}の{側|がわ}にある。"
+        expression: determined
+      - type: sprite
+        character: koharu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ユズルの「{通学路|つうがくろ}を{美|うつく}しくしたい」という{気持|きも}ちは{素晴|すば}らしかった。{花|はな}いっぱいの{通学路|つうがくろ}は、{確|たし}かにきれいになるわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{点字|てんじ}ブロックはタカギさんにとっての**{地図|ちず}**。{地図|ちず}を{塞|ふさ}いでしまったら、{歩|ある}けなくなる。「{知|し}らなかった」は{悪意|あくい}ではないけれど、{知|し}った{今|いま}から{行動|こうどう}を{変|か}えることが{大切|たいせつ}。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{点字|てんじ}ブロックには2つの{種類|しゅるい}がある。{誘導|ゆうどう}ブロック（{線状|せんじょう}）は「この{方向|ほうこう}に{進|すす}んで」、{警告|けいこく}ブロック（{点状|てんじょう}）は「ここに{注意|ちゅうい}して」という{意味|いみ}だ。"
+      - type: narration
+        text: "タカギさんは「{責|せ}めたいんじゃない。{知|し}ってほしい」と{言|い}った。その{言葉|ことば}が{胸|むね}に{残|のこ}る。{知|し}ることは、{行動|こうどう}を{変|か}える{力|ちから}になる。"
+      - type: narration
+        text: "{学校|がっこう}の{外|そと}でも、{点字|てんじ}ブロックの{上|うえ}に{物|もの}が{置|お}かれている{場面|ばめん}を{見|み}かけることがある。そのとき、{今日|きょう}のことを{思|おも}い{出|だ}してほしい。「{知|し}っている{自分|じぶん}」が「{知|し}らない{誰|だれ}か」に{伝|つた}えることができる。"
+      - type: effect
+        name: fade-out

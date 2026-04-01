@@ -1,0 +1,382 @@
+meta:
+  id: tokkatsu-10
+  title: 分裂したお別れ会
+  series: 特別活動探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "もうすぐ{卒業|そつぎょう}だ。クラスでは{お別|おわか}れ{会|かい}で{何|なに}をするかを{決|き}める{学級会|がっきゅうかい}が{開|ひら}かれた。{候補|こうほ}は「{劇|げき}」と「スポーツ{大会|たいかい}」の{二|ふた}つ。"
+      - type: narration
+        text: "{話|はな}し{合|あ}いのあと、クラスは{真|ま}っ{二|ふた}つに{分|わ}かれてしまった。{劇チーム|げきちーむ}は「{決|き}まった」と{思|おも}っているが、スポーツ{大会|たいかい}{チーム|ちーむ}は「そんな{決定|けってい}は{聞|き}いていない」と{怒|おこ}っている。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "さらに{調|しら}べると——{議事録|ぎじろく}の{一部|いちぶ}が{書|か}きかえられていたことが{分|わ}かった。もともとは「{次回|じかい}{継続|けいぞく}」と{書|か}いてあったのに、いつのまにか「{話|はな}し{合|あ}いの{結果|けっか}、{劇|げき}に{決定|けってい}」に{変|か}わっていた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{議事録|ぎじろく}に「{劇|げき}に{決定|けってい}」と{書|か}かれていますが、{学級会|がっきゅうかい}の{最後|さいご}に{先生|せんせい}は「{次回|じかい}{継続|けいぞく}」と{言|い}って{終|お}わりました。どこかで{書|か}きかえが{起|お}きたようです。みなさんで{調|しら}べてもらえますか。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: worried
+          - character: ayumu
+            expression: thinking
+          - character: mamoru
+            expression: surprised
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{議事録|ぎじろく}を{書|か}きかえたのは{誰|だれ}か——そしてなぜ、クラスはここまで{分裂|ぶんれつ}してしまったのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 分裂したお別れ会
+        subtitle: 特別活動探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 議事録の内容を確認しよう
+      - type: narration
+        text: "{学級会|がっきゅうかい}の{議事録|ぎじろく}を{取|と}り{出|だ}して{読|よ}んだ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{題名|だいめい}: お{別|わか}れ{会|かい}の{企画|きかく}について。{候補|こうほ}1: {劇|げき}。{候補|こうほ}2: スポーツ{大会|たいかい}。"
+      - type: narration
+        text: "{話|はな}し{合|あ}いのようす——{劇|げき}{チーム|ちーむ}から「{思|おも}い{出|で}を{形|かたち}に{残|のこ}したい」という{意見|いけん}。スポーツ{大会|たいかい}{チーム|ちーむ}から「みんなで{参加|さんか}しやすい」という{意見|いけん}。"
+      - type: narration
+        text: "{結果|けっか}の{欄|らん}: 「{話|はな}し{合|あ}いの{結果|けっか}、{劇|げき}に{決定|けってい}」。——ただし「{決定|けってい}」の{前後|ぜんご}だけ、{文字|もじ}のこさや{書|か}き{方|かた}が{少|すこ}しちがう。{同|おな}じ{人|ひと}が{同|おな}じ{時間|じかん}に{書|か}いた{文字|もじ}とは{思|おも}えない。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 学級会のメモを読もう
+      - type: narration
+        text: "{担任|たんにん}の{先生|せんせい}が{学級会|がっきゅうかい}のあとに{残|のこ}したメモが{見|み}つかった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "メモには{担任|たんにん}の{最後|さいご}の{言葉|ことば}が{書|か}かれていた——「{今日|きょう}は{時間切|じかんき}れです。{次|つぎ}の{学級会|がっきゅうかい}で{続|つづ}きをやりましょう」。"
+      - type: narration
+        text: "{学級会|がっきゅうかい}{終了|しゅうりょう}{時点|じてん}では、{多数決|たすうけつ}はしていない。スポーツ{大会|たいかい}{側|がわ}の{子|こ}が1{人|にん}、「まだ{理由|りゆう}を{全部|ぜんぶ}{言|い}えていない」と{話|はな}していた。"
+      - type: narration
+        text: "{議事録|ぎじろく}の「{劇|げき}に{決定|けってい}」と、メモの「{次回|じかい}{継続|けいぞく}」——{内容|ないよう}が{食|た}いちがっている。どちらかが{正|ただ}しく、どちらかが{後|あと}で{変|か}えられた。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 書記ノートの履歴を調べよう
+      - type: narration
+        text: "{書記|しょき}が{使|つか}っていたノートを{調|しら}べた。{下書|したが}きのページが{残|のこ}っていた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{下書|したが}きには{明確|めいかく}に{書|か}かれていた——「{結論|けつろん}: {次回|じかい}{継続|けいぞく}」。"
+      - type: narration
+        text: "しかし{放課後|ほうかご}16:18、その{行|ぎょう}だけが「{劇|げき}に{決定|けってい}」へ{直|なお}されていた。{書|か}き{直|なお}しの{跡|あと}がはっきり{残|のこ}っている。"
+      - type: narration
+        text: "16:18に{教室|きょうしつ}で{書記|しょき}ノートを{開|ひら}いていたのは——ツムギだけだった。{他|ほか}の3{人|にん}はその{時間|じかん}、{別|べつ}の{場所|ばしょ}にいたことが{確認|かくにん}されている。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 朝の教室での発言を確認しよう
+      - type: narration
+        text: "{学級会|がっきゅうかい}の{翌日|よくじつ}、{火曜日|かようび}の{朝|あさ}に{何|なに}が{起|お}きたか{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "アユムは{数人|すうにん}に「{早|はや}く{決|き}めないと{準備|じゅんび}が{間|ま}に{合|あ}わないから、{劇|げき}で{進|すす}めたほうがいいと{思|おも}う」と{話|はな}していた。"
+      - type: narration
+        text: "その{後|あと}、「もう{劇|げき}に{決|き}まったらしい」といううわさが{広|ひろ}がった。マモルは{学級会|がっきゅうかい}で「{時間|じかん}がないから、そろそろまとめよう」と{言|い}っていた。ノゾミは、スポーツ{大会|たいかい}{側|がわ}の{子|こ}が{言|い}いにくそうにしていたのを{見|み}ていた。"
+      - type: narration
+        text: "アユムの{発言|はつげん}は{正式|せいしき}な{決定|けってい}ではなかった。それなのに{教室|きょうしつ}には「もう{決|き}まった」という{空気|くうき}が{広|ひろ}がっていた——{言葉|ことば}と{空気|くうき}の{力|ちから}がいかに{強|つよ}いかが{分|わ}かる。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 書きかえ時刻と発言時間の偏り
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: center
+      - type: dialog
+        character: mamoru
+        text: "{追加|ついか}{調査|ちょうさ}で、{議事録|ぎじろく}の{書|か}きかえ{時刻|じこく}がはっきりした。{火曜日|かようび}16:18、その{時間|じかん}に{教室|きょうしつ}へ{残|のこ}っていたのはツムギだけだ。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "さらに——{学級会|がっきゅうかい}の{発言|はつげん}{時間|じかん}の{記録|きろく}が{出|で}てきた。{劇|げき}{チーム|ちーむ}: {約|やく}7{分|ふん}。スポーツ{大会|たいかい}{チーム|ちーむ}: {約|やく}3{分|ふん}。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "スポーツ{大会|たいかい}{側|がわ}は「まだ{理由|りゆう}を{言|い}えていない」と{話|はな}していたのに、{話|はな}し{合|あ}いはそのまま{終|お}わっていた。{劇側|げきがわ}7{分|ふん}、スポーツ{側|がわ}3{分|ふん}——この{差|さ}が{意味|いみ}するものは、「{機会|きかい}が{公平|こうへい}ではなかった」ということだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 二つの問いに答えよう
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{議事録|ぎじろく}の{下書|したが}きには「{次回|じかい}{継続|けいぞく}」と{書|か}いてあった。それが{放課後|ほうかご}に{書|か}きかえられた。16:18に{教室|きょうしつ}にいたのは……"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "スポーツ{大会|たいかい}{側|がわ}の{子|こ}たち、「{聞|き}いてもらえなかった」って{感|かん}じていたよ。7{分|ふん}と3{分|ふん}の{差|さ}——{自分|じぶん}たちの{番|ばん}が{来|く}る{前|まえ}に{時間|じかん}が{切|き}れてしまったんだね……"
+        expression: thinking
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{下書|したが}きには「{次回|じかい}{継続|けいぞく}」。②{書|か}きかえは{火曜日|かようび}16:18。③その{時間|じかん}、{教室|きょうしつ}にいたのはツムギだけ。④アユムは{朝|あさ}に「{劇|げき}で{進|すす}めたほうがいい」と{話|はな}していた。⑤{発言|はつげん}{時間|じかん}は{劇|げき}7{分|ふん}、スポーツ3{分|ふん}。"
+      - type: choice
+        id: q1
+        question: 議事録を書きかえたのは誰？
+        options:
+          - text: ツムギ（16:18に教室でノートを開いていた書記）
+            value: tsumugi
+            correct: true
+            feedback: "{正解|せいかい}！ ツムギは{書記|しょき}として、アユムの{発言|はつげん}と{議事録|ぎじろく}が{食|た}いちがうとアユムが{困|こま}ると{思|おも}い、「{次回|じかい}{継続|けいぞく}」を「{劇|げき}に{決定|けってい}」へ{書|か}きかえた。アユムを{守|まも}ろうとした{気持|きも}ちからの{行動|こうどう}だったが、{嘘|うそ}の{記録|きろく}を{作|つく}ったことになってしまった。"
+          - text: アユム（「劇で進めたほうがいい」と話した実行委員長）
+            value: ayumu
+            feedback: "アユムは{朝|あさ}に{発言|はつげん}したけど、{議事録|ぎじろく}を{書|か}きかえたわけではない。16:18に{教室|きょうしつ}にいたのはツムギだよ。アユムの{発言|はつげん}が{空気|くうき}を{作|つく}ったことは{問題|もんだい}だけど、{書|か}きかえた{人|ひと}は{別|べつ}にいる。"
+          - text: マモル（公平さを大切にするルール番長）
+            value: mamoru
+            feedback: "マモルは{学級会|がっきゅうかい}で「{時間|じかん}がない」と{言|い}ったことへの{後悔|こうかい}はあるけど、{議事録|ぎじろく}の{書|か}きかえには{関|かか}わっていない。16:18に{教室|きょうしつ}にいたのはツムギだよ。"
+          - text: ノゾミ（スポーツ側の気持ちに気づいていた）
+            value: nozomi
+            feedback: "ノゾミはスポーツ{大会|たいかい}{側|がわ}の{気持|きも}ちを{代弁|だいべん}する{役割|やくわり}で、{議事録|ぎじろく}を{書|か}きかえた{人物|じんぶつ}ではないよ。16:18に{教室|きょうしつ}にいたのはツムギだと{証拠|しょうこ}カード3に{書|か}いてある。"
+      - type: choice
+        id: q2
+        question: お別れ会が分裂した本当の原因は何？
+        options:
+          - text: Aツムギが議事録を書きかえたから
+            value: a
+            feedback: "ツムギの{書|か}きかえは{問題|もんだい}だった。でも——{書|か}きかえがなくても、スポーツ{大会|たいかい}{側|がわ}は「{聞|き}いてもらえなかった」と{感|かん}じていたはずだよ。{書|か}きかえは{表面|ひょうめん}の{出来事|できごと}で、もっと{深|ふか}いところに{原因|げんいん}がある。"
+          - text: Bアユムが「劇に決定」と勝手に言ったから
+            value: b
+            feedback: "アユムの{焦|あせ}りからの{発言|はつげん}が{空気|くうき}を{作|つく}ったのは{確|たし}かだ。でも、{最初|さいしょ}の{話|はな}し{合|あ}いで{発言|はつげん}{時間|じかん}に7{分|ふん}と3{分|ふん}の{差|さ}があったことも{大|おお}きな{原因|げんいん}だよ。アユムだけの{問題|もんだい}ではない。"
+          - text: C最初の話し合いでスポーツ側の意見を十分に聞かなかったから
+            value: c
+            feedback: "{大事|だいじ}な{気|き}づきだ！ {発言|はつげん}{時間|じかん}の{差|さ}（7{分|ふん}vs3{分|ふん}）、「まだ{理由|りゆう}を{言|い}えていない」という{声|こえ}が{無視|むし}されたこと——これが{根本|こんぽん}にある。ただ、アユムの{発言|はつげん}やツムギの{書|か}きかえも{重|かさ}なって{分裂|ぶんれつ}が{大|おお}きくなったことも{忘|わす}れないでね。"
+          - text: D全部が原因。みんなが少しずつ問題を作っていた
+            value: d
+            feedback: "そのとおり！ ツムギは{記録|きろく}を{書|か}きかえた。アユムは{正式|せいしき}{決定|けってい}より{先|さき}に{空気|くうき}を{作|つく}った。マモルは「{時間|じかん}がない」と{少数|しょうすう}{意見|いけん}を{止|と}めた。ノゾミは{言|い}いにくそうな{子|こ}に{声|こえ}をかけられなかった。{一人|ひとり}だけが{悪|わる}いのではなく、クラス{全体|ぜんたい}の{進|すす}め{方|かた}に{原因|げんいん}があった。"
+
+  # ==================== 真実：ツムギの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツムギの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsumugi
+        text: "……{議事録|ぎじろく}を{書|か}きかえたのは、{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: "ツムギは{長|なが}い{沈黙|ちんもく}の{後|あと}、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: tsumugi
+        text: "{学級会|がっきゅうかい}の{最後|さいご}、{本当|ほんとう}はまだ{何|なに}も{決|き}まっていなかった。{先生|せんせい}は「{次回|じかい}{継続|けいぞく}」と{言|い}って{終|お}わらせた。{私|わたし}も{下書|したが}きに「{次回|じかい}{継続|けいぞく}」と{書|か}いた。"
+        expression: thinking
+      - type: dialog
+        character: tsumugi
+        text: "でも{翌日|よくじつ}の{朝|あさ}、アユムが「{劇|げき}で{進|すす}めたほうがいい」と{話|はな}しているのを{聞|き}いた。「{議事録|ぎじろく}とアユムの{発言|はつげん}が{食|た}いちがったら、アユムが{責|せ}められる」と{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: tsumugi
+        text: "{放課後|ほうかご}、「{自分|じぶん}が{少|すこ}し{直|なお}せばクラスが{落|お}ち{着|つ}く」と{思|おも}って……「{次回|じかい}{継続|けいぞく}」を「{劇|げき}に{決定|けってい}」に{書|か}きかえた。アユムを{守|まも}りたかっただけなのに、{嘘|うそ}の{記録|きろく}を{作|つく}ってしまった。{今|いま}は{強|つよ}く{後悔|こうかい}している。"
+        expression: determined
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: ayumu
+        expression: worried
+        position: right
+      - type: dialog
+        character: ayumu
+        text: "{卒業|そつぎょう}まで{時間|じかん}がなくて、{準備|じゅんび}を{急|いそ}ぎたかった。「{先生|せんせい}もそのうち{劇|げき}に{決|き}めるかも」と{勝手|かって}に{思|おも}って{発言|はつげん}してしまった。{正式|せいしき}に{決|き}まってもいないのに、{空気|くうき}を{一気|いっき}に{動|うご}かしてしまった……ツムギが{自分|じぶん}をかばってくれたと{知|し}って、{本当|ほんとう}に{苦|くる}しい。"
+        expression: worried
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "{学級会|がっきゅうかい}で{自分|じぶん}も「{時間|じかん}がない」と{言|い}って、スポーツ{大会|たいかい}{側|がわ}の{発言|はつげん}を{止|と}める{側|がわ}に{回|まわ}ってしまった。{公平|こうへい}に{進|すす}めたいと{思|おも}っていたのに——{結果|けっか}は{不公平|ふこうへい}だった。{ルール|るーる}だけでなく、{機会|きかい}の{公平|こうへい}さも{守|まも}らないといけないと{改|あらた}めて{分|わ}かった。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "スポーツ{大会|たいかい}{側|がわ}の{子|こ}が{言|い}いにくそうにしているのに{気|き}づいていた。でも{空気|くうき}をこわしたくなくて{何|なに}も{言|い}えなかった。{結果|けっか}より「{聞|き}いてもらえなかった」という{気持|きも}ちが{一番|いちばん}の{傷|きず}になっていた——それが{分|わ}かっていたのに。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツムギの「アユムを{守|まも}りたい」という{気持|きも}ちは、{本当|ほんとう}に{優|やさ}しい{心|こころ}から{来|き}ていたわ。でも{大切|たいせつ}な{記録|きろく}を{書|か}きかえることは、どんな{理由|りゆう}があってもしてはいけない。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{合意形成|ごういけいせい}は「{全員|ぜんいん}が{同|おな}じ{意見|いけん}になること」ではなく、「{全員|ぜんいん}が{納得|なっとく}できるように{話|はな}を{聞|き}くプロセスを{作|つく}ること」なの。{結果|けっか}を{急|いそ}ぎすぎて、{全員|ぜんいん}の{理由|りゆう}を{聞|き}くことをあとまわしにしてしまったのが、この{事件|じけん}の{始|はじ}まりだったのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{劇|げき}{チーム|ちーむ}7{分|ふん}、スポーツ{大会|たいかい}{チーム|ちーむ}3{分|ふん}。この{差|さ}は「{時間|じかん}が{足|た}りなかった」だけではない。「{誰|だれ}かの{声|こえ}が{十分|じゅうぶん}に{届|とど}いていなかった」ということだ。"
+      - type: narration
+        text: "{書|か}きかえがなくても、スポーツ{大会|たいかい}{側|がわ}には「{聞|き}いてもらえなかった」という{不満|ふまん}が{残|のこ}っていたはずだ。{本当|ほんとう}の{合意形成|ごういけいせい}とは——{全員|ぜんいん}が{理由|りゆう}まで{言|い}える{場|ば}を{作|つく}り、{少数|しょうすう}{意見|いけん}も{含|ふく}めて{聞|き}き{取|と}ること。"
+      - type: narration
+        text: "今日の{45分間|よんじゅうごふんかん}——みんなは{全員|ぜんいん}の{意見|いけん}をちゃんと{聞|き}けた？ {最初|さいしょ}の{考|かんが}えと{最後|さいご}の{考|かんが}えで、{何|なに}かが{変|か}わったなら——それが{本物|ほんもの}の{合意形成|ごういけいせい}の{練習|れんしゅう}だったのかもしれない。"
+      - type: effect
+        name: fade-out

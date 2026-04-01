@@ -1,0 +1,416 @@
+meta:
+  id: life-04
+  title: 静かな池
+  series: 生命探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のビオトープでは、{毎晩|まいばん}カエルの{声|こえ}が{聞|き}こえていた。{小|ちい}さな{池|いけ}に{集|あつ}まって、{元気|げんき}よく{鳴|な}いていた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{先週|せんしゅう}から、{池|いけ}が{急|きゅう}に{静|しず}かになった。カエルの{声|こえ}がほとんど{聞|き}こえない。「{誰|だれ}かがカエルを{追|お}い{出|だ}したのでは？」と{心配|しんぱい}した{先生|せんせい}が、ビオトープ{委員|いいん}の4{人|にん}に{調査|ちょうさ}を{頼|たの}んだ。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{先々週|せんせんしゅう}はたくさん{聞|き}こえていたカエルの{声|こえ}が、{先週|せんしゅう}の{後半|こうはん}からほとんど{聞|き}こえなくなりました。{池|いけ}の{水|みず}は{見|み}た{目|め}にはきれいになっています。でも、どうしてカエルがいなくなったのか——{理由|りゆう}が{見|み}えません。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: thinking
+          - character: kakeru
+            expression: worried
+          - character: shizuku
+            expression: thinking
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{追|お}い{出|だ}した{人|ひと}がいるの？」「{水|みず}がきれいになったのは{良|よ}いことじゃないの？」——{答|こた}えはどこにある？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 静かな池
+        subtitle: 生命探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: カエルの声メモを確認しよう
+      - type: narration
+        text: "ビオトープ{委員|いいん}が{記録|きろく}していた「カエルの{声|こえ}メモ」を{取|と}り{出|だ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先々週|せんせんしゅう} —— たくさん{聞|き}こえた。"
+      - type: narration
+        text: "{先週前半|せんしゅうぜんはん} —— {少|すこ}し{減|へ}った。"
+      - type: narration
+        text: "{先週後半|せんしゅうこうはん} —— ほとんど{聞|き}こえない。"
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{急|きゅう}にいなくなったんじゃなくて、だんだん{減|へ}っていったんだ。{何|なに}かが{少|すこ}しずつ{変|か}わっていったってこと？"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: narration
+        text: "カケルの{言|い}う{通|とお}り。「{急|きゅう}にいなくなった」のではなく、{徐々|じょじょ}に{減|へ}っている。{何|なに}かの{変化|へんか}に{合|あ}わせてカエルが{動|うご}いたのかもしれない。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 水質記録を確認しよう
+      - type: narration
+        text: "ビオトープの{水質|すいしつ}を{記録|きろく}した{表|ひょう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先週|せんしゅう}、{水|みず}のにごりが{急|きゅう}に{減|へ}った。{見|み}た{目|め}にはきれいになった。"
+      - type: narration
+        text: "{小|ちい}さな{生|い}き{物|もの}（{微生物|びせいぶつ}）の{数|かず}も{減|へ}った。{水|みず}がきれいに{見|み}えるのと{同|おな}じ{週|しゅう}に、{生|い}き{物|もの}も{減|へ}っている。"
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "{水|みず}がきれいになった{週|しゅう}と、カエルの{声|こえ}が{減|へ}り{始|はじ}めた{週|しゅう}が{一致|いっち}している。そして{微生物|びせいぶつ}も{減|へ}ってる——これはつながってる{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "{水|みず}がきれいになった{変化|へんか}と、カエルが{減|へ}り{始|はじ}めた{時期|じき}が{重|かさ}なっている。「きれいな{水|みず}」がカエルにとって{良|よ}いことだったのか、{見直|みなお}す{必要|ひつよう}がある。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: カエルの理科メモを確認しよう
+      - type: narration
+        text: "ビオトープに{置|お}いてある「カエルの{理科|りか}メモ」を{取|と}り{出|だ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カエルは{水辺|みずべ}の{小|ちい}さな{生|い}き{物|もの}も{使|つか}ってくらす。{微生物|びせいぶつ}やプランクトンがえさになる。"
+      - type: narration
+        text: "きれいすぎる{水|みず}では、こうした{生|い}き{物|もの}が{育|そだ}たない。{微生物|びせいぶつ}が{少|すく}ないと、カエルは{産卵|さんらん}する{場所|ばしょ}として{向|む}かないと{判断|はんだん}して{移動|いどう}することがある。"
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "「きれいな{水|みず}」と「{住|す}みやすい{水|みず}」は{違|ちが}う——{人間|にんげん}の{目|め}で{見|み}た「きれい」が、カエルにとっては「{住|す}みにくい」になることがある。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "シズクの{気|き}づきは{重要|じゅうよう}だ。{視点|してん}を{切|き}り{替|か}えると——{同|おな}じ{変化|へんか}が{全然|ぜんぜん}{違|ちが}う{意味|いみ}を{持|も}つ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ビオトープのルールを確認しよう
+      - type: narration
+        text: "ビオトープの{入|い}り{口|ぐち}に{貼|は}ってある「ビオトープのルール」を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ルール1: {池|いけ}に{新|あたら}しいものを{入|い}れる{前|まえ}は、{先生|せんせい}か{全員|ぜんいん}に{相談|そうだん}する。"
+      - type: narration
+        text: "ルール2: {水|みず}を{大|おお}きく{変|か}える{作業|さぎょう}は1{人|にん}で{決|き}めない。"
+      - type: narration
+        text: "{朝|あさ}の{点検|てんけん}で、{池|いけ}のすみに{小|ちい}さな{黒|くろ}い{粒|つぶ}のようなものが{見|み}つかった。{水|みず}の{近|ちか}くに{見慣|みな}れないものがある。"
+      - type: sprite
+        character: shizuku
+        expression: worried
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "この{黒|くろ}い{粒|つぶ}……{先生|せんせい}が「{活性炭|かっせいたん}は{水|みず}をきれいにするために{使|つか}う」って{言|い}ってた。だれかが{相談|そうだん}せずに{入|い}れたのかもしれない。"
+        expression: worried
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "ルールでは{池|いけ}に{何|なに}かを{入|い}れる{前|まえ}は{相談|そうだん}が{必要|ひつよう}だ。つまり、{記録|きろく}にない{何|なに}かが{池|いけ}に{入|はい}った{可能性|かのうせい}がある。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 池の点検結果
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "GMが{新|あたら}しい{手|て}がかりを{発表|はっぴょう}した。{池|いけ}を{詳|くわ}しく{点検|てんけん}した{結果|けっか}が{明|あ}らかになる——。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{池|いけ}のすみの{黒|くろ}い{粒|つぶ}は{活性炭|かっせいたん}だった。{水|みず}は{見|み}た{目|め}より{微生物|びせいぶつ}が{激減|げきげん}していた。{先生|せんせい}メモ: {活性炭|かっせいたん}は{不純物|ふじゅんぶつ}を{吸着|きゅうちゃく}して{水|みず}をきれいにするが、{入|い}れすぎると{生|い}き{物|もの}のくらしも{変|か}わる。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{追|お}い{出|だ}した」のではなく——{環境|かんきょう}が{変|か}わったからカエルが{移動|いどう}した！ {誰|だれ}かが{相談|そうだん}せずに{活性炭|かっせいたん}を{大量|たいりょう}に{入|い}れたことで、ビオトープの{生態系|せいたいけい}が{変|か}わってしまった。"
+      - type: sprite
+        character: inori
+        expression: determined
+        position: left
+      - type: dialog
+        character: inori
+        text: "{水質|すいしつ}の{変化|へんか}のタイミングと、{活性炭|かっせいたん}が{入|はい}ったタイミングが{一致|いっち}する。{水|みず}をよくしたいと{言|い}っていた{人|ひと}が、{池|いけ}のそばで{何|なに}かしていたのを{見|み}た{人|ひと}はいないかな。"
+        expression: determined
+      - type: sprite
+        character: inori
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 池を変えたのは誰だ？
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{先週|せんしゅう}の{帰|かえ}り……ミコトが{小|ちい}さなふくろを{持|も}って{池|いけ}のそばにいたのを{見|み}た。「{水|みず}をよくしたいんだ」ってつぶやいていた{気|き}がする——はっきりは{見|み}えなかったけど。"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "{黒|くろ}い{粒|つぶ}は{活性炭|かっせいたん}。ルールでは{相談|そうだん}が{必要|ひつよう}なのに、{記録|きろく}がない。{水|みず}を{管理|かんり}する{担当|たんとう}だった{人|ひと}が、よかれと{思|おも}って{勝手|かって}に{入|い}れた——そう{考|かんが}えると{全部|ぜんぶ}つながる。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{先週|せんしゅう}{水質|すいしつ}が{急変|きゅうへん}した{週|しゅう}から{微生物|びせいぶつ}も{減|へ}り、カエルの{声|こえ}も{減|へ}り{始|はじ}めた。{池|いけ}に{活性炭|かっせいたん}が{入|はい}っていた。{水|みず}をよくしたいと{言|い}っていた{人|ひと}が{池|いけ}のそばで{何|なに}かしていた——。"
+      - type: choice
+        id: q1
+        question: 活性炭を池に入れて環境を変えたのは誰？
+        options:
+          - text: ミコト（水質担当。水をよくしたいと言っていた）
+            value: mikoto
+            correct: true
+            feedback: "{正解|せいかい}！ ミコトは{水質|すいしつ}{担当|たんとう}として「もっと{水|みず}をきれいに」と{思|おも}い、{家|いえ}から{活性炭|かっせいたん}を{持|も}ってきて{池|いけ}に{大量|たいりょう}に{入|い}れた。きれいになった{水|みず}は{微生物|びせいぶつ}を{減|へ}らし、カエルが{住|す}みにくい{環境|かんきょう}になってしまった。「{守|まも}りたい{気持|きも}ち」が{逆|ぎゃく}の{結果|けっか}を{生|う}んでしまった。"
+          - text: イノリ（水質記録を持っていた）
+            value: inori
+            feedback: "イノリは{水質|すいしつ}{記録|きろく}を{読|よ}んで{変化|へんか}のタイミングに{気|き}づいていた。{池|いけ}に{活性炭|かっせいたん}を{入|い}れた{記録|きろく}や{目撃|もくげき}はないよ。"
+          - text: カケル（池のまわりで活動していた）
+            value: kakeru
+            feedback: "カケルはビオトープのまわりで{活動|かつどう}することが{多|おお}かったけど、ミコトが{池|いけ}のそばで{何|なに}かしているのを{見|み}た{側|がわ}だよ。{活性炭|かっせいたん}を{入|い}れた{証拠|しょうこ}はない。"
+          - text: シズク（黒い粒を見つけた）
+            value: shizuku
+            feedback: "シズクは{黒|くろ}い{粒|つぶ}を{見|み}つけて「{活性炭|かっせいたん}かも」と{気|き}づいた{観察型|かんさつがた}。{池|いけ}に{入|い}れた{側|がわ}ではなく、{発見|はっけん}した{側|がわ}だよ。"
+
+  # ==================== 真実：ミコト ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ミコトの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: center
+      - type: dialog
+        character: mikoto
+        text: "……{私|わたし}です。{活性炭|かっせいたん}を{池|いけ}に{入|い}れたのは。"
+        expression: worried
+      - type: narration
+        text: "ミコトは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: mikoto
+        text: "{水質|すいしつ}{担当|たんとう}だったから……{池|いけ}の{水|みず}がにごってきたのが{気|き}になって。{活性炭|かっせいたん}は{水|みず}のよごれをとるって{知|し}ってたから、カエルにも{良|よ}いことだと{思|おも}ってた。"
+        expression: thinking
+      - type: dialog
+        character: mikoto
+        text: "でも{池|いけ}が{静|しず}かになってから……{自分|じぶん}のせいかもって{不安|ふあん}になった。「{守|まも}りたかっただけ」なのに、カエルを{困|こま}らせてしまったなんて——{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: inori
+        expression: worried
+        position: left
+      - type: dialog
+        character: inori
+        text: "{実|じつ}は……{水質|すいしつ}{記録|きろく}で「きれいすぎる{変化|へんか}」に{気|き}づいてた。でも「きれい＝{良|よ}い」とみんなが{思|おも}ってたから、{言|い}い{出|だ}しにくかった。{早|はや}く{言|い}えていたら——ごめん。"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "ミコトが{池|いけ}のそばで{何|なに}かしてるの{見|み}たのに、「{悪気|わるぎ}ないのかも」って{思|おも}って{言|い}えなかった。{自分|じぶん}も「きれいな{水|みず}＝{良|よ}いこと」って{思|おも}ってたし——{見|み}ていたのに{言|い}えなかった。"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: worried
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "{黒|くろ}い{粒|つぶ}を{見|み}て「{活性炭|かっせいたん}かも」と{思|おも}ったとき、もっと{早|はや}く{声|こえ}をあげればよかった。{証拠|しょうこ}が{足|た}りないと{思|おも}って{待|ま}ってたけど——{生|い}き{物|もの}のことは{待|ま}てなかった。"
+        expression: worried
+      - type: dialog
+        character: shizuku
+        text: "ルールは「{生|い}き{物|もの}を{守|まも}るため」にある。そのルールをもっと{使|つか}えたら{良|よ}かった。"
+        expression: determined
+      - type: sprite
+        character: shizuku
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミコトの「{池|いけ}をもっときれいにしたい」という{気持|きも}ちは{素晴|すば}らしいわ。{水質|すいしつ}{担当|たんとう}として{責任感|せきにんかん}を{持|も}ってくれていたのよね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、ビオトープは「{清流|せいりゅう}」ではなく「{豊|ゆた}かな{水辺|みずべ}」なの。{微生物|びせいぶつ}や{少|すこ}しのにごりも、{大切|たいせつ}な{環境|かんきょう}の{一部|いちぶ}。{変|か}える{前|まえ}に{一声|ひとこえ}かけてくれれば——{一緒|いっしょ}に{考|かんが}えられたわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{人間|にんげん}にとって「きれいな{水|みず}」と、カエルにとって「{住|す}みやすい{水|みず}」は{同|おな}じではない。ビオトープには{微生物|びせいぶつ}やプランクトンが{必要|ひつよう}で、それがカエルの{食|た}べ{物|もの}にもなる。「きれいすぎる」{状態|じょうたい}は、{生態系|せいたいけい}のバランスをこわしてしまう。"
+      - type: narration
+        text: "ミコトの{行動|こうどう}は「{守|まも}りたい」という{善意|ぜんい}からだった。でも{同|おな}じ{変化|へんか}が、{見|み}る{視点|してん}によって{全然|ぜんぜん}{違|ちが}う{意味|いみ}を{持|も}つ。{活性炭|かっせいたん}は{人間|にんげん}の{視点|してん}では「{浄化|じょうか}」、カエルの{視点|してん}では「{生|い}きにくい{環境|かんきょう}」だった。"
+      - type: narration
+        text: "{守|まも}りたい{気持|きも}ちは{大切|たいせつ}——でも、{相手|あいて}の{立場|たちば}で{考|かんが}えてから{動|うご}く。そして「{一人|ひとり}で{決|き}めない」。{生|い}き{物|もの}のことを{本当|ほんとう}に{守|まも}るには、{視点|してん}を{切|き}り{替|か}える{勇気|ゆうき}が{必要|ひつよう}だ。"
+      - type: effect
+        name: fade-out

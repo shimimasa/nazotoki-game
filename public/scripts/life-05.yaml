@@ -1,0 +1,414 @@
+meta:
+  id: life-05
+  title: 巣のない鳥
+  series: 生命探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{校庭|こうてい}のケヤキの{木|き}に、シジュウカラが{巣|す}を{作|つく}り{始|はじ}めていた。{毎日|まいにち}{少|すこ}しずつ{巣材|すざい}が{増|ふ}えていって、4{人|にん}はそれを{楽|たの}しみに{見守|みまも}っていた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{木曜日|もくようび}の{朝|あさ}、ケヤキの{木|き}を{見|み}に{行|い}くと、{巣|す}が{跡形|あとかた}もなく{消|き}えていた。{月|げつ}〜{水曜日|すいようび}まで{確|たし}かに{増|ふ}えていた{巣材|すざい}が、{一夜|いちや}でなくなっている。「{誰|だれ}かが{壊|こわ}した！」という{声|こえ}も{上|あ}がった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{水曜日|すいようび}の{放課後|ほうかご}、{木|き}の{近|ちか}くで{観察|かんさつ}していた{人|ひと}がいると{聞|き}きました。{巣|す}が「{壊|こわ}された」のか「{放棄|ほうき}された」のか——まずそこから{調|しら}べてみてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: thinking
+          - character: kakeru
+            expression: worried
+          - character: shizuku
+            expression: worried
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{壊|こわ}された」のか「{放棄|ほうき}された」のか。そして{原因|げんいん}を{作|つく}った{人|ひと}がいるとしたら——{誰|だれ}だ？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 巣のない鳥
+        subtitle: 生命探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 観察記録を確認しよう
+      - type: narration
+        text: "イノリが{毎日|まいにち}つけていた{巣|す}の{観察記録|かんさつきろく}を{取|と}り{出|だ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{月曜日|げつようび} —— {巣材|すざい}が{少|すこ}しある。"
+      - type: narration
+        text: "{火曜日|かようび} —— {巣材|すざい}が{増|ふ}える。"
+      - type: narration
+        text: "{水曜日|すいようび} —— さらに{増|ふ}える。{巣|す}の{形|かたち}が{見|み}えてきた。"
+      - type: narration
+        text: "{木曜日|もくようび} —— {巣|す}がない。"
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "{月|げつ}〜{水|すい}まで{順調|じゅんちょう}に{増|ふ}えていたのに、{木曜|もくよう}の{朝|あさ}にはゼロ。{急|きゅう}に{消|き}えてる。{何|なに}かが{水曜日|すいようび}の{午後|ごご}以降{いこう}に{起|お}きたと{考|かんが}えられる。"
+        expression: thinking
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "イノリの{分析|ぶんせき}は{正確|せいかく}だ。{変化|へんか}が{起|お}きたのは{水曜日|すいようび}の{放課後|ほうかご}。{次|つぎ}は{当日|とうじつ}の{天気|てんき}を{調|しら}べよう。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 天気メモを確認しよう
+      - type: narration
+        text: "{水曜日|すいようび}の{天気|てんき}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{水曜日|すいようび}{夕方|ゆうがた}は{曇|くも}り。{風|かぜ}は{少|すこ}しあった。{木|き}を{大|おお}きくゆらすほどではない。"
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{弱|よわ}い{風|かぜ}で、{増|ふ}えていた{巣材|すざい}が{全部|ぜんぶ}なくなるかな。「{風|かぜ}で{飛|と}んだ」{仮説|かせつ}は{本当|ほんとう}に{合|あ}ってる？"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: narration
+        text: "カケルの{疑問|ぎもん}は{重要|じゅうよう}だ。もし{風|かぜ}が{原因|げんいん}なら、{巣材|すざい}は{遠|とお}くに{飛|と}び{散|ち}っているはずだ。{次|つぎ}は{木|き}の{下|した}のようすを{見|み}よう。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 鳥の理科メモを確認しよう
+      - type: narration
+        text: "ビオトープ{掲示板|けいじばん}に{貼|は}ってある「{鳥|とり}の{理科|りか}メモ」を{読|よ}んだ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{営巣|えいそう}{中|ちゅう}の{鳥|とり}は、{人|ひと}が{近|ちか}づきすぎると{巣|す}を{放棄|ほうき}することがある。"
+      - type: narration
+        text: "{においや|においや}{大|おお}きな{動|うご}きにも{敏感|びんかん}。{特|とく}に{人|ひと}の{においは|においは}{鳥|とり}にとって{危険|きけん}のサインになる。"
+      - type: sprite
+        character: mikoto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "{手|て}で{壊|こわ}さなくても、{近|ちか}づきすぎるだけで{巣|す}がなくなることがある——ってこと？ {鳥|とり}にとって「{危険|きけん}な{場所|ばしょ}」になったら、{自分|じぶん}でやめるんだ。"
+        expression: thinking
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "ミコトの{気|き}づきは{重要|じゅうよう}だ。「{壊|こわ}された」のではなく「{放棄|ほうき}された」——{近|ちか}づいた{人|ひと}が{原因|げんいん}になった{可能性|かのうせい}がある。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 木の下のようすを確認しよう
+      - type: narration
+        text: "{木曜日|もくようび}の{朝|あさ}、ケヤキの{木|き}の{下|した}を{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{巣材|すざい}が{木|き}の{近|ちか}くに{少|すこ}し{落|お}ちていた。{遠|とお}くへ{飛|と}び{散|ち}ってはいない。"
+      - type: narration
+        text: "{枝|えだ}が1{本|ぽん}、ゆれていた{形|かたち}あとがある。{誰|だれ}かが{手|て}をかけたような{跡|あと}だ。"
+      - type: sprite
+        character: kakeru
+        expression: determined
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{風|かぜ}の{仮説|かせつ}は{弱|よわ}い！ {強|つよ}い{風|かぜ}なら{巣材|すざい}は{広|ひろ}く{飛|と}び{散|ち}るはず。でも{近|ちか}くだけに{落|お}ちてる。それに{枝|えだ}に{手|て}をかけた{跡|あと}——{誰|だれ}かが{木|き}に{触|ふ}れた{証拠|しょうこ}だ。"
+        expression: determined
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: narration
+        text: "カケルの{仮説検証|かせつけんしょう}で「{風|かぜ}だけが{原因|げんいん}」は{否定|ひてい}された。{人|ひと}が{木|き}に{近|ちか}づいて{枝|えだ}にふれた——その{人物|じんぶつ}を{特定|とくてい}する{必要|ひつよう}がある。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 点検結果
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "GMが{新|あたら}しい{手|て}がかりを{発表|はっぴょう}した。{落|お}ちていた{巣材|すざい}を{詳|くわ}しく{点検|てんけん}した{結果|けっか}が{明|あ}らかになる——。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{落|お}ちた{巣材|すざい}には、{人|ひと}の{手|て}でつかんだような{乱|みだ}れがある。さらに——{鳥|とり}は{別|べつ}の{場所|ばしょ}で{巣材|すざい}を{運|はこ}んでいた。{巣|す}は{壊|こわ}されたのではなく、{別|べつ}の{場所|ばしょ}へ{移動|いどう}したのだ。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "そして{追加|ついか}の{点検|てんけん}で——{落|お}ちた{巣材|すざい}の{一部|いちぶ}に{人|ひと}の{皮脂|ひし}がついたあとがある。{人|ひと}がさわった{巣材|すざい}を{鳥|とり}がさけることがある——{先生|せんせい}メモ。{水曜日|すいようび}{放課後|ほうかご}に{木|き}へ{近|ちか}づいた{人物|じんぶつ}が、{巣|す}の{放棄|ほうき}の{原因|げんいん}を{作|つく}った。"
+      - type: sprite
+        character: inori
+        expression: determined
+        position: left
+      - type: dialog
+        character: inori
+        text: "{水曜日|すいようび}{放課後|ほうかご}、{木|き}の{近|ちか}くにいた{人物|じんぶつ}は——{誰|だれ}だった？ そこまで{絞|しぼ}り{込|こ}めれば{答|こた}えが{出|で}る。"
+        expression: determined
+      - type: sprite
+        character: inori
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 原因を作ったのは誰だ？
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{水曜日|すいようび}{放課後|ほうかご}、シズクがケヤキの{木|き}のすぐ{下|した}にいたのを{見|み}た。そのあと{葉|は}が{少|すこ}しゆれた{気|き}がした——{何|なに}をしたかははっきり{見|み}えなかったけど。"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: mikoto
+        text: "シズクがかなり{近|ちか}くまで{行|い}っていた{気|き}がした。「{近|ちか}づきすぎないで」と{思|おも}ったけど——{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{変化|へんか}は{水曜日|すいようび}{放課後|ほうかご}。{巣材|すざい}は{木|き}の{近|ちか}くに{落|お}ちていて、{枝|えだ}に{触|ふ}れた{跡|あと}がある。{落|お}ちた{巣材|すざい}には{人|ひと}の{皮脂|ひし}がついていた。そして{水曜日|すいようび}{放課後|ほうかご}に{木|き}のすぐ{下|した}にいたのは——。"
+      - type: choice
+        id: q1
+        question: 巣の放棄の原因を作ったのは誰？
+        options:
+          - text: シズク（水曜放課後に木のすぐ下にいて、枝に触れた）
+            value: shizuku
+            correct: true
+            feedback: "{正解|せいかい}！ シズクは{水曜日|すいようび}{放課後|ほうかご}、{巣|す}を{近|ちか}くで{見|み}たくて{枝|えだ}に{手|て}をかけた。{枝|えだ}がゆれて{巣材|すざい}の{一部|いちぶ}が{落|お}ち、{人|ひと}の{皮脂|ひし}がついた{巣材|すざい}にシジュウカラが{危険|きけん}を{感|かん}じてこの{巣|す}を{放棄|ほうき}した。シズクに{悪意|あくい}はなかったが、「{近|ちか}づいただけ」が{結果|けっか}として{巣|す}を{失|うしな}わせてしまった。"
+          - text: イノリ（観察記録を持っていた）
+            value: inori
+            feedback: "イノリは{観察記録|かんさつきろく}で{変化|へんか}のタイミングを{特定|とくてい}した{情報型|じょうほうがた}。{水曜日|すいようび}{放課後|ほうかご}に{木|き}へ{近|ちか}づいた{記録|きろく}も{目撃|もくげき}もないよ。"
+          - text: カケル（放課後に校庭を歩いていた）
+            value: kakeru
+            feedback: "カケルは{水曜日|すいようび}{放課後|ほうかご}にシズクが{木|き}の{近|ちか}くにいるのを{見|み}た{側|がわ}だよ。{木|き}に{近|ちか}づいた{証拠|しょうこ}はカケルにはない。"
+          - text: ミコト（シズクのことを心配していた）
+            value: mikoto
+            feedback: "ミコトは「{近|ちか}づきすぎないで」と{思|おも}いながら{止|と}められなかった{感情型|かんじょうがた}。{木|き}に{近|ちか}づいたのはシズクで、ミコト{自身|じしん}は{遠|とお}くから{見|み}ていた。"
+
+  # ==================== 真実：シズク ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: シズクの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: shizuku
+        expression: worried
+        position: center
+      - type: dialog
+        character: shizuku
+        text: "……{私|わたし}が、{木|き}に{近|ちか}づいた。"
+        expression: worried
+      - type: narration
+        text: "シズクは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: shizuku
+        text: "{巣|す}の{様子|ようす}をもっとよく{見|み}たくて、{木|き}のすぐそばまで{行|い}った。{枝|えだ}に{手|て}をかけたら、{少|すこ}しゆれて{巣材|すざい}が{落|お}ちてしまって——{あわ}てて{拾|ひろ}った。"
+        expression: thinking
+      - type: dialog
+        character: shizuku
+        text: "「{近|ちか}づいただけ」だから{壊|こわ}してはいないと{思|おも}ってた。でも{鳥|とり}が{巣|す}をやめたのを{見|み}て、{自分|じぶん}のせいかもって——{怖|こわ}くて{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: shizuku
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: inori
+        expression: worried
+        position: left
+      - type: dialog
+        character: inori
+        text: "{実|じつ}は……{水曜日|すいようび}{午後|ごご}に{巣材|すざい}が{落|お}ちているのに{気|き}づいてた。でも{風|かぜ}かもって{思|おも}って、{誰|だれ}かに{言|い}わなかった。{早|はや}く{声|こえ}をあげていたら、{調|しら}べ{直|なお}せたかもしれない——ごめん。"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "シズクが{木|き}の{近|ちか}くにいるのを{見|み}て、「{近|ちか}すぎるかな」と{思|おも}ったのに{言|い}えなかった。{見|み}ていたのに{動|うご}けなかった——{自分|じぶん}も{一緒|いっしょ}に{考|かんが}えていればよかった。"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: mikoto
+        text: "「{近|ちか}づきすぎないで」って{思|おも}ったのに、{言|い}えなかった。シズクを{悪|わる}く{思|おも}いたくなくて……でも{言|い}えていたら、{鳥|とり}を{守|まも}れたかもしれない。"
+        expression: worried
+      - type: dialog
+        character: mikoto
+        text: "「{見|み}たい{気持|きも}ち」と「{守|まも}りたい{気持|きも}ち」は、ときどきぶつかる。{今日|きょう}みたいに——どっちが{大切|たいせつ}か、{一緒|いっしょ}に{考|かんが}えたかった。"
+        expression: determined
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "シズクの「{巣|す}を{近|ちか}くで{見|み}たい」という{好奇心|こうきしん}は{素晴|すば}らしい。{観察|かんさつ}しようとする{気持|きも}ちは、{理科|りか}の{大切|たいせつ}な{第一歩|だいいっぽ}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{営巣中|えいそうちゅう}の{鳥|とり}には「{安全|あんぜん}な{距離|きょり}」がある。{見|み}たいときほど、{距離|きょり}を{守|まも}ることが{命|いのち}を{守|まも}ることになる——それが{今日|きょう}の{大切|たいせつ}な{学|まな}びよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "シズクは{壊|こわ}してはいない。でも{近|ちか}づきすぎたことで、{結果|けっか}として{巣|す}を{失|うしな}わせてしまった。「{壊|こわ}した」には、{直接|ちょくせつ}{破壊|はかい}するだけでなく、{近|ちか}づきすぎて{放棄|ほうき}させてしまう{意味|いみ}もある。"
+      - type: narration
+        text: "{人|ひと}の{手|て}でさわった{巣材|すざい}には{皮脂|ひし}がつく。シジュウカラはその{においを|においを}{危険|きけん}のサインと{感|かん}じ、この{場所|ばしょ}をあきらめた。{悪意|あくい}のない{行動|こうどう}が、{生|い}き{物|もの}の{人生|じんせい}を{変|か}えてしまうことがある。"
+      - type: narration
+        text: "「{見|み}たい」という{気持|きも}ちは{大切|たいせつ}——でも{相手|あいて}が{生|い}き{物|もの}なら、{距離|きょり}を{守|まも}ることが{本当|ほんとう}の{観察|かんさつ}だ。シジュウカラは{別|べつ}の{場所|ばしょ}で{巣|す}を{作|つく}り{直|なお}している。{次|つぎ}に{見|み}つけたとき、4{人|にん}は{遠|とお}くから{静|しず}かに{見守|みまも}った。"
+      - type: effect
+        name: fade-out

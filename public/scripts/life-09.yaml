@@ -1,0 +1,409 @@
+meta:
+  id: life-09
+  title: からまった食物連鎖
+  series: 生命探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のビオトープで{毎月|まいつき}している{生|い}き{物|もの}{調査|ちょうさ}の{日|ひ}。{先月|せんげつ}と{比|くら}べて、{数|かず}が{大|おお}きく{変|か}わっていた。"
+      - type: narration
+        text: "オタマジャクシが{半分|はんぶん}{以下|いか}に{減|へ}っている。そのかわり、ヤゴは{増|ふ}え、{藻|も}もたくさん{増|ふ}えていた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{食物連鎖|しょくもつれんさ}のどこかで、{何|なに}か{大|おお}きな{変化|へんか}が{起|お}きたはずだ。データを{比|くら}べて、{何|なに}が{起|お}きたのか{調|しら}べなければならない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ビオトープの{生|い}き{物|もの}の{数|かず}が{先月|せんげつ}と{大|おお}きく{変|か}わっています。オタマジャクシが{減|へ}り、ヤゴと{藻|も}が{増|ふ}えた。{食物連鎖|しょくもつれんさ}のどこかに{変化|へんか}があったはずです。{原因|げんいん}と{原因|げんいん}を{作|つく}った{人|ひと}を{特定|とくてい}してください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: thinking
+          - character: kakeru
+            expression: surprised
+          - character: shizuku
+            expression: thinking
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。データの{共通|きょうつう}パターンを{見|み}つければ——{原因|げんいん}が{見|み}えてくるはずだ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: からまった食物連鎖
+        subtitle: 生命探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 生き物の数を比べよう
+      - type: narration
+        text: "{先月|せんげつ}と{今月|こんげつ}の{生|い}き{物|もの}{調査|ちょうさ}データを{並|なら}べてみた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "オタマジャクシ —— {先月|せんげつ}より{大幅|おおはば}に{減|へ}っている。"
+      - type: narration
+        text: "ヤゴ —— {先月|せんげつ}より{増|ふ}えている。"
+      - type: narration
+        text: "{藻|も} —— {先月|せんげつ}よりかなり{増|ふ}えている。"
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "3つの{変化|へんか}が{同時|どうじ}に{起|お}きている。オタマジャクシが{減|へ}って、ヤゴと{藻|も}が{増|ふ}えた。バラバラの{原因|げんいん}ではなく、1つの{原因|げんいん}が{全部|ぜんぶ}に{影響|えいきょう}しているんじゃないかな。"
+        expression: determined
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "3つの{変化|へんか}に{共通|きょうつう}するパターンはあるのか。{食物連鎖|しょくもつれんさ}のつながりを{調|しら}べる{必要|ひつよう}がある。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 食物連鎖を確認しよう
+      - type: narration
+        text: "ビオトープの{食物連鎖|しょくもつれんさ}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{藻|も} → オタマジャクシが{食|た}べる。"
+      - type: narration
+        text: "オタマジャクシ → ヤゴに{一部|いちぶ}{食|た}べられる。"
+      - type: narration
+        text: "つまり、{藻|も}→オタマジャクシ→ヤゴという{食|た}べる・{食|た}べられるのつながりがある。"
+      - type: sprite
+        character: mikoto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "オタマジャクシが{減|へ}ったから、{食|た}べられる{藻|も}が{残|のこ}って{増|ふ}えたのかな。でもオタマジャクシを{減|へ}らしたのは{何|なに}？ ヤゴだけでこんなに{減|へ}るかな……もっと{上|うえ}の{食|た}べる{側|がわ}が{入|はい}ったんじゃない？"
+        expression: thinking
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "{食物連鎖|しょくもつれんさ}の{上位|じょうい}に{新|あら}たな{捕食者|ほしょくしゃ}が{加|くわ}わったとしたら——オタマジャクシが{食|た}べられて{減|へ}り、{藻|も}が{増|ふ}える。このパターンに{合|あ}う。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 不思議な痕跡を調べよう
+      - type: narration
+        text: "ビオトープの{水辺|みずべ}をよく{観察|かんさつ}すると、{気|き}になるものが{見|み}つかった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{見慣|みなれ}れない{強|つよ}いはさみあとが、いくつも{残|のこ}っていた。"
+      - type: narration
+        text: "{水辺|みずべ}の{土|つち}が{深|ふか}くえぐれている{場所|ばしょ}もあった。"
+      - type: sprite
+        character: shizuku
+        expression: surprised
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "はさみあとと{土|つち}がえぐれている……これは、もともとビオトープにいた{生|い}き{物|もの}じゃないかもしれない。{外|そと}から{入|はい}ってきた、あるいは{入|い}れられた{生|い}き{物|もの}がいるんじゃないか。"
+        expression: surprised
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "{見慣|みなれ}れない{痕跡|こんせき}——もともとビオトープにいなかった{生|い}き{物|もの}が{入|はい}った{可能性|かのうせい}がある。ビオトープには「{外|そと}の{生|い}き{物|もの}は{入|い}れない」というルールがあるはずだ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ルールの意味を考えよう
+      - type: narration
+        text: "ビオトープのルールを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{外|そと}の{生|い}き{物|もの}はビオトープに{入|い}れない」——これがルールだ。"
+      - type: narration
+        text: "このルールがある{理由|りゆう}は、{外|そと}から{入|はい}った{生|い}き{物|もの}が{食物連鎖|しょくもつれんさ}のバランスを{壊|こわ}すことがあるからだ。"
+      - type: sprite
+        character: shizuku
+        expression: determined
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "{外|そと}の{生|い}き{物|もの}を{入|い}れないルールは、{食物連鎖|しょくもつれんさ}を{守|まも}るためにある。もし{誰|だれ}かがこのルールを{破|やぶ}って{上位|じょうい}の{捕食者|ほしょくしゃ}を{入|い}れたなら、オタマジャクシが{減|へ}った{説明|せつめい}がつく。"
+        expression: determined
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "ルールの{意味|いみ}が{見|み}えてきた。{外来|がいらい}の{生|い}き{物|もの}が{入|はい}ると、{食物連鎖|しょくもつれんさ}のバランスが{崩|くず}れる。では、{何|なに}が{入|い}れられたのか——。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 追加痕跡と目撃情報
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "ビオトープをさらに{調|しら}べたところ、{決定的|けっていてき}な{証拠|しょうこ}が{見|み}つかった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ザリガニの{殻|から}らしいものが{見|み}つかった。{先月|せんげつ}の{記録|きろく}にはザリガニは0——もともとビオトープにはいなかった。"
+      - type: narration
+        text: "さらに、{近所|きんじょ}の{池|いけ}でザリガニ{釣|つ}りをしていた{話|はなし}と、{約束|やくそく}して{持|も}ち{帰|かえ}った{子|こ}がいるという{情報|じょうほう}も{出|で}てきた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ザリガニはオタマジャクシを{食|た}べる{上位|じょうい}の{捕食者|ほしょくしゃ}だ！ ザリガニが{入|はい}ったから、オタマジャクシが{減|へ}り、{藻|も}が{増|ふ}えた——{食物連鎖|しょくもつれんさ}の{連鎖|れんさ}が{全|すべ}て{説明|せつめい}できる。では{誰|だれ}がザリガニを{入|い}れたのか——。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ザリガニを入れたのは誰だ？
+      - type: sprite
+        character: mikoto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "カケルは{生|い}き{物|もの}を{増|ふ}やしたがるタイプだよね。「にぎやかになるよ」って{言|い}ってたのを{聞|き}いたことがある。{友|とも}だちとの{約束|やくそく}で{持|も}ち{帰|かえ}ったのかも……。"
+        expression: thinking
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: sprite
+        character: inori
+        expression: determined
+        position: left
+      - type: dialog
+        character: inori
+        text: "データを{並|なら}べると、{上位|じょうい}{捕食者|ほしょくしゃ}が{追加|ついか}されたパターンにぴったり{合|あ}う。ザリガニの{殻|から}が{見|み}つかり、{先月|せんげつ}にはいなかった。{近所|きんじょ}の{池|いけ}で{釣|つ}って{持|も}ち{帰|かえ}った{人|ひと}は1{人|ひと}だけだよ。"
+        expression: determined
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ザリガニの{殻|から}が{見|み}つかった。{先月|せんげつ}の{記録|きろく}にザリガニはいない。{近所|きんじょ}の{池|いけ}で{釣|つ}って{持|も}ち{帰|かえ}った{子|こ}がいる。{生|い}き{物|もの}を{増|ふ}やしたがっていた——"
+      - type: choice
+        id: q1
+        question: ザリガニをビオトープに入れたのは誰？
+        options:
+          - text: カケル（生き物を増やしたくてザリガニを入れた）
+            value: kakeru
+            correct: true
+            feedback: "{正解|せいかい}！ カケルは{友|とも}だちとの{約束|やくそく}を{守|まも}って、{近所|きんじょ}の{池|いけ}で{釣|つ}ったザリガニ3{匹|ひき}をビオトープに{入|い}れた。「にぎやかになる」と{思|おも}っていたが、ザリガニは{上位|じょうい}の{捕食者|ほしょくしゃ}として{食物連鎖|しょくもつれんさ}を{崩|くず}してしまった。"
+          - text: イノリ（データの変化に詳しくて怪しい）
+            value: inori
+            feedback: "イノリは{情報型|じょうほうがた}で、データの{変化|へんか}を{分析|ぶんせき}した{役割|やくわり}。{上位|じょうい}{捕食者|ほしょくしゃ}{追加|ついか}のパターンを{見|み}つけたのはイノリ。ザリガニを{入|い}れたのはイノリではないよ。"
+          - text: シズク（ザリガニの殻に気づいていた）
+            value: shizuku
+            feedback: "シズクは{観察型|かんさつがた}で、はさみあとや{殻|から}を{発見|はっけん}した。ルールの{意味|いみ}を{考|かんが}えていたのもシズク。ザリガニを{入|い}れたのはシズクではないよ。"
+          - text: ミコト（生き物の立場を考えすぎて入れた）
+            value: mikoto
+            feedback: "ミコトは{感情型|かんじょうがた}で、{全|すべ}ての{生|い}き{物|もの}の{立場|たちば}を{考|かんが}える{役割|やくわり}。カケルの{言動|げんどう}に{気|き}づいていたのもミコト。ザリガニを{入|い}れたのはミコトではないよ。"
+
+  # ==================== 真実：カケル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: カケルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kakeru
+        text: "……ザリガニを{入|い}れたのは、おれです。"
+        expression: worried
+      - type: narration
+        text: "カケルは{頭|あたま}をかきながら、{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: kakeru
+        text: "{友|とも}だちと{近所|きんじょ}の{池|いけ}でザリガニ{釣|つ}りをしたんだ。3{匹|ひき}{釣|つ}れて、「ビオトープに{入|い}れたらにぎやかになるよ」って{約束|やくそく}した。"
+        expression: thinking
+      - type: dialog
+        character: kakeru
+        text: "{生|い}き{物|もの}が{増|ふ}えればビオトープが{楽|たの}しくなると{思|おも}ったんだ。まさかオタマジャクシを{食|た}べて、{食物連鎖|しょくもつれんさ}が{全部|ぜんぶ}{変|か}わっちゃうなんて……。"
+        expression: worried
+      - type: dialog
+        character: kakeru
+        text: "{約束|やくそく}を{守|まも}ろうとしたけど、ルールを{破|やぶ}ってビオトープを{壊|こわ}してしまった。1つの{行動|こうどう}が、こんなに{広|ひろ}がるなんて{思|おも}わなかった……ごめん。"
+        expression: determined
+      - type: sprite
+        character: kakeru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: inori
+        expression: worried
+        position: left
+      - type: dialog
+        character: inori
+        text: "データを{並|なら}べたとき、{上位|じょうい}{捕食者|ほしょくしゃ}が{入|はい}ったパターンだとすぐに{分|わ}かった。でも{誰|だれ}が{入|い}れたか{聞|き}けなくて、{時間|じかん}がかかってしまった。もっと{早|はや}く{共有|きょうゆう}すればよかった。"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "ザリガニの{殻|から}を{見|み}つけたとき、ルール{違反|いはん}だと{思|おも}った。でも{証拠|しょうこ}が{足|た}りないと{感|かん}じて、{言|い}い{出|だ}せなかった。{気|き}づいたことは{早|はや}めに{伝|つた}えるべきだった。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "カケルが「にぎやかになるよ」って{言|い}ってたとき、{何|なに}かするのかなと{思|おも}った。でも「{悪|わる}いことじゃないだろう」って{考|かんが}えて、{聞|き}かなかった。{生|い}き{物|もの}の{立場|たちば}をもっと{早|はや}く{考|かんが}えればよかった。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カケルの「ビオトープをにぎやかにしたい」という{気持|きも}ちは{分|わ}かるわ。{生|い}き{物|もの}を{大切|たいせつ}に{思|おも}う{心|こころ}は{素晴|すば}らしい。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも{食物連鎖|しょくもつれんさ}はつながっています。1{種類|しゅるい}の{生|い}き{物|もの}を{追加|ついか}するだけで、{全体|ぜんたい}のバランスが{変|か}わるの。{約束|やくそく}を{守|まも}ることと、{場所|ばしょ}のルールを{守|まも}ることが{ぶつかったとき}——{どちらが}{大切|たいせつ}か{考|かんが}える{力|ちから}が{必要|ひつよう}ね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{食物連鎖|しょくもつれんさ}は{食|た}べる・{食|た}べられるのつながり。{上位|じょうい}の{捕食者|ほしょくしゃ}が{入|はい}ると、{下|した}の{生|い}き{物|もの}が{減|へ}り、さらにその{下|した}が{増|ふ}える——{連鎖的|れんさてき}に{影響|えいきょう}が{広|ひろ}がる。"
+      - type: narration
+        text: "ザリガニがオタマジャクシを{食|た}べ、オタマジャクシが{減|へ}ったから{藻|も}が{増|ふ}えた。たった1つの{行動|こうどう}が、{何段階|なんだんかい}もの{変化|へんか}を{引|ひ}き{起|お}こした。"
+      - type: narration
+        text: "{帰納法|きのうほう}は、いくつかのデータから{共通|きょうつう}するパターンを{見|み}つける{方法|ほうほう}だ。{増|ふ}えたもの・{減|へ}ったものを{並|なら}べ、{全部|ぜんぶ}を{説明|せつめい}できる{原因|げんいん}を{探|さが}す——それが{科学的|かがくてき}な{推理|すいり}の{力|ちから}。"
+      - type: effect
+        name: fade-out

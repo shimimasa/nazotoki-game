@@ -1,0 +1,391 @@
+meta:
+  id: welfare-05
+  title: 見えないバリア
+  series: 福祉探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}で「UD（ユニバーサルデザイン）{自動販売機|じどうはんばいき}デザインコンテスト」が{開|ひら}かれた。{福祉|ふくし}{探偵|たんてい}{団|だん}の4{人|にん}が、「{誰|だれ}にでも{使|つか}いやすい{自動販売機|じどうはんばいき}」のデザインを{描|えが}いて{応募|おうぼ}した。"
+      - type: narration
+        text: "{審査|しんさ}{当日|とうじつ}——{地域|ちいき}の{福祉|ふくし}アドバイザー・ナカムラさん（{車|くるま}いすユーザー）が、4つのデザイン{画|が}を{見|み}て、{実際|じっさい}に{操作|そうさ}のシミュレーションをしてくれた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "3つのデザインはとてもよく{考|かんが}えられています。でも、1つだけ……{私|わたし}の{車|くるま}いすからでは{操作|そうさ}できないデザインがあります。ボタンに{手|て}が{届|とど}かなかったんです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}は{福祉|ふくし}{探偵|たんてい}{団|だん}に{調査|ちょうさ}を{依頼|いらい}した。{誰|だれ}のデザインに「{見|み}えないバリア」がかくれていたのか？"
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{自分|じぶん}たちのデザインの{中|なか}に、{問題|もんだい}のある{作品|さくひん}がある——。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 見えないバリア
+        subtitle: 福祉探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ナカムラさんの審査コメントを確認しよう
+      - type: narration
+        text: "ナカムラさんが4つのデザインを{審査|しんさ}した{結果|けっか}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「4{人|にん}とも、{一生懸命|いっしょうけんめい}{考|かんが}えたデザインだと{分|わ}かります。3つのデザインはとてもよく{考|かんが}えられていて、{私|わたし}の{車|くるま}いすからでも{操作|そうさ}できました。でも、1つだけ——{私|わたし}の{車|くるま}いすからでは{操作|そうさ}できないデザインがありました。ボタンに{手|て}が{届|とど}かなかったんです」"
+      - type: narration
+        text: "ユニバーサルデザイン（UD）とは、{年齢|ねんれい}・{性別|せいべつ}・{障|しょう}がいの{有無|うむ}に{関係|かんけい}なく、できるだけ{多|おお}くの{人|ひと}が{使|つか}えるようにするデザインの{考|かんが}え{方|かた}だ。「{便利|べんり}」と「{誰|だれ}にでも{使|つか}える」は{違|ちが}う。"
+      - type: narration
+        text: "{当事者|とうじしゃ}テストとは、{実際|じっさい}に{使|つか}う{人|ひと}に{試|ため}してもらうこと。デザインの{問題|もんだい}は、{使|つか}う{本人|ほんにん}にしか{分|わ}からないことがある。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人のデザインコンセプトを比べよう
+      - type: narration
+        text: "4{人|にん}がコンテストに{提出|ていしゅつ}した「デザインコンセプトシート」を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユズル —— テーマ「{最先端|さいせんたん}タッチパネル{型|がた}」。こだわり：スマートで{高機能|こうきのう}、タッチパネルで{全商品|ぜんしょうひん}を{一覧|いちらん}{表示|ひょうじ}。{参考|さんこう}にしたもの：{最新|さいしん}の{自動販売機|じどうはんばいき}の{技術|ぎじゅつ}データ。"
+      - type: narration
+        text: "イブキ —— テーマ「{大|おお}きなボタン＋{音声|おんせい}ガイド{付|つ}き」。こだわり：{誰|だれ}でもかんたん{操作|そうさ}。{参考|さんこう}にしたもの：{高齢者|こうれいしゃ}{施設|しせつ}でのボランティア{経験|けいけん}とお{母|かあ}さんへの{当事者|とうじしゃ}テスト。"
+      - type: narration
+        text: "ワカナ —— テーマ「{低|ひく}い{位置|いち}の{操作|そうさ}パネル＋{点字|てんじ}{表示|ひょうじ}」。こだわり：バリアフリー{基準|きじゅん}に{完全|かんぜん}ず{準拠|じゅんきょ}。{参考|さんこう}にしたもの：JIS{規格|きかく}のアクセシビリティ{基準|きじゅん}。"
+      - type: narration
+        text: "コハル —— テーマ「イラスト{表示|ひょうじ}＋{色分|いろわ}けボタン」。こだわり：{見|み}た{目|め}で{分|わ}かるやさしい{設計|せっけい}。{参考|さんこう}にしたもの：{弟|おとうと}（{小|しょう}1）に「これ{使|つか}える？」と{聞|き}いたフィードバック。"
+      - type: narration
+        text: "4{人|にん}の「{参考|さんこう}にしたもの」を{見比|みくら}べてみよう。{自分|じぶん}{以外|いがい}の「{実際|じっさい}に{使|つか}う{人|ひと}」に{聞|き}いた{人|ひと}は{誰|だれ}？ {聞|き}いていない{人|ひと}は{誰|だれ}？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: デザイン仕様比較表を調べよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が4{人|にん}のデザイン{画|が}から{数値|すうち}データを{読|よ}み{取|と}った。バリアフリー{基準|きじゅん}と{比|くら}べてみよう。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{操作|そうさ}パネルの{高|たか}さ —— ユズル：130cm ／ イブキ：100cm ／ ワカナ：90〜110cm ／ コハル：95cm ／ バリアフリー{基準|きじゅん}：110cm{以下|いか}。"
+      - type: narration
+        text: "コイン{投入口|とうにゅうぐち}の{高|たか}さ —— ユズル：120cm ／ イブキ：95cm ／ ワカナ：100cm ／ コハル：90cm ／ {基準|きじゅん}：110cm{以下|いか}。{取|と}り{出|だ}し{口|ぐち}の{高|たか}さ —— ユズル：25cm ／ イブキ：55cm ／ ワカナ：50cm ／ コハル：60cm ／ {基準|きじゅん}：40〜65cm。"
+      - type: narration
+        text: "{当事者|とうじしゃ}テストの{有無|うむ} —— ユズル：なし ／ イブキ：あり（お{母|かあ}さん） ／ ワカナ：なし（{基準|きじゅん}で{代用|だいよう}） ／ コハル：あり（{弟|おとうと}）。"
+      - type: narration
+        text: "バリアフリー{基準|きじゅん}を{超|こ}えている{数値|すうち}はある？ どのデザインのどの{項目|こうもく}？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ナカムラさんの操作テスト結果を確認しよう
+      - type: narration
+        text: "ナカムラさんが{実際|じっさい}に{車|くるま}いすに{座|すわ}った{状態|じょうたい}で、4つのデザイン{画|が}に{対|たい}して「{手|て}が{届|とど}くか」「{操作|そうさ}できるか」をシミュレーションした{結果|けっか}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユズルのデザイン —— {操作|そうさ}パネルに{手|て}が{届|とど}くか：✗ {届|とど}かない（130cm）。パネルが{見|み}えるか：✗ {角度|かくど}で{見|み}えない。コイン{投入口|とうにゅうぐち}に{届|とど}くか：✗ {届|とど}かない（120cm）。{取|と}り{出|だ}し{口|ぐち}に{手|て}が{届|とど}くか：△ {低|ひく}すぎて{前|まえ}かがみが{必要|ひつよう}。{総合判定|そうごうはんてい}：✗ {操作|そうさ}不可。"
+      - type: narration
+        text: "イブキ・ワカナ・コハルのデザインは3{人|にん}とも {総合判定|そうごうはんてい}：○ {操作|そうさ}{可能|かのう}。"
+      - type: narration
+        text: "「このデザインはとても{高機能|こうきのう}です。でも、{私|わたし}の{車|くるま}いすからでは{操作|そうさ}パネルに{手|て}が{届|とど}きません。{画面|がめん}の{角度|かくど}も、{座|すわ}った{状態|じょうたい}では{見|み}えません。{便利|べんり}なデザインと、{誰|だれ}にでも{使|つか}えるデザインは{違|ちが}うんです」"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: UD7原則チェックリスト
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ナカムラさんからメッセージが{届|とど}きました。ユニバーサルデザインには7つの{原則|げんそく}があります。この7つでチェックすると、デザインの「{見|み}えないバリア」が{見|み}つかります。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「{問題|もんだい}のデザインを{描|えが}いた{人|ひと}を{責|せ}めたいんじゃありません。『{便利|べんり}だから{大丈夫|だいじょうぶ}』という{思|おも}い{込|こ}みを{壊|こわ}してほしいんです。テストしてくれたら、{一緒|いっしょ}に{直|なお}せたのに——テストしてほしかったな」"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "UD7{原則|げんそく}で{各|かく}デザインをチェックしよう。{原則|げんそく}1：{公平性|こうへいせい}（{誰|だれ}でも{同|おな}じように{使|つか}える）。{原則|げんそく}6：{省体力|しょうたいりょく}（{少|すく}ない{力|ちから}で{使|つか}える）。{原則|げんそく}7：{空間|くうかん}（{使|つか}いやすい{大|おお}きさと{広|ひろ}さ）。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ユズルのデザインを{原則|げんそく}でチェックすると——{操作|そうさ}パネル130cmは{車|くるま}いすから{届|とど}かない。{原則|げんそく}1（{公平性|こうへいせい}）✗。{前|まえ}かがみの{姿勢|しせい}を{強|し}いる{取|と}り{出|だ}し{口|ぐち}。{原則|げんそく}6（{省体力|しょうたいりょく}）✗。{手|て}が{届|とど}かない{位置|いち}に{設置|せっち}。{原則|げんそく}7（{空間|くうかん}）✗。3{原則|げんそく}{違反|いはん}！"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 見えないバリアを描いたのは誰？
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "{私|わたし}はお{母|かあ}さんにテストしてもらって、{音量|おんりょう}{調節|ちょうせつ}{機能|きのう}を{追加|ついか}した。テストすると{気|き}づけないことが{分|わ}かるんだ。{審査|しんさ}のとき、ナカムラさんがタッチパネルに{手|て}を{伸|の}ばして{届|とど}かなかった{瞬間|しゅんかん}を{見|み}た……"
+        expression: thinking
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: right
+      - type: dialog
+        character: koharu
+        text: "{審査|しんさ}のとき、ナカムラさんの{表情|ひょうじょう}をずっと{見|み}てた。3つのデザインは{笑顔|えがお}で{操作|そうさ}してくれたけど……4つ{目|め}のデザインのとき、ナカムラさんの{表情|ひょうじょう}が{曇|くも}った。「テストしてほしかったな……」って{小|ちい}さくつぶやいてたよ。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: determined
+        position: left
+      - type: dialog
+        character: wakana
+        text: "{審査|しんさ}{前|まえ}に4{人|にん}の{作品|さくひん}を{見比|みくら}べたとき、1つのデザインの{操作|そうさ}パネルが130cmで——バリアフリー{基準|きじゅん}の{上限|じょうげん}110cmを{超|こ}えていることに{気|き}づいていた。{審査結果|しんさけっか}が{出|で}る{前|まえ}に{指摘|してき}するのはフェアじゃないと{思|おも}って{黙|だま}ってたけど……"
+        expression: determined
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。デザイン{仕様|しよう}で{基準|きじゅん}を{超|こ}えているのはユズルだけ。ナカムラさんの{操作|そうさ}テストで「{操作|そうさ}不可」と{判定|はんてい}されたのもユズルだけ。UD7{原則|げんそく}で3{原則|げんそく}に{違反|いはん}しているのもユズルだけ——"
+      - type: choice
+        id: q1
+        question: 見えないバリアのデザインを描いたのは誰？
+        options:
+          - text: ユズル（操作パネル130cm・3原則違反・当事者テストなし）
+            value: yuzuru
+            correct: true
+            feedback: "{正解|せいかい}！ ユズルのデザインは{操作|そうさ}パネル130cm・コイン{投入口|とうにゅうぐち}120cmがバリアフリー{基準|きじゅん}を{超|こ}え、UD7{原則|げんそく}の3つに{違反|いはん}。{当事者|とうじしゃ}テストを{省略|しょうりゃく}したために、「{便利|べんり}＝{誰|だれ}にでも{使|つか}える」という{思|おも}い{込|こ}みに{気|き}づけなかった。"
+          - text: イブキ（ボランティア経験だけを参考にした）
+            value: ibuki
+            feedback: "イブキはお{母|かあ}さんに{当事者|とうじしゃ}テストを{行|おこな}い、{操作|そうさ}パネル100cmで{基準|きじゅん}{内|うち}。ナカムラさんの{操作|そうさ}テストでも{合格|ごうかく}しているよ。"
+          - text: ワカナ（JIS規格だけを参考にして当事者テストをしなかった）
+            value: wakana
+            feedback: "ワカナはJIS{規格|きかく}に{基|もと}づいて{設計|せっけい}し、{操作|そうさ}パネル90〜110cmで{基準|きじゅん}{内|うち}。{当事者|とうじしゃ}テストの{代|か}わりに{基準|きじゅん}で{代用|だいよう}したけど、ナカムラさんの{操作|そうさ}テストは{合格|ごうかく}しているよ。"
+          - text: コハル（弟だけにテストして大人のテストをしなかった）
+            value: koharu
+            feedback: "コハルは{弟|おとうと}（{小|しょう}1）に{当事者|とうじしゃ}テストをして{改善|かいぜん}し、{操作|そうさ}パネル95cmで{基準|きじゅん}{内|うち}。ナカムラさんの{操作|そうさ}テストでも{合格|ごうかく}しているよ。"
+
+  # ==================== 真実：ユズル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ユズルの気づき
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuzuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: yuzuru
+        text: "……{私|わたし}のデザインでした。「{最先端|さいせんたん}タッチパネル{型|がた}」が、ナカムラさんには{使|つか}えなかった。"
+        expression: worried
+      - type: narration
+        text: "ユズルは{下|した}を{向|む}きながら、{静|しず}かに{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: yuzuru
+        text: "{最新|さいしん}の{自動販売機|じどうはんばいき}の{技術|ぎじゅつ}データを{調|しら}べて、{操作|そうさ}パネルを130cmに{設定|せってい}した。{大人|おとな}が{立|た}った{状態|じょうたい}で「{使|つか}いやすい{高|たか}さ」だから——それが{誰|だれ}にでも{使|つか}えると{思|おも}っていた。"
+        expression: thinking
+      - type: dialog
+        character: yuzuru
+        text: "「{誰|だれ}のためのデータか」を{考|かんが}えなかった。{車|くるま}いすユーザーの{手|て}が{届|とど}く{高|たか}さ（110cm{以下|いか}）を{調|しら}べなかった。{当事者|とうじしゃ}テストも{省略|しょうりゃく}した。「{便利|べんり}＝{誰|だれ}にでも{使|つか}える」——そう{思|おも}い{込|こ}んでいた。"
+        expression: worried
+      - type: dialog
+        character: yuzuru
+        text: "UD7{原則|げんそく}でチェックしたら、{自分|じぶん}のデザインが3つの{原則|げんそく}に{違反|いはん}していた。「データを{調|しら}べる」と「{正|ただ}しいデータを{調|しら}べる」は{違|ちが}うんだ……"
+        expression: determined
+      - type: sprite
+        character: yuzuru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "{私|わたし}はお{母|かあ}さんにテストしてもらったから、「ボタンの{位置|いち}はいいけど{音量|おんりょう}{調節|ちょうせつ}があるといいね」という{気|き}づきが{得|え}られた。テストすると、{自分|じぶん}では{分|わ}からないことが{見|み}えてくる。"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: right
+      - type: dialog
+        character: koharu
+        text: "ナカムラさんが「テストしてほしかったな……」って{小|ちい}さくつぶやいたのを{聞|き}いた。ナカムラさんは{怒|おこ}っているんじゃない。「{一緒|いっしょ}に{直|なお}せたのに」って——{当事者|とうじしゃ}は{助|たす}けてほしい{人|ひと}じゃなくて、{一緒|いっしょ}にデザインするパートナーなんだよ。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: determined
+        position: left
+      - type: dialog
+        character: wakana
+        text: "{実|じつ}は、{審査|しんさ}{前|まえ}にユズルのデザインの{操作|そうさ}パネルが130cmで{基準|きじゅん}を{超|こ}えていると{気|き}づいていた。でも{指摘|してき}できなかった。{審査|しんさ}{前|まえ}に{言|い}えばよかった……"
+        expression: determined
+      - type: dialog
+        character: wakana
+        text: "バリアフリー{基準|きじゅん}は、{当事者|とうじしゃ}が{実際|じっさい}に{使|つか}えるかどうかを{数字|すうじ}で{示|しめ}したもの。{基準|きじゅん}を{守|まも}ることが{当事者|とうじしゃ}を{守|まも}ること。"
+        expression: thinking
+      - type: sprite
+        character: wakana
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ユズルの「{最先端|さいせんたん}を{追|お}いかけたい」という{好奇心|こうきしん}は{素晴|すば}らしいわ。データを{調|しら}べる{姿勢|しせい}も{立派|りっぱ}です。でも、「{誰|だれ}のためのデータか」が{大切|たいせつ}なのね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{便利|べんり}だから{大丈夫|だいじょうぶ}」——この{思|おも}い{込|こ}みは、{誰|だれ}でも{持|も}ちやすいもの。UD7{原則|げんそく}でチェックする{習慣|しゅうかん}と、{当事者|とうじしゃ}テストのひと{手間|てま}が、「{見|み}えないバリア」を{取|と}り{除|のぞ}くんです。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{便利|べんり}」は{主観的|しゅかんてき}で、{自分|じぶん}の{体|からだ}で{判断|はんだん}したもの。「ユニバーサル」は{客観的|きゃっかんてき}で、{多様|たよう}な{人|ひと}が{実際|じっさい}に{使|つか}えるかどうか。この{違|ちが}いに{気|き}づくことが、UD{学習|がくしゅう}の{出発点|しゅっぱつてん}だ。"
+      - type: narration
+        text: "イブキはお{母|かあ}さん、コハルは{弟|おとうと}、ワカナはJIS{基準|きじゅん}——それぞれのやり{方|かた}で「{自分|じぶん}{以外|いがい}の{視点|してん}」を{取|と}り{入|い}れた。ユズルも、{次|つぎ}からはナカムラさんと{一緒|いっしょ}にデザインを{作|つく}ることができる。"
+      - type: narration
+        text: "「テストしてほしかった」——その{声|こえ}は、{責|せ}める{言葉|ことば}じゃない。「{一緒|いっしょ}に{作|つく}りたかった」という{声|こえ}だ。{当事者|とうじしゃ}は{助|たす}けてほしい{人|ひと}ではなく、{一緒|いっしょ}にデザインするパートナー。"
+      - type: effect
+        name: fade-out

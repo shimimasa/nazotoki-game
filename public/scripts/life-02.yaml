@@ -1,0 +1,421 @@
+meta:
+  id: life-02
+  title: こわれたクモの巣
+  series: 生命探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{校庭|こうてい}の{花|はな}だんの{横|よこ}には、{大|おお}きなジョロウグモの{巣|す}がある。{理科|りか}の{時間|じかん}に、みんなで{毎日|まいにち}{観察|かんさつ}している{特別|とくべつ}な{巣|す}だ。"
+      - type: narration
+        text: "その{巣|す}には、{縦糸|たていと}と{横糸|よこいと}の2{種類|しゅるい}の{糸|いと}がある。{縦糸|たていと}は{骨組|ほねぐ}みで{粘着|ねんちゃく}せず、{横糸|よこいと}は{虫|むし}をつかまえるためにねばねばしている。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、{巣|す}の{右半分|みぎはんぶん}がこわれていた！ {中心|ちゅうしん}の{丸|まる}い{部分|ぶぶん}は{残|のこ}っているのに、{右側|みぎがわ}の{細|ほそ}い{糸|いと}がたくさん{切|き}れている。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{金曜日|きんようび}15{時|じ}30{分|ふん}の{理科|りか}の{時間|じかん}には、{巣|す}はきれいな{形|かたち}でした。{金曜|きんよう}の{放課後|ほうかご}に{校庭|こうてい}を{通|とお}った{人|ひと}が{何人|なんにん}かいます。{月曜|げつよう}{朝|あさ}8{時|じ}10{分|ふん}に{巣|す}がこわれているのを{発見|はっけん}しました。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: worried
+          - character: kakeru
+            expression: surprised
+          - character: shizuku
+            expression: thinking
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「だれかがわざとこわしたの？」「それとも、{別|べつ}の{理由|りゆう}があるのかな？」"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: こわれたクモの巣
+        subtitle: 生命探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 月曜朝の観察メモを確認しよう
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、{生命探偵団|せいめいたんていだん}は{巣|す}を{詳|くわ}しく{観察|かんさつ}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{巣|す}の{右半分|みぎはんぶん}がこわれている。でも{中心|ちゅうしん}の{丸|まる}い{部分|ぶぶん}は{残|のこ}っていた。クモは{巣|す}の{真|ま}ん{中|なか}でじっとしている。"
+      - type: narration
+        text: "{全部|ぜんぶ}ではなく、{右半分|みぎはんぶん}だけがこわれているのはどうしてだろう？ わざとなら、{全部|ぜんぶ}こわしそうなのに——。"
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "{右側|みぎがわ}の{細|ほそ}い{糸|いと}がたくさん{切|き}れてるけど、{骨組|ほねぐ}みの{太|ふと}い{糸|いと}はほとんど{残|のこ}ってる。こわれ{方|かた}が{変|へん}じゃない？"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "{シズク|しずく}の{言|い}う{通|とお}り。{細|ほそ}い{糸|いと}だけが{切|き}れて、{太|ふと}い{骨組|ほねぐ}みは{残|のこ}っている。これは{重要|じゅうよう}な{手|て}がかりだ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 金曜放課後の目撃メモを確認しよう
+      - type: narration
+        text: "{金曜日|きんようび}の{放課後|ほうかご}、{校庭|こうてい}を{通|とお}った{人|ひと}を{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カケル —— {金曜|きんよう}{放課後|ほうかご}、{校庭|こうてい}を{通|とお}った。イノリ —— {巣|す}の{近|ちか}くで{立|た}ち{止|と}まっていた。{強|つよ}い{風|かぜ}はふいていなかった。"
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "おれ、{金曜|きんよう}の{放課後|ほうかご}に{校庭|こうてい}を{通|とお}ったとき、イノリが{巣|す}の{近|ちか}くで{立|た}ち{止|と}まってるの{見|み}たよ。そのあと、なんか{手|て}をふいてたみたいだったけど……"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: narration
+        text: "{風|かぜ}でこわれたのか、{人|ひと}が{近|ちか}づいたのか。{強|つよ}い{風|かぜ}がなかったなら、{人|ひと}が{原因|げんいん}の{可能性|かのうせい}が{高|たか}い。イノリが{巣|す}の{近|ちか}くにいたという{情報|じょうほう}は{重要|じゅうよう}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: クモの巣の理科メモを確認しよう
+      - type: narration
+        text: "{理科|りか}の{教科書|きょうかしょ}と、イノリが{読|よ}んでいた{本|ほん}に{書|か}かれていた{知識|ちしき}を{整理|せいり}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{縦糸|たていと} —— {骨組|ほねぐ}みになる。{粘着|ねんちゃく}しない。{横糸|よこいと} —— {虫|むし}をつかまえる。ねばねばする。{横糸|よこいと}にさわると、{指|ゆび}にくっつくことがある。"
+      - type: narration
+        text: "ねばねばする{糸|いと}にさわったら、どんなこわれ{方|かた}になるだろう？ {指|ゆび}がくっついて{引|ひ}っぱったら、{横糸|よこいと}だけが{切|き}れそうだ——。"
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "わたし、{本|ほん}で{読|よ}んだの。{横糸|よこいと}はほんとうにねばねばするって……{気|き}になって……"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+      - type: narration
+        text: "イノリの{言葉|ことば}が{気|き}になる。「{気|き}になって」——その{先|さき}に{何|なに}かがある。{証拠|しょうこ}カードをさらに{集|あつ}めよう。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 月曜朝の巣のくわしい観察
+      - type: narration
+        text: "{巣|す}をもっと{詳|くわ}しく{観察|かんさつ}した。{右側|みぎがわ}の{状態|じょうたい}を{丁寧|ていねい}に{記録|きろく}する。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{右側|みぎがわ}の{細|ほそ}い{糸|いと}がたくさん{切|き}れている。{太|ふと}い{骨組|ほねぐ}みの{糸|いと}はほとんど{残|のこ}っている。{巣|す}の{下|した}には{少|すこ}しだけ{糸|いと}がたれていた。"
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "クモさん、また{作|つく}り{直|なお}すのかな……{一生懸命|いっしょうけんめい}{作|つく}ったのに。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "わざと{全部|ぜんぶ}こわしたなら、{骨組|ほねぐ}みも{切|き}れるはず。{細|ほそ}い{横糸|よこいと}だけが{切|き}れているのは——ねばねばする{糸|いと}に{触|ふ}れて{引|ひ}っぱったときの{形|かたち}に{似|に}ている。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 巣のこわれ方の点検結果
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "GMが{新|あたら}しい{手|て}がかりを{発表|はっぴょう}した。{巣|す}のこわれ{方|かた}をさらに{詳|くわ}しく{点検|てんけん}した{結果|けっか}が{明|あ}らかになる——。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{切|き}れているのは{主|おも}に{横糸|よこいと}。{右側|みぎがわ}へ{引|ひ}っぱられたようなあとがある。{近|ちか}くの{葉|は}に、{細|ほそ}い{糸|いと}がからみついていた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「こわした」のではなく、「さわって{引|ひ}っぱってしまった」——そう{考|かんが}えると、{全部|ぜんぶ}がつながる！ {横糸|よこいと}の{粘着|ねんちゃく}を{確|たし}かめようとして、{指|ゆび}がくっついた{人|ひと}がいる。"
+      - type: sprite
+        character: kakeru
+        expression: determined
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "イノリ——{金曜|きんよう}の{放課後|ほうかご}に{巣|す}の{近|ちか}くにいたよね？ {横糸|よこいと}にさわったの？"
+        expression: determined
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: inori
+        expression: worried
+        position: center
+      - type: dialog
+        character: inori
+        text: "……{本当|ほんとう}のことを{話|はな}す。"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: クモの巣に何が起きた？
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "{横糸|よこいと}だけが{切|き}れて、{骨組|ほねぐ}みが{残|のこ}ってる。わざと{全部|ぜんぶ}こわしたなら、{骨組|ほねぐ}みも{切|き}れるはずだよ。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "イノリはクモのことをよく{調|しら}べてた。{知|し}りたい{気持|きも}ちは{分|わ}かるけど……「{知|し}りたい」と「さわっていい」は{同|おな}じかな？"
+        expression: thinking
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{金曜|きんよう}{放課後|ほうかご}にイノリは{巣|す}の{近|ちか}くにいた。{横糸|よこいと}はねばねばして{指|ゆび}にくっつく。{切|き}れたのは{主|おも}に{横糸|よこいと}で、{右側|みぎがわ}へ{引|ひ}っぱられたあとがある。そして——イノリは「{気|き}になって」と{言|い}いかけた。"
+      - type: choice
+        id: q1
+        question: クモの巣をこわしてしまったのは誰？
+        options:
+          - text: イノリ（巣の近くにいて、横糸の粘着を確かめようとした）
+            value: inori
+            correct: true
+            feedback: "{正解|せいかい}！ イノリは「{横糸|よこいと}はねばねばする」を{本|ほん}で{読|よ}んで、{金曜|きんよう}{放課後|ほうかご}に{横糸|よこいと}を{指|ゆび}でふれた。{指|ゆび}がくっついてあわてて{引|ひ}っぱり、{右半分|みぎはんぶん}の{横糸|よこいと}を{切|き}ってしまった。わざとではなく、{好奇心|こうきしん}からの{事故|じこ}だった。"
+          - text: カケル（放課後に校庭を通って、巣の近くにいた）
+            value: kakeru
+            feedback: "カケルは{校庭|こうてい}を{通|とお}ったけど、{巣|す}の{近|ちか}くでイノリを{目撃|もくげき}しただけ。カケルのパターンは{行動|こうどう}の{証拠|しょうこ}と{合|あ}わないよ。"
+          - text: シズク（こわれ方を最初から知っていた）
+            value: shizuku
+            feedback: "{シズク|しずく}は{形|かたち}のちがいに{気|き}づくのが{得意|とくい}で、{月曜|げつよう}{朝|あさ}に{横糸|よこいと}だけが{切|き}れているのを{発見|はっけん}した。でも{金曜|きんよう}{放課後|ほうかご}の{行動|こうどう}の{証拠|しょうこ}はないよ。"
+          - text: ミコト（クモをかわいそうと思って、調べようとした）
+            value: mikoto
+            feedback: "ミコトは{遠|とお}くからイノリが{近|ちか}づくのを{見|み}ていただけ。{巣|す}の{近|ちか}くへの{接触|せっしょく}を{示|しめ}す{証拠|しょうこ}がないよ。"
+
+  # ==================== 真実：イノリ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イノリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: inori
+        expression: worried
+        position: center
+      - type: dialog
+        character: inori
+        text: "……ごめんなさい。{巣|す}をこわしてしまったのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "イノリは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: inori
+        text: "{本|ほん}で「{横糸|よこいと}はねばねばする」って{読|よ}んで、{本当|ほんとう}かどうかたしかめたくなった。{金曜|きんよう}の{放課後|ほうかご}、だれもいないときに{巣|す}の{右側|みぎがわ}の{横糸|よこいと}に{指|ゆび}でふれてみた。"
+        expression: thinking
+      - type: dialog
+        character: inori
+        text: "{指|ゆび}がくっついて——あわてて{手|て}を{引|ひ}いたら、{糸|いと}がたくさん{切|き}れてしまった。「さわっただけなのに」って{思|おも}ったけど、{本当|ほんとう}はわたしが{引|ひ}っぱってしまったんだ。"
+        expression: worried
+      - type: dialog
+        character: inori
+        text: "クモの{巣|す}のことが{好|す}きだったのに、{自分|じぶん}がこわしてしまった。「たしかめたかっただけ」ってわかってほしかったけど……{怖|こわ}くて{言|い}えなかった。"
+        expression: determined
+      - type: sprite
+        character: inori
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{実|じつ}は……{金曜|きんよう}{放課後|ほうかご}、イノリが{巣|す}の{近|ちか}くで{立|た}ち{止|と}まってるの{見|み}てた。そのあと{手|て}をふいてたみたいで……でも{何|なに}をしたか{分|わ}からなくて、{言|い}いにくかった。{自分|じぶん}もさわってみたい{気持|きも}ち、{少|すこ}し{分|わ}かるし。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "{横糸|よこいと}だけが{切|き}れてたから、「わざとじゃないかも」って{思|おも}ってた。でも「わざとじゃない」って{言|い}うと、{問題|もんだい}を{小|ちい}さく{見|み}てるみたいで{迷|まよ}ってた。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "イノリが{月曜|げつよう}{朝|あさ}、{少|すこ}し{顔|かお}をこわばらせて{巣|す}を{見|み}てた。「なにか{言|い}いにくいことがあるのかな」って{感|かん}じてた。クモさんは{巣|す}を{直|なお}せる。でも、{観察|かんさつ}するなら{触|さわ}らないルールが{必要|ひつよう}だね。"
+        expression: determined
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "イノリの「{本当|ほんとう}かどうかたしかめたい」という{好奇心|こうきしん}は、{理科|りか}の{心|こころ}そのものよ。{本|ほん}で{読|よ}んだことを{実際|じっさい}に{確認|かくにん}したいと{思|おも}う{気持|きも}ちは、{素晴|すば}らしいわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{生|い}き{物|もの}の{観察|かんさつ}では「さわらずによく{見|み}ること」が{大前提|だいぜんてい}。{知|し}りたいときほど、{自分|じぶん}でさわる{前|まえ}に、{本|ほん}や{先生|せんせい}や{仲間|なかま}と「{確|たし}かめ{方|かた}」を{考|かんが}えることが{大切|たいせつ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "クモの{巣|す}には2{種類|しゅるい}の{糸|いと}がある。{骨組|ほねぐ}みの{縦糸|たていと}は{粘着|ねんちゃく}せず、{虫|むし}をつかまえる{横糸|よこいと}はねばねばする。この{構造|こうぞう}があるから、クモは{縦糸|たていと}の{上|うえ}を{歩|ある}いて{自分|じぶん}の{巣|す}でつかまらずにいられる。"
+      - type: narration
+        text: "「{知|し}りたい」という{気持|きも}ちは{悪|わる}くない。でもその{方法|ほうほう}が{大切|たいせつ}。「さわらずに{見|み}る」「{仲間|なかま}と{確|たし}かめ{方|かた}を{考|かんが}える」——それが{本当|ほんとう}の{観察|かんさつ}の{力|ちから}だ。"
+      - type: narration
+        text: "クモは{今日|きょう}も{巣|す}を{作|つく}り{直|なお}している。{一生懸命|いっしょうけんめい}{張|は}った{糸|いと}をこわさないように、{次|つぎ}は「さわらずに{観察|かんさつ}する」{約束|やくそく}を{守|まも}ろう。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,329 @@
+meta:
+  id: traffic-06
+  title: 夜道の影
+  series: 交通安全探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{夕方|ゆうがた}の{下校中|げこうちゅう}、{横断歩道|おうだんほどう}で{車|くるま}のドライバーがあわてて{急|きゅう}ブレーキをかけた。「{暗|くら}い{服|ふく}の{人|ひと}が{急|きゅう}に{見|み}えた」と{言|い}っている。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{下校|げこう}ルールでは{反射材|はんしゃざい}つきのタスキをつけることになっている。4{人|にん}{全員|ぜんいん}「タスキをつけていた」と{言|い}うが——{本当|ほんとう}だろうか。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{夕方|ゆうがた}の{下校|げこう}で{車|くるま}がヒヤリハットを{起|お}こしました。ドライバーは「{反射|はんしゃ}するものが{見|み}えなかった」と{言|い}っています。だれの{行動|こうどう}がきっかけだったのか{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: thinking
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{全員|ぜんいん}「つけていた」と{言|い}っている——なのにドライバーには{見|み}えなかった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 夜道の影
+        subtitle: 交通安全探偵団 Vol.6
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ドライバーの証言を聞こう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{暗|くら}い{服|ふく}の{人|ひと}が{急|きゅう}に{見|み}えた」——{横断歩道|おうだんほどう}の{手前|てまえ}であわててブレーキをかけた。{反射|はんしゃ}するものは{見|み}えなかった。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "「{見|み}えなかった」{原因|げんいん}は{暗|くら}い{服|ふく}だけじゃないかもしれない。{反射材|はんしゃざい}・{街灯|がいとう}の{位置|いち}・{角度|かくど}・{動|うご}き——{全部|ぜんぶ}{考|かんが}える{必要|ひつよう}がある。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 下校ルールを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{夕方|ゆうがた}の{下校|げこう}では{反射材|はんしゃざい}つきのタスキをつける。{横断歩道|おうだんほどう}では{走|はし}らずにわたる。{街灯|がいとう}のある{側|がわ}を{通|とお}る。"
+      - type: sprite
+        character: michika
+        expression: determined
+        position: right
+      - type: dialog
+        character: michika
+        text: "{全員|ぜんいん}「タスキをつけていた」と{言|い}うなら、{何|なに}がちがったんだろう。つけ{方|かた}？ タイミング？ それとも——{一瞬|いっしゅん}でも{外|はず}した{人|ひと}がいる？"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 現場の条件を調べよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{街灯|がいとう}は{横断歩道|おうだんほどう}の{手前|てまえ}に1{本|ぽん}。{横断歩道|おうだんほどう}の{中央|ちゅうおう}はそこまで{明|あか}るくない。{車|くるま}のライトはまっすぐ{前|まえ}を{強|つよ}く{照|て}らす。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{歩行者|ほこうしゃ}からは{車|くるま}のライトが{見|み}える。でもドライバーからは{反射材|はんしゃざい}のない{人|ひと}は{直前|ちょくぜん}まで{見|み}えにくい。「{自分|じぶん}から{見|み}える」と「{相手|あいて}から{見|み}える」は{同|おな}じじゃないんだ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 下校のようすを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ハシルは{走|はし}るのが{好|す}き。「タスキつけてると{走|はし}りにくいな」と{前|まえ}に{言|い}っていた。{夕方|ゆうがた}5{時|じ}ごろにはかなり{暗|くら}くなっていた。"
+      - type: sprite
+        character: towa
+        expression: worried
+        position: right
+      - type: dialog
+        character: towa
+        text: "ハシルは「タスキが{走|はし}りにくい」って{言|い}ってた。{暗|くら}い{中|なか}で{走|はし}ると、ドライバーの{反応|はんのう}も{遅|おく}れる。もしタスキを{外|はず}して{走|はし}ってたら……。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ドライバー視点の再現
+      - type: effect
+        name: fade-in
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{歩行者|ほこうしゃ}からは{車|くるま}のライトが{見|み}えていた。でもドライバーからは{反射材|はんしゃざい}のない{人|ひと}は{直前|ちょくぜん}まで{見|み}えにくかった。"
+      - type: narration
+        text: "しかも{走|はし}っていると、ドライバーの{反応|はんのう}がさらに{遅|おく}れやすい。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "タスキを{外|はず}して{走|はし}っていた{人|ひと}がいた！ あとでつけ{直|なお}したから「つけていた」と{言|い}った——でも{一瞬|いっしゅん}でも{外|はず}すと{命|いのち}に{関|かか}わる。"
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ヒヤリハットのきっかけを作ったのは誰だ？
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: michika
+        text: "ハシルはタスキが「{走|はし}りにくい」と{言|い}ってた。{一度|いちど}{外|はず}して{走|はし}って、あとでつけ{直|なお}した——だから「つけていた」と{言|い}えたんだ。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: choice
+        id: q1
+        question: ヒヤリハットのきっかけを作ったのは誰？
+        options:
+          - text: ハシル（タスキを外して走り、あとでつけ直した）
+            value: hashiru
+            correct: true
+            feedback: "{正解|せいかい}！ ハシルは「{走|はし}りにくい」とタスキを{外|はず}して{走|はし}った。あとでつけ{直|なお}したので「つけていた」と{思|おも}っていたが、{外|はず}していた{間|あいだ}にドライバーから{見|み}えず、ヒヤリハットが{起|お}きた。"
+          - text: ヒカル（見え方の条件に詳しくて怪しい）
+            value: hikaru
+            feedback: "ヒカルは{見|み}えやすさの{条件|じょうけん}を{分析|ぶんせき}した{情報型|じょうほうがた}。きっかけを{作|つく}ったのはヒカルではないよ。"
+          - text: ミチカ（ルール確認が得意で逆に怪しい）
+            value: michika
+            feedback: "ミチカは{下校|げこう}ルールを{正確|せいかく}に{知|し}っている{観察型|かんさつがた}。きっかけを{作|つく}ったのはミチカではないよ。"
+          - text: トワ（ハシルの発言を気にしていた）
+            value: towa
+            feedback: "トワはハシルの{発言|はつげん}に{気|き}づいていた{感情型|かんじょうがた}。きっかけを{作|つく}ったのはトワではないよ。"
+
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハシルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hashiru
+        text: "……タスキを{外|はず}して{走|はし}ったのは、おれです。"
+        expression: worried
+      - type: dialog
+        character: hashiru
+        text: "タスキをつけてると{走|はし}りにくくて、ちょっとだけ{外|はず}して{走|はし}ってみた。あとでつけ{直|なお}したから「つけていた」って{思|おも}ってた。"
+        expression: thinking
+      - type: dialog
+        character: hashiru
+        text: "でも{自分|じぶん}からは{車|くるま}のライトが{見|み}えてたから{安全|あんぜん}だと{思|おも}い{込|こ}んでた。ドライバーから{見|み}えてないなんて{考|かんが}えてなかった。{一瞬|いっしゅん}でも{外|はず}したら{命|いのち}に{関|かか}わる……ごめん。"
+        expression: determined
+      - type: sprite
+        character: hashiru
+        action: hide
+
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{最初|さいしょ}は「{暗|くら}い{服|ふく}が{悪|わる}い」と{思|おも}いかけた。でも{条件|じょうけん}を{全部|ぜんぶ}{見|み}たら、{反射材|はんしゃざい}を{外|はず}したことが{一番|いちばん}{大|おお}きかったと{分|わ}かった。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: towa
+        text: "ハシルがタスキを{嫌|いや}がってたの、{知|し}ってた。でも{声|こえ}をかけなかった。「{走|はし}りにくい」{気持|きも}ちは{分|わ}かるけど、{命|いのち}を{守|まも}る{道具|どうぐ}は{面倒|めんどう}でもつけ{続|つづ}けなきゃいけない。"
+        expression: thinking
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{自分|じぶん}から{見|み}える」と「{相手|あいて}から{見|み}える」は{同|おな}じではありません。{反射材|はんしゃざい}は、ドライバーに{自分|じぶん}の{存在|そんざい}を{知|し}らせるためのもの。{一瞬|いっしゅん}でも{外|はず}すと{命|いのち}に{関|かか}わります。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{夕方|ゆうがた}の{暗|くら}さの{中|なか}、{反射材|はんしゃざい}がなければドライバーからは{直前|ちょくぜん}まで{歩行者|ほこうしゃ}が{見|み}えない。{走|はし}っているとさらに{反応|はんのう}が{遅|おく}れる。"
+      - type: narration
+        text: "{面倒|めんどう}でも{反射材|はんしゃざい}をつけ{続|つづ}ける。「ちょっとだけ」{外|はず}す、は{通|つう}じない。{命|いのち}を{守|まも}る{道具|どうぐ}に「ちょっとだけ」はないのだ。"
+      - type: effect
+        name: fade-out

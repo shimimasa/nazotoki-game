@@ -1,0 +1,384 @@
+meta:
+  id: tokkatsu-03
+  title: ポスター戦争
+  series: 特別活動探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{児童会|じどうかい}{会長|かいちょう}{選挙|せんきょ}の{告示|こくじ}が{始|はじ}まり、{学校|がっこう}の{掲示板|けいじばん}に{候補者|こうほしゃ}Aと{候補者|こうほしゃ}Bのポスターが{貼|は}られた。{選挙管理委員|せんきょかんりいいん}の4{人|にん}が{一生懸命|いっしょうけんめい}{準備|じゅんび}した{仕事|しごと}だ。"
+      - type: narration
+        text: "{金曜日|きんようび}の{放課後|ほうかご}、4{人|にん}はポスター{貼|は}りを{終|お}えて{帰|かえ}った。{掲示板|けいじばん}の{前|まえ}に{整然|せいぜん}と{並|なら}んだポスターを{見|み}て、「うまくできた」と{思|おも}っていた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、{掲示板|けいじばん}を{見|み}た{先生|せんせい}が{困|こま}った{顔|かお}をした。{候補者|こうほしゃ}Aのポスターだけが3{枚|まい}もやぶれた{形|かたち}になっている。{候補者|こうほしゃ}Bのポスターは1{枚|まい}もやぶれていない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "Aのポスターが3{枚|まい}、{中央|ちゅうおう}{掲示板|けいじばん}でやぶれています。{真|ま}ん{中|なか}から{切|き}られたのではなく、すみがめくれてしわになっている。Bのポスターには{同|おな}じあとがありません。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "「ライバルの{妨害|ぼうがい}では？」という{声|こえ}も{上|あ}がっています。{選挙管理委員|せんきょかんりいいん}として、{正|ただ}しい{事実|じじつ}を{調|しら}べてください。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: thinking
+          - character: ayumu
+            expression: surprised
+          - character: mamoru
+            expression: worried
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}がAのポスターをだめにしたのか。{本当|ほんとう}にライバルの{妨害|ぼうがい}だったのか——"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ポスター戦争
+        subtitle: 特別活動探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ポスター掲示ルール表を確認しよう
+      - type: narration
+        text: "{掲示板|けいじばん}の{横|よこ}にはられていた「{児童会|じどうかい}{選挙|せんきょ} ポスター{掲示|けいじ}ルール」を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ルール1 —— {指定|してい}された{掲示板|けいじばん}だけに{貼|は}る。"
+      - type: narration
+        text: "ルール2 —— {貼|は}ったあとで{勝手|かって}に{場所|ばしょ}を{変|か}えない。"
+      - type: narration
+        text: "ルール3 —— {はがすときは|はがすときは}、すみからゆっくりはがす。"
+      - type: narration
+        text: "ルール4 —— {貼|は}り{直|なお}しが{必要|ひつよう}なら{選挙管理委員|せんきょかんりいいん}に{相談|そうだん}する。"
+      - type: narration
+        text: "ルールどおりなら、ポスターを{動|うご}かせるのは{選挙管理委員|せんきょかんりいいん}への{相談|そうだん}があったときだけ。{勝手|かって}に{場所|ばしょ}を{変|か}えることはできない——"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 掲示場所メモを確認しよう
+      - type: narration
+        text: "{金曜日|きんようび}に{貼|は}った{場所|ばしょ}のメモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{中央|ちゅうおう}{掲示板|けいじばん} —— {候補者|こうほしゃ}A 3{枚|まい}、{候補者|こうほしゃ}B 3{枚|まい}。{図書室|としょしつ}{前|まえ} —— {候補者|こうほしゃ}A 1{枚|まい}、{候補者|こうほしゃ}B 1{枚|まい}。{体育館|たいいくかん}{前|まえ} —— {候補者|こうほしゃ}A 1{枚|まい}、{候補者|こうほしゃ}B 1{枚|まい}。"
+      - type: narration
+        text: "やぶれていたのは{中央|ちゅうおう}{掲示板|けいじばん}のAのポスターだけで、3{枚|まい}{全部|ぜんぶ}。{図書室|としょしつ}{前|まえ}や{体育館|たいいくかん}{前|まえ}のポスターはAもBも{無事|ぶじ}だった。"
+      - type: narration
+        text: "{中央|ちゅうおう}{掲示板|けいじばん}のAだけが{被害|ひがい}を{受|う}けている。{誰|だれ}かが{中央|ちゅうおう}{掲示板|けいじばん}のAのポスターに{特別|とくべつ}な{理由|りゆう}を{持|も}っていた？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 金曜日の放課後メモを読もう
+      - type: narration
+        text: "{選挙管理委員|せんきょかんりいいん}のメモを{確認|かくにん}した。{金曜日|きんようび}{放課後|ほうかご}の{行動|こうどう}が{記録|きろく}されている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "15:35 ツムギ —— ルール{表|ひょう}の{予備|よび}を{職員室|しょくいんしつ}へ{返|かえ}しに{行|い}く。"
+      - type: narration
+        text: "15:40 ノゾミ —— {図書室|としょしつ}{前|まえ}の{片|かた}づけへ{移動|いどう}。"
+      - type: narration
+        text: "15:45 マモル —— {中央|ちゅうおう}{掲示板|けいじばん}の{前|まえ}に、アユムが1{人|り}でいるのを{見|み}る。"
+      - type: narration
+        text: "15:45ごろ、{中央|ちゅうおう}{掲示板|けいじばん}に{近|ちか}づけた{可能性|かのうせい}があるのは——アユムだ。ツムギは{職員室|しょくいんしつ}、ノゾミは{図書室|としょしつ}{前|まえ}にいた。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: やぶれたポスターの状態を調べよう
+      - type: narration
+        text: "{先生|せんせい}の{観察|かんさつ}メモを{確認|かくにん}した。やぶれたAのポスター3{枚|まい}の{状態|じょうたい}が{書|か}かれている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "Aのポスター3{枚|まい}は、{真|ま}ん{中|なか}から{切|き}られたのではなく、すみがめくれて{紙|かみ}がしわになっていた。"
+      - type: narration
+        text: "のりのあとが{古|ふる}く、{一度|いちど}はがしてからまた{貼|は}ろうとしたように{見|み}える。"
+      - type: narration
+        text: "Bのポスターには{同|おな}じあとがない。"
+      - type: narration
+        text: "「{怒|おこ}ってやぶった」形ではない。「{一度|いちど}はがして{貼|は}り{直|なお}そうとした」形だ。{犯人|はんにん}はポスターを{壊|こわ}したかったのではなく、{動|うご}かしたかった{可能性|かのうせい}がある——"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 追加で分かったこと
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "やぶれた3{枚|まい}は、{全部|ぜんぶ}{候補者|こうほしゃ}Aのポスターでした。そして——Aの{応援責任者|おうえんせきにんしゃ}はアユムです。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{中央|ちゅうおう}{掲示板|けいじばん}の{下|した}に、Aのポスター{用|よう}の{予備|よび}ののりが1{本|ほん}だけ{落|お}ちていました。ポスターを{貼|は}り{直|なお}そうとした{形跡|けいせき}です。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "やぶれたのは{全部|ぜんぶ}Aのポスター——Aの{応援責任者|おうえんせきにんしゃ}はアユム！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "もし「ライバルの{妨害|ぼうがい}」なら、どうしてAのポスターだけがやぶれるのか？ そしてAの{予備|よび}ののりが{掲示板|けいじばん}の{下|した}に{落|お}ちていた——「Aを{目立|めだ}たせたい{人|ひと}」がさわった{可能性|かのうせい}はないか？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ポスターをだめにしたのは誰だ？
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "アユムが{金曜日|きんようび}の{片|かた}づけのとき、「Aはもっと{目立|めだ}つ{場所|ばしょ}のほうがいい」ってつぶやいていた。{中央|ちゅうおう}{掲示板|けいじばん}のポスターを{見|み}ながら……"
+        expression: thinking
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "15:40ごろ、アユムが「Aをもっと{前|まえ}に{出|だ}したいな」って{言|い}ってた。わたし「{今|いま}の{場所|ばしょ}でも{十分|じゅうぶん}{見|み}えるよ」って{返|かえ}したんだけど……そのあと{図書室|としょしつ}{前|まえ}に{行|い}っちゃって。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。やぶれていたのは{中央|ちゅうおう}{掲示板|けいじばん}のAのポスター3{枚|まい}。{貼|は}り{直|なお}そうとした{形|かたち}でやぶれていた。15:45ごろ{中央|ちゅうおう}{掲示板|けいじばん}の{前|まえ}にいたのはアユム。AのポスターはAの{応援責任者|おうえんせきにんしゃ}であるアユムが——"
+      - type: choice
+        id: q1
+        question: Aのポスター3枚をだめにしてしまったのは誰？
+        options:
+          - text: アユム（Aの応援責任者で、15:45に中央掲示板の前にいた）
+            value: ayumu
+            correct: true
+            feedback: "{正解|せいかい}！ アユムはAの{応援責任者|おうえんせきにんしゃ}として「もっと{目立|めだ}つ{場所|ばしょ}に{貼|は}り{直|なお}したい」と{思|おも}い、Aのポスターを{一度|いちど}はがした。しかしのりが{乾|かわ}いていてポスターが{破|やぶ}れてしまった。ライバルの{妨害|ぼうがい}ではなく、{味方|みかた}の{善意|ぜんい}の{暴走|ぼうそう}だった。"
+          - text: マモル（15:45にアユムを目撃していた）
+            value: mamoru
+            feedback: "マモルは{目撃者|もくげきしゃ}。15:45に{中央|ちゅうおう}{掲示板|けいじばん}の{前|まえ}にいたのはアユムで、マモルは{見|み}ていた{側|がわ}だよ。マモルがさわった{証拠|しょうこ}はどこにもない。"
+          - text: ツムギ（ルール表をよく知っていた）
+            value: tsumugi
+            feedback: "ツムギは15:35に{職員室|しょくいんしつ}へ{向|む}かっていた。{中央|ちゅうおう}{掲示板|けいじばん}には{近|ちか}づいていないよ。ルール{表|ひょう}を{知|し}っていることと、ポスターをさわることは{別|べつ}の{話|はなし}だ。"
+          - text: ノゾミ（どちらの候補者も気にかけていた）
+            value: nozomi
+            feedback: "ノゾミは15:40ごろ{図書室|としょしつ}{前|まえ}の{片|かた}づけに{行|い}っていた。{中央|ちゅうおう}{掲示板|けいじばん}のそばにいたのはアユムだよ。ノゾミにはAのポスターだけを{動|うご}かす{理由|りゆう}もない。"
+
+  # ==================== 真実：アユム ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: アユムの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ayumu
+        expression: worried
+        position: center
+      - type: dialog
+        character: ayumu
+        text: "……{分|わ}かった。Aのポスターをさわったのは、{僕|ぼく}です。"
+        expression: worried
+      - type: narration
+        text: "アユムは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: ayumu
+        text: "{金曜日|きんようび}の{帰|かえ}り、Aのポスターが{正面玄関|せいめんげんかん}から{少|すこ}し{見|み}えにくい{気|き}がした。「もっと{目立|めだ}つ{場所|ばしょ}に{貼|は}り{直|なお}せば、もっと{見|み}てもらえる」って{思|おも}って……"
+        expression: thinking
+      - type: dialog
+        character: ayumu
+        text: "Aのポスター3{枚|まい}を{一度|いちど}はがした。でも、のりがもうしっかり{乾|かわ}いていて、はがすときにすみから{紙|かみ}が{破|やぶ}れてしわになってしまった。あわてて{貼|は}り{直|なお}そうとしたけど、きれいには{戻|もど}せなかった。"
+        expression: worried
+      - type: dialog
+        character: ayumu
+        text: "ライバルをじゃましたかったわけじゃない。Aをもっと{目立|めだ}たせたかっただけなんだ。でも……{結果|けっか}として{自分|じぶん}の{側|がわ}のポスターをだめにしてしまった。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: ayumu
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "{実|じつ}は……アユムが「もっと{目立|めだ}つ{場所|ばしょ}のほうがいい」って{言|い}っているのを{聞|き}いていた。{私|わたし}はルール{表|ひょう}を{作|つく}った{担当|たんとう}だから「{勝手|かって}に{場所|ばしょ}を{変|か}えてはいけない」って{分|わ}かっていたのに、{強|つよ}く{止|と}めなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "15:45に{中央|ちゅうおう}{掲示板|けいじばん}の{前|まえ}でアユムがAのポスターのはしを{持|も}ってじっと{見|み}ていたのを{見|み}た。「まだ{片|かた}づけでもしてるのかな」って{思|おも}って{帰|かえ}った。{止|と}めていれば、こんなことには……ごめん。"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "アユムが「Aをもっと{前|まえ}に{出|だ}したい」って{言|い}ったとき、「{今|いま}の{場所|ばしょ}でも{十分|じゅうぶん}{見|み}えるよ」って{返|かえ}したけど……{強|つよ}く「{選挙管理委員|せんきょかんりいいん}に{相談|そうだん}しよう」って{言|い}えばよかった。{両方|りょうほう}の{候補者|こうほしゃ}が{頑張|がんば}っているのに、こんな{結果|けっか}になってしまってつらい。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "アユムの「Aをもっと{目立|めだ}たせたい」という{気持|きも}ちは{本物|ほんもの}だったよ。{応援|おうえん}に{熱|あつ}くなるのは{素晴|すば}らしいこと。でも{選挙|せんきょ}には{公平|こうへい}を{守|まも}るためのルールがある。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{貼|は}り{直|なお}したい」と{思|おも}ったら、{選挙管理委員|せんきょかんりいいん}に{相談|そうだん}する。それがルールの{守|まも}り{方|かた}だよ。ルールの{外|そと}で{動|うご}くと、{自分|じぶん}の{味方|みかた}にさえ{迷惑|めいわく}をかけてしまう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「ライバルの{妨害|ぼうがい}」という{最初|さいしょ}の{思|おも}いこみ。でも{証拠|しょうこ}を{丁寧|ていねい}に{見|み}ると、{違|ちが}う{景色|けしき}が{見|み}えてきた。「やぶった」のか「{貼|は}り{直|なお}そうとした」のか——{同|おな}じ{結果|けっか}でも{意味|いみ}がまるで{違|ちが}う。"
+      - type: narration
+        text: "{応援|おうえん}の{気持|きも}ちは{悪|わる}くない。でも{気持|きも}ちが{強|つよ}くなりすぎると、ルールの{外|そと}に{飛|と}び{出|だ}してしまうことがある。アユムが{自分|じぶん}の{側|がわ}のポスターをだめにしてしまった{皮肉|ひにく}な{真相|しんそう}——これが{選挙|せんきょ}の{教訓|きょうくん}だ。"
+      - type: narration
+        text: "フェアな{選挙|せんきょ}とは、{相手|あいて}だけでなく{自分|じぶん}の{側|がわ}にも{同|おな}じルールを{守|まも}ること。{応援|おうえん}の{情熱|じょうねつ}を、ルールの{中|なか}で{使|つか}える{人|ひと}が、{本当|ほんとう}の{意味|いみ}でフェアな{選挙|せんきょ}を{作|つく}れる。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,333 @@
+meta:
+  id: traffic-08
+  title: 自転車どうしの衝突
+  series: 交通安全探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{下校中|げこうちゅう}、せまい{道|みち}で{向|む}こうから{来|き}たカズキくんの{自転車|じてんしゃ}と、こちら{側|がわ}の{自転車|じてんしゃ}がぶつかりそうになった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "カズキくんは「{向|む}こうの{自転車|じてんしゃ}がこっちにふくらんできた」と{言|い}っている。{横|よこ}に{広|ひろ}がって{見|み}えたらしい。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{自転車|じてんしゃ}どうしのヒヤリハットがありました。{道路|どうろ}の{右|みぎ}がわにはみ{出|だ}していたのは{誰|だれ}か、そしてなぜ{本人|ほんにん}はそう{思|おも}わなかったのかを{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: thinking
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 自転車どうしの衝突
+        subtitle: 交通安全探偵団 Vol.8
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: カズキくんの話を聞こう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「ぼくは{道路|どうろ}の{左|ひだり}はしを{走|はし}っていた」——「{向|む}こうの{自転車|じてんしゃ}がこっちにふくらんできた」——「1{台|だい}じゃなくて、{横|よこ}に{広|ひろ}がって{見|み}えた」。"
+      - type: sprite
+        character: hashiru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "「{横|よこ}に{広|ひろ}がって{見|み}えた」——{並|なら}んで{走|はし}ってたってことか。せまい{道|みち}で{並走|へいそう}したら{反対|はんたい}から{来|く}る{自転車|じてんしゃ}の{道|みち}をふさいじゃうよ。"
+        expression: surprised
+      - type: sprite
+        character: hashiru
+        action: hide
+
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 自転車のルールを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{自転車|じてんしゃ}は{道路|どうろ}{交通法|こうつうほう}で「{車両|しゃりょう}」にあたる。{車両|しゃりょう}は{道路|どうろ}の{左側|ひだりがわ}を{通|とお}る。{自転車|じてんしゃ}どうしで{並|なら}んで{走|はし}るのは{危険|きけん}で、してはいけない。"
+      - type: sprite
+        character: michika
+        expression: determined
+        position: left
+      - type: dialog
+        character: michika
+        text: "{自転車|じてんしゃ}は{歩行者|ほこうしゃ}じゃなくて「{車両|しゃりょう}」。{左側|ひだりがわ}{通行|つうこう}が{義務|ぎむ}。{並走|へいそう}は{禁止|きんし}。{友|とも}だちと{並|なら}んで{走|はし}ると、{道路|どうろ}の{半分|はんぶん}をふさいでしまう。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 目撃証言を確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{目撃者|もくげきしゃ}のマップ —— カズキくんは{道|みち}の{左|ひだり}はし{寄|よ}り。{反対|はんたい}{側|がわ}から{来|き}た{自転車|じてんしゃ}は2{人分|にんぶん}くらいの{横幅|よこはば}で{見|み}えた。"
+      - type: narration
+        text: "{目撃|もくげき}した{人|ひと}は「{左|ひだり}にいる{子|こ}が1{人|にん}{見|み}えた」と{言|い}っている。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{目撃者|もくげきしゃ}が{見|み}た「{左|ひだり}」——それは{誰|だれ}から{見|み}た{左|ひだり}だろう。{並|なら}んで{走|はし}っている2{人|にん}の{位置|いち}{関係|かんけい}と、{道路|どうろ}{全体|ぜんたい}での{位置|いち}は{違|ちが}うかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 道路の幅を確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{道幅|みちはば}はおよそ2.2m。{自転車|じてんしゃ}1{台|だい}の{幅|はば}はおよそ0.6m。2{台|だい}{並|なら}ぶと1.3m{以上|いじょう}になる。"
+      - type: narration
+        text: "{反対|はんたい}から1{台|だい}{来|き}たとき、{十分|じゅうぶん}な{余裕|よゆう}はほとんど{残|のこ}らない。"
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: michika
+        text: "2.2mの{道|みち}に{自転車|じてんしゃ}が2{台|だい}{並|なら}ぶと1.3m。{反対|はんたい}から1{台|だい}{来|き}たら、{残|のこ}りは0.9mしかない。{自転車|じてんしゃ}1{台|だい}の{幅|はば}が0.6mだから——{全然|ぜんぜん}{足|た}りない。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 防犯カメラの映像
+      - type: effect
+        name: fade-in
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{上|うえ}から{見|み}た{映像|えいぞう}に、トワとユキが{横|よこ}に{並|なら}んで{走|はし}っている{様子|ようす}がうつっていた。"
+      - type: narration
+        text: "ユキは{道路|どうろ}の{左|ひだり}はし{寄|よ}り。トワはその{右|みぎ}がわにいた。"
+      - type: narration
+        text: "トワは「ユキちゃんの{左|ひだり}にいたから、{私|わたし}は{左側|ひだりがわ}だと{思|おも}ってた」と{話|はな}したが、{映像|えいぞう}では{道路|どうろ}の{右|みぎ}{半分|はんぶん}にはみ{出|だ}していた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{友|とも}だちの{左|ひだり}」と「{道路|どうろ}の{左側|ひだりがわ}」はちがった！ トワは{自分|じぶん}の{位置|いち}を{見|み}え{方|かた}で{判断|はんだん}していたが、{道路|どうろ}{全体|ぜんたい}では{右|みぎ}{半分|はんぶん}にはみ{出|だ}していたのだ。"
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 道路の右がわにはみ出していたのは誰だ？
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "「{自分|じぶん}の{左|ひだり}」と「{道路|どうろ}の{左|ひだり}」はちがう。トワは{友|とも}だちの{位置|いち}を{基準|きじゅん}にしていたけど、{道路|どうろ}{交通法|こうつうほう}の{左側|ひだりがわ}{通行|つうこう}は{道路|どうろ}{全体|ぜんたい}での{位置|いち}のことだ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: choice
+        id: q1
+        question: 道路の右がわにはみ出していたのは誰？
+        options:
+          - text: トワ（友だちの左にいたが、道路の右半分にはみ出していた）
+            value: towa
+            correct: true
+            feedback: "{正解|せいかい}！ トワはユキちゃんと{並|なら}んで{走|はし}っていた。ユキの{左|ひだり}にいたので「{私|わたし}は{左側|ひだりがわ}」と{思|おも}っていたが、{実際|じっさい}は{道路|どうろ}{全体|ぜんたい}で{見|み}ると{右|みぎ}{半分|はんぶん}にはみ{出|だ}していた。「{何|なに}の{左|ひだり}か」が{大事|だいじ}。"
+          - text: ヒカル（位置関係を分析していて怪しい）
+            value: hikaru
+            feedback: "ヒカルは{位置|いち}{関係|かんけい}を{分析|ぶんせき}した{情報型|じょうほうがた}。はみ{出|だ}していたのはヒカルではないよ。"
+          - text: ハシル（カズキの話に反応していた）
+            value: hashiru
+            feedback: "ハシルはカズキの{証言|しょうげん}に{反応|はんのう}した{行動型|こうどうがた}。はみ{出|だ}していたのはハシルではないよ。"
+          - text: ミチカ（ルールに詳しいのに止めなかった）
+            value: michika
+            feedback: "ミチカは{自転車|じてんしゃ}ルールを{正確|せいかく}に{知|し}る{観察型|かんさつがた}。はみ{出|だ}していたのはミチカではないよ。"
+
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: トワの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: towa
+        expression: worried
+        position: center
+      - type: dialog
+        character: towa
+        text: "……はみ{出|だ}していたのは、わたしです。"
+        expression: worried
+      - type: dialog
+        character: towa
+        text: "ユキちゃんと{一緒|いっしょ}に{帰|かえ}りたくて、{横|よこ}に{並|なら}んで{走|はし}ってた。ユキちゃんの{左|ひだり}にいたから「わたしは{左側|ひだりがわ}」だと{思|おも}ってたの。"
+        expression: thinking
+      - type: dialog
+        character: towa
+        text: "でもそれは「{友|とも}だちの{左|ひだり}」であって「{道路|どうろ}の{左側|ひだりがわ}」じゃなかった。{上|うえ}から{見|み}たら{道路|どうろ}の{右|みぎ}{半分|はんぶん}にはみ{出|だ}してた。{自分|じぶん}の{見|み}え{方|かた}と{実際|じっさい}の{位置|いち}がずれてた……ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hashiru
+        text: "{並|なら}んで{走|はし}ってるのは{見|み}えてた。でも「{楽|たの}しそうだな」って{思|おも}っただけで、{危|あぶ}ないって{言|い}わなかった。{友|とも}だちの{安全|あんぜん}のために{声|こえ}をかけるべきだった。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: michika
+        text: "{並走|へいそう}{禁止|きんし}のルールを{知|し}ってたのに、その{場|ば}で{伝|つた}えなかった。{道幅|みちはば}2.2mで2{台|だい}{並|なら}ぶと{反対|はんたい}から{来|き}る{自転車|じてんしゃ}の{道|みち}がなくなる——{数字|すうじ}で{考|かんが}えれば{明|あき}らかだったのに。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{自転車|じてんしゃ}は「{車両|しゃりょう}」。{道路|どうろ}の{左側|ひだりがわ}を{通|とお}り、{並|なら}んで{走|はし}ってはいけません。「{友|とも}だちの{左|ひだり}」と「{道路|どうろ}の{左側|ひだりがわ}」はちがいます。{基準|きじゅん}は{常|つね}に{道路|どうろ}{全体|ぜんたい}です。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{友|とも}だちと{一緒|いっしょ}に{帰|かえ}りたい、{話|はな}しながら{帰|かえ}りたいという{気持|きも}ちは{自然|しぜん}なもの。でも{並走|へいそう}するとせまい{道|みち}では{相手|あいて}の{進路|しんろ}をふさぐ。"
+      - type: narration
+        text: "{自分|じぶん}の{見|み}え{方|かた}だけで{位置|いち}を{判断|はんだん}しない。{道路|どうろ}{全体|ぜんたい}で{見|み}たとき、{自分|じぶん}がどこにいるか——それが{安全|あんぜん}の{基準|きじゅん}だ。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,400 @@
+meta:
+  id: media-02
+  title: グラフのトリック
+  series: メディアリテラシー探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}5{年|ねん}2{組|くみ}の{掲示板|けいじばん}に、{給食委員会|きゅうしょくいいんかい}だよりが{貼|は}り{出|だ}された。"
+      - type: narration
+        text: "そこには{大|おお}きな{棒|ぼう}グラフと、{太|ふと}い{文字|もじ}で{書|か}かれた{見出|みだ}しがあった。"
+      - type: narration
+        text: "「{緊急|きんきゅう}！ 今月の{残飯量|ざんぱんりょう}が{先月|せんげつ}の3{倍|ばい}に{急増|きゅうぞう}！ このままでは{給食|きゅうしょく}のメニューが{減|へ}らされます！」"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{教室|きょうしつ}じゅうが「{大変|たいへん}だ！」と{大騒|おおさわ}ぎになった。グラフを{見|み}ると、たしかに今月の{棒|ぼう}が{先月|せんげつ}の3{倍|ばい}くらいの{高|たか}さに{見|み}える。"
+      - type: narration
+        text: "ところが——{山田先生|やまだせんせい}が{給食室|きゅうしょくしつ}の{元|もと}データを{確認|かくにん}すると、{先月|せんげつ}は2,100グラム、今月は2,300グラム。{増|ふ}えたのはたった200グラムだった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "200グラムなのに、なぜグラフでは「3{倍|ばい}」に{見|み}えたの？ そして、このグラフを{作|つく}ったのは{誰|だれ}？ メディアリテラシー{探偵団|たんていだん}の{出番|でばん}です。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: makoto
+            expression: thinking
+          - character: nozomu
+            expression: surprised
+          - character: shiori
+            expression: thinking
+          - character: akari
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{残飯|ざんぱん}を{減|へ}らしたい{気持|きも}ちは{本物|ほんもの}だ。でも{見|み}せ{方|かた}は{正|ただ}しかったのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: グラフのトリック
+        subtitle: メディアリテラシー探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 問題のグラフを調べよう
+      - type: narration
+        text: "{掲示板|けいじばん}に{貼|は}られた「{給食委員会|きゅうしょくいいんかい}だより」のグラフを{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "グラフのY{軸|じく}（たての{線|せん}）を{見|み}ると——{一番下|いちばんした}の{数字|すうじ}は「2,000グラム」から{始|はじ}まっていた。{普通|ふつう}は「0（ゼロ）」から{始|はじ}めるはずだ。"
+      - type: narration
+        text: "Y{軸|じく}の{目盛|めも}りの{間隔|かんかく}は50グラムごと。これだと、100グラムの{差|さ}でも{棒|ぼう}の{高|たか}さが{大|おお}きく{変|か}わって{見|み}える。"
+      - type: narration
+        text: "{先月|せんげつ}の{棒|ぼう}の{高|たか}さ: 2,000グラムから2,100グラムまで（{高|たか}さ100グラム{分|ぶん}）。今月の{棒|ぼう}の{高|たか}さ: 2,000グラムから2,300グラムまで（{高|たか}さ300グラム{分|ぶん}）。"
+      - type: narration
+        text: "グラフ{上|じょう}では今月の{棒|ぼう}は{先月|せんげつ}の3{倍|ばい}の{高|たか}さに{見|み}える。でも{本当|ほんとう}に{残飯量|ざんぱんりょう}が3{倍|ばい}になったわけではない。"
+      - type: narration
+        text: "{見出|みだ}しの「3{倍|ばい}に{急増|きゅうぞう}」は、{棒|ぼう}の{高|たか}さの{比率|ひりつ}から{来|き}た{表現|ひょうげん}だ。Y{軸|じく}が0から{始|はじ}まっていないことが{原因|げんいん}だ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 元データと比べてみよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{給食室|きゅうしょくしつ}から{取|と}り{寄|よ}せた、2か{月分|げつぶん}の{残飯|ざんぱん}{計量|けいりょう}データを{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先月|せんげつ}の{記録|きろく}（20{日間|にちかん}）: {第|だい}1{週|しゅう}525g、{第|だい}2{週|しゅう}520g、{第|だい}3{週|しゅう}520g、{第|だい}4{週|しゅう}535g。{月|つき}の{合計|ごうけい}は2,100グラム。"
+      - type: narration
+        text: "今月の{記録|きろく}（20{日間|にちかん}）: {第|だい}1{週|しゅう}575g、{第|だい}2{週|しゅう}570g、{第|だい}3{週|しゅう}570g、{第|だい}4{週|しゅう}585g。{月|つき}の{合計|ごうけい}は2,300グラム。"
+      - type: narration
+        text: "{増加量|ぞうかりょう}は200グラム。{割合|わりあい}にすると{約|やく}9.5パーセントの{増加|ぞうか}だ。「3{倍|ばい}」とは{程遠|ほどとお}い。"
+      - type: narration
+        text: "{元|もと}データとグラフの{印象|いんしょう}が{大|おお}きくずれている。{数字|すうじ}は{正|ただ}しいのに、{見|み}せ{方|かた}のせいで「{大問題|だいもんだい}」のように{見|み}える。"
+      - type: narration
+        text: "グラフのY{軸|じく}の{開始点|かいしてん}と{目盛|めも}りの{間隔|かんかく}を{変|か}えるだけで、{人|ひと}の{受|う}け{取|と}り{方|かた}をこれほど{変|か}えられるのか——"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: グラフを作った場所を探ろう
+      - type: narration
+        text: "{山田先生|やまだせんせい}がパソコン{室|しつ}の{予約|よやく}ノートを{確認|かくにん}した。グラフを{作|つく}るにはパソコンが{必要|ひつよう}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{月曜日|げつようび}の{放課後|ほうかご}（グラフ{作成日|さくせいび}）の{使用|しよう}{記録|きろく}: 15:00〜15:30 6{年|ねん}1{組|くみ}{新聞委員会|しんぶんいいんかい}（{学校新聞|がっこうしんぶん}の{編集|へんしゅう}）。"
+      - type: narration
+        text: "15:30〜16:00 5{年|ねん}2{組|くみ}{給食委員会|きゅうしょくいいんかい}（グラフ{作成|さくせい}）。{予約者|よやくしゃ}の{欄|らん}には「5{年|ねん}2{組|くみ}{給食委員会|きゅうしょくいいんかい}」とだけ{書|か}かれ、{個人名|こじんめい}はない。"
+      - type: narration
+        text: "パソコン{室|しつ}の{先生|せんせい}の{証言|しょうげん}: 「1{人|にん}で{来|き}ていた。30{分|ぷん}くらいで{帰|かえ}った」。"
+      - type: narration
+        text: "グラフは{月曜日|げつようび}15:30〜16:00にパソコン{室|しつ}で{作|つく}られた。{給食委員会|きゅうしょくいいんかい}の{誰|だれ}かが1{人|にん}で{来|き}てグラフを{作成|さくせい}した——それが{分|わ}かった。"
+      - type: narration
+        text: "{給食委員会|きゅうしょくいいんかい}のメンバーは4{人|にん}のうちの{誰|だれ}か？ その{手|て}がかりは{次|つぎ}の{証拠|しょうこ}にある。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 会議記録を読み解こう
+      - type: narration
+        text: "{職員室|しょくいんしつ}に{保管|ほかん}されていた{給食委員会|きゅうしょくいいんかい}の{会議|かいぎ}{議事録|ぎじろく}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先週|せんしゅう}{金曜日|きんようび}の{会議|かいぎ}{出席者|しゅっせきしゃ}: アカリ、{田村|たむら}くん（5{年|ねん}1{組|くみ}）、{佐藤|さとう}さん（5{年|ねん}3{組|くみ}）、{山田先生|やまだせんせい}（{顧問|こもん}）。"
+      - type: narration
+        text: "{決定事項|けっていじこう}: 「{残飯量|ざんぱんりょう}のデータをグラフにして{給食委員会|きゅうしょくいいんかい}だよりに{載|の}せる。グラフ{作成|さくせい}{担当|たんとう}: アカリ。{月曜日|げつようび}の{放課後|ほうかご}にパソコン{室|しつ}でグラフを{作成|さくせい}する」。"
+      - type: narration
+        text: "アカリの{発言|はつげん}（{記録|きろく}より）: 「みんなが{残飯|ざんぱん}のことを{気|き}にしてくれないから、もっとインパクトのあるグラフにしたいんだけど、いいかな？」"
+      - type: narration
+        text: "{山田先生|やまだせんせい}の{返答|へんとう}: 「データは{正確|せいかく}に{伝|つた}えようね」。アカリは「インパクトのあるグラフ」を{作|つく}りたいと{発言|はつげん}していた。"
+      - type: narration
+        text: "グラフ{作成|さくせい}の{担当|たんとう}はアカリ。パソコン{室|しつ}の{使用|しよう}{時間|じかん}と{一致|いっち}する。「インパクトのあるグラフ」という{発言|はつげん}と、Y{軸|じく}{操作|そうさ}の{動機|どうき}も{一致|いっち}する。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 正しいグラフとの比較
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{同|おな}じデータで「{正|ただ}しいグラフ」を{作|つく}ってみました。2つを{並|なら}べて{見|み}てください。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "【{操作|そうさ}されたグラフ】Y{軸|じく}: 2,000g〜2,350g（{目盛|めも}り50gごと）。今月の{棒|ぼう}が{先月|せんげつ}の3{倍|ばい}の{高|たか}さに{見|み}える。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "【{正|ただ}しいグラフ】Y{軸|じく}: 0g〜2,500g（{目盛|めも}り500gごと）。{先月|せんげつ}と今月の{棒|ぼう}がほぼ{同|おな}じ{高|たか}さに{見|み}える。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{両方|りょうほう}とも{同|おな}じ{数字|すうじ}（{先月|せんげつ}2,100g・今月2,300g）を{使|つか}っている！ それなのに{見|み}え{方|かた}がまったく{違|ちが}う！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "Y{軸|じく}の{開始点|かいしてん}を2,000グラムにしたことで、200グラムの{差|さ}が{棒|ぼう}の{高|たか}さでは「3{倍|ばい}の{差|さ}」に{見|み}えるように{操作|そうさ}されていた。"
+      - type: narration
+        text: "{数字|すうじ}は{嘘|うそ}ではない。でもグラフの{見|み}せ{方|かた}を{操作|そうさ}することで、「{残飯|ざんぱん}が3{倍|ばい}に{急増|きゅうぞう}した」という{印象|いんしょう}を{作|つく}り{出|だ}せる。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 操作したのは誰だ？
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{元|もと}データは200グラム{増|ふ}えただけ。でも{棒|ぼう}の{高|たか}さだけが{大|おお}げさなんだ。Y{軸|じく}が0から{始|はじ}まっていないのが{原因|げんいん}だよ。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: determined
+        position: right
+      - type: dialog
+        character: shiori
+        text: "{算数|さんすう}の{教科書|きょうかしょ}には「{棒|ぼう}グラフのY{軸|じく}は0から{始|はじ}める」と{書|か}いてある。これは{見|み}せ{方|かた}のルール{違反|いはん}よ。"
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。グラフ{作成|さくせい}の{担当|たんとう}はアカリ（Card4）。パソコン{室|しつ}に1{人|にん}で{来|き}た（Card3）。Y{軸|じく}の{開始点|かいしてん}と{目盛|めも}りを{変|か}えて{印象|いんしょう}を{操作|そうさ}（Card1・5）。「インパクトのあるグラフ」と{発言|はつげん}（Card4）——"
+      - type: choice
+        id: q1
+        question: グラフを操作したのは誰？
+        options:
+          - text: アカリ（給食委員会のグラフ作成担当で、「インパクトのあるグラフにしたい」と発言）
+            value: akari
+            correct: true
+            feedback: "{正解|せいかい}！ アカリは{給食委員会|きゅうしょくいいんかい}の{担当|たんとう}として{月曜日|げつようび}15:30にパソコン{室|しつ}でグラフを{作|つく}り、Y{軸|じく}の{開始点|かいしてん}を2,000グラムに・{目盛|めも}りを50グラム{間隔|かんかく}に{変|か}えて{印象|いんしょう}を{操作|そうさ}した。{残飯|ざんぱん}を{減|へ}らしたいという{善意|ぜんい}が{動機|どうき}だ。"
+          - text: マコト（数字の矛盾に気づいた情報型）
+            value: makoto
+            feedback: "マコトは{元|もと}データとグラフの{矛盾|むじゅん}に{気|き}づいた{側|がわ}だ。{給食委員会|きゅうしょくいいんかい}のメンバーでもないし、パソコン{室|しつ}の{予約|よやく}{記録|きろく}にも{名前|なまえ}がないよ。"
+          - text: ノゾム（グラフを見て最初に騒いだ行動型）
+            value: nozomu
+            feedback: "ノゾムはグラフを{信|しん}じて「3{倍|ばい}だ！ {大変|たいへん}だ！」と{騒|さわ}いだ{側|がわ}だ。{給食委員会|きゅうしょくいいんかい}のメンバーではなく、グラフ{作|つく}りをやったことがない。"
+          - text: シオリ（Y軸のルール違反に気づいた観察型）
+            value: shiori
+            feedback: "シオリはY{軸|じく}の{開始点|かいしてん}のルール{違反|いはん}を{指摘|してき}できる{立場|たちば}だ。でも{会議|かいぎ}{記録|きろく}の{担当者|たんとうしゃ}はアカリで、シオリは{給食委員会|きゅうしょくいいんかい}のメンバーでもない。"
+
+  # ==================== 真実：アカリ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: アカリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: akari
+        expression: worried
+        position: center
+      - type: dialog
+        character: akari
+        text: "……グラフを{操作|そうさ}したのは、{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: "アカリは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: akari
+        text: "{給食委員会|きゅうしょくいいんかい}で{残飯|ざんぱん}を{減|へ}らすキャンペーンを{企画|きかく}していたの。でも、クラスの{関心|かんしん}が{低|ひく}くて、{誰|だれ}も{真剣|しんけん}に{取|と}り{組|く}んでくれなかった。"
+        expression: thinking
+      - type: dialog
+        character: akari
+        text: "{月曜日|げつようび}に{最初|さいしょ}、Y{軸|じく}を0から{始|はじ}めてグラフを{作|つく}ったの。でも{先月|せんげつ}と今月の{棒|ぼう}がほとんど{同|おな}じ{高|たか}さで……「これじゃ{誰|だれ}も{気|き}にしてくれない」って{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: akari
+        text: "だからY{軸|じく}の{開始点|かいしてん}を2,000グラムに{変|か}えて、{目盛|めも}りを50グラム{間隔|かんかく}にしたの。そうしたら200グラムの{差|さ}がすごく{大|おお}きく{見|み}えるようになった。"
+        expression: determined
+      - type: dialog
+        character: akari
+        text: "{数字|すうじ}は{嘘|うそ}じゃない。{先月|せんげつ}2,100グラム、今月2,300グラム——{全部|ぜんぶ}{正|ただ}しいデータよ。でも……{見|み}せ{方|かた}を{変|か}えたら、ダメだったね。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{元|もと}データを{見|み}たとき、「{本当|ほんとう}に3{倍|ばい}なの？」って{疑問|ぎもん}を{持|も}ったんだ。2,100と2,300……200グラムしか{違|ちが}わないのに、グラフだと{全然|ぜんぜん}{違|ちが}って{見|み}えた。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomu
+        text: "ぼく、グラフを{見|み}た{瞬間|しゅんかん}に「3{倍|ばい}だ！ {大変|たいへん}だ！」って{信|しん}じちゃって……5{人|にん}以上の{友|とも}だちに{言|い}いまわって{騒|さわ}ぎを{大|おお}きくしてしまった。{数字|すうじ}を{確認|かくにん}しなかったのが{失敗|しっぱい}だった。"
+        expression: worried
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: determined
+        position: left
+      - type: dialog
+        character: shiori
+        text: "{実|じつ}は{先週|せんしゅう}{金曜日|きんようび}の{会議|かいぎ}を{廊下|ろうか}から{聞|き}いていたの。「インパクトのあるグラフにしたい」って{声|こえ}が{聞|き}こえた。でも{誰|だれ}の{声|こえ}かはっきりしなくて……{証拠|しょうこ}なしに{人|ひと}を{疑|うたが}えなかった。"
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "アカリの「{残飯|ざんぱん}を{減|へ}らしたい」という{気持|きも}ちは{本物|ほんもの}よ。{誰|だれ}かのためを{思|おも}う{気持|きも}ちは{素晴|すば}らしい。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも、{情報|じょうほう}の{見|み}せ{方|かた}を{操作|そうさ}して{人|ひと}の{判断|はんだん}を{動|うご}かそうとすることは、{情報|じょうほう}の{誠実|せいじつ}さに{反|はん}します。{数字|すうじ}が{正|ただ}しくても、{見|み}せ{方|かた}が{不誠実|ふせいじつ}ならそれは{操作|そうさ}です。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "グラフを{見|み}るとき、まず{確認|かくにん}することが{一|ひと}つある——「Y{軸|じく}は0から{始|はじ}まっているか？」。この{習慣|しゅうかん}で、{見|み}せ{方|かた}の{操作|そうさ}に{気|き}づける。"
+      - type: narration
+        text: "Y{軸|じく}の{開始点|かいしてん}を{変|か}えるだけで、200グラムの{差|さ}が「3{倍|ばい}の{急増|きゅうぞう}」に{見|み}える。{逆|ぎゃく}に0から{始|はじ}めると、{先月|せんげつ}と今月の{棒|ぼう}がほぼ{同|おな}じ{高|たか}さになる。"
+      - type: narration
+        text: "{数字|すうじ}は{正|ただ}しくても、{印象|いんしょう}は{操作|そうさ}できる。アカリの{善意|ぜんい}の{操作|そうさ}が{教|おし}えてくれた、メディアリテラシーの{大切|たいせつ}な{教訓|きょうくん}だ。"
+      - type: effect
+        name: fade-out

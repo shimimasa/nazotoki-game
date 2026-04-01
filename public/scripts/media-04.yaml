@@ -1,0 +1,393 @@
+meta:
+  id: media-04
+  title: おすすめの正体
+  series: メディアリテラシー探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}2{組|くみ}の{教室|きょうしつ}には「おすすめ本コーナー」がある。みんなが{自由|じゆう}にレビューカードを{書|か}いて{掲示板|けいじばん}に{貼|は}る{方式|ほうしき}で、15{冊|さつ}の本に{合計|ごうけい}45{枚|まい}のレビューが{集|あつ}まっていた。1{冊|さつ}あたり{平均|へいきん}3{枚|まい}だ。"
+      - type: narration
+        text: "ところが——1{冊|さつ}だけ、{突出|とっしゅつ}している本があった。「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」。★5レビューが8{枚|まい}。{平均|へいきん}の{倍以上|ばいいじょう}だ。"
+      - type: narration
+        text: "しかも——8{枚|まい}すべてが★5。{他|ほか}の本には★3や★4もあるのに、この1{冊|さつ}だけが{満点|まんてん}{続|つづ}きだった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "8{枚|まい}のレビューを{読|よ}み{比|くら}べてみたら、5{枚|まい}の{文体|ぶんたい}がそっくりなの。「〜だと{思|おも}います」で{終|お}わる{語尾|ごび}、{感情|かんじょう}{表現|ひょうげん}ばかりで{具体的|ぐたいてき}な{場面|ばめん}の{感想|かんそう}がない。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "さらに{投稿者|とうこうしゃ}の{名前|なまえ}の子たちに{聞|き}き{取|と}りをしたら、5{枚|まい}のうち3{人|にん}が「{書|か}いていない」と{証言|しょうげん}したわ。{誰|だれ}かが{偽|にせ}のレビューを{書|か}いている。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: akari
+            expression: surprised
+          - character: makoto
+            expression: thinking
+          - character: nozomu
+            expression: surprised
+          - character: shiori
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が、なぜ、{偽|にせ}のレビューを{書|か}いたのか。メディアリテラシー{探偵団|たんていだん}の{出番|でばん}だ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: おすすめの正体
+        subtitle: メディアリテラシー探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: レビュー枚数一覧を確認しよう
+      - type: narration
+        text: "おすすめ本コーナーの{掲示板|けいじばん}のレビューカードを{整理|せいり}した。15{冊|さつ}の本に{合計|ごうけい}45{枚|まい}——1{冊|さつ}{平均|へいきん}3{枚|まい}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "1位「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」——8{枚|まい}、★5.0。2位「かいけつゾロリ」——4{枚|まい}、★4.5。3位「サバイバルシリーズ」——4{枚|まい}、★4.0。{他|ほか}の本は2〜3{枚|まい}、★3.0〜4.5。"
+      - type: narration
+        text: "「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」だけが{圧倒的|あっとうてき}だ。レビュー{枚数|まいすう}は2位の{倍|ばい}、しかも{全部|ぜんぶ}★5。{他|ほか}の本には{低|ひく}い{評価|ひょうか}もあるのに——この1{冊|さつ}だけが{完璧|かんぺき}な{評価|ひょうか}を{保|たも}っている。"
+      - type: narration
+        text: "「{本当|ほんとう}に{人気|にんき}があるから」なのか、それとも「{誰|だれ}かが{意図的|いとてき}に{増|ふ}やした」のか——この{違和感|いわかん}が{調査|ちょうさ}の{起点|きてん}だ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 8枚のレビューの文面を比べよう
+      - type: narration
+        text: "「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」の8{枚|まい}のレビューを{並|なら}べた。すると、はっきりと2つのグループに{分|わ}かれた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "グループA（5{枚|まい}）——{文体|ぶんたい}が{似|に}ている: ミサキ「とても{感動|かんどう}する本だと{思|おも}います」、ユウキ「{素敵|すてき}な{物語|ものがたり}だと{思|おも}います」、カナ「この本は{最高|さいこう}だと{思|おも}います」。"
+      - type: narration
+        text: "リナ「とてもいい本だと{思|おも}います」、タクミ「{素晴|すば}らしい本だと{思|おも}います」。5{枚|まい}すべてが「〜だと{思|おも}います」で{終|お}わり、{具体的|ぐたいてき}な{場面|ばめん}の{記述|きじゅつ}がない。"
+      - type: narration
+        text: "グループB（3{枚|まい}）——{文体|ぶんたい}がバラバラ: シオリ「3{章|しょう}の{星空|ほしぞら}の{場面|ばめん}がきれいで、{何度|なんど}{読|よ}んでもドキドキする！ {主人公|しゅじんこう}のユウキが{勇気|ゆうき}を{出|だ}す{場面|ばめん}が{一番|いちばん}好き」。"
+      - type: narration
+        text: "ケンジ「{冒険|ぼうけん}ものが好きだから{借|か}りた。まあまあ{面白|おもしろ}かったけど、{後半|こうはん}ちょっとダルい」★3。ハルカ「{星空|ほしぞら}の{描写|びょうしゃ}がきれい！ でも{難|むずか}しい{言葉|ことば}が{多|おお}かった」★4。"
+      - type: narration
+        text: "グループAの5{枚|まい}には{共通点|きょうつうてん}がある——{語尾|ごび}が{同|おな}じ、{感情|かんじょう}{表現|ひょうげん}が{中心|ちゅうしん}、{具体的|ぐたいてき}な{場面|ばめん}がない、すべて★5。まるで{同|おな}じ人が{書|か}いたようだ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 投稿日のタイムラインを調べよう
+      - type: narration
+        text: "マコトがレビューカードの{投稿|とうこう}日を{調|しら}べた。おすすめ本コーナーには「{投稿|とうこう}日」を{書|か}く{欄|らん}がある。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "グループB（{本物|ほんもの}）の3{枚|まい}: シオリ→2{週間|しゅうかん}前（{月曜日|げつようび}）、ハルカ→10日前、ケンジ→1{週間|しゅうかん}前（{月曜日|げつようび}）。バラバラの日に{投稿|とうこう}されている。"
+      - type: narration
+        text: "グループA（{文体|ぶんたい}{似|に}）の5{枚|まい}: ミサキ→{先週|せんしゅう}{水曜日|すいようび}、ユウキ→{先週|せんしゅう}{水曜日|すいようび}、カナ→{先週|せんしゅう}{木曜日|もくようび}、リナ→{先週|せんしゅう}{木曜日|もくようび}、タクミ→{先週|せんしゅう}{金曜日|きんようび}。"
+      - type: narration
+        text: "5{枚|まい}が{先週|せんしゅう}水・木・金の3日間に{集中|しゅうちゅう}している！ そして——{先週|せんしゅう}{火曜日|かようび}に「{何|なに}か」が{起|お}きたことを{示|しめ}す{記録|きろく}がある。{火曜日|かようび}の{翌日|よくじつ}から{偽|にせ}レビューが{増|ふ}え始めた。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 投稿者への聞き取りをしよう
+      - type: narration
+        text: "{山田先生|やまだせんせい}とノゾムが、グループAの5{枚|まい}に{名前|なまえ}が{書|か}いてある子たちに{聞|き}き{取|と}りをした。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ミサキ——「え？ {私|わたし}の{名前|なまえ}が{書|か}いてあるの？ {書|か}いてないよ」。ユウキ——「{知|し}らない。{書|か}いた{覚|おぼ}えないけど」。カナ——「あの本、{読|よ}んだことすらないよ。{誰|だれ}かが{勝手|かって}に{名前|なまえ}{使|つか}ったの？」"
+      - type: narration
+        text: "リナ——「うーん、{書|か}いたような{気|き}もする……？ でも{自信|じしん}ない」。タクミ——「あれ、{書|か}いたかなあ。{覚|おぼ}えてない」。"
+      - type: narration
+        text: "5{枚|まい}のうち3{人|にん}が「{書|か}いていない」と{明確|めいかく}に{否定|ひてい}し、2{人|にん}は「{覚|おぼ}えていない」。つまり、{誰|だれ}かが友だちの{名前|なまえ}を{勝手|かって}に{使|つか}って{偽|にせ}レビューを{書|か}いた{確証|かくしょう}が{得|え}られた。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 図書室の撤去ルール
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{先週|せんしゅう}{火曜日|かようび}に{図書室|としょしつ}に{貼|は}り{出|だ}された、あるルールを{持|も}ってきました。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "「{貸出|かしだし}ランキング{下位|かい}10{冊|さつ}の本は、来月から{棚|たな}から{撤去|てっきょ}します」——そして「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」は{貸出|かしだし}ランキング11位。ギリギリ{撤去|てっきょ}{対象外|たいしょうがい}だけど、来月は{危|あぶ}ない。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先週|せんしゅう}{火曜日|かようび}に{撤去|てっきょ}ルールが{発表|はっぴょう}された——その{翌日|よくじつ}の{水曜日|すいようび}から{偽|にせ}レビューが{増|ふ}え始めた！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{図書室|としょしつ}のこのコーナーには{全部|ぜんぶ}で21{冊|さつ}。{撤去|てっきょ}されるのは12位〜21位の10{冊|さつ}。「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」は{貸出|かしだし}6回で11位——来月は12位以下に{落|お}ちる{可能性|かのうせい}が{高|たか}い。{大好|だいす}きな本が{棚|たな}から{消|き}えてしまう。その{危機感|ききかん}が{偽|にせ}レビューの{動機|どうき}だったのだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: nozomu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nozomu
+        text: "{撤去|てっきょ}ルールを{知|し}っていて、「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」に{強|つよ}い{思|おも}い{入|い}れがある人——それが{犯人|はんにん}だよね。あの本を3回{読|よ}んだって{話|はな}してた子、{誰|だれ}だっけ？"
+        expression: thinking
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "{先週|せんしゅう}{水曜日|すいようび}の{放課後|ほうかご}、おすすめ本コーナーの{掲示板|けいじばん}の前で、{誰|だれ}かが{何|なに}かを{貼|は}っているのを{見|み}かけた。{何|なに}を{貼|は}っていたかは{確認|かくにん}できなかったけど……"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: makoto
+        text: "5{枚|まい}の{文体|ぶんたい}は{同|おな}じ人が{書|か}いた{可能性|かのうせい}が{高|たか}い。{文字|もじ}の{書|か}き{方|かた}も{似|に}ている。{偽|にせ}レビューを{書|か}いた人は、{撤去|てっきょ}ルールを{知|し}っていて、あの本に{詳|くわ}しくて、レビューを{書|か}くのが{得意|とくい}な人——"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{撤去|てっきょ}ルール{発表|はっぴょう}（{先週|せんしゅう}{火曜日|かようび}）の{翌日|よくじつ}から{偽|にせ}レビューが{急増|きゅうぞう}した。「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」を3回{読|よ}んだ{図書室|としょしつ}の{常連|じょうれん}で、レビューを{書|か}くのが好きな人——それが{犯人|はんにん}だ。"
+      - type: choice
+        id: q1
+        question: 偽レビューを書いたのは誰？
+        options:
+          - text: シオリ（星空を3回読んだ図書室の常連。撤去ルールを知っていた）
+            value: shiori
+            correct: true
+            feedback: "{正解|せいかい}！ シオリは「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」が{大好|だいす}きで3回{読|よ}んだほどのファン。{先週|せんしゅう}{火曜日|かようび}の{撤去|てっきょ}ルール{発表|はっぴょう}を{受|う}け、{翌日|よくじつ}から3日間で5{枚|まい}の{偽|にせ}レビューを{投稿|とうこう}した。友だちの{名前|なまえ}を{勝手|かって}に{使|つか}い、{大好|だいす}きな本を{守|まも}ろうとした。"
+          - text: マコト（文体分析担当で、5枚の共通点に一番詳しい）
+            value: makoto
+            feedback: "マコトは「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」を{読|よ}んだことがない。{文体|ぶんたい}{分析|ぶんせき}をしていたのは{偽|にせ}レビューを{見破|みやぶ}るためで、{書|か}いた{側|がわ}ではないよ。"
+          - text: ノゾム（聞き込みをして、偽レビューの存在に一番気づいていた）
+            value: nozomu
+            feedback: "ノゾムも「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」を{読|よ}んだことがない。{聞|き}き{込|こ}みをして{偽|にせ}レビューを{調|しら}べていたのは{探偵|たんてい}の{仕事|しごと}で、{犯人|はんにん}ではないよ。"
+          - text: アカリ（水曜日の放課後、掲示板の前で誰かを目撃していた）
+            value: akari
+            feedback: "アカリは「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」を{読|よ}んだことはあるけど「8{枚|まい}は{多|おお}すぎ」と{感|かん}じていた。{名前|なまえ}を{使|つか}われた友だちの{気持|きも}ちを{代弁|だいべん}する{立場|たちば}の子だよ。"
+
+  # ==================== 真実：シオリ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: シオリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: shiori
+        expression: worried
+        position: center
+      - type: dialog
+        character: shiori
+        text: "……{偽|にせ}レビューを{書|か}いたのは、{私|わたし}です。"
+        expression: worried
+      - type: narration
+        text: "シオリは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: shiori
+        text: "「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たち」が{大好|だいす}きで、3回{読|よ}んだ。{先週|せんしゅう}{火曜日|かようび}に{図書室|としょしつ}で{撤去|てっきょ}ルールを{見|み}て——あの本が11位だって{分|わ}かって、{怖|こわ}くなった。"
+        expression: thinking
+      - type: dialog
+        character: shiori
+        text: "来月は12位以下に{落|お}ちるかもしれない。{大好|だいす}きな本が{棚|たな}から{消|き}えてしまう。{居|い}ても{立|た}っても{居|い}られなくて——{水曜日|すいようび}から{金曜日|きんようび}の3日間で、5{枚|まい}{書|か}いた。"
+        expression: worried
+      - type: dialog
+        character: shiori
+        text: "みんなが{読|よ}んでくれれば{貸出|かしだし}が{増|ふ}える。{本物|ほんもの}の{評価|ひょうか}だと{思|おも}って{読|よ}んでもらえれば……友だちの{名前|なまえ}を{使|つか}ったのは、{悪|わる}かった。{分|わ}かってる。"
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: makoto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: makoto
+        text: "{密談|みつだん}でシオリに{直接|ちょくせつ}{聞|き}いた。{文体|ぶんたい}{分析|ぶんせき}データを{見|み}せたら——「{書|か}いたの、{私|わたし}」って{認|みと}めてくれた。「{星空|ほしぞら}の{冒険者|ぼうけんしゃ}たちが{棚|たな}から{消|き}えちゃうかもしれなくて、{守|まも}りたかったの」って。"
+        expression: thinking
+      - type: sprite
+        character: makoto
+        action: hide
+      - type: sprite
+        character: nozomu
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomu
+        text: "{読|よ}んだことがある人が{少|すく}ないのにレビューが{多|おお}い——そこが{最初|さいしょ}から{変|へん}だと{思|おも}ってた。{貸出|かしだし}{回数|かいすう}を{増|ふ}やしたかったなら、レビューより{実際|じっさい}に本を{借|か}りてもらう{方|ほう}が{早|はや}かったのに。"
+        expression: worried
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "ミサキ・ユウキ・カナに{話|はなし}を{聞|き}いた。カナは「あの本、{読|よ}んだことすらないの！ なのに{私|わたし}の{名前|なまえ}で『{感動|かんどう}しました』って{書|か}いてある。すごく{嫌|いや}な{気持|きも}ち」って——{涙|なみだ}をこらえてた。"
+        expression: worried
+      - type: dialog
+        character: akari
+        text: "{名前|なまえ}を{勝手|かって}に{使|つか}って{偽|にせ}の{意見|いけん}を{広|ひろ}めることは、その人の「{声|こえ}」を{奪|うば}うことだと{思|おも}う。シオリの{気持|きも}ちは{分|わ}かる。でも——カナたちの{気持|きも}ちも{分|わ}かってほしかった。"
+        expression: determined
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "シオリの「{大好|だいす}きな本を{守|まも}りたい」という{気持|きも}ちは、{本物|ほんもの}よ。本への{愛情|あいじょう}も{素晴|すば}らしい。でも——友だちの{名前|なまえ}を{勝手|かって}に{使|つか}って{偽|にせ}のレビューを{書|か}くことは、{別|べつ}の{問題|もんだい}よ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "1人の{意見|いけん}をたくさんの人の{意見|いけん}に{見|み}せかけること——これを「アストロターフィング」と{言|い}います。「みんながおすすめしてる」が{本当|ほんとう}は「1人がたくさん{書|か}いた」だったら、それは{正確|せいかく}な{情報|じょうほう}でしょうか？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{大切|たいせつ}なものを{守|まも}る{方法|ほうほう}には「{正|ただ}しいやり{方|かた}」がある。{図書|としょ}{委員|いいん}に{相談|そうだん}する、{自分|じぶん}の{名前|なまえ}で{正直|しょうじき}なレビューを{書|か}く、{読書会|どくしょかい}を{開|ひら}く——{選|えら}べる{方法|ほうほう}はいくつもあった。"
+      - type: narration
+        text: "{偽|にせ}レビューを{見破|みやぶ}る3つの{方法|ほうほう}: {文体|ぶんたい}チェック（{同|おな}じ人が{書|か}くと{文体|ぶんたい}が{似|に}る）、タイムライン（{短期間|たんきかん}に{集中|しゅうちゅう}→{怪|あや}しい）、{本人|ほんにん}{確認|かくにん}（{書|か}いたと{言|い}っている人は{本当|ほんとう}に{書|か}いた？）。"
+      - type: narration
+        text: "インターネットのレビューも{同|おな}じだ。★5が{並|なら}んでいても、「これは{本物|ほんもの}かな？」と{立|た}ち{止|と}まる{習慣|しゅうかん}——それが{本物|ほんもの}のメディアリテラシーだ。"
+      - type: effect
+        name: fade-out

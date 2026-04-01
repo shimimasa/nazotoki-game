@@ -1,0 +1,379 @@
+meta:
+  id: tokkatsu-02
+  title: 破られた約束
+  series: 特別活動探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: ツムギ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  ayumu:
+    name: アユム
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}では、うさぎのモコを4{人|にん}の{飼育係|しいくがかり}でお{世話|せわ}している。{月曜|げつよう}はマモル、{火曜|かよう}はツムギ、{水曜|すいよう}はアユム、{木曜|もくよう}はノゾミ——ローテーションはきちんと{決|き}まっていた。"
+      - type: narration
+        text: "ところが{水曜日|すいようび}の{朝|あさ}、うさぎ{小屋|ごや}を{見|み}に{行|い}った{先生|せんせい}が{困|こま}った{顔|かお}をした。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "モコの{エサ入|えさい}れが{空|から}っぽで、{水|みず}もかえられていないよ。{火曜日|かようび}のお{世話|せわ}ができていなかったみたいだ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "4{人|にん}はみんな「{自分|じぶん}はちゃんとやった」と{言|い}っている。そして{当番表|とうばんひょう}を{見|み}ると、{火曜日|かようび}のところだけが{書|か}きかえられたようになっていた。"
+      - type: sprite_group
+        characters:
+          - character: tsumugi
+            expression: worried
+          - character: ayumu
+            expression: surprised
+          - character: mamoru
+            expression: worried
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が{当番表|とうばんひょう}を{書|か}きかえ、{火曜日|かようび}の{世話|せわ}をサボったのか——"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 破られた約束
+        subtitle: 特別活動探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 飼育当番表を確認しよう
+      - type: narration
+        text: "うさぎの{飼育当番表|しいくとうばんひょう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "5{年|ねん}1{組|くみ} うさぎ{当番表|とうばんひょう}——{月曜|げつよう} マモル、{火曜|かよう} アユム、{水曜|すいよう} アユム、{木曜|もくよう} ノゾミ。"
+      - type: narration
+        text: "アユムの{名前|なまえ}が{火曜|かよう}と{水曜|すいよう}の2{回|かい}{並|なら}んでいる。{火曜|かよう}のところだけ、{消|け}しあとと{上書|うわが}きがある。"
+      - type: narration
+        text: "もともとは「{火曜|かよう} ツムギ」だったはず。{誰|だれ}かが「ツムギ」を「アユム」に{書|か}きかえたことになる。{本当|ほんとう}に{交代|こうたい}したなら、{誰|だれ}が{知|し}っているはずだろう？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 先生のメモを読もう
+      - type: narration
+        text: "{水曜日|すいようび}の{朝|あさ}、{先生|せんせい}が{書|か}いたメモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{水曜日|すいようび} 8:10——モコの{エサ入|えさい}れが{空|から}っぽ。{水|みず}も{火曜日|かようび}の{目盛|めもり}のままだった。{火曜日|かようび}の{放課後|ほうかご}のお{世話|せわ}ができていなかったと{考|かんが}えられる。"
+      - type: narration
+        text: "{水曜日|すいようび} 8:12——{当番表|とうばんひょう}の{火曜|かよう}の{欄|らん}が{書|か}きかえられているのが{見|み}つかった。"
+      - type: narration
+        text: "4{人|にん}はみんな「{自分|じぶん}はちゃんとやった」と{言|い}っている。でも{火曜日|かようび}の{世話|せわ}はされていない。「{自分|じぶん}はやった」と「{実際|じっさい}にやられた」は{別|べつ}のことかもしれない。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ツムギとマモルのメモを読もう
+      - type: narration
+        text: "ツムギとマモルが{持|も}っていたメモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツムギのメモ——{火曜日|かようび} 16:30までに{読書|どくしょ}クラブの{本|ほん}を{図書室|としょしつ}へ{返|かえ}す。{図書室|としょしつ}は16:30にしまる。"
+      - type: narration
+        text: "マモルのメモ——{月曜日|げつようび}の{帰|かえ}り、ツムギが{当番表|とうばんひょう}の{前|まえ}にいた。「{予定|よてい}を{見|み}てるだけ」と{言|い}っていた。"
+      - type: narration
+        text: "{火曜日|かようび}の{予定|よてい}でこまりそうだったのはツムギだけ。モコのお{世話|せわ}（16:00〜16:20）と{図書室|としょしつ}の{返却期限|へんきゃくきげん}（16:30）が{重|かさ}なる。そしてマモルはツムギが{当番表|とうばんひょう}の{前|まえ}にいたのを{見|み}ていた——"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: アユムとノゾミのメモを読もう
+      - type: narration
+        text: "アユムとノゾミが{持|も}っていたメモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "アユムのメモ——{火曜日|かようび}は{掃除|そうじ}のあとすぐ{校庭|こうてい}へ{行|い}った。「{火曜|かよう}をかわって」とは{誰|だれ}からも{言|い}われていない。"
+      - type: narration
+        text: "ノゾミのメモ——ツムギが「{今日|きょう}ちょっと{急|いそ}いでる」と{言|い}っていた。ツムギが{図書室|としょしつ}の{方|ほう}へ{急|いそ}いでいくのが{見|み}えた。"
+      - type: narration
+        text: "{急|いそ}いでいたのはツムギ。{行|い}った{先|さき}は{図書室|としょしつ}の{方向|ほうこう}。アユムは{交代|こうたい}を{聞|き}いていない——3つのメモがつながってくる。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 当番表の点検結果
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{当番表|とうばんひょう}を{点検|てんけん}しました。{火曜|かよう}の「アユム」は、{修正|しゅうせい}テープの{上|うえ}から{書|か}き{足|た}されていました。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{修正|しゅうせい}テープの{下|した}には「ツムギ」の{文字|もじ}の{一部|いちぶ}が{残|のこ}っていました。アユム{本人|ほんにん}は「{交代|こうたい}を{聞|き}いていない」と{言|い}っています。{交代|こうたい}の{連絡|れんらく}メモや{先生|せんせい}への{報告|ほうこく}も{見|み}つかっていません。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{当番表|とうばんひょう}の{下|した}に「ツムギ」の{文字|もじ}が{残|のこ}っていた！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{書|か}きかえたのはツムギ。でも{交代|こうたい}はアユムに{伝|つた}わっていない。「{表|ひょう}を{書|か}きかえること」と「{交代|こうたい}が{成立|せいりつ}すること」は{同|おな}じではなかった——"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 当番表を書きかえたのは誰？
+      - type: sprite
+        character: mamoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "{月曜日|げつようび}の{帰|かえ}り、ツムギが{当番表|とうばんひょう}の{前|まえ}でえんぴつを{持|も}っていた。「{予定|よてい}を{見|み}てるだけ」って{言|い}ってたけど……あの{後|あと}、{火曜|かよう}の{欄|らん}だけが{変|か}わっていた。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: ayumu
+        text: "{自分|じぶん}の{名前|なまえ}が{火曜|かよう}にある、なんて{全然|ぜんぜん}{聞|き}いてない！ もし{頼|たの}まれていたら、{行|い}ったのに。{言|い}ってくれれば{良|よ}かったのに！"
+        expression: surprised
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "ツムギ、「{今日|きょう}{急|いそ}いでる」って{言|い}ってたの{覚|おぼ}えてる。でもアユムに{頼|たの}んだ{様子|ようす}は{見|み}てなかった……モコがお{腹|なか}すかせてたの、かわいそう。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ツムギだけが{火曜日|かようび}に{予定|よてい}がぶつかっていた。マモルは{月曜日|げつようび}の{帰|かえ}りにツムギが{当番表|とうばんひょう}の{前|まえ}にいたのを{目撃|もくげき}した。アユムは{交代|こうたい}を{聞|き}いていない。{修正|しゅうせい}テープの{下|した}に「ツムギ」の{文字|もじ}が{残|のこ}っていた——"
+      - type: choice
+        id: q1
+        question: 当番表を書きかえ、火曜日の世話をしなかったのは誰？
+        options:
+          - text: ツムギ（図書室の返却期限があり、月曜に当番表を書きかえた）
+            value: tsumugi
+            correct: true
+            feedback: "{正解|せいかい}！ ツムギは{読書|どくしょ}クラブの{約束|やくそく}と{飼育係|しいくがかり}の{約束|やくそく}がぶつかり、{月曜日|げつようび}に{当番表|とうばんひょう}を{書|か}きかえた。でもアユムに{伝|つた}えなかったため、{火曜日|かようび}は{誰|だれ}もモコのお{世話|せわ}へ{行|い}かなかった。"
+          - text: マモル（月曜に当番表の前にいたツムギを見ていた）
+            value: mamoru
+            feedback: "マモルは{目撃者|もくげきしゃ}。{月曜日|げつようび}に{当番表|とうばんひょう}の{前|まえ}にいたのはツムギで、マモルは{見|み}ていた{側|がわ}だよ。{修正|しゅうせい}テープの{下|した}に{残|のこ}っていたのも「ツムギ」の{文字|もじ}だ。"
+          - text: アユム（火曜の当番表に名前が書いてあった）
+            value: ayumu
+            feedback: "アユムは{交代|こうたい}を{聞|き}かされていなかった。{知|し}らなければ{動|うご}けないよ。{当番表|とうばんひょう}に{名前|なまえ}があっても、{本人|ほんにん}が{了解|りょうかい}していなければ{交代|こうたい}は{成立|せいりつ}しない。"
+          - text: ノゾミ（モコのことをよく気にかけていた）
+            value: nozomi
+            feedback: "ノゾミの{当番|とうばん}は{木曜日|もくようび}。{火曜日|かようび}の{世話|せわ}をサボる{理由|りゆう}はないし、{当番表|とうばんひょう}の{下|した}に「ノゾミ」の{文字|もじ}も{残|のこ}っていないよ。"
+
+  # ==================== 真実：ツムギ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツムギの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsumugi
+        text: "……{分|わ}かった。{話|はな}す。{当番表|とうばんひょう}を{書|か}きかえたのは、わたしです。"
+        expression: worried
+      - type: dialog
+        character: tsumugi
+        text: "{火曜日|かようび}の{放課後|ほうかご}、{読書|どくしょ}クラブの{本|ほん}を{図書室|としょしつ}へ{返|かえ}す{約束|やくそく}があった。{図書室|としょしつ}は16:30にしまる。でもモコのお{世話|せわ}は16:00から。{両方|りょうほう}は{間|ま}に{合|あ}わないと{思|おも}った。"
+        expression: thinking
+      - type: dialog
+        character: tsumugi
+        text: "だから{月曜日|げつようび}の{帰|かえ}りに、{当番表|とうばんひょう}の「{火曜|かよう}＝ツムギ」を「{火曜|かよう}＝アユム」に{書|か}きかえた。{表|ひょう}を{直|なお}しておけばアユムが{気|き}づいてやってくれる、って{思|おも}いこんでた。"
+        expression: worried
+      - type: dialog
+        character: tsumugi
+        text: "アユムに{直接|ちょくせつ}{頼|たの}めばよかった。{先生|せんせい}に{相談|そうだん}すればよかった。{一人|ひとり}で{決|き}めてしまって、ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: tsumugi
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "{実|じつ}は……{月曜日|げつようび}の{帰|かえ}り、ツムギがえんぴつを{持|も}って{当番表|とうばんひょう}の{前|まえ}にいた。「{予定|よてい}を{見|み}てるだけ」って{言|い}ってたから、{深|ふか}く{聞|き}かなかった。その{後|あと}{火曜|かよう}の{欄|らん}が{変|か}わってたのに、すぐ{言|い}えなかった。ごめん。"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: ayumu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ayumu
+        text: "{正直|しょうじき}に{言|い}うと、{腹|はら}が{立|た}った。でも……ツムギが{二|ふた}つの{約束|やくそく}ではさまれてたのは{分|わ}かる。{声|こえ}をかけてくれさえすれば、{一緒|いっしょ}に{考|かんが}えられたのに。"
+        expression: thinking
+      - type: sprite
+        character: ayumu
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "ツムギ、「{今日|きょう}{急|いそ}いでる」って{言|い}ってたとき、{何|なに}かに{困|こま}ってたんだなって{思|おも}ってた。でもわたしも「{大丈夫|だいじょうぶ}？」って{聞|き}かなかった。モコのこと、{気|き}になってたのに。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツムギの「{読書|どくしょ}クラブの{約束|やくそく}を{守|まも}りたい」という{気持|きも}ちは{素直|すなお}だと{思|おも}うよ。{二|ふた}つの{約束|やくそく}がぶつかって、{必死|ひっし}に{考|かんが}えたんだね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "でも{係|かかり}の{仕事|しごと}は「{表|ひょう}を{書|か}きかえる」だけでは{引|ひ}きつがれない。{交代|こうたい}には{相手|あいて}に{伝|つた}えて、「いいよ」と{了解|りょうかい}してもらう{手続|てつづ}きが{必要|ひつよう}なの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{二|ふた}つの{約束|やくそく}がぶつかったとき、{一人|ひとり}で{決|き}めると{別|べつ}の{約束|やくそく}をこわしてしまうことがある。{急|いそ}いでいるときほど、「{助|たす}けて」と{言|い}える{勇気|ゆうき}が{大切|たいせつ}だ。"
+      - type: narration
+        text: "{交代|こうたい}するなら{相手|あいて}に{伝|つた}える。うまくいかないときは{先生|せんせい}に{相談|そうだん}する。{一人|ひとり}でかかえこまない——これが{係|かかり}{活動|かつどう}を{続|つづ}けるための「{約束|やくそく}の{守|まも}り{方|かた}」だ。"
+      - type: narration
+        text: "ツムギが{正直|しょうじき}に{話|はな}してくれたから、4{人|にん}は{本当|ほんとう}のことが{分|わ}かった。「{認|みと}める{勇気|ゆうき}」も、{係|かかり}{活動|かつどう}を{守|まも}る{力|ちから}のひとつ。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,393 @@
+meta:
+  id: welfare-09
+  title: 数字が語る不平等
+  series: 福祉探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{福祉|ふくし}のまちづくり{授業|じゅぎょう}で、{福祉|ふくし}{探偵|たんてい}{団|だん}の4{人|にん}が{市内|しない}5つの{公共|こうきょう}{施設|しせつ}のアクセシビリティ{調査|ちょうさ}をした。{全|ぜん}20{項目|こうもく}のチェックリストで{調|しら}べ、ユズルが{報告書|ほうこくしょ}をまとめる{役|やく}を{引|ひ}き{受|う}けた。"
+      - type: narration
+        text: "ユズルの{報告書|ほうこくしょ}には「{全|ぜん}{施設|しせつ}80%{以上|いじょう}で{合格|ごうかく}」と{書|か}かれ、グラフ{付|つ}きで{立派|りっぱ}な{仕上|しあ}がりだった。{山田|やまだ}{先生|せんせい}も「よくまとめたね」と{褒|ほ}めた。"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{翌日|よくじつ}、シオリさん（{車|くるま}いすを{使|つか}う{中学生|ちゅうがくせい}）が{報告書|ほうこくしょ}を{読|よ}んで{指摘|してき}した。「この{数字|すうじ}、おかしくないですか？ {私|わたし}が{行|い}けなかった{施設|しせつ}が『{合格|ごうかく}』になっています」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{調|しら}べると、{報告書|ほうこくしょ}は{全|ぜん}20{項目|こうもく}のうち**12{項目|こうもく}だけ**で{計算|けいさん}されていました。{車|くるま}いすトイレ・エレベーター・{音声|おんせい}{案内|あんない}など**{重要|じゅうよう}な8{項目|こうもく}が{除外|じょがい}**されています。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "**{誰|だれ}が、なぜ8{項目|こうもく}を{除外|じょがい}したのか**。{福祉|ふくし}{探偵|たんてい}{団|だん}のみなさん、{調査|ちょうさ}してください。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{全|ぜん}20{項目|こうもく}のうち12{項目|こうもく}——8{項目|こうもく}はどこへ{消|き}えたのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 数字が語る不平等
+        subtitle: 福祉探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 山田先生の報告を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}から{詳|くわ}しい{経緯|けいい}を{聞|き}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{全|ぜん}20{項目|こうもく}のチェックリストで5{施設|しせつ}を{調査|ちょうさ}した。{報告書|ほうこくしょ}は{市|し}の{福祉課|ふくしか}に{提出|ていしゅつ}済み。"
+      - type: narration
+        text: "シオリさんの{指摘|してき}は「{体育館|たいいくかん}に{車|くるま}いすトイレがないのに80%なんてありえない」「エレベーターもないのに？ {私|わたし}が{実際|じっさい}に{行|い}って{困|こま}った{施設|しせつ}が『{合格|ごうかく}』になっています」。"
+      - type: narration
+        text: "{調|しら}べてみると、{報告書|ほうこくしょ}に「※{調査|ちょうさ}{項目|こうもく}のうち、{施設|しせつ}{共通|きょうつう}で{確認|かくにん}{可能|かのう}な{項目|こうもく}を{集計|しゅうけい}」という{注記|ちゅうき}があった。「{施設|しせつ}{共通|きょうつう}で{確認|かくにん}{可能|かのう}な{項目|こうもく}」とは{何|なに}か？ {全|ぜん}20{項目|こうもく}は{全|ぜん}{施設|しせつ}で{確認|かくにん}できるはずなのに。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: ユズルの報告書を確認しよう
+      - type: narration
+        text: "ユズルが{市|し}の{福祉課|ふくしか}に{提出|ていしゅつ}した{報告書|ほうこくしょ}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{報告書|ほうこくしょ}の{数値|すうち}——{市立|しりつ}{図書館|としょかん}:**85%**（{合格|ごうかく}）、{市立|しりつ}{体育館|たいいくかん}:**80%**（{合格|ごうかく}）、{市民|しみん}センター:**90%**（{合格|ごうかく}）、{中央|ちゅうおう}{公園|こうえん}:**82%**（{合格|ごうかく}）、ひまわり{駅|えき}:**88%**（{合格|ごうかく}）。"
+      - type: narration
+        text: "{結論|けつろん}:「{市内|しない}5{施設|しせつ}はすべてアクセシビリティ80%{以上|いじょう}を{達成|たっせい}しており、{十分|じゅうぶん}なバリアフリー{対応|たいおう}がなされています」"
+      - type: narration
+        text: "しかし{注記|ちゅうき}に「※{調査|ちょうさ}{項目|こうもく}のうち、{施設|しせつ}{共通|きょうつう}で{確認|かくにん}{可能|かのう}な{項目|こうもく}を{集計|しゅうけい}」とある。{全|ぜん}20{項目|こうもく}ではないの？"
+      - type: sprite
+        character: ibuki
+        expression: surprised
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "{体育館|たいいくかん}と{公園|こうえん}は{私|わたし}が{担当|たんとう}した。{車|くるま}いすトイレがない、エレベーターがない——{全部|ぜんぶ}「✗」で{記録|きろく}したのに、なんで80%なの？"
+        expression: surprised
+      - type: sprite
+        character: ibuki
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 報告書に使われた12項目を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}がユズルの{報告書|ほうこくしょ}に{使|つか}われた{項目|こうもく}を{特定|とくてい}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{報告書|ほうこくしょ}に{含|ふく}まれていた12{項目|こうもく}:{入口|いりぐち}の{段差|だんさ}{解消|かいしょう}（スロープ）、{入口|いりぐち}の{自動|じどう}ドア、{案内板|あんないばん}の{設置|せっち}、{手|て}すりの{設置|せっち}、{通路幅|つうろはば}90cm{以上|いじょう}、{受付|うけつけ}カウンターの{低|ひく}い{窓口|まどぐち}……"
+      - type: narration
+        text: "……{休憩|きゅうけい}スペース、{駐車場|ちゅうしゃじょう}の{障|しょう}がい{者|しゃ}スペース、{非常口|ひじょうぐち}の{表示|ひょうじ}、{滑|すべ}り{止|と}め{床材|ゆかざい}、{照明|しょうめい}の{明|あか}るさ、{施設|しせつ}{利用|りよう}{案内|あんない}の{配布|はいふ}——{合計|ごうけい}12{項目|こうもく}。"
+      - type: narration
+        text: "{気|き}づいた？ **この12{項目|こうもく}はどんな{種類|しゅるい}の{項目|こうもく}？** {手|て}すり・スロープ・{案内板|あんないばん}……{多|おお}くの{施設|しせつ}にあるものばかり。{全|ぜん}20{項目|こうもく}のうち**{残|のこ}り8{項目|こうもく}はどこへ？**"
+      - type: sprite
+        character: wakana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: wakana
+        text: "この12{項目|こうもく}を{見|み}て。{設備|せつび}{系|けい}の{項目|こうもく}ばかり。「{施設|しせつ}{共通|きょうつう}で{確認|かくにん}{可能|かのう}」って{言|い}い{訳|わけ}になってる……{監査|かんさ}は{全|ぜん}{項目|こうもく}でやらないと{意味|いみ}がないのに。"
+        expression: thinking
+      - type: sprite
+        character: wakana
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 除外された8項目を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}がチェックリスト{原本|げんぽん}を{確認|かくにん}し、{報告書|ほうこくしょ}に**{含|ふく}まれていなかった8{項目|こうもく}**を{特定|とくてい}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{除外|じょがい}された8{項目|こうもく}——{車|くるま}いす{対応|たいおう}トイレ（{体育館|たいいくかん}・{公園|こうえん}・{駅|えき}は✗）、エレベーター（{体育館|たいいくかん}・{駅|えき}は✗）、{音声|おんせい}{案内|あんない}システム（{駅|えき}のみ◎）、{点字|てんじ}{表示|ひょうじ}（{駅|えき}のみ◎）……"
+      - type: narration
+        text: "……{補助犬|ほじょけん}（{盲導犬|もうどうけん}{等|とう}）{受入|うけい}{表示|ひょうじ}、{筆談|ひつだん}ボード・コミュニケーション{支援|しえん}、{多機能|たきのう}トイレ（オストメイト{対応|たいおう}{等|とう}）、{車|くるま}いす{貸出|かしだし}サービス——8{項目|こうもく}{全部|ぜんぶん}。"
+      - type: narration
+        text: "{体育館|たいいくかん}：8{項目|こうもく}のうち**0{項目|こうもく}{達成|たっせい}**。{公園|こうえん}：8{項目|こうもく}のうち**0{項目|こうもく}{達成|たっせい}**。★**Card 3とCard 4を{横|よこ}に{並|なら}べてみよう！** パターンが{見|み}えてくる——"
+      - type: narration
+        text: "{図書館|としょかん}：10/12 + 3/8 = **13/20（65%）**。{体育館|たいいくかん}：9/12 + **0/8** = **9/20（45%）**。{市民|しみん}センター：11/12 + 3/8 = **14/20（70%）**。{公園|こうえん}：8/12 + **0/8** = **8/20（40%）**。{駅|えき}：8/12 + 2/8 = **10/20（50%）**。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 全20項目の再計算 + シオリさんの声
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "**★{全員|ぜんいん}データ{比較|ひかく}タイム（スキップ{禁止|きんし}）★**"
+      - type: narration
+        text: "{報告書|ほうこくしょ}の{値|ち}→{全|ぜん}20{項目|こうもく}の{実測値|じっそくち}:{図書館|としょかん} 85%→**65%**（−20）、{体育館|たいいくかん} 80%→**45%**（−35）❌、{市民|しみん}センター 90%→**70%**（−20）、{公園|こうえん} 82%→**40%**（−42）❌、{駅|えき} 88%→**50%**（−38）❌。"
+      - type: narration
+        text: "5{施設|しせつ}中**3{施設|しせつ}（{体育館|たいいくかん}・{公園|こうえん}・{駅|えき}）が50%{以下|いか}**に{転落|てんらく}——「{全|ぜん}{施設|しせつ}{合格|ごうかく}」は{崩|くず}れた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "そしてシオリさんの{声|こえ}——「{体育館|たいいくかん}に{行|い}ったとき、{車|くるま}いすトイレがなくて{困|こま}りました。エレベーターもないから2{階|かい}には{行|い}けません。それなのに{報告書|ほうこくしょ}には『80%で{合格|ごうかく}』って{書|か}いてある」"
+      - type: narration
+        text: "「{数字|すうじ}だけ{見|み}たら『{問題|もんだい}ない』と{思|おも}うかもしれません。でも**その{数字|すうじ}の{向|む}こうに、{困|こま}っている{人|ひと}がいます**。{報告書|ほうこくしょ}を{作|つく}った{人|ひと}を{責|せ}めたいわけじゃありません。でも**{数字|すうじ}をゆがめたら、{助|たす}けが{必要|ひつよう}な{人|ひと}に{届|とど}かなくなる**」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{帰納法|きのうほう}で{考|かんが}えよう。12{項目|こうもく}は「{達成|たっせい}しやすい{設備|せつび}{系|けい}」ばかり。8{項目|こうもく}は「コストが{高|たか}く{未設置|みせっち}の{施設|しせつ}が{多|おお}い{専用|せんよう}{設備|せつび}」ばかり。5{施設|しせつ}{全部|ぜんぶ}に{同|おな}じパターン——これは{偶然|ぐうぜん}？ それとも**{意図的|いとてき}**？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: データを操作したのは誰だ？
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "シオリさんが{調査|ちょうさ}の{前|まえ}に「{体育館|たいいくかん}と{公園|こうえん}は{行|い}きにくい」って{言|い}ってた。それなのに{報告書|ほうこくしょ}で{両方|りょうほう}が「{合格|ごうかく}」になってる……{数字|すうじ}の{向|む}こうにいる{人|ひと}のことが{見|み}えてない。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: wakana
+        text: "{監査|かんさ}は{全|ぜん}{項目|こうもく}で{集計|しゅうけい}しないと{意味|いみ}がない——ユズルに{事前|じぜん}に{伝|つた}えたのに。チェックリスト{原本|げんぽん}を{全部|ぜんぶ}{預|あず}かって、「どの{項目|こうもく}で{計算|けいさん}するか」を{決|き}められた{人|ひと}は1{人|にん}だけ。"
+        expression: determined
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{全|ぜん}20{項目|こうもく}の{原本|げんぽん}を{預|あず}かってレポートをまとめたのは1{人|にん}。その{人|ひと}が「どの12{項目|こうもく}で{計算|けいさん}するか」を{決|き}めた。{選|えら}ばれた12{項目|こうもく}は「{達成|たっせい}しやすいもの」ばかり——{偶然|ぐうぜん}ではなく{意図的|いとてき}な{選別|せんべつ}だ。"
+      - type: choice
+        id: q1
+        question: データを操作したのは誰？
+        options:
+          - text: ユズル（全20項目の原本を預かり、報告書をまとめた担当者）
+            value: yuzuru
+            correct: true
+            feedback: "{正解|せいかい}！ ユズルは{全|ぜん}20{項目|こうもく}で{計算|けいさん}すると3{施設|しせつ}が50%{以下|いか}になることを{知|し}り、「{全|ぜん}{施設|しせつ}{合格|ごうかく}」にしたくて{達成|たっせい}しやすい12{項目|こうもく}だけを{選|えら}んだ。「{褒|ほ}められたかった」という{承認|しょうにん}{欲求|よっきゅう}が{判断|はんだん}を{曲|ま}げた。"
+          - text: イブキ（体育館と公園の調査担当で、報告書に違和感を持っていた）
+            value: ibuki
+            feedback: "イブキは{体育館|たいいくかん}と{公園|こうえん}の{調査|ちょうさ}を{正確|せいかく}に{記録|きろく}してユズルに{渡|わた}した。{報告書|ほうこくしょ}に{違和感|いわかん}を{持|も}ったが、{報告書|ほうこくしょ}を{作成|さくせい}していない。"
+          - text: ワカナ（ルール確認担当で、注記の違和感に気づいていた）
+            value: wakana
+            feedback: "ワカナはユズルに「{全|ぜん}{項目|こうもく}で{集計|しゅうけい}して」と{事前|じぜん}に{伝|つた}えた{側|がわ}。{報告書|ほうこくしょ}は{作成|さくせい}していない。{違和感|いわかん}に{気|き}づいたが、{深追|ふかお}いしなかった{責任|せきにん}は{別|べつ}の{問題|もんだい}。"
+          - text: コハル（シオリさんの声を知っていて、報告書に強い違和感を持っていた）
+            value: koharu
+            feedback: "コハルは{市民|しみん}センターを{担当|たんとう}し、{原本|げんぽん}をユズルに{渡|わた}した。シオリさんの{声|こえ}を{大切|たいせつ}にしているコハルが{意図的|いとてき}にデータを{操作|そうさ}する{理由|りゆう}はない。"
+
+  # ==================== 真実：ユズルの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ユズルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yuzuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: yuzuru
+        text: "……{全部|ぜんぶ}、{僕|ぼく}がやったことです。"
+        expression: worried
+      - type: narration
+        text: "ユズルは{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: yuzuru
+        text: "{全|ぜん}20{項目|こうもく}で{正直|しょうじき}に{計算|けいさん}したら、{体育館|たいいくかん}が45%、{公園|こうえん}が40%、{駅|えき}が50%——3{施設|しせつ}が{不合格|ふごうかく}でした。「{自分|じぶん}たちの{調査|ちょうさ}で{悪|わる}い{結果|けっか}が{出|で}た」って{思|おも}われたくなかった。"
+        expression: thinking
+      - type: dialog
+        character: yuzuru
+        text: "{達成|たっせい}しやすい12{項目|こうもく}だけを{選|えら}べば「{全|ぜん}{施設|しせつ}{合格|ごうかく}」にできる。{先生|せんせい}や{福祉課|ふくしか}から「よくまとめたね」って{褒|ほ}められたかった。「データで{見|み}てみよう」が{口癖|くちぐせ}の{僕|ぼく}が……データをゆがめた。"
+        expression: worried
+      - type: dialog
+        character: yuzuru
+        text: "ワカナに「{全|ぜん}{項目|こうもく}で{集計|しゅうけい}して」って{言|い}われてたのに。「{大丈夫|だいじょうぶ}、ちゃんとやるよ」って{言|い}って……やらなかった。シオリさんの{声|こえ}を{聞|き}いて、{初|はじ}めて{自分|じぶん}がやったことの{重|おも}さが{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: yuzuru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "{体育館|たいいくかん}80%、{公園|こうえん}82%——{絶対|ぜったい}おかしいと{思|おも}ってた。でも「ユズルがうまく{計算|けいさん}してくれたんだろう」って{深|ふか}く{考|かんが}えなかった。{数字|すうじ}がおかしいと{思|おも}ったら、すぐに{声|こえ}を{上|あ}げればよかった。"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: right
+      - type: dialog
+        character: koharu
+        text: "シオリさんが「{体育館|たいいくかん}と{公園|こうえん}は{行|い}きにくい」って{言|い}ってたのに、{報告書|ほうこくしょ}で{合格|ごうかく}になってて……{違和感|いわかん}があったのに、「ユズルがちゃんとやった{はず|はず}」と{思|おも}って{確認|かくにん}しなかった。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: worried
+        position: left
+      - type: dialog
+        character: wakana
+        text: "{事前|じぜん}に「{全|ぜん}{項目|こうもく}で{集計|しゅうけい}して」って{伝|つた}えた。でも「{大丈夫|だいじょうぶ}」って{言|い}われたら{信|しん}じてしまった。{注記|ちゅうき}に{違和感|いわかん}を{持|も}ったのに{深追|ふかお}いしなかった。ルール{確認|かくにん}{担当|たんとう}として、レポートを{出|だ}す{前|まえ}に{全員|ぜんいん}で{確認|かくにん}する{仕組|しく}みが{必要|ひつよう}だった。"
+        expression: determined
+      - type: sprite
+        character: wakana
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ユズルの「{良|よ}い{報告|ほうこく}を{出|だ}したい」「{褒|ほ}められたい」という{気持|きも}ちは{分|わ}かります。みんな{そう|そう}{思|おも}う。でも——"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "データは{人|ひと}の{生活|せいかつ}に{直結|ちょっけつ}します。{数字|すうじ}をゆがめたら、{改善|かいぜん}が{必要|ひつよう}な{施設|しせつ}が{見過|みす}ごされ、シオリさんのような{人|ひと}が{取|と}り{残|のこ}される。**{悪|わる}い{結果|けっか}を{正直|しょうじき}に{報告|ほうこく}する{勇気|ゆうき}**——それがデータを{扱|あつか}う{人|ひと}の{責任|せきにん}です。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{何|なに}を{測|はか}るかで{結果|けっか}が{変|か}わる。{全|ぜん}20{項目|こうもく}で{計算|けいさん}するか、12{項目|こうもく}だけで{計算|けいさん}するか——{同|おな}じ{施設|しせつ}でも「{合格|ごうかく}」と「{不合格|ふごうかく}」に{分|わ}かれる。これが**データリテラシー**の{核心|かくしん}だ。"
+      - type: narration
+        text: "{帰納法|きのうほう}で{見|み}つけたパターン——12{項目|こうもく}は「{達成|たっせい}しやすいもの」、8{項目|こうもく}は「コストが{高|たか}く{未設置|みせっち}が{多|おお}いもの」。5{施設|しせつ}{全部|ぜんぶ}で{同|おな}じ{傾向|けいこう}。**{複数|ふくすう}のデータに{共通|きょうつう}するパターンを{見|み}つければ、「{偶然|ぐうぜん}」と「{意図的|いとてき}」を{区別|くべつ}できる。**"
+      - type: narration
+        text: "その{数字|すうじ}の{向|む}こうに、{人|ひと}がいる。シオリさんの「{困|こま}っている{施設|しせつ}が{改善|かいぜん}されないまま」という{声|こえ}を、{忘|わす}れてはいけない。"
+      - type: effect
+        name: fade-out

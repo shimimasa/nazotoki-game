@@ -1,0 +1,389 @@
+meta:
+  id: welfare-08
+  title: だれのための段差？
+  series: 福祉探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school-gate
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}の{正門|せいもん}{前|まえ}には、{歩道|ほどう}と{車道|しゃどう}のあいだに15センチの{段差|だんさ}がある。{町内会|ちょうないかい}とPTAが「バリアフリー{化|か}」を{話|はな}し{合|あ}い、スロープを{設置|せっち}することが{決|き}まった。"
+      - type: narration
+        text: "3{月|がつ}22{日|にち}に{工事|こうじ}が{始|はじ}まる{予定|よてい}だった。ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "3{月|がつ}11{日|にち}、{予定|よてい}より2{週間|しゅうかん}{早|はや}く{工事|こうじ}が{始|はじ}まった。しかも{計画|けいかく}にはなかった「{段差|だんさ}の{撤去|てっきょ}」{工事|こうじ}まで{着手|ちゃくしゅ}されていた！"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{工事|こうじ}{業者|ぎょうしゃ}に{確認|かくにん}したところ、3{月|がつ}10{日|にち}（{日|にち}）に{電話|でんわ}で『{段差|だんさ}も{撤去|てっきょ}してください。{町内会|ちょうないかい}で{決|き}まっています』という{依頼|いらい}があったそうです。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "しかし{依頼|いらい}した{人|ひと}の{名前|なまえ}は{記録|きろく}されていません。PTAが{承認|しょうにん}したのは『スロープ{設置|せっち}のみ』。**{段差|だんさ}{撤去|てっきょ}は{承認|しょうにん}されていません**。{誰|だれ}が{独断|どくだん}で{依頼|いらい}したのか、{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}の{福祉|ふくし}{探偵|たんてい}{団|だん}は{顔|かお}を{見合|みあ}わせた。{工事|こうじ}{業者|ぎょうしゃ}に{独断|どくだん}で{段差|だんさ}{撤去|てっきょ}を{依頼|いらい}したのは{誰|だれ}か——"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: だれのための段差？
+        subtitle: 福祉探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 山田先生の報告を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}から{工事|こうじ}の{経緯|けいい}が{説明|せつめい}された。{正門|せいもん}{前|まえ}のスロープ{工事|こうじ}は{町内会|ちょうないかい}とPTAの{合同|ごうどう}{会議|かいぎ}で{決|き}まったもの。しかし{段差|だんさ}{撤去|てっきょ}は{議題|ぎだい}にすら{上|あ}がっていなかった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "3{月|がつ}10{日|にち}（{日|にち}）の{電話|でんわ}。{依頼|いらい}{者|しゃ}は「{町内会|ちょうないかい}で{決|き}まった」と{言|い}っていた。{業者|ぎょうしゃ}メモには「{声|こえ}は{子|こ}ども。{名前|なまえ}は{名乗|なの}っていない。{町内会|ちょうないかい}の{決議|けつぎ}を{根拠|こんきょ}にしていた」とある。"
+      - type: narration
+        text: "合理的配慮とは、{障|しょう}がいのある{人|ひと}が{他|ほか}の{人|ひと}と{同|おな}じように{生活|せいかつ}できるよう、その{人|ひと}に{合|あ}った{調整|ちょうせい}をすること。「{全員|ぜんいん}に{同|おな}じ{対応|たいおう}」ではなく「1{人|り}ひとりに{合|あ}った{対応|たいおう}」。ある{人|ひと}への{配慮|はいりょ}が{別|べつ}の{人|ひと}の{不利益|ふりえき}になる{場合|ばあい}もある——これを「トレードオフ」と{言|い}う。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: バリアフリー工事の経緯表を調べよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{工事|こうじ}の{経緯|けいい}をまとめた{表|ひょう}を{作|つく}ってくれた。{日付|ひづけ}ごとに{出来事|できごと}と{出席者|しゅっせきしゃ}が{書|か}かれている。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "3{月|がつ}1{日|にち}（{金|きん}） —— {町内会|ちょうないかい}＋PTA{合同|ごうどう}{会議|かいぎ}。「{正門|せいもん}{前|まえ}の{段差|だんさ}をなくす」と{決議|けつぎ}。{出席者|しゅっせきしゃ}: **{ワカナ|わかな}（4{人|にん}の{中|なか}で{唯一|ゆいいつ}{出席|しゅっせき}）**、{町内会長|ちょうないかいちょう}、PTA{副会長|ふくかいちょう}。"
+      - type: narration
+        text: "3{月|がつ}8{日|にち}（{金|きん}） —— PTA{会議|かいぎ}。「スロープ{設置|せっち}のみ」を{承認|しょうにん}。{段差|だんさ}{撤去|てっきょ}は{議題|ぎだい}になし。{出席者|しゅっせきしゃ}: {ユズル|ゆずる}、{コハル|こはる}（{ワカナ|わかな}・{イブキ|いぶき}は{不在|ふざい}）。"
+      - type: narration
+        text: "3{月|がつ}10{日|にち}（{日|にち}） —— {工事|こうじ}{業者|ぎょうしゃ}に「{段差|だんさ}{撤去|てっきょ}」の{追加|ついか}{依頼|いらい}（{電話|でんわ}）。{依頼者|いらいしゃ}は「{町内会|ちょうないかい}で{決|き}まった」と{発言|はつげん}。{依頼|いらい}{者|しゃ}は**{不明|ふめい}**。"
+      - type: narration
+        text: "{注目|ちゅうもく}ポイント: {町内会|ちょうないかい}{合同|ごうどう}{会議|かいぎ}に{出席|しゅっせき}したのは4{人|にん}{中|ちゅう}{ワカナのみ|わかなのみ}。PTA{会議|かいぎ}に{出席|しゅっせき}したのは{ユズル|ゆずる}と{コハル|こはる}。{電話|でんわ}の{依頼|いらい}{者|しゃ}は「{町内会|ちょうないかい}の{決議|けつぎ}」を{根拠|こんきょ}にしている。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 工事依頼書と業者の証言を調べよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{工事|こうじ}{業者|ぎょうしゃ}から{資料|しりょう}を{取|と}り{寄|よ}せた。{正式|せいしき}な{工事|こうじ}{依頼|いらい}{書|しょ}には「スロープ{設置|せっち}」しか{書|か}いていない。{追加|ついか}{依頼|いらい}は{電話|でんわ}による{非公式|ひこうしき}なものだった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{業者|ぎょうしゃ}の{証言|しょうげん}: 「{正式|せいしき}な{依頼|いらい}{書|しょ}にはスロープ{設置|せっち}しか{書|か}いてありませんでした。でも{電話|でんわ}で『{町内会|ちょうないかい}で{決|き}まった』と{言|い}われたので、{追加|ついか}{対応|たいおう}しました」"
+      - type: narration
+        text: "「{依頼|いらい}{者|しゃ}の{名前|なまえ}は{聞|き}き{取|と}れませんでしたが、とても{しっかりした{話|はな}し{方|かた}}の{子|こ}でした。{町内会|ちょうないかい}の{決議|けつぎ}内容|ないよう}を{正確|せいかく}に{知|し}っているようでした」"
+      - type: narration
+        text: "{電話|でんわ}の{依頼|いらい}{者|しゃ}は「{町内会|ちょうないかい}の{決議|けつぎ}」を{根拠|こんきょ}にしていた。{町内会|ちょうないかい}{合同|ごうどう}{会議|かいぎ}に{出席|しゅっせき}し、その{決議|けつぎ}{内容|ないよう}を{正確|せいかく}に{知|し}っている{人|ひと}は{誰|だれ}？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 3月10日の行動を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が4{人|にん}に3{月|がつ}10{日|にち}（{日|にち}）の{行動|こうどう}を{聞|き}き{取|と}りした。{工事|こうじ}{業者|ぎょうしゃ}の{連絡先|れんらくさき}を{知|し}っていたかどうかも{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{ユズル|ゆずる} —— {自宅|じたく}でPTA{会議|かいぎ}の{資料|しりょう}{整理|せいり}。{資料|しりょう}に{業者|ぎょうしゃ}の{連絡先|れんらくさき}あり → ○{知|し}っていた（PTA{資料|しりょう}から）"
+      - type: narration
+        text: "{イブキ|いぶき} —— {朝|あさ}からボランティア{活動|かつどう}（{地域|ちいき}{清掃|せいそう}）。15{時|じ}に{帰宅|きたく} → ✗{知|し}らなかった"
+      - type: narration
+        text: "{ワカナ|わかな} —— {午前|ごぜん}は{自宅|じたく}。{午後|ごご}に{図書館|としょかん}で「バリアフリー{法|ほう}」を{調|しら}べた → ○{知|し}っていた（{町内会|ちょうないかい}{資料|しりょう}に{記載|きさい}）"
+      - type: narration
+        text: "{コハル|こはる} —— {午前|ごぜん}はスズキさん（{近所|きんじょ}の{車|くるま}いすユーザー）を{訪問|ほうもん}。{午後|ごご}は{自宅|じたく} → ✗{知|し}らなかった"
+      - type: narration
+        text: "{業者|ぎょうしゃ}の{連絡先|れんらくさき}を{知|し}っていたのは{ユズルとワカナ|ゆずるとわかな}の2{人|にん}だけ。{イブキ|いぶき}と{コハル|こはる}は{連絡先|れんらくさき}を{知|し}らなかった。{電話|でんわ}では「{町内会|ちょうないかい}の{決議|けつぎ}」が{根拠|こんきょ}にされていた——{町内会|ちょうないかい}に{出席|しゅっせき}した{人|ひと}は{誰|だれ}？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school-gate
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タカギさんの証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タカギさんが{学校|がっこう}を{訪|おとず}れました。Vol.1にも{登場|とうじょう}した、{視覚|しかく}{障|しょう}がいのあるタカギさんです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "タカギさんは{白杖|はくじょう}をついて、{正門|せいもん}{前|まえ}の{歩道|ほどう}を{歩|ある}いた。そして——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{段差|だんさ}がなくなると、{白杖|はくじょう}で{歩道|ほどう}と{車道|しゃどう}の{境界|きょうかい}が{分|わ}からなくなります。{段差|だんさ}は{私|わたし}にとっての**{目印|めじるし}**なんです」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{白杖|はくじょう}の{先|さき}に{段差|だんさ}を{感|かん}じたら『ここまでが{歩道|ほどう}』と{分|わ}かる。{段差|だんさ}がなくなったら、**{車道|しゃどう}に{出|で}てしまうかもしれない**。『{段差|だんさ}をなくすことが{バリアフリー}だ』と{思|おも}っている{人|ひと}が{多|おお}い。でも{私|わたし}にとっては{段差|だんさ}があることが『{安全|あんぜん}』なんです」"
+      - type: narration
+        text: "「{段差|だんさ}をなくした{人|ひと}を{責|せ}めたいんじゃありません。{車|くるま}いすの{人|ひと}にとって{段差|だんさ}が{大変|たいへん}なことも{分|わ}かります。でも、**{同|おな}じ{段差|だんさ}が、ある{人|ひと}にはバリアで、{別|べつ}の{人|ひと}には{安全|あんぜん}の{目印|めじるし}**。どちらか{一方|いっぽう}だけの{話|はなし}を{聞|き}いて{決|き}めないでほしい。**{私|わたし}のことも{忘|わす}れないでほしい**」"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が独断で依頼した？
+      - type: sprite
+        character: yuzuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "データを{整理|せいり}しよう。{業者|ぎょうしゃ}の{連絡先|れんらくさき}を{知|し}っていた{人|ひと}は{ユズル|ゆずる}と{ワカナ|わかな}の2{人|にん}。{電話|でんわ}では「{町内会|ちょうないかい}で{決|き}まった」と{言|い}っていた。{町内会|ちょうないかい}{合同|ごうどう}{会議|かいぎ}に{出席|しゅっせき}したのは……"
+        expression: thinking
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: right
+      - type: dialog
+        character: ibuki
+        text: "{私|わたし}、{段差|だんさ}がなくなることを{無条件|むじょうけん}に{喜|よろこ}んでいた。{車|くるま}いすのおじいさんから「{段差|だんさ}が{大変|たいへん}」と{聞|き}いていたから……でもタカギさんにとっては{段差|だんさ}が「{目印|めじるし}」なんだ。{同|おな}じ{段差|だんさ}なのに、{立場|たちば}によって{正反対|せいはんたい}の{意味|いみ}を{持|も}つなんて……"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "タカギさんも{スズキ|すずき}さん（{車|くるま}いすユーザー）も、どちらも{困|こま}っている。{問題|もんだい}は「どちらが{正|ただ}しいか」じゃなくて、**{両方|りょうほう}の{声|こえ}を{聞|き}いて{解決策|かいけつさく}を{見|み}つけること**だと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{業者|ぎょうしゃ}の{連絡先|れんらくさき}を{知|し}っていて、かつ{町内会|ちょうないかい}{合同|ごうどう}{会議|かいぎ}に{出席|しゅっせき}した{人|ひと}——この2つの{条件|じょうけん}を{両方|りょうほう}{満|み}たす{人|ひと}は{誰|だれ}か？"
+      - type: choice
+        id: q1
+        question: 独断で段差撤去を工事業者に依頼したのは誰？
+        options:
+          - text: ワカナ（町内会に唯一出席＋業者の連絡先を町内会資料で入手）
+            value: wakana
+            correct: true
+            feedback: "{正解|せいかい}！ {ワカナ|わかな}は{町内会|ちょうないかい}の「{段差|だんさ}をなくす」{決議|けつぎ}に{署名|しょめい}し、その{約束|やくそく}を{守|まも}るために{独断|どくだん}で{業者|ぎょうしゃ}に{段差|だんさ}{撤去|てっきょ}を{依頼|いらい}した。「{約束|やくそく}は{守|まも}らなければならない」という{正義感|せいぎかん}が、{他|ほか}の{当事者|とうじしゃ}の{声|こえ}を{聞|き}くプロセスを{省略|しょうりゃく}させてしまった。"
+          - text: ユズル（業者の連絡先をPTA資料で知っていた）
+            value: yuzuru
+            feedback: "{ユズル|ゆずる}はPTA{資料|しりょう}から{業者|ぎょうしゃ}の{連絡先|れんらくさき}を{知|し}っていたけど、{町内会|ちょうないかい}{合同|ごうどう}{会議|かいぎ}には{出席|しゅっせき}していない。「{町内会|ちょうないかい}で{決|き}まった」と{言|い}える{根拠|こんきょ}を{持|も}っていないよ。"
+          - text: イブキ（バリアフリーに強い関心があった）
+            value: ibuki
+            feedback: "{イブキ|いぶき}は{業者|ぎょうしゃ}の{連絡先|れんらくさき}を{知|し}らなかった。{電話|でんわ}を{掛|か}けることができないよ。"
+          - text: コハル（タカギさんと直接話していた）
+            value: koharu
+            feedback: "{コハル|こはる}は{業者|ぎょうしゃ}の{連絡先|れんらくさき}を{知|し}らなかった。{電話|でんわ}を{掛|か}けることができないよ。"
+
+  # ==================== 真実：ワカナ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ワカナの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: wakana
+        expression: worried
+        position: center
+      - type: dialog
+        character: wakana
+        text: "……{私|わたし}が{依頼|いらい}しました。3{月|がつ}1{日|にち}の{町内会|ちょうないかい}{会議|かいぎ}で「{段差|だんさ}をなくす」と{決議|けつぎ}に{署名|しょめい}した。その{約束|やくそく}を{守|まも}らなければと{思|おも}っていました。"
+        expression: worried
+      - type: narration
+        text: "{ワカナ|わかな}は{静|しず}かに、でもはっきりとした{口調|くちょう}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: wakana
+        text: "スロープだけでは{段差|だんさ}が{残|のこ}る。「{段差|だんさ}をなくす」という{約束|やくそく}を{果|は}たすには、{段差|だんさ}{自体|じたい}を{撤去|てっきょ}しなければならない。3{月|がつ}10{日|にち}に{業者|ぎょうしゃ}さんに{電話|でんわ}しました。PTA{会議|かいぎ}には{出|で}ていなかったから、{承認|しょうにん}が{必要|ひつよう}とは{考|かんが}えていませんでした。"
+        expression: thinking
+      - type: dialog
+        character: wakana
+        text: "でも……タカギさんの{話|はなし}を{聞|き}いて。「{段差|だんさ}をなくす＝バリアフリー＝{善|ぜん}」と{思|おも}い{込|こ}んでいた{自分|じぶん}に、{気|き}がつきませんでした。{約束|やくそく}を{守|まも}ることに{必死|ひっし}で、タカギさんのことを{考|かんが}えていなかった。"
+        expression: worried
+      - type: sprite
+        character: wakana
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: yuzuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "3{月|がつ}11{日|にち}に{工事|こうじ}{現場|げんば}を{見|み}て、PTA{会議|かいぎ}の{決定|けってい}と{内容|ないよう}が{違|ちが}うと{気|き}づいた。{業者|ぎょうしゃ}さんから「3{月|がつ}10{日|にち}に{追加|ついか}{依頼|いらい}があった。{電話|でんわ}で『{町内会|ちょうないかい}で{決|き}まった』と{言|い}っていた」と{聞|き}いた。{証拠|しょうこ}を{示|しめ}すまで{確証|かくしょう}がないと{思|おも}って……"
+        expression: worried
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: right
+      - type: dialog
+        character: ibuki
+        text: "{私|わたし}、{本当|ほんとう}に「{段差|だんさ}がなくなれば{車|くるま}いすの{人|ひと}が{楽|らく}になる」としか{考|かんが}えていなかった。{バリアフリー}は1つの{正解|せいかい}じゃないって、タカギさんに{教|おし}えてもらった。{ワカナ|わかな}と{同|おな}じバイアスを{持|も}っていたのは{私|わたし}も{同|おな}じだ。"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "タカギさんが「{私|わたし}のことも{忘|わす}れないでほしい」と{言|い}った{言葉|ことば}が、{頭|あたま}から{離|はな}れない。{スズキ|すずき}さんは「{段差|だんさ}がなくなったら{嬉|うれ}しい」と{言|い}っていた。2{人|にん}とも{困|こま}っている{人|ひと}なのに、{段差|だんさ}について{正反対|せいはんたい}の{意見|いけん}を{持|も}っている……"
+        expression: worried
+      - type: dialog
+        character: koharu
+        text: "「どちらが{正|ただ}しいか」じゃなくて、「{両方|りょうほう}の{声|こえ}を{聞|き}いてバランスを{探|さが}す」こと。それが{合理的|ごうりてき}{配慮|はいりょ}の{本当|ほんとう}の{意味|いみ}だと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: koharu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school-gate
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{ワカナ|わかな}の「{約束|やくそく}を{守|まも}りたい」という{気持|きも}ちは{素晴|すば}らしい。でも{約束|やくそく}を{実行|じっこう}する{前|まえ}に、{影響|えいきょう}を{受|う}ける{全員|ぜんいん}の{声|こえ}を{聞|き}くべきだった。タカギさんのような{視覚|しかく}{障|しょう}がいの{方|かた}に{確認|かくにん}していれば——"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{段差|だんさ}をなくす＝バリアフリー＝{善|ぜん}」。これはみんながついつい{思|おも}い{込|こ}んでしまいがちな{考|かんが}え{方|かた}——「{認知|にんち}バイアス」と{言|い}います。{大切|たいせつ}なのは、その{前提|ぜんてい}{自体|じたい}を{疑|うたが}う{力|ちから}を{持|も}つことよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{段差|だんさ}の{二面性|にめんせい}——{車|くるま}いすには{障壁|しょうへき}、{視覚|しかく}{障|しょう}がい{者|しゃ}には{目印|めじるし}。{同|おな}じ1つのものが、{立場|たちば}によって{正反対|せいはんたい}の{意味|いみ}を{持|も}つことがある。"
+      - type: narration
+        text: "スロープをつけて{段差|だんさ}をゆるやかにしながら、{色|いろ}のついた{縁石|えんせき}や{誘導|ゆうどう}ブロックで{境界|きょうかい}を{示|しめ}す——{複数|ふくすう}の{手段|しゅだん}を{組|く}み{合|あ}わせれば、{全員|ぜんいん}の{立場|たちば}に{対応|たいおう}できる{解決策|かいけつさく}が{生|う}まれる。"
+      - type: narration
+        text: "{合理的|ごうりてき}{配慮|はいりょ}とは、1つの{答|こた}えを{全員|ぜんいん}に{当|あ}てはめることではなく、{全員|ぜんいん}の{声|こえ}を{聞|き}いてバランスを{探|さが}すプロセス。**{私|わたし}のことも{忘|わす}れないでほしい**——タカギさんのその{言葉|ことば}が、{合理的|ごうりてき}{配慮|はいりょ}の{出発点|しゅっぱつてん}だ。"
+      - type: effect
+        name: fade-out

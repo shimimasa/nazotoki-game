@@ -1,0 +1,422 @@
+meta:
+  id: welfare-10
+  title: みんなの学校
+  series: 福祉探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  ibuki:
+    name: イブキ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koharu:
+    name: コハル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  wakana:
+    name: ワカナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yuzuru:
+    name: ユズル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ひまわり{小学校|しょうがっこう}の{文化祭|ぶんかさい}が、2{週間後|しゅうかんご}にせまっていた。5{年|ねん}2{組|くみ}では、{特別|とくべつ}{支援|しえん}{学級|がっきゅう}「ひまわり{組|ぐみ}」との{合同|ごうどう}{劇|げき}を{企画|きかく}した。"
+      - type: narration
+        text: "ひまわり{組|ぐみ}のミユちゃんは、5{年|ねん}2{組|くみ}のみんなと{一緒|いっしょ}に{劇|げき}をやるのを{楽|たの}しみにしていた。{歌|うた}のパートを{担当|たんとう}する{予定|よてい}だった。"
+      - type: narration
+        text: "{企画書|きかくしょ}と{参加|さんか}{申請書|しんせいしょ}が{提出|ていしゅつ}された。ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{書類|しょるい}を{確認|かくにん}すると、{参加|さんか}{申請書|しんせいしょ}に**「{差|さ}し{戻|もど}し{済|ず}み」**の{印|しるし}がついていた。{差|さ}し{戻|もど}した{人|ひと}の{名前|なまえ}は{書|か}いてない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{合同|ごうどう}{劇|げき}の{参加|さんか}{申請|しんせい}が{差|さ}し{戻|もど}されています。{誰|だれ}かが{取|と}り{下|さ}げたようです。ミユちゃんは{楽|たの}しみにしていたのに……{誰|だれ}が、なぜ{差|さ}し{戻|もど}したのでしょう？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ibuki
+            expression: surprised
+          - character: koharu
+            expression: worried
+          - character: wakana
+            expression: thinking
+          - character: yuzuru
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{誰|だれ}が{参加|さんか}{申請|しんせい}を{差|さ}し{戻|もど}したのか。{福祉|ふくし}{探偵|たんてい}{団|だん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: みんなの学校
+        subtitle: 福祉探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 企画書と参加申請書を確認しよう
+      - type: narration
+        text: "{山田|やまだ}{先生|せんせい}が{書類|しょるい}を{見|み}せてくれた。{企画書|きかくしょ}「みんなの{文化祭|ぶんかさい}{劇|げき}」と、{参加|さんか}{申請書|しんせいしょ}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{企画書|きかくしょ}には——{演目|えんもく}「{虹|にじ}のかけはし」、{出演者|しゅつえんしゃ}は5{年|ねん}2{組|くみ}（20{人|にん}）とひまわり{組|ぐみ}（6{人|にん}）の{合計|ごうけい}26{人|にん}。ミユちゃんの{担当|たんとう}は{歌|うた}のパート。{準備|じゅんび}{期間|きかん}は2{週間|しゅうかん}。"
+      - type: narration
+        text: "{参加|さんか}{申請書|しんせいしょ}には——{提出日|ていしゅつび}{木曜日|もくようび}、{提出者|ていしゅつしゃ}は5{年|ねん}2{組|くみ}{文化祭|ぶんかさい}{実行|じっこう}{委員|いいん}。{状態|じょうたい}は「{提出|ていしゅつ}{済|ず}み」から**「{差|さ}し{戻|もど}し{済|ず}み」**に{変|か}わっている。{差|さ}し{戻|もど}し{理由|りゆう}は「{準備|じゅんび}{期間|きかん}が{足|た}りない」。{差|さ}し{戻|もど}した{人|ひと}の{名前|なまえ}は**{記載|きさい}なし**。"
+      - type: narration
+        text: "{企画書|きかくしょ}は{月曜日|げつようび}に{承認|しょうにん}されている。{企画|きかく}は{通|とお}ったのに、{参加|さんか}{申請|しんせい}だけが{差|さ}し{戻|もど}された。{誰|だれ}が{差|さ}し{戻|もど}した？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の役割分担を確認しよう
+      - type: narration
+        text: "{火曜日|かようび}の{企画|きかく}{会議|かいぎ}で{決|き}まった{役割|やくわり}{分担|ぶんたん}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユズル —— 「{台本|だいほん}・スケジュール{管理|かんり}」。{木曜|もくよう}{午前|ごぜん}に{台本|だいほん}を{完成|かんせい}、{午後|ごご}に{参加|さんか}{申請書|しんせいしょ}を{職員室|しょくいんしつ}に{提出|ていしゅつ}した。"
+      - type: narration
+        text: "イブキ —— 「{舞台|ぶたい}・{小道具|こどうぐ}{係|がかり}」と「ひまわり{組|ぐみ}との{連絡|れんらく}{役|やく}」。{木曜|もくよう}{放課後|ほうかご}にひまわり{組|ぐみ}との{合同|ごうどう}{練習|れんしゅう}に{参加|さんか}した。"
+      - type: narration
+        text: "ワカナ —— 「ルール・{手続|てつづ}き{確認|かくにん}」。{水曜日|すいようび}に{申請書|しんせいしょ}の{書式|しょしき}を{確認|かくにん}{済|ず}み。{木曜日|もくようび}は{通院|つういん}のため14:00に{早退|そうたい}した。"
+      - type: narration
+        text: "コハル —— 「{出演者|しゅつえんしゃ}のケア」。{木曜|もくよう}{放課後|ほうかご}の{合同|ごうどう}{練習|れんしゅう}でミユちゃんと{一緒|いっしょ}に{歌|うた}の{練習|れんしゅう}をした。"
+      - type: narration
+        text: "{職員室|しょくいんしつ}の{書類|しょるい}にアクセスできたのは{誰|だれ}？ ひまわり{組|ぐみ}の{事情|じじょう}を{知|し}っていたのは{誰|だれ}？ ワカナは{木曜日|もくようび}に{早退|そうたい}している。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 差し戻しの経緯を調べよう
+      - type: narration
+        text: "{職員室|しょくいんしつ}の{文化祭|ぶんかさい}{実行|じっこう}{委員会|いいんかい}の{記録|きろく}に、{差|さ}し{戻|もど}しの{経緯|けいい}が{残|のこ}っていた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{差|さ}し{戻|もど}しの{記録|きろく}——{日時|にちじ}: {金曜日|きんようび}{朝|あさ}8:15。{理由|りゆう}:「{準備|じゅんび}{期間|きかん}が{足|た}りない。ひまわり{組|ぐみ}の{児童|じどう}に{負担|ふたん}がかかる{可能性|かのうせい}がある」。{記録者|きろくしゃ}: **{記載|きさい}なし**。"
+      - type: narration
+        text: "{申請書|しんせいしょ}には{付箋|ふせん}メモが{貼|は}ってあった——「ミユちゃんの{準備|じゅんび}が{間|ま}に{合|あ}わないと{思|おも}います。{無理|むり}させないほうがいいです」。"
+      - type: narration
+        text: "{差|さ}し{戻|もど}しは{金曜日|きんようび}{朝|あさ}8:15——{登校|とうこう}{直後|ちょくご}だ。{企画書|きかくしょ}には2{週間|しゅうかん}の{準備|じゅんび}{期間|きかん}が{明記|めいき}されているのに「{準備|じゅんび}{期間|きかん}が{足|た}りない」はおかしい。そして——**ミユちゃん{本人|ほんにん}に{確認|かくにん}した{記録|きろく}はない**。"
+
+  # ==================== 反転：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 衝撃の証言
+        subtitle: ひまわり組の田中先生
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ひまわり{組|ぐみ}の{担任|たんにん}、{田中|たなか}{先生|せんせい}に{話|はなし}を{聞|き}きました。{大切|たいせつ}なことが{分|わ}かりました。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{田中|たなか}{先生|せんせい}の{証言|しょうげん}——「{参加|さんか}{申請|しんせい}は{出|で}ていましたよ。{木曜日|もくようび}に{確認|かくにん}しました。ひまわり{組|ぐみ}としても、{合同|ごうどう}{劇|げき}への{参加|さんか}を{承認|しょうにん}していました」"
+      - type: narration
+        text: "「ところが{金曜日|きんようび}の{朝|あさ}、{申請|しんせい}が{取|と}り{下|さ}げられていると{知|し}りました。**ミユちゃんは{合同|ごうどう}{劇|げき}を{楽|たの}しみにしていたんです**。{木曜日|もくようび}の{合同|ごうどう}{練習|れんしゅう}でも、とても{楽|たの}しそうに{歌|うた}の{練習|れんしゅう}をしていました」"
+      - type: narration
+        text: "「ミユちゃんは{確|たし}かに{練習|れんしゅう}に{時間|じかん}がかかります。でも、**{本人|ほんにん}は『やりたい』と{言|い}っていた**んです。2{週間|しゅうかん}の{準備|じゅんび}{期間|きかん}があれば{十分|じゅうぶん}{練習|れんしゅう}できます」"
+      - type: narration
+        text: "「{差|さ}し{戻|もど}しについて、**ミユちゃんには{誰|だれ}も{相談|そうだん}していません**。{本人|ほんにん}の{意思|いし}を{確認|かくにん}せずに{決|き}めてしまった{人|ひと}がいる。それが{一番|いちばん}の{問題|もんだい}です」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ひまわり{組|ぐみ}は{参加|さんか}を{承認|しょうにん}していた。ミユちゃん{本人|ほんにん}は「やりたい」と{言|い}っていた。{誰|だれ}かが{本人|ほんにん}に{聞|き}かずに「{無理|むり}させないほうがいい」と{判断|はんだん}した——。"
+
+  # ==================== キャラクター議論シーン ====================
+  - id: discussion
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 証拠を整理しよう
+      - type: sprite
+        character: yuzuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yuzuru
+        text: "{金曜日|きんようび}の{朝|あさ}8:20ごろ、{職員室|しょくいんしつ}の{前|まえ}を{通|とお}ったとき……イブキが{職員室|しょくいんしつ}から{出|で}てくるのを{見|み}た。「ちょっと{先生|せんせい}に{用事|ようじ}があって」って{言|い}ってた。{差|さ}し{戻|もど}しの{記録|きろく}は8:15——{時間|じかん}が{一致|いっち}する。"
+        expression: thinking
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: determined
+        position: right
+      - type: dialog
+        character: wakana
+        text: "{文化祭|ぶんかさい}のルールを{確認|かくにん}した。「{参加|さんか}{申請|しんせい}の{差|さ}し{戻|もど}しには{教師|きょうし}の{許可|きょか}か、{参加|さんか}{者|しゃ}{本人|ほんにん}の{同意|どうい}が{必要|ひつよう}」。ミユちゃんの{同意|どうい}は？ {記録|きろく}に{教師|きょうし}の{名前|なまえ}もない。これはルール{違反|いはん}だ。"
+        expression: determined
+      - type: sprite
+        character: wakana
+        action: hide
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "{木曜|もくよう}{放課後|ほうかご}の{練習|れんしゅう}でね……ミユちゃんが「{準備|じゅんび}、{間|ま}に{合|あ}うかな……」ってつぶやいた。でもすぐ「がんばる！」って{言|い}って{練習|れんしゅう}を{続|つづ}けた。「{心配|しんぱい}」と「{やりたくない}」は{違|ちが}う。そのとき——イブキが{心配|しんぱい}そうな{顔|かお}をしてた。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{差|さ}し{戻|もど}しは{金曜|きんよう}{朝|あさ}8:15。ユズルが8:20にイブキを{職員室|しょくいんしつ}の{前|まえ}で{目撃|もくげき}。イブキは{唯一|ゆいいつ}「ひまわり{組|ぐみ}との{連絡|れんらく}{役|やく}」でミユちゃんの{状況|じょうきょう}を{知|し}り{得|え}た{人物|じんぶつ}。ワカナは{木曜日|もくようび}に{早退|そうたい}——{合同|ごうどう}{練習|れんしゅう}には{参加|さんか}していない。"
+
+  # ==================== 推理・投票（2問） ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 第1の問い
+        subtitle: 参加申請を差し戻したのは誰？
+      - type: choice
+        id: q1
+        question: 参加申請を差し戻したのは誰？
+        options:
+          - text: イブキ（ひまわり組との連絡役。金曜朝に職員室で目撃）
+            value: ibuki
+            correct: true
+            feedback: "{正解|せいかい}！ イブキは{木曜|もくよう}{放課後|ほうかご}にミユちゃんの「{準備|じゅんび}、{間|ま}に{合|あ}うかな……」という{言葉|ことば}を{聞|き}き、「{無理|むり}させたくない」と{考|かんが}えて{金曜日|きんようび}{朝|あさ}に{差|さ}し{戻|もど}した。ミユちゃん{本人|ほんにん}には{聞|き}かずに。"
+          - text: ユズル（申請書を職員室に提出した人物）
+            value: yuzuru
+            feedback: "ユズルは{木曜|もくよう}{午後|ごご}に{申請書|しんせいしょ}を{提出|ていしゅつ}した{人物|じんぶつ}。{金曜|きんよう}{朝|あさ}8:30に{差|さ}し{戻|もど}しを{確認|かくにん}したのもユズル。でも8:20に{職員室|しょくいんしつ}から{出|で}てきたのはイブキだった。"
+          - text: ワカナ（文化祭ルールに詳しい）
+            value: wakana
+            feedback: "ワカナは{木曜日|もくようび}に{早退|そうたい}して{合同|ごうどう}{練習|れんしゅう}には{参加|さんか}していない。ミユちゃんの「{間|ま}に{合|あ}うかな」を{聞|き}いた{可能性|かのうせい}がない。{証拠|しょうこ}と{合|あ}わないよ。"
+          - text: コハル（ミユちゃんの様子を一番知っていた）
+            value: koharu
+            feedback: "コハルは{練習|れんしゅう}でミユちゃんが{楽|たの}しそうだったと{知|し}っている。「ミユちゃんの{気持|きも}ちを{聞|き}かないで{決|き}めるなんて」と{強|つよ}く{感|かん}じていた。{差|さ}し{戻|もど}す{動機|どうき}はない。"
+      - type: title_card
+        text: 第2の問い
+        subtitle: みんなの学校をつくるために一番大切なことは？
+      - type: narration
+        text: "ここから{先|さき}は、{正解|せいかい}のない{問|と}いだ。4つの{選択肢|せんたくし}はどれも{大切|たいせつ}な{考|かんが}え{方|かた}。あなたが「{一番|いちばん}{大切|たいせつ}」と{思|おも}うものを{選|えら}ぼう。"
+      - type: choice
+        id: q2
+        question: 「みんなの学校」をつくるために一番大切なことは？
+        options:
+          - text: "A: みんなが同じ場所で一緒に活動すること"
+            value: option-a
+            feedback: "「{一緒|いっしょ}にいること」の{大切|たいせつ}さ。{形|かたち}だけ{一緒|いっしょ}にしても{意味|いみ}がない{場合|ばあい}もある。でも「{一緒|いっしょ}にいたい」という{気持|きも}ちは{尊|とうと}いね。"
+          - text: "B: 1人ひとりに合った方法でサポートすること"
+            value: option-b
+            feedback: "「{合理的|ごうりてき}{配慮|はいりょ}」の{視点|してん}。サポートの{内容|ないよう}は{本人|ほんにん}と{相談|そうだん}して{決|き}めることが{大切|たいせつ}。{一人|ひとり}で{決|き}めてはいけない。"
+          - text: "C: 本人の気持ちを聞いてから決めること"
+            value: option-c
+            feedback: "「{当事者|とうじしゃ}{主体|しゅたい}」の{視点|してん}。今回のイブキに{最|もっと}も{欠|か}けていたもの。{本人|ほんにん}に{聞|き}くことが{全|すべ}ての{出発点|しゅっぱつてん}だね。"
+          - text: "D: 状況によって「一緒」と「別々」を使い分けること"
+            value: option-d
+            feedback: "「{柔軟性|じゅうなんせい}」の{視点|してん}。「{一緒|いっしょ}」も「{別々|べつべつ}」も、どちらが{正解|せいかい}とは{言|い}えない。{使|つか}い{分|わ}けの{基準|きじゅん}は{本人|ほんにん}の{意思|いし}だ。"
+
+  # ==================== 真相：イブキの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: イブキの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: ibuki
+        text: "……{参加|さんか}{申請|しんせい}を{差|さ}し{戻|もど}したのは、わたしです。"
+        expression: worried
+      - type: dialog
+        character: ibuki
+        text: "{木曜日|もくようび}の{練習|れんしゅう}でミユちゃんが「{準備|じゅんび}、{間|ま}に{合|あ}うかな……」って{言|い}ったとき——{無理|むり}させたくないって{思|おも}った。ミユちゃんを{守|まも}らなきゃって。"
+        expression: thinking
+      - type: dialog
+        character: ibuki
+        text: "{金曜日|きんようび}の{朝|あさ}、{学校|がっこう}に{来|き}てすぐ{職員室|しょくいんしつ}に{行|い}って、{付箋|ふせん}メモを{貼|は}って{差|さ}し{戻|もど}した。ミユちゃんに「{参加|さんか}したい？」って……{聞|き}いていなかった。"
+        expression: worried
+      - type: sprite
+        character: ibuki
+        action: hide
+
+  # ==================== 真相：ミユちゃんの声 ====================
+  - id: truth-miyu
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{田中|たなか}{先生|せんせい}が、ミユちゃんに{聞|き}き{取|と}りをしました。ミユちゃんの{言葉|ことば}を{読|よ}みます。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ミユちゃんの{言葉|ことば}——「{合同|ごうどう}{劇|げき}、{楽|たの}しみにしてたの。みんなと{一緒|いっしょ}に{歌|うた}いたかった」"
+      - type: narration
+        text: "「{準備|じゅんび}は{大変|たいへん}かもしれない。でも、{大変|たいへん}でも、みんなと{一緒|いっしょ}がいい」"
+      - type: narration
+        text: "「**『{間|ま}に{合|あ}わないかも』って{言|い}ったのは、{心配|しんぱい}だったから。やりたくないって{意味|いみ}じゃなかった**」"
+      - type: narration
+        text: "「{誰|だれ}にも{聞|き}かれなかった。{気|き}づいたら、{参加|さんか}できなくなってた。**{私|わたし}の{気持|きも}ちを{聞|き}いてほしかった**」"
+      - type: effect
+        name: shake
+        duration: 300
+
+  # ==================== 真相：他のメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: koharu
+        expression: worried
+        position: left
+      - type: dialog
+        character: koharu
+        text: "わたしも……{練習|れんしゅう}のとき、イブキが{心配|しんぱい}そうな{顔|かお}をしてるのに{気|き}づいてた。その{場|ば}で「{大丈夫|だいじょうぶ}だよ」って{声|こえ}をかけていれば、{何|なに}かが{変|か}わったかもしれない。{ごめんなさい}。"
+        expression: worried
+      - type: sprite
+        character: koharu
+        action: hide
+      - type: sprite
+        character: yuzuru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: yuzuru
+        text: "わたしが{作|つく}った{スケジュール|すけじゅーる}では2{週間|しゅうかん}で{歌|うた}のパートは{十分|じゅうぶん}{練習|れんしゅう}できると{計算|けいさん}していた。「{準備|じゅんび}{期間|きかん}が{足|た}りない」は{データ上|でーたじょう}{根拠|こんきょ}がなかった。もっと{早|はや}く{気|き}づけばよかった。"
+        expression: thinking
+      - type: sprite
+        character: yuzuru
+        action: hide
+      - type: sprite
+        character: wakana
+        expression: determined
+        position: left
+      - type: dialog
+        character: wakana
+        text: "ルールでは「{差|さ}し{戻|もど}しには{本人|ほんにん}の{同意|どうい}が{必要|ひつよう}」。イブキはそれを{知|し}らなかった。でも「{知|し}らなかった」では{済|す}まない{問題|もんだい}もある。ミユちゃんの**{参加|さんか}する{権利|けんり}**が{奪|うば}われてしまった。"
+        expression: determined
+      - type: sprite
+        character: wakana
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "イブキはミユちゃんを{守|まも}ったつもりでした。でも、ミユちゃんの『{参加|さんか}したい』という{気持|きも}ちを{聞|き}かなかった。{守|まも}るつもりで、ミユちゃんの**{参加|さんか}する{権利|けんり}**を{奪|うば}ってしまいました。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{私|わたし}たちも、{同|おな}じことをしていないでしょうか？ {誰|だれ}かが『{大変|たいへん}そう』に{見|み}えたとき、{本人|ほんにん}に{聞|き}かずに『やめたほうがいい』と{決|き}めてしまったことはないですか？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{守|まも}る」と「{排除|はいじょ}する」は{紙一重|かみひとえ}。イブキの{善意|ぜんい}は{本物|ほんもの}だった。でも、ミユちゃんに{聞|き}かずに「{参加|さんか}しないほうがいい」と{決|き}めたことは、「{守|まも}る」ではなく「{排除|はいじょ}する」と{同|おな}じ{結果|けっか}になってしまった。"
+      - type: narration
+        text: "{本人|ほんにん}の{意思|いし}が{最優先|さいゆうせん}。「{一緒|いっしょ}にする」も「{別々|べつべつ}にする」も、{本人|ほんにん}が{選|えら}ぶこと。{私|わたし}たちが{代|か}わりに{決|き}めてはいけない。"
+      - type: narration
+        text: "{大切|たいせつ}なのは、{本人|ほんにん}に{聞|き}くこと。「{一緒|いっしょ}にやりたい？」「{何|なに}か{心配|しんぱい}なことがある？」——その{一言|ひとこと}が、**{みんなの{学校|がっこう}}**をつくる{第一歩|だいいっぽ}。"
+      - type: effect
+        name: fade-out

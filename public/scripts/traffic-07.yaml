@@ -1,0 +1,329 @@
+meta:
+  id: traffic-07
+  title: 横断歩道の混乱
+  series: 交通安全探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{登校|とうこう}{時間|じかん}、{横断歩道|おうだんほどう}で{低学年|ていがくねん}の{子|こ}と{左折|させつ}してきた{自転車|じてんしゃ}がぶつかりそうになった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{低学年|ていがくねん}の{子|こ}は「{青|あお}だった{気|き}がする」と{言|い}っている。「だれかが『まだ{渡|わた}れる』って{言|い}った」とも。{何|なに}が{起|お}きたのか。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{横断歩道|おうだんほどう}でヒヤリハットがありました。「{青|あお}だったかどうか」だけでなく、{何秒|なんびょう}のときに{誰|だれ}がどんな{声|こえ}かけをしたかまで{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: worried
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 横断歩道の混乱
+        subtitle: 交通安全探偵団 Vol.7
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 低学年の子の話を聞こう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{青|あお}だった{気|き}がする」——「でも{走|はし}った」——「だれかが『まだ{渡|わた}れる』って{言|い}った」。"
+      - type: sprite
+        character: towa
+        expression: worried
+        position: left
+      - type: dialog
+        character: towa
+        text: "だれかの{声|こえ}かけで{走|はし}り{始|はじ}めたんだ。{低学年|ていがくねん}の{子|こ}は{上級生|じょうきゅうせい}の{言葉|ことば}を{信|しん}じる。その{声|こえ}かけは{正|ただ}しかったのかな。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 信号のルールを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{歩行者|ほこうしゃ}{用|よう}{信号|しんごう}が{青|あお}{点滅|てんめつ}になったら、{新|あたら}しく{渡|わた}り{始|はじ}めてはいけない。{車両|しゃりょう}{用|よう}{信号|しんごう}は{少|すこ}しあとで{変|か}わることがある。"
+      - type: narration
+        text: "{低学年|ていがくねん}の{子|こ}は{渡|わた}るのに{時間|じかん}がかかる。"
+      - type: sprite
+        character: michika
+        expression: determined
+        position: right
+      - type: dialog
+        character: michika
+        text: "「{青|あお}だった」と「{渡|わた}ってよかった」は{同|おな}じじゃない。{青|あお}{点滅|てんめつ}は「もう{渡|わた}り{始|はじ}めるな」の{合図|あいず}。そのあと{数秒|すうびょう}で{車両|しゃりょう}{用|よう}{信号|しんごう}が{変|か}わる。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 時刻のデータを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{歩行者|ほこうしゃ}{用|よう}{信号|しんごう}が{青|あお}{点滅|てんめつ}になったのは7:56:54ごろ。{車両|しゃりょう}{用|よう}{信号|しんごう}が{青|あお}になるのはその{数秒|すうびょう}あと。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "「まだ{渡|わた}れる」と{声|こえ}をかけたのが{青|あお}{点滅|てんめつ}{直後|ちょくご}だとしたら、{渡|わた}り{切|き}る{前|まえ}に{車両|しゃりょう}{用|よう}{信号|しんごう}が{変|か}わる。{低学年|ていがくねん}の{子|こ}は{走|はし}っても{間|ま}に{合|あ}わない{可能性|かのうせい}がある。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 現場のようすを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{低学年|ていがくねん}の{子|こ}は{走|はし}り{始|はじ}めた。{自転車|じてんしゃ}は{左|ひだり}から{交差点|こうさてん}へ{入|はい}ってきた。{近|ちか}くにいた{人|ひと}は「{急|いそ}いで！」のような{声|こえ}を{聞|き}いた{気|き}がする。"
+      - type: sprite
+        character: hashiru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "「{急|いそ}いで！」——その{声|こえ}が{子|こ}どもを{走|はし}らせた。{青|あお}{点滅|てんめつ}のタイミングで{声|こえ}をかけたなら、{走|はし}っても{間|ま}に{合|あ}わないかもしれないのに。"
+        expression: surprised
+      - type: sprite
+        character: hashiru
+        action: hide
+
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 防犯カメラの映像
+      - type: effect
+        name: fade-in
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{歩行者|ほこうしゃ}{用|よう}{信号|しんごう}が{青|あお}{点滅|てんめつ}に{変|か}わった{直後|ちょくご}、ヒカルが「まだ{渡|わた}れる、{走|はし}って」と{声|こえ}をかけた。"
+      - type: narration
+        text: "{低学年|ていがくねん}の{子|こ}はその{声|こえ}で{走|はし}り{始|はじ}めた。{車両|しゃりょう}{用|よう}{信号|しんごう}はその{数秒|すうびょう}{後|ご}に{青|あお}になった。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ヒカルが{声|こえ}をかけたのは{善意|ぜんい}——{渡|わた}り{切|き}れていない{子|こ}を{助|たす}けたかった。でも{青|あお}{点滅|てんめつ}は「{新|あたら}しく{渡|わた}り{始|はじ}めるな」の{合図|あいず}。{声|こえ}かけが{逆|ぎゃく}に{危険|きけん}を{作|つく}ってしまった。"
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 判断をまちがわせたのは誰だ？
+      - type: sprite
+        character: towa
+        expression: determined
+        position: left
+      - type: dialog
+        character: towa
+        text: "ヒカルは{交通|こうつう}{安全|あんぜん}{係長|かかりちょう}として{低学年|ていがくねん}の{子|こ}を{渡|わた}らせたかった。でも{青|あお}{点滅|てんめつ}で「まだ{渡|わた}れる」は{間違|まちが}いだった。{守|まも}ろうとした{声|こえ}かけが{危険|きけん}を{作|つく}った。"
+        expression: determined
+      - type: sprite
+        character: towa
+        action: hide
+      - type: choice
+        id: q1
+        question: 判断をまちがわせる声かけをしたのは誰？
+        options:
+          - text: ヒカル（青点滅で「まだ渡れる」と声をかけた）
+            value: hikaru
+            correct: true
+            feedback: "{正解|せいかい}！ ヒカルは{交通|こうつう}{安全|あんぜん}{係長|かかりちょう}として{低学年|ていがくねん}の{子|こ}を{渡|わた}らせたかった。でも{青|あお}{点滅|てんめつ}は「{新|あたら}しく{渡|わた}り{始|はじ}めるな」の{合図|あいず}。{声|こえ}かけのタイミングが{数秒|すうびょう}{遅|おく}く、{走|はし}り{始|はじ}めた{子|こ}が{車両|しゃりょう}と{接触|せっしょく}しそうになった。"
+          - text: ハシル（「急いで！」と聞こえた声の主）
+            value: hashiru
+            feedback: "ハシルは{声|こえ}を{聞|き}いた{側|がわ}。{声|こえ}をかけたのはハシルではないよ。"
+          - text: ミチカ（信号ルールに詳しいのに止めなかった）
+            value: michika
+            feedback: "ミチカは{信号|しんごう}ルールを{正確|せいかく}に{知|し}っている{観察型|かんさつがた}。{声|こえ}をかけたのはミチカではないよ。"
+          - text: トワ（低学年の子を心配していた）
+            value: towa
+            feedback: "トワは{低学年|ていがくねん}の{子|こ}の{気持|きも}ちを{考|かんが}える{感情型|かんじょうがた}。{声|こえ}をかけたのはトワではないよ。"
+
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒカルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hikaru
+        text: "……{声|こえ}をかけたのは、おれです。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "{交通|こうつう}{安全|あんぜん}{係長|かかりちょう}として、{低学年|ていがくねん}の{子|こ}を{安全|あんぜん}に{渡|わた}らせたかった。{青|あお}{点滅|てんめつ}になったとき、まだ{渡|わた}り{切|き}れてない{子|こ}がいて——「まだ{渡|わた}れる、{走|はし}って」って{言|い}っちゃった。"
+        expression: thinking
+      - type: dialog
+        character: hikaru
+        text: "でも{青|あお}{点滅|てんめつ}は「{新|あたら}しく{渡|わた}り{始|はじ}めるな」の{合図|あいず}だった。おれの{声|こえ}で{走|はし}り{始|はじ}めた{子|こ}が{危|あぶ}ない{目|め}にあった。{守|まも}ろうとしたのに{逆|ぎゃく}のことをしてしまった……ごめん。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: michika
+        text: "{青|あお}{点滅|てんめつ}のルールを{知|し}っていたのに、ヒカルの{声|こえ}を{止|と}められなかった。{知識|ちしき}があっても、とっさに{伝|つた}えられなければ{意味|いみ}がない。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "「{急|いそ}いで！」って{声|こえ}が{聞|き}こえたとき、{何|なに}かおかしいと{感|かん}じた。でも{声|こえ}を{出|だ}す{前|まえ}にもう{走|はし}り{始|はじ}めてた。{一瞬|いっしゅん}の{判断|はんだん}がどれだけ{大事|だいじ}か、{分|わ}かった。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{青|あお}{点滅|てんめつ}は「{新|あたら}しく{渡|わた}り{始|はじ}めてはいけない」の{合図|あいず}です。{守|まも}ろうとした{声|こえ}かけでも、タイミングが{間違|まちが}うと{危険|きけん}を{生|う}みます。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{青|あお}だったかどうか」だけでなく、{何秒|なんびょう}のときに{誰|だれ}がどんな{声|こえ}かけをしたかまで{見|み}ないと、{本当|ほんとう}の{原因|げんいん}は{分|わ}からない。"
+      - type: narration
+        text: "{歩行者|ほこうしゃ}{用|よう}{信号|しんごう}と{車両|しゃりょう}{用|よう}{信号|しんごう}には{時間|じかん}のズレがある。その{数秒|すうびょう}の{間|あいだ}に{命|いのち}の{危険|きけん}が{生|う}まれることがある。{声|こえ}をかけるなら、{正|ただ}しいルールに{基|もと}づいて——それが{本当|ほんとう}のリーダーシップだ。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,411 @@
+meta:
+  id: life-10
+  title: からっぽの飼育箱
+  series: 生命探偵団
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{夏休|なつやす}みが{明|あ}けた。クラスで{飼|か}っていたハムスターの「チビ」の{飼育箱|しいくばこ}を{見|み}に{行|い}くと——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{飼育箱|しいくばこ}はからっぽだった。チビがいない。"
+      - type: narration
+        text: "チビは{動物病院|どうぶつびょういん}で{保護|ほご}されていた。とても{弱|よわ}っていたそうだ。{当番表|とうばんひょう}を{見|み}ると、{最後|さいご}の1{週間|しゅうかん}だけ{名前|なまえ}が{書|か}きかえられていた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "チビは{動物病院|どうぶつびょういん}で{保護|ほご}されています。{最後|さいご}の1{週間|しゅうかん}、{世話|せわ}が{止|と}まっていたようです。{当番表|とうばんひょう}の{書|か}きかえと、{世話|せわ}が{止|と}まった{原因|げんいん}を{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: worried
+          - character: kakeru
+            expression: surprised
+          - character: shizuku
+            expression: thinking
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。まず{当番表|とうばんひょう}を{書|か}きかえた{人|ひと}を{見|み}つける。でも——それだけで{本当|ほんとう}に{終|お}わりだろうか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: からっぽの飼育箱
+        subtitle: 生命探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 当番表を確認しよう
+      - type: narration
+        text: "{夏休|なつやす}みの{飼育|しいく}{当番表|とうばんひょう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{最後|さいご}の1{週間|しゅうかん}だけ、{名前|なまえ}が{書|か}きかえられている。「イノリ」と{書|か}かれていた{場所|ばしょ}が{消|け}され、「カケル」に{変|か}わっていた。"
+      - type: narration
+        text: "けしあとが{残|のこ}っている。ていねいに{消|け}そうとしたが、{完全|かんぜん}には{消|け}えていなかった。"
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shizuku
+        text: "{書|か}きかえた{人|ひと}は、{自分|じぶん}の{名前|なまえ}を{消|け}して{別|べつ}の{人|ひと}に{変|か}えた。でも{相手|あいて}に{直接|ちょくせつ}{頼|たの}んでいないかもしれない。{名前|なまえ}を{書|か}けば{気|き}づくと{思|おも}い{込|こ}んだのかな。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "イノリからカケルへの{書|か}きかえ。でもカケルは{知|し}っていたのか？ {直接|ちょくせつ}{頼|たの}んだのか、それとも{勝手|かって}に{書|か}きかえたのか——。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 予定メモを調べよう
+      - type: narration
+        text: "みんなの{夏休|なつやす}みの{予定|よてい}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "イノリ —— {最後|さいご}の1{週間|しゅうかん}に{家族|かぞく}{旅行|りょこう}の{予定|よてい}が{入|はい}っていた。"
+      - type: narration
+        text: "カケル —— {同|おな}じ{時期|じき}に{別|べつ}の{予定|よてい}があった。"
+      - type: sprite
+        character: kakeru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "イノリから1{回|かい}{相談|そうだん}されたことはある。でもおれも{予定|よてい}があって{断|ことわ}った。そのあとどうなったかは{確認|かくにん}しなかった。……まさか{勝手|かって}に{名前|なまえ}を{書|か}きかえたとは{思|おも}わなかった。"
+        expression: surprised
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: narration
+        text: "イノリは{旅行|りょこう}で{世話|せわ}ができない。カケルに{相談|そうだん}したが{断|ことわ}られた。そのあと——{当番表|とうばんひょう}だけ{書|か}きかえた{可能性|かのうせい}がある。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 病院メモを確認しよう
+      - type: narration
+        text: "{動物病院|どうぶつびょういん}からの{連絡|れんらく}メモを{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "チビは{最後|さいご}の1{週間|しゅうかん}に{世話|せわ}{不足|ぶそく}で{弱|よわ}った。エサも{水|みず}も{足|た}りていなかった。"
+      - type: narration
+        text: "つまり、{当番表|とうばんひょう}に{名前|なまえ}が{書|か}かれていたカケルは{実際|じっさい}には{世話|せわ}に{来|こ}なかった——{自分|じぶん}が{当番|とうばん}だと{知|し}らなかったから。"
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "チビは1{週間|しゅうかん}もひとりぼっちだったんだ……。{誰|だれ}も{来|こ}なくて、エサも{水|みず}もなくて。{名前|なまえ}を{書|か}きかえただけじゃ、{世話|せわ}は{届|とど}かない。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "{当番表|とうばんひょう}を{書|か}きかえただけで、{実際|じっさい}の{世話|せわ}は{止|と}まった。{名前|なまえ}の{書|か}きかえと{世話|せわ}{不足|ぶそく}——これは{同|おな}じ{人|ひと}の{行動|こうどう}から{起|お}きている。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 飼育会議の記録を見よう
+      - type: narration
+        text: "{夏休|なつやす}み{前|まえ}の{飼育|しいく}{会議|かいぎ}の{記録|きろく}を{見|み}つけた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{会議|かいぎ}はたった3{分|ぷん}で{終|お}わっていた。{代|か}わり{手順|てじゅん}の{記録|きろく}はない。"
+      - type: narration
+        text: "つまり、「{当番|とうばん}が{来|こ}られなくなったらどうするか」を{誰|だれ}も{決|き}めていなかったのだ。"
+      - type: sprite
+        character: shizuku
+        expression: determined
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "{会議|かいぎ}が3{分|ぷん}。{代|か}わりの{手順|てじゅん}もなし。これは{個人|こじん}の{問題|もんだい}だけじゃない。「1{人|ひと}が{来|こ}られなくなったら{終|お}わり」という{仕組|しく}みに{問題|もんだい}があったんじゃないか。"
+        expression: determined
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: narration
+        text: "{犯人|はんにん}が{分|わ}かっても、それだけでは{十分|じゅうぶん}ではないかもしれない。{仕組|しく}みの{問題|もんだい}——{代|か}わり{手順|てじゅん}がなく、{先生|せんせい}への{報告|ほうこく}ルートもなく、{長期|ちょうき}{休|やす}みの{予備|よび}{当番|とうばん}もなかった。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 筆跡と仕組みの点検
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{当番表|とうばんひょう}の{書|か}きかえ{部分|ぶぶん}を{詳|くわ}しく{調|しら}べた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{筆圧|ひつあつ}と{文字|もじ}のくせがイノリに{近|ちか}い。{書|か}きかえたのはイノリだ。"
+      - type: narration
+        text: "さらに{仕組|しく}み{全体|ぜんたい}を{点検|てんけん}すると——"
+      - type: narration
+        text: "・{代|か}わりが{見|み}つからないときの{手順|てじゅん}がない。"
+      - type: narration
+        text: "・{先生|せんせい}への{報告|ほうこく}ルートがない。"
+      - type: narration
+        text: "・{長期|ちょうき}{休|やす}みの{予備|よび}{当番|とうばん}がいない。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{第|だい}1{層|そう}の{犯人|はんにん}はイノリ。でも{本当|ほんとう}の{原因|げんいん}は——{命|いのち}を{預|あず}かる{仕組|しく}みが{最初|さいしょ}から{壊|こわ}れていたことではないか。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 2つの問いに答えよう
+      - type: sprite
+        character: kakeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "イノリから{相談|そうだん}されたとき、おれは{断|ことわ}った。でもそのあと{確認|かくにん}しなかった。{断|ことわ}ったら{終|お}わりじゃなくて、「じゃあ{誰|だれ}がやるのか」まで{考|かんが}えるべきだった。"
+        expression: thinking
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: determined
+        position: left
+      - type: dialog
+        character: mikoto
+        text: "{犯人|はんにん}が{分|わ}かっても{終|お}わりじゃない。{会議|かいぎ}で{深|ふか}く{考|かんが}えずにうなずいてしまった{私|わたし}たちにも{責任|せきにん}がある。{命|いのち}を{預|あず}かるって、こういうことなんだ。"
+        expression: determined
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "このミステリーには2つの{問|と}いがある。"
+      - type: choice
+        id: q1
+        question: "第1層: 当番表を書きかえたのは誰？"
+        options:
+          - text: イノリ（旅行で来られず、当番表を書きかえた）
+            value: inori
+            correct: true
+            feedback: "{正解|せいかい}！ イノリは{家族|かぞく}{旅行|りょこう}で{世話|せわ}ができなくなり、カケルに{相談|そうだん}したが{断|ことわ}られた。{直接|ちょくせつ}{頼|たの}めないまま{当番表|とうばんひょう}の{名前|なまえ}だけ{書|か}きかえたが、カケルは{気|き}づかなかった。"
+          - text: カケル（自分の名前を消して別の人に変えた）
+            value: kakeru
+            feedback: "カケルは{相談|そうだん}を{断|ことわ}った{側|がわ}。{自分|じぶん}の{名前|なまえ}に{書|か}きかえられたことを{知|し}らなかった。{書|か}きかえたのはカケルではないよ。"
+          - text: シズク（当番表の違和感に気づいていた）
+            value: shizuku
+            feedback: "シズクは{書|か}きかえに{気|き}づいた{観察型|かんさつがた}。{仕組|しく}みの{問題|もんだい}を{指摘|してき}できる{冷静|れいせい}さがある。{書|か}きかえたのはシズクではないよ。"
+          - text: ミコト（チビが心配で誰かに頼もうとした）
+            value: mikoto
+            feedback: "ミコトは{命|いのち}の{重|おも}さを{考|かんが}える{感情型|かんじょうがた}。{会議|かいぎ}で{深|ふか}く{考|かんが}えなかった{自分|じぶん}にも{責任|せきにん}を{感|かん}じている。{書|か}きかえたのはミコトではないよ。"
+
+  # ==================== 真実：イノリ ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イノリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: inori
+        expression: worried
+        position: center
+      - type: dialog
+        character: inori
+        text: "……{当番表|とうばんひょう}を{書|か}きかえたのは、わたしです。"
+        expression: worried
+      - type: narration
+        text: "イノリはうつむきながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: inori
+        text: "{家族|かぞく}{旅行|りょこう}が{決|き}まって、{最後|さいご}の1{週間|しゅうかん}の{当番|とうばん}に{来|こ}られなくなった。カケルに{相談|そうだん}したけど、{断|ことわ}られて……。"
+        expression: thinking
+      - type: dialog
+        character: inori
+        text: "シズクはハムスターが{苦手|にがて}だと{知|し}っていたから{頼|たの}みにくかった。{直接|ちょくせつ}{言|い}えないまま、{当番表|とうばんひょう}に{名前|なまえ}を{書|か}けば{気|き}づいてくれると{思|おも}い{込|こ}んだの。"
+        expression: worried
+      - type: dialog
+        character: inori
+        text: "でもカケルは{気|き}づかなくて、{誰|だれ}も{世話|せわ}に{来|こ}なかった。チビが{弱|よわ}ったのは、わたしが{直接|ちょくせつ}{頼|たの}まなかったせい……でも、{仕組|しく}みにも{問題|もんだい}があったと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: inori
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: left
+      - type: dialog
+        character: kakeru
+        text: "イノリの{相談|そうだん}を{断|ことわ}ったとき、「じゃあ{誰|だれ}がやるの？」って{聞|き}かなかった。{断|ことわ}ることと{放|ほう}っておくことは{違|ちが}うのに、そこまで{考|かんが}えなかった。ごめん。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: shizuku
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shizuku
+        text: "{自分|じぶん}がハムスターは{苦手|にがて}だと{言|い}ったこと、{覚|おぼ}えてる。それでイノリは{頼|たの}みにくかったのかもしれない。でも「{苦手|にがて}」と「やらない」は{違|ちが}う。{相談|そうだん}できる{空気|くうき}を{作|つく}れなかったのも{問題|もんだい}だった。"
+        expression: thinking
+      - type: sprite
+        character: shizuku
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "{夏休|なつやす}み{前|まえ}の{会議|かいぎ}で、{深|ふか}く{考|かんが}えずにうなずいてしまった。「{誰|だれ}かがやってくれる」って{思|おも}ってた。チビの{命|いのち}を{預|あず}かっているのに、{仕組|しく}みを{作|つく}らなかった{私|わたし}たちにも{責任|せきにん}がある。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "イノリが{当番表|とうばんひょう}を{書|か}きかえたのは{事実|じじつ}。でも、{犯人|はんにん}を{見|み}つけて{終|お}わりではありません。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{命|いのち}を{預|あず}かるには、「かわいい」だけでなく「{続|つづ}けられる{仕組|しく}み」が{必要|ひつよう}です。{代|か}わりの{手順|てじゅん}、{先生|せんせい}への{報告|ほうこく}ルート、{予備|よび}の{当番|とうばん}——{足|た}りなかったものが{見|み}えましたね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{生命|せいめい}{探偵団|たんていだん}は10の{事件|じけん}を{通|とお}して、{命|いのち}と{向|む}き{合|あ}ってきた。"
+      - type: narration
+        text: "Vol.1では{水草|みずくさ}の{大切|たいせつ}さ。Vol.2では{観察|かんさつ}の{距離|きょり}。Vol.3では「たくさん＝{良|よ}い」の{間違|まちが}い。Vol.4では「きれい＝{良|よ}い」の{間違|まちが}い。Vol.5では{距離|きょり}を{守|まも}ること。"
+      - type: narration
+        text: "Vol.6では{独断|どくだん}で{放|はな}さないこと。Vol.7では{情報|じょうほう}の{共有|きょうゆう}。Vol.8では「{自然|しぜん}＝{安全|あんぜん}」の{間違|まちが}い。Vol.9では{食物連鎖|しょくもつれんさ}の{連鎖|れんさ}。"
+      - type: narration
+        text: "そしてVol.10——{命|いのち}を{預|あず}かるには{気持|きも}ちだけでなく、{続|つづ}けられる{仕組|しく}みが{必要|ひつよう}だということ。{犯人|はんにん}を{見|み}つけて{終|お}わりではなく、「どうすれば{守|まも}れたか」を{考|かんが}えること——それが{本当|ほんとう}の{命|いのち}への{思|おも}いやりだ。"
+      - type: effect
+        name: fade-out

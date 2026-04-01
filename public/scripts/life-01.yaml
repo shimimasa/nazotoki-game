@@ -1,0 +1,403 @@
+meta:
+  id: life-01
+  title: 消えたたまご
+  series: 生命探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  inori:
+    name: イノリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kakeru:
+    name: カケル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  shizuku:
+    name: シズク
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mikoto:
+    name: ミコト
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}の{理科|りか}の{時間|じかん}に、みんなでメダカを{育|そだ}てている。{月曜日|げつようび}の{朝|あさ}、{水草|みずくさ}にメダカのたまごが5{個|こ}ついているのを{見|み}つけた。"
+      - type: narration
+        text: "みんなは{大|おお}よろこびした。「{赤|あか}ちゃんが{生|う}まれるかも！」"
+      - type: narration
+        text: "ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{火曜日|かようび}の{朝|あさ}になると、たまごが1{個|こ}ものこっていない！ {水草|みずくさ}も{少|すく}なく{見|み}える。「だれかがたまごを{取|と}ったの？」クラスが{騒|さわ}ぎ{始|はじ}めた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{月曜日|げつようび}の{朝|あさ}には{確|たし}かにたまごが5{個|こ}ありました。{火曜日|かようび}の{朝|あさ}には、1{個|こ}もありません。{水|みず}そうのそばのごみ{箱|ばこ}に、ぬれた{水草|みずくさ}があるとも{聞|き}きました。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: inori
+            expression: worried
+          - character: kakeru
+            expression: surprised
+          - character: shizuku
+            expression: surprised
+          - character: mikoto
+            expression: worried
+      - type: narration
+        text: "{世話係|せわがかり}の4{人|にん}は{顔|かお}を{見合|みあ}わせた。メダカのたまごに、いったい{何|なに}が{起|お}きたのか——"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えたたまご
+        subtitle: 生命探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 月曜日の観察記録を確認しよう
+      - type: narration
+        text: "{水|みず}そうのそばにある{観察記録|かんさつきろく}ノートを{開|ひら}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{月曜日|げつようび} 8:20 の{記録|きろく}——「メダカのたまご 5{個|こ}。{水草|みずくさ}のうらについていた。{水|みず}は{少|すこ}しにごっている。」"
+      - type: narration
+        text: "たまごは{水草|みずくさ}のうらについていた。{水草|みずくさ}がなくなれば、たまごもいっしょになくなってしまうかもしれない。"
+      - type: narration
+        text: "{火曜日|かようび} 8:15 の{記録|きろく}——「メダカのたまご 0{個|こ}。{水草|みずくさ}は{少|すく}なく{見|み}える。{水|みず}は{月曜日|げつようび}よりすんでいる。」"
+      - type: narration
+        text: "たまごだけでなく、{水草|みずくさ}も{減|へ}っている。そして{水|みず}が{前|まえ}よりきれいになっている——{何|なに}かが{起|お}きた{証拠|しょうこ}だ。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 月曜日の昼休みと放課後のメモを確認しよう
+      - type: narration
+        text: "{水|みず}そうのそばに、{世話|せわ}の{記録|きろく}メモが{貼|は}ってあった。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{昼休|ひるやす}み——カケルが{餌|えさ}やりをした。イノリが{記録|きろく}を{書|か}いた。"
+      - type: narration
+        text: "{放課後|ほうかご}——{水|みず}かえ{用|よう}のバケツがぬれていた。あみも{少|すこ}しぬれていた。"
+      - type: narration
+        text: "{放課後|ほうかご}に{水|みず}かえ{用|よう}の{道具|どうぐ}が{使|つか}われている！ {誰|だれ}かが{月曜日|げつようび}の{放課後|ほうかご}に{水|みず}そうの{世話|せわ}をした{形跡|けいせき}がある。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 水草についての理科メモを確認しよう
+      - type: narration
+        text: "{理科|りか}の{先生|せんせい}が{貼|は}っておいた{理科|りか}メモを{見|み}つけた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「メダカは{水草|みずくさ}にたまごを{産|う}みつける。たまごは{小|ちい}さくて、{水草|みずくさ}のうらにあると{見落|みお}としやすい。{観察|かんさつ}の{最中|さいちゅう}の{水草|みずくさ}はむやみにすてない。」"
+      - type: narration
+        text: "つまり——たまごそのものを{持|も}ち{去|さ}らなくても、{水草|みずくさ}を{動|うご}かすだけでたまごまでいっしょになくなってしまう！"
+      - type: narration
+        text: "{放課後|ほうかご}にだれかが{水替|みずが}えをしたとしたら……{水草|みずくさ}のうらのたまごに{気|き}づかずに{捨|す}ててしまったのかもしれない。{産卵|さんらん}したばかりの{命|いのち}が、{知|し}らないうちに——"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 4人の行動を整理しよう
+      - type: narration
+        text: "4{人|にん}の{月曜日|げつようび}の{放課後|ほうかご}の{行動|こうどう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "わたしは{月曜日|げつようび}の{放課後|ほうかご}、{観察記録|かんさつきろく}ノートを{書|か}いてからすぐ{帰|かえ}りました。そのとき、{水草|みずくさ}はまだ{水|みず}そうの{中|なか}に{見|み}えていました。"
+        expression: thinking
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: normal
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{月曜日|げつようび}の{放課後|ほうかご}に{教室|きょうしつ}に{戻|もど}ったとき、バケツがぬれていました。{水|みず}かえ{用|よう}のあみも{少|すこ}しぬれていた。でも、{誰|だれ}が{使|つか}ったかは{見|み}ていません。"
+        expression: normal
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: mikoto
+        text: "{月曜日|げつようび}の{放課後|ほうかご}、{帰|かえ}るときにごみ{箱|ばこ}の{近|ちか}くがぬれていた{気|き}がしました。{水草|みずくさ}が{少|すこ}し{見|み}えた{気|き}もするけど……はっきりとは{分|わ}かりませんでした。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "イノリ・カケル・ミコトには{放課後|ほうかご}の{行動|こうどう}が{確認|かくにん}できた。{水|みず}かえをした{形跡|けいせき}があるのに、{自分|じぶん}から{話|はな}していない{人物|じんぶつ}は——"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ごみ箱の点検結果
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{火曜日|かようび}の{朝|あさ}にごみ{箱|ばこ}を{点検|てんけん}しました。ごみ{箱|ばこ}の{中|なか}に、ぬれた{水草|みずくさ}がありました。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "その{水草|みずくさ}には、{白|しろ}いたまごのからがいくつか{残|のこ}っていました。{水|みず}そうの{古|ふる}い{水|みず}をすてたあとに、いっしょに{入|はい}ったように{見|み}えます。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "たまごは「{取|と}られた」のではなかった！ {水草|みずくさ}ごとごみ{箱|ばこ}へ{捨|す}てられていたのだ！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{月曜日|げつようび}の{放課後|ほうかご}に{水替|みずが}えをした{人物|じんぶつ}が、{水草|みずくさ}のうらのたまごに{気|き}づかずに{捨|す}ててしまった——{水|みず}をきれいにしたがっていたのは、あの{人|ひと}だ。{善意|ぜんい}が、{命|いのち}を{奪|うば}ってしまった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: たまごに何が起きた？
+      - type: sprite
+        character: inori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: inori
+        text: "{月曜日|げつようび}の{朝|あさ}にはたまごが5{個|こ}あって、{火曜日|かようび}の{朝|あさ}には0{個|こ}。{水草|みずくさ}も{減|へ}っている。{誰|だれ}が{放課後|ほうかご}に{水|みず}かえをしたの……？"
+        expression: thinking
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: right
+      - type: dialog
+        character: mikoto
+        text: "たまごは{水草|みずくさ}のうらについていた。{水草|みずくさ}ごと{動|うご}かしたら、たまごもいっしょに{失|うしな}ってしまう……{水草|みずくさ}はどこへ{行|い}ったのかな。"
+        expression: worried
+      - type: sprite
+        character: mikoto
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{月曜日|げつようび}の{放課後|ほうかご}にバケツとあみがぬれていた。ごみ{箱|ばこ}の{水草|みずくさ}にたまごのからがあった。{水|みず}がきれいになっていた。{水|みず}をきれいにしたがっていたのは——"
+      - type: choice
+        id: q1
+        question: たまごをなくしてしまった原因を作ったのは誰？
+        options:
+          - text: シズク（水をきれいにしたがっていて、水草のたまごに気づかなかった）
+            value: shizuku
+            correct: true
+            feedback: "{正解|せいかい}！ シズクは{月曜日|げつようび}の{放課後|ほうかご}に{水|みず}がにごっているのを{見|み}て「きれいにしてあげよう」と{水替|みずが}えをした。そのとき、{水草|みずくさ}のうらにたまごがあることに{気|き}づかずに{捨|す}ててしまったんだ。"
+          - text: イノリ（観察記録を書いていたから、たまごのことを一番よく知っている）
+            value: inori
+            feedback: "イノリは{放課後|ほうかご}に{記録|きろく}を{書|か}いてすぐ{帰|かえ}った。そのとき{水草|みずくさ}はまだ{水|みず}そうにあったよ。バケツもあみも{使|つか}っていない。"
+          - text: カケル（昼休みに餌やりをして、水槽に一番よく触れていた）
+            value: kakeru
+            feedback: "カケルは{昼休|ひるやす}みに{餌|えさ}やりをしただけで、たまごにはさわっていない。{放課後|ほうかご}に{教室|きょうしつ}に{戻|もど}ったときはバケツはすでにぬれていたんだ。"
+          - text: ミコト（水草の近くでたまごをじっと見ていた）
+            value: mikoto
+            feedback: "ミコトは「たまごはこわれやすいからさわらない」と{思|おも}っていたよ。{放課後|ほうかご}に{帰|かえ}るとき、ごみ{箱|ばこ}の{近|ちか}くがぬれている{気|き}がしたとは{言|い}っているけど、{自分|じぶん}で{水|みず}かえはしていない。"
+
+  # ==================== 真実：シズクの告白 ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: シズクの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: shizuku
+        expression: worried
+        position: center
+      - type: dialog
+        character: shizuku
+        text: "……{月曜日|げつようび}の{放課後|ほうかご}に、{水|みず}を{少|すこ}しかえました。{水|みず}がにごっていたから、きれいにしてあげようと{思|おも}って。"
+        expression: worried
+      - type: narration
+        text: "シズクは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: shizuku
+        text: "{水草|みずくさ}のうらにたまごがあることに、{気|き}づかなかった。{古|ふる}い{水|みず}といっしょに、ぬれた{水草|みずくさ}をごみ{箱|ばこ}に{入|い}れてしまったんです。"
+        expression: worried
+      - type: dialog
+        character: shizuku
+        text: "きれいにしただけのつもりだった。わざとじゃないけど……たまごがなくなったのはわたしのせいです。ごめんなさい。"
+        expression: determined
+      - type: sprite
+        character: shizuku
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: inori
+        expression: worried
+        position: left
+      - type: dialog
+        character: inori
+        text: "{火曜日|かようび}の{朝|あさ}、ごみ{箱|ばこ}にぬれた{水草|みずくさ}があるのを{見|み}つけて、ずっと{気|き}になっていました。でも、はっきり{言|い}い{切|き}る{自信|じしん}がなくて……もっと{早|はや}く{言|い}えばよかった。"
+        expression: worried
+      - type: sprite
+        character: inori
+        action: hide
+      - type: sprite
+        character: kakeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kakeru
+        text: "{放課後|ほうかご}にバケツがぬれていたのを{見|み}た。{大事|だいじ}かもって{思|おも}ったけど、{水替|みずが}えはいつものことだから、そこまで{気|き}にしなかった。{言|い}っていたら、もっと{早|はや}く{分|わ}かったかもしれないのに。"
+        expression: worried
+      - type: sprite
+        character: kakeru
+        action: hide
+      - type: sprite
+        character: mikoto
+        expression: worried
+        position: left
+      - type: dialog
+        character: mikoto
+        text: "たまごは{水草|みずくさ}についていると、ずっと{思|おも}っていた。「{水草|みずくさ}ごと{動|うご}いたのかも」って……でも、かなしくてうまく{言葉|ことば}にできなかった。"
+        expression: worried
+      - type: dialog
+        character: mikoto
+        text: "{生|い}き{物|もの}の{命|いのち}を{守|まも}るって、「きれいにすること」だけじゃないんだね。まず{知|し}ることが{大切|たいせつ}だった。"
+        expression: determined
+      - type: sprite
+        character: mikoto
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "シズクの「きれいにしてあげたい」という{気持|きも}ちは、とってもやさしい。でも{今回|こんかい}は、{知|し}らないまま{行動|こうどう}して、{見|み}えない{命|いのち}を{傷|きず}つけてしまった。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "メダカのたまごは{水草|みずくさ}についていること、{水草|みずくさ}のうらには{気|き}づきにくいこと——まず{知|し}ることで、{守|まも}れる{命|いのち}がある。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "たまごは{水草|みずくさ}のうらにある。{水草|みずくさ}がなくなれば、たまごもなくなってしまう。どんなに{親切|しんせつ}な{気持|きも}ちでも、{正|ただ}しい{知識|ちしき}がなければ、{命|いのち}を{守|まも}れないことがある。"
+      - type: narration
+        text: "「きれいにすること」と「{生|い}き{物|もの}を{守|まも}ること」は、いつも{同|おな}じとはかぎらない。{大切|たいせつ}なのは——まず{観察|かんさつ}して、{知|し}ってから{行動|こうどう}すること。"
+      - type: narration
+        text: "もし{次|つぎ}にメダカがたまごを{産|う}んだら、{水草|みずくさ}のうらをそっとのぞいてみよう。{見|み}えない{命|いのち}が、そこにあるかもしれないから。"
+      - type: effect
+        name: fade-out

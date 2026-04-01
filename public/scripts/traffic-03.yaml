@@ -1,0 +1,407 @@
+meta:
+  id: traffic-03
+  title: 近道のわな
+  series: 交通安全探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{月曜日|げつようび}の{朝|あさ}、1{年生|ねんせい}のケンタくんが{通学路|つうがくろ}ではない{裏道|うらみち}で{車|くるま}とぶつかりそうになった。"
+      - type: narration
+        text: "ケンタくんは「お{兄|にい}ちゃんが『ここ{通|とお}ると{早|はや}いよ』って{教|おし}えてくれた」と{言|い}っている。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "その{裏道|うらみち}は、{交通|こうつう}{安全|あんぜん}{探偵団|たんていだん}の4{人|にん}も{知|し}っている「{近道|ちかみち}」だった。だれが{教|おし}えたのか、なぜその{道|みち}が{危|あぶ}なかったのかを{調|しら}べなければならない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "1{年生|ねんせい}のケンタくんが{裏道|うらみち}で{車|くるま}とぶつかりそうになりました。「{上級生|じょうきゅうせい}に{教|おし}えてもらった」と{言|い}っています。だれが{近道|ちかみち}を{教|おし}えたのか、なぜ{危険|きけん}だったのかを{調|しら}べてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: thinking
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。あの{近道|ちかみち}を{使|つか}ったことがある{人|ひと}は——いるのだろうか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 近道のわな
+        subtitle: 交通安全探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ケンタくんの話を聞こう
+      - type: narration
+        text: "ケンタくんの{話|はなし}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「お{兄|にい}ちゃんが『{安全|あんぜん}で{早|はや}いよ』って{言|い}った」。"
+      - type: narration
+        text: "{朝|あさ}、{商店街|しょうてんがい}のうらの{道|みち}を{通|とお}った。"
+      - type: narration
+        text: "{大人|おとな}の{車|くるま}が{急|きゅう}に{出|で}てきてびっくりした。"
+      - type: sprite
+        character: towa
+        expression: worried
+        position: left
+      - type: dialog
+        character: towa
+        text: "1{年生|ねんせい}は{上級生|じょうきゅうせい}の{言葉|ことば}を{信|しん}じやすい。「{安全|あんぜん}で{早|はや}い」って{言|い}われたら、そのまま{通|とお}っちゃうよね。でも「{早|はや}い」と「{安全|あんぜん}」は{本当|ほんとう}に{同|おな}じなのかな。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "「{安全|あんぜん}で{早|はや}い」——{教|おし}えた{上級生|じょうきゅうせい}は{本当|ほんとう}に{安全|あんぜん}を{確|たし}かめたのだろうか。"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: スクールゾーンの地図を見よう
+      - type: narration
+        text: "{学校|がっこう}まわりの{地図|ちず}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{通学路|つうがくろ}A・Bはスクールゾーン{内|ない}。{登校|とうこう}{時間帯|じかんたい}7:30〜8:30だけ{車両|しゃりょう}{制限|せいげん}がある。"
+      - type: narration
+        text: "{裏道|うらみち}Cはスクールゾーン{外|がい}。{朝|あさ}でも{車|くるま}がふつうに{通|とお}っている。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{通学路|つうがくろ}は「{近|ちか}い{道|みち}」だから{決|き}められているんじゃない。スクールゾーンで{車|くるま}が{制限|せいげん}されていて、{見守|みまも}りもある「{安全|あんぜん}な{道|みち}」だから{決|き}められている。{裏道|うらみち}Cは{対象外|たいしょうがい}だ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "「{近|ちか}い」と「{安全|あんぜん}」は{違|ちが}う。スクールゾーン{外|がい}の{道|みち}は、{朝|あさ}でも{車|くるま}が{通|とお}る——{知|し}らずに{教|おし}えた{人|ひと}がいるのだ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 先週の行動を調べよう
+      - type: narration
+        text: "{先週|せんしゅう}の{朝|あさ}の{行動|こうどう}を{確認|かくにん}した。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒカルの{記録|きろく} —— {先週|せんしゅう}、ハシルが「{今日|きょう}は{近道|ちかみち}で{助|たす}かった」と{言|い}っていた。"
+      - type: narration
+        text: "ミチカの{記録|きろく} —— {裏道|うらみち}Cにはスクールゾーン{標識|ひょうしき}がない。"
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: michika
+        text: "スクールゾーン{標識|ひょうしき}がない{道|みち}は、{朝|あさ}でも{車|くるま}が{通|とお}る。ハシルは{先週|せんしゅう}「{近道|ちかみち}で{助|たす}かった」って{言|い}ってた。{自分|じぶん}が{通|とお}れたから{安全|あんぜん}だと{思|おも}い{込|こ}んだのかも。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: narration
+        text: "ハシルは{先週|せんしゅう}{近道|ちかみち}を{使|つか}っていた。{自分|じぶん}が{大丈夫|だいじょうぶ}だったから、1{年生|ねんせい}にも{教|おし}えた——？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ケンタくんの追加情報を確認しよう
+      - type: narration
+        text: "ケンタくんに{追加|ついか}で{聞|き}き{取|と}りをした。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{教|おし}えてくれた{人|ひと}は{上級生|じょうきゅうせい}の{男|おとこ}の{子|こ}。「ここ、{早|はや}いしだいじょうぶ」と{言|い}っていた。"
+      - type: narration
+        text: "その{朝|あさ}はみんな{少|すこ}し{急|いそ}いでいた。"
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: right
+      - type: dialog
+        character: hashiru
+        text: "{急|いそ}いでいた{朝|あさ}……{上級生|じょうきゅうせい}の{男|おとこ}の{子|こ}が「{早|はや}いしだいじょうぶ」って{教|おし}えた。{自分|じぶん}が{通|とお}って{大丈夫|だいじょうぶ}だったから、つい{教|おし}えちゃう{気持|きも}ちは{分|わ}かるけど……。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: narration
+        text: "{急|いそ}いでいた{朝|あさ}、{上級生|じょうきゅうせい}の{男|おとこ}の{子|こ}が{教|おし}えた。{近道|ちかみち}を{使|つか}った{経験|けいけん}がある{男|おとこ}の{子|こ}は——。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 見守り隊のメモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{見守|みまも}り{隊|たい}の{人|ひと}のメモが{届|とど}いた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{先週|せんしゅう}{木曜|もくよう}、{裏道|うらみち}Cでハシルを{見|み}かけた。"
+      - type: narration
+        text: "そのあとケンタくんに{道|みち}を{教|おし}えていたように{見|み}えた。"
+      - type: narration
+        text: "{裏道|うらみち}Cは7:30〜8:30も{車|くるま}が{通|とお}っていた。"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{見守|みまも}り{隊|たい}がハシルを{目撃|もくげき}——ケンタくんに{道|みち}を{教|おし}えていた！ 「{自分|じぶん}が{通|とお}れた＝{安全|あんぜん}」ではなかったのだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 近道を教えたのは誰だ？
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "ハシルは{先週|せんしゅう}「{近道|ちかみち}で{助|たす}かった」と{言|い}っていた。{見守|みまも}り{隊|たい}も{裏道|うらみち}Cでハシルを{見|み}ている。ケンタくんに{教|おし}えたのは——"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: towa
+        expression: determined
+        position: right
+      - type: dialog
+        character: towa
+        text: "ハシルに{悪気|わるぎ}はなかったと{思|おも}う。でも{下級生|かきゅうせい}に{教|おし}える{言葉|ことば}には{責任|せきにん}がある。「{大丈夫|だいじょうぶ}」って{言|い}ったら、{信|しん}じちゃうんだよ。"
+        expression: determined
+      - type: sprite
+        character: towa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ハシルは{先週|せんしゅう}{近道|ちかみち}を{使|つか}った。{見守|みまも}り{隊|たい}がケンタくんに{教|おし}えているところを{目撃|もくげき}。{裏道|うらみち}Cはスクールゾーン{外|がい}——"
+      - type: choice
+        id: q1
+        question: 1年生に危ない近道を教えたのは誰？
+        options:
+          - text: ハシル（自分が通れたから安全だと思い教えた）
+            value: hashiru
+            correct: true
+            feedback: "{正解|せいかい}！ ハシルは{先週|せんしゅう}{遅刻|ちこく}しそうで{裏道|うらみち}Cを{使|つか}った。たまたま{危|あぶ}ない{目|め}にあわなかったので「{安全|あんぜん}で{早|はや}い」と{思|おも}い{込|こ}み、ケンタくんに{教|おし}えてしまった。でも{裏道|うらみち}Cはスクールゾーン{外|がい}で、{朝|あさ}でも{車|くるま}が{通|とお}る{危険|きけん}な{道|みち}だった。"
+          - text: ヒカル（地図に詳しいから近道を知っていた）
+            value: hikaru
+            feedback: "ヒカルは{地図|ちず}を{整理|せいり}するのが{得意|とくい}な{情報型|じょうほうがた}。ハシルの{発言|はつげん}を{覚|おぼ}えていた{証人|しょうにん}の{立場|たちば}。{近道|ちかみち}を{教|おし}えたのはヒカルではないよ。"
+          - text: ミチカ（裏道Cの危険に気づいていた）
+            value: michika
+            feedback: "ミチカは{標識|ひょうしき}がないことに{気|き}づいていた{観察型|かんさつがた}。{危険|きけん}を{認識|にんしき}していた{側|がわ}で、{近道|ちかみち}を{教|おし}えたのはミチカではないよ。"
+          - text: トワ（下級生の気持ちを考えていて怪しい）
+            value: towa
+            feedback: "トワは{下級生|かきゅうせい}の{気持|きも}ちを{考|かんが}える{感情型|かんじょうがた}。{上級生|じょうきゅうせい}の{言葉|ことば}の{責任|せきにん}を{指摘|してき}できる{立場|たちば}。{近道|ちかみち}を{教|おし}えたのはトワではないよ。"
+
+  # ==================== 真実：ハシル ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハシルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hashiru
+        text: "……{近道|ちかみち}を{教|おし}えたのは、おれです。"
+        expression: worried
+      - type: narration
+        text: "ハシルは{頭|あたま}をかきながら、{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: hashiru
+        text: "{先週|せんしゅう}、{遅刻|ちこく}しそうで{裏道|うらみち}Cを{使|つか}ったんだ。そしたら{間|ま}に{合|あ}って、「ここ{早|はや}いじゃん」って{思|おも}った。"
+        expression: thinking
+      - type: dialog
+        character: hashiru
+        text: "ケンタくんに{会|あ}ったとき、つい「この{道|みち}、{早|はや}いよ」って{教|おし}えちゃった。{自分|じぶん}が{大丈夫|だいじょうぶ}だったから{安全|あんぜん}だと{思|おも}い{込|こ}んでた。"
+        expression: worried
+      - type: dialog
+        character: hashiru
+        text: "でもあの{道|みち}はスクールゾーンの{外|そと}で、{朝|あさ}でも{車|くるま}が{通|とお}ってた。{自分|じぶん}がたまたま{大丈夫|だいじょうぶ}だっただけだったんだ。{下級生|かきゅうせい}に{教|おし}える{言葉|ことば}の{重|おも}さ、{考|かんが}えてなかった……ごめん。"
+        expression: determined
+      - type: sprite
+        character: hashiru
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "ハシルが「{近道|ちかみち}で{助|たす}かった」って{言|い}ったとき、{地図|ちず}を{見|み}れば{危|あぶ}ないって{説明|せつめい}できたのに、その{場|ば}で{言|い}わなかった。{知識|ちしき}があっても{伝|つた}えなければ{意味|いみ}がない。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: michika
+        text: "{裏道|うらみち}Cは{朝|あさ}でも{車|くるま}が{通|とお}るから{危|あぶ}ないと{思|おも}ってた。ハシルが{近道|ちかみち}をすすめていたのも{前|まえ}から{気|き}になってた。もっと{強|つよ}く{止|と}めればよかった。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: sprite
+        character: towa
+        expression: worried
+        position: right
+      - type: dialog
+        character: towa
+        text: "{下級生|かきゅうせい}は{上級生|じょうきゅうせい}を{信|しん}じる。やさしさだけでは{安全|あんぜん}にならない。「{教|おし}えてあげたい」{気持|きも}ちの{前|まえ}に、「{本当|ほんとう}に{安全|あんぜん}か」を{確|たし}かめないといけなかったんだ。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{通学路|つうがくろ}は「{近|ちか}い{道|みち}」だから{決|き}められているのではありません。{車|くるま}の{通|とお}り{方|かた}や{見守|みまも}りもふくめて、「{安全|あんぜん}な{道|みち}」だから{決|き}められているんです。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{自分|じぶん}が{大丈夫|だいじょうぶ}だった{経験|けいけん}だけでは、{安全|あんぜん}の{証明|しょうめい}にはなりません。まして{下級生|かきゅうせい}に{教|おし}える{言葉|ことば}には{責任|せきにん}があります。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "スクールゾーンは{登校|とうこう}{時間帯|じかんたい}に{車両|しゃりょう}を{制限|せいげん}して{子|こ}どもを{守|まも}るしくみ。スクールゾーン{外|がい}の{道|みち}は、{朝|あさ}でも{車|くるま}が{通|とお}る。"
+      - type: narration
+        text: "「{近|ちか}い」と「{安全|あんぜん}」は{違|ちが}う。{自分|じぶん}がたまたま{大丈夫|だいじょうぶ}だったからといって、{他|ほか}の{人|ひと}にも{安全|あんぜん}とは{言|い}えない。"
+      - type: narration
+        text: "{下級生|かきゅうせい}に{道|みち}を{教|おし}えるとき——まず「スクールゾーンの{中|なか}か」「{車|くるま}は{通|とお}らないか」「{見守|みまも}りはあるか」を{確|たし}かめよう。それが{上級生|じょうきゅうせい}の{責任|せきにん}だ。"
+      - type: effect
+        name: fade-out

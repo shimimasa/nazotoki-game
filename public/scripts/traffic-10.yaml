@@ -1,0 +1,366 @@
+meta:
+  id: traffic-10
+  title: ゼロの日の約束
+  series: 交通安全探偵団
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  hikaru:
+    name: ヒカル
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hashiru:
+    name: ハシル
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  michika:
+    name: ミチカ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  towa:
+    name: トワ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: hallway-sunset
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "クラスで{始|はじ}めた「ゼロの{日|ひ}」プロジェクト——{全員|ぜんいん}が{宣言書|せんげんしょ}にサインした。「{私|わたし}は{交通|こうつう}ルールを{守|まも}ります」。"
+      - type: narration
+        text: "ところが3{週間|しゅうかん}{目|め}、{通学路|つうがくろ}で3{件|けん}のヒヤリハットが{起|お}きた。そして{教室|きょうしつ}の{宣言書|せんげんしょ}が{書|か}きかえられていた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "もとの{文|ぶん}: 「{私|わたし}は{交通|こうつう}ルールを{守|まも}ります」→ {今|いま}の{文|ぶん}: 「{私|わたし}は{周|まわ}りの{安全|あんぜん}を{確認|かくにん}します」。だれが、なぜ{書|か}きかえたのか。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{宣言書|せんげんしょ}が{書|か}きかえられています。そしてヒヤリハットが3{件|けん}{起|お}きました。{書|か}きかえた{人|ひと}を{見|み}つけてください。そしてヒヤリハットの{本当|ほんとう}の{原因|げんいん}も{考|かんが}えてください。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hikaru
+            expression: worried
+          - character: hashiru
+            expression: surprised
+          - character: michika
+            expression: thinking
+          - character: towa
+            expression: worried
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ゼロの日の約束
+        subtitle: 交通安全探偵団 Vol.10
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書きかえられた宣言書を調べよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "もとの{文|ぶん}: 「{私|わたし}は{交通|こうつう}ルールを{守|まも}ります」。"
+      - type: narration
+        text: "{今|いま}の{文|ぶん}: 「{私|わたし}は{周|まわ}りの{安全|あんぜん}を{確認|かくにん}します」。"
+      - type: narration
+        text: "{字|じ}はていねいで、いたずらのようには{見|み}えない。"
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: michika
+        text: "ふざけて{書|か}いたようには{見|み}えない。{意味|いみ}のある{変更|へんこう}だ。「ルールを{守|まも}る」から「{安全|あんぜん}を{確認|かくにん}する」へ——{書|か}きかえた{人|ひと}は、{何|なに}か{考|かんが}えがあったんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: ヒヤリハット3件を確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "①{歩道|ほどう}を{歩|ある}いていた{子|こ}の{横|よこ}を{車|くるま}がすれすれで{通|とお}った。"
+      - type: narration
+        text: "②{横断歩道|おうだんほどう}で{止|と}まっていた{子|こ}がいたのに、{車|くるま}が{止|と}まらなかった。"
+      - type: narration
+        text: "③{通学路|つうがくろ}の{交差点|こうさてん}で、{車|くるま}が{左折|させつ}してきて{巻|ま}き{込|こ}みそうになった。"
+      - type: sprite
+        character: towa
+        expression: surprised
+        position: right
+      - type: dialog
+        character: towa
+        text: "3{件|けん}とも——{子|こ}どもたちはルールを{守|まも}っていたんだ。{歩道|ほどう}を{歩|ある}いて、{横断歩道|おうだんほどう}で{止|と}まって、{交差点|こうさてん}で{気|き}をつけていた。それでも{危|あぶ}なかった。"
+        expression: surprised
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: みんなの後ろめたさを確認しよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒカル —— {書|か}きかえ{後|ご}の{宣言書|せんげんしょ}を{見|み}てもすぐに{言|い}い{出|だ}さなかった。"
+      - type: narration
+        text: "ハシル —— プロジェクト{中|ちゅう}に{信号|しんごう}を{守|まも}れなかった{日|ひ}がある。"
+      - type: narration
+        text: "ミチカ —— ヒヤリハットの1つを{見|み}たが{報告|ほうこく}しなかった。"
+      - type: narration
+        text: "トワ —— {危|あぶ}ない{場所|ばしょ}を{知|し}っていたが{黙|だま}っていた。"
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hashiru
+        text: "{全員|ぜんいん}に{何|なに}かしら{後|うし}ろめたいことがある。でも「{書|か}きかえた{人|ひと}」と「{後|うし}ろめたいことがある{人|ひと}」は{別|べつ}の{話|はなし}だ。{動機|どうき}を{考|かんが}えないと{絞|しぼ}れない。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: ヒヤリハットの場所を調べよう
+      - type: se
+        sound: discover
+      - type: narration
+        text: "①は{歩車|ほしゃ}{分離|ぶんり}がない{細|ほそ}い{道|みち}。②は{信号|しんごう}なし{横断歩道|おうだんほどう}で{車|くるま}が{止|と}まりにくい。③はガードレールがなく{左折|させつ}{車|しゃ}が{近|ちか}づきやすい{交差点|こうさてん}。"
+      - type: sprite
+        character: michika
+        expression: determined
+        position: right
+      - type: dialog
+        character: michika
+        text: "3{件|けん}とも「{子|こ}どもの{不注意|ふちゅうい}」では{説明|せつめい}できない。{道|みち}のつくりに{問題|もんだい}がある——{歩車|ほしゃ}{分離|ぶんり}がない、ガードレールがない、{信号|しんごう}がない。「{気|き}をつけよう」だけでは{安全|あんぜん}にならない{構造|こうぞう}の{問題|もんだい}だ。"
+        expression: determined
+      - type: sprite
+        character: michika
+        action: hide
+
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ヒカルの告白と先生の問い
+      - type: effect
+        name: fade-in
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ヒカルは、ハシルが{赤信号|あかしんごう}を{渡|わた}るのを{見|み}ていた。ハシルをかばいたいと{思|おも}った。"
+      - type: narration
+        text: "{同時|どうじ}に、ルールを{守|まも}っていた{子|こ}がヒヤリハットに{遭|あ}っている{現実|げんじつ}を{見|み}て、「{宣言|せんげん}の{文|ぶん}が{足|た}りない」と{感|かん}じた。"
+      - type: narration
+        text: "{山田先生|やまだせんせい}は3{件|けん}の{地図|ちず}を{見|み}せて{問|と}いかけた——「{気|き}をつけようと{言|い}うだけで{安全|あんぜん}になるかな？」"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ヒカルが{書|か}きかえた{動機|どうき}は2つ——ハシルをかばいたい{気持|きも}ちと、「ルールを{守|まも}る」だけでは{足|た}りないという{本質的|ほんしつてき}な{疑問|ぎもん}。"
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 宣言書を書きかえたのは誰だ？
+      - type: sprite
+        character: towa
+        expression: determined
+        position: left
+      - type: dialog
+        character: towa
+        text: "{書|か}きかえた{文|ぶん}は「ルールを{守|まも}る」から「{安全|あんぜん}を{確認|かくにん}する」へ。いたずらじゃない。ルールだけでは{守|まも}れない{現実|げんじつ}を{見|み}た{人|ひと}が{書|か}いたんだ。"
+        expression: determined
+      - type: sprite
+        character: towa
+        action: hide
+      - type: choice
+        id: q1
+        question: 宣言書を書きかえたのは誰？
+        options:
+          - text: ヒカル（ハシルをかばいつつ、宣言の不十分さに気づいた）
+            value: hikaru
+            correct: true
+            feedback: "{正解|せいかい}！ ヒカルはハシルの{信号|しんごう}{違反|いはん}を{見|み}てかばいたかった。{同時|どうじ}に、ルールを{守|まも}っていた{子|こ}が{危|あぶ}ない{目|め}にあっている{現実|げんじつ}から、「ルールを{守|まも}る」だけでは{足|た}りないと{気|き}づいた。{書|か}きかえ{自体|じたい}は{正|ただ}しいやり{方|かた}ではなかったが、そこには{本質的|ほんしつてき}な{問|と}いがあった。"
+          - text: ハシル（信号違反を隠したくて書きかえた）
+            value: hashiru
+            feedback: "ハシルは{信号|しんごう}を{守|まも}れなかった{日|ひ}がある。でも{宣言書|せんげんしょ}を{書|か}きかえた{動機|どうき}とは{合|あ}わない。{書|か}きかえたのはハシルではないよ。"
+          - text: ミチカ（報告しなかった罪悪感で書きかえた）
+            value: michika
+            feedback: "ミチカはヒヤリハットを{報告|ほうこく}しなかった{後|うし}ろめたさがある。でも{宣言書|せんげんしょ}を{書|か}きかえたのはミチカではないよ。"
+          - text: トワ（危ない場所を黙っていた後ろめたさで）
+            value: towa
+            feedback: "トワは{危|あぶ}ない{場所|ばしょ}を{知|し}っていて{黙|だま}っていた。でも{宣言書|せんげんしょ}を{書|か}きかえたのはトワではないよ。"
+
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ヒカルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hikaru
+        text: "……{宣言書|せんげんしょ}を{書|か}きかえたのは、おれです。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "ハシルが{赤信号|あかしんごう}を{渡|わた}ったのを{見|み}た。{宣言書|せんげんしょ}にサインしたのにルールを{破|やぶ}ったことが{広|ひろ}まったら、プロジェクトが{失敗|しっぱい}だと{思|おも}われるかもしれない——それがこわかった。"
+        expression: thinking
+      - type: dialog
+        character: hikaru
+        text: "でもそれだけじゃない。ヒヤリハットの3{件|けん}を{見|み}て{気|き}づいた。{子|こ}どもたちはルールを{守|まも}ってたんだ。{守|まも}ってたのに{危|あぶ}なかった。「ルールを{守|まも}ります」だけじゃ{足|た}りないんじゃないかって。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "だから「{周|まわ}りの{安全|あんぜん}を{確認|かくにん}します」に{変|か}えた。やり{方|かた}は{間違|まちが}ってた。でも——「{気|き}をつけよう」だけで{安全|あんぜん}にならないなら、{道|みち}の{しくみ}も{変|か}えないといけないと{思|おも}ったんだ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: hashiru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hashiru
+        text: "おれが{赤信号|あかしんごう}を{渡|わた}ったこと、ヒカルに{見|み}られてた。ヒカルはおれをかばおうとしてくれたんだ。でもそれだけじゃなくて、{本当|ほんとう}に{安全|あんぜん}について{考|かんが}えてた。おれも{正直|しょうじき}に{話|はな}すべきだった。"
+        expression: worried
+      - type: sprite
+        character: hashiru
+        action: hide
+      - type: sprite
+        character: michika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: michika
+        text: "ヒヤリハットを{見|み}たのに{報告|ほうこく}しなかった。もし{報告|ほうこく}していたら、{場所|ばしょ}の{構造的|こうぞうてき}な{問題|もんだい}にもっと{早|はや}く{気|き}づけたかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: michika
+        action: hide
+      - type: sprite
+        character: towa
+        expression: worried
+        position: right
+      - type: dialog
+        character: towa
+        text: "{危|あぶ}ない{場所|ばしょ}を{知|し}ってて{黙|だま}ってた。「{言|い}っても{変|か}わらない」って{思|おも}ってた。でもVol.1から{学|まな}んできたこと——{気|き}づいたらすぐ{伝|つた}える。それが{命|いのち}を{守|まも}る{第一歩|だいいっぽ}だったのに。"
+        expression: worried
+      - type: sprite
+        character: towa
+        action: hide
+
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒカルが{宣言書|せんげんしょ}を{書|か}きかえたのは{正|ただ}しいやり{方|かた}ではありません。でもその{中|なか}には{大切|たいせつ}な{問|と}いがありました——「ルールを{守|まも}る」だけで{安全|あんぜん}は{守|まも}れるのか。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{答|こた}えはNo。{安全|あんぜん}には「{個人|こじん}の{注意|ちゅうい}」と「{道|みち}のしくみ」の{両方|りょうほう}が{必要|ひつよう}です。「{気|き}をつける」だけでなく「しくみで{守|まも}る」——それが{本当|ほんとう}の{交通|こうつう}{安全|あんぜん}です。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{交通|こうつう}{安全|あんぜん}{探偵団|たんていだん}は10の{事件|じけん}を{通|とお}して、{交通|こうつう}{安全|あんぜん}と{向|む}き{合|あ}ってきた。"
+      - type: narration
+        text: "Vol.1では{報告|ほうこく}の{大切|たいせつ}さ。Vol.2では{正|ただ}しい{着用|ちゃくよう}。Vol.3ではスクールゾーン。Vol.4では{死角|しかく}。Vol.5では{停止|ていし}{距離|きょり}。Vol.6では{反射材|はんしゃざい}。Vol.7では{信号|しんごう}のタイミング。Vol.8では{左側|ひだりがわ}{通行|つうこう}。Vol.9では{情報|じょうほう}の{信頼性|しんらいせい}。"
+      - type: narration
+        text: "そしてVol.10——ルールだけでは{守|まも}れない。{個人|こじん}の{注意|ちゅうい}と{道路|どうろ}の{しくみ}、{両方|りょうほう}が{揃|そろ}って{初|はじ}めて「{安全|あんぜん}」になる。{犯人|はんにん}を{見|み}つけて{終|お}わりではなく、「どうすれば{守|まも}れるか」を{考|かんが}え{続|つづ}けること——それが{交通|こうつう}{安全|あんぜん}{探偵団|たんていだん}の{使命|しめい}だ。"
+      - type: effect
+        name: fade-out

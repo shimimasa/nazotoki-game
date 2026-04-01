@@ -1,0 +1,389 @@
+meta:
+  id: media-09
+  title: つながりのウソ
+  series: メディアリテラシー探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  akari:
+    name: アカリ
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  makoto:
+    name: マコト
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nozomu:
+    name: ノゾム
+    color: "#4A90D9"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  shiori:
+    name: シオリ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{保健|ほけん}{委員会|いいんかい}の{活動|かつどう}で「{夏|なつ}の{事故|じこ}を{減|へ}らそう」というテーマが{決|き}まった。{保健|ほけん}{委員|いいん}のマコトが{調査|ちょうさ}ポスターを{作|つく}り、{学校|がっこう}の{廊下|ろうか}に{貼|は}り{出|だ}した。"
+      - type: narration
+        text: "ポスターのタイトルは——「{夏|なつ}の{事故|じこ}を{防|ふせ}ごう！ アイス{禁止|きんし}のすすめ」。グラフには、アイスの{売上|うりあげ}と{水泳|すいえい}{事故|じこ}の{件数|けんすう}が{並|なら}んでいる。たしかに{両方|りょうほう}とも{夏|なつ}になると{増|ふ}えていた。"
+      - type: narration
+        text: "データは{本物|ほんもの}で、{数字|すうじ}に{間違|まちが}いはない。ところが——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: shiori
+        expression: determined
+        position: center
+      - type: dialog
+        character: shiori
+        text: "ちょっと{待|ま}って。アイスを{食|た}べたせいで{事故|じこ}が{起|お}きるの？ ソースは？ 「{一緒|いっしょ}に{増|ふ}える」ことと「{原因|げんいん}と{結果|けっか}」は{同|おな}じなの？"
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "シオリさんの{疑問|ぎもん}はもっともです。{学校|がっこう}{中|じゅう}で「アイス{禁止|きんし}」の{話|はなし}が{広|ひろ}がっています。メディアリテラシー{探偵団|たんていだん}に、このポスターの{主張|しゅちょう}を{検証|けんしょう}してほしいのです。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: akari
+            expression: worried
+          - character: makoto
+            expression: thinking
+          - character: nozomu
+            expression: surprised
+          - character: shiori
+            expression: determined
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「アイスの{売上|うりあげ}が{上|あ}がると{水泳|すいえい}{事故|じこ}が{増|ふ}える」——このポスターの{主張|しゅちょう}は{本当|ほんとう}に{正|ただ}しいのか。{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: つながりのウソ
+        subtitle: メディアリテラシー探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: マコトのポスターを確認しよう
+      - type: narration
+        text: "{廊下|ろうか}の{掲示板|けいじばん}に{貼|は}られたポスターを{調|しら}べた。{保健|ほけん}{委員|いいん}のマコトが{作|つく}ったものだ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ポスターのグラフ——{横軸|よこじく}は1{月|がつ}〜12{月|がつ}。{左|ひだり}の{縦軸|たてじく}はアイスの{売上|うりあげ}（{万個|まんこ}）、{右|みぎ}の{縦軸|たてじく}は{水泳|すいえい}{事故|じこ}の{件数|けんすう}（{件|けん}）。"
+      - type: narration
+        text: "アイスの{売上|うりあげ}は6〜8{月|がつ}に{急増|きゅうぞう}（1{月|がつ}: 5{万個|まんこ} → 7{月|がつ}: 30{万個|まんこ}）。{水泳|すいえい}{事故|じこ}も6〜8{月|がつ}に{急増|きゅうぞう}（1{月|がつ}: 2{件|けん} → 7{月|がつ}: 24{件|けん}）。2つの{線|せん}がほぼ{同|おな}じ{形|かたち}だ。"
+      - type: narration
+        text: "ポスターの{主張|しゅちょう}は——「データを{見|み}てください！ アイスの{売上|うりあげ}が{上|あ}がると、{水泳|すいえい}{事故|じこ}も{増|ふ}えます。つまりアイスが{事故|じこ}の{原因|げんいん}です。{夏|なつ}の{事故|じこ}を{防|ふせ}ぐには、アイスを{禁止|きんし}すべきです！」"
+      - type: narration
+        text: "グラフを{見|み}ると、たしかにアイスの{売上|うりあげ}と{水泳|すいえい}{事故|じこ}は{一緒|いっしょ}に{増|ふ}えている。でも「{一緒|いっしょ}に{増|ふ}える」ことは「{原因|げんいん}と{結果|けっか}」を{意味|いみ}するのだろうか？"
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4つのデータセットを比べよう
+      - type: narration
+        text: "シオリが「もっとデータを{集|あつ}めよう」と{提案|ていあん}した。{図書室|としょしつ}と{保健室|ほけんしつ}で4つのデータセットを{見|み}つけた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "データセットA（アイスの{売上|うりあげ}×{水泳|すいえい}{事故|じこ}）: 7{月|がつ}にアイス30{万個|まんこ}、{事故|じこ}24{件|けん}。{売上|うりあげ}が{増|ふ}えると{事故|じこ}も{増|ふ}える——{相関|そうかん}あり。"
+      - type: narration
+        text: "データセットB（{気温|きおん}×{水泳|すいえい}{事故|じこ}）: 7{月|がつ}に{平均|へいきん}{気温|きおん}30℃、{事故|じこ}24{件|けん}。{気温|きおん}が{上|あ}がると{事故|じこ}も{増|ふ}える——{相関|そうかん}あり。"
+      - type: narration
+        text: "データセットC（{気温|きおん}×アイスの{売上|うりあげ}）: 7{月|がつ}に{気温|きおん}30℃、{売上|うりあげ}30{万個|まんこ}。{気温|きおん}が{上|あ}がると{売上|うりあげ}も{増|ふ}える——{相関|そうかん}あり。"
+      - type: narration
+        text: "データセットD（かき{氷|ごおり}の{売上|うりあげ}×{水泳|すいえい}{事故|じこ}）: 7{月|がつ}にかき{氷|ごおり}20{万杯|まんぱい}、{事故|じこ}24{件|けん}。かき{氷|ごおり}が{増|ふ}えても{事故|じこ}が{増|ふ}える——{相関|そうかん}あり。"
+      - type: narration
+        text: "4つすべてに{相関|そうかん}がある。アイスだけでなく、{気温|きおん}もかき{氷|ごおり}も{事故|じこ}と{一緒|いっしょ}に{動|うご}いている。「{相関|そうかん}がある」ことは「{原因|げんいん}である」ことと{同|おな}じなのだろうか？"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 統合比較表でパターンを探そう
+      - type: narration
+        text: "4つのデータセットを{月|つき}ごとに1つの{表|ひょう}にまとめた。{統合|とうごう}{比較|ひかく}表で{共通|きょうつう}のパターンを{探|さが}す。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{気温|きおん}が{一番|いちばん}{高|たか}い月は？ → 7{月|がつ}（30℃）。アイスの{売上|うりあげ}が{一番|いちばん}{多|おお}い月は？ → 7{月|がつ}（30{万個|まんこ}）。{水泳|すいえい}{事故|じこ}が{一番|いちばん}{多|おお}い月は？ → 7{月|がつ}（24{件|けん}）。かき{氷|ごおり}の{売上|うりあげ}が{一番|いちばん}{多|おお}い月は？ → 7{月|がつ}（20{万杯|まんぱい}）。"
+      - type: narration
+        text: "4つとも{全部|ぜんぶ}7{月|がつ}が{一番|いちばん}だ！ なぜ4つともが{同|おな}じ月に{一番|いちばん}大きくなる？ データセットBとCを{横|よこ}に{並|なら}べてみると——"
+      - type: narration
+        text: "{気温|きおん}が{上|あ}がると{水泳|すいえい}{事故|じこ}も{増|ふ}え（B）、{気温|きおん}が{上|あ}がるとアイス{売上|うりあげ}も{増|ふ}える（C）。{気温|きおん}の{列|れつ}が{共通|きょうつう}だ！ もし「{気温|きおん}」という{第三|だいさん}の{要素|ようそ}が{両方|りょうほう}に{影響|えいきょう}しているなら、アイスと{事故|じこ}の{関係|かんけい}はどうなる？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-4
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ4
+        subtitle: 保健委員会の議事録を読もう
+      - type: narration
+        text: "{保健|ほけん}{委員会|いいんかい}の{活動|かつどう}{記録|きろく}が{見|み}つかった。{水曜日|すいようび}の{会議|かいぎ}の{議事録|ぎじろく}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "マコトの{発言|はつげん}——「{図書室|としょしつ}でデータを{調|しら}べました。アイスの{売上|うりあげ}と{水泳|すいえい}{事故|じこ}には{相関|そうかん}があります。グラフを{見|み}てください——2つの{線|せん}がほぼ{同|おな}じ{動|うご}きをしています。データが{証明|しょうめい}しています。アイスが{事故|じこ}の{原因|げんいん}です」"
+      - type: narration
+        text: "ユミ（{副委員長|ふくいいんちょう}）の{発言|はつげん}——「うーん……{本当|ほんとう}にアイスが{原因|げんいん}？ {暑|あつ}いから{両方|りょうほう}{増|ふ}えるだけじゃないの？」"
+      - type: narration
+        text: "ケンの{発言|はつげん}——「でもアイスを{禁止|きんし}しても{事故|じこ}は{減|へ}らないんじゃ……」"
+      - type: narration
+        text: "マコトの{返答|へんとう}——「{去年|きょねん}、プールで{事故|じこ}があったでしょ？ {僕|ぼく}たちが{何|なに}かしないと。データが{示|しめ}しているんだから、{行動|こうどう}しなきゃ」。マコトの{熱意|ねつい}に{押|お}され、ポスター{制作|せいさく}が{承認|しょうにん}された。ユミとケンは{疑問|ぎもん}を{持|も}ったままだった。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom-blackboard
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の解説とマコトの調査ノート
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{相関|そうかん}」と「{因果|いんが}」のちがいを{説明|せつめい}します。{相関|そうかん}とはAとBが{一緒|いっしょ}に{動|うご}くこと。{因果|いんが}とはAがBを{引|ひ}き{起|お}こすことです。この2つは{同|おな}じではありません。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "アイスを{禁止|きんし}しても、{水泳|すいえい}{事故|じこ}は{減|へ}りますか？ ——{減|へ}りません。{気温|きおん}が{高|たか}ければプールに{行|い}く人は{減|へ}らないし、{事故|じこ}も{減|へ}らない。アイスと{事故|じこ}は「{相関|そうかん}」はあるけれど「{因果|いんが}」はないのです。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "さらに——マコトの{調査|ちょうさ}ノートが{保健室|ほけんしつ}で{見|み}つかった！"
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ノートの{火曜日|かようび}のページ——「{気温|きおん}のデータも{見|み}つけた。{気温|きおん}も{同|おな}じように{夏|なつ}に{上|あ}がっていた」。{木曜日|もくようび}のページ——「{気温|きおん}のデータは{使|つか}わなかった。アイスと{事故|じこ}の{方|ほう}がインパクトがあるから」。そして{水曜日|すいようび}のメモ——「{去年|きょねん}のプール{事故|じこ}を{繰|く}り{返|かえ}したくない。{僕|ぼく}がデータで{証明|しょうめい}して{事故|じこ}を{防|ふせ}ぐんだ」。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ポスターを作ったのは誰だ？
+      - type: sprite
+        character: nozomu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nozomu
+        text: "{友達|ともだち}のユミから{聞|き}いた話がある。{保健|ほけん}{委員会|いいんかい}でユミが「{暑|あつ}いから{両方|りょうほう}{増|ふ}えるだけじゃないの？」って{言|い}ったのに、マコトに「データがあるから{間違|まちが}いない」って{押|お}し{切|き}られたって……"
+        expression: thinking
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: right
+      - type: dialog
+        character: akari
+        text: "{去年|きょねん}のプール{事故|じこ}のあと、マコトが「{僕|ぼく}がもっと{注意|ちゅうい}を{呼|よ}びかけていれば」って{自分|じぶん}を{責|せ}めてたのを{見|み}た。{責任感|せきにんかん}が{強|つよ}すぎて、{答|こた}えを{急|いそ}いでしまったのかもしれない……"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ポスターを{作|つく}ったのは{保健|ほけん}{委員|いいん}のマコト。マコトは{気温|きおん}データも{知|し}っていたのに、「インパクトがある」という{理由|りゆう}でアイスと{事故|じこ}のデータだけ{使|つか}った。{相関|そうかん}＝{因果|いんが}という{思|おも}い{込|こ}みがあった——"
+      - type: choice
+        id: q1
+        question: ポスターを作ったのは誰？
+        options:
+          - text: マコト（保健委員・データを調べてポスターを作った・気温データを知っていたのに使わなかった）
+            value: makoto
+            correct: true
+            feedback: "{正解|せいかい}！ マコトは{保健|ほけん}{委員|いいん}として{調査|ちょうさ}を{担当|たんとう}し、{相関|そうかん}＝{因果|いんが}と{思|おも}い{込|こ}んでポスターを{作|つく}った。{気温|きおん}データを{知|し}っていたのに「インパクトがある」として{使|つか}わなかった。{去年|きょねん}のプール{事故|じこ}への{責任感|せきにんかん}が{判断|はんだん}を{歪|ゆが}めた。"
+          - text: ノゾム（アイス禁止に大反対していた）
+            value: nozomu
+            feedback: "ノゾムは{保健|ほけん}{委員会|いいんかい}のメンバーではない。ポスターに{反対|はんたい}していた{立場|たちば}だよ。{友達|ともだち}のユミから{委員会|いいんかい}の{情報|じょうほう}を{聞|き}いていただけ。"
+          - text: シオリ（4つのデータセットを図書室で集めた）
+            value: shiori
+            feedback: "シオリは{最初|さいしょ}に{疑問|ぎもん}を{投|な}げかけた{人物|じんぶつ}だ。「ソースは？」と{言|い}って{調査|ちょうさ}を{始|はじ}めたシオリが{作|つく}るはずはない。4つのデータセットを{集|あつ}めたのも{検証|けんしょう}のため。"
+          - text: アカリ（ポスターの影響を観察していた）
+            value: akari
+            feedback: "アカリはポスターが{校内|こうない}に{与|あた}えた{影響|えいきょう}を{心配|しんぱい}していた。「みんなの{楽|たの}しみを{奪|うば}っていいの？」と{感|かん}じていたアカリが{作|つく}るはずはないよ。"
+
+  # ==================== 真実：マコト ====================
+  - id: truth
+    bg: classroom-blackboard
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マコトの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: makoto
+        expression: worried
+        position: center
+      - type: dialog
+        character: makoto
+        text: "……うん、{気温|きおん}のデータも{見|み}つけてた。でも{使|つか}わなかったんだ。"
+        expression: worried
+      - type: narration
+        text: "マコトは{下|した}を{向|む}きながら、{小|ちい}さな{声|こえ}で{話|はな}し{始|はじ}めた。"
+      - type: dialog
+        character: makoto
+        text: "{去年|きょねん}のプール{事故|じこ}のこと、{頭|あたま}から{離|はな}れなくて……{保健|ほけん}{委員|いいん}として「{僕|ぼく}がデータで{証明|しょうめい}すれば{事故|じこ}を{防|ふせ}げる」って{思|おも}ったんだ。"
+        expression: thinking
+      - type: dialog
+        character: makoto
+        text: "アイスと{事故|じこ}のグラフが{同|おな}じ{形|かたち}だったとき、「{相関|そうかん}がある＝{因果|いんが}がある」って{思|おも}い{込|こ}んでた。「{本当|ほんとう}かな？」って{自分|じぶん}に{聞|き}くのを、{忘|わす}れてた。"
+        expression: worried
+      - type: dialog
+        character: makoto
+        text: "{気温|きおん}データは「アイスと{事故|じこ}の{方|ほう}がインパクトがある」と{思|おも}って{使|つか}わなかった。ユミやケンの{疑問|ぎもん}も{聞|き}けなかった。……{責任感|せきにんかん}が{強|つよ}すぎて、{判断|はんだん}が{偏|かたよ}っちゃったんだ。"
+        expression: determined
+      - type: sprite
+        character: makoto
+        action: hide
+
+  # ==================== 真実：ほかのメンバー ====================
+  - id: truth-others
+    bg: classroom-blackboard
+    steps:
+      - type: sprite
+        character: nozomu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nozomu
+        text: "ユミから「{暑|あつ}いから{両方|りょうほう}{増|ふ}えるだけ」って{聞|き}いたとき、「そうじゃないの？」って{思|おも}った。{考|かんが}えてみたら——{夏|なつ}に{暑|あつ}くなるから、アイスも{売|う}れるしプールにも{行|い}く。かき{氷|ごおり}だって{夏|なつ}に{売|う}れる。「かき{氷|ごおり}も{事故|じこ}の{原因|げんいん}」って{言|い}えるの？ {変|へん}だよね。"
+        expression: thinking
+      - type: sprite
+        character: nozomu
+        action: hide
+      - type: sprite
+        character: shiori
+        expression: determined
+        position: right
+      - type: dialog
+        character: shiori
+        text: "データBとCを{横|よこ}に{並|なら}べたとき、{気温|きおん}の{列|れつ}が{共通|きょうつう}なのが{見|み}えた。{気温|きおん}が{上|あ}がると{事故|じこ}も{増|ふ}え、{売上|うりあげ}も{増|ふ}える——つまり「{気温|きおん}」という{第三|だいさん}の{原因|げんいん}が{両方|りょうほう}を{動|うご}かしていた。{保健室|ほけんしつ}でマコトのノートも{見|み}た。{気温|きおん}データを{知|し}りながら{使|つか}わなかった——{都合|つごう}のいいデータだけ{選|えら}ぶのは{正|ただ}しくない。"
+        expression: determined
+      - type: sprite
+        character: shiori
+        action: hide
+      - type: sprite
+        character: akari
+        expression: worried
+        position: left
+      - type: dialog
+        character: akari
+        text: "2{年生|ねんせい}のミカちゃんが「アイス{食|た}べたら{事故|じこ}になるの？ {怖|こわ}い」って{泣|な}いてた。ポスター1{枚|まい}で、こんなに{影響|えいきょう}がある。マコトに{悪意|あくい}はなかった——「{事故|じこ}を{防|ふせ}ぎたい」という{気持|きも}ちは{立派|りっぱ}だよ。でも……データの{使|つか}い方を{間違|まちが}えると、{正|ただ}しい{数字|すうじ}でも{間違|まちが}った{結論|けつろん}になってしまう。"
+        expression: worried
+      - type: sprite
+        character: akari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: hallway-sunset
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マコトさんの「{事故|じこ}を{防|ふせ}ぎたい」という{責任感|せきにんかん}は{素晴|すば}らしい。でも{相関|そうかん}と{因果|いんが}を{混同|こんどう}してしまった。これは大人でもよくあることよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「データがある＝{正|ただ}しい」ではないの。{大切|たいせつ}なのは「AとBが{一緒|いっしょ}に{増|ふ}えるとき、{第三|だいさん}の{原因|げんいん}が{隠|かく}れていない？」と{問|と}いかけること。{相関|そうかん}を{見|み}つけたら、{次|つぎ}に{因果|いんが}かどうかを{確認|かくにん}する。それが{統計|とうけい}リテラシーの{第一歩|だいいっぽ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "アイスの{売上|うりあげ}と{水泳|すいえい}{事故|じこ}は{確|たし}かに{一緒|いっしょ}に{増|ふ}える。でも{本当|ほんとう}の{原因|げんいん}は「{気温|きおん}」——{気温|きおん}が{上|あ}がるとアイスも{売|う}れるし、プールに{行|い}く人も{増|ふ}えて{事故|じこ}も{増|ふ}える。アイスを{禁止|きんし}しても、{気温|きおん}が{高|たか}い{限|かぎ}り{事故|じこ}は{減|へ}らない。"
+      - type: narration
+        text: "この{隠|かく}れた「{第三|だいさん}の{原因|げんいん}」を{交絡因子|こうらくいんし}という。データを{正|ただ}しく{使|つか}うには、「AをやめたらBも{止|と}まる？」とテストしてみること。"
+      - type: narration
+        text: "データがあるから{正|ただ}しい、ではない。データの{読|よ}み方が{大事|だいじ}。ニュースや{広告|こうこく}で「データによると〜だから〜すべき」と{聞|き}いたとき——{相関|そうかん}なの？ {因果|いんが}なの？ {第三|だいさん}の{原因|げんいん}は{隠|かく}れていない？ その{問|と}いかけが、あなたを{守|まも}る。"
+      - type: effect
+        name: fade-out
