@@ -1,0 +1,461 @@
+meta:
+  id: space-06
+  title: 季節のなぞ
+  series: 宇宙探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hoshino:
+    name: ホシノ
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsukimi:
+    name: ツキミ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の授業で、"
+
+      - type: narration
+        text: "「なぜ夏は暑いのか」を"
+
+      - type: narration
+        text: "みんなで発表することになりました。"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sora
+        text: "大変だ！ みんな来て！"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "{落|お}ち{着|つ}いて。みんなで{証拠|しょうこ}を{集|あつ}めて{調|しら}べてみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: determined }
+          - { id: hoshino, expression: thinking }
+          - { id: tsukimi, expression: thinking }
+          - { id: sora, expression: worried }
+
+      - type: narration
+        text: "「{宇宙探偵団|うちゅうたんていだん}」として{調査|ちょうさ}を{始|はじ}める。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        title: 宇宙探偵団
+        subtitle: Vol.6 季節のなぞ
+
+  # ========================================
+  # 証拠カード1
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+
+      - type: narration
+        text: "ソラのポスター"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード2
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「季節はなぜ変わる？」問いカード"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード3
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "図書室の貸し出し記録 + ヒカリの調査"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード4
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "ホシノの距離データ表 + インク分析"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード5
+  # ========================================
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: narration
+        text: "追加HO・先生のメモ"
+
+      - type: se
+        sound: discover
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ========================================
+  # 議論
+  # ========================================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+
+      - type: sprite
+        character: tsukimi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: tsukimi
+        text: "ソラが前日に季節の本を借りていた記録を見つけた"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "ポスターは同じ1枚の紙に上書きされていたと気づいた"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: hoshino
+        text: "距離データから、7月のほうが太陽から遠いと分かった"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: sora
+        text: "もとのポスターに「近い＝暑い」と書いた"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+
+      - type: narration
+        text: "「ソラのポスターを書き換えたのは誰？」"
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: normal }
+          - { id: hoshino, expression: normal }
+          - { id: tsukimi, expression: normal }
+          - { id: sora, expression: worried }
+
+      - type: choice
+        id: q1
+        text: "ソラのポスターを書き換えたのは誰？"
+        options:
+          - label: ヒカリ
+            value: hikari
+            correct: false
+            feedback: "ヒカリはポスターの現場を調べた側"
+          - label: ホシノ
+            value: hoshino
+            correct: false
+            feedback: "ホシノはデータで検証した側"
+          - label: ツキミ
+            value: tsukimi
+            correct: false
+            feedback: "ツキミは図書室の記録を調べた側"
+          - label: ソラ
+            value: sora
+            correct: true
+            feedback: "ソラは"夏は太陽に近いから暑い"と思っていた。でも本を読んで間違いだと気づいた。恥ずかしくてこっそり直したけど、間違いに気づけたこと自体がすごい。地球は北半球の夏に太陽から遠い。季節の本当の理由は地軸の23.4度の傾き。太陽の光が地面に当たる角度が変わるから暑さが変わるんだ"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: 真相
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "真相が明かされた。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sora
+        text: "はずかしくて、自分でこっそり書き直した"
+
+      - type: sprite
+        character: sora
+        expression: determined
+
+      - type: dialog
+        character: sora
+        text: "ごめんなさい。"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{調|しら}べたね。今日の{学|まな}びを{振|ふ}り{返|かえ}ろう。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "・4度のかたむきです。\n・証拠カード1で、ポスターには書き直しのあとがあり、もとの文がうすく残っていると分かる\n・よって、新しいポスターへのすりかえではなく、もとの紙に上から手を入れたと考えられる"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: happy }
+          - { id: hoshino, expression: happy }
+          - { id: tsukimi, expression: happy }
+          - { id: sora, expression: happy }
+
+      - type: narration
+        text: "{宇宙探偵団|うちゅうたんていだん}の{冒険|ぼうけん}はつづく——"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1000

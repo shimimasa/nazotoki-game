@@ -1,0 +1,461 @@
+meta:
+  id: space-10
+  title: 青い点
+  series: 宇宙探偵団
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hoshino:
+    name: ホシノ
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsukimi:
+    name: ツキミ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "学校の宇宙展示会で、いちばん大きなパネルの文が書きかえられていました。"
+
+      - type: narration
+        text: "もとの文は、"
+
+      - type: narration
+        text: "「宇宙は広大で、地球は小さな星のひとつ」"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: hoshino
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hoshino
+        text: "大変だ！ みんな来て！"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "{落|お}ち{着|つ}いて。みんなで{証拠|しょうこ}を{集|あつ}めて{調|しら}べてみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: determined }
+          - { id: hoshino, expression: thinking }
+          - { id: tsukimi, expression: thinking }
+          - { id: sora, expression: worried }
+
+      - type: narration
+        text: "「{宇宙探偵団|うちゅうたんていだん}」として{調査|ちょうさ}を{始|はじ}める。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        title: 宇宙探偵団
+        subtitle: Vol.10 青い点
+
+  # ========================================
+  # 証拠カード1
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+
+      - type: narration
+        text: "証拠カード1"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード2
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード3
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード4
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+
+      - type: se
+        sound: discover
+
+  # ========================================
+  # 証拠カード5
+  # ========================================
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: narration
+        text: "証拠カード5"
+
+      - type: se
+        sound: discover
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ========================================
+  # 議論
+  # ========================================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+
+      - type: sprite
+        character: tsukimi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: tsukimi
+        text: "ツキミの考えを述べる"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "ヒカリの考えを述べる"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "ソラの考えを述べる"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hoshino
+        text: "ホシノの考えを述べる"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+
+      - type: narration
+        text: "「犯人は誰？」"
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: normal }
+          - { id: hoshino, expression: normal }
+          - { id: tsukimi, expression: normal }
+          - { id: sora, expression: worried }
+
+      - type: choice
+        id: q1
+        text: "犯人は誰？"
+        options:
+          - label: ヒカリ
+            value: hikari
+            correct: false
+            feedback: "ヒカリはパネル周辺を調査した側"
+          - label: ホシノ
+            value: hoshino
+            correct: true
+            feedback: "ホシノは宇宙のデータに詳しい。でもカケルが"自分なんかどうでもいい"と泣いたのを見て、パネルを書き換えた。かばいたい気持ちは分かるけど、勝手に変えるのは問題だった"
+          - label: ツキミ
+            value: tsukimi
+            correct: false
+            feedback: "ツキミは科学的事実を検証した側"
+          - label: ソラ
+            value: sora
+            correct: false
+            feedback: "ソラはカケルとホシノの気持ちを代弁した側"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: 真相
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "真相が明かされた。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hoshino
+        text: "..."
+
+      - type: sprite
+        character: hoshino
+        expression: determined
+
+      - type: dialog
+        character: hoshino
+        text: "ごめんなさい。"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{調|しら}べたね。今日の{学|まな}びを{振|ふ}り{返|かえ}ろう。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "・12ピクセルほどの小さな青い点に見えました。それほど小さく見えても、その点の上で、だれかが笑い、泣き、出会い、学んでいます。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: happy }
+          - { id: hoshino, expression: happy }
+          - { id: tsukimi, expression: happy }
+          - { id: sora, expression: happy }
+
+      - type: narration
+        text: "{宇宙探偵団|うちゅうたんていだん}の{冒険|ぼうけん}はつづく——"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1000

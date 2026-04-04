@@ -1,0 +1,515 @@
+meta:
+  id: space-03
+  title: 影の時計
+  series: 宇宙探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hoshino:
+    name: ホシノ
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsukimi:
+    name: ツキミ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の時間に、"
+
+      - type: narration
+        text: "校庭で日時計コンテストが開かれました。"
+
+      - type: narration
+        text: "いちばん正確だったとして"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: hoshino
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hoshino
+        text: "大変だ！ みんな来て！"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "{落|お}ち{着|つ}いて。みんなで{証拠|しょうこ}を{集|あつ}めて{調|しら}べてみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: determined }
+          - { id: hoshino, expression: thinking }
+          - { id: tsukimi, expression: thinking }
+          - { id: sora, expression: worried }
+
+      - type: narration
+        text: "「{宇宙探偵団|うちゅうたんていだん}」として{調査|ちょうさ}を{始|はじ}める。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        title: 宇宙探偵団
+        subtitle: Vol.3 影の時計
+
+  # ========================================
+  # 証拠カード1
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+
+      - type: narration
+        text: "コンテスト結果"
+
+      - type: narration
+        text: "日時計コンテスト結果\n1位 ホシノ\n「とても正確」\nほかの声\n・朝はずれた\n・夕方も読みにくかった"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ホシノの日時計だけが いつでも正確だったのかな？"
+
+  # ========================================
+  # 証拠カード2
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "太陽と影の関係"
+
+      - type: narration
+        text: "太陽の動き\n朝: 太陽が低い\n正午ごろ: 太陽が高い\n夕方: 太陽が低い\n影のようす\n太陽が高い → 影が短い"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "影が長い時間と短い時間では、 日時計の読みやすさは同じかな？"
+
+  # ========================================
+  # 証拠カード3
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "ヒカリの追加計測記録"
+
+      - type: narration
+        text: "追加計測メモ\n朝8時    : 誤差30分\n正午ごろ: 誤差2分\n夕方4時  : 誤差25分"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "時間によって誤差が変わるのは、 何が原因だろう？"
+
+  # ========================================
+  # 証拠カード4
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "ツキミの比較表"
+
+      - type: narration
+        text: "計測時間の比較\nホシノの提出:\n11:30 / 12:00 / 12:30\nほかの参加者:\n8:00 / 10:00 / 12:00 / 14:00 / 16:00"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "同じ条件で比べていないとしたら、 結果は公平と言えるかな？"
+
+  # ========================================
+  # 証拠カード5
+  # ========================================
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: narration
+        text: "先生の解説と全データ"
+
+      - type: narration
+        text: "先生のメモ\n・都合のいいデータだけ選ぶことを\nチェリーピッキングという\n・ホシノの全データ\n朝8時    : 誤差28分\n正午ごろ: 誤差1分"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ホシノの日時計は、 本当に「特別」だったのかな？ それとも、出したデータにかたよりがあったのかな？"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ========================================
+  # 議論
+  # ========================================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+
+      - type: sprite
+        character: tsukimi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: tsukimi
+        text: "ホシノの提出データは11:30〜12:30だけだと気づいた"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "朝8時は30分ずれた"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "朝夕は影が長く、正午ごろは短いと体で感じていた"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hoshino
+        text: "朝夕のデータも持っていた"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+
+      - type: narration
+        text: "「日時計コンテストで不正なデータ提出をしたのは誰？」"
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: normal }
+          - { id: hoshino, expression: normal }
+          - { id: tsukimi, expression: normal }
+          - { id: sora, expression: worried }
+
+      - type: choice
+        id: q1
+        text: "日時計コンテストで不正なデータ提出をしたのは誰？"
+        options:
+          - label: ヒカリ
+            value: hikari
+            correct: false
+            feedback: "ヒカリは追加計測で時間帯による違いを実証した側"
+          - label: ホシノ
+            value: hoshino
+            correct: true
+            feedback: "ホシノの日時計自体は悪くなかった。でも正午付近の精度が高いデータだけを選んで提出した。太陽が高い正午は影がくっきりして精度が上がる。朝夕は太陽が低くて影が長くなり、誤差が大きくなる。科学では条件を揃えてデータを比較することが大切なんだ"
+          - label: ツキミ
+            value: tsukimi
+            correct: false
+            feedback: "ツキミは計測条件の違いに気づいた側"
+          - label: ソラ
+            value: sora
+            correct: false
+            feedback: "ソラは影の長さが変わる体験を共有した側"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: 真相
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みなさん、よく調べました。\n日時計コンテストの真相を発表します。\nかたよったデータを出していたのは――ホシノです。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "でも、\nホシノの日時計そのものが\nまったく役に立たなかったわけではありません。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "正午ごろの計測では、\nほんとうによく合っていました。\nただし、"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "朝や夕方の計測では\nほかの人の日時計と同じように\n大きな誤差が出ていました。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hoshino
+        text: "認められたい気持ちから、都合のいい結果を選んでしまった"
+
+      - type: sprite
+        character: hoshino
+        expression: determined
+
+      - type: dialog
+        character: hoshino
+        text: "ごめんなさい。"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{調|しら}べたね。今日の{学|まな}びを{振|ふ}り{返|かえ}ろう。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "・証拠カード1で、ホシノの日時計がいちばん正確だと発表されたが、ほかの参加者は朝夕にずれを感じていたと分かる\n・つまり、「いつでも正確だったのか」が問題になる\n・証拠カード2で、太陽が高いと影は短く、太陽が低いと影は長くなると分かる"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: happy }
+          - { id: hoshino, expression: happy }
+          - { id: tsukimi, expression: happy }
+          - { id: sora, expression: happy }
+
+      - type: narration
+        text: "{宇宙探偵団|うちゅうたんていだん}の{冒険|ぼうけん}はつづく——"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1000

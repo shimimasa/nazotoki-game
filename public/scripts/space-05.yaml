@@ -1,0 +1,515 @@
+meta:
+  id: space-05
+  title: 重さのトリック
+  series: 宇宙探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hoshino:
+    name: ホシノ
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsukimi:
+    name: ツキミ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "保健室で体重測定がありました。"
+
+      - type: narration
+        text: "記録を見ていた先生が、"
+
+      - type: narration
+        text: "ヒカリの欄で首をかしげました。"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hikari
+        text: "大変だ！ みんな来て！"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "{落|お}ち{着|つ}いて。みんなで{証拠|しょうこ}を{集|あつ}めて{調|しら}べてみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: determined }
+          - { id: hoshino, expression: thinking }
+          - { id: tsukimi, expression: thinking }
+          - { id: sora, expression: worried }
+
+      - type: narration
+        text: "「{宇宙探偵団|うちゅうたんていだん}」として{調査|ちょうさ}を{始|はじ}める。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        title: 宇宙探偵団
+        subtitle: Vol.5 重さのトリック
+
+  # ========================================
+  # 証拠カード1
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+
+      - type: narration
+        text: "体重測定記録"
+
+      - type: narration
+        text: "保健室の記録\nヒカリの欄\n・いつもの体重\n・軽すぎる数字\n先生メモ\n「どちらが正式な記録か分からない」"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "2つの数字は、 どんな関係になっているのかな？"
+
+  # ========================================
+  # 証拠カード2
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "理科の教科書ページ"
+
+      - type: narration
+        text: "理科の教科書\n・月の重力は\n地球の約1/6\n・重さは場所で変わる\n・質量は変わらない"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "もし 1/6 になっていたら、 何を意味しているのかな？"
+
+  # ========================================
+  # 証拠カード3
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "ホシノの計算メモ"
+
+      - type: narration
+        text: "計算メモ\n元の体重 ÷ 6\n= 軽い数字\nぴったり一致"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "この数字は、ただのまちがいかな？ それとも、意味のある計算結果かな？"
+
+  # ========================================
+  # 証拠カード4
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "ツキミとソラの報告"
+
+      - type: narration
+        text: "観察と証言\n・軽い数字の横に\n小さく「月」\n・ヒカリは先週から\n「月だと軽くなる」\nと話していた"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "「月」の1文字と ヒカリの話は、 どうつながるかな？"
+
+  # ========================================
+  # 証拠カード5
+  # ========================================
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: narration
+        text: "追加HO・ヒカリの理科ノート"
+
+      - type: narration
+        text: "ヒカリの理科ノート\n月の重力 = 地球の1/6\n自分の体重で計算\n「月ならこのくらい！」\n先生の補足\n・重さは場所で変わる"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ヒカリは記録をこわしたかったのかな？ それとも、学んだことを試したかったのかな？"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ========================================
+  # 議論
+  # ========================================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+
+      - type: sprite
+        character: tsukimi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: tsukimi
+        text: "軽い数字の横に小さく「月」と書いてあるのを見つけた"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: hoshino
+        text: "軽い数字は元の値のちょうど1/6だと計算した"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "ヒカリは先週から月での重さの話をしていた"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "月ならどうなるか知りたくて、自分の体重を6で割った"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+
+      - type: narration
+        text: "「体重記録に異常な値を書き込んだのは誰？」"
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: normal }
+          - { id: hoshino, expression: normal }
+          - { id: tsukimi, expression: normal }
+          - { id: sora, expression: worried }
+
+      - type: choice
+        id: q1
+        text: "体重記録に異常な値を書き込んだのは誰？"
+        options:
+          - label: ヒカリ
+            value: hikari
+            correct: true
+            feedback: "ヒカリは"月で測ったら自分の体重はどうなる？"という好奇心から計算した。月面の重力は地球の約1/6だから、体重も1/6の値になる。でも大切なのは——体そのもの（質量）は変わらないこと。場所が変わっても"自分"は同じなんだ。ヒカリの好奇心自体はとても科学的だよ"
+          - label: ホシノ
+            value: hoshino
+            correct: false
+            feedback: "ホシノは数値の法則性を計算で発見した側"
+          - label: ツキミ
+            value: tsukimi
+            correct: false
+            feedback: "ツキミは記録用紙の書き込みを詳しく観察した側"
+          - label: ソラ
+            value: sora
+            correct: false
+            feedback: "ソラはヒカリの最近の様子を証言した側"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: 真相
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みなさん、よく調べました。\n体重記録の真相を発表します。\n異常な値を書き込んだのは――ヒカリです。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "でも、\nヒカリはだれかを困らせたくて\n書いたわけではありません。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "理科で\n「月では重さが地球の約1/6になる」\nと学んで、"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "自分の体重が月ではどうなるのかを\n試してみたくなったのです。\nそこでヒカリは、"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hikari
+        text: "いたずらではなく、面白い実験のつもりだった"
+
+      - type: sprite
+        character: hikari
+        expression: determined
+
+      - type: dialog
+        character: hikari
+        text: "ごめんなさい。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{調|しら}べたね。今日の{学|まな}びを{振|ふ}り{返|かえ}ろう。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "・証拠カード1で、ヒカリの欄には本来の体重とは別に、軽すぎる数字があると分かる\n・ただの書きまちがいではなく、何か意味のある数字かもしれないと考えられる\n・証拠カード2で、月の重力は地球の約1/6で、重さは場所で変わると分かる"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: happy }
+          - { id: hoshino, expression: happy }
+          - { id: tsukimi, expression: happy }
+          - { id: sora, expression: happy }
+
+      - type: narration
+        text: "{宇宙探偵団|うちゅうたんていだん}の{冒険|ぼうけん}はつづく——"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1000

@@ -1,0 +1,515 @@
+meta:
+  id: space-04
+  title: 惑星の順番
+  series: 宇宙探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hoshino:
+    name: ホシノ
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsukimi:
+    name: ツキミ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の授業で、"
+
+      - type: narration
+        text: "みんなは太陽系の模型を作りました。"
+
+      - type: narration
+        text: "ところが次の日の朝、"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: tsukimi
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: tsukimi
+        text: "大変だ！ みんな来て！"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "{落|お}ち{着|つ}いて。みんなで{証拠|しょうこ}を{集|あつ}めて{調|しら}べてみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: determined }
+          - { id: hoshino, expression: thinking }
+          - { id: tsukimi, expression: thinking }
+          - { id: sora, expression: worried }
+
+      - type: narration
+        text: "「{宇宙探偵団|うちゅうたんていだん}」として{調査|ちょうさ}を{始|はじ}める。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        title: 宇宙探偵団
+        subtitle: Vol.4 惑星の順番
+
+  # ========================================
+  # 証拠カード1
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+
+      - type: narration
+        text: "模型の変化記録"
+
+      - type: narration
+        text: "模型の変化\n昨日:\n・惑星8個\n今朝:\n・冥王星が追加\n・いくつかの位置が少し修正"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "だれかが「まちがいを直した」と思って 手を入れたのかな？"
+
+  # ========================================
+  # 証拠カード2
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "今の太陽系の基本情報"
+
+      - type: narration
+        text: "教科書メモ\n今の惑星:\n水星 金星 地球 火星 木星 土星 天王星 海王星\n冥王星:\n準惑星\n2006年:"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "もし「9個だ」と思った人がいたら、 どこでそう知ったのだろう？"
+
+  # ========================================
+  # 証拠カード3
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "理科室の出入り記録"
+
+      - type: narration
+        text: "放課後の理科室\n残っていた人:\n・ツキミ\n・ソラ\nソラの話:\n・模型はさわっていない"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "できる人はだれまでしぼれたかな？"
+
+  # ========================================
+  # 証拠カード4
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "図書室の貸出記録"
+
+      - type: narration
+        text: "図書室の貸出ノート\nツキミ\n「宇宙図鑑」貸出\n出版年:\n2005年\n記述:"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "2005年の本と、 今の教科書のちがいは どこから生まれたのかな？"
+
+  # ========================================
+  # 証拠カード5
+  # ========================================
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: narration
+        text: "先生の解説"
+
+      - type: narration
+        text: "先生のメモ\n・2006年に\n冥王星は準惑星に再分類\n・科学では\n新しい発見や決まりで\n分類が変わることがある"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ツキミは「悪いこと」をしたかったのかな？ それとも、古い情報を正しいと思っていたのかな？"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ========================================
+  # 議論
+  # ========================================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+
+      - type: sprite
+        character: hikari
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: hikari
+        text: "放課後に理科室に残っていたのはツキミとソラだけだった"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: hoshino
+        text: "教科書は2024年版で、惑星は8個と書いてある"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "冥王星が惑星ではないと聞いて、さびしい気持ちになっていた"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: tsukimi
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: tsukimi
+        text: "宇宙図鑑を読んで、太陽系は9個だと信じていた"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+
+      - type: narration
+        text: "「太陽系の模型を無断で変えたのは誰？」"
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: normal }
+          - { id: hoshino, expression: normal }
+          - { id: tsukimi, expression: normal }
+          - { id: sora, expression: worried }
+
+      - type: choice
+        id: q1
+        text: "太陽系の模型を無断で変えたのは誰？"
+        options:
+          - label: ヒカリ
+            value: hikari
+            correct: false
+            feedback: "ヒカリは理科室の出入り記録を調べた側"
+          - label: ホシノ
+            value: hoshino
+            correct: false
+            feedback: "ホシノは図鑑と教科書の情報を比較した側"
+          - label: ツキミ
+            value: tsukimi
+            correct: true
+            feedback: "ツキミは"正しい太陽系を作りたい"という正義感で行動した。でも参考にした図鑑は2005年版——2006年に冥王星は"準惑星"に変わっていた。科学の世界では、新しい発見によって定義が変わることがある。大切なのは"今の正しい情報を確認すること"だよ"
+          - label: ソラ
+            value: sora
+            correct: false
+            feedback: "ソラは放課後に理科室にいたが、模型には触っていない"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: 真相
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みなさん、よく調べました。\n太陽系模型の真相を発表します。\n模型を勝手に変えたのは――ツキミです。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "でも、\nツキミはわざとこわしたかったわけではありません。\n「正しい太陽系を作りたい」"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "という気持ちで動いていました。\nツキミは、\n図書室で借りた2005年版の宇宙図鑑を読み、"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "太陽系の惑星は9個だと信じていました。\nそのため、\nクラスの模型に冥王星がないのを見て、"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite
+        character: tsukimi
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: tsukimi
+        text: "正しいことをしたつもりで、放課後に模型を直した"
+
+      - type: sprite
+        character: tsukimi
+        expression: determined
+
+      - type: dialog
+        character: tsukimi
+        text: "ごめんなさい。"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{調|しら}べたね。今日の{学|まな}びを{振|ふ}り{返|かえ}ろう。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "・証拠カード1で、昨日は惑星8個だった模型に、今朝は冥王星が追加されていたと分かる\n・つまり、だれかが「冥王星を入れるべきだ」と考えて模型を変えたことになる\n・証拠カード2で、今の教科書では惑星は8個で、冥王星は準惑星だと分かる"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: happy }
+          - { id: hoshino, expression: happy }
+          - { id: tsukimi, expression: happy }
+          - { id: sora, expression: happy }
+
+      - type: narration
+        text: "{宇宙探偵団|うちゅうたんていだん}の{冒険|ぼうけん}はつづく——"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1000

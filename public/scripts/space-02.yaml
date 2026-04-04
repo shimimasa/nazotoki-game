@@ -1,0 +1,515 @@
+meta:
+  id: space-02
+  title: 月のアリバイ
+  series: 宇宙探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hoshino:
+    name: ホシノ
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsukimi:
+    name: ツキミ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5年2組では、"
+
+      - type: narration
+        text: "天体観測の宿題として、"
+
+      - type: narration
+        text: "1週間ぶんの月のようすを記録していました。"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hikari
+        text: "大変だ！ みんな来て！"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "{落|お}ち{着|つ}いて。みんなで{証拠|しょうこ}を{集|あつ}めて{調|しら}べてみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: determined }
+          - { id: hoshino, expression: thinking }
+          - { id: tsukimi, expression: thinking }
+          - { id: sora, expression: worried }
+
+      - type: narration
+        text: "「{宇宙探偵団|うちゅうたんていだん}」として{調査|ちょうさ}を{始|はじ}める。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        title: 宇宙探偵団
+        subtitle: Vol.2 月のアリバイ
+
+  # ========================================
+  # 証拠カード1
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+
+      - type: narration
+        text: "ヒカリの観測記録"
+
+      - type: narration
+        text: "観測記録\n金曜の夜\n・南の空\n・細い三日月を見た\n・光るはしが右にあった"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "この記録の「曜日」と「月の形」は、 ちゃんと合っているかな？"
+
+  # ========================================
+  # 証拠カード2
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "月齢カレンダー"
+
+      - type: narration
+        text: "今週の月齢\n水曜: 細い三日月\n木曜: 少しふくらむ\n金曜: 新月\n土曜: ほとんど見えない"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "金曜が新月なら、 ヒカリの記録のどこが気になるかな？"
+
+  # ========================================
+  # 証拠カード3
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "ツキミの観測記録"
+
+      - type: narration
+        text: "ツキミの記録\n水曜の夜\n・細い三日月\n・右が光っていた\n・よく見えた"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ヒカリの記録は、 水曜の月に近いかな？ それとも金曜の月に近いかな？"
+
+  # ========================================
+  # 証拠カード4
+  # ========================================
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "ソラの目撃メモ"
+
+      - type: narration
+        text: "ソラのメモ\n・金曜の朝\nヒカリが\n「宿題まだだった」\nと言っていた\n・月曜の朝"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "月を見た日と、 ノートに書いた日が ちがうことはあるかな？"
+
+  # ========================================
+  # 証拠カード5
+  # ========================================
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: narration
+        text: "密談結果"
+
+      - type: narration
+        text: "密談メモ\n・ヒカリは\n「本当は水曜に見た」\nと小さく言った\n・「宿題を忘れていて、\n金曜って書いてしまった」"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "ヒカリは月を見ていなかったのかな？ それとも、見た日だけをごまかしたのかな？"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ========================================
+  # 議論
+  # ========================================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+
+      - type: sprite
+        character: tsukimi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: tsukimi
+        text: "水曜に細い三日月を見た記録を残していた"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: thinking
+        position: right
+
+      - type: dialog
+        character: hoshino
+        text: "金曜は新月であることを月齢カレンダーで確認していた"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: sora
+        text: "金曜の朝にヒカリが宿題をまだしていないと言っていたのを聞いた"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "本当は水曜の夜に三日月を見ていた"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+
+      - type: narration
+        text: "「観測記録の日付を偽ったのは誰？」"
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: normal }
+          - { id: hoshino, expression: normal }
+          - { id: tsukimi, expression: normal }
+          - { id: sora, expression: worried }
+
+      - type: choice
+        id: q1
+        text: "観測記録の日付を偽ったのは誰？"
+        options:
+          - label: ヒカリ
+            value: hikari
+            correct: true
+            feedback: "ヒカリは水曜に三日月を見ていた。でも金曜まで宿題を忘れていて、恥ずかしくて日付を書き換えた。ところが金曜は新月——月が出ない夜だった。月の形は毎日変わるから、日付をごまかすと科学的に矛盾が生まれるんだ"
+          - label: ホシノ
+            value: hoshino
+            correct: false
+            feedback: "ホシノは月齢カレンダーで矛盾を発見した側"
+          - label: ツキミ
+            value: tsukimi
+            correct: false
+            feedback: "ツキミは水曜に正確な観測記録を残していた"
+          - label: ソラ
+            value: sora
+            correct: false
+            feedback: "ソラはヒカリの様子に気づいた観察者"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: 真相
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みなさん、よく調べました。\n観測記録の真相を発表します。\n観測記録の日付をごまかしたのは――ヒカリです。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "でも、ヒカリは\n月をまったく見ていなかったわけではありません。\n本当は、"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "水曜日の夜に細い三日月を見ていました。\nところが、\n宿題を書くのを忘れたまま金曜日になってしまい、"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "月曜日の朝にあわてて記録を書きました。\nそのとき、\n「水曜に見た」と書くのがはずかしくて、"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: hikari
+        text: "月曜の朝にあわてて日付をごまかした"
+
+      - type: sprite
+        character: hikari
+        expression: determined
+
+      - type: dialog
+        character: hikari
+        text: "ごめんなさい。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{調|しら}べたね。今日の{学|まな}びを{振|ふ}り{返|かえ}ろう。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "・証拠カード1で、ヒカリの記録には「金曜の夜に細い三日月を見た」とある\n・証拠カード2で、金曜は新月であり、ほとんど月が見えないと分かる\n・したがって、「金曜に細い三日月を見た」という記録は月齢と合わない"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: happy }
+          - { id: hoshino, expression: happy }
+          - { id: tsukimi, expression: happy }
+          - { id: sora, expression: happy }
+
+      - type: narration
+        text: "{宇宙探偵団|うちゅうたんていだん}の{冒険|ぼうけん}はつづく——"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1000
