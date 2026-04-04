@@ -6,6 +6,7 @@
 
 import { useState, useEffect, useMemo, useCallback } from 'preact/hooks'
 import { getAllClearRecords, type ClearRecord, type DetectiveRank } from '../engine/SaveManager'
+import registryData from '../../../series-registry.json'
 
 export interface CatalogEntry {
   id: string
@@ -26,24 +27,7 @@ interface Props {
   onSelect: (scriptId: string) => void
 }
 
-const SERIES_ORDER = [
-  '答えのない法廷',
-  'サイエンス捜査班',
-  '数字の迷宮',
-  '数学深化探偵団',
-  'バグ探偵団',
-  '情報モラル探偵団',
-  'お金の探偵団',
-  '英語探偵団',
-  '保健探偵団',
-  '防災探偵団',
-  '公民探偵団',
-  '家庭科探偵団',
-  'ESD探偵団',
-  'キャリア探偵団',
-  '地図探偵団',
-  'タイムトラベル探偵団',
-]
+const SERIES_ORDER = registryData.map((s: { name: string }) => s.name)
 
 const RANK_COLORS: Record<DetectiveRank, string> = {
   S: '#D4AF37',  // ゴールド

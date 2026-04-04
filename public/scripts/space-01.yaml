@@ -1,0 +1,563 @@
+meta:
+  id: space-01
+  title: "{盗|ぬす}まれた星"
+  series: 宇宙探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  hikari:
+    name: ヒカリ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hoshino:
+    name: ホシノ
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsukimi:
+    name: ツキミ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sora:
+    name: ソラ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ========================================
+  # プロローグ
+  # ========================================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5年2{組|くみ}の{天体観測会|てんたいかんそくかい}。{校庭|こうてい}に{集|あつ}まった4人は、夜空を{見上|みあ}げた——"
+
+      - type: narration
+        text: "去年の{観測会|かんそくかい}では、{西|にし}がわの空にとてもよく{光|ひか}る星が見えた。"
+
+      - type: narration
+        text: "ところが今年——"
+
+      - type: se
+        sound: crash
+
+      - type: effect
+        name: shake
+        duration: 400
+
+      - type: bgm
+        action: stop
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+
+      - type: dialog
+        character: sora
+        text: "星が{消|き}えた！ だれかが星を{隠|かく}したのかも！"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: bgm
+        track: tension-quiet
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "まあまあ、{落|お}ち{着|つ}いて。{本当|ほんとう}に星がなくなったのかな？ みんなで{証拠|しょうこ}を{集|あつ}めて{調|しら}べてみよう。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: determined }
+          - { id: hoshino, expression: thinking }
+          - { id: tsukimi, expression: thinking }
+          - { id: sora, expression: worried }
+
+      - type: narration
+        text: "「{宇宙探偵団|うちゅうたんていだん}」として、「見えなくなった星」に何が{起|お}きたのか{調査|ちょうさ}を{始|はじ}める。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 800
+
+      - type: title_card
+        title: 宇宙探偵団
+        subtitle: Vol.1 盗まれた星
+
+  # ========================================
+  # 証拠カード1: ソラの観測メモ
+  # ========================================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+
+      - type: narration
+        text: "まずは、ソラの{観測|かんそく}メモを見てみよう。"
+
+      - type: narration
+        text: "今年 18:45のメモ——\n「去年見えた星が見えない」\n「{西|にし}がわの空を見た」\n「だれかが星をかくしたのかも」"
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "「見えない」と「なくなった」は{同|おな}じかな？ 今わかっているのは、どこまでだろう？"
+
+  # ========================================
+  # 証拠カード2: 星図データ
+  # ========================================
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "つぎに、ホシノが{持|も}ってきた{星図|せいず}データを{確認|かくにん}する。"
+
+      - type: sprite
+        character: hoshino
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: hoshino
+        text: "星図では、去年見えた星は今年も{西|にし}の空にあるよ。{消|き}えた{記録|きろく}も、大きく{動|うご}いた{記録|きろく}もない。"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "星図ではあるのに見えない——ほかにどんな{理由|りゆう}が{考|かんが}えられるだろう？"
+
+  # ========================================
+  # 証拠カード3: 観測場所の変化記録
+  # ========================================
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "ヒカリが{観測場所|かんそくばしょ}のまわりを{調|しら}べてきた。"
+
+      - type: sprite
+        character: hikari
+        expression: surprised
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "3か月前に、{校門|こうもん}の近くに{街灯|がいとう}が3{本|ぽん}、{新|あたら}しくついているよ！"
+
+      - type: sprite
+        character: hikari
+        expression: thinking
+
+      - type: dialog
+        character: hikari
+        text: "去年の夜空{写真|しゃしん}と{比|くら}べると、{今年|ことし}のほうが空が白っぽく{明|あか}るいんだ。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: narration
+        text: "星そのものではなく、見る{場所|ばしょ}のまわりに{変化|へんか}があったようだ。"
+
+  # ========================================
+  # 証拠カード4: ソラのメモのちがい
+  # ========================================
+  - id: evidence-4
+    bgm: tension-quiet
+    steps:
+      - type: narration
+        text: "ホシノが、ソラの{観測|かんそく}メモをさらに{調|しら}べた。"
+
+      - type: sprite
+        character: hoshino
+        expression: worried
+        position: left
+
+      - type: dialog
+        character: hoshino
+        text: "ソラのメモにある星の{位置|いち}が、{僕|ぼく}の星図とちょっとちがうんだ。書き{直|なお}したあともある。"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "だれかが{本当|ほんとう}の{位置|いち}ではなく、「見えない{場所|ばしょ}」にしるしをつけたのだろうか？"
+
+  # ========================================
+  # 証拠カード5: 山田先生の補足
+  # ========================================
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みんな、{大事|だいじ}なことを{伝|つた}えるね。ソラに{聞|き}いたら、こう{答|こた}えたの。"
+
+      - type: sprite
+        character: yamada
+        expression: worried
+
+      - type: dialog
+        character: yamada
+        text: "「{大好|だいす}きな星が見えなくて、だれかのせいだと{思|おも}った」って。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "それから、夜の空は{地上|ちじょう}の光が{強|つよ}いと、星が見えにくくなるの。これを「{光害|こうがい}」というのよ。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: se
+        sound: discover
+
+      - type: narration
+        text: "星が{消|き}えたのではなく、見えにくくなっただけだとしたら——{何|なに}が{原因|げんいん}だったのだろう？"
+
+  # ========================================
+  # 議論
+  # ========================================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+
+      - type: narration
+        text: "ここまでの{証拠|しょうこ}を{整理|せいり}して、みんなの{考|かんが}えを{聞|き}いてみよう。"
+
+      - type: sprite
+        character: tsukimi
+        expression: thinking
+        position: left
+
+      - type: dialog
+        character: tsukimi
+        text: "去年の{写真|しゃしん}と{比|くら}べると、空{全体|ぜんたい}が{明|あか}るくなっている。星が消えたんじゃなくて、空が{明|あか}るすぎるだけかも。"
+
+      - type: sprite
+        character: tsukimi
+        action: hide
+
+      - type: sprite
+        character: hikari
+        expression: determined
+        position: right
+
+      - type: dialog
+        character: hikari
+        text: "去年はなかった{街灯|がいとう}が、今年は3{本|ぽん}もある。{明|あか}るいことが、いつも{観測|かんそく}にとってよいとは{限|かぎ}らないんだ。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+
+      - type: sprite
+        character: hoshino
+        expression: determined
+        position: left
+
+      - type: dialog
+        character: hoshino
+        text: "星図では星はちゃんとある。消えてなんかいない。でもソラのメモには書き{直|なお}したあとがあった——データがあると、{思|おも}いこみだけでは{決|き}められないよ。"
+
+      - type: sprite
+        character: hoshino
+        action: hide
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: right
+
+      - type: dialog
+        character: sora
+        text: "……あの星は{特別|とくべつ}だったの。見えなくなって{悲|かな}しくて、だれかのせいにしたくなっちゃった。"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 投票
+  # ========================================
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+
+      - type: narration
+        text: "「星が{消|き}えた{騒|さわ}ぎを{起|お}こしたのは{誰|だれ}？」"
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: normal }
+          - { id: hoshino, expression: normal }
+          - { id: tsukimi, expression: normal }
+          - { id: sora, expression: worried }
+
+      - type: choice
+        id: q1
+        text: "星が消えた騒ぎを起こしたのは誰？"
+        options:
+          - label: ヒカリ
+            value: hikari
+            correct: false
+            feedback: "ヒカリは{街灯|がいとう}の{設置記録|せっちきろく}を{調|しら}べた{側|がわ}だよ。"
+          - label: ホシノ
+            value: hoshino
+            correct: false
+            feedback: "ホシノは星図データで星の{存在|そんざい}を{確認|かくにん}した{側|がわ}だよ。"
+          - label: ツキミ
+            value: tsukimi
+            correct: false
+            feedback: "ツキミは空の{明|あか}るさの{変化|へんか}を{観察|かんさつ}した{側|がわ}だよ。"
+          - label: ソラ
+            value: sora
+            correct: true
+            feedback: "ソラは{大好|だいす}きな星が見えなくなって{悲|かな}しかった。でも星は{消|き}えたんじゃない——{新|あたら}しい{街灯|がいとう}の光で見えなくなっただけ。これを「{光害|こうがい}」というんだ。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # 真相
+  # ========================================
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+
+      - type: title_card
+        title: 真相
+
+      - type: effect
+        name: fade-in
+        duration: 600
+
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "みなさん、よく{調|しら}べました。「{消|き}えた」と{思|おも}われた星の{真相|しんそう}を{発表|はっぴょう}します。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "星が{本当|ほんとう}に{消|き}えたわけではありません。{校門|こうもん}の近くに{新|あたら}しい{街灯|がいとう}が3本できて、空が{明|あか}るくなったからです。"
+
+      - type: dialog
+        character: yamada
+        text: "{地上|ちじょう}の{明|あ}かりが{強|つよ}すぎて星が見えにくくなること——これを「{光害|こうがい}」といいます。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: narration
+        text: "そして、「星が{盗|ぬす}まれた」と{騒|さわ}ぎを大きくしたのは——"
+
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+
+      - type: narration
+        text: "ソラだった。"
+        speed: slow
+
+      - type: dialog
+        character: sora
+        text: "去年見たその星が、わたしにとってとても{大切|たいせつ}だったの……。"
+
+      - type: sprite
+        character: sora
+        expression: determined
+
+      - type: dialog
+        character: sora
+        text: "見えなくなって{悲|かな}しくて、だれかのせいにしたくなっちゃった。去年のメモを見ながら今年のメモを書き{足|た}して、「{消|き}えた{証拠|しょうこ}」みたいに見せちゃったの。ごめんなさい。"
+
+      - type: sprite
+        character: sora
+        action: hide
+
+  # ========================================
+  # エピローグ
+  # ========================================
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+
+      - type: dialog
+        character: yamada
+        text: "ソラの{気持|きも}ちは分かるよね。{大好|だいす}きな星が見えなくなれば、だれでも{悲|かな}しくなるから。"
+
+      - type: dialog
+        character: yamada
+        text: "でも、「見えない」と「ない」は{同|おな}じじゃない。{思|おも}いこみではなく、{証拠|しょうこ}を{比|くら}べて{考|かんが}えることが{大切|たいせつ}なのよ。"
+
+      - type: sprite
+        character: yamada
+        expression: thinking
+
+      - type: dialog
+        character: yamada
+        text: "そして{街灯|がいとう}は、夜の{安全|あんぜん}を{守|まも}る{大切|たいせつ}な光でもあるわ。「{明|あか}るさは{悪|わる}い」と{決|き}めつけるのではなく、{何|なに}のための光かを{考|かんが}えることも{大事|だいじ}ね。"
+
+      - type: sprite
+        character: yamada
+        action: hide
+
+      - type: sprite_group
+        characters:
+          - { id: hikari, expression: happy }
+          - { id: hoshino, expression: happy }
+          - { id: tsukimi, expression: happy }
+          - { id: sora, expression: happy }
+
+      - type: narration
+        text: "星は空にあった。ただ、{地上|ちじょう}の光のせいで見えにくくなっていただけだった。"
+
+      - type: narration
+        text: "「見えない」と「ない」はちがう——{宇宙探偵団|うちゅうたんていだん}が{学|まな}んだ、{大切|たいせつ}なことだった。"
+
+      - type: sprite
+        character: hikari
+        action: hide
+      - type: sprite
+        character: hoshino
+        action: hide
+      - type: sprite
+        character: tsukimi
+        action: hide
+      - type: sprite
+        character: sora
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1000
