@@ -1,0 +1,366 @@
+meta:
+  id: emotion-09
+  title: くり返される沈黙
+  series: 感情探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  satoru:
+    name: サトル
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  haruka:
+    name: ハルカ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nagi:
+    name: ナギ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kokoro:
+    name: ココロ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{グループ活動|かつどう}のたびに、おとなしいユウくんが黙りこんでしまうことが3回続きました。1回だけなら偶然かもしれません。でも、2回、3回と続くと「何か同じことが起きているのでは」と気になります。"
+      - type: narration
+        text: "みんなは「ユウくんは話すのが苦手だからかな」と言いますが、本当にそれだけでしょうか。3回の活動をくらべると、見えてくるものがあるかもしれません。"
+      - type: narration
+        text: "みなさんは{感情|かんじょう}{探偵団|たんていだん}です。3回の活動を並べて、ユウくんの沈黙がくり返された本当の原因を見つけましょう。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: haruka
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruka
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{{落|お}}ち{{着|つ}}いて。みんなで{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみよう。"
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: satoru, expression: determined }
+          - { id: haruka, expression: thinking }
+          - { id: nagi, expression: thinking }
+          - { id: kokoro, expression: worried }
+      - type: narration
+        text: "「感情探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: 感情探偵団
+        subtitle: Vol.9 くり返される沈黙
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+      - type: narration
+        text: "3回のグループ活動の概要"
+      - type: se
+        sound: discover
+
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "帰納法の説明カード"
+      - type: se
+        sound: discover
+
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "1回目・2回目の活動記録"
+      - type: se
+        sound: discover
+
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "3回目の活動記録と観察メモ"
+      - type: se
+        sound: discover
+
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "先生の振り返りメモ"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: yamada
+        action: hide
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: satoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: satoru
+        text: "サトルの考えを述べる"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: nagi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nagi
+        text: "ナギの考えを述べる"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kokoro
+        text: "ココロの考えを述べる"
+      - type: sprite
+        character: kokoro
+        action: hide
+      - type: sprite
+        character: haruka
+        expression: worried
+        position: right
+      - type: dialog
+        character: haruka
+        text: "ハルカの考えを述べる"
+      - type: sprite
+        character: haruka
+        action: hide
+
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+      - type: narration
+        text: "「犯人は誰？」"
+      - type: sprite_group
+        characters:
+          - { id: satoru, expression: normal }
+          - { id: haruka, expression: normal }
+          - { id: nagi, expression: normal }
+          - { id: kokoro, expression: worried }
+      - type: choice
+        id: q1
+        text: "犯人は誰？"
+        options:
+          - label: サトル
+            value: satoru
+            correct: false
+            feedback: "サトルはデータを集めた側。パターンの原因ではない"
+          - label: ハルカ
+            value: haruka
+            correct: true
+            feedback: "3回ともハルカが積極的に仕切った直後にユウくんが黙った。ハルカに悪意はない。でも"積極的にリードする"ことが、"他の人の声を消す"ことにつながっていた"
+          - label: ナギ
+            value: nagi
+            correct: false
+            feedback: "ナギは気づいていたが、原因を作ったのはナギではない"
+          - label: ココロ
+            value: kokoro
+            correct: false
+            feedback: "ココロは{調査|ちょうさ}をした{側|がわ}だよ。"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        action: hide
+
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: 真相
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "真相が明かされた。"
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: haruka
+        expression: worried
+        position: center
+      - type: dialog
+        character: haruka
+        text: "ごめんなさい。"
+      - type: sprite
+        character: haruka
+        expression: determined
+      - type: dialog
+        character: haruka
+        text: "ごめんなさい。"
+      - type: sprite
+        character: haruka
+        action: hide
+
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "・証拠カード1で、同じ問題が3回続いていると分かる。\n・証拠カード2で、3つをくらべて共通点を探す帰納法が必要だと分かる。\n・証拠カード3で、1回目と2回目の共通点は「ハルカが先に話す → ユウくんが黙る」だと見えてくる。"
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: satoru, expression: happy }
+          - { id: haruka, expression: happy }
+          - { id: nagi, expression: happy }
+          - { id: kokoro, expression: happy }
+      - type: narration
+        text: "感情探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1000

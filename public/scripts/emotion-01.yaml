@@ -1,0 +1,366 @@
+meta:
+  id: emotion-01
+  title: 消えた笑顔
+  series: 感情探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  satoru:
+    name: サトル
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  haruka:
+    name: ハルカ
+    color: "#FF4444"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nagi:
+    name: ナギ
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kokoro:
+    name: ココロ
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "いつも元気に手を挙げるココロが、木曜日の発表のあとから急に静かになりました。金曜日も月曜日も、前みたいな笑顔はもどっていません。"
+      - type: narration
+        text: "サトル、ハルカ、ナギは、みんな「自分が何かしてしまったのかも」と気になっています。でも、本当の原因はまだ分かりません。"
+      - type: narration
+        text: "みなさんは{感情|かんじょう}{探偵団|たんていだん}です。ココロの行動がどうして変わったのか、証拠を集めて考えましょう。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kokoro
+        expression: worried
+        position: center
+      - type: dialog
+        character: kokoro
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kokoro
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{{落|お}}ち{{着|つ}}いて。みんなで{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみよう。"
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: satoru, expression: determined }
+          - { id: haruka, expression: thinking }
+          - { id: nagi, expression: thinking }
+          - { id: kokoro, expression: worried }
+      - type: narration
+        text: "「感情探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: 感情探偵団
+        subtitle: Vol.1 消えた笑顔
+
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: ステップ1
+        subtitle: 調査
+      - type: narration
+        text: "ココロの1週間の行動記録"
+      - type: se
+        sound: discover
+
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "感情リスト"
+      - type: se
+        sound: discover
+
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "木曜日の目撃メモ"
+      - type: se
+        sound: discover
+
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "ナギの観察メモ"
+      - type: se
+        sound: discover
+
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: ステップ2
+        subtitle: 反転
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "先生のメモ"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: yamada
+        action: hide
+
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: ステップ3
+        subtitle: 議論
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: satoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: satoru
+        text: "サトルの考えを述べる"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: haruka
+        expression: thinking
+        position: right
+      - type: dialog
+        character: haruka
+        text: "ハルカの考えを述べる"
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: nagi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nagi
+        text: "ナギの考えを述べる"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        expression: worried
+        position: right
+      - type: dialog
+        character: kokoro
+        text: "ココロの考えを述べる"
+      - type: sprite
+        character: kokoro
+        action: hide
+
+  - id: vote
+    steps:
+      - type: title_card
+        title: ステップ4
+        subtitle: 投票
+      - type: narration
+        text: "「ココロの笑顔を消した本当の原因を作ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: satoru, expression: normal }
+          - { id: haruka, expression: normal }
+          - { id: nagi, expression: normal }
+          - { id: kokoro, expression: worried }
+      - type: choice
+        id: q1
+        text: "ココロの笑顔を消した本当の原因を作ったのは誰？"
+        options:
+          - label: サトル
+            value: satoru
+            correct: false
+            feedback: "サトルの指摘は事実を伝えただけ。これも"きっかけ"の1つ。でもココロの行動を変えたのは指摘そのものではなく、ココロの中の感情だよ"
+          - label: ハルカ
+            value: haruka
+            correct: false
+            feedback: "ハルカの笑いは"きっかけ"の1つ。でも悪意はなかった。ココロの行動を変えたのは、ハルカの笑いそのものではなく、ココロの中で生まれた恥ずかしさだよ"
+          - label: ナギ
+            value: nagi
+            correct: false
+            feedback: "ナギは変化に気づいていたけど、声をかけなかったことは"原因"ではない。ココロの行動を変えたのは、ナギの沈黙ではなく、ココロ自身の感情反応だよ"
+          - label: ココロ
+            value: kokoro
+            correct: true
+            feedback: "誰かにいじめられたのではない。ココロの中にある"恥ずかしさ"という感情が、行動を変えた。きっかけは笑いや指摘だったけど、本当の原因はココロ自身の感情反応だった"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        action: hide
+
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: 真相
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "真相が明かされた。"
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: kokoro
+        expression: worried
+        position: center
+      - type: dialog
+        character: kokoro
+        text: "ごめんなさい。"
+      - type: sprite
+        character: kokoro
+        expression: determined
+      - type: dialog
+        character: kokoro
+        text: "ごめんなさい。"
+      - type: sprite
+        character: kokoro
+        action: hide
+
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "・証拠カード1で、ココロの変化は木曜午後から始まったと分かる\n・証拠カード3で、木曜の発表がきっかけだと分かる\n・ただし、証拠カード4では、怒りのような行動は見られず、「もう間違えたくない」という内側の気持ちが見える"
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: satoru, expression: happy }
+          - { id: haruka, expression: happy }
+          - { id: nagi, expression: happy }
+          - { id: kokoro, expression: happy }
+      - type: narration
+        text: "感情探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: satoru
+        action: hide
+      - type: sprite
+        character: haruka
+        action: hide
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: kokoro
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1000
