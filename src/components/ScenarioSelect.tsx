@@ -6,7 +6,7 @@
 
 import { useState, useEffect, useMemo, useCallback } from 'preact/hooks'
 import { getAllClearRecords, type ClearRecord, type DetectiveRank } from '../engine/SaveManager'
-import registryData from '../../../series-registry.json'
+import registryData from '../series-registry.json'
 
 export interface CatalogEntry {
   id: string
