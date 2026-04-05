@@ -1,0 +1,332 @@
+meta:
+  id: archaeology-04
+  title: 古墳の主
+  series: 考古学探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{社会|しゃかい}の{授業|じゅぎょう}で、{地元|じもと}の{古墳|こふん}の{模型|もけい}を{作|つく}ることになった。{班|はん}ごとに{担当|たんとう}を{決|き}めて、{本物|ほんもの}の{資料|しりょう}を{調|しら}べながら{作業|さぎょう}を{進|すす}めている。"
+      - type: narration
+        text: "ところが{資料室|しりょうしつ}で{作業|さぎょう}をしていると——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ツチカが{作成|さくせい}した{副葬品|ふくそうひん}リストが、**{他|ほか}のグループの{資料|しりょう}と{食|く}い{違|ちが}っている**ことが{発覚|はっかく}した。"
+      - type: narration
+        text: "ツチカのリスト：{銅鏡|どうきょう}×3・{玉類|たまるい}×50・{鉄製武器|てつせいぶき}×5・{馬具|ばぐ}×2。{他|ほか}のグループの{資料|しりょう}：{銅鏡|どうきょう}×1・{玉類|たまるい}×20・{鉄製武器|てつせいぶき}×1。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{古墳|こふん}の{形|かたち}や{大|おお}きさと、{副葬品|ふくそうひん}の{種類|しゅるい}・{量|りょう}には、{深|ふか}い{関係|かんけい}があるのよ。どちらのデータが{正|ただ}しいのか——{証拠|しょうこ}をもとに{考|かんが}えてみましょう。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: thinking
+          - character: horibe
+            expression: thinking
+          - character: tsuchika
+            expression: worried
+          - character: fumiko
+            expression: surprised
+      - type: narration
+        text: "{4人|よにん}はそれぞれ、{地元|じもと}の{古墳|こふん}に{関|かん}する{情報|じょうほう}を{持|も}っている。でも{全員|ぜんいん}が「{自分|じぶん}の{調|しら}べた{内容|ないよう}は{正|ただ}しい」と{思|おも}っている。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 古墳の主
+        subtitle: 考古学探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 副葬品リストのくい違い
+      - type: narration
+        text: "ツチカの{副葬品|ふくそうひん}リスト——{銅鏡|どうきょう}×3、{玉類|たまるい}×50、{鉄製武器|てつせいぶき}×5、{馬具|ばぐ}×2。"
+      - type: narration
+        text: "{他|ほか}のグループの{資料|しりょう}——{銅鏡|どうきょう}×1、{玉類|たまるい}×20、{鉄製武器|てつせいぶき}×1。{馬具|ばぐ}の{記載|きさい}はない。"
+      - type: narration
+        text: "ツチカが{担当|たんとう}したのは{地元|じもと}の{小|ちい}さな{円墳|えんぷん}。{副葬品|ふくそうひん}リストを{作成|さくせい}したのはツチカ{一人|ひとり}だ。"
+
+  # ==================== 調査：証拠カード2＋3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 古墳の形状と年代データ
+      - type: sprite
+        character: ishino
+        expression: normal
+        position: left
+      - type: dialog
+        character: ishino
+        text: "{前方後円墳|ぜんぽうこうえんふん}は{最|もっと}も{地位|ちい}が{高|たか}い{人|ひと}のお{墓|はか}。{円墳|えんぷん}や{方墳|ほうふん}は{地域|ちいき}の{有力者|ゆうりょくしゃ}クラスが{多|おお}い。{地元|じもと}の{古墳|こふん}は{円墳|えんぷん}で{直径|ちょっけい}30メートル——{古墳|こふん}{時代|じだい}{前期|ぜんき}のものだよ。"
+        expression: normal
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: normal
+        position: right
+      - type: dialog
+        character: horibe
+        text: "{現地|げんち}に{行|い}って{確認|かくにん}した。{直径|ちょっけい}30メートルの{小|ちい}さな{円墳|えんぷん}で、{規模|きぼ}は{全国|ぜんこく}の{古墳|こふん}の{中|なか}でも{小|ちい}さい{方|ほう}だね。"
+        expression: normal
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "{古墳|こふん}{時代|じだい}の{副葬品|ふくそうひん}の{変化|へんか}——{前期|ぜんき}は{銅鏡|どうきょう}が{中心|ちゅうしん}。{中期|ちゅうき}は{武器|ぶき}。**{後期|こうき}に{馬具|ばぐ}が{登場|とうじょう}**する。{地元|じもと}の{古墳|こふん}は{前期|ぜんき}——ということは？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 書き換えの物的証拠
+      - type: sprite
+        character: horibe
+        expression: determined
+        position: left
+      - type: dialog
+        character: horibe
+        text: "{同|おな}じ{規模|きぼ}の{円墳|えんぷん}を{比較|ひかく}した。どこも{銅鏡|どうきょう}×1{前後|ぜんご}、{玉類|たまるい}は20{個|こ}{以下|いか}、{武器|ぶき}も1〜2{点|てん}が{普通|ふつう}だよ。{馬具|ばぐ}が{出|で}た{例|れい}は1{件|けん}もなかった。"
+        expression: determined
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ホリベがツチカのノートを{確認|かくにん}すると——{鉄製武器|てつせいぶき}の{数字|すうじ}が「×2」から「×5」に**{書|か}き{直|なお}された{跡|あと}**が{残|のこ}っていた。"
+      - type: narration
+        text: "{副葬品|ふくそうひん}の{数|かず}が{書|か}き{換|か}えられている。しかも{前期|ぜんき}の{古墳|こふん}に{存在|そんざい}しないはずの{馬具|ばぐ}まで{書|か}かれている。**{時代|じだい}と{規模|きぼ}の{両方|りょうほう}が{矛盾|むじゅん}している**。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツチカに{聞|き}いたら『{地元|じもと}の{古墳|こふん}を{立派|りっぱ}に{見|み}せたかった』って。でも{小|ちい}さな{円墳|えんぷん}は**{地域|ちいき}の{有力者|ゆうりょくしゃ}のお{墓|はか}**なのよ。{副葬品|ふくそうひん}の{量|りょう}より『{誰|だれ}が1500{年|ねん}{残|のこ}ったか』の{方|ほう}が{大事|たいじ}かもしれないわね。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{大|おお}きな{古墳|こふん}＝{豪華|ごうか}な{副葬品|ふくそうひん}」は{一般論|いっぱんろん}として{正|ただ}しい。でも「{小|ちい}さな{古墳|こふん}＝{副葬品|ふくそうひん}が{少|すく}ない＝{価値|かち}が{低|ひく}い」は**{誤|あやま}り**だ。"
+      - type: narration
+        text: "ツチカは{地元|じもと}の{先祖|せんぞ}を{誇|ほこ}りに{思|おも}うあまり、「もっと{副葬品|ふくそうひん}があったかもしれない」という{希望|きぼう}でリストを{書|か}き{足|た}した——これが**{認知|にんち}バイアス**だ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: fumiko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{小|ちい}さな{古墳|こふん}でも、その{人|ひと}が1500{年後|ねんご}の{私|わたし}たちに{届|とど}く{存在|そんざい}だってことがすごい。{副葬品|ふくそうひん}の{数|かず}が{少|すく}なくても、{地域|ちいき}のリーダーとして{記憶|きおく}されたんだよ。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{書|か}き{直|なお}しの{跡|あと}がある{副葬品|ふくそうひん}リスト。{前期|ぜんき}{古墳|こふん}に{存在|そんざい}しない{馬具|ばぐ}の{記載|きさい}。{同|おな}じ{規模|きぼ}の{円墳|えんぷん}とかけ{離|はな}れた{数値|すうち}。そして{地元|じもと}の{古墳|こふん}を「{立派|りっぱ}に{見|み}せたかった」という{動機|どうき}。"
+      - type: choice
+        id: q1
+        question: 副葬品リストを書き換えた中心人物は？
+        options:
+          - text: ツチカ（リスト作成担当＋書き直しの跡＋地元古墳を立派に見せたかった）
+            value: tsuchika
+            correct: true
+            feedback: "{正解|せいかい}！ ツチカは{地元|じもと}の{先祖|せんぞ}への{思|おも}い{入|い}れから、「もっと{副葬品|ふくそうひん}があったかもしれない」と{希望|きぼう}でリストを{書|か}き{足|た}した。{古墳|こふん}の{形|かたち}・{時代|じだい}・{規模|きぼ}と{副葬品|ふくそうひん}の{関係|かんけい}を{正確|せいかく}に{知|し}れば、{思|おも}い{込|こ}みを{防|ふせ}げる。"
+          - text: イシノ（時代データを提供した人）
+            value: ishino
+            feedback: "イシノは{前期|ぜんき}・{中期|ちゅうき}・{後期|こうき}の{副葬品|ふくそうひん}の{変化|へんか}を{正確|せいかく}に{伝|つた}えた。{嘘|うそ}をついた{証拠|しょうこ}はどこにもないよ。"
+          - text: ホリベ（現地調査をした人）
+            value: horibe
+            feedback: "ホリベは{現地|げんち}を{調|しら}べ、{比較|ひかく}データも{正確|せいかく}だった。{書|か}き{換|か}えの{跡|あと}を{見|み}つけたのもホリベだよ。"
+          - text: フミコ（被葬者の地位を解説した人）
+            value: fumiko
+            feedback: "フミコは{小|ちい}さな{円墳|えんぷん}の{意味|いみ}を{正|ただ}しく{考察|こうさつ}していた。リスト{作成|さくせい}には{関|かか}わっていないよ。"
+
+  # ==================== 真実：ツチカ ====================
+  - id: truth-tsuchika
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツチカの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsuchika
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsuchika
+        text: "……{小|ちい}さな{古墳|こふん}だから{少|すく}ないなんて{言|い}いたくなかった。{地元|じもと}の{先祖|せんぞ}が{誇|ほこ}りだから……"
+        expression: worried
+      - type: dialog
+        character: tsuchika
+        text: "{副葬品|ふくそうひん}が{少|すく}ないと、みんながその{古墳|こふん}を{価値|かち}のないものだと{思|おも}うんじゃないかって。「もっとあったかもしれない」って{思|おも}いながら、{少|すこ}しずつ{数|かず}を{書|か}き{足|た}してしまったの。"
+        expression: thinking
+      - type: dialog
+        character: tsuchika
+        text: "でも……{馬具|ばぐ}は{前期|ぜんき}には{存在|そんざい}しないって、イシノに{言|い}われるまで{気|き}づかなかった。{間違|まちが}ったことをしてしまったね。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: tsuchika
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ishino
+        text: "この{副葬品|ふくそうひん}、{古墳|こふん}{時代|じだい}{後期|こうき}の{品目|ひんもく}だ。でもこの{古墳|こふん}は{前期|ぜんき}の{年代|ねんだい}なのにおかしいって{思|おも}ってた。{時代|じだい}のデータを{見|み}れば、どの{副葬品|ふくそうひん}が「あり得{える}か」が{分|わ}かるんだ。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: happy
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{小|ちい}さな{円墳|えんぷん}でも、{地域|ちいき}のリーダーとして1500{年後|ねんごのあと}に{残|のこ}った。それって{十分|じゅうぶん}すごいことだよ、ツチカ。{副葬品|ふくそうひん}の{量|りょう}が{少|すく}なくても、{価値|かち}が{低|ひく}いわけじゃない。"
+        expression: happy
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{古墳|こふん}の{大|おお}きさと{副葬品|ふくそうひん}の{関係|かんけい}——「{大|おお}きい＝{豪華|ごうか}」は{一般論|いっぱんろん}として{正|ただ}しい。でも「{小|ちい}さい＝{価値|かち}が{低|ひく}い」は{思|おも}い{込|こ}みよ。データは{事実|じじつ}をそのまま{記録|きろく}するもの。{希望|きぼう}を{混|ま}ぜてしまうと、{正確|せいかく}な{歴史|れきし}が{伝|つた}わらなくなる。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{地元|じもと}の{先祖|せんぞ}を{誇|ほこ}りに{思|おも}う{気持|きも}ちは{素敵|すてき}よ。でもその{誇|ほこ}りは、{正確|せいかく}な{事実|じじつ}の{上|うえ}に{立|た}ってこそ{本物|ほんもの}になるの。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{大|おお}きさ＝{価値|かち}」という{思|おも}い{込|こ}みが、ツチカの{判断|はんだん}を{狂|くる}わせた。{証拠|しょうこ}は{希望|きぼう}ではなく、{事実|じじつ}を{示|しめ}すものだ。"
+      - type: narration
+        text: "{前方後円墳|ぜんぽうこうえんふん}・{円墳|えんぷん}・{方墳|ほうふん}——{形|かたち}と{時代|じだい}と{規模|きぼ}を{組|く}み{合|あ}わせれば、1500{年前|ねんまえ}の{人|ひと}が{見|み}えてくる。それが{考古学|こうこがく}の{力|ちから}だ。"
+      - type: effect
+        name: fade-out

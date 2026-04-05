@@ -1,0 +1,356 @@
+meta:
+  id: archaeology-06
+  title: 木の文字
+  series: 考古学探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{奈良|なら}{時代|じだい}の{木簡|もっかん}レプリカを{解読|かいどく}する{授業|じゅぎょう}。4{人|にん}の{探偵|たんてい}たちはそれぞれ{文字|もじ}を{読|よ}み{解|と}き、{解読|かいどく}メモを{提出|ていしゅつ}した。"
+      - type: narration
+        text: "ところが——フミコの{解読|かいどく}だけが、ほか3{人|にん}と{食|た}い{違|ちが}っていた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「この{木簡|もっかん}には**{人|ひと}の{名前|なまえ}**が{書|か}いてある」というフミコの{解釈|かいしゃく}。「これは**{荷物|にもつ}の{品名|しなめい}**だ」という{他|ほか}3{人|にん}の{解釈|かいしゃく}。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{奈良|なら}{時代|じだい}の{木簡|もっかん}には、{荷札|にふだ}・{帳簿|ちょうぼ}・{文書|もんじょ}という{種類|しゅるい}がある。それぞれ{文字|もじ}の{書|か}き{方|かた}が{違|ちが}うのよ。{人名|じんめい}・{品名|しなめい}・{地名|ちめい}の{書|か}き{方|かた}の{違|ちが}いを{全部|ぜんぶ}調べないと、「どちらが{正|ただ}しいか」は{判断|はんだん}できない。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: thinking
+          - character: horibe
+            expression: thinking
+          - character: tsuchika
+            expression: thinking
+          - character: fumiko
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{証拠|しょうこ}カードを{広|ひろ}げ、{古代|こだい}{文字|もじ}の{謎|なぞ}に{向|む}き{合|あ}った。{誰|だれ}が{事件|じけん}の{中心|ちゅうしん}にいるのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 木の文字
+        subtitle: 考古学探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 木簡レプリカと解読メモ
+      - type: narration
+        text: "{木簡|もっかん}レプリカの{写真|しゃしん}（3{行|ぎょう}の{文字|もじ}）と、4{人|にん}の{解読|かいどく}メモの{比較|ひかく}が{公開|こうかい}された。"
+      - type: narration
+        text: "イシノ・ホリベ・ツチカの{解読|かいどく}：「{荷物|にもつ}の{品名|しなめい}が{書|か}かれている」"
+      - type: narration
+        text: "フミコの{解読|かいどく}：「{人|ひと}の{名前|なまえ}が{書|か}かれている」"
+      - type: narration
+        text: "{奈良|なら}{時代|じだい}の{木簡|もっかん}の{種類|しゅるい}カード——{荷札|にふだ}（{品名|しなめい}・{量目|りょうめ}・{宛先|あてさき}）・{帳簿|ちょうぼ}（{税|ぜい}の{記録|きろく}）・{文書|もんじょ}（{命令|めいれい}・{報告|ほうこく}）。{人名|じんめい}は{通常|つうじょう}「○○{人|じん}」または「○○の{名前|なまえ}」の{形式|けいしき}で{書|か}かれる。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 字形分析と書式照合
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "2{行|ぎょう}目の{字|じ}を{分析|ぶんせき}したよ。これは{量目|りょうめ}を{書|か}くときの{省略形|しょうりゃくけい}。フミコが「{人名|じんめい}」と{読|よ}んだ{字|じ}は、「{升|ます}」の{崩|くず}し{字|じ}じゃないかな。{荷札|にふだ}の{量目|りょうめ}{記載|きさい}の{形式|けいしき}に{一致|いっち}してる。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{奈良|なら}{時代|じだい}の{荷札|にふだ}は「{品名|しなめい}・{量目|りょうめ}・{宛先|あてさき}」の3{要素|ようそ}で{構成|こうせい}される。この{木簡|もっかん}の{構造|こうぞう}と{書式|しょしき}を{比較|ひかく}すると……{荷札|にふだ}の{形式|けいしき}と{完全|かんぜん}{一致|いっち}してる。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "ツチカの{字形|じけい}{分析|ぶんせき}とイシノの{書式|しょしき}{照合|しょうごう}により、「{品名|しなめい}」{解読|かいどく}の{物的|ぶってき}{根拠|こんきょ}が{固|かた}まりつつある。フミコの{解釈|かいしゃく}は{正|ただ}しいのだろうか？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 比較資料とメモの書き直し
+      - type: sprite
+        character: horibe
+        expression: surprised
+        position: left
+      - type: dialog
+        character: horibe
+        text: "{正倉院|しょうそういん}に{保管|ほかん}されている{荷札|にふだ}木簡の{複製|ふくせい}{資料|しりょう}を{調|しら}べた。フミコの{解読|かいどく}と{同|おな}じ{箇所|かしょ}の{字|じ}が{含|ふく}まれる{荷札|にふだ}が3{枚|まい}あって——**{全部|すべて}「{布|ぬの}の{量目|りょうめ}」として{使|つか}われてる**。"
+        expression: surprised
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "さらに——フミコの{解読|かいどく}メモを{詳|くわ}しく{見|み}ると、{最初|さいしょ}に「{品名|しなめい}？」と{書|か}いて**{消|け}してある{跡|あと}**が{見|み}えた。"
+      - type: narration
+        text: "フミコは{最初|さいしょ}、{品名|しなめい}の{可能性|かのうせい}を{考|かんが}えていた。それを{消|け}して「{人名|じんめい}」と{書|か}き{直|なお}した——{意図的|いとてき}に{解釈|かいしゃく}を{選|えら}んだということ？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "フミコに{聞|き}いたら「{昔|むかし}の{普通|ふつう}の{人|ひと}の{名前|なまえ}が{残|のこ}っていてほしかった」と{言|い}ったの。{気持|きも}ちは{分|わ}かる。でも{考古学|こうこがく}は「あったかもしれない」じゃなく「{確認|かくにん}できる{事実|じじつ}」から{出発|しゅっぱつ}する。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でも——この{荷物|にもつ}を{運|はこ}んだ{人|ひと}は{確|たし}かにいて、この{木簡|もっかん}がその{証拠|しょうこ}。{名前|なまえ}は{分|わ}からなくても、その{人|ひと}の{仕事|しごと}は1300{年後|ねんご}に{届|とど}いている。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "フミコが「{人名|じんめい}」と{解釈|かいしゃく}したのは、「{無名|むめい}の{庶民|しょみん}の{声|こえ}を{届|とど}けたい」という{強|つよ}い{思|おも}いからだった。しかし{実際|じっさい}は{布|ぬの}・{米|こめ}の{量目|りょうめ}を{記|しる}した{実務的|じつむてき}な{木簡|もっかん}。「こうであるべき」という{正義感|せいぎかん}が{解読|かいどく}を{歪|ゆが}めた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ishino
+        text: "カード1で{解読|かいどく}の{食|た}い{違|ちが}いが{明確|めいかく}になった。カード3でツチカとぼくの{分析|ぶんせき}が「{品名|しなめい}」を{指|さ}した。カード4でホリベの{比較|ひかく}{資料|しりょう}も{一致|いっち}した。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: determined
+        position: right
+      - type: dialog
+        character: horibe
+        text: "フミコのメモに「{品名|しなめい}？」と{書|か}いて{消|け}した{跡|あと}がある。{最初|さいしょ}は{正|ただ}しく{気|き}づいていたのに、{希望的|きぼうてき}{解釈|かいしゃく}を{選|えら}んだんだ。"
+        expression: determined
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{字形|じけい}{分析|ぶんせき}は「{品名|しなめい}」を{示|しめ}す。{書式|しょしき}{照合|しょうごう}も{荷札|にふだ}{形式|けいしき}と{一致|いっち}。{正倉院|しょうそういん}の{複製|ふくせい}{資料|しりょう}も{同|おな}じ{字|じ}が「{布|ぬの}の{量目|りょうめ}」。メモの{書|か}き{直|なお}し{跡|あと}——フミコが{意図的|いとてき}に{解釈|かいしゃく}を{選|えら}んだ{証拠|しょうこ}。"
+      - type: choice
+        id: q1
+        question: 解読の食い違いを起こした中心人物は？
+        options:
+          - text: フミコ（「人名」解釈を意図的に選んだ。メモの書き直し跡あり）
+            value: fumiko
+            correct: true
+            feedback: "{正解|せいかい}！ フミコは「{昔|むかし}の{庶民|しょみん}の{声|こえ}を{届|とど}けたい」という{強|つよ}い{思|おも}いから、「{品名|しなめい}？」と{気|き}づいていたのに{希望的|きぼうてき}{解釈|かいしゃく}を{選|えら}んだ。{正義感|せいぎかん}が{事実|じじつ}の{確認|かくにん}より{優先|ゆうせん}されてしまった。"
+          - text: ツチカ（字形分析をした人）
+            value: tsuchika
+            feedback: "ツチカの{字形|じけい}{分析|ぶんせき}は「{品名|しなめい}」を{指|さ}す{正確|せいかく}な{根拠|こんきょ}を{示|しめ}していたよ。{事件|じけん}の{中心|ちゅうしん}ではない。"
+          - text: イシノ（書式照合をした人）
+            value: ishino
+            feedback: "イシノの{書式|しょしき}{照合|しょうごう}も{荷札|にふだ}{形式|けいしき}との{一致|いっち}を{示|しめ}す{正確|せいかく}な{分析|ぶんせき}だった。{事件|じけん}の{中心|ちゅうしん}ではない。"
+          - text: ホリベ（比較資料を集めた人）
+            value: horibe
+            feedback: "ホリベの{正倉院|しょうそういん}{資料|しりょう}との{比較|ひかく}は、フミコの{解釈|かいしゃく}の{誤|あやま}りを{明確|めいかく}にした{重要|じゅうよう}な{証拠|しょうこ}だった。{事件|じけん}の{中心|ちゅうしん}ではない。"
+
+  # ==================== 真実：フミコ ====================
+  - id: truth-fumiko
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: フミコの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: fumiko
+        expression: worried
+        position: center
+      - type: dialog
+        character: fumiko
+        text: "……{分|わ}かった。{正直|しょうじき}に{言|い}う。この{木簡|もっかん}、{最初|さいしょ}は「{品名|しなめい}かな？」って{思|おも}ったの。でも……{昔|むかし}の{普通|ふつう}の{人|ひと}の{名前|なまえ}が{残|のこ}っていたら{素敵|すてき}じゃないかって。"
+        expression: worried
+      - type: dialog
+        character: fumiko
+        text: "{奈良|なら}{時代|じだい}の{庶民|しょみん}って、{記録|きろく}に{残|のこ}ることが{少|すく}ないでしょ。その{人|ひと}の{名前|なまえ}が1300{年|ねん}も{後|あと}に{届|とど}いていたら……って{思|おも}ったら、「{人名|じんめい}」って{書|か}き{直|なお}してしまった。"
+        expression: thinking
+      - type: dialog
+        character: fumiko
+        text: "{名前|なまえ}じゃないかもしれない……でも、この{荷物|にもつ}を{運|はこ}んだ{人|ひと}が{確|たし}かにいた。それは{残|のこ}ってる——そう{気|き}づいたら、{少|すこ}し{楽|らく}になった。"
+        expression: determined
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "フミコの{気持|きも}ち、{分|わ}かる{気|き}がする。でも{考古学|こうこがく}は「{確認|かくにん}できる{事実|じじつ}」が{出発点|しゅっぱつてん}だよね。「こうであってほしい」と「こうである」を{区別|くべつ}しないといけない。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: normal
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{荷物|にもつ}を{運|はこ}んだ{人|ひと}の{仕事|しごと}が1300{年後|ねんご}に{届|とど}いてる——それって{名前|なまえ}がなくても{十分|じゅうぶん}{すごい|すごい}と{思|おも}う。{記録|きろく}に{残|のこ}ることと、{事実|じじつ}として{存在|そんざい}したことは{別|べつ}だから。"
+        expression: normal
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: happy
+        position: left
+      - type: dialog
+        character: horibe
+        text: "{全探索|ぜんたんさく}——{木簡|もっかん}の{全種類|ぜんしゅるい}の{用法|ようほう}を{横断的|おうだんてき}に{確認|かくにん}することで、「これは{何|なん}の{木簡|もっかん}か」が{判断|はんだん}できる。{消去法|しょうきょほう}で{一|ひと}つずつ{確|たし}かめていくんだ。"
+        expression: happy
+      - type: sprite
+        character: horibe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{木簡|もっかん}には{荷札|にふだ}・{帳簿|ちょうぼ}・{文書|もんじょ}という{種類|しゅるい}がある。それぞれ{文字|もじ}の{使|つか}い{方|かた}が{違|ちが}う。{全種類|ぜんしゅるい}の{用法|ようほう}を{横断的|おうだんてき}に{確認|かくにん}して{初|はじ}めて、「これが{何|なに}を{意味|いみ}するか」が{判断|はんだん}できるの。これが{全探索|ぜんたんさく}という{考|かんが}え{方|かた}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "フミコは「{名前|なまえ}が{残|のこ}っていてほしい」という{思|おも}いから{解読|かいどく}を{歪|ゆが}めた。でも{気持|きも}ちは{分|わ}かる。{大事|たいせつ}なのは、その{気持|きも}ちを{持|も}ちながらも「{確認|かくにん}できる{事実|じじつ}」から{出発|しゅっぱつ}すること。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「こうであってほしい」という{気持|きも}ちは{大切|たいせつ}。でも{考古学|こうこがく}——そして{推理|すいり}——は「{確認|かくにん}できる{事実|じじつ}」から{出発|しゅっぱつ}する。{正義感|せいぎかん}が{事実|じじつ}の{見|み}る{目|め}を{曇|くも}らせないように。"
+      - type: narration
+        text: "{名前|なまえ}は{分|わ}からなくても、1300{年前|ねんまえ}に{荷物|にもつ}を{運|はこ}んだ{人|ひと}は{確|たし}かにいた。その{仕事|しごと}の{痕跡|こんせき}が{今|いま}ここに{届|とど}いている——それが{木簡|もっかん}の{語|かた}る{真実|しんじつ}。"
+      - type: effect
+        name: fade-out

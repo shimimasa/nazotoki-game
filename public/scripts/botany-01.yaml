@@ -1,0 +1,341 @@
+meta:
+  id: botany-01
+  title: 光のなぞ
+  series: 植物探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}の{花壇|かだん}で{育|そだ}てているヒマワリが5{本|ほん}。みんなで{水|みず}をやり、{大切|たいせつ}に{世話|せわ}してきた。"
+      - type: narration
+        text: "{植木係|うえきがかり}の4{人|にん}が{今朝|けさ}、{花壇|かだん}に{来|き}ると——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**1{本|ほん}だけ**、{茎|くき}が{細|ほそ}く{葉|は}が{黄色|きいろ}くなって{元気|げんき}がなかった。"
+      - type: narration
+        text: "ほかの4{本|ほん}は{同|おな}じ{花壇|かだん}で{同|おな}じ{量|りょう}の{水|みず}をもらっているのに、なぜ1{本|ほん}だけ？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{根元|ねもと}に{段|だん}ボール{箱|ばこ}のかけらが{落|お}ちていますね。{誰|だれ}かが{毎日|まいにち}{段|だん}ボールでヒマワリを{覆|おお}っていたのでしょうか。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: worried
+          - character: mori
+            expression: surprised
+          - character: hana
+            expression: thinking
+          - character: tsubomi
+            expression: worried
+      - type: narration
+        text: "{植木係|うえきがかり}の4{人|にん}は、それぞれ{見|み}たこと・{知|し}っていることを{持|も}っている。{証拠|しょうこ}をあつめて、{真相|しんそう}を{解|と}き{明|あ}かそう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 光のなぞ
+        subtitle: 植物探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ヒマワリの観察記録
+      - type: narration
+        text: "【{証拠|しょうこ}カード1】{共通|きょうつう}{情報|じょうほう}——"
+      - type: narration
+        text: "「ヒマワリの{観察|かんさつ}{記録|きろく}。4{日前|にちまえ}から1{本|ほん}だけ{茎|くき}が{細|ほそ}く、{葉|は}が{黄色|きいろ}くなり{始|はじ}めた」"
+      - type: narration
+        text: "{他|ほか}の4{本|ほん}は{正常|せいじょう}に{育|そだ}っている。{水|みず}の{量|りょう}はすべて{同|おな}じ。{違|ちが}いは{何|なに}か？"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 科学メモと地面の調査
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hana
+        text: "【{証拠|しょうこ}カード2】{光合成|こうごうせい}の{条件|じょうけん}は{光|ひかり}・{水|みず}・CO₂の3つ。{光|ひかり}が{足|た}りないと{葉|は}が{黄色|きいろ}くなる——{黄化|おうか}{現象|げんしょう}といって、{光|ひかり}なしでは{葉緑素|ようりょくそ}（クロロフィル）が{作|つく}れないから。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: mori
+        expression: determined
+        position: right
+      - type: dialog
+        character: mori
+        text: "【{証拠|しょうこ}カード3】{花壇|かだん}{周辺|しゅうへん}の{地面|じめん}を{調|しら}べたら、{段|だん}ボールのかけらが4{枚|まい}、ヒマワリの{根元|ねもと}{付近|ふきん}に{落|お}ちていた。4{日分|にちぶん}——つまり{毎朝|まいあさ}1{枚|まい}ずつ{置|お}かれていたはずだ。"
+        expression: determined
+      - type: sprite
+        character: mori
+        action: hide
+      - type: narration
+        text: "{段|だん}ボールが4{日間|にちかん}、{毎朝|まいあさ}ヒマワリの{上|うえ}に{置|お}かれていた。{光|ひかり}を{遮|さえぎ}られれば{光合成|こうごうせい}できない。{葉|は}が{黄色|きいろ}くなるのは{当然|とうぜん}だ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 日陰の記録
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubomi
+        text: "【{証拠|しょうこ}カード4】{黄化|おうか}している{株|かぶ}の{真上|まうえ}だけ、{午前中|ごぜんちゅう}に{日陰|ひかげ}になっていた{時間|じかん}が{長|なが}かった。{葉|は}がうなだれている。「{光|ひかり}が{欲|ほ}しいって{言|い}ってる{気|き}がする……」"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{黄化|おうか}している{株|かぶ}の{真上|まうえ}だけ{日陰|ひかげ}が{長|なが}かった。{段|だん}ボールが{置|お}かれていた{場所|ばしょ}と{一致|いっち}する。**{誰|だれ}が、なぜ{毎朝|まいあさ}{段|だん}ボールを{置|お}いていたのか？**"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 段ボールの裏面
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "【{証拠|しょうこ}カード5】{段|だん}ボールの{裏面|りめん}に{走|はし}り{書|が}きが{見|み}つかりました。「カタバミ{退治|たいじ}{作戦|さくせん}　{月|げつ}〜{木|もく}」——{細|ほそ}い{鉛筆|えんぴつ}の{筆跡|ひっせき}です。"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{段|だん}ボールを{置|お}いた{目的|もくてき}は「カタバミ（{雑草|ざっそう}）を{枯|か}らすため」だった。{日光|にっこう}を{遮|さえぎ}れば{雑草|ざっそう}が{枯|か}れる——その{考|かんが}え{方|かた}は{正|ただ}しい。しかし{置|お}かれていた{場所|ばしょ}が{問題|もんだい}だった。"
+      - type: narration
+        text: "**{覆|おお}われていたのはカタバミではなく、ヒマワリの{株|かぶ}の{真上|まうえ}**。{毎朝|まいあさ}7{時|じ}50{分|ぷん}に{登校|とうこう}して{花壇|かだん}の{近|ちか}くで{過|す}ごしていたのは——{誰|だれ}だ？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: mori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mori
+        text: "ネコは{毎朝|まいあさ}7{時|じ}50{分|ぷん}に{登校|とうこう}してる。{花壇|かだん}のそばで{何|なに}かしてることも{多|おお}かった。{段|だん}ボールを{置|お}ける{時間|じかん}があるのは——ネコだけだ。"
+        expression: thinking
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: hana
+        expression: determined
+        position: right
+      - type: dialog
+        character: hana
+        text: "{筆跡|ひっせき}も{証拠|しょうこ}になる。「カタバミ{退治|たいじ}{作戦|さくせん}」の{細|ほそ}い{鉛筆|えんぴつ}——ネコがいつも{使|つか}っているやつに{似|に}てる。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{毎朝|まいあさ}7{時|じ}50{分|ぷん}{登校|とうこう}（{機会|きかい}あり）。「カタバミを{取|と}り{除|のぞ}こうとしていた」（{動機|どうき}あり）。{段|だん}ボールの{走|はし}り{書|が}き（{物証|ぶっしょう}あり）。"
+      - type: choice
+        id: q1
+        question: ヒマワリを段ボールで覆い続けていたのは誰？
+        options:
+          - text: ネコ（毎朝7時50分登校＋カタバミ退治の動機＋段ボールの筆跡）
+            value: neko
+            correct: true
+            feedback: "{正解|せいかい}！ ネコは{花壇|かだん}の{美化|びか}のために{雑草|ざっそう}（カタバミ）を{枯|か}らそうとしていた。「{日光|にっこう}を{遮|さえぎ}れば{枯|か}れる」は{正|ただ}しい{知識|ちしき}——でも{覆|おお}う{場所|ばしょ}を{間違|まちが}えていた。{悪意|あくい}ではなく{誤解|ごかい}だった。"
+          - text: ハナ（光合成の知識を持っていた人）
+            value: hana
+            feedback: "ハナは{朝|あさ}8{時|じ}15{分|ぷん}{登校|とうこう}。{段|だん}ボールを{置|お}く{時間|じかん}が{合|あ}わない。{光合成|こうごうせい}の{知識|ちしき}を{持|も}っているからこそ、{誰|だれ}かが{光|ひかり}を{遮|さえぎ}ったと{気|き}づける{側|がわ}だよ。"
+          - text: モリ（段ボールのかけらを発見した人）
+            value: mori
+            feedback: "モリは{段|だん}ボールのかけらを{発見|はっけん}した{側|がわ}。{花壇|かだん}{周辺|しゅうへん}を{調査|ちょうさ}して{物証|ぶっしょう}を{出|だ}してくれた。{段|だん}ボールを{置|お}いた{証拠|しょうこ}はない。"
+          - text: ツボミ（ヒマワリの様子を観察していた人）
+            value: tsubomi
+            feedback: "ツボミは{生|い}き{物|もの}が{大好|だいす}き。ヒマワリが{黄色|きいろ}くなっていることを{誰|だれ}より{悲|かな}しんでいる。{傷|きず}つけることを{望|のぞ}むキャラクターではないよ。"
+
+  # ==================== 真実：ネコ ====================
+  - id: truth-neko
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ネコの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: neko
+        expression: worried
+        position: center
+      - type: dialog
+        character: neko
+        text: "……{僕|ぼく}です。{段|だん}ボールを{置|お}いていたのは{僕|ぼく}。"
+        expression: worried
+      - type: dialog
+        character: neko
+        text: "{花壇|かだん}にカタバミが{生|は}えていて、ヒマワリの{邪魔|じゃま}をしてると{思|おも}ってた。{日光|にっこう}を{遮|さえぎ}れば{雑草|ざっそう}が{枯|か}れるって{知|し}ってたから、{毎朝|まいあさ}{段|だん}ボールを{被|かぶ}せて……"
+        expression: thinking
+      - type: dialog
+        character: neko
+        text: "でも{置|お}いてた{場所|ばしょ}が、カタバミじゃなくてヒマワリの{真上|まうえ}だったなんて。{全然|ぜんぜん}{気|き}づかなかった。ヒマワリを{助|たす}けようとして、{傷|きず}つけてた……"
+        expression: worried
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsubomi
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsubomi
+        text: "ネコがヒマワリのために{一生懸命|いっしょうけんめい}だったのは{知|し}ってた。でも……{光合成|こうごうせい}のこと、{知|し}っていれば{違|ちが}う{方法|ほうほう}を{選|えら}べたのかな。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "{植物|しょくぶつ}に{光|ひかり}が{必要|ひつよう}なことを{知|し}っていれば{守|まも}れた。{知識|ちしき}って、{大切|たいせつ}にしたいものを{守|まも}る{力|ちから}になるんだ。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{光合成|こうごうせい}は{光|ひかり}エネルギー＋{水|みず}＋CO₂から{糖|とう}と{酸素|さんそ}を{作|つく}る{反応|はんのう}。{光|ひかり}がなければ{糖|とう}が{作|つく}れず、{植物|しょくぶつ}は{育|そだ}てない。{葉|は}が{黄色|きいろ}くなる{黄化|おうか}{現象|げんしょう}は、クロロフィルが{作|つく}られていないサインなのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ネコの{気持|きも}ちは{正|ただ}しかった。{雑草|ざっそう}を{取|と}り{除|のぞ}いて{花壇|かだん}を{守|まも}ろうとしたんだもの。でも{知識|ちしき}があれば、もっとよい{方法|ほうほう}を{選|えら}べたはず。{迷|まよ}ったときは{一緒|いっしょ}に{考|かんが}えましょうね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{悪意|あくい}のない{行動|こうどう}が{植物|しょくぶつ}を{傷|きず}つけることもある。{大切|たいせつ}にしたいものを{守|まも}るには、{仕組|しくみ}みを{知|し}ることが{力|ちから}になる。"
+      - type: narration
+        text: "{光合成|こうごうせい}——{光|ひかり}と{水|みず}とCO₂。この{知識|ちしき}が、ヒマワリの{声|こえ}なき{叫|さけ}びを{聞|き}く{力|ちから}をくれた。"
+      - type: effect
+        name: fade-out

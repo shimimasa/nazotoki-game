@@ -1,0 +1,353 @@
+meta:
+  id: botany-04
+  title: 花のひみつ
+  series: 植物探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{植木|うえき}{係|がかり}の4{人|にん}——ネコ・モリ・ハナ・ツボミ。{花壇|かだん}のチューリップが{咲|さ}き{始|はじ}めた{朝|あさ}、いつものように{水|みず}やりに{向|む}かった。"
+      - type: narration
+        text: ところが{花壇|かだん}に{近|ちか}づくと——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "チューリップの**{めしべが1{本|ほん}、{根元|ねもと}から{折|お}れていた**。"
+      - type: narration
+        text: "「{誰|だれ}かが{折|お}った？」クラスがざわつき{始|はじ}める。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{花|はな}のつくりは{花|はな}びら・がく・おしべ・めしべの4つ。めしべは{花|はな}の{中心|ちゅうしん}にある1{本|ほん}の{器官|きかん}で、{先端|せんたん}の{柱頭|ちゅうとう}が{花粉|かふん}を{受|う}け{取|と}るの。一度{折|お}れると**{受粉|じゅふん}できなくなる**のよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: surprised
+          - character: hana
+            expression: thinking
+          - character: tsubomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}はそれぞれ{見|み}たこと・{知|し}っていることを{持|も}っている。「{わざとではないかもしれない」と{言|い}いながらも、{誰|だれ}が{触|さわ}ったのかを{調|しら}べ{始|はじ}めた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 花のひみつ
+        subtitle: 植物探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 花壇の状態とタイムライン
+      - type: narration
+        text: "【{証拠|しょうこ}カード①】{花壇|かだん}の{記録|きろく}——チューリップの{株|かぶ}は{全部|ぜんぶ}で6{本|ほん}。そのうち1{本|ほん}だけ、{めしべが{根元|ねもと}から{折|お}れていた。{折|お}れ{口|ぐち}はきれいで、ハサミではなく{手|て}で{触|さわ}れた{跡|あと}のよう。"
+      - type: narration
+        text: "【{証拠|しょうこ}カード②】ネコの{記録|きろく}——{前日|ぜんじつ}17{時|じ}〜18{時|じ}の{花壇|かだん}{周辺|しゅうへん}のタイムライン。17:30ごろ、**ツボミが{花壇|かだん}の{近|ちか}くにいた**のを{目撃|もくげき}。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の証言
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubomi
+        text: "前日の{夕方|ゆうがた}、アブラムシが{花壇|かだん}についてるのを{見|み}て……{手|て}で{取|と}り{除|のぞ}こうとしたの。でも{めしべにはそこまで{力|ちから}は{入|い}れていないよ。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "{花|はな}のつくりの{図解|ずかい}メモを{持|も}ってきた。めしべは{花|はな}の{中心|ちゅうしん}にある1{本|ほん}。{先端|せんたん}の{柱頭|ちゅうとう}が{花粉|かふん}を{受|う}け{取|と}る{器官|きかん}で、一度{折|お}れると**{受粉|じゅふん}できなくなる**んだ。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: mori
+        expression: surprised
+        position: left
+      - type: dialog
+        character: mori
+        text: "{当日|とうじつ}{朝|あさ}に{花壇|かだん}を{確認|かくにん}したら、{折|お}れた{株|かぶ}の{根元|ねもと}に**アブラムシの{抜|ぬ}け{殻|がら}**が{少|すこ}しあったよ。{誰|だれ}かがアブラムシを{取|と}り{除|のぞ}こうとした{跡|あと}かも。"
+        expression: surprised
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: neko
+        text: "{前日|ぜんじつ}17{時|じ}〜18{時|じ}に{花壇|かだん}{周辺|しゅうへん}にいた{人|ひと}を{記録|きろく}していたんだ。ツボミが**17:30ごろ{花壇|かだん}に{来|き}ていた**のを{確認|かくにん}してる。"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "ツボミは{花壇|かだん}にいたことを{認|みと}めている。アブラムシを{取|と}ろうとしたとも{言|い}っている。でも「{力|ちから}は{入|い}れていない」と{言|い}う。{本当|ほんとう}に{誤|あやま}って{折|お}れてしまったのだろうか？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: アブラムシと受粉の仕組み
+      - type: narration
+        text: "【{証拠|しょうこ}カード④】{花粉|かふん}の{運|はこ}び{手|て}——チューリップは**{虫媒花|ちゅうばいか}**。{花びら}の{色|いろ}と{形|かたち}、{蜜|みつ}の{香|かお}りで{昆虫|こんちゅう}を{引|ひ}き{寄|よ}せる。{受粉|じゅふん}の{運|はこ}び{手|て}は①{虫|むし}（チョウ・ハチ）②{風|かぜ}③{鳥|とり}④{水|みず}。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "アブラムシは{花粉|かふん}{媒介|ばいかい}の{邪魔|じゃま}をする——ツボミはそう{聞|き}いていた。**{植物|しょくぶつ}を{守|まも}りたかった**から{手|て}で{取|と}り{除|のぞ}こうとした。でも、めしべが**それほど{繊細|せんさい}な{器官|きかん}**だとは{知|し}らなかった。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 行動の真意
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mori
+        expression: determined
+        position: left
+      - type: dialog
+        character: mori
+        text: "{根元|ねもと}のアブラムシの{抜|ぬ}け{殻|がら}……これって、アブラムシが{手|て}で{取|と}り{除|のぞ}かれた{跡|あと}だよ。{誰|だれ}かが{確|たし}かにアブラムシを{取|と}ったんだ。"
+        expression: determined
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: hana
+        expression: determined
+        position: right
+      - type: dialog
+        character: hana
+        text: "めしべの{折|お}れ{口|ぐち}を{見|み}ると、{外側|そとがわ}から{細|ほそ}い{力|ちから}が{加|くわ}わって{折|お}れた{形跡|けいせき}がある。アブラムシを{取|と}ろうとして**{指|ゆび}がめしべに{当|あ}たった**ときに{折|お}れたと{考|かんが}えられるわ。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "アブラムシの{抜|ぬ}け{殻|がら}あり → {誰|だれ}かが{手|て}で{取|と}った → ネコの{記録|きろく}で17:30にツボミが{花壇|かだん}に → ツボミが「{触|さわ}れた」と{認|みと}める → めしべは{細|ほそ}い{力|ちから}でも{折|お}れる繊細な器官 → **ツボミが{知|し}らずに{折|お}ってしまった**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 事件の中心は誰だ？
+      - type: sprite
+        character: neko
+        expression: worried
+        position: right
+      - type: dialog
+        character: neko
+        text: "タイムラインで17:30にツボミが{花壇|かだん}にいたのは{確認|かくにん}できた。でもツボミは「{わざとじゃない」って{言|い}ってる。{本当|ほんとう}にそうなのかな……"
+        expression: worried
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。ツボミは17:30に{花壇|かだん}にいた。アブラムシを{手|て}で{取|と}った{跡|あと}がある。めしべに{触|さわ}れたと{認|みと}めている。{動機|どうき}は「{植物|しょくぶつ}を{守|まも}りたかった」。めしべの{繊細|せんさい}さを{知|し}らなかった。"
+      - type: choice
+        id: q1
+        question: 事件の中心になって問題を起こしたのは誰だ？
+        options:
+          - text: ツボミ（17:30に花壇にいた＋アブラムシを手で取った＋めしべに触れたと認める）
+            value: tsubomi
+            correct: true
+            feedback: "{正解|せいかい}！ ツボミはアブラムシから{植物|しょくぶつ}を{守|まも}りたいという{善意|ぜんい}でアブラムシを{取|と}り{除|のぞ}こうとした。しかし**めしべがいかに{繊細|せんさい}か**を{知|し}らなかったため、{指|ゆび}が{当|あ}たって{折|お}ってしまった。「{触|さわ}った」{事実|じじつ}と「{折|お}った」{事実|じじつ}は{別々|べつべつ}の{意味|いみ}を{持|も}っていた。"
+          - text: ネコ（タイムラインを記録していた人）
+            value: neko
+            feedback: "ネコは{花壇|かだん}の{周辺|しゅうへん}を{観察|かんさつ}して{記録|きろく}していた{側|がわ}。{証拠|しょうこ}を{提供|ていきょう}する{立場|たちば}だよ。"
+          - text: モリ（アブラムシの抜け殻を発見した人）
+            value: mori
+            feedback: "モリは{当日|とうじつ}{朝|あさ}に{花壇|かだん}を{確認|かくにん}して{発見|はっけん}した{側|がわ}。{事件|じけん}が{起|お}きた{前日|ぜんじつ}の{夕方|ゆうがた}には{花壇|かだん}にいた{記録|きろく}はないよ。"
+          - text: ハナ（花の構造を知っていた人）
+            value: hana
+            feedback: "ハナは{花|はな}のつくりの{知識|ちしき}を{整理|せいり}して{説明|せつめい}した{側|がわ}。{前日|ぜんじつ}{夕方|ゆうがた}に{花壇|かだん}にいた{記録|きろく}はないよ。"
+
+  # ==================== 真実：ツボミ ====================
+  - id: truth-tsubomi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツボミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsubomi
+        text: "……{本当|ほんとう}のことを{話|はな}す。アブラムシを{取|と}ろうとして{触|さわ}ったとき、ポキっとなった。"
+        expression: worried
+      - type: dialog
+        character: tsubomi
+        text: "アブラムシって{花粉|かふん}{媒介|ばいかい}の{邪魔|じゃま}をするって{聞|き}いてたから……チューリップを{守|まも}りたかっただけなの。めしべがそんなに{折|お}れやすいなんて{知|し}らなかった。"
+        expression: thinking
+      - type: dialog
+        character: tsubomi
+        text: "{守|まも}りたかっただけなのに、{結果|けっか}として{傷|きず}つけてしまった。どうすればよかったんだろう……"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hana
+        text: "めしべは{本当|ほんとう}に{繊細|せんさい}な{器官|きかん}なんだ。{知識|ちしき}があれば{違|ちが}う{方法|ほうほう}を{選|えら}べたかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: mori
+        expression: worried
+        position: right
+      - type: dialog
+        character: mori
+        text: "アブラムシが{気|き}になったなら、{先|さき}に{先生|せんせい}や{みんなに{相談|そうだん}してほしかった。{一人|ひとり}で{判断|はんだん}しなくていい{問題|もんだい}もある。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツボミは{植物|しょくぶつ}を{守|まも}りたいという{善意|ぜんい}で{行動|こうどう}した。でも**{知識|ちしき}がなかった**ことで{大切|たいせつ}な{器官|きかん}を{傷|きず}つけてしまった。{善意|ぜんい}だけでは{十分|じゅうぶん}でないことがあるのよ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "チューリップは{虫媒花|ちゅうばいか}。めしべの{柱頭|ちゅうとう}が{花粉|かふん}を{受|う}け{取|と}ることで{受粉|じゅふん}できる。その{仕組|しく}みを{知|し}ることが、{植物|しょくぶつ}を{本当|ほんとう}の{意味|いみ}で{守|まも}ることに{繋|つな}がるの。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{触|さわ}った」{事実|じじつ}と「{折|お}った」{事実|じじつ}は{別|べつ}の{意味|いみ}を{持|も}っていた。{証拠|しょうこ}を{整理|せいり}することで、{真相|しんそう}に{近|ちか}づくことができた。"
+      - type: narration
+        text: "{善意|ぜんい}の{行動|こうどう}でも、{知識|ちしき}がなければ{思|おも}わぬ{結果|けっか}を{生|う}む。{気|き}になることがあれば、まず{相談|そうだん}することが{大切|たいせつ}だ。"
+      - type: effect
+        name: fade-out

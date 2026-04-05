@@ -1,0 +1,357 @@
+meta:
+  id: body-04
+  title: なかよしのタッチ
+  series: からだ探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  karada:
+    name: カラダ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kokochi:
+    name: ココチ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kizuna:
+    name: キズナ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "クラスの{仲良|なかよ}しグループで「ハイタッチ{大会|たいかい}」が{流行|はや}っている。{挨拶|あいさつ}{代|が}わりに{肩|かた}をたたいたり、{腕|うで}を{組|く}んだり、ハグしたりするのが「{仲良|なかよ}しの{証|あかし}」になっていた。"
+      - type: narration
+        text: "ところが——ある{日|ひ}、{仲良|なかよ}しグループの1{人|り}・ユキちゃんが「もうあのグループに{入|はい}りたくない」と{言|い}い{出|だ}した。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{理由|りゆう}を{聞|き}いても「なんとなく」としか{言|い}わない。いったい何があったのか——"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{体|からだ}に{触|ふ}れるときは、どんな{仲良|なかよ}しの{相手|あいて}でも「いい？」と{聞|き}く{必要|ひつよう}があるの。「{仲良|なかよ}し＝なんでもOK」じゃないのよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: karada
+            expression: thinking
+          - character: mamoru
+            expression: worried
+          - character: kokochi
+            expression: surprised
+          - character: kizuna
+            expression: worried
+      - type: narration
+        text: "からだ{探偵団|たんていだん}の4{人|にん}が、ユキちゃんが「{入|はい}りたくない」と{言|い}い{出|だ}した{本当|ほんとう}の{理由|りゆう}を{調|しら}べ{始|はじ}めた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: なかよしのタッチ
+        subtitle: からだ探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事件の始まりとグループの様子
+      - type: narration
+        text: "ユキちゃんが「もうグループに{入|はい}りたくない」と{言|い}った。ハイタッチ{大会|たいかい}は4{週間|しゅうかん}{前|まえ}から{始|はじ}まっていた。"
+      - type: narration
+        text: "{同意|どうい}の{説明|せつめい}カード：{体|からだ}に{触|ふ}れるとき「いい？」と{聞|き}く。{相手|あいて}が{嫌|いや}なら「やめる」。{仲良|なかよ}しでも{同意|どうい}は{必要|ひつよう}。"
+
+  # ==================== 調査：証拠カード2・3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: タイムラインと4週間の変化
+      - type: sprite
+        character: karada
+        expression: normal
+        position: left
+      - type: dialog
+        character: karada
+        text: "ぼくもハイタッチしてたけど、いつも「いい？」って{聞|き}いてからやってたよ。みんなはどうしてたんだろう。"
+        expression: thinking
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: normal
+        position: right
+      - type: dialog
+        character: kokochi
+        text: "4{週間|しゅうかん}のタイムラインを{見|み}ると……1{週|しゅう}{目|め}は{全員|ぜんいん}{楽|たの}しそうだった。でも3{週|しゅう}{目|め}からユキちゃんが{肩|かた}をすくめ{始|はじ}めてたよ。"
+        expression: thinking
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: narration
+        text: "4{週間|しゅうかん}のタイムライン——1{週|しゅう}{目|め}：{全員|ぜんいん}{楽|たの}しい。2{週|しゅう}{目|め}：マモルが{毎日|まいにち}{肩|かた}たたき{開始|かいし}。3{週|しゅう}{目|め}：ユキちゃんが{肩|かた}をすくめ{始|はじ}める。4{週|しゅう}{目|め}：グループを{抜|ぬ}けたいと{発言|はつげん}。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ユキちゃんの告白
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: left
+      - type: dialog
+        character: kizuna
+        text: "ユキちゃんから{聞|き}いたの。「マモルに{嫌|いや}って{言|い}ったら{友|とも}だちじゃなくなるかもって{思|おも}った。だから{我慢|がまん}してた」って。"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ユキちゃんは「{嫌|いや}」と{言|い}えなかった。{友|とも}だちを{失|うしな}うのが{怖|こわ}かったから——でも{体|からだ}は{限界|げんかい}だった。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の観察記録
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "わたしが{観察|かんさつ}していた{記録|きろく}があります。マモルは{毎日|まいにち}ユキちゃんの{肩|かた}をたたいていた。3{週|しゅう}{目|め}{以降|いこう}、ユキちゃんは{肩|かた}をすくめて{避|さ}けるようになっていた。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "でもマモルは、そのサインに{気|き}づいていなかった。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "え……ユキちゃん、{肩|かた}をすくめてた？ぼく、{全然|ぜんぜん}{気|き}づかなかった。{仲良|なかよ}しだからOKだと{思|おも}ってたのに……"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: narration
+        text: "マモルは{悪|わる}意がなかった。でも「{仲良|なかよ}し＝スキンシップOK」という{思|おも}い{込|こ}みが、ユキちゃんを{追|お}い{詰|つ}めていた。**{同意|どうい}なき{接触|せっしょく}は、{友情|ゆうじょう}でも{嫌|いや}なもの**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心になって問題を起こしたのは？
+      - type: sprite
+        character: kokochi
+        expression: determined
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "ユキちゃんは「{やめて}」って{言|い}えなかったけど、{体|からだ}は「{やめて}」って{言|い}ってた。{肩|かた}をすくめるのは「{嫌|いや}」の{体|からだ}のサインだよ。"
+        expression: determined
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "ユキちゃんは「{嫌|いや}」より「{友|とも}だちでいたい」を{選|えら}んだ。でも{体|からだ}は{限界|げんかい}だった。「{嫌|いや}と{言|い}えない」{空気|くうき}が{問題|もんだい}なの。"
+        expression: thinking
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。2{週|しゅう}{目|め}からマモルが{毎日|まいにち}{肩|かた}をたたく。3{週|しゅう}{目|め}からユキちゃんが{肩|かた}をすくめる（{嫌|いや}のサイン）。マモルはサインに{気|き}づかない。4{週|しゅう}{目|め}にユキちゃんが「{入|はい}りたくない」と{発言|はつげん}。"
+      - type: choice
+        id: q1
+        question: 中心になって問題を起こしたのは誰？
+        options:
+          - text: マモル（同意を確認せずに毎日肩をたたき続け、嫌のサインにも気づかなかった）
+            value: mamoru
+            correct: true
+            feedback: "{正解|せいかい}！ マモルは{悪|わる}意がなかったけど、「いい？」と{聞|き}かずに{毎日|まいにち}{続|つづ}けた。ユキちゃんの「{嫌|いや}」のサインにも{気|き}づけなかった。{仲良|なかよ}しでも{同意|どうい}は{必要|ひつよう}——これが{今日|きょう}の{一番|いちばん}{大事|だいじ}な{学|まな}びだよ。"
+          - text: カラダ（ハイタッチ大会に参加していた人）
+            value: karada
+            feedback: "カラダはいつも「いい？」と{聞|き}いてからハイタッチしていた。{同意|どうい}を{確認|かくにん}していたから、{問題|もんだい}の{中心|ちゅうしん}ではないよ。"
+          - text: ココチ（ユキちゃんのサインに気づいていた人）
+            value: kokochi
+            feedback: "ココチはユキちゃんの「{嫌|いや}」のサインを{見|み}ていた{観察者|かんさつしゃ}。{問題|もんだい}を{起|お}こした{側|がわ}ではないよ。"
+          - text: キズナ（ユキちゃんの気持ちを代弁した人）
+            value: kizuna
+            feedback: "キズナはユキちゃんの{気持|きも}ちを{代弁|だいべん}していた。{問題|もんだい}の{中心|ちゅうしん}ではなく、ユキちゃんの{味方|みかた}だよ。"
+
+  # ==================== 真実：マモル ====================
+  - id: truth-mamoru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マモルの気づき
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamoru
+        text: "……{知|し}らなかった。ユキちゃんが{嫌|いや}だったなんて。ぼく、{仲良|なかよ}しだからいいと{思|おも}ってた。"
+        expression: worried
+      - type: dialog
+        character: mamoru
+        text: "「いい？」って{聞|き}かなかった。ユキちゃんの{顔|かお}、ちゃんと{見|み}てなかった。ごめん。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: karada
+        expression: determined
+        position: left
+      - type: dialog
+        character: karada
+        text: "ぼくはいつも「いい？」って{聞|き}いてたよ。マモルは{聞|き}いてなかったのかも——そう{思|おも}ってたけど、{言|い}い{出|だ}せなかった。もっと{早|はや}く{言|い}えばよかった。"
+        expression: thinking
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: determined
+        position: right
+      - type: dialog
+        character: kokochi
+        text: "ユキちゃんは「{やめて}」って{言葉|ことば}では{言|い}えなかったけど、{体|からだ}はずっと{言|い}ってた。{体|からだ}のサインを{見|み}てあげることが{大事|だいじ}なんだよ。"
+        expression: determined
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: left
+      - type: dialog
+        character: kizuna
+        text: "「{嫌|いや}って{言|い}ったら{友|とも}だちじゃなくなるかも」って{怖|こわ}い{気持|きも}ち、わかる。でも、ほんとうの{友|とも}だちなら「{嫌|いや}」が{言|い}える{関係|かんけい}にしたいよね。"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{仲良|なかよ}しでも、{体|からだ}に{触|ふ}れるときは「いい？」と{聞|き}く。これは{当|あ}たり{前|まえ}のことのようで、つい{忘|わす}れてしまいがち。マモルに{悪|わる}意はなかった——でも{相手|あいて}の{気持|きも}ちを{確認|かくにん}しなかったことが{問題|もんだい}だったの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{嫌|いや}なことがあったら「{嫌|いや}」と{言|い}える{勇気|ゆうき}も{大切|たいせつ}。そして{相手|あいて}が「{嫌|いや}」のサインを{出|だ}していたら、ちゃんと{受|う}け{取|と}る{力|ちから}も{育|そだ}てていきましょう。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{仲良|なかよ}し＝なんでもOK、ではない。{触|ふ}れる{前|まえ}に「いい？」と{聞|き}く——たった一言が、みんなの{安心|あんしん}を{守|まも}る。"
+      - type: narration
+        text: "マモルの「つい・うっかり」は、ユキちゃんの{体|からだ}のサインに{気|き}づくことで{防|ふせ}げた。{同意|どうい}と{観察|かんさつ}——これが{今日|きょう}の{探偵団|たんていだん}の{学|まな}びだ。"
+      - type: effect
+        name: fade-out

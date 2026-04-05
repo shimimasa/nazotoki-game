@@ -1,0 +1,407 @@
+meta:
+  id: archaeology-10
+  title: 未来への発掘
+  series: 考古学探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の{新|しん}{校舎|こうしゃ}{建設|けんせつ}のための{調査|ちょうさ}で、{校庭|こうてい}の{一角|いっかく}に**「{遺構|いこう}（{遺跡|いせき}の{一部|いちぶ}）」**が{見|み}つかった。"
+      - type: narration
+        text: "{調査|ちょうさ}チームのホリベが{提出|ていしゅつ}した{調査|ちょうさ}{報告書|ほうこくしょ}には「この{遺構|いこう}は{重要|じゅうよう}ではない。{工事|こうじ}への{支障|ししょう}はない」と{書|か}かれていた。"
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ところが——ツチカが「この{報告書|ほうこくしょ}には**{書|か}き{換|か}えの{跡|あと}がある**」と{気|き}づいた。"
+      - type: narration
+        text: "{誰|だれ}が{書|か}き{換|か}えたのか。そして、なぜ**「{重要|じゅうよう}ではない」**と{書|か}き{換|か}えたのか——"
+      - type: narration
+        text: "{今日|きょう}は{最終回|さいしゅうかい}。{投票|とうひょう}は**2{回|かい}**ある。1{回|かい}{目|め}は{犯人|はんにん}。2{回|かい}{目|め}は——{後|あと}で{分|わ}かる。"
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 未来への発掘
+        subtitle: 考古学探偵団 Vol.10（最終巻）
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 報告書と書き換えの痕跡
+      - type: narration
+        text: "ホリベの{調査|ちょうさ}{報告書|ほうこくしょ}（「{遺構|いこう}の{重要性|じゅうようせい}：{低|ひく}。{工事|こうじ}への{支障|ししょう}：なし」）"
+      - type: narration
+        text: "ツチカの{発見|はっけん}メモ——「{修正液|しゅうせいえき}の{下|した}に{別|べつ}の{文章|ぶんしょう}がある。{書|か}き{換|か}えられた{痕跡|こんせき}が{明|あき}らか」"
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{修正液|しゅうせいえき}の{下|した}に「{追加|ついか}{調査|ちょうさ}が{必要|ひつよう}」って{書|か}いてある。これは**{書|か}き{換|か}えられた**んだ。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: narration
+        text: "{遺構|いこう}の{写真|しゃしん}と{特徴|とくちょう}{記録|きろく}——{柱穴|はしらあな}の{配置|はいち}・{土|つち}の{変色|へんしょく}・{出土|しゅつど}した{土器片|どきへん}。「{考古学的|こうこがくてき}{重要性|じゅうようせい}の{判断基準|はんだんきじゅん}」も{添付|てんぷ}されている。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 遺構の考古学的価値
+      - type: sprite
+        character: ishino
+        expression: determined
+        position: right
+      - type: dialog
+        character: ishino
+        text: "この{柱穴|はしらあな}の{配置|はいち}、{奈良時代|ならじだい}の{建物跡|たてものあと}パターンと{一致|いっち}する。もし{本物|ほんもの}なら**{重要|じゅうよう}な{発見|はっけん}**だ。"
+        expression: determined
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "イシノの{分析|ぶんせき}——{柱穴配置|はしらあなはいち}が{奈良時代|ならじだい}の{建物跡|たてものあと}パターンと{一致|いっち}。{類似|るいじ}{遺構|いこう}との{比較|ひかく}データでも**{考古学的|こうこがくてき}{重要度|じゅうようど}は{高|たか}い**と{判定|はんてい}。"
+      - type: narration
+        text: "ホリベの{報告書|ほうこくしょ}に「{重要性|じゅうようせい}：{低|ひく}」と{書|か}かれていたのは……{本当|ほんとう}のことを{書|か}いていたのか？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 書き換えの決定的証拠
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{修正液|しゅうせいえき}{分析|ぶんせき}の{結果|けっか}——{書|か}き{換|か}え{前|まえ}の{文章|ぶんしょう}は**「{遺構|いこう}の{可能性|かのうせい}{高|たか}し。{追加|ついか}{調査|ちょうさ}が{必要|ひつよう}」**。{修正液|しゅうせいえき}で{消|け}して、「{重要|じゅうよう}ではない」に{書|か}き{換|か}えた。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "フミコが{調査|ちょうさ}したら——ホリベの{友|とも}だちが「5{年生|ねんせい}になっても{古|ふる}い{校舎|こうしゃ}のままは{嫌|いや}だ。**{新|あたら}しい{校舎|こうしゃ}で{卒業|そつぎょう}したい**」って{言|い}ってたって{目撃談|もくげきたん}があった。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{書|か}き{換|か}え{前|まえ}の{文章|ぶんしょう}「{追加|ついか}{調査|ちょうさ}が{必要|ひつよう}」→ {書|か}き{換|か}え{後|ご}「{重要|じゅうよう}ではない」。{友|とも}だちの「{新|あたら}しい{校舎|こうしゃ}で{卒業|そつぎょう}したい」という{夢|ゆめ}。この2つが{繋|つな}がる{人物|じんぶつ}は……"
+
+  # ==================== 推理・1回目投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 1回目の投票
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: right
+      - type: dialog
+        character: horibe
+        text: "{友|とも}だちが……「{新|あたら}しい{校舎|こうしゃ}で{卒業|そつぎょう}したい」って{言|い}ってた。{工事|こうじ}が{止|と}まったら……だから……"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{修正液|しゅうせいえき}で{消|け}された「{追加|ついか}{調査|ちょうさ}が{必要|ひつよう}」。{報告書|ほうこくしょ}の{作成者|さくせいしゃ}はホリベ。{友|とも}だちの「{新|あたら}しい{校舎|こうしゃ}で{卒業|そつぎょう}したい」という{言葉|ことば}。{工事|こうじ}を{止|と}めたくない{動機|どうき}。"
+      - type: choice
+        id: q1
+        question: 調査報告書を書き換えた犯人は？（1回目投票）
+        options:
+          - text: ホリベ（報告書の作成者＋友だちの夢をかばう動機＋書き換え前の下書きを持っている）
+            value: horibe
+            correct: true
+            feedback: "{正解|せいかい}。ホリベが{報告書|ほうこくしょ}を{書|か}き{換|か}えた。{友|とも}だちの「{新|あたら}しい{校舎|こうしゃ}で{卒業|そつぎょう}したい」という{夢|ゆめ}をかばうために。でも——**なぜ「{書|か}き{換|か}え」という{方法|ほうほう}を{選|えら}んだの？** まだ{終|お}わりじゃない。"
+          - text: ツチカ（書き換えを発見した人）
+            value: tsuchika
+            feedback: "ツチカは{書|か}き{換|か}えを**{発見|はっけん}した{側|がわ}**。{自分|じぶん}で{書|か}き{換|か}えて{自分|じぶん}で{気|き}づく{理由|りゆう}はないよ。{正義感|せいぎかん}を{持|も}って{事実|じじつ}を{守|まも}ろうとしている。"
+          - text: イシノ（遺構の価値を分析した人）
+            value: ishino
+            feedback: "イシノは{遺構|いこう}の**{考古学的価値|こうこがくてきかち}を{確立|かくりつ}した{側|がわ}**。「{重要|じゅうよう}ではない」と{書|か}き{換|か}える{動機|どうき}がないよ。"
+          - text: フミコ（友だちの証言を調査した人）
+            value: fumiko
+            feedback: "フミコは{情報|じょうほう}を{集|あつ}めて**{両方|りょうほう}の{気持|きも}ちに{共感|きょうかん}している{側|がわ}**。{報告書|ほうこくしょ}を{書|か}き{換|か}える{立場|たちば}にないよ。"
+
+  # ==================== 証拠カード5：パラダイムシフト ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 先生のメモ
+        subtitle: 取り消せない選択の重さ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "ホリベに{確認|かくにん}したときの{先生|せんせい}のメモが{見|み}つかった——"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ホリベに{確認|かくにん}したら「{友|とも}だちのために{工事|こうじ}を{止|と}めたくなかった」と{言|い}った。{気持|きも}ちは{分|わ}かる。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でも——{遺構|いこう}を{工事|こうじ}で{壊|こわ}してしまえば、**{二度|にど}と{取|と}り{戻|もど}せない**。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{考古学者|こうこがくしゃ}は「{過去|かこ}を{掘|ほ}る」{人|ひと}ではなく**「{過去|かこ}から{未来|みらい}への{手紙|てがみ}を{届|とど}ける」**{人|ひと}。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "1000{年後|ねんご}の{人|ひと}たちが、この{場所|ばしょ}から{私|わたし}たちの{時代|じだい}を{学|まな}べるかもしれない。その{手紙|てがみ}を{守|まも}るか、{今|いま}の{便利|べんり}さを{選|えら}ぶか——{答|こた}えは1つじゃないかもしれない。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でも、**「{壊|こわ}す」という{選択|せんたく}は{取|と}り{消|け}せない**。{取|と}り{消|け}せない{選択|せんたく}には{特別|とくべつ}な{重|おも}さがある。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: wait
+        duration: 2000
+      - type: narration
+        text: "「{友|とも}だちのため」→ でも{遺構|いこう}を{壊|こわ}せば{二度|にど}と{戻|もど}らない。{考古学|こうこがく}は**「{過去|かこ}から{未来|みらい}への{手紙|てがみ}を{届|とど}ける{学問|がくもん}」**——その{手紙|てがみ}を{守|まも}るか、{今|いま}の{便利|べんり}さを{選|えら}ぶか。"
+
+  # ==================== 価値判断・2回目投票 ====================
+  - id: reflection
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ishino
+        text: "{奈良時代|ならじだい}の{建物跡|たてものあと}かもしれない。もし{本物|ほんもの}なら、1000{年|ねん}以上{前|まえ}の{人|ひと}たちの{生活|せいかつ}を{伝|つた}える{貴重|きちょう}な{手がかり|てがかり}だ。{一度|いちど}{壊|こわ}したら**{永遠|えいえん}に{失|うしな}われる**。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: determined
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{友|とも}だちのために、って{思|おも}ったんだね。でも——この{場所|ばしょ}が1000{年後|ねんご}の{人|ひと}に{届|とど}く{手紙|てがみ}だとしたら？ {今|いま}の{私|わたし}たちの{生活|せいかつ}を{未来|みらい}の{人|ひと}が{調|しら}べるとしたら、**{何|なに}が{残|のこ}ってほしい**かな。"
+        expression: determined
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: title_card
+        text: 2回目の投票
+        subtitle: あなたならどう選ぶ？
+      - type: choice
+        id: q2
+        question: 学校の新校舎建設 vs 遺構保護。どちらを優先すべき？
+        feedback_default: "どれを{選|えら}んでも{間違|まちが}いじゃない。{大事|だいじ}なのは**なぜそれを{選|えら}んだか**。{文化財|ぶんかざい}は「{取|と}り{消|け}せない」——{一度|いちど}{壊|こわ}したら{永遠|えいえん}に{失|うしな}われる。でも{子|こ}どもたちの{夢|ゆめ}も{大切|たいせつ}。{正解|せいかい}が1つじゃないからこそ、{理由|りゆう}まで{考|かんが}えることが{大切|たいせつ}。"
+        options:
+          - text: 遺構保護を優先（一度失われたら取り戻せない人類の遺産）
+            value: heritage
+            feedback: "{文化財保護|ぶんかざいほご}の{立場|たちば}。{遺構|いこう}は「{取|と}り{消|け}せない」——{未来|みらい}への{手紙|てがみ}を{守|まも}る{選択|せんたく}だ。{調査|ちょうさ}の{時間|じかん}がかかっても、{失|うしな}ったあとに{後悔|こうかい}するよりいい。"
+          - text: 新校舎建設を優先（今の子どもたちの夢・生活環境が大切）
+            value: school
+            feedback: "「{今|いま}」を{生|い}きる{子|こ}どもたちの{夢|ゆめ}を{大切|たいせつ}にする{立場|たちば}。{友|とも}だちの「{新|あたら}しい{校舎|こうしゃ}で{卒業|そつぎょう}したい」という{気持|きも}ちも{本物|ほんもの}だ。でも「{取|と}り{消|け}せない」という{重|おも}さは{忘|わす}れずに。"
+          - text: 両立できる方法を探す（部分保存・別の場所への移築など）
+            value: both
+            feedback: "どちらも{諦|あきら}めない{立場|たちば}。{部分保存|ぶぶんほぞん}・{移築|いちく}・{記録|きろく}{保存|ほぞん}など、{現代|げんだい}の{考古学|こうこがく}では「{両立|りょうりつ}」を{模索|もさく}する{方法|ほうほう}もある。ただし{時間|じかん}と{費用|ひよう}が{必要|ひつよう}だ。"
+          - text: 専門家や大人たちが話し合って決めるべき
+            value: discuss
+            feedback: "{複雑|ふくざつ}な{問題|もんだい}だからこそ、{一人|ひとり}で{抱|かか}え{込|こ}まずに{専門家|せんもんか}・{地域|ちいき}・{学校|がっこう}が{一緒|いっしょ}に{話|はな}し{合|あ}う{立場|たちば}。ホリベが{一人|ひとり}で「{書|か}き{換|か}え」という{手段|しゅだん}を{選|えら}ばずに、{相談|そうだん}していれば{結果|けっか}は{違|ちが}ったかもしれない。"
+
+  # ==================== 真実：ホリベの告白 ====================
+  - id: truth-horibe
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ホリベの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: center
+      - type: dialog
+        character: horibe
+        text: "……{報告書|ほうこくしょ}を{書|か}き{換|か}えたのは、{僕|ぼく}です。ごめんなさい。"
+        expression: worried
+      - type: dialog
+        character: horibe
+        text: "{友|とも}だちが「{新|あたら}しい{校舎|こうしゃ}で{卒業|そつぎょう}したい」って{言|い}ってた。{遺構|いこう}のせいで{工事|こうじ}が{止|と}まったら……みんなの{夢|ゆめ}が{壊|こわ}れる、って{思|おも}って。"
+        expression: thinking
+      - type: dialog
+        character: horibe
+        text: "「{追加|ついか}{調査|ちょうさ}が{必要|ひつよう}」を「{重要|じゅうよう}ではない」に{書|か}き{換|か}えた。{嘘|うそ}をついたことは……{分|わ}かってた。でも{友|とも}だちのためにって……"
+        expression: worried
+      - type: dialog
+        character: horibe
+        text: "{遺構|いこう}を{壊|こわ}したら{取|と}り{戻|もど}せないって、{先生|せんせい}に{言|い}われて……{初|はじ}めて{気|き}づいた。{本当|ほんとう}に{大切|たいせつ}なものを{隠|かく}そうとしてたんだって。"
+        expression: determined
+      - type: sprite
+        character: horibe
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{修正液|しゅうせいえき}の{跡|あと}を{見|み}たとき、{正直|しょうじき}に{言|い}うべきか{迷|まよ}った。でも{事実|じじつ}を{隠|かく}し{続|つづ}けることはもっと{良|よ}くないって{思|おも}って。ホリベの{気持|きも}ちも{分|わ}かる——でも「{正|ただ}しいこと」と「{友|とも}だちのため」が{重|かさ}なれないとき、どうすれば{良|よ}いんだろう。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: determined
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{奈良時代|ならじだい}の{建物跡|たてものあと}なら、この{地域|ちいき}の{歴史|れきし}を{証明|しょうめい}する{世界|せかい}に{一つ|ひとつ}しかない{証拠|しょうこ}だ。{工事|こうじ}で{壊|こわ}されたら——**1000{年間|ねんかん}{守|まも}られてきたものが{消|き}える**。"
+        expression: determined
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: happy
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "{友|とも}だちのために{行動|こうどう}したホリベの{気持|きも}ちは{本物|ほんもの}だよ。でも——1000{年後|ねんご}の{人|ひと}たちが「この{時代|じだい}の{人|ひと}はこんな{生活|せいかつ}をしていた」って{調|しら}べるとき、**この{場所|ばしょ}からしか{分|わ}からないこと**があるかもしれない。"
+        expression: happy
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ホリベの{動機|どうき}は{善意|ぜんい}——{友|とも}だちの{夢|ゆめ}をかばいたかった。でも{方法|ほうほう}が{間違|まちが}っていた。「{友|とも}だちのため」という{気持|きも}ちと、「{取|と}り{消|け}せない{選択|せんたく}」の{重|おも}さ——この2つは{同時|どうじ}に{存在|そんざい}できる。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{考古学|こうこがく}は「{過去|かこ}を{掘|ほ}る」だけじゃない。**「{過去|かこ}から{現在|げんざい}・{未来|みらい}への{手紙|てがみ}を{届|とど}ける」**{学問|がくもん}。その{手紙|てがみ}を{届|とど}けるために——{一人|ひとり}で{抱|かか}え{込|こ}まず、{相談|そうだん}することが{大切|たいせつ}。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "Vol.1から10{本|ぽん}、お{疲|つか}れさまでした。{土器|どき}の{復元|ふくげん}から{始|はじ}まって、{地層|ちそう}の{秘密|ひみつ}、{貝塚|かいづか}、{古墳|こふん}、{石|いし}の{道|みち}、{縄文|じょうもん}{土偶|どぐう}、{渡来人|とらいじん}、{大地|だいち}の{変動|へんどう}、{書物|しょもつ}の{謎|なぞ}、そして{未来|みらい}への{発掘|はっくつ}。10の「{見|み}る{力|ちから}」を{身|み}につけたわね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{最後|さいご}の{問|と}い——「Vol.1の{自分|じぶん}と{今|いま}の{自分|じぶん}。『{見|み}る{力|ちから}』はどう{変|か}わった？」"
+      - type: narration
+        text: "{文化財|ぶんかざい}は{人類|じんるい}{共通|きょうつう}の{遺産|いさん}。{一度|いちど}{失|うしな}われると**{二度|にど}と{回復|かいふく}できない**。{取|と}り{消|け}せない{選択|せんたく}には{特別|とくべつ}な{重|おも}さがある——{考古学|こうこがく}が{私|わたし}たちに{教|おし}えてくれること。"
+      - type: narration
+        text: "これからも「{過去|かこ}から{未来|みらい}への{手紙|てがみ}」を{受|う}け{取|と}る{目|め}で、{世界|せかい}を{見|み}てください。"
+      - type: effect
+        name: fade-out

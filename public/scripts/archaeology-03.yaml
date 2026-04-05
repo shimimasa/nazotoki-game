@@ -1,0 +1,365 @@
+meta:
+  id: archaeology-03
+  title: 貝塚の証言
+  series: 考古学探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{考古学|こうこがく}{探偵|たんてい}団の4{人|にん}。{地域|ちいき}の{貝塚|かいづか}を{調査|ちょうさ}したホリベが、{発表会|はっぴょうかい}で{熱|あつ}いスライドを{見|み}せた。{縄文時代|じょうもんじだい}の{食|た}べ{物|もの}リスト——ハマグリ・アサリ・カキ・イボキサゴ、そして**ホタテ**。"
+      - type: narration
+        text: "でも、{発表|はっぴょう}を{聞|き}いていたツチカが{首|くび}をかしげた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「このホタテって、{縄文時代|じょうもんじだい}にこの{地域|ちいき}で{生息|せいそく}していたっけ……？」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{貝塚|かいづか}は{縄文人|じょうもんじん}の「ゴミ{捨|す}て{場|ば}」。{貝|かい}・{骨|ほね}・{種子|しゅし}の{種類|しゅるい}から、{食事|しょくじ}や{生活|せいかつ}や{季節|きせつ}を{推定|すいてい}できるの。でも{証拠|しょうこ}と{事実|じじつ}がずれていたら、{推理|すいり}全体|ぜんたいが{崩|くず}れてしまうわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: thinking
+          - character: horibe
+            expression: worried
+          - character: tsuchika
+            expression: surprised
+          - character: fumiko
+            expression: normal
+      - type: narration
+        text: "4{人|にん}はそれぞれ{手|て}がかりを{持|も}っている。{証拠|しょうこ}を{整理|せいり}して、{発表|はっぴょう}のどこが{誤|あやま}りで、なぜホリベがその{誤|あやま}りを{見過|みす}ごしたのかを{明|あき}らかにしよう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 貝塚の証言
+        subtitle: 考古学探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 発表スライドとツチカの疑問
+      - type: narration
+        text: "ホリベの{発表|はっぴょう}スライドに{書|か}かれた{食材|しょくざい}リスト——ハマグリ・アサリ・カキ・イボキサゴ・**ホタテ**・シカ・イノシシ・ドングリ。"
+      - type: narration
+        text: "ツチカの{疑問|ぎもん}メモ: 「{実物|じつぶつ}{標本|ひょうほん}を{確認|かくにん}したけど、ホタテらしい{貝殻|かいがら}は1{個|こ}もなかった。このホタテはどこから{来|き}たの？」"
+      - type: narration
+        text: "{貝塚|かいづか}の{発表会|はっぴょうかい}で{疑問点|ぎもんてん}が{浮上|ふじょう}した。ホタテが{本当|ほんとう}にあったのかどうか——これが{事件|じけん}の{核心|かくしん}だ。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 貝の生息条件と文献データ
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{実物|じつぶつ}{標本|ひょうほん}の{貝|かい}の{種類|しゅるい}リスト——ハマグリ・アサリ・カキ・イボキサゴ。ホタテは1{個|こ}もなかった。ホタテは{冷|つめ}たい{海|うみ}に{生息|せいそく}するから、{縄文時代|じょうもんじだい}の{温暖|おんだん}な{関東|かんとう}の{海岸|かいがん}には{合|あ}わない。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: determined
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{縄文時代|じょうもんじだい}の{関東|かんとう}の{貝塚|かいづか}{確認|かくにん}{種|しゅ}リストを{調|しら}べた。ホタテは{含|ふく}まれていない。ホタテが{確認|かくにん}されているのは{北|きた}の{地域|ちいき}——{関東|かんとう}には{生息|せいそく}していなかった。{交易|こうえき}ルートの{年代|ねんだい}{記録|きろく}にも{証拠|しょうこ}はない。"
+        expression: determined
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "ツチカの{実物|じつぶつ}{観察|かんさつ}とイシノの{文献|ぶんけん}データが{一致|いっち}している。ホタテは{縄文時代|じょうもんじだい}の{関東|かんとう}には「{あり}えない」——では、なぜスライドに{載|の}っていたのか？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ホリベの調査ノート原本
+      - type: se
+        sound: discover
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: left
+      - type: dialog
+        character: horibe
+        text: "これが{元|もと}の{調査|ちょうさ}ノート……スライドには{書|か}き{直|なお}したけど、ノートを{見|み}ると……"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "ホリベの{調査|ちょうさ}ノート{原本|げんぽん}を{確認|かくにん}した。ハマグリ・アサリ・カキ・イボキサゴは{最初|さいしょ}から{記録|きろく}されている。"
+      - type: narration
+        text: "だが「ホタテ{大量|たいりょう}{出土|しゅつど}」の{記述|きじゅつ}だけ——**{別|べつ}のインクで{後|あと}から{手書|てがき}きで{追記|ついき}**されていた。"
+      - type: sprite
+        character: fumiko
+        expression: happy
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{食材|しょくざい}{分析|ぶんせき}をしてみた。シカ・イノシシの{骨|ほね}、ドングリ・クリの{種子|しゅし}……ホタテがなくても{十分|じゅうぶん}に{豊|ゆた}かな{食事|しょくじ}だよ。{縄文人|じょうもんじん}はもともと{豊|ゆた}かな{暮|く}らしをしていたんだ。"
+        expression: happy
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: narration
+        text: "フミコの{考察|こうさつ}は{重要|じゅうよう}だ——ホタテがなくても{食|しょく}{生活|せいかつ}は「{実際|じっさい}より{豊|ゆた}か」に{見|み}える{必要|ひつよう}はなかった。では、ホリベはなぜ{追記|ついき}したのか？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の補足と動機の確定
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ホリベに{直接|ちょくせつ}{聞|き}いたの。「みんなに{驚|おどろ}いてほしかった。でもホタテが{本当|ほんとう}にあったか{確認|かくにん}しなかった」って。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: left
+      - type: dialog
+        character: horibe
+        text: "……{発表会|はっぴょうかい}で{一番|いちばん}{注目|ちゅうもく}されたかった。もっと{面白|おもしろ}い{発表|はっぴょう}にしたくて。でも{確認|かくにん}が{足|た}りなかった。"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "{先生|せんせい}の{補足|ほそく}: {貝塚|かいづか}の{正|ただ}しい{読|よ}み{方|かた}——ハマグリ・アサリ・カキ・イボキサゴ、シカ・イノシシ、ドングリ・クリ。**ホタテなしでも{縄文人|じょうもんじん}の{食生活|しょくせいかつ}は{十分|じゅうぶん}{豊|ゆた}かだった**。"
+      - type: narration
+        text: "ホリベは「{承認|しょうにん}{欲求|よっきゅう}」から、{確認|かくにん}が{不十分|ふじゅうぶん}なままホタテを{追記|ついき}した。これが{誘張|ゆうちょう}の{動機|どうき}だ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が問題の中心か？
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{実物|じつぶつ}{標本|ひょうほん}にホタテは1{個|こ}もなかった。イシノの{文献|ぶんけん}データでも{縄文時代|じょうもんじだい}の{関東|かんとう}にはホタテは{生息|せいそく}していない。ノートの{追記|ついき}は{別|べつ}のインク——{証拠|しょうこ}が{揃|そろ}っている。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{貝|かい}の{種類|しゅるい}×{生息|せいそく}{地域|ちいき}×{縄文時代|じょうもんじだい}の{食生活|しょくせいかつ}——この3つをつなぐと{矛盾|むじゅん}に{到達|とうたつ}できる。ホリベが{事件|じけん}の{中心|ちゅうしん}にいたと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう——ツチカの{観察|かんさつ}（ホタテなし）・イシノのデータ（{生息|せいそく}域{外|がい}）・ノートの{後付|あとづけ}{追記|ついき}・ホリベの{告白|こくはく}（{確認|かくにん}せず{追加|ついか}）。"
+      - type: choice
+        id: q1
+        question: 事件の中心になって問題を起こしたのは誰だ？
+        options:
+          - text: ホリベ（確認不足のままホタテを追記・承認欲求の動機）
+            value: horibe
+            correct: true
+            feedback: "{正解|せいかい}！ ホリベは{発表会|はっぴょうかい}で{一番|いちばん}{注目|ちゅうもく}されたくて、{確認|かくにん}が{不十分|ふじゅうぶん}なままホタテの{記述|きじゅつ}を{追記|ついき}した。{貝|かい}の{種類|しゅるい}×{生息|せいそく}{地域|ちいき}×{食生活|しょくせいかつ}の{因果|いんが}{連鎖|れんさ}が{誤|あやま}りを{証明|しょうめい}する{鍵|かぎ}だった。"
+          - text: ツチカ（最初に疑問を指摘した人）
+            value: tsuchika
+            feedback: "ツチカは{正確|せいかく}な{事実|じじつ}を{守|まも}るために{疑問|ぎもん}を{提起|ていき}した{側|がわ}。{実物|じつぶつ}{標本|ひょうほん}を{丁寧|ていねい}に{確認|かくにん}した{正義感|せいぎかん}の{人|ひと}だよ。"
+          - text: イシノ（文献データを提供した人）
+            value: ishino
+            feedback: "イシノは{文献|ぶんけん}データで{誇張|こちょう}を{証明|しょうめい}した{側|がわ}。{縄文時代|じょうもんじだい}の{記録|きろく}を{調|しら}べた{達成感|たっせいかん}の{人|ひと}だよ。"
+          - text: フミコ（縄文人の食生活を代弁した人）
+            value: fumiko
+            feedback: "フミコは{縄文人|じょうもんじん}の{食生活|しょくせいかつ}が「ホタテなしでも{豊|ゆた}かだった」と{伝|つた}えた{側|がわ}。{共感|きょうかん}と{想像力|そうぞうりょく}で{視点|してん}を{広|ひろ}げてくれた{人|ひと}だよ。"
+
+  # ==================== 真実：ホリベ ====================
+  - id: truth-horibe
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ホリベの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: center
+      - type: dialog
+        character: horibe
+        text: "……{僕|ぼく}が{悪|わる}かった。ホタテの{記述|きじゅつ}を{後|あと}から{追記|ついき}したのは{本当|ほんとう}のことです。"
+        expression: worried
+      - type: dialog
+        character: horibe
+        text: "{発表会|はっぴょうかい}で{一番|いちばん}{注目|ちゅうもく}されたかった。みんなが{驚|おどろ}いてくれると{思|おも}って……でも、ホタテが{本当|ほんとう}にあったか{確認|かくにん}しなかった。"
+        expression: thinking
+      - type: dialog
+        character: horibe
+        text: "{事実|じじつ}を{確認|かくにん}せずに「{面白|おもしろ}そう」で{追加|ついか}してしまった。{考古学|こうこがく}では{証拠|しょうこ}が{全|すべ}てなのに……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{実物|じつぶつ}{標本|ひょうほん}を{見|み}たとき、{絶対|ぜったい}におかしいと{思|おも}った。{証拠|しょうこ}と{発表|はっぴょう}がずれていたら、そのまま{黙|だま}っていたらいけないよ。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: happy
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "ホタテがなくても、{貝|かい}を{採|と}って{魚|さかな}を{釣|つ}って、ドングリを{炊|た}いて……{縄文人|じょうもんじん}はすごく{豊|ゆた}かな{暮|く}らしをしていたんだ。{事実|じじつ}はもともと{十分|じゅうぶん}{面白|おもしろ}い。"
+        expression: happy
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{貝塚|かいづか}は{縄文人|じょうもんじん}のゴミ{捨|す}て{場|ば}——でも「ゴミ」の{中身|なかみ}が{食事|しょくじ}・{生活|せいかつ}・{季節|きせつ}を{教|おし}えてくれるの。{貝|かい}の{種類|しゅるい}、{動物|どうぶつ}の{骨|ほね}、{植物|しょくぶつ}の{種子|しゅし}——これを{組|く}み{合|あ}わせて{初|はじ}めて「{因果|いんが}{連鎖|れんさ}」の{推理|すいり}ができる。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{事実|じじつ}はもともと{十分|じゅうぶん}{面白|おもしろ}い。{確認|かくにん}せずに{誇張|こちょう}すると、{本当|ほんとう}の{発見|はっけん}が{見|み}えなくなってしまうわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{複数|ふくすう}の{証拠|しょうこ}を「A→B→C」の{連鎖|れんさ}でつなぐ——これが{因果|いんが}{連鎖|れんさ}の{推理|すいり}。{一つ|ひとつ}の{証拠|しょうこ}だけでは{見|み}えない{真実|しんじつ}も、{組|く}み{合|あ}わせれば{浮|う}かび{上|あ}がる。"
+      - type: narration
+        text: "{承認|しょうにん}{欲求|よっきゅう}は{自然|しぜん}な{気持|きも}ち。でも「{注目|ちゅうもく}されたい」の{前|まえ}に、{証拠|しょうこ}を{確認|かくにん}する{一歩|いっぽ}を{忘|わす}れないようにしよう。"
+      - type: effect
+        name: fade-out

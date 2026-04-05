@@ -1,0 +1,368 @@
+meta:
+  id: botany-05
+  title: 砂漠の生き残り
+  series: 植物探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科室|りかしつ}に{展示|てんじ}していた{多肉植物|たにくしょくぶつ}（エケベリア）。{植物|しょくぶつ}{係|がかり}の4{人|にん}が{毎日|まいにち}{水|みず}をあげていた、はずだった。"
+      - type: narration
+        text: ところが——{今週|こんしゅう}{月曜日|げつようび}の{朝|あさ}、{理科室|りかしつ}に{来|き}ると……
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "エケベリアの{葉|は}が**{半透明|はんとうめい}になって、ぶよぶよに{軟化|なんか}**していた。"
+      - type: narration
+        text: "「{水|みず}を{抜|ぬ}いた{人|ひと}がいるの？」——でも{理科室|りかしつ}の{鍵|かぎ}は{先生|せんせい}しか{持|も}っていない。{不正|ふせい}{入室|にゅうしつ}の{跡|あと}もない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{毎日|まいにち}{水|みず}をあげていたのに、なぜ{萎|しぼ}んでしまったのかな。{植物|しょくぶつ}が{弱|よわ}った{原因|げんいん}を{一緒|いっしょ}に{探|さが}しましょう。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: surprised
+          - character: hana
+            expression: worried
+          - character: tsubomi
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}の{植物|しょくぶつ}{係|がかり}は{全員|ぜんいん}「{毎日|まいにち}{水|みず}をあげていた」と{口|くち}をそろえる。「{水|みず}をあげていたのに{枯|か}れた」——この{矛盾|むじゅん}の{答|こた}えは、{植物|しょくぶつ}の{適応|てきおう}{戦略|せんりゃく}の{中|なか}にあった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 砂漠の生き残り
+        subtitle: 植物探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 多肉植物の状態記録と葉の観察
+      - type: narration
+        text: "【{証拠|しょうこ}カード1】{多肉植物|たにくしょくぶつ}（エケベリア）の{状態|じょうたい}{記録|きろく}——{先週|せんしゅう}まで{元気|げんき}だったが{今週|こんしゅう}から{葉|は}が{半透明|はんとうめい}になり{軟化|なんか}。{水|みず}は{毎日|まいにち}{与|あた}えられていた{記録|きろく}がある。"
+      - type: narration
+        text: "「{水|みず}やりをしていたのに{萎|しぼ}れた」——この{矛盾|むじゅん}が{事件|じけん}の{出発点|しゅっぱつてん}だ。"
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: neko
+        text: "【{証拠|しょうこ}カード2】{葉|は}の{萎|しぼ}れ{方|かた}を{比較|ひかく}してみた。{水|みず}不{足|そく}のとき：{葉|は}がしわしわになって{色|いろ}が{濃|こ}くなる。{根腐|ねぐさ}れのとき：{葉|は}が{半透明|はんとうめい}になって{軟化|なんか}、{根|ね}が{黒|くろ}くなる。"
+        expression: thinking
+      - type: dialog
+        character: neko
+        text: "今回の{症状|しょうじょう}は……**{根腐|ねぐさ}れ{型|がた}**に{近|ちか}い。{水|みず}が{足|た}りなかったんじゃなくて、{多|おお}すぎたんじゃないかな？"
+        expression: surprised
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 土の記録と砂漠植物の知識
+      - type: sprite
+        character: mori
+        expression: normal
+        position: left
+      - type: dialog
+        character: mori
+        text: "【{証拠|しょうこ}カード3（モリ）】{植物|しょくぶつ}の{土|つち}を{手|て}で{触|さわ}って{確認|かくにん}した{記録|きろく}だよ。{月曜日|げつようび}〜{金曜日|きんようび}、ずっと{土|つち}が{湿|しめ}っていた。{週|しゅう}を{通|とお}して1{度|ど}も{乾|かわ}いていない。"
+        expression: normal
+      - type: dialog
+        character: mori
+        text: "これって……{多肉植物|たにくしょくぶつ}には{良|よ}くないんじゃないかな？"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "【{証拠|しょうこ}カード3（ツボミ）】{砂漠|さばく}の{植物|しょくぶつ}のことを{本|ほん}で{読|よ}んだの。サボテンは2{週間|しゅうかん}{水|みず}をやらなくても{平気|へいき}。{多肉植物|たにくしょくぶつ}も{同|おな}じ{仲間|なかま}なんだって。"
+        expression: normal
+      - type: dialog
+        character: tsubomi
+        text: "{砂漠|さばく}の{植物|しょくぶつ}って{水|みず}をあまり{必要|ひつよう}としない。{毎日|まいにち}やったら{逆|ぎゃく}に{困|こま}るんじゃ……"
+        expression: thinking
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: narration
+        text: "{根腐|ねぐさ}れの{症状|しょうじょう}、{土|つち}がずっと{湿|しめ}っている{記録|きろく}、{砂漠|さばく}{植物|しょくぶつ}の{特性|とくせい}——これらをつなぎ合わせると、{何|なに}かが{見|み}えてくる。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 砂漠植物の適応戦略と乾湿サイクル
+      - type: narration
+        text: "【{証拠|しょうこ}カード4（{追加|ついか}HO）】{先週|せんしゅう}の{水|みず}やり{記録表|きろくひょう}——"
+      - type: narration
+        text: "ハナの{欄|らん}：{月|げつ}×、{火|か}○×2、{水|すい}○×2、{木|もく}○×2、{金|きん}○×2。（×は{記入|きにゅう}ミス？ それとも2{倍量|ばいりょう}を{意味|いみ}する{記号|きごう}か？）"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{火曜日|かようび}から{急|きゅう}に「2{倍|ばい}」の{記録|きろく}が{続|つづ}いている。{月曜日|げつようび}だけ×（{空白|くうはく}）——{何|なに}かが{起|お}きたのか？"
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "……{先週|せんしゅう}{月曜日|げつようび}に、1{日|にち}{水|みず}やりを{忘|わす}れてしまったの。{誰|だれ}にも{言|い}えなくて、{翌日|よくじつ}から2{日|にち}{分|ぶん}の{水|みず}を{一気|いっき}にやっていた……"
+        expression: worried
+      - type: sprite
+        character: hana
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 多肉植物の正しい管理ガイド
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "【{証拠|しょうこ}カード5】{多肉植物|たにくしょくぶつ}の{正|ただ}しい{管理|かんり}ガイド——"
+      - type: narration
+        text: "{水|みず}やりは**{土|つち}が{完全|かんぜん}に{乾|かわ}いてから**。{目安|めやす}は{週|しゅう}1〜2{回|かい}。{毎日|まいにち}{与|あた}えると{根|ね}が{酸素|さんそ}{不足|ふそく}になり**{根腐|ねぐさ}れ**する。"
+      - type: narration
+        text: "{砂漠|さばく}の{植物|しょくぶつ}は「{乾燥|かんそう}への{適応|てきおう}」が{最大|さいだい}の{強|つよ}み。①{葉|は}に{水|みず}を{貯|たくわ}える（{貯水|ちょすい}{組織|そしき}）②{蒸散|じょうさん}を{最小化|さいしょうか}③CAM{型|がた}{光合成|こうごうせい}④{乾湿|かんしつ}サイクルが{必須|ひっす}。"
+      - type: sprite
+        character: neko
+        expression: determined
+        position: left
+      - type: dialog
+        character: neko
+        text: "{葉|は}の{半透明|はんとうめい}{化|か}・{軟化|なんか}は{根腐|ねぐさ}れの{症状|しょうじょう}。{土|つち}がずっと{湿|しめ}っていた{記録|きろく}。{乾湿|かんしつ}サイクルなし。これは**{過剰|かじょう}{給水|きゅうすい}**が{原因|げんいん}だ。"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: determined
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{砂漠|さばく}の{植物|しょくぶつ}にとって「{毎日|まいにち}{水|みず}やり」は{最悪|さいあく}の{世話|せわ}。「{水|みず}が{多|おお}ければ{多|おお}いほど{良|よ}い」という{思|おも}い{込|こ}みが{落|お}とし{穴|あな}だったんだ。"
+        expression: determined
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 多肉植物を萎らせた原因は？
+      - type: sprite
+        character: mori
+        expression: worried
+        position: right
+      - type: dialog
+        character: mori
+        text: "{土|つち}がずっと{湿|しめ}ってたのは、{誰|だれ}かが{水|みず}やりを{繰|く}り{返|かえ}したから。ハナの{記録表|きろくひょう}を{見|み}ると、{火曜日|かようび}から「2{倍|ばい}量|りょう}」が{続|つづ}いてる……"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{根腐|ねぐさ}れの{症状|しょうじょう}（{葉|は}の{半透明|はんとうめい}{化|か}・{軟化|なんか}）。{土|つち}がずっと{湿|しめ}っていた{記録|きろく}。ハナの{水|みず}やり{記録|きろく}に{不規則|ふきそく}な「2{倍|ばい}量|りょう}」。「1{日|にち}{忘|わす}れたから{取|と}り{戻|もど}そうとした」という{告白|こくはく}。"
+      - type: choice
+        id: q1
+        question: 多肉植物が萎れた原因を作ったのは誰？
+        options:
+          - text: ハナ（1日忘れた失敗を隠すため翌日から2倍量の水やりを繰り返し、根腐れを引き起こした）
+            value: hana
+            correct: true
+            feedback: "{正解|せいかい}！ ハナは「1{日|にち}{忘|わす}れた」{失敗|しっぱい}を{隠|かく}したくて、{翌日|よくじつ}から2{日|にち}{分|ぶん}の{水|みず}を{一気|いっき}にやり{続|つづ}けた。「{水|みず}が{多|おお}ければ{多|おお}いほど{良|よ}い」という{思|おも}い{込|こ}みが{多肉植物|たにくしょくぶつ}の{根腐|ねぐさ}れを{引|ひ}き{起|お}こした。{乾湿|かんしつ}サイクルの{知識|ちしき}があれば{防|ふせ}げた{事件|じけん}だった。"
+          - text: モリ（土の状態を確認していた人）
+            value: mori
+            feedback: "モリは{土|つち}の{湿|しめ}り{具合|ぐあい}を{確認|かくにん}していただけ。{水|みず}やりの{量|りょう}は{変|か}えていないよ。"
+          - text: ネコ（葉の観察記録をつけていた人）
+            value: neko
+            feedback: "ネコは{観察|かんさつ}{記録|きろく}をつけていただけ。{水|みず}に{関|かか}わっていないよ。"
+          - text: ツボミ（砂漠植物の情報を調べた人）
+            value: tsubomi
+            feedback: "ツボミは{砂漠|さばく}{植物|しょくぶつ}の{情報|じょうほう}を{調|しら}べていた{側|がわ}。{水|みず}やりを{担当|たんとう}していた{期間|きかん}ではなかったよ。"
+
+  # ==================== 真実：ハナ ====================
+  - id: truth-hana
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハナの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "……ごめんなさい。エケベリアを{萎|しぼ}らせてしまったのは、わたしです。"
+        expression: worried
+      - type: dialog
+        character: hana
+        text: "{先週|せんしゅう}{月曜日|げつようび}に1{日|にち}{水|みず}やりを{忘|わす}れてしまって。{誰|だれ}にも{言|い}えなくて、{翌日|よくじつ}から「{取|と}り{戻|もど}さなきゃ」と2{日|にち}{分|ぶん}を{一気|いっき}にあげ{続|つづ}けた。"
+        expression: thinking
+      - type: dialog
+        character: hana
+        text: "{水|みず}をたくさんあげれば{回復|かいふく}すると{思|おも}っていた。{多肉植物|たにくしょくぶつ}に{毎日|まいにち}{水|みず}をやるのが{間違|まちが}いだなんて、{知|し}らなかった……"
+        expression: worried
+      - type: sprite
+        character: hana
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: neko
+        text: "{葉|は}が{半透明|はんとうめい}になるのは{根腐|ねぐさ}れの{症状|しょうじょう}だって、{証拠|しょうこ}カードを{見|み}ていたから{分|わ}かった。{水|みず}{不足|ふそく}と{根腐|ねぐさ}れって、{症状|しょうじょう}が{全然|ぜんぜん}{違|ちが}うんだよね。"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+      - type: sprite
+        character: mori
+        expression: worried
+        position: right
+      - type: dialog
+        character: mori
+        text: "{土|つち}がずっと{湿|しめ}ってたのが{気|き}になってたんだ。{多肉植物|たにくしょくぶつ}は{乾燥|かんそう}が{得意|とくい}な{植物|しょくぶつ}だから、{土|つち}が{乾|かわ}く{前|まえ}に{水|みず}をやっちゃいけないんだよね。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{砂漠|さばく}の{植物|しょくぶつは}{乾燥|かんそう}に{適応|てきおう}するために、{葉|は}に{水|みず}を{貯|たくわ}え、{蒸散|じょうさん}を{最小化|さいしょうか}し、{乾湿|かんしつ}サイクルを{必要|ひつよう}としているの。「{毎日|まいにち}{水|みず}をあげる＝{優|やさ}しい」という{思|おも}い{込|こ}みが、{今回|こんかい}の{落|お}とし{穴|あな}だったわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{失敗|しっぱい}したときは{一人|ひとり}で{抱|かか}え{込|こ}まずに、{先生|せんせい}に{相談|そうだん}してね。きっと{一緒|いっしょ}に{方法|ほうほう}を{考|かんが}えられるわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{頑張|がんば}れば{頑張|がんば}るほど{良|よ}い」——でも{植物|しょくぶつ}にとっての「{頑張|がんば}り」は、{人間|にんげん}の{常識|じょうしき}とは{違|ちが}う。"
+      - type: narration
+        text: "{乾湿|かんしつ}サイクル——{土|つち}が{完全|かんぜん}に{乾|かわ}くまで{待|ま}つ{勇気|ゆうき}。それが{砂漠|さばく}の{植物|しょくぶつ}を{生|い}かす{知恵|ちえ}だった。"
+      - type: effect
+        name: fade-out

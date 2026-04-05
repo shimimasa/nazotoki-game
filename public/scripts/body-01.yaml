@@ -1,0 +1,374 @@
+meta:
+  id: body-01
+  title: わたしのスペース
+  series: からだ探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  karada:
+    name: カラダ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kokochi:
+    name: ココチ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kizuna:
+    name: キズナ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "お{昼休|ひるやす}み、{教室|きょうしつ}で{新|あたら}しいクラスメイトの「リカちゃん」の{歓迎会|かんげいかい}をしていた。みんなが{話|はな}しかけている{中|なか}、リカちゃんが{急|きゅう}に{泣|な}き{出|だ}してしまった。"
+      - type: narration
+        text: "「みんなこわい」と{言|い}って{保健室|ほけんしつ}に{行|い}ってしまった。{暴言|ぼうげん}も{暴力|ぼうりょく}もなかった。なのに、リカちゃんは「こわい」と{感|かん}じた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "からだ{探偵団|たんていだん}の4{人|にん}が「{何|なに}があったの？」と{調|しら}べ{始|はじ}める。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "今日は{パーソナルスペース|パーソナルスペース}について{考|かんが}えてみましょう。{人|ひと}にはそれぞれ「ここまでは{平気|へいき}」「ここからは{嫌|いや}」という{距離|きょり}があるんです。{同|おな}じ{距離|きょり}でも、{人|ひと}によって「{快|かい}」と「{不快|ふかい}」が{違|ちが}います。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: karada
+            expression: thinking
+          - character: mamoru
+            expression: thinking
+          - character: kokochi
+            expression: worried
+          - character: kizuna
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}はそれぞれ{歓迎会|かんげいかい}のことを{知|し}っている。でも{全員|ぜんいん}が「{自分|じぶん}は{悪|わる}くない」と{言|い}う。{何|なに}が{起|お}きたのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: わたしのスペース
+        subtitle: からだ探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事件の事実とパーソナルスペース
+      - type: narration
+        text: "{歓迎会|かんげいかい}の{事実|じじつ}——リカちゃんが{突然|とつぜん}{泣|な}き{出|だ}して「みんなこわい」と{言|い}った。{暴言|ぼうげん}や{暴力|ぼうりょく}はなかった。"
+      - type: narration
+        text: "{人|ひと}にはそれぞれ「ここまでは{平気|へいき}」「ここからは{嫌|いや}」の{距離|きょり}がある。これを{パーソナルスペース|パーソナルスペース}という。{子|こ}どもでも{大人|おとな}でも、{人|ひと}それぞれに{違|ちが}う{感|かん}じ{方|かた}がある。"
+      - type: narration
+        text: "{同|おな}じ{距離|きょり}でも、ある{人|ひと}には「{平気|へいき}」でも、{別|べつ}の{人|ひと}には「こわい」と{感|かん}じることがある。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の位置と距離のメモ
+      - type: sprite
+        character: karada
+        expression: normal
+        position: left
+      - type: dialog
+        character: karada
+        text: "{歓迎会|かんげいかい}の{時|とき}、ぼくはリカちゃんから2メートル{離|はな}れた{場所|ばしょ}から「おーい！」と{声|こえ}をかけた。"
+        expression: normal
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: normal
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "ぼくは{入口|いりぐち}で{手|て}を{振|ふ}っただけで、{近|ちか}づいていない。カラダも{遠|とお}くから{声|こえ}をかけた。ココチは{横並|よこなら}び50センチ。キズナだけが{正面|しょうめん}30センチの{近|ちか}さにいた。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: normal
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "わたしはリカちゃんの{横|よこ}に50センチで{並|なら}んで{話|はな}しかけた。リカちゃんが「{体|からだ}がぎゅっとなった」と{言|い}っていた。{不快|ふかい}のサインだ。"
+        expression: worried
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: normal
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "わたし、リカちゃんと{仲良|なかよ}くなりたかったから、{顔|かお}のすぐ{近|ちか}くまで{寄|よ}って{話|はな}しかけたの。{前|まえ}の{学校|がっこう}では{友|とも}だちと{顔|かお}を{寄|よ}せ{合|あ}って{話|はな}すのが{普通|ふつう}だったから。"
+        expression: thinking
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "{位置|いち}・{距離|きょり}メモ——カラダ＝2メートル{離|はな}れて{声|こえ}かけ、ココチ＝{横並|よこなら}び50センチ、マモル＝{入口|いりぐち}で{手|て}を{振|ふ}った、**キズナ＝{正面|しょうめん}30センチ**。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: リカちゃんの言葉
+      - type: narration
+        text: "{保健室|ほけんしつ}でリカちゃんが{言|い}った{言葉|ことば}——"
+      - type: narration
+        text: "「ある{子|こ}がすごく{近|ちか}くに{来|き}て、{顔|かお}が{目|め}の{前|まえ}にあって、{体|からだ}がぎゅっとなった」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{正面|しょうめん}{至近距離|しきんきょり}」——{顔|かお}が{目|め}の{前|まえ}にある{距離|きょり}。このキーワードと{証拠|しょうこ}カード3の{情報|じょうほう}を{合|あ}わせると……{正面|しょうめん}30センチで{話|はな}しかけたのは**キズナだけ**だ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 新しい証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yamada
+        text: "キズナに{話|はな}を{聞|き}いたら、「{前|まえ}の{学校|がっこう}では{顔|かお}を{寄|よ}せて{話|はな}すのが{普通|ふつう}だった。{仲良|なかよ}くなりたかった」と{言|い}っていました。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "わたし、{悪意|あくい}はなかった。{仲良|なかよ}くなりたくて{近|ちか}づいただけ。リカちゃんが{怖|こわ}がるなんて{思|おも}わなかった……"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "キズナに{悪意|あくい}はなかった。でも{距離|きょり}の{感|かん}じ{方|かた}は{人|ひと}それぞれ——{同|おな}じ{距離|きょり}でも「{快|かい}」と「{不快|ふかい}」は{人|ひと}によって{違|ちが}う。これが{事件|じけん}の{核心|かくしん}だ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こした？
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。カラダは2メートル{離|はな}れていた。ぼくは{手|て}を{振|ふ}っただけ。ココチは{横並|よこなら}び。**キズナだけが{正面|しょうめん}{至近距離|しきんきょり}**で{話|はな}しかけた。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kokochi
+        text: "「{体|からだ}がぎゅっとなった」——これは{不快|ふかい}のサイン。{体|からだ}は{正直|しょうじき}に{反応|はんのう}していた。{近|ちか}づく{前|まえ}に{相手|あいて}の{反応|はんのう}を{見|み}ることが{大切|たいせつ}だったんだ。"
+        expression: thinking
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{正面|しょうめん}30センチで{話|はな}しかけた → リカちゃんの「{体|からだ}がぎゅっとなった」という{不快|ふかい}のサイン → キズナだけが{正面|しょうめん}{至近距離|しきんきょり} → キズナが{仲良|なかよ}くなりたくて{近|ちか}づきすぎた。"
+      - type: choice
+        id: q1
+        question: 誰が中心になって問題を起こした？
+        options:
+          - text: キズナ（正面至近距離で話しかけてリカちゃんのパーソナルスペースに入った）
+            value: kizuna
+            correct: true
+            feedback: "{正解|せいかい}！ キズナは{悪意|あくい}なく「{仲良|なかよ}くなりたい」{一心|いっしん}で{近|ちか}づいたが、{同|おな}じ{距離|きょり}でも{人|ひと}によって「{快|かい}」と「{不快|ふかい}」は{違|ちが}う。{近|ちか}づく{前|まえ}に{相手|あいて}の{反応|はんのう}を{確認|かくにん}することが{大切|たいせつ}だった。"
+          - text: カラダ（2メートル離れて声をかけた人）
+            value: karada
+            feedback: "カラダは2メートル{離|はな}れた{場所|ばしょ}から{声|こえ}をかけていた。リカちゃんの{近|ちか}くには{近|ちか}づいていないよ。"
+          - text: ココチ（横並びで話しかけた人）
+            value: kokochi
+            feedback: "ココチは{横並|よこなら}びの50センチで{話|はな}しかけた。{正面|しょうめん}{至近距離|しきんきょり}ではないよ。"
+          - text: マモル（入口で手を振った人）
+            value: mamoru
+            feedback: "マモルは{入口|いりぐち}で{手|て}を{振|ふ}っただけで、リカちゃんに{近|ちか}づいていないよ。"
+
+  # ==================== 真実：キズナ ====================
+  - id: truth-kizuna
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: キズナの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: center
+      - type: dialog
+        character: kizuna
+        text: "……リカちゃんに{近|ちか}づきすぎたのは、わたしです。"
+        expression: worried
+      - type: dialog
+        character: kizuna
+        text: "{仲良|なかよ}くなりたかった。{前|まえ}の{学校|がっこう}では{友|とも}だちと{顔|かお}を{寄|よ}せ{合|あ}って{話|はな}すのが{普通|ふつう}だったから。リカちゃんが{怖|こわ}がるなんて、{思|おも}ってもみなかった。"
+        expression: thinking
+      - type: dialog
+        character: kizuna
+        text: "「{仲良|なかよ}くしたかっただけなのに……」って、ずっとモヤモヤしてた。{悪意|あくい}はなかったけど、リカちゃんを{傷|きず}つけてしまった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: karada
+        expression: thinking
+        position: left
+      - type: dialog
+        character: karada
+        text: "ぼくは{離|はな}れてたから、リカちゃんは{平気|へいき}だった。{距離|きょり}が{関係|かんけい}してるんだ……{当|あ}たり{前|まえ}のことだったのに、{全然|ぜんぜん}{気|き}づかなかった。"
+        expression: thinking
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "キズナだけが{正面|しょうめん}から{近|ちか}い、って{見|み}えてた。でも「{仲良|なかよ}くしたかっただけ」って{気持|きも}ちは{分|わ}かる。もっと{早|はや}く{声|こえ}をかけられたかもしれない。"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: determined
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "「{体|からだ}がぎゅっとなった」——{体|からだ}は{正直|しょうじき}に{不快|ふかい}のサインを{出|だ}していた。そのサインを{見逃|みのが}さないことが、{相手|あいて}を{守|まも}ることに{繋|つな}がるんだ。"
+        expression: determined
+      - type: sprite
+        character: kokochi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "キズナに{悪意|あくい}はありませんでした。でも{同|おな}じ{距離|きょり}でも、{人|ひと}によって「{快|かい}」と「{不快|ふかい}」は{違|ちが}います。{近|ちか}づく{前|まえ}に{相手|あいて}の{様子|ようす}を{確認|かくにん}する——これがパーソナルスペースを{尊重|そんちょう}するということです。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{仲良|なかよ}くなりたい」という{気持|きも}ちは{素敵|すてき}。でも{相手|あいて}の{反応|はんのう}を{見|み}ながら{近|ちか}づくことが、{本当|ほんとう}の{思|おも}いやりですよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{悪意|あくい}がなくても、{相手|あいて}を{傷|きず}つけることがある。{大切|たいせつ}なのは{相手|あいて}の「{体|からだ}のサイン」を{見|み}ること。"
+      - type: narration
+        text: "パーソナルスペース——{近|ちか}づく{前|まえ}に、{相手|あいて}の{顔|かお}や{体|からだ}の{反応|はんのう}を{確認|かくにん}しよう。"
+      - type: effect
+        name: fade-out

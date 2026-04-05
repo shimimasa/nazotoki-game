@@ -1,0 +1,386 @@
+meta:
+  id: body-07
+  title: 断れないゲーム
+  series: からだ探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  karada:
+    name: カラダ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kokochi:
+    name: ココチ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kizuna:
+    name: キズナ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{昼休|ひるやす}み、{校庭|こうてい}のすみでクラスの{男子|だんし}グループが「{度胸|どきょう}だめしゲーム」を{始|はじ}めた。"
+      - type: narration
+        text: "「○○ができたら{勇者|ゆうしゃ}」「できなかったらチキン」というルールで、だんだんお{題|だい}がエスカレートしていく。"
+      - type: narration
+        text: "{最初|さいしょ}は「{大声|おおごえ}で{歌|うた}う」{程度|ていど}だったが、「{知|し}らない{人|ひと}に{話|はな}しかける」「{屋上|おくじょう}の{柵|さく}に{登|のぼ}る」と{危険|きけん}な{方向|ほうこう}に。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ついにココチが「{高|たか}い{場所|ばしょ}から{飛|と}び{降|お}りる」というお{題|だい}で——{怪我|けが}をしてしまった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{同意|どうい}」ってどういうことか、{知|し}ってる？{同意|どうい}とは「{自分|じぶん}の{意志|いし}でやりたいと{思|おも}うこと」。「みんなやってる」「{断|ことわ}ったらチキン」は、{同意|どうい}じゃない。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: karada
+            expression: worried
+          - character: mamoru
+            expression: thinking
+          - character: kokochi
+            expression: surprised
+          - character: kizuna
+            expression: worried
+      - type: narration
+        text: "4{人|にん}はそれぞれ、あの{日|ひ}のことを{知|し}っている。でも、{誰|だれ}が{中心|ちゅうしん}になって{問題|もんだい}を{引|ひ}き{起|お}こしたのか——{真実|しんじつ}はまだ{見|み}えていない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 断れないゲーム
+        subtitle: からだ探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事件の事実
+      - type: narration
+        text: "{証拠|しょうこ}カード1が{配|くば}られた。"
+      - type: narration
+        text: "**{事実|じじつ}**: ココチが{度胸|どきょう}だめしゲームで{高|たか}い{場所|ばしょ}から{飛|と}び{降|お}りて{怪我|けが}をした。ゲームは{昼休|ひるやす}みに{男子|だんし}グループで{行|おこな}われていた。"
+      - type: narration
+        text: "このカードが{出|で}る{前|まえ}と{後|あと}で、だれをいちばんあやしいと{思|おも}う？"
+
+  # ==================== 調査：証拠カード2・3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 同意とエスカレート
+      - type: sprite
+        character: mamoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "{証拠|しょうこ}カード2を{見|み}てほしい。「{同意|どうい}とは{何|なに}か」カードだ。{同意|どうい}＝「{自分|じぶん}の{意志|いし}でやりたいと{思|おも}うこと」。「みんなやってる」「{断|ことわ}ったらチキン」は{同意|どうい}じゃない。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "{証拠|しょうこ}カード3を{見|み}て。ゲームのエスカレート{記録|きろく}があるよ。①{大声|おおごえ}で{歌|うた}う → ②{知|し}らない{人|ひと}に{話|はな}しかける → ③{屋上|おくじょう}の{柵|さく}に{登|のぼ}る → ④{高|たか}い{所|ところ}から{飛|と}び{降|お}りる。{段階的|だんかいてき}に{危険度|きけんど}が{上|あ}がってる。"
+        expression: surprised
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "ゲームは「{楽|たの}しそう」から{始|はじ}まった。でも、お{題|だい}はどんどん{危険|きけん}になっていった。なぜ{誰|だれ}も{止|と}めなかったのか？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: やめる選択肢がなかった
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "このゲームのルールに「やめます」っていう{選択肢|せんたくし}がない。つまり{全員|ぜんいん}が「やるしかない」{状態|じょうたい}だったんだ。{同意|どうい}もなく、{止|と}める{手段|しゅだん}もなかった。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "ゲームに{参加|さんか}してた{子|こ}に{聞|き}いたら、みんな「{途中|とちゅう}から{怖|こわ}かった」って。{誰|だれ}も「{楽|たの}しい」って{言|い}ってない。"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{重要|じゅうよう}な{情報|じょうほう}が{欠落|けつらく}している。①{誰|だれ}が{最初|さいしょ}にゲームを{始|はじ}めたか → {不明|ふめい}。②{参加|さんか}の{同意|どうい}を{取|と}ったか → {取|と}っていない。③エスカレートを{止|と}める{人|ひと}がいたか → いなかった。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の整理
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "このゲームでは——①{誰|だれ}も「やりたい」と{明確|めいかく}に{言|い}っていない。②「やめたい」と{言|い}う{方法|ほうほう}がない。③{断|ことわ}ると「チキン」と{言|い}われる。これは「ゲーム」ではなく「{圧力|あつりょく}」です。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: karada
+        expression: worried
+        position: left
+      - type: dialog
+        character: karada
+        text: "ぼくも「やばい」って{思|おも}ってた。でも「チキン」って{言|い}われるのが{嫌|いや}で……{止|と}められなかった。"
+        expression: worried
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: worried
+        position: right
+      - type: dialog
+        character: kokochi
+        text: "{本当|ほんとう}は{飛|と}び{降|お}りたくなかった。でも「やれないの？チキン？」って……{体|からだ}が{動|うご}いちゃった。"
+        expression: worried
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{楽|たの}しいゲーム」が「{圧力|あつりょく}の{構造|こうぞう}」だった。ココチは{怖|こわ}いと{思|おも}っていても{断|ことわ}れなかった。「みんなやってるから{安全|あんぜん}」「{断|ことわ}ったら{仲間外|なかまはず}れ」——このプレッシャーが、{自分|じぶん}の「{嫌|いや}だ」「{危|あぶ}ない」という{判断|はんだん}を{上書|うわが}きしてしまった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心になって問題を起こしたのは誰だ？
+      - type: sprite
+        character: mamoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ゲームは{段階的|だんかいてき}にエスカレートした。{誰|だれ}も「やりたい」と{言|い}っていない。「やめる」{選択肢|せんたくし}がなかった。{全員|ぜんいん}が「{途中|とちゅう}から{怖|こわ}かった」と{言|い}っている。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "ここが{大事|たいせつ}なところ。「{集団|しゅうだん}{圧力|あつりょく}」って、{誰|だれかひとり}のせいじゃなくて、{構造|こうぞう}の{問題|もんだい}なんだよね。でも、この{事件|じけん}で{中心|ちゅうしん}にいた{人|ひと}は{誰|だれ}？"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。「チキン」と{言|い}われるのが{怖|こわ}くて{断|ことわ}れなかった。「みんなやってるから」と{自分|じぶん}に{言|い}い{聞|き}かせた。「{危|あぶ}ない」と{思|おも}っていても{体|からだ}が{動|うご}いてしまった。"
+      - type: choice
+        id: q1
+        question: 事件の中心になって問題を起こしたのは誰か？
+        options:
+          - text: ココチ（集団圧力に負けて断れなかった当事者。「チキン」と言われる怖さが判断を上書きした）
+            value: kokochi
+            correct: true
+            feedback: "{正解|せいかい}！ ただし、ここで{大切|たいせつ}なこと——ココチを{責|せ}める{話|はなし}ではない。「みんなやってる」は{同意|どうい}ではない。{嫌|いや}だ・{危|あぶ}ないと{思|おも}ったら{断|ことわ}る{権利|けんり}がある。この「{断|ことわ}れなかった{仕組|しく}み」を{見抜|みぬ}くことが{大事|たいせつ}だ。"
+          - text: カラダ（途中で「やばい」と思ったのに止められなかった人）
+            value: karada
+            feedback: "カラダも{集団|しゅうだん}{圧力|あつりょく}の{中|なか}にいた。でも{事件|じけん}の{中心|ちゅうしん}にいて{怪我|けが}をしたのはココチ。カラダの「{止|と}められなかった」という{気持|きも}ちも{重要|じゅうよう}な{証言|しょうげん}だよ。"
+          - text: マモル（ゲームの構造の問題に気づいた人）
+            value: mamoru
+            feedback: "マモルは{問題|もんだい}を{分析|ぶんせき}した{側|がわ}。ゲームの{構造|こうぞう}がおかしいと{気|き}づいたマモルの{視点|してん}は{大切|たいせつ}だけど、{事件|じけん}の{中心|ちゅうしん}にいた{人|ひと}は{誰|だれ}か、もう{一度|いちど}{考|かんが}えよう。"
+          - text: キズナ（参加者みんなの「怖かった」を集めた人）
+            value: kizuna
+            feedback: "キズナは{参加|さんか}した{子|こ}たちの{本当|ほんとう}の{気持|きも}ちを{届|とど}けた{側|がわ}。みんなが「{怖|こわ}かった」と{言|い}っていたという{情報|じょうほう}は{大事|たいせつ}だけど、{事件|じけん}の{当事者|とうじしゃ}は{誰|だれ}か{考|かんが}えよう。"
+
+  # ==================== 真実：ここち ====================
+  - id: truth-kokochi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ココチの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kokochi
+        expression: worried
+        position: center
+      - type: dialog
+        character: kokochi
+        text: "……{本当|ほんとう}は、{飛|と}び{降|お}りたくなかった。{最初|さいしょ}は{楽|たの}しかった。でも{途中|とちゅう}から{怖|こわ}くなって。"
+        expression: worried
+      - type: dialog
+        character: kokochi
+        text: "「やれないの？チキン？」って{言|い}われて……「みんなやってるし」って{自分|じぶん}に{言|い}い{聞|き}かせたら、{体|からだ}が{動|うご}いてた。{断|ことわ}ってよかったんだって、{今|いま}はわかる。"
+        expression: thinking
+      - type: dialog
+        character: kokochi
+        text: "「{断|ことわ}る{権利|けんり}」が{自分|じぶん}にあるって、その{時|とき}は{思|おも}えなかった。"
+        expression: worried
+      - type: sprite
+        character: kokochi
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: karada
+        expression: thinking
+        position: left
+      - type: dialog
+        character: karada
+        text: "ぼくも「やばい」って{思|おも}ってた。でも{誰|だれ}かが{止|と}めたら、その{人|ひと}が「チキン」って{呼|よ}ばれる。だから{誰|だれ}も{止|と}められなかった。"
+        expression: thinking
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "このゲームの{構造|こうぞう}が{問題|もんだい}だった。「やめます」って{言|い}える{仕組|しく}みがあれば、ここまでにならなかったかもしれない。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: left
+      - type: dialog
+        character: kizuna
+        text: "{参加|さんか}してた{子|こ}、{全員|ぜんいん}が「{途中|とちゅう}から{怖|こわ}かった」って{言|い}ってた。{誰|だれ}も「{楽|たの}しかった」って{言|い}ってない。"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「みんなやってる」は、{同意|どうい}じゃない。{嫌|いや}だ・{危|あぶ}ないと{感|かん}じたら、{断|ことわ}る{権利|けんり}がある。それは{弱|よわ}さじゃなくて、{自分|じぶん}を{守|まも}る{力|ちから}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "そして{周|まわ}りにいる{人|ひと}も——{誰|だれ}かが「{怖|こわ}い」と{感|かん}じていそうなら、「{無理|むり}しなくていいよ」って{声|こえ}をかけることができる。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{集団|しゅうだん}{圧力|あつりょく}」は{特別|とくべつ}なことじゃない。{学校|がっこう}の{中|なか}でも{毎日|まいにち}{起|お}きている。"
+      - type: narration
+        text: "{大切|たいせつ}なのは——「{嫌|いや}だ」と{感|かん}じたとき、その{気持|きも}ちを{信|しん}じること。そして「{断|ことわ}る{権利|けんり}」は{誰|だれ}にでもある。"
+      - type: effect
+        name: fade-out

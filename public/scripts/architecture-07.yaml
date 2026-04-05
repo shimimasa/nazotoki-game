@@ -1,0 +1,363 @@
+meta:
+  id: architecture-07
+  title: 消された彫刻
+  series: 建築探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}探偵団の4{人|にん}。{町|まち}の{古|ふる}い{公民館|こうみんかん}の{補修|ほしゅう}{工事|こうじ}が{進|すす}む{中|なか}、{外壁|がいへき}に{刻|きざ}まれた{伝統的|でんとうてき}な{花|はな}の{彫刻|ちょうこく}{飾|かざ}りが、ある{日|ひ}を{境|さかい}に{姿|すがた}を{消|き}した。"
+      - type: narration
+        text: "{業者|ぎょうしゃ}は「{図面|ずめん}{通|どお}りに{施工|せこう}した」と{言|い}う。しかし——その{図面|ずめん}には、{彫刻|ちょうこく}の{記載|きさい}がなかった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{誰|だれ}が、いつ、{図面|ずめん}から{彫刻|ちょうこく}を{消|け}したのか。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{登録有形文化財|とうろくゆうけいぶんかざい}に{指定|してい}されるかもしれない{建物|たてもの}を{改変|かいへん}するときは、{届出|とどけで}が{必要|ひつよう}なの。1932{年|ねん}に{建|た}てられたこの{公民館|こうみんかん}の{彫刻|ちょうこく}は、ただの{飾|かざ}りじゃなかった{可能性|かのうせい}がある。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: surprised
+          - character: hari
+            expression: worried
+          - character: noki
+            expression: thinking
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "{公民館|こうみんかん}を{長年|ながねん}{見守|みまも}ってきた{地域|ちいき}の{人|ひと}たちの{記憶|きおく}が、{工事|こうじ}とともに{削|けず}り{取|と}られた。4{人|にん}は{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消された彫刻
+        subtitle: 建築探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 工事前後の写真と業者の証言
+      - type: narration
+        text: "{公民館|こうみんかん}の{写真|しゃしん}が2{枚|まい}{並|なら}んでいる。{工事前|こうじまえ}: {外壁|がいへき}に{精巧|せいこう}な{花|はな}の{彫刻|ちょうこく}{飾|かざ}りがある。{工事後|こうじご}: {彫刻|ちょうこく}は{跡形|あとかた}もなく{平|たい}らになっている。"
+      - type: narration
+        text: "{業者|ぎょうしゃ}の{証言|しょうげん}: 「{支給|しきゅう}された{施工|せこう}{図面|ずめん}{通|どお}りに{作業|さぎょう}しました。{外壁|がいへき}は{全面|ぜんめん}{補修|ほしゅう}する{指示|しじ}でしたので。{彫刻|ちょうこく}の{記載|きさい}は{図面|ずめん}に{一切|いっさい}ありませんでした。」"
+      - type: narration
+        text: "{登録有形文化財|とうろくゆうけいぶんかざい}{制度|せいど}の{説明|せつめい}: {文化財保護法|ぶんかざいほごほう}に{基|もと}づき、{建設後|けんせつご}50{年以上|ねんいじょう}の{建物|たてもの}は{申請|しんせい}により{登録|とうろく}できる。{改変|かいへん}する{際|さい}は{届出義務|とどけでぎむ}がある。{公民館|こうみんかん}の{建設年|けんせつねん}: **1932{年|ねん}**。90{年以上|ねんいじょう}{前|まえ}の{建物|たてもの}だ。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 図面の比較と改変日の記録
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: noki
+        text: "{改変後|かいへんご}の{施工図面|せこうずめん}を{見|み}ると、{彫刻|ちょうこく}の{記載|きさい}がどこにもない。でも{倉庫|そうこ}で{元|もと}の{設計図|せっけいず}を{見|み}つけたの——{彫刻|ちょうこく}の{詳細|しょうさい}がちゃんと{描|か}いてある。"
+        expression: determined
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tateru
+        text: "{図面|ずめん}が{改変|かいへん}された{日付|ひづけ}の{記録|きろく}がある。**3{週間|しゅうかん}{前|まえ}**——{工事|こうじ}が{始|はじ}まる{直前|ちょくぜん}だ。{誰|だれ}かが{意図的|いとてき}に{彫刻|ちょうこく}の{部分|ぶぶん}を{省|はぶ}いたんだ。"
+        expression: surprised
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "2{枚|まい}の{図面|ずめん}が{並|なら}ぶ。{元|もと}の{設計図|せっけいず}には{花|はな}の{彫刻|ちょうこく}が{精密|せいみつ}に{描|か}かれている。{改変後|かいへんご}の{施工|せこう}{図面|ずめん}には——{何|なに}もない。**{図面|ずめん}{改変日|かいへんび}: 3{週間|しゅうかん}{前|まえ}**。"
+
+  # ==================== 調査：証拠カード4（密談） ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ハリの告白
+      - type: se
+        sound: discover
+      - type: sprite
+        character: hari
+        expression: worried
+        position: left
+      - type: dialog
+        character: hari
+        text: "……{タテル|タテル}、{実|じつ}は、{黙|だま}ってたことがある。{工事|こうじ}{計画|けいかく}を{整理|せいり}してたとき、{文化財|ぶんかざい}の{可能性|かのうせい}を{示|しめ}す{書類|しょるい}を{見|み}つけてたんだ。"
+        expression: worried
+      - type: dialog
+        character: hari
+        text: "3{週間|しゅうかん}と1{日前|にちまえ}——{図面|ずめん}が{改変|かいへん}される**{前|まえ}**のことだ。{工事|こうじ}を{早|はや}く{終|お}わらせたくて……「{後|あと}で{確認|かくにん}すればいい」と{思|おも}って{後回|あとまわ}しにした。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tateru
+        text: "つまり、{書類|しょるい}を{見|み}つけた{日|ひ}は{図面|ずめん}{改変日|かいへんび}の**{前|まえ}**……{彫刻|ちょうこく}が{大事|だいじ}だと{分|わ}かっていながら、{報告|ほうこく}しなかったってこと？"
+        expression: surprised
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "{決定的|けっていてき}な{時間|じかん}の{矛盾|むじゅん}が{浮|う}かび{上|あ}がった。ハリが{書類|しょるい}を{見|み}つけたのは{図面|ずめん}{改変日|かいへんび}の{前日|ぜんじつ}。その{書類|しょるい}を{報告|ほうこく}していれば、{図面|ずめん}の{改変|かいへん}は{止|と}められた{可能性|かのうせい}がある。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 書類の実物と署名
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: noki
+        expression: determined
+        position: left
+      - type: dialog
+        character: noki
+        text: "{書類|しょるい}の{実物|じつぶつ}が{見|み}つかった。{日付入|ひづけい}りで、ハリの{署名|しょめい}「{確認|かくにん}」が{押|お}してある。**3{週間|しゅうかん}と1{日前|にちまえ}**の{日付|ひづけ}で、{建物|たてもの}の{文化財|ぶんかざい}{登録|とうろく}{可能性|かのうせい}が{明記|めいき}されている。"
+        expression: determined
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: hari
+        expression: worried
+        position: right
+      - type: dialog
+        character: hari
+        text: "……{知|し}らなかったんじゃない。{確認|かくにん}した。でも「{工事|こうじ}の{邪魔|じゃま}になる」と{思|おも}って、{後回|あとまわ}しにした。{早|はや}く{工事|こうじ}を{終|お}わらせて{地域|ちいき}の{人|ひと}を{喜|よろこ}ばせたかった——その{気持|きも}ちは{本当|ほんとう}だった。でも……{間違|まちが}いだった。"
+        expression: worried
+      - type: sprite
+        character: hari
+        action: hide
+      - type: narration
+        text: "「{知|し}らなかった」ではなく「**{後回|あとまわ}しにした**」が{確定|かくてい}した。{書類発見日|しょるいはっけんび}（3{週間|しゅうかん}と1{日前|にちまえ}）→ {図面改変日|ずめんかいへんび}（3{週間|しゅうかん}{前|まえ}）→ {工事開始|こうじかいし}→ {彫刻消滅|ちょうこくしょうめつ}。**ハリが{報告|ほうこく}すれば{止|と}められた連鎖|れんさ}だった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こしたか？
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: izumi
+        text: "{地域|ちいき}のお{年寄|としよ}りが「あの{彫刻|ちょうこく}は{子|こ}どもの{頃|ころ}から{好|す}きだった。{公民館|こうみんかん}の{顔|かお}だったのに」って……{何十年|なんじゅうねん}も{見|み}てきた{人|ひと}の{記憶|きおく}が{消|き}えたんだ。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ハリは{書類|しょるい}を{図面改変日|ずめんかいへんび}の**{前|まえ}**に{見|み}ていた。{署名|しょめい}「{確認|かくにん}」がある。{報告|ほうこく}せず{後回|あとまわ}しにした。{業者|ぎょうしゃ}は{図面|ずめん}{通|どお}りに{施工|せこう}しただけ。{彫刻|ちょうこく}は{登録有形文化財|とうろくゆうけいぶんかざい}の{一部|いちぶ}だった{可能性|かのうせい}がある。"
+      - type: choice
+        id: q1
+        question: 事件の中心になって問題を起こしたのは誰？
+        options:
+          - text: ハリ（文化財の書類を見ていたのに報告を後回しにした）
+            value: hari
+            correct: true
+            feedback: "{正解|せいかい}！ ハリは{責任感|せきにんかん}から{工事|こうじ}を{早|はや}く{進|すす}めようとして、{重要|じゅうよう}な{書類|しょるい}を{後回|あとまわ}しにした。{悪意|あくい}はなかったが、「{後|あと}でいい」という{判断|はんだん}が{地域|ちいき}の{記憶|きおく}を{消|け}す{結果|けっか}を{招|まね}いた。{情報|じょうほう}を{持|も}っている{人|ひと}の{責任|せきにん}を{考|かんが}えよう。"
+          - text: 業者（彫刻を実際に消した人たち）
+            value: tateru
+            feedback: "{業者|ぎょうしゃ}は{支給|しきゅう}された{図面|ずめん}{通|どお}りに{作業|さぎょう}しただけ。{図面|ずめん}に{彫刻|ちょうこく}の{記載|きさい}がなければ{知|し}る{方法|ほうほう}がなかった。{問題|もんだい}の{中心|ちゅうしん}は{図面|ずめん}が{改変|かいへん}された{過程|かてい}にある。"
+          - text: ノキ（図面の問題を最初に発見した人）
+            value: noki
+            feedback: "ノキは{元|もと}の{設計図|せっけいず}を{見|み}つけて{欠落|けつらく}を{証明|しょうめい}した{探偵|たんてい}の{役割|やくわり}。{事件|じけん}を{起|お}こした{側|がわ}ではなく、{解決|かいけつ}に{貢献|こうけん}した{人|ひと}だよ。"
+          - text: イズミ（地域の声を伝えた人）
+            value: izumi
+            feedback: "イズミは{地域|ちいき}の{人|ひと}たちの{声|こえ}を{届|とど}けた{感情型|かんじょうがた}の{探偵|たんてい}。{問題|もんだい}を{起|お}こした{側|がわ}ではなく、{失|うしな}われたものの{価値|かち}を{伝|つた}えた{人|ひと}だよ。"
+
+  # ==================== 真実：ハリ ====================
+  - id: truth-hari
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハリの後悔
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hari
+        expression: worried
+        position: center
+      - type: dialog
+        character: hari
+        text: "……{僕|ぼく}が{間違|まちが}いを{犯|おか}した。{文化財|ぶんかざい}の{可能性|かのうせい}を{示|しめ}す{書類|しょるい}を{見|み}つけていたのに、「{工事|こうじ}の{邪魔|じゃま}になる」と{思|おも}って{後回|あとまわ}しにした。"
+        expression: worried
+      - type: dialog
+        character: hari
+        text: "{地域|ちいき}の{人|ひと}たちを{喜|よろこ}ばせたくて、{早|はや}く{工事|こうじ}を{終|お}わらせようとした。でも、{本当|ほんとう}に{大切|たいせつ}にすべきことを{後|あと}に{回|まわ}してしまった。"
+        expression: thinking
+      - type: dialog
+        character: hari
+        text: "「{重要度|じゅうようど}が{低|ひく}そうな{装飾|そうしょく}だ」と{自分|じぶん}で{判断|はんだん}して{省|はぶ}いた。その{判断|はんだん}が、90{年以上|ねんいじょう}の{記憶|きおく}を{消|け}した。{本当|ほんとう}に……{申|もう}し{訳|わけ}なかった。"
+        expression: worried
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{最初|さいご}は{怒|おこ}った。「{何十年|なんじゅうねん}もあった{彫刻|ちょうこく}が！」って。でも、ハリが{悪意|あくい}で{やった|やった}わけじゃない——{責任感|せきにんかん}の{重|おも}さに{潰|つぶ}されたんだって{分|わ}かってきた。"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: noki
+        text: "{大事|たいじ}な{情報|じょうほう}を{持|も}った{人|ひと}が「{後|あと}でいい」と{思|おも}ったとき、{何|なに}かが{取|と}り{返|かえ}しのつかない{形|かたち}で{消|き}える。{建築|けんちく}の{記録|きろく}も、{地域|ちいき}の{記憶|きおく}も——{一度|いちど}{消|き}えたら{戻|もど}らない。"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: izumi
+        text: "お{年寄|としよ}りが「あの{彫刻|ちょうこく}の{前|まえ}で{記念写真|きねんしゃしん}を{撮|と}ったのよ」って{話|はな}してくれた。{写真|しゃしん}の{中|なか}の{彫刻|ちょうこく}はあっても、{本物|ほんもの}はもうない。{地域|ちいき}の{記憶|きおく}って、{建物|たてもの}と{一緒|いっしょ}に{生|い}きてるんだね。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{登録有形文化財|とうろくゆうけいぶんかざい}——それは{建物|たてもの}と{地域|ちいき}の{記憶|きおく}を{守|まも}るための{仕組|しく}みよ。{届出|とどけで}{義務|ぎむ}があるのは、「{知|し}っている{人|ひと}が{声|こえ}を{上|あ}げれば{守|まも}れる」から。ハリが{書類|しょるい}を{報告|ほうこく}していれば——{彫刻|ちょうこく}は{今|いま}もそこにあったでしょう。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{情報|じょうほう}を{持|も}っていること、それ{自体|じたい}が{責任|せきにん}。{後回|あとまわ}しにした{瞬間|しゅんかん}から、その{責任|せきにん}は{重|おも}くなっていくの。{難|むずか}しいと{感|かん}じたら、{一人|ひとり}で{抱|かか}え{込|こ}まずに{相談|そうだん}して。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{後|あと}でいい」が{積|つ}み{重|かさ}なると、{取|と}り{返|かえ}しのつかない{損失|そんしつ}を{生|う}む。{建築|けんちく}と{地域|ちいき}の{記憶|きおく}は、{誰|だれ}かが{声|こえ}を{上|あ}げることで{守|まも}られる。"
+      - type: narration
+        text: "{責任|せきにん}を{背負|せお}いすぎると{判断|はんだん}が{鈍|にぶ}る。{大事|たいじ}な{情報|じょうほう}は、{一人|ひとり}で{決|き}めずに{共有|きょうゆう}しよう。"
+      - type: effect
+        name: fade-out

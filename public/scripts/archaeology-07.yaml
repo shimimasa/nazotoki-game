@@ -1,0 +1,354 @@
+meta:
+  id: archaeology-07
+  title: 発掘の記録
+  series: 考古学探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{校庭|こうてい}の{発掘|はっくつ}{体験|たいけん}{学習|がくしゅう}——グループに{分|わ}かれて、{本物|ほんもの}の{考古学者|こうこがくしゃ}と{同|おな}じ{手順|てじゅん}で{遺跡|いせき}の{発掘|はっくつ}に{挑戦|ちょうせん}する{特別|とくべつ}な{授業|じゅぎょう}だ。"
+      - type: narration
+        text: "グリッド{設定|せってい}→{写真|しゃしん}{撮影|さつえい}→{実測|じっそく}→{遺物|いぶつ}{取|と}り{出|だ}し→{記録|きろく}。この5ステップを{守|まも}って{進|すす}めることが、{考古学|こうこがく}の{大原則|だいげんそく}だ。"
+      - type: narration
+        text: "{授業|じゅぎょう}の{後|あと}、{先生|せんせい}がホリベの{記録|きろく}シートを{確認|かくにん}すると——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{加筆|かひつ}・{修正|しゅうせい}の{跡|あと}が{複数|ふくすう}{か所|かしょ}**で{見|み}つかった。"
+      - type: narration
+        text: "{実測|じっそく}スケッチの{線|せん}が{滑|なめ}らかすぎる。{時刻|じこく}{記録|きろく}に{矛盾|むじゅん}がある。{後|あと}から{書|か}き{加|くわ}えられた{痕跡|こんせき}がいくつもあった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{発掘|はっくつ}の{記録|きろく}シートに、{後|あと}から{書|か}き{加|くわ}えた{跡|あと}が{見|み}つかりました。{考古学|こうこがく}では{手順|てじゅん}を{守|まも}った{記録|きろく}こそが{命|いのち}。どのステップが{飛|と}ばされたか、みんなで{確|たし}かめましょう。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: thinking
+          - character: horibe
+            expression: worried
+          - character: tsuchika
+            expression: surprised
+          - character: fumiko
+            expression: worried
+      - type: narration
+        text: "{発掘|はっくつ}グループの4{人|にん}——イシノ、ホリベ、ツチカ、フミコ。それぞれが{見|み}たこと・{知|し}っていることを{持|も}っている。{正|ただ}しい{手順|てじゅん}の{知識|ちしき}と{記録|きろく}の{矛盾|むじゅん}を{照|て}らし{合|あ}わせれば、{真相|しんそう}が{見|み}えてくる。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 発掘の記録
+        subtitle: 考古学探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 記録シートの加筆痕
+      - type: narration
+        text: "ホリベの{記録|きろく}シート——{実測|じっそく}スケッチと{時刻|じこく}{記録|きろく}に{加筆|かひつ}・{修正|しゅうせい}の{跡|あと}が{複数|ふくすう}ある。"
+      - type: narration
+        text: "{先生|せんせい}の{問題|もんだい}{提起|ていき}メモ：「{記録|きろく}シートの{写真|しゃしん}を{見|み}ると、{実測|じっそく}スケッチの{線|せん}の{質|しつ}が{場所|ばしょ}によって{違|ちが}う。{時刻|じこく}{記録|きろく}の{数字|すうじ}も、{最初|さいしょ}から{書|か}かれたものと{後|あと}から{書|か}かれたものが{混|ま}じっている{可能性|かのうせい}がある。」"
+      - type: narration
+        text: "このカードが{示|しめ}す{事実|じじつ}：**{加筆|かひつ}の{跡|あと}が{複数|ふくすう}ある**。では、なぜ{後|あと}から{書|か}き{足|た}されたのか。どのステップが{省|はぶ}かれたのか。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 発掘手順書と写真データ
+      - type: sprite
+        character: ishino
+        expression: normal
+        position: left
+      - type: dialog
+        character: ishino
+        text: "{考古学的|こうこがくてき}{発掘|はっくつ}の{正式|せいしき}{手順|てじゅん}は5ステップ。グリッド{設定|せってい}→{写真|しゃしん}{撮影|さつえい}→{実測|じっそく}→{遺物|いぶつ}{取|と}り{出|だ}し→{記録|きろく}。この{順番|じゅんばん}を{守|まも}らないと、{後|あと}から{確認|かくにん}できなくなる。"
+        expression: normal
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsuchika
+        text: "{写真|しゃしん}のExifデータを{確認|かくにん}した。{撮影|さつえい}{時刻|じこく}が14:30。なのに{遺物|いぶつ}{取|と}り{出|だ}しの{記録|きろく}{時刻|じこく}が14:15。{撮|と}る{前|まえ}に{掘|ほ}ってる。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: narration
+        text: "{写真|しゃしん}は{遺物|いぶつ}を{取|と}り{出|だ}す**{前|まえ}**に{撮|と}らなければならない。しかし{記録|きろく}では{遺物|いぶつ}{取|と}り{出|だ}し（14:15）が{写真|しゃしん}{撮影|さつえい}（14:30）より**{先|さき}**になっている。これは{手順|てじゅん}の{違反|いはん}を{客観的|きゃっかんてき}に{示|しめ}している。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 線質分析と目撃メモ
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{実測|じっそく}スケッチの{線|せん}が{滑|なめ}らかすぎる。{現場|げんば}で{書|か}いた{線|せん}は{土|つち}の{上|うえ}で{鉛筆|えんぴつ}が{揺|ゆ}れるから{歪|ゆが}む。{後|あと}から{書|か}いた{線|せん}は{机|つくえ}の{上|うえ}だから{滑|なめ}らか。これ、{現場|げんば}じゃなくて{後|あと}から{書|か}いた{線|せん}だ。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{発掘|はっくつ}の{途中|とちゅう}、ホリベが「うちのグループ、{出土|しゅつど}{品|ひん}{数|すう}が{一番|いちばん}{少|すく}ない……」ってつぶやいてたのを{聞|き}いた。すごく{焦|あせ}ってた。"
+        expression: worried
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ツチカの{線質|せんしつ}{分析|ぶんせき}が{示|しめ}す：{実測|じっそく}スケッチは{現場|げんば}ではなく{後|あと}から{書|か}かれた。フミコの{目撃|もくげき}メモが{示|しめ}す：ホリベは{成果|せいか}の{少|すく}なさに{焦|あせ}っていた。**{誰|だれ}が、なぜ、どのステップを{飛|と}ばしたか**が{見|み}えてきた。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の確認メモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ishino
+        expression: surprised
+        position: left
+      - type: dialog
+        character: ishino
+        text: "{先生|せんせい}がホリベに{直接|ちょくせつ}{確認|かくにん}したメモが{出|で}てきた。"
+        expression: surprised
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "【{先生|せんせい}のメモ】「ホリベに{確認|かくにん}したら『チームのために{成果|せいか}を{出|だ}さなきゃと{思|おも}って{焦|あせ}った』と。{気持|きも}ちは{分|わ}かる。でも{発掘|はっくつ}は{掘|ほ}ることより{記録|きろく}することが{本番|ほんばん}。{手順|てじゅん}を{飛|と}ばした{発掘|はっくつ}は、{後|あと}から{誰|だれ}も{確認|かくにん}できない。ホリベの{発掘|はっくつ}データは{今回|こんかい}は{使|つか}えなくなった——でも、この{経験|けいけん}は{一生|いっしょう}{忘|わす}れないはず」"
+      - type: narration
+        text: "**{発掘|はっくつ}は{掘|ほ}ることより{記録|きろく}することが{本番|ほんばん}。**{写真|しゃしん}{撮影|さつえい}と{実測|じっそく}を{飛|と}ばして{先|さき}に{掘|ほ}り{進|すす}み、{後|あと}から「こうだったはず」という{記憶|きおく}で{補|おぎな}った。{責任|せきにん}を{果|は}たそうとして{逆|ぎゃく}に{手順|てじゅん}を{崩|くず}した。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: fumiko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "ホリベは{一人|ひとり}で{責任|せきにん}を{背負|せお}いすぎてた。グループのために、って{思|おも}いすぎたんだと{思|おも}う。でも……それが{記録|きろく}を{歪|ゆが}める{結果|けっか}になっちゃった。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{写真|しゃしん}{撮影|さつえい}{時刻|じこく}（14:30）より{遺物|いぶつ}{取|と}り{出|だ}し{時刻|じこく}（14:15）が{先|さき}。{実測|じっそく}スケッチの{線|せん}が{後|あと}から{書|か}いた{特徴|とくちょう}を{示|しめ}す。ホリベが{成果|せいか}に{焦|あせ}っていた{目撃|もくげき}{証言|しょうげん}。ホリベ{本人|ほんにん}が{先生|せんせい}に{認|みと}めた{記録|きろく}。"
+      - type: choice
+        id: q1
+        question: 記録シートを後から書き加え、発掘手順を飛ばした中心人物は？
+        options:
+          - text: ホリベ（写真より先に掘った＋スケッチを後から書いた＋先生に認めた）
+            value: horibe
+            correct: true
+            feedback: "{正解|せいかい}！ ホリベは「チームのために{成果|せいか}を{出|だ}さなきゃ」という{焦|あせ}りから、{写真|しゃしん}{撮影|さつえい}と{実測|じっそく}を{飛|と}ばして{掘|ほ}り{進|すす}んだ。{後|あと}から{記憶|きおく}で{記録|きろく}を{補|おぎな}ったが、{線|せん}の{質|しつ}と{時刻|じこく}データが{真実|しんじつ}を{語|かた}っていた。"
+          - text: ツチカ（記録シートの分析をした人）
+            value: tsuchika
+            feedback: "ツチカは{記録|きろく}シートの{線質|せんしつ}を{分析|ぶんせき}して{問題|もんだい}を{発見|はっけん}した{側|がわ}。{加筆|かひつ}を{見破|みやぶ}った{人物|じんぶつ}だよ。"
+          - text: イシノ（発掘手順書を持っていた人）
+            value: ishino
+            feedback: "イシノは{考古学的|こうこがくてき}{発掘|はっくつ}の{正式|せいしき}{手順|てじゅん}と{写真|しゃしん}のExifデータで{矛盾|むじゅん}を{証明|しょうめい}した{側|がわ}。{手順|てじゅん}{違反|いはん}を{指摘|してき}した{人物|じんぶつ}だよ。"
+          - text: フミコ（ホリベの焦りを目撃した人）
+            value: fumiko
+            feedback: "フミコはホリベが{焦|あせ}っていた{場面|ばめん}を{目撃|もくげき}して{動機|どうき}の{手|て}がかりを{提供|ていきょう}した{側|がわ}。{記録|きろく}シートには{触|さわ}っていないよ。"
+
+  # ==================== 真実：ホリベ ====================
+  - id: truth-horibe
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ホリベの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: center
+      - type: dialog
+        character: horibe
+        text: "……{分|わ}かった。{記録|きろく}シートを{後|あと}から{書|か}き{加|くわ}えたのは、ぼくです。"
+        expression: worried
+      - type: dialog
+        character: horibe
+        text: "グループで{一番|いちばん}{出土|しゅつど}{品|ひん}が{少|すく}なくて……{発掘|はっくつ}リーダーなのに、みんなに{迷惑|めいわく}かけたくなかった。{早|はや}く{掘|ほ}れば{出|で}てくると{思|おも}って、{写真|しゃしん}と{実測|じっそく}を{飛|と}ばした。"
+        expression: thinking
+      - type: dialog
+        character: horibe
+        text: "{飛|と}ばしちゃダメだって{分|わ}かってた。でも……{焦|あせ}りが{止|と}まらなかった。{後|あと}から{記録|きろく}を{書|か}いたけど、{記憶|きおく}だけじゃ{正確|せいかく}に{書|か}けなかった。"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ishino
+        text: "{写真|しゃしん}の{撮影|さつえい}{時刻|じこく}が14:30で、{遺物|いぶつ}{取|と}り{出|だ}しが14:15。この15{分|ぷん}の{差|さ}が{決定的|けっていてき}だった。{記録|きろく}は{嘘|うそ}をつかない。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: right
+      - type: dialog
+        character: tsuchika
+        text: "{現場|げんば}で{書|か}いた{線|せん}は{歪|ゆが}む。{後|あと}から{書|か}いた{線|せん}は{滑|なめ}らか。その{違|ちが}いが{見|み}えた{時|とき}、{確信|かくしん}した。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: worried
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "ホリベが{一人|ひとり}で{抱|かか}えてたの、もっと{早|はや}く{気|き}づいてあげればよかった。「{困|こま}ってる」って{言|い}える{雰囲気|ふんいき}を、グループで{作|つく}れてなかったのかも。"
+        expression: worried
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "グリッド{設定|せってい}→{写真|しゃしん}{撮影|さつえい}→{実測|じっそく}→{遺物|いぶつ}{取|と}り{出|だ}し→{記録|きろく}。この{順番|じゅんばん}には{理由|りゆう}があります。{写真|しゃしん}は{状態|じょうたい}を{残|のこ}すため、{実測|じっそく}は{位置|いち}を{残|のこ}すため。{手順|てじゅん}を{飛|と}ばすと、{後|あと}から{誰|だれ}も{確認|かくにん}できなくなる。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "ホリベは{責任感|せきにんかん}が{強|つよ}すぎた。でもその{気持|きも}ちは{間違|まちが}ってない。{大切|たいせつ}なのは、{困|こま}ったときに{一人|ひとり}で{抱|かか}え{込|こ}まないこと。{相談|そうだん}してね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{早|はや}く{掘|ほ}りたい」という{焦|あせ}りが、{取|と}り{返|かえ}しのつかない{情報|じょうほう}{欠落|けつらく}を{生|う}んだ。{記録|きろく}とは、{未来|みらい}の{誰|だれ}かへの{手紙|てがみ}だ。"
+      - type: narration
+        text: "{考古学|こうこがく}の5ステップ——{掘|ほ}ることより{記録|きろく}することが{本番|ほんばん}。この{学|まな}びは、{学校|がっこう}{生活|せいかつ}のあらゆる「{記録|きろく}する{仕事|しごと}」にも{通|つう}じている。"
+      - type: effect
+        name: fade-out

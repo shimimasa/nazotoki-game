@@ -1,0 +1,364 @@
+meta:
+  id: botany-06
+  title: 植物のパートナー
+  series: 植物探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の{花壇|かだん}。{去年|きょねん}まで{毎日|まいにち}モンシロチョウやミツバチが{飛|と}んできていた、{草花|くさばな}と{虫|むし}でにぎやかな{場所|ばしょ}だった。"
+      - type: narration
+        text: "ところが{今年|ことし}——{花壇|かだん}に{花|はな}は{咲|さ}いているのに、{虫|むし}が1{匹|ぴき}も{来|こ}なくなった。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「{花|はな}があるのに、なぜ{虫|むし}が{来|こ}ない？」——4{人|にん}は{花壇|かだん}をよく{調|しら}べると、**{去年|きょねん}と{今年|ことし}で{花|はな}の{種類|しゅるい}が{全部|ぜんぶ}{替|か}わっている**ことに{気|き}づいた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{花|はな}と{虫|むし}は{一緒|いっしょ}に{進化|しんか}してきたパートナー。{花|はな}の{色|いろ}・{形|かたち}・{蜜|みつ}の{位置|いち}は、{特定|とくてい}の{虫|むし}を{引|ひ}き{寄|よ}せるために{最適化|さいてきか}されているのよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: surprised
+          - character: hana
+            expression: worried
+          - character: tsubomi
+            expression: thinking
+      - type: narration
+        text: "「{新|あたら}しい{花|はな}は{見|み}た{目|め}がきれいなのに、なぜ{虫|むし}が{来|こ}ない？」——その{答|こた}えは、{植物|しょくぶつ}と{昆虫|こんちゅう}の{共生関係|きょうせいかんけい}の{仕組|しく}みの{中|なか}にあった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 植物のパートナー
+        subtitle: 植物探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 花壇の観察記録と昆虫の行動
+      - type: narration
+        text: "【{証拠|しょうこ}カード1】{今年|ことし}の{花壇|かだん}——{花|はな}は{咲|さ}いている。でも{虫|むし}が{来|こ}ない。{去年|きょねん}は{毎日|まいにち}モンシロチョウ・ミツバチが{飛|と}んできていた{記録|きろく}がある。{花|はな}の{種類|しゅるい}が{去年|きょねん}と{今年|ことし}で**{全部|ぜんぶ}{違|ちが}う**。"
+      - type: narration
+        text: "「{花|はな}があるのに{虫|むし}が{来|こ}ない」——この{矛盾|むじゅん}が{事件|じけん}の{出発点|しゅっぱつてん}だ。"
+      - type: sprite
+        character: mori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mori
+        text: "【{証拠|しょうこ}カード2】{今年|ことし}の{花壇|かだん}で{虫|むし}が{来|こ}るかどうかの{観察|かんさつ}{記録|きろく}をつけたよ。チョウが{花|はな}に{近|ちか}づいて{飛|と}び{去|さ}るパターンが15{回|かい}{確認|かくにん}された。"
+        expression: thinking
+      - type: dialog
+        character: mori
+        text: "チョウは{花|はな}のそばまで{来|き}てる。でも**{止|と}まらずに{飛|と}び{去|さ}る**。{蜜|みつ}に{アクセス|あくせす}できていないんじゃないかな？"
+        expression: surprised
+      - type: sprite
+        character: mori
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 共生関係の図解と去年の花壇日記
+      - type: sprite
+        character: hana
+        expression: normal
+        position: left
+      - type: dialog
+        character: hana
+        text: "【{証拠|しょうこ}カード3（ハナ）】{花|はな}と{昆虫|こんちゅう}の{共生関係|きょうせいかんけい}の{図解|ずかい}を{調|しら}べたの。{花|はな}の{色|いろ}・{形|かたち}・{蜜|みつ}の{位置|いち}は{特定|とくてい}の{虫|むし}を{引|ひ}き{寄|よ}せるために{最適化|さいてきか}されている。"
+        expression: normal
+      - type: dialog
+        character: hana
+        text: "{在来種|ざいらいしゅ}の{花|はな}は{虫|むし}と{共進化|きょうしんか}してきた。{花|はな}の{構造|こうぞう}と{虫|むし}のからだが**ぴったり{合|あ}うように{進化|しんか}**してきたんだ。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "【{証拠|しょうこ}カード3（ツボミ）】{去年|きょねん}の{花壇|かだん}{日記|にっき}を{持|も}ってきたよ。ミツバチが{来|き}ていた{花|はな}の{名前|なまえ}——ミニひまわり・ジャーマンカモミール。これ、{全部|ぜんぶ}{去年|きょねん}のだ。"
+        expression: normal
+      - type: dialog
+        character: tsubomi
+        text: "{今年|ことし}の{花壇|かだん}は{全部|ぜんぶ}{違|ちが}う{名前|なまえ}の{花|はな}。{去年|きょねん}と{今年|ことし}で1{種|しゅ}も{同|おな}じ{花|はな}がない……"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: narration
+        text: "{在来種|ざいらいしゅ}の{花|はな}と{虫|むし}の{共進化|きょうしんか}、{花|はな}が{全部|ぜんぶ}{替|か}わった{事実|じじつ}、{虫|むし}が{来|き}ても{止|と}まらない{行動|こうどう}——これらをつなぎ合わせると、{何|なに}かが{見|み}えてくる。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 八重咲き品種の構造
+      - type: narration
+        text: "【{証拠|しょうこ}カード4】{今年|ことし}の{花壇|かだん}に{植|う}えられた{花|はな}の{種類|しゅるい}を{調|しら}べた{結果|けっか}——"
+      - type: narration
+        text: "{今年|ことし}の{花|はな}は{全部|ぜんぶ}**{八重咲|やえざ}き{品種|ひんしゅ}**。{花びら|はなびら}が{何重|なんじゅう}にも{重|かさ}なり、{見|み}た{目|め}が{豪華|ごうか}で{美|うつく}しい{品種|ひんしゅ}。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{八重咲|やえざ}き{品種|ひんしゅ}は{花びら|はなびら}が{多|おお}すぎて、{昆虫|こんちゅう}が**{蜜|みつ}や{花粉|かふん}にアクセスできない**構造{こうぞう}になっている。チョウが{来|き}ても{止|と}まらないのは——{入口|いりぐち}が{塞|ふさ}がれているからだ。"
+      - type: sprite
+        character: neko
+        expression: worried
+        position: center
+      - type: dialog
+        character: neko
+        text: "……{夏休|なつやす}みに、{先生|せんせい}に{相談|そうだん}して{花壇|かだん}を{八重咲|やえざ}き{品種|ひんしゅ}に{替|か}えてもらったのは……ぼくです。"
+        expression: worried
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 改良品種と共生関係の破壊
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "【{証拠|しょうこ}カード5】{植物|しょくぶつ}と{昆虫|こんちゅう}の{共生関係|きょうせいかんけい}——{花粉媒介|かふんばいかい}・{種子散布|しゅしさんぷ}・{菌根菌|きんこんきん}・アリと{花外蜜腺|かがいみつせん}。{在来種|ざいらいしゅ}の{花|はな}は{長年|ながねん}の{共進化|きょうしんか}で{虫|むし}に{最適化|さいてきか}された{構造|こうぞう}を{持|も}つ。"
+      - type: narration
+        text: "**{八重咲|やえざ}き{品種|ひんしゅ}は{人間|にんげん}の{鑑賞|かんしょう}{目的|もくてき}で{改良|かいりょう}された**もの。{花びら|はなびら}が{重|かさ}なりすぎて{昆虫|こんちゅう}が{蜜|みつ}・{花粉|かふん}に{届|とど}けない。{共生関係|きょうせいかんけい}を{壊|こわ}す{可能性|かのうせい}がある。"
+      - type: sprite
+        character: hana
+        expression: determined
+        position: left
+      - type: dialog
+        character: hana
+        text: "{花|はな}の{構造|こうぞう}と{虫|むし}のアクセスを{対応|たいおう}させると——{八重咲|やえざ}き{品種|ひんしゅ}の{花びら|はなびら}が{入口|いりぐち}を{塞|ふさ}いでいる。チョウが{来|き}ても{止|と}まれないのは、{共進化|きょうしんか}した{構造|こうぞう}が{壊|こわ}れているからだ。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: determined
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{去年|きょねん}は{在来種|ざいらいしゅ}だったから{虫|むし}が{来|き}た。{今年|ことし}は{全部|ぜんぶ}{八重咲|やえざ}き{品種|ひんしゅ}に{替|か}わったから、{虫|むし}が{入|はい}れなくなった。**{誰|だれ}が{花壇|かだん}を{替|か}えたのか**——それが{事件|じけん}の{核心|かくしん}だ。"
+        expression: determined
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 虫が来なくなった原因を作ったのは誰？
+      - type: sprite
+        character: mori
+        expression: worried
+        position: right
+      - type: dialog
+        character: mori
+        text: "チョウが{花|はな}に{近|ちか}づいて{飛|と}び{去|さ}るパターンが15{回|かい}……{蜜|みつ}にアクセスできていなかった。{八重咲|やえざ}き{品種|ひんしゅ}が{原因|げんいん}なら、{誰|だれ}が{花壇|かだん}を{替|か}えたのかが{鍵|かぎ}だ。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{今年|ことし}の{花|はな}は{全部|ぜんぶ}{八重咲|やえざ}き{品種|ひんしゅ}。{八重咲|やえざ}きは{虫|むし}が{蜜|みつ}に{入|はい}れない{構造|こうぞう}。{去年|きょねん}と{今年|ことし}で{花|はな}の{種類|しゅるい}が{全部|ぜんぶ}{替|か}わった。ネコが{夏休|なつやす}みに{先生|せんせい}と{相談|そうだん}して{花壇|かだん}を{八重咲|やえざ}き{品種|ひんしゅ}に{替|か}えた。"
+      - type: choice
+        id: q1
+        question: 花壇から虫が来なくなった原因を作ったのは誰？
+        options:
+          - text: ネコ（夏休みに先生と相談して花壇を八重咲き品種に替えた。虫が入れないとは知らなかった）
+            value: neko
+            correct: true
+            feedback: "{正解|せいかい}！ ネコは{図鑑|ずかん}で「{八重咲|やえざ}きの{花|はな}は{普通|ふつう}の{花|はな}より{豪華|ごうか}できれい」という{記述|きじゅつ}を{読|よ}み、{花壇|かだん}をきれいにしたいという{好奇心|こうきしん}から{花|はな}を{替|か}えた。しかし{八重咲|やえざ}き{品種|ひんしゅ}が{虫|むし}との{共生関係|きょうせいかんけい}を{壊|こわ}すとは{知|し}らなかった。{植物|しょくぶつ}と{昆虫|こんちゅう}の{共進化|きょうしんか}——この{知識|ちしき}が{原因|げんいん}を{見抜|みぬ}く{鍵|かぎ}だった。"
+          - text: ハナ（共生関係の図解を持っていた人）
+            value: hana
+            feedback: "ハナは{共生関係|きょうせいかんけい}の{情報|じょうほう}を{調|しら}べていた{側|がわ}。{花壇|かだん}の{花|はな}を{替|か}えていないよ。"
+          - text: モリ（虫の観察記録をつけた人）
+            value: mori
+            feedback: "モリは{虫|むし}が{来|こ}るかどうかを{観察|かんさつ}していただけ。{花壇|かだん}の{植|う}え{替|か}えには{関|かか}わっていないよ。"
+          - text: ツボミ（去年の花壇日記を持っていた人）
+            value: tsubomi
+            feedback: "ツボミは{去年|きょねん}の{記録|きろく}を{持|も}っていた{側|がわ}。{花壇|かだん}の{植|う}え{替|か}えをしていないよ。"
+
+  # ==================== 真実：ネコ ====================
+  - id: truth-neko
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ネコの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: neko
+        expression: worried
+        position: center
+      - type: dialog
+        character: neko
+        text: "……ごめんなさい。{花壇|かだん}を{八重咲|やえざ}き{品種|ひんしゅ}に{替|か}えてもらったのは、ぼくです。"
+        expression: worried
+      - type: dialog
+        character: neko
+        text: "{図鑑|ずかん}で「{八重咲|やえざ}きは{豪華|ごうか}できれい」って{読|よ}んで、{花壇|かだん}をもっとかっこよくしたくて。{夏休|なつやす}みに{先生|せんせい}に{頼|たの}んで{全部|ぜんぶ}{替|か}えてもらったんだ。"
+        expression: thinking
+      - type: dialog
+        character: neko
+        text: "{八重咲|やえざ}きにしたら{虫|むし}が{入|はい}れなくなるなんて……{図鑑|ずかん}には{書|か}いてなかった。{虫|むし}が{来|こ}なくなるとは{思|おも}わなかった……"
+        expression: worried
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hana
+        text: "{花|はな}の{構造|こうぞう}と{虫|むし}のアクセスを{比|くら}べて、{八重咲|やえざ}きが{問題|もんだい}だと{分|わ}かった。{在来種|ざいらいしゅ}の{花|はな}は{虫|むし}との{共進化|きょうしんか}で{最適化|さいてきか}された{構造|こうぞう}を{持|も}っているんだよね。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{去年|きょねん}の{花壇|かだん}{日記|にっき}を{見|み}て、{花|はな}の{種類|しゅるい}が{全部|ぜんぶ}{替|か}わってるって{気|き}づいたとき、{何|なに}かおかしいと{思|おも}ったんだ。{虫|むし}が{来|き}なくなったのは{花|はな}が{変|か}わったからだったんだね。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{植物|しょくぶつ}と{昆虫|こんちゅう}は{長|なが}い{時間|じかん}をかけて{一緒|いっしょ}に{進化|しんか}してきたパートナー。{在来種|ざいらいしゅ}の{花|はな}は{虫|むし}が{入|はい}りやすい{形|かたち}に{最適化|さいてきか}されているの。{改良|かいりょう}{品種|ひんしゅ}は{人間|にんげん}にとってはきれいでも、{虫|むし}にとっては{入口|いりぐち}のない{扉|とびら}なのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ネコが{花壇|かだん}をきれいにしたかった{気持|きも}ちはすてきよ。{次|つぎ}は{虫|むし}も{一緒|いっしょ}に{喜|よろこ}べる{花|はな}を{選|えら}んでみましょう。{先生|せんせい}と{一緒|いっしょ}に{考|かんが}えましょうね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「きれいな{花|はな}」が「{虫|むし}のパートナー」とは{限|かぎ}らない。{植物|しょくぶつ}と{昆虫|こんちゅう}の{共生|きょうせい}——{長年|ながねん}の{共進化|きょうしんか}で{築|きず}かれた{関係|かんけい}は、{人間|にんげん}の{改良|かいりょう}で{簡単|かんたん}に{壊|こわ}れてしまう。"
+      - type: narration
+        text: "{花壇|かだん}に{虫|むし}が{戻|もど}ってくる{日|ひ}を{夢見|ゆめみ}て——{在来種|ざいらいしゅ}の{種|たね}を{一緒|いっしょ}に{植|う}えよう。"
+      - type: effect
+        name: fade-out

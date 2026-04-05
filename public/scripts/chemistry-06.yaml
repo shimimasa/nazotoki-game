@@ -1,0 +1,342 @@
+meta:
+  id: chemistry-06
+  title: こされた真実
+  series: 化学探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科|りか}{室|しつ}での{ろ過|ろか}{実験|じっけん}。{グループ|ぐるーぷ}4{人|にん}は{一生懸命|いっしょうけんめい}{実験|じっけん}に{取|と}り{組|く}んだ。{発表|はっぴょう}の{時間|じかん}、{他|ほか}のグループが{次々|つぎつぎ}と{結果|けっか}を{報告|ほうこく}する中——"
+      - type: narration
+        text: "このグループだけ、**「ろ{液|えき}：{透明|とうめい}」**と{記録|きろく}されていた。"
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ところが{山田|やまだ}{先生|せんせい}が{確認|かくにん}すると——{実際|じっさい}のビーカーには**わずかに{濁|にご}り**が{残|のこ}っていた。"
+      - type: narration
+        text: "「{記録|きろく}は{正|ただ}しい？」と{山田|やまだ}{先生|せんせい}が{問|と}う。グループの4{人|にん}は{全員|ぜんいん}「{自分|じぶん}が{書|か}いた」と{言|い}わない——"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ろ{過|か}は{混合物|こんごうぶつ}を{分離|ぶんり}する{方法|ほうほう}よ。ろ{紙|かみ}の{折|お}り{方|かた}・{液面|えきめん}の{高|たか}さ・ガラス{棒|ぼう}の{使|つか}い{方|かた}——{全部|ぜんぶ}の{手順|てじゅん}が{正|ただ}しくないと、ろ{液|えき}が{濁|にご}ったままになるの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: thinking
+          - character: souda
+            expression: worried
+          - character: ritoma
+            expression: normal
+          - character: nesa
+            expression: surprised
+      - type: narration
+        text: "{記録|きろく}には「{透明|とうめい}」と{書|か}いてある。でも{現物|げんぶつ}のビーカーには{濁|にご}りがある。**だれが「{透明|とうめい}」と{記録|きろく}したのか、それは{本当|ほんとう}のことか？**"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: こされた真実
+        subtitle: 化学探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 実験記録とろ過の手順
+      - type: narration
+        text: "【{証拠|しょうこ}カード1】グループの{実験|じっけん}{記録|きろく}（「ろ{液|えき}：{透明|とうめい}」と{書|か}かれたもの）と{山田|やまだ}{先生|せんせい}が{撮|と}ったろ{液|えき}の{写真|しゃしん}（わずかに{濁|にご}り{有|あ}り）。"
+      - type: narration
+        text: "「{記録|きろく}と{現物|げんぶつ}の{違|ちが}い」——どちらが{正|ただ}しいのか。それとも{両方|りょうほう}に{理由|りゆう}があるのか。"
+      - type: narration
+        text: "【{証拠|しょうこ}カード2】ろ{過|か}の{正|ただ}しい{手順|てじゅん}チェックリスト（5ステップ）と{各|かく}ステップの「{失敗|しっぱい}するとどうなるか」の{説明|せつめい}。"
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "ろ{過|か}の{手順|てじゅん}を{全部|ぜんぶ}チェックしよう。{漏|も}れなく{確認|かくにん}が{必要|ひつよう}だ。どのステップで{失敗|しっぱい}した{可能性|かのうせい}があるか、1つずつ{確|たし}かめれば{答|こた}えが{出|で}る。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の記憶とろ紙の状態
+      - type: narration
+        text: "【{証拠|しょうこ}カード3】4{人|にん}が「{実験|じっけん}{後|ご}にろ{液|えき}を{見|み}たときの{印象|いんしょう}」を{書|か}いたメモ——"
+      - type: narration
+        text: "**ソウダ：{透明|とうめい}**。モル：わずかに{濁|にご}っていた。リトマ：わずかに{濁|にご}っていた。ネーサ：わずかに{濁|にご}っていた。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{同|おな}じものを{見|み}て——ソウダだけが「{透明|とうめい}」と{感|かん}じていた。3{人|にん}は「{濁|にご}っていた」と{言|い}う。この{見え方|みえかた}の{違|ちが}いはなぜ{起|お}きたのか？"
+      - type: narration
+        text: "【{証拠|しょうこ}カード4】「ろ{紙|かみ}の{使用|しよう}{後|ご}の{状態|じょうたい}」の{写真|しゃしん}——**ろ{紙|かみ}の{端|はし}が{少|すこ}し{破|やぶ}れている**。"
+      - type: narration
+        text: "ろ{紙|かみ}が{破|やぶ}れる → {粒子|りゅうし}がろ{液|えき}に{混入|こんにゅう} → {濁|にご}る。{記録|きろく}の「{透明|とうめい}」と{現実|げんじつ}の「{濁|にご}り」の{差|さ}はここから{来|き}ている。"
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "ろ{液|えき}の{現物|げんぶつ}と{記録|きろく}の{比較|ひかく}をしよう。{主観|しゅかん}を{排除|はいじょ}して——{目|め}で{見|み}た{印象|いんしょう}と{実際|じっさい}の{濁度|にごりど}は{違|ちが}うことがある。{写真|しゃしん}と{記録|きろく}と{証言|しょうげん}を{全部|ぜんぶ}{照合|しょうごう}しよう。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 確証バイアスの説明カード
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "【{証拠|しょうこ}カード5（{条件付|じょうけんつ}き{公開|こうかい}）】「{確証|かくしょう}バイアス」の{説明|せつめい}カード——"
+      - type: sprite
+        character: nesa
+        expression: surprised
+        position: left
+      - type: dialog
+        character: nesa
+        text: "{期待|きたい}している{結果|けっか}が{見え方|みえかた}に{影響|えいきょう}することがある。これは{誰|だれ}にでも{起|お}きる——これが「{確証|かくしょう}バイアス」なんだ！"
+        expression: surprised
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: right
+      - type: dialog
+        character: souda
+        text: "「{自分|じぶん}たちはちゃんとやった → {正|ただ}しい{結果|けっか}が{出|で}るはず → {透明|とうめい}に{見|み}える」……そういう{思|おも}い{込|こ}みが、{私|わたし}に「{透明|とうめい}」と{見|み}せたの？"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{グループ|ぐるーぷ}への{責任感|せきにんかん} → 「ちゃんとやった。{結果|けっか}だけがおかしい」という{思|おも}い{込|こ}み → 「{透明|とうめい}だったと{思|おも}う」という{記憶|きおく}（{実|じつ}は{思|おも}い{込|こ}み）→ **「{透明|とうめい}」と{記録|きろく}** → {確証|かくしょう}バイアスによる{認知|にんち}のズレが{真相|しんそう}の{核|かく}。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が「透明」と記録した？
+      - type: sprite
+        character: moru
+        expression: determined
+        position: left
+      - type: dialog
+        character: moru
+        text: "カード3でソウダだけが「{透明|とうめい}」と{感|かん}じていた。カード4でろ{紙|かみ}が{破|やぶ}れていたことが{確認|かくにん}された。カード5の{確証|かくしょう}バイアスを{当|あ}てはめると——ソウダが{記録|きろく}した、ということになる。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nesa
+        text: "ソウダが{嘘|うそ}をついたとは{思|おも}えない。でも{記録|きろく}が{違|ちが}う。{確証|かくしょう}バイアスなら、ソウダは{本当|ほんとう}に{透明|とうめい}だと{思|おも}っていたんだ——{嘘|うそ}じゃなく、{見え方|みえかた}が{違|ちが}ったんだね。"
+        expression: thinking
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。ソウダだけ「{透明|とうめい}」と{感|かん}じた（カード3）。ろ{紙|かみ}の{破|やぶ}れで{濁|にご}りが{生|う}じた（カード4）。{確証|かくしょう}バイアス——{期待|きたい}した{結果|けっか}が{見え方|みえかた}に{影響|えいきょう}した（カード5）。グループへの{責任感|せきにんかん}と{思|おも}い{込|こ}みが{記録|きろく}を「{透明|とうめい}」にした。"
+      - type: choice
+        id: q1
+        question: 「ろ液：透明」と記録した中心人物は誰？
+        options:
+          - text: ソウダ（1人だけ「透明」に見えた＋グループへの責任感＋確証バイアスで思い込み）
+            value: souda
+            correct: true
+            feedback: "{正解|せいかい}！ ソウダは{嘘|うそ}をついたのではなく、{確証|かくしょう}バイアスによって{本当|ほんとう}に「{透明|とうめい}」に{見|み}えていた。「みんなが{一生懸命|いっしょうけんめい}やった → {正|ただ}しい{結果|けっか}が{出|で}るはず」という{思|おも}い{込|こ}みが{見え方|みえかた}に{影響|えいきょう}した。{科学|かがく}では{主観|しゅかん}ではなく{証拠|しょうこ}を{見|み}ることが{大切|たいせつ}だ。"
+          - text: モル（手順を全部チェックしていた人）
+            value: moru
+            feedback: "モルは{証拠|しょうこ}を{整理|せいり}して{分析|ぶんせき}している{側|がわ}。カード3でモルは「わずかに{濁|にご}っていた」と{言|い}っているよ。"
+          - text: リトマ（主観を排除しようとしていた人）
+            value: ritoma
+            feedback: "リトマは「{主観|しゅかん}を{排除|はいじょ}して」と{慎重|しんちょう}に{考|かんが}えている{側|がわ}。カード3でリトマも「わずかに{濁|にご}っていた」と{言|い}っているよ。"
+          - text: ネーサ（ソウダをかばっていた人）
+            value: nesa
+            feedback: "ネーサは「ソウダが{嘘|うそ}をつくなんて{思|おも}えない」と{感|かん}じながら{真実|しんじつ}を{探|さが}している{側|がわ}。カード3でネーサも「わずかに{濁|にご}っていた」と{言|い}っているよ。"
+
+  # ==================== 真実：ソウダの告白 ====================
+  - id: truth-souda
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ソウダの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: souda
+        expression: worried
+        position: center
+      - type: dialog
+        character: souda
+        text: "……{私|わたし}には{本当|ほんとう}に{透明|とうめい}に{見|み}えたの。{嘘|うそ}じゃない。"
+        expression: worried
+      - type: dialog
+        character: souda
+        text: "みんなが{一生懸命|いっしょうけんめい}やったのに「{実験|じっけん}{失敗|しっぱい}」になるのが{嫌|いや}だった。「ちゃんとやった。{結果|けっか}だけがおかしい」って……{透明|とうめい}だったと{思|おも}う、って{自分|じぶん}でも{信|しん}じてた。"
+        expression: thinking
+      - type: dialog
+        character: souda
+        text: "でも{今|いま}{見|み}ると{濁|にご}ってる。なんで{私|わたし}には{透明|とうめい}に{見|み}えたんだろう——{本当|ほんとう}に{分|わ}からなかった。"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "ろ{液|えき}の{現物|げんぶつ}を{見|み}たとき、{私|わたし}には{濁|にご}りが{分|わ}かった。ソウダが{同|おな}じものを「{透明|とうめい}」と{感|かん}じたのは……{見え方|みえかた}が{違|ちが}ったんだね。{科学|かがく}では{主観|しゅかん}だけじゃなく、{測定|そくてい}が{必要|ひつよう}だと{改|あらた}めて{思|おも}った。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: moru
+        expression: normal
+        position: right
+      - type: dialog
+        character: moru
+        text: "ろ{過|か}の{手順|てじゅん}を1ステップずつ{確認|かくにん}すれば、どこで{失敗|しっぱい}したかが{分|わ}かる。{全探索|ぜんたんさく}——{全部|ぜんぶ}の{可能性|かのうせい}を{漏|も}れなく{確|たし}かめること。それが{今日|きょう}の{鍵|かぎ}だった。"
+        expression: normal
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{確証|かくしょう}バイアス——{期待|きたい}している{結果|けっか}が{見え方|みえかた}に{影響|えいきょう}することがある。これは{誰|だれ}にでも{起|お}きる{自然|しぜん}な{仕組|しく}みよ。ソウダは{嘘|うそ}をついたのではなく、{本当|ほんとう}にそう{見|み}えていた——{科学|かがく}の{世界|せかい}では、これが{発見|はっけん}されてから「{測定|そくてい}」の{大切|たいせつ}さが{広|ひろ}まったの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{主観|しゅかん}だけに{頼|たよ}らず、{証拠|しょうこ}と{測定|そくてい}で{確認|かくにん}すること。それが{科学|かがく}の{基本|きほん}よ。{確証|かくしょう}バイアスを{知|し}ることで、{自分|じぶん}の{見方|みかた}を{疑|うたが}える——それはとても{大切|たいせつ}な{力|ちから}ね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「ちゃんとやった → {正|ただ}しい{結果|けっか}が{出|で}るはず」という{思|おも}い{込|こ}みが、{見え方|みえかた}を{変|か}えてしまう。{確証|かくしょう}バイアスは{誰|だれ}にでも{起|お}きる——それを{知|し}ることが、{科学的|かがくてき}な{見方|みかた}の{第一歩|だいいっぽ}。"
+      - type: narration
+        text: "ろ{過|か}の{手順|てじゅん}を{全探索|ぜんたんさく}する。{主観|しゅかん}を{超|こ}えて{証拠|しょうこ}を{見|み}る。{化学|かがく}の{知識|ちしき}は、{見|み}えないものを{見|み}える{力|ちから}を{与|あた}えてくれた。"
+      - type: effect
+        name: fade-out

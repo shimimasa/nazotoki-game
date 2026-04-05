@@ -1,0 +1,334 @@
+meta:
+  id: architecture-05
+  title: 寒い教室の秘密
+  series: 建築探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}{探偵|たんてい}{団|だん}の4{人|にん}。{今日|きょう}は{学校|がっこう}の{施設|しせつ}{点検|てんけん}の{手伝|てつだ}いをする{予定|よてい}だった。でも{校舎|こうしゃ}の2{階|かい}へ{上|あ}がった{瞬間|しゅんかん}、おかしなことに{気|き}づいた。"
+      - type: narration
+        text: "{隣|となり}どうしの2つの{教室|きょうしつ}——{廊下|ろうか}をはさんで{並|なら}ぶ{同|おな}じ{大|おお}きさの{部屋|へや}なのに、{室温|しつおん}が{大|おお}きく{違|ちが}う。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{同|おな}じ{時刻|じこく}、{同|おな}じ{階|かい}で5{度|ど}の{差|さ}**。"
+      - type: narration
+        text: "{設備|せつび}{業者|ぎょうしゃ}に{確認|かくにん}すると「{暖房|だんぼう}{設備|せつび}は{正常|せいじょう}。{壊|こわ}れていない」と{言|い}う。でも{片方|かたほう}は{暖房|だんぼう}なしでも{暖|あたた}かく、もう{片方|かたほう}は{暖房|だんぼう}をかけても{寒|さむ}い。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{暖房|だんぼう}{設備|せつび}は{正常|せいじょう}なのに、なぜこんなに{温度|おんど}が{違|ちが}うの？{建物|たてもの}の「{作|つく}り{方|かた}」に{何|なに}か{秘密|ひみつ}があるはずよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: surprised
+          - character: hari
+            expression: thinking
+          - character: noki
+            expression: worried
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "「{壊|こわ}れていない」のに{寒|さむ}い。4{人|にん}はそれぞれ{手|て}がかりを{持|も}っている——{部屋|へや}の「{作|つく}り{方|かた}」の{違|ちが}いを{解|と}き{明|あ}かせるか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 寒い教室の秘密
+        subtitle: 建築探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 室温記録と設備報告
+      - type: narration
+        text: "{同時刻|どうじこく}の{室温|しつおん}{記録|きろく}——A{教室|きょうしつ}: 22℃（{暖房|だんぼう}{未使用|みしよう}）。B{教室|きょうしつ}: 17℃（{暖房|だんぼう}{使用中|しようちゅう}）。**5{度|ど}の{差|さ}**。"
+      - type: narration
+        text: "{設備|せつび}{業者|ぎょうしゃ}{報告|ほうこく}——「{暖房|だんぼう}{設備|せつび}は{両室|りょうしつ}とも{正常|せいじょう}{稼働|かどう}。{機械|きかい}{的|てき}な{故障|こしょう}はありません」"
+      - type: narration
+        text: "{設備|せつび}は{壊|こわ}れていない。でも{温度|おんど}は{大|おお}きく{違|ちが}う。{矛盾|むじゅん}している——{原因|げんいん}は{設備|せつび}ではなく、{部屋|へや}そのものにある？"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 断熱の仕組みと比較記録
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{伝導|でんどう}・{対流|たいりゅう}・{放射|ほうしゃ}って{何|なに}？ {全部|ぜんぶ}{試|ため}してみよう！ {熱|ねつ}には3つの{伝|つた}わり{方|かた}があるんだって。"
+        expression: happy
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "{断熱|だんねつ}の{仕組|しく}み——{伝導|でんどう}: {固体|こたい}を{伝|つた}わる{熱|ねつ}。{対流|たいりゅう}: {空気|くうき}の{動|うご}き。{放射|ほうしゃ}: {赤外線|せきがいせん}。{断熱材|だんねつざい}はこの3{経路|けいろ}をすべて{遮断|しゃだん}する。"
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hari
+        text: "{仮説|かせつ}を5つ{立|た}てて1つずつ{証拠|しょうこ}で{潰|つぶ}せばいい。{窓|まど}の{状態|じょうたい}・{方角|ほうがく}・{暖房|だんぼう}の{設定値|せっていち}——{比較|ひかく}{記録|きろく}を{見|み}よう。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+      - type: narration
+        text: "2{教室|きょうしつ}の{比較|ひかく}{記録|きろく}——{窓|まど}の{状態|じょうたい}: {両室|りょうしつ}とも{閉|し}まっている ✅。{方角|ほうがく}: どちらも{南向|みなみむ}き ✅。{暖房|だんぼう}{設定値|せっていち}: どちらも22℃ ✅。ほぼ{同|おな}じ{条件|じょうけん}のはずなのに……"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 断熱材の調査要求
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: izumi
+        text: "この{教室|きょうしつ}で{授業|じゅぎょう}してる{子|こ}たちが{可哀想|かわいそう}。{壁|かべ}の{中|なか}を{調|しら}べてみようよ。「{断熱材|だんねつざい}の{状態|じょうたい}{調査|ちょうさ}」を{要求|ようきゅう}したい。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: sprite
+        character: noki
+        expression: worried
+        position: right
+      - type: dialog
+        character: noki
+        text: "……{その|その}{必要|ひつよう}はないんじゃないかな。{設備|せつび}は{正常|せいじょう}って{言|い}ってたし。"
+        expression: worried
+      - type: sprite
+        character: noki
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ノキが「{その|その}{必要|ひつよう}はない」と{強|つよ}く{止|と}める{行動|こうどう}が{記録|きろく}されていた。なぜノキは{壁|かべ}の{調査|ちょうさ}を{止|と}めようとしたのか？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 断熱材の点検記録
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{壁|かべ}の{断熱材|だんねつざい}{点検|てんけん}{報告|ほうこく}——2か{月|げつ}{前|まえ}の{点検|てんけん}{記録|きろく}に**ノキのサイン「{確認|かくにん}{済|ず}み」**がある。"
+      - type: narration
+        text: "ノキへの{追加|ついか}{聴取|ちょうしゅ}——「{剥|は}がれを{見|み}つけたけど、{報告|ほうこく}が{面倒|めんどう}だった。{断熱材|だんねつざい}って{何|なに}か{分|わ}からなかったし……」"
+      - type: narration
+        text: "**{前提|ぜんてい}{破壊|はかい}**: 「{壊|こわ}れていない{設備|せつび}」と「{欠損|けっそん}した{断熱材|だんねつざい}」は{別|べつ}の{話|はなし}だった。{暖房|だんぼう}{機器|きき}は{正常|せいじょう}でも、{壁|かべ}の{断熱材|だんねつざい}が{剥|は}がれていれば{熱|ねつ}が{逃|に}げてしまう。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 問題の中心にいたのは誰だ？
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{整理|せいり}しよう。{設備|せつび}は{正常|せいじょう}→{断熱材|だんねつざい}の{欠損|けっそん}が{原因|げんいん}。じゃあ、その{欠損|けっそん}を{知|し}っていて{報告|ほうこく}しなかったのは……？"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{点検|てんけん}{記録|きろく}にノキのサイン。「{断熱材|だんねつざい}が{剥|は}がれているかもしれない」を{知|し}っていた。{報告|ほうこく}すれば{工事|こうじ}が{入|はい}り{担当|たんとう}{棚|たな}の{移動|いどう}が{必要|ひつよう}で{面倒|めんどう}だった。{調査|ちょうさ}{要求|ようきゅう}を{止|と}めようとした。"
+      - type: choice
+        id: q1
+        question: 問題の中心にいたのは誰？
+        options:
+          - text: ノキ（点検記録にサイン＋断熱材剥がれを知っていた＋調査を止めようとした）
+            value: noki
+            correct: true
+            feedback: "{正解|せいかい}！ ノキは{改修|かいしゅう}{工事|こうじ}の{際|さい}に{断熱材|だんねつざい}の{剥|は}がれを{見|み}つけていたが、{報告|ほうこく}の{面倒|めんどう}を{避|さ}けて{先延|さきの}ばしにした。{暖房|だんぼう}{設備|せつび}は{正常|せいじょう}でも、{壁|かべ}から{熱|ねつ}が{逃|に}げていたのが「{寒|さむ}い{教室|きょうしつ}」の{原因|げんいん}だった。"
+          - text: タテル（伝熱の実験を提案した人）
+            value: tateru
+            feedback: "タテルは{伝導|でんどう}・{対流|たいりゅう}・{放射|ほうしゃ}を{積極的|せっきょくてき}に{調|しら}べようとしていた。{問題|もんだい}を{起|お}こした{側|がわ}ではないよ。"
+          - text: ハリ（仮説を立てて整理した人）
+            value: hari
+            feedback: "ハリは{仮説|かせつ}{検証|けんしょう}の{表|ひょう}を{作|つく}って{整理|せいり}していた。{証拠|しょうこ}を{潰|つぶ}していく{役割|やくわり}を{担|にな}っていた{側|がわ}だよ。"
+          - text: イズミ（調査を要求した人）
+            value: izumi
+            feedback: "イズミは{断熱材|だんねつざい}の{調査|ちょうさ}を{要求|ようきゅう}した。{正|ただ}しい{行動|こうどう}をしていた{側|がわ}だよ。"
+
+  # ==================== 真実：ノキ ====================
+  - id: truth-noki
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ノキの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: noki
+        expression: worried
+        position: center
+      - type: dialog
+        character: noki
+        text: "……{知|し}ってた。2か{月|げつ}{前|まえ}の{点検|てんけん}で、{断熱材|だんねつざい}が{剥|は}がれてるかもしれないって{記録|きろく}を{見|み}た。"
+        expression: worried
+      - type: dialog
+        character: noki
+        text: "でも{報告|ほうこく}したら{工事|こうじ}が{入|はい}って、わたしの{担当|たんとう}{棚|たな}を{動|うご}かさないといけなくなる。{面倒|めんどう}だったから……{先|さき}に{延|の}ばした。"
+        expression: thinking
+      - type: dialog
+        character: noki
+        text: "「{断熱材|だんねつざい}」って{言葉|ことば}の{意味|いみ}も、ちゃんと{分|わ}かってなかった。まさか{教室|きょうしつ}が{寒|さむ}くなるなんて……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: noki
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: izumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: izumi
+        text: "ノキが{調査|ちょうさ}を{止|と}めようとしたとき、なんか{変|へん}だと{思|おも}った。{気|き}づいてあげられてたらよかった。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hari
+        text: "「{壊|こわ}れていない」と「{寒|さむ}い」が{矛盾|むじゅん}する——{仮説|かせつ}を1つずつ{潰|つぶ}していったら、{断熱材|だんねつざい}しか{残|のこ}らなかった。{証拠|しょうこ}は{正直|しょうじき}だね。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{断熱材|だんねつざい}は{熱|ねつ}の3つの{経路|けいろ}——{伝導|でんどう}・{対流|たいりゅう}・{放射|ほうしゃ}——をすべて{遮断|しゃだん}する{大切|たいせつ}な{素材|そざい}よ。これが{欠損|けっそん}すると、{暖房|だんぼう}{設備|せつび}が{正常|せいじょう}でも{熱|ねつ}が{逃|に}げてしまうの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{面倒|めんどう}だから」という{気持|きも}ちは{誰|だれ}でも{分|わ}かる。でも{建物|たてもの}の{問題|もんだい}は、{小|ちい}さな{報告|ほうこく}の{積|つ}み{重|かさ}ねで{安全|あんぜん}が{守|まも}られているのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{面倒|めんどう}」で{先延|さきの}ばしにしたことが、{教室|きょうしつ}で{学|まな}ぶ{子|こ}どもたちの{寒|さむ}さにつながった。{気|き}づいたら{報告|ほうこく}する——それが{建物|たてもの}の{安全|あんぜん}を{守|まも}る{第一歩|だいいっぽ}。"
+      - type: narration
+        text: "{設備|せつび}の{正常|せいじょう}と{部屋|へや}の{快適|かいてき}さは{別|べつ}の{話|はなし}。{断熱材|だんねつざい}という{知識|ちしき}が、「{壊|こわ}れていない」という{言葉|ことば}の{矛盾|むじゅん}を{解|と}き{明|あ}かす{鍵|かぎ}になった。"
+      - type: effect
+        name: fade-out

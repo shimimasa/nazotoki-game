@@ -1,0 +1,352 @@
+meta:
+  id: body-08
+  title: からだのうわさ
+  series: からだ探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  karada:
+    name: カラダ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kokochi:
+    name: ココチ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kizuna:
+    name: キズナ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{探偵団|たんていだん}の4{人|にん}が{教室|きょうしつ}に{集|あつ}まった。クラスで{不思議|ふしぎ}なことが{続|つづ}いている——アキラくんが{最近|さいきん}{休|やす}み{時間|じかん}にひとりでいるようになった。"
+      - type: narration
+        text: "クラスの{中|なか}で、アキラくんの{身体|からだ}についての{噂|うわさ}がひろがっている。「{足|あし}が{速|はや}いよね」「{背|せ}が{高|たか}いよね」——{最初|さいしょ}は{褒|ほ}め{言葉|ことば}に{聞|き}こえた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "でもだんだん「アキラくんの{体|からだ}のここが〇〇」という{話|はなし}にエスカレートして——**アキラくんは{休|やす}み{時間|じかん}、{一人|ひとり}でいるようになった**。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{今日|きょう}は「{身体|からだ}の{情報|じょうほう}は{本人|ほんにん}のもの」というテーマで{考|かんが}えます。{褒|ほ}めていても、{本人|ほんにん}の{同意|どうい}なく{他人|たにん}の{身体的|しんたいてき}{特徴|とくちょう}を{話題|わだい}にすることは{権利|けんり}の{侵害|しんがい}になります。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: karada
+            expression: thinking
+          - character: mamoru
+            expression: worried
+          - character: kokochi
+            expression: thinking
+          - character: kizuna
+            expression: surprised
+      - type: narration
+        text: "{誰|だれ}が{噂|うわさ}の{中心|ちゅうしん}にいたのか？{証拠|しょうこ}を{集|あつ}めて{推理|すいり}しよう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: からだのうわさ
+        subtitle: からだ探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事件の概要
+      - type: narration
+        text: "{証拠|しょうこ}カード1：アキラくんが{休|やす}み{時間|じかん}に1{人|り}でいるようになった。クラスでアキラくんの{身体|からだ}についての{噂|うわさ}が{広|ひろ}まっている。"
+      - type: narration
+        text: "これはいつから{始|はじ}まったのだろう？{噂|うわさ}のはじまりをたどれば、{何|なに}かが{見|み}えてくるはずだ。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 身体の情報と噂のリスト
+      - type: sprite
+        character: kokochi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "{証拠|しょうこ}カード2を{見|み}て。「{身体|からだ}の{情報|じょうほう}は{本人|ほんにん}のもの」——{自分|じぶん}の{体|からだ}についての{情報|じょうほう}を{誰|だれ}に{伝|つた}えるか{決|き}めるのは{本人|ほんにん}なんだ。{褒|ほ}めていても{本人|ほんにん}の{同意|どうい}が{必要|ひつよう}。"
+        expression: thinking
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: karada
+        expression: normal
+        position: right
+      - type: dialog
+        character: karada
+        text: "{証拠|しょうこ}カード3も{見|み}てほしい。{噂|うわさ}の{時系列|じけいれつ}リストがある——①「{足|あし}が{速|はや}い」②「{背|せ}が{高|たか}い」③「{体力|たいりょく}がある」④「{体|からだ}のここが〇〇」。{最初|さいしょ}は{能力|のうりょく}の{話|はなし}、{途中|とちゅう}から{身体的|しんたいてき}{特徴|とくちょう}にエスカレートしてる。"
+        expression: normal
+      - type: dialog
+        character: karada
+        text: "そして{噂|うわさ}の{出所|でどころ}が{全部|ぜんぶ}マモルの{周辺|しゅうへん}なんだ。"
+        expression: thinking
+      - type: sprite
+        character: karada
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: アキラくんの本音
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: left
+      - type: dialog
+        character: kizuna
+        text: "{証拠|しょうこ}カード4——アキラくんの{告白|こくはく}。「{足|あし}が{速|はや}いのは{別|べつ}にいい。でも{体|からだ}のことをみんなに{言|い}われるのは{嫌|いや}。{目立|めだ}ちたくなかった」。"
+        expression: worried
+      - type: se
+        sound: discover
+      - type: dialog
+        character: kizuna
+        text: "アキラくんは「{褒|ほ}められて{嬉|うれ}しい」んじゃなかった。「{勝手|かって}に{体|からだ}のことを{話|はな}されて{嫌|いや}だった」——これが{本音|ほんね}なんだ。"
+        expression: surprised
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "「{褒|ほ}めているから{大丈夫|だいじょうぶ}」は{間違|まちが}いだった。{本人|ほんにん}がどう{感|かん}じるかが{大事|だいじ}なんだ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の観察
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{証拠|しょうこ}カード5——マモルは『{褒|ほ}めてるから{大丈夫|だいじょうぶ}』と{思|おも}っていた。でもアキラくんの{反応|はんのう}を{見|み}ていなかった。{褒|ほ}めかどうかを{決|き}めるのは『{言|い}った{側|がわ}』ではなく『{言|い}われた{側|がわ}』なのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "**{前提|ぜんてい}{崩壊|ほうかい}**: 「{褒|ほ}めていた」→「{本人|ほんにん}の{同意|どうい}なき{身体|からだ}{情報|じょうほう}の{拡散|かくさん}」。マモルの「{褒|ほ}め=OK」というバイアスが、アキラくんを{傷|きず}つけていた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こしたか？
+      - type: sprite
+        character: kokochi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{噂|うわさ}の{出所|でどころ}は{全部|ぜんぶ}マモルの{周辺|しゅうへん}。{最初|さいしょ}は{能力|のうりょく}の{話|はなし}だったのに、{身体的|しんたいてき}{特徴|とくちょう}にエスカレートさせた。"
+        expression: thinking
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: karada
+        expression: determined
+        position: right
+      - type: dialog
+        character: karada
+        text: "マモルは「アキラくんのことをよく{知|し}っている{自分|じぶん}」をアピールしたかったんだ。「アキラくんってすごいんだよ、{足|あし}が{速|はや}くて、{背|せ}が{高|たか}くて……」って{話|はな}すことで、{自分|じぶん}の「{情報通|じょうほうつう}」としての{立場|たちば}を{確認|かくにん}していた。"
+        expression: determined
+      - type: sprite
+        character: karada
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{噂|うわさ}の{出所|でどころ}がマモルの{周辺|しゅうへん}。{噂|うわさ}が{能力|のうりょく}から{身体的|しんたいてき}{特徴|とくちょう}にエスカレート。「{褒|ほ}めているから{大丈夫|だいじょうぶ}」という{認知|にんち}バイアス。アキラくんは{勝手|かって}に{体|からだ}のことを{話|はな}されて{嫌|いや}だった。"
+      - type: choice
+        id: q1
+        question: 噂の中心になって問題を起こしたのは誰？
+        options:
+          - text: マモル（噂の出所＋褒めるつもりで身体情報を拡散＋承認欲求が動機）
+            value: mamoru
+            correct: true
+            feedback: "{正解|せいかい}！ マモルは「{褒|ほ}めているから{問題|もんだい}ない」と{思|おも}っていたが、{本人|ほんにん}の{同意|どうい}なく{身体的|しんたいてき}{特徴|とくちょう}を{話題|わだい}にすること{自体|じたい}がアキラくんの{権利|けんり}を{侵害|しんがい}していた。「{褒|ほ}め＝OK」のバイアスが{問題|もんだい}の{根|ね}にあった。"
+          - text: カラダ（噂のエスカレートを把握していた人）
+            value: karada
+            feedback: "カラダは{噂|うわさ}の{広|ひろ}がりを{追跡|ついせき}していた{側|がわ}。{噂|うわさ}を{広|ひろ}めた{人|ひと}ではないよ。"
+          - text: ココチ（褒めと噂の境界を分析していた人）
+            value: kokochi
+            feedback: "ココチは{噂|うわさ}の{質|しつ}の{変化|へんか}を{分析|ぶんせき}していた{側|がわ}。{噂|うわさ}を{広|ひろ}めた{人|ひと}ではないよ。"
+          - text: キズナ（アキラくんの気持ちを代弁した人）
+            value: kizuna
+            feedback: "キズナはアキラくんの{本音|ほんね}を{代弁|だいべん}していた{側|がわ}。{噂|うわさ}を{広|ひろ}めたのはキズナではないよ。"
+
+  # ==================== 真実：マモル ====================
+  - id: truth-mamoru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: マモルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mamoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamoru
+        text: "……ぼく、アキラくんのこと{褒|ほ}めてたんだよ？ {悪|わる}いことをしてるつもりはなかった。"
+        expression: worried
+      - type: dialog
+        character: mamoru
+        text: "アキラくんのことをよく{知|し}ってる{自分|じぶん}を、みんなに{見|み}せたかったんだと{思|おも}う。「アキラくんってすごいんだよ」って{話|はな}すと、{自分|じぶん}が{特別|とくべつ}な{気|き}がして……。"
+        expression: thinking
+      - type: dialog
+        character: mamoru
+        text: "でも……アキラくんは{嫌|いや}だったんだ。{勝手|かって}に{体|からだ}のことを{話|はな}されるのが。{褒|ほ}めているからって、{相手|あいて}が{嬉|うれ}しいとは{限|かぎ}らなかった。"
+        expression: worried
+      - type: sprite
+        character: mamoru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: karada
+        expression: thinking
+        position: left
+      - type: dialog
+        character: karada
+        text: "{最初|さいしょ}は「{すごいね}」だった。でも{気|き}づいたら「アキラくんの{体|からだ}のここが〇〇」になってた。{噂|うわさ}の{質|しつ}が{変|か}わっていくのを{止|と}められなかった。"
+        expression: thinking
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: determined
+        position: right
+      - type: dialog
+        character: kokochi
+        text: "ここを{見|み}て。{最初|さいしょ}は「{足|あし}が{速|はや}い」。でもここから「{体|からだ}の{特徴|とくちょう}」に{変|か}わってる。{質|しつ}が{違|ちが}う。この{境界線|きょうかいせん}に{気|き}づくことが{大事|だいじ}だった。"
+        expression: determined
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: left
+      - type: dialog
+        character: kizuna
+        text: "アキラくん、すごく{嫌|いや}だったんだ……。{褒|ほ}められて{嬉|うれ}しいんじゃなかった。{自分|じぶん}の{体|からだ}のことを{勝手|かって}に{話|はな}されるのが{嫌|いや}だったんだよ。"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{身体|からだ}の{情報|じょうほう}は{本人|ほんにん}のもの。{足|あし}が{速|はや}いか、{背|せ}が{高|たか}いか——それは{本人|ほんにん}だけが「{誰|だれ}に{話|はな}すか」を{決|き}める{権利|けんり}を{持|も}っています。{褒|ほ}める{気持|きも}ちがあっても、{伝|つた}える{前|まえ}に「{本人|ほんにん}は{大丈夫|だいじょうぶ}かな？」と{確認|かくにん}できるといいですね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{褒|ほ}め=OK」とは{限|かぎ}らない。{褒|ほ}めかどうかを{決|き}めるのは{言|い}われた{側|がわ}。この{気|き}づきを{日常|にちじょう}に{生|い}かしていきましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{承認|しょうにん}{欲求|よっきゅう}は{自然|しぜん}な{気持|きも}ち。でも「{褒|ほ}めている{自分|じぶん}」に{夢中|むちゅう}になって、{相手|あいて}の{気持|きも}ちが{見|み}えなくなることがある。"
+      - type: narration
+        text: "{本人|ほんにん}の{同意|どうい}なく{身体|からだ}について{話|はな}すのは、たとえ{褒|ほ}めでも{権利|けんり}の{侵害|しんがい}。「{相手|あいて}はどう{感|かん}じるか」を{基準|きじゅん}にすることが{大切|たいせつ}だ。"
+      - type: effect
+        name: fade-out

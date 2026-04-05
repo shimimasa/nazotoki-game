@@ -1,0 +1,371 @@
+meta:
+  id: body-06
+  title: 変わるからだ
+  series: からだ探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  karada:
+    name: カラダ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kokochi:
+    name: ココチ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kizuna:
+    name: キズナ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{保健体育|ほけんたいいく}の{授業|じゅぎょう}で「{体|からだ}の{成長|せいちょう}」について{学|まな}んだ、ある{週|しゅう}のこと。"
+      - type: narration
+        text: "{第二次性徴|だいにじせいちょう}——{体|からだ}が{大人|おとな}に{向|む}かって{変|か}わりはじめる{時期|じき}は、{人|ひと}によって{違|ちが}う。"
+      - type: narration
+        text: "でも{授業|じゅぎょう}の{後|あと}から、クラスにざわざわとした{空気|くうき}が{流|なが}れはじめた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「○○ちゃんはもう{大人|おとな}だ」「△△くんはまだ{子|こ}ども」——そんな{声|こえ}が{聞|き}こえてくるようになった。"
+      - type: narration
+        text: "そして{体|からだ}の{成長|せいちょう}が{早|はや}い{方|ほう}だったキズナが、**{体育|たいいく}を{休|やす}み{続|つづ}ける**ようになった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "キズナさんが「{おなかが痛い|おなかがいたい}」と{言|い}って{体育|たいいく}を{休|やす}んでいます。でも{保健室|ほけんしつ}の{先生|せんせい}は「{体|からだ}は{元気|げんき}」と{言|い}っています。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: karada
+            expression: thinking
+          - character: mamoru
+            expression: worried
+          - character: kokochi
+            expression: thinking
+          - character: kizuna
+            expression: worried
+      - type: narration
+        text: "4{人|にん}はそれぞれ、{体育|たいいく}を{休|やす}み{続|つづ}けるキズナの{様子|ようす}に{気|き}づいていた。{本当|ほんとう}の{理由|りゆう}は{何|なん}だろう？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 変わるからだ
+        subtitle: からだ探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: キズナの欠席記録
+      - type: narration
+        text: "キズナが{体育|たいいく}を「{おなかが痛い|おなかがいたい}」と{言|い}って3{週間|しゅうかん}{連続|れんぞく}で{休|やす}んでいる。"
+      - type: narration
+        text: "{保健室|ほけんしつ}の{先生|せんせい}に{診|み}てもらったが、「{体|からだ}は{元気|げんき}」と{言|い}われた。"
+      - type: narration
+        text: "「{おなかが痛い|おなかがいたい}」という{理由|りゆう}が{本当|ほんとう}でないなら、**{本当|ほんとう}の{理由|りゆう}は{何|なん}だろう？**"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 授業後の変化とからかい
+      - type: sprite
+        character: kokochi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "{保健|ほけん}の{授業|じゅぎょう}が{月曜日|げつようび}でしょ。キズナが{体育|たいいく}を{初|はじ}めて{休|やす}んだのは{火曜日|かようび}。それ{以来|いらい}ずっと{休|やす}んでる。{授業|じゅぎょう}の{前|まえ}はキズナって{体育|たいいく}{大好き|だいすき}だったのに。"
+        expression: thinking
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: karada
+        expression: worried
+        position: right
+      - type: dialog
+        character: karada
+        text: "{保健|ほけん}の{授業|じゅぎょう}の{後|あと}、「○○ちゃんはもう{大人|おとな}だ」「△△くんはまだ{子|こ}ども」って{言|い}ってる{声|こえ}が{聞|き}こえた。なんか……{体|からだ}の{成長|せいちょう}をからかってる{感|かん}じがして。"
+        expression: worried
+      - type: sprite
+        character: karada
+        action: hide
+      - type: narration
+        text: "{保健|ほけん}の{授業|じゅぎょう}の{翌日|よくじつ}からキズナが{体育|たいいく}を{休|やす}み{始|はじ}めた。{同|おな}じ{頃|ごろ}、クラスで「{体|からだ}の{成長|せいちょう}」についてのからかいが{始|はじ}まっていた。この2つは{関係|かんけい}があるのだろうか？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 着替えのときの様子
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "{気|き}づいたことがある。キズナって、{着替|きが}えのとき{毎回|まいかい}{隅|すみ}の{方|ほう}でこっそり{隠|かく}れるように{着替|きが}えてるんだ。ずっと{壁|かべ}の{方|ほう}を{向|む}いてた。"
+        expression: determined
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "キズナは{体|からだ}を{見|み}られることを{恐|おそ}れている——そう{考|かんが}えると、「{着替|きが}えのある{体育|たいいく}」を{避|さ}けていることとつながる。"
+      - type: narration
+        text: "{カラダの証言|カラダのしょうげん}：「からかいの{会話|かいわ}を{聞|き}いた」＋{マモルの証言|マモルのしょうげん}：「{隠|かく}れるように{着替|きが}えていた」。この2つを{合|あ}わせると——**「からかい→{体|からだ}を{隠|かく}したい→{体育|たいいく}を{休|やす}む」**という{流|なが}れが{見|み}えてくる。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生とキズナの会話
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yamada
+        text: "キズナさんと{個別|こべつ}に{話|はな}しました。{記録|きろく}を{共有|きょうゆう}します。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "「{体育|たいいく}は{好|す}きだった。でもみんなに『もう{大人|おとな}だ』って{言|い}われて、{恥|は}ずかしくなった。{体|からだ}を{見|み}られたくない。だから{休|やす}んだ」"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "「{サボり|サボり}」ではなく、**「{自己防衛|じこぼうえい}」**だった。キズナは{自分|じぶん}の{体|からだ}を{守|まも}るために{体育|たいいく}を{休|やす}んでいたのだ。"
+      - type: narration
+        text: "キズナが{悪|わる}いのではない。「{他人|たにん}の{体|からだ}の{変化|へんか}を{話題|わだい}にする」クラスの{空気|くうき}が{問題|もんだい}だった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こしたか？
+      - type: sprite
+        character: karada
+        expression: worried
+        position: left
+      - type: dialog
+        character: karada
+        text: "ぼく、あの{会話|かいわ}{聞|き}こえてたのに{止|と}めなかった……。キズナのこと、{守|まも}れなかった。"
+        expression: worried
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kokochi
+        text: "{保健|ほけん}の{授業|じゅぎょう}が{月曜|げつよう}で、キズナが{最初|さいしょ}に{休|やす}んだのが{火曜|かよう}。タイミングが{合|あ}いすぎる。"
+        expression: thinking
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。①{保健|ほけん}の{授業|じゅぎょう}{翌日|よくじつ}から{体育|たいいく}を{休|やす}み{始|はじ}めた。②「{体|からだ}の{成長|せいちょう}」をからかう{声|こえ}があった。③{着替|きが}えのとき{隠|かく}れるように{着替|きが}えていた。④キズナ{自身|じしん}が「{体|からだ}を{見|み}られたくない」と{言|い}った。"
+      - type: choice
+        id: q1
+        question: 体育を休み続けた本当の理由の中心にいたのは？
+        options:
+          - text: キズナ（自己防衛として体育を休み続けた当事者）
+            value: kizuna
+            correct: true
+            feedback: "{正解|せいかい}！ キズナは{自分|じぶん}の{体|からだ}の{変化|へんか}をからかわれることが{怖|こわ}くて、「{おなかが痛い|おなかがいたい}」と{嘘|うそ}をついて{体育|たいいく}を{休|やす}んでいた。キズナが{悪|わる}いのではなく、{体|からだ}の{成長|せいちょう}をからかうクラスの{空気|くうき}が{問題|もんだい}だった。{成長|せいちょう}のスピードは{人|ひと}それぞれ——これが{大切|たいせつ}な{学|まな}びだ。"
+          - text: カラダ（からかいの会話を止めなかった人）
+            value: karada
+            feedback: "カラダはからかいの{会話|かいわ}を{聞|き}いて{止|と}められなかったことに{罪悪感|ざいあくかん}を{感|かん}じている。でも{事件|じけん}の{中心|ちゅうしん}は{体育|たいいく}を{休|やす}み{続|つづ}けたキズナだよ。"
+          - text: ココチ（時系列を分析した人）
+            value: kokochi
+            feedback: "ココチは{授業|じゅぎょう}と{欠席|けっせき}のタイミングの{一致|いっち}に{気|き}づいた{観察者|かんさつしゃ}だよ。{事件|じけん}の{中心|ちゅうしん}は{体育|たいいく}を{休|やす}み{続|つづ}けたキズナだよ。"
+          - text: マモル（着替えの様子を記録した人）
+            value: mamoru
+            feedback: "マモルはキズナの{行動|こうどう}を{客観的|きゃっかんてき}に{記録|きろく}していた{観察者|かんさつしゃ}だよ。{事件|じけん}の{中心|ちゅうしん}は{体育|たいいく}を{休|やす}み{続|つづ}けたキズナだよ。"
+
+  # ==================== 真実：キズナ ====================
+  - id: truth-kizuna
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: キズナの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: center
+      - type: dialog
+        character: kizuna
+        text: "……{本当|ほんとう}は{体育|たいいく}が{好|す}きだった。でも……みんなの{前|まえ}で{体|からだ}を{動|うご}かすのが、{怖|こわ}くなった。"
+        expression: worried
+      - type: dialog
+        character: kizuna
+        text: "{着替|きが}えのとき、{自分|じぶん}の{体|からだ}が{目立|めだ}つのがわかってた。「もう{大人|おとな}だ」って{言|い}われるたびに、{恥|は}ずかしくて{消|き}えたくなった。"
+        expression: worried
+      - type: dialog
+        character: kizuna
+        text: "「{おなかが痛い|おなかがいたい}」は{嘘|うそ}だった。{体|からだ}を{守|まも}るためにそう{言|い}うしかなかったの。"
+        expression: thinking
+      - type: sprite
+        character: kizuna
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: karada
+        expression: worried
+        position: left
+      - type: dialog
+        character: karada
+        text: "ぼく、あの{会話|かいわ}を{聞|き}いたとき、「{やめなよ|やめなよ}」って{言|い}えばよかった。{止|と}められたのに、{止|と}めなかった。"
+        expression: worried
+      - type: sprite
+        character: karada
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: determined
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "キズナが{着替|きが}えのとき{壁|かべ}の{方|ほう}を{向|む}いてたの、{変|へん}だなとは{思|おも}ってた。でも{声|こえ}をかけてあげればよかった。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kokochi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "{成長|せいちょう}のスピードは{人|ひと}それぞれなんだよね。{早|はや}くても{遅|おそ}くても、どっちも{正常|せいじょう}。それをからかうのはおかしい。"
+        expression: determined
+      - type: sprite
+        character: kokochi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{第二次性徴|だいにじせいちょう}は{人|ひと}によって{始|はじ}まる{時期|じき}が{違|ちが}います。{早|はや}い{子|こ}も{遅|おそ}い{子|こ}もいる。でも、どちらも{正常|せいじょう}です。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{他人|たにん}の{体|からだ}の{変化|へんか}を{話題|わだい}にしたり、からかったりすることは、その{人|ひと}を{深|ふか}く{傷|きず}つけます。キズナのことを、みんなで{考|かんが}えてみましょう。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{体|からだ}のことで{困|こま}ったり{不安|ふあん}になったりしたら、いつでも{相談|そうだん}してね。{一人|ひとり}で{抱|かか}え{込|こ}まなくていいですよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{成長|せいちょう}のスピードは{人|ひと}それぞれ。{他人|たにん}の{体|からだ}の{変化|へんか}をからかわない——それが「{体|からだ}の{変化|へんか}の{尊重|そんちょう}」の{第一歩|だいいっぽ}だ。"
+      - type: narration
+        text: "{全探索|ぜんたんさく}で{考|かんが}えると、キズナが{体育|たいいく}を{休|やす}んだ{理由|りゆう}は1つしかなかった。「{おなかが痛い|おなかがいたい}」ではなく、**「{体|からだ}を{守|まも}りたかった」**——その{気持|きも}ちを{大切|たいせつ}にしよう。"
+      - type: effect
+        name: fade-out

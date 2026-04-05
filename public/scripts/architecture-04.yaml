@@ -1,0 +1,407 @@
+meta:
+  id: architecture-04
+  title: スロープが消えた
+  series: 建築探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}{探偵団|たんていだん}の4{人|にん}は、{学校|がっこう}の{正面|しょうめん}{玄関|げんかん}の{外|そと}に{集|あつ}まった。{今日|きょう}は{校内|こうない}{工事|こうじ}の{確認|かくにん}をする{予定|よてい}だ。"
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{正面|しょうめん}{玄関|げんかん}{前|まえ}の**スロープが{資材|しざい}でふさがれていた**。"
+      - type: narration
+        text: "{車椅子|くるまいす}を{使|つか}う{来賓|らいひん}の{方|かた}が{玄関|げんかん}に{入|はい}れず、{別|べつ}の{入口|いりぐち}を{探|さが}して15{分|ふん}もかかったという。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{工事|こうじ}{計画書|けいかくしょ}には「スロープは{維持|いじ}する」と{書|か}いてあった。なぜ{資材|しざい}でふさがれていたのかしら。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: surprised
+          - character: hari
+            expression: thinking
+          - character: noki
+            expression: worried
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "{工事|こうじ}{計画書|けいかくしょ}には「スロープは{維持|いじ}する」と{明記|めいき}されていたのに、なぜスロープが{使|つか}えない{状態|じょうたい}になったのか。{建築|けんちく}{探偵団|たんていだん}が{調|しら}べを{始|はじ}めた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: スロープが消えた
+        subtitle: 建築探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 工事計画書と来賓の証言
+      - type: narration
+        text: "{工事|こうじ}{計画書|けいかくしょ}を{確認|かくにん}する——「スロープは{維持|いじ}する」と{明記|めいき}されている。{来賓|らいひん}の{方|かた}からの{証言|しょうげん}: 「{玄関|げんかん}{前|まえ}に{着|つ}いたらスロープが{資材|しざい}でふさがれていた。{別|べつ}の{入口|いりぐち}を{探|さが}して15{分|ふん}かかった」"
+      - type: narration
+        text: "{計画書|けいかくしょ}では{維持|いじ}されるはずのスロープが、なぜ{当日|とうじつ}にふさがれていたのか。この{矛盾|むじゅん}が{事件|じけん}の{起点|きてん}だ。"
+      - type: sprite
+        character: tateru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tateru
+        text: "スロープって{法律|ほうりつ}で{決|き}まってるんじゃ？バリアフリー{法|ほう}で{整備|せいび}が{義務|ぎむ}づけられてるはずだよ。"
+        expression: surprised
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: noki
+        expression: worried
+        position: right
+      - type: dialog
+        character: noki
+        text: "{来賓|らいひん}の{方|かた}がどれだけ{困|こま}ったか……15{分|ふん}も{別|べつ}の{入口|いりぐち}を{探|さが}すなんて、{本当|ほんとう}につらかったと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: noki
+        action: hide
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: バリアフリー法の基準と資材移動記録
+      - type: sprite
+        character: tateru
+        expression: determined
+        position: left
+      - type: dialog
+        character: tateru
+        text: "バリアフリー{法|ほう}の{整備|せいび}{基準|きじゅん}を{調|しら}べたよ。スロープの{勾配|こうばい}は1/12{以下|いか}、{幅|はば}は90cm{以上|いじょう}、{手|て}すりも{必要|ひつよう}。スロープはベビーカーや{台車|だいしゃ}、{高齢者|こうれいしゃ}にも{役立|やくだ}つ{設備|せつび}なんだ。"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hari
+        text: "{資材|しざい}の{移動|いどう}{記録|きろく}を{見|み}ると、{午前|ごぜん}10{時|じ}に{玄関|げんかん}{前|まえ}に{資材|しざい}が{積|つ}まれた{記録|きろく}がある。{来賓|らいひん}の{到着|とうちゃく}{時刻|じこく}は{午前|ごぜん}11{時|じ}30{分|ふん}。{工事|こうじ}{計画書|けいかくしょ}と{現場|げんば}の{状態|じょうたい}を{時系列|じけいれつ}で{並|なら}べれば{分|わ}かるよ。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: narration
+        text: "{午前|ごぜん}10{時|じ}: {玄関|げんかん}{前|まえ}に{資材|しざい}が{積|つ}まれる。{午前|ごぜん}11{時|じ}30{分|ぷん}: {来賓|らいひん}{到着|とうちゃく}→スロープがふさがれて{入|はい}れない。この1{時間|じかん}30{分|ふん}の{間|あいだ}に{誰|だれ}かが{資材|しざい}を{移動|いどう}させるべきだった。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: イズミの作業記録
+      - type: narration
+        text: "「{午前|ごぜん}10{時|じ}〜11{時|じ}30{分|ふん}に{玄関|げんかん}{前|まえ}にいた{人|ひと}のみ{開封|かいふう}」——{条件付|じょうけんつき}き{公開|こうかい}{カード|かあど}が{出|で}た。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{イズミの{作業|さぎょう}{記録|きろく}が{出|で}てきた。{午前|ごぜん}10{時|じ}〜11{時|じ}30{分|ふん}の{間|あいだ}、イズミは{玄関|げんかん}{前|まえ}で{作業|さぎょう}をしていた{記録|きろく}がある。}"
+      - type: sprite
+        character: hari
+        expression: determined
+        position: left
+      - type: dialog
+        character: hari
+        text: "この{時間帯|じかんたい}に{玄関|げんかん}{前|まえ}にいたのはイズミだけ。{資材|しざい}を{積|つ}んだのも、{積|つ}んだ{後|あと}もその{場|ば}にいたのも——イズミということになる。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: izumi
+        text: "わ、{私|わたし}は……ただ{工事|こうじ}エリアを{守|まも}ろうとしただけで……"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 来賓の記録とイズミの話
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{来賓|らいひん}の{視点|してん}からの{記録|きろく}: 「{玄関|げんかん}{前|まえ}に{着|つ}いたらスロープが{資材|しざい}でふさがれていた。{別|べつ}の{入口|いりぐち}を{探|さが}して15{分|ふん}かかった」"
+      - type: sprite
+        character: noki
+        expression: worried
+        position: left
+      - type: dialog
+        character: noki
+        text: "15{分|ふん}……{車椅子|くるまいす}で{別|べつ}の{入口|いりぐち}を{探|さが}すのがどれだけ{大変|たいへん}だったか。スロープは{全員|ぜんいん}のための{設備|せつび}なのに。"
+        expression: worried
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: izumi
+        text: "……{工事|こうじ}エリアを{守|まも}るために、{余分|よぶん}な{資材|しざい}をスロープの{上|うえ}に{積|つ}んだ。「2{時間|じかん}だけ」と{思|おも}ってた。でも、{移動|いどう}するのを{忘|わす}れてしまって……"
+        expression: worried
+      - type: dialog
+        character: izumi
+        text: "{守|まも}ろうとしただけなのに……こんなことになるなんて。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{善意|ぜんい}（{工事|こうじ}エリアを{守|まも}ろう）が{結果|けっか}として、バリアフリー{設備|せつび}を{一時的|いちじてき}にふさいだ。「{守|まも}る」という{動機|どうき}が「{守|まも}るべきもの（バリアフリー）」を{侵|おか}した。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が問題の中心にいたか？
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{午前|ごぜん}10{時|じ}に{資材|しざい}が{積|つ}まれた。{来賓|らいひん}{到着|とうちゃく}は11{時|じ}30{分|ぷん}。その{時間|じかん}{帯|たい}に{玄関|げんかん}{前|まえ}にいたのはイズミだけ。イズミは{自分|じぶん}で{積|つ}んで、{移動|いどう}し{忘|わす}れたと{言|い}っている。"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: hari
+        expression: determined
+        position: right
+      - type: dialog
+        character: hari
+        text: "{計画書|けいかくしょ}には「スロープ{維持|いじ}」とある。イズミが{資材|しざい}を{積|つ}んだ{行動|こうどう}が{計画|けいかく}に{反|はん}していた。{動機|どうき}は{善意|ぜんい}でも、{結果|けっか}が{来賓|らいひん}に{迷惑|めいわく}をかけた。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+      - type: choice
+        id: q1
+        question: 問題の中心になったのは誰？
+        options:
+          - text: イズミ（資材をスロープの上に積み、移動し忘れた）
+            value: izumi
+            correct: true
+            feedback: "{正解|せいかい}！ イズミは{工事|こうじ}エリアを{守|まも}るため{資材|しざい}を{積|つ}んだが、{来賓|らいひん}{到着|とうちゃく}{前|まえ}に{移動|いどう}するのを{忘|わす}れた。{善意|ぜんい}の{行動|こうどう}でも、{確認|かくにん}を{怠|おこた}るとバリアフリー{設備|せつび}を{侵|おか}すことになる。"
+          - text: タテル（バリアフリー法を調べていた人）
+            value: tateru
+            feedback: "タテルは{法律|ほうりつ}を{調|しら}べて{問題|もんだい}を{指摘|してき}した{側|がわ}だよ。{午前|ごぜん}10{時|じ}〜11{時|じ}30{分|ぷん}に{玄関|げんかん}{前|まえ}にいた{記録|きろく}はないよ。"
+          - text: ハリ（タイムラインを整理していた人）
+            value: hari
+            feedback: "ハリは{工事|こうじ}{計画書|けいかくしょ}と{資材|しざい}{移動|いどう}{記録|きろく}を{整理|せいり}して{真相|しんそう}に{近|ちか}づけた{側|がわ}だよ。{資材|しざい}を{積|つ}んだのはハリではないよ。"
+          - text: ノキ（来賓の困惑に共感していた人）
+            value: noki
+            feedback: "ノキは{来賓|らいひん}の{視点|してん}から{問題|もんだい}の{深刻|しんこく}さを{伝|つた}えてくれた{側|がわ}だよ。{玄関|げんかん}{前|まえ}に{資材|しざい}を{積|つ}んだ{記録|きろく}はないよ。"
+
+  # ==================== 真実：イズミ ====================
+  - id: truth-izumi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イズミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: izumi
+        text: "……{本当|ほんとう}のことを{話|はな}します。{工事|こうじ}エリアを{守|まも}るために、{余分|よぶん}な{資材|しざい}をスロープの{上|うえ}に{積|つ}んだのは、{私|わたし}です。"
+        expression: worried
+      - type: dialog
+        character: izumi
+        text: "「2{時間|じかん}だけ{置|お}いておけばいい」と{思|おも}ってた。{来賓|らいひん}の{方|かた}が{来|く}る{前|まえ}に{移動|いどう}するつもりだったのに……{忘|わす}れてしまって。"
+        expression: thinking
+      - type: dialog
+        character: izumi
+        text: "{守|まも}ろうとしただけなのに、{来賓|らいひん}の{方|かた}に{迷惑|めいわく}をかけてしまった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{善意|ぜんい}だったのは{分|わ}かる。でもバリアフリー{法|ほう}には{理由|りゆう}がある。スロープは{全員|ぜんいん}のためにあるんだ。{計画書|けいかくしょ}を{確認|かくにん}して{動|うご}けばよかった。"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: hari
+        expression: normal
+        position: right
+      - type: dialog
+        character: hari
+        text: "{工事|こうじ}{計画書|けいかくしょ}に「スロープ{維持|いじ}」と{書|か}いてある{理由|りゆう}を、{現場|げんば}で{確認|かくにん}する{習慣|しゅうかん}が{必要|ひつよう}だったね。{記録|きろく}と{現実|げんじつ}がずれたときに{気|き}づける{仕組|しく}みがあれば{防|ふせ}げた。"
+        expression: normal
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "バリアフリーとは、{障害|しょうがい}のある{人|ひと}だけでなく、{高齢者|こうれいしゃ}やベビーカーを{使|つか}う{方|かた}など、{全員|ぜんいん}が{使|つか}いやすい{環境|かんきょう}を{作|つく}ること。スロープの{勾配|こうばい}1/12、{幅|はば}90cm——この{数字|すうじ}には{多|おお}くの{人|ひと}の{生活|せいかつ}が{詰|つ}まっているわ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "イズミの{動機|どうき}は{悪|わる}くなかった。でも「{守|まも}る」という{行動|こうどう}が、{別|べつ}の{誰|だれ}かの「{入|はい}れる{権利|けんり}」を{侵|おか}してしまった。{建築|けんちく}を{学|まな}ぶということは、{全員|ぜんいん}の{視点|してん}を{持|も}つことよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: noki
+        expression: happy
+        position: left
+      - type: dialog
+        character: noki
+        text: "{計画書|けいかくしょ}を{確認|かくにん}してから{動|うご}く、{利用|りよう}する{人|ひと}の{視点|してん}で{考|かんが}える——これが{建築|けんちく}の{基本|きほん}なんだね。"
+        expression: happy
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: determined
+        position: right
+      - type: dialog
+        character: tateru
+        text: "{善意|ぜんい}だけじゃ{足|た}りない。{法律|ほうりつ}と{計画書|けいかくしょ}と{使|つか}う{人|ひと}の{立場|たちば}、{全部|ぜんぶ}を{重|かさ}ねて{考|かんが}えないといけないんだ。"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "「{守|まも}ろう」という{気持|きも}ちでも、{計画|けいかく}を{確認|かくにん}せず{行動|こうどう}すると{誰|だれ}かが{困|こま}る{結果|けっか}に。{建築|けんちく}は{全員|ぜんいん}が{使|つか}えることが{大前提|おおぜんてい}——それが{バリアフリー|ばりあふりー}の{精神|せいしん}だ。"
+      - type: effect
+        name: fade-out

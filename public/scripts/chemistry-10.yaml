@@ -1,0 +1,455 @@
+meta:
+  id: chemistry-10
+  title: 化学の光と影
+  series: 化学探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のそばに{食品|しょくひん}{工場|こうじょう}がある{町|まち}。ある{日|ひ}、PTAの{会議|かいぎ}で「{工場|こうじょう}から{変|へん}なにおいがする。{有害|ゆうがい}な{化学|かがく}{物質|ぶっしつ}じゃないか」と{問題|もんだい}になった。"
+      - type: narration
+        text: "クラスで「においの{正体|しょうたい}を{調|しら}べよう」という{調査|ちょうさ}プロジェクトが{始|はじ}まった。ところが——"
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「においの{記録|きろく}データ」が**{改|かい}ざんされている**と{気|き}づいた。{誰|だれ}が、なぜデータを{書|か}き{換|か}えたのか。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{化学|かがく}{物質|ぶっしつ}の{危険|きけん}{性|せい}は「{物質|ぶっしつ}の{種類|しゅるい}・{濃度|のうど}・{曝露|ばくろ}{時間|じかん}」の3つで{決|き}まります。「においがする＝{有害|ゆうがい}」とは{限|かぎ}らないのです。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: worried
+          - character: souda
+            expression: surprised
+          - character: ritoma
+            expression: thinking
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{証拠|しょうこ}を{集|あつ}め、データ{改|かい}ざんの{真相|しんそう}と「においの{正体|しょうたい}」を{追|お}う。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 化学の光と影
+        subtitle: 化学探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 改ざんされたデータ
+      - type: narration
+        text: "**{証拠|しょうこ}カード1**: 「においの{記録|きろく}データ」——{書|か}き{換|か}えられた{版|ばん}と{元|もと}の{版|ばん}の{比較|ひかく}。{数値|すうち}の{違|ちが}いが{明確|めいかく}に{見|み}える。"
+      - type: narration
+        text: "{元|もと}のデータでは{濃度|のうど}が**○○ppm**。{書|か}き{換|か}えられたデータでは**△△ppm**。{数値|すうち}が{小|ちい}さく{書|か}き{直|なお}されている。"
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: left
+      - type: dialog
+        character: souda
+        text: "データを{書|か}き{換|か}えた？{誰|だれ}がそんなことを！においが{無害|むがい}に{見|み}えるように、{数値|すうち}を{小|ちい}さくしたってこと？"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: narration
+        text: "**{証拠|しょうこ}カード2**: {化学|かがく}{物質|ぶっしつ}のリスク{評価|ひょうか}の{基礎|きそ}——{物質|ぶっしつ}の{種類|しゅるい}・{濃度|のうど}・{曝露|ばくろ}{時間|じかん}の3{要素|ようそ}。LD50の{概念|がいねん}。"
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "リスク{評価|ひょうか}には「{物質|ぶっしつ}の{種類|しゅるい}・{濃度|のうど}・{曝露|ばくろ}{時間|じかん}」が{必要|ひつよう}。においがするだけでは{危険|きけん}かどうかは{分|わ}からない。まず{物質|ぶっしつ}を{特定|とくてい}しなきゃ。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: においの分析結果
+      - type: narration
+        text: "**{証拠|しょうこ}カード3**: においの{分析|ぶんせき}{結果|けっか}——4{人|にん}による{独自|どくじ}{調査|ちょうさ}メモ。pH{測定|そくてい}{結果|けっか}（{中性|ちゅうせい}〜{弱酸性|じゃくさんせい}）。においの{特徴|とくちょう}（チーズ・パン・ヨーグルトに{似|に}た{有機酸臭|ゆうきさんしゅう}）。"
+      - type: sprite
+        character: ritoma
+        expression: determined
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{指示薬|しじやく}でpHを{測|はか}った{結果|けっか}は{中性|ちゅうせい}〜{弱酸性|じゃくさんせい}。{強|きょう}{酸性|さんせい}でも{強|きょう}{アルカリ|あるかり}でもない。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nesa
+        text: "チーズ・パン・ヨーグルトに{似|に}たにおい……これって{発酵|はっこう}{食品|しょくひん}のにおいと{同|おな}じじゃないかな。{有機酸|ゆうきさん}って{食品|しょくひん}にも{入|はい}ってるよね？"
+        expression: thinking
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: narration
+        text: "「{発酵|はっこう}{食品|しょくひん}の{生産|せいさん}{過程|かてい}のにおいと{一致|いっち}する」という{化学|かがく}的{手|て}がかり。{有害|ゆうがい}{物質|ぶっしつ}ではない{方向|ほうこう}を{示|しめ}している。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: モルの家族と書き換え時刻
+      - type: narration
+        text: "**{証拠|しょうこ}カード4**: 「モルの{家族|かぞく}が{工場|こうじょう}に{勤|つと}めている」という{情報|じょうほう}（{地域|ちいき}{住民|じゅうみん}アンケートの{一部|いちぶ}）と「データを{書|か}き{換|か}えた{時刻|じこく}の{記録|きろく}」。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: left
+      - type: dialog
+        character: souda
+        text: "データを{書|か}き{換|か}えた{時刻|じこく}……これ、モルがプロジェクトの{調査|ちょうさ}データに{触|さわ}れる{時間帯|じかんたい}と{一致|いっち}する。"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: right
+      - type: dialog
+        character: nesa
+        text: "モルの{家族|かぞく}が{工場|こうじょう}で{働|はたら}いてる……「{化学|かがく}{物質|ぶっしつ}が{危険|きけん}」って{結論|けつろん}になれば{家族|かぞく}が{非難|ひなん}されるって、{怖|こわ}かったのかな。"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: sprite
+        character: moru
+        expression: worried
+        position: center
+      - type: dialog
+        character: moru
+        text: "……。"
+        expression: worried
+      - type: sprite
+        character: moru
+        action: hide
+      - type: narration
+        text: "{犯人|はんにん}{特定|とくてい}の{根拠|こんきょ}が{揃|そろ}ってきた。{動機|どうき}（{家族|かぞく}をかばう）と{行動|こうどう}（{書|か}き{換|か}え）が{接続|せつぞく}される。"
+
+  # ==================== 推理・投票（q1） ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 第1推理タイム
+        subtitle: データを書き換えたのは誰だ？
+      - type: sprite_group
+        characters:
+          - character: souda
+            expression: thinking
+          - character: ritoma
+            expression: thinking
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "{証拠|しょうこ}カード4でデータを{書|か}き{換|か}えた{時刻|じこく}が{判明|はんめい}した。{動機|どうき}（{家族|かぞく}をかばう）。{機会|きかい}（{調査|ちょうさ}データへのアクセス）。——{犯人|はんにん}は{誰|だれ}か？"
+      - type: sprite_group
+        characters: []
+      - type: choice
+        id: q1
+        question: においの記録データを書き換えた犯人は誰？
+        options:
+          - text: モル（家族が工場勤め＋書き換え時刻と一致＋動機：家族をかばう罪悪感）
+            value: moru
+            correct: true
+            feedback: "{正解|せいかい}！ モルの{家族|かぞく}は{工場|こうじょう}で{働|はたら}いている。「{化学|かがく}{物質|ぶっしつ}が{危険|きけん}」という{結論|けつろん}になれば{家族|かぞく}が{非難|ひなん}される——そう{心配|しんぱい}したモルは、においのデータを「{少|すく}なく」{見|み}せるように{書|か}き{換|か}えた。でも{本当|ほんとう}のことを{隠|かく}しても、みんなの{不安|ふあん}はなくならなかった。"
+          - text: ソウダ（実験アプローチを提案した人）
+            value: souda
+            feedback: "ソウダは「においの{正体|しょうたい}を{化学|かがく}で{特定|とくてい}しよう」と{行動|こうどう}を{提案|ていあん}した{側|がわ}。データを{書|か}き{換|か}える{動機|どうき}はないよ。"
+          - text: リトマ（化学的分析を主導した人）
+            value: ritoma
+            feedback: "リトマはpH{測定|そくてい}など{化学|かがく}的{分析|ぶんせき}を{主導|しゅどう}した{側|がわ}。{証拠|しょうこ}を{正確|せいかく}に{調|しら}べようとしている。"
+          - text: ネーサ（不安を感じていた人）
+            value: nesa
+            feedback: "ネーサは「なぜこんなに{怖|こわ}く{感|かん}じたんだろう」と{問|と}い{直|なお}す{感情型|かんじょうがた}。{工場|こうじょう}に{家族|かぞく}が{勤|つと}めているわけでも{書|か}き{換|か}える{機会|きかい}もない。"
+
+  # ==================== 反転：証拠カード5（q1後のパラダイムシフト） ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 発酵食品工場の化学プロセス
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "**{証拠|しょうこ}カード5**: 「{発酵|はっこう}{食品|しょくひん}{工場|こうじょう}の{化学|かがく}プロセス{説明|せつめい}」——{乳酸菌|にゅうさんきん}・{酵母|こうぼ}の{代謝|たいしゃ}{産物|さんぶつ}リストとその{安全性|あんぜんせい}{評価|ひょうか}。「においの{原因|げんいん}{物質|ぶっしつ}は{食品|しょくひん}{添加物|てんかぶつ}{基準|きじゅん}{以下|いか}の{濃度|のうど}」。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: ritoma
+        expression: surprised
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{乳酸菌|にゅうさんきん}・{酵母|こうぼ}の{代謝|たいしゃ}{産物|さんぶつ}——これが{発酵|はっこう}の{化学|かがく}だ。{濃度|のうど}は{食品|しょくひん}{添加物|てんかぶつ}{基準|きじゅん}{以下|いか}。つまり……{無害|むがい}だ！"
+        expression: surprised
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: surprised
+        position: right
+      - type: dialog
+        character: nesa
+        text: "においは{無害|むがい}だった……？ じゃあ、{最初|さいしょ}から{化学|かがく}の{知識|ちしき}があれば、{工場|こうじょう}が「{危険|きけん}」って{結論|けつろん}にはならなかった？"
+        expression: surprised
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "**パラダイムシフト**: 「においは{無害|むがい}だった。{化学|かがく}の{知識|ちしき}があれば{最初|さいしょ}から{分|わ}かった」——{化学物質|かがくぶっしつ}＝{危険|きけん}という{先入観|せんにゅうかん}が{問題|もんだい}の{根本|こんぽん}にあった。"
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souda
+        text: "モルが{書|か}き{換|か}えたのは{家族|かぞく}をかばうためだった。でも……においが{無害|むがい}だと{知|し}っていれば、{書|か}き{換|か}える{必要|ひつよう}もなかった。{化学|かがく}を{知|し}らないことが、すべての{出発点|しゅっぱってん}だったんだ。"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+
+  # ==================== 振り返り（q2：価値判断、正解なし） ====================
+  - id: reflection
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 第2推理タイム
+        subtitle: においが問題になった本当の原因は？
+      - type: sprite
+        character: nesa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nesa
+        text: "「{化学物質|かがくぶっしつ}＝{危険|きけん}」って、みんな{思|おも}ってた。{私|わたし}もそうだった。でも{本当|ほんとう}は{違|ちが}った。なんで{怖|こわ}く{感|かん}じたんだろう？"
+        expression: thinking
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: narration
+        text: "モルがデータを{書|か}き{換|か}えたのは{確|たし}か。でも「においが{問題|もんだい}になった{本当|ほんとう}の{原因|げんいん}」は、もっと{深|ふか}いところにあるかもしれない。"
+      - type: choice
+        id: q2
+        question: においが問題になった本当の原因は何だと思う？（正解はない。あなたの考えを選ぼう）
+        options:
+          - text: モルがデータを変えたから（個人の問題）
+            value: personal
+            feedback: "モルの{行動|こうどう}が{問題|もんだい}を{大|おお}きくしたのは{確|たし}か。でも{証拠|しょうこ}カード5を{見|み}ると、においは{元々|もともと}{無害|むがい}だった。もしモルが{書|か}き{換|か}えなくても「{化学物質|かがくぶっしつ}＝{危険|きけん}」という{思|おも}い込みがあれば、{問題|もんだい}になっていたかもしれない。"
+          - text: 化学物質は全部危険だから（感情的な判断）
+            value: emotion
+            feedback: "{証拠|しょうこ}カード2と5が{示|しめ}すように、{化学物質|かがくぶっしつ}の{危険|きけん}{性|せい}は「{種類|しゅるい}・{濃度|のうど}・{曝露|ばくろ}{時間|じかん}」で{決|き}まる。「{全部|ぜんぶ}{危険|きけん}」という{判断|はんだん}は{感情|かんじょう}的な{思|おも}い込みだ。"
+          - text: 化学を正しく知らなかったから（知識の問題）
+            value: knowledge
+            feedback: "鋭{い|い}！ {化学|かがく}の{知識|ちしき}があれば「{発酵臭|はっこうしゅう}は{無害|むがい}」と{最初|さいしょ}から{判断|はんだん}できた。{知識|ちしき}のなさが{恐怖|きょうふ}を{生|う}んだ——これは{大|おお}きな{原因|げんいん}のひとつ。さらに{考|かんが}えると？"
+          - text: 工場と学校と地域が情報を共有していなかったから（社会の問題）
+            value: social
+            feedback: "深{い|い}！ {工場|こうじょう}が「{安全|あんぜん}な{発酵|はっこう}{食品|しょくひん}を{作|つく}っている」と{地域|ちいき}に{伝|つた}えていれば、{不安|ふあん}は{広|ひろ}がらなかった。{知識|ちしき}の{問題|もんだい}と{情報|じょうほう}{共有|きょうゆう}の{問題|もんだい}が{重|かさ}なっていた。"
+
+  # ==================== 真相：モルの告白 ====================
+  - id: truth-moru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: モルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: moru
+        expression: worried
+        position: center
+      - type: dialog
+        character: moru
+        text: "……{本当|ほんとう}のことを、{話|はな}します。データを{書|か}き{換|か}えたのは、{私|わたし}です。"
+        expression: worried
+      - type: dialog
+        character: moru
+        text: "{家族|かぞく}が{工場|こうじょう}で{働|はたら}いている。「{化学物質|かがくぶっしつ}が{危険|きけん}」という{結論|けつろん}になれば、{家族|かぞく}が{責|せ}められると{思|おも}って……{怖|こわ}かった。"
+        expression: worried
+      - type: dialog
+        character: moru
+        text: "でも……においが{無害|むがい}だったって、{今|いま}{知|し}った。{化学|かがく}を{知|し}っていれば、{書|か}き{換|か}える{必要|ひつよう}もなかった。{本当|ほんとう}のことを{隠|かく}しても、みんなの{不安|ふあん}はなくならなかった。"
+        expression: thinking
+      - type: dialog
+        character: moru
+        text: "ごめんなさい。——でも{教|おし}えてくれてありがとう。においが{無害|むがい}だって{分|わ}かって、{気持|きも}ちが{楽|らく}になった。"
+        expression: happy
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 真相：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souda
+        text: "なんでデータを{変|か}えたんだって{最初|さいしょ}は{怒|おこ}ってた。でも……モルの{家族|かぞく}がそこで{働|はたら}いてたんだな。{気持|きも}ちは{分|わ}かる。"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: determined
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "{発酵臭|はっこうしゅう}は{無害|むがい}——{化学|かがく}の{知識|ちしき}があれば{最初|さいしょ}から{分|わ}かった。これからは{証拠|しょうこ}と{知識|ちしき}で{判断|はんだん}しよう。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: happy
+        position: left
+      - type: dialog
+        character: nesa
+        text: "「{化学物質|かがくぶっしつ}＝{危険|きけん}」って{思|おも}ってた。{私|わたし}もそうだった。{知|し}らないことが{恐怖|きょうふ}を{生|う}んだ——これが{一番|いちばん}の{気|き}づきだった。"
+        expression: happy
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{化学物質|かがくぶっしつ}の{危険|きけん}{性|せい}は「{種類|しゅるい}・{濃度|のうど}・{曝露|ばくろ}{時間|じかん}」で{決|き}まります。においがするだけでは{有害|ゆうがい}か{無害|むがい}か{判断|はんだん}できない。{発酵臭|はっこうしゅう}は{天然|てんねん}の{化学|かがく}{反応|はんのう}——{安全|あんぜん}な{食品|しょくひん}{製造|せいぞう}の{証|あかし}です。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "モルはVol.1のリトマス{試験紙|しけんし}から{始|はじ}まって、10{回|かい}の{実験|じっけん}と{推理|すいり}を{積|つ}み{重|かさ}ねてきた。その{化学|かがく}の{目|め}が、{今日|きょう}、{世界|せかい}を{正確|せいかく}に{読|よ}み{解|と}いた。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{化学|かがく}は「{怖|こわ}いもの」でも「{難|むずか}しいもの」でもない。{世界|せかい}を{正確|せいかく}に{読|よ}み{解|と}くための、{言葉|ことば}と{道具|どうぐ}。"
+      - type: narration
+        text: "あなたが{今日|きょう}の{推理|すいり}で{使|つか}った「{化学|かがく}の{目|め}」は——これからも、ずっと{使|つか}えます。"
+      - type: effect
+        name: fade-out

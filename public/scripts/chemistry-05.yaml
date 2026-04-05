@@ -1,0 +1,340 @@
+meta:
+  id: chemistry-05
+  title: さびの手がかり
+  series: 化学探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科|りか}{室|しつ}の{実験|じっけん}{器具|きぐ}を{管理|かんり}する4{人|にん}のグループ。{今週|こんしゅう}の{掃除|そうじ}{当番|とうばん}のあと、{鉄|てつ}でできたスパチュラ（かき{混|ま}ぜ{棒|ぼう}）に{不思議|ふしぎ}な{錆|さび}が{見|み}つかった。"
+      - type: narration
+        text: "「この{錆|さび}、おかしい」——リトマがひとこと{言|い}った。"
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{赤茶色|あかちゃいろ}の{点状|てんじょう}の{錆|さび}**が、スパチュラの{表面|ひょうめん}に{広|ひろ}がり{始|はじ}めていた。"
+      - type: narration
+        text: "「これは**{最近|さいきん}できた{錆|さび}**だ。{古|ふる}い{錆|さび}じゃない」。でも{管理|かんり}{担当|たんとう}の4{人|にん}は{全員|ぜんいん}——"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{鉄|てつ}は{水|みず}と{酸素|さんそ}が{重|かさ}なると{酸化|さんか}して{錆|さび}びる。でも{乾燥|かんそう}していれば{錆|さび}びにくい。{水分|すいぶん}が{残|のこ}ると2〜3{日|にち}で{目立|めだ}つ{錆|さび}が{出|で}るのよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: thinking
+          - character: souda
+            expression: surprised
+          - character: ritoma
+            expression: worried
+          - character: nesa
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}はそれぞれ「{私|わたし}は{乾|かわ}かしてから{片付|かたづ}けた」と{言|い}う。でも{錆|さび}は{確|たし}かに{最近|さいきん}できた{錆|さび}だ。**だれが{濡|ぬ}れたまま{放置|ほうち}したのか？**"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: さびの手がかり
+        subtitle: 化学探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 錆の観察と片付け記録
+      - type: narration
+        text: "【{証拠|しょうこ}カード1】{錆|さび}が{出|で}たスパチュラの{写真|しゃしん}——{赤茶色|あかちゃいろ}の{点状|てんじょう}の{錆|さび}、{表面|ひょうめん}に{広|ひろ}がり{始|はじ}め。"
+      - type: narration
+        text: "「これは{新|あたら}しい{錆|さび}か{古|ふる}い{錆|さび}か？」という{問|とい}いを{立|た}てよう。"
+      - type: narration
+        text: "【{証拠|しょうこ}カード2】4{人|にん}の「{器具|きぐ}の{片付|かたづ}けをした{日付|ひづけ}と{方法|ほうほう}」のメモ。"
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "{片付|かたづ}け{日時|にちじ}と{方法|ほうほう}を{証拠|しょうこ}と{照合|しょうごう}すれば、{錆|さび}ができた{時期|じき}と{一致|いっち}する{人物|じんぶつ}を{絞|しぼ}れる。{感情|かんじょう}は{後|あと}で、まず{証拠|しょうこ}と{照合|しょうごう}しよう。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 錆の化学と比較
+      - type: narration
+        text: "【{証拠|しょうこ}カード3】「{鉄|てつ}の{錆|さび}の{形成|けいせい}{条件|じょうけん}」の{情報|じょうほう}カード——{水|みず}+{酸素|さんそ}＝{酸化|さんか}{鉄|てつ}。{乾燥|かんそう}していれば{錆|さび}びにくい。{水分|すいぶん}が{残|のこ}ると2〜3{日|にち}で{目立|めだ}つ{錆|さび}が{出|で}る。"
+      - type: narration
+        text: "「{何日前|なんにちまえ}に{水分|すいぶん}が{残|のこ}ったか」の{推定|すいてい}に{使|つか}える。"
+      - type: narration
+        text: "【{証拠|しょうこ}カード4】「{古|ふる}い{錆|さび} vs {新|あたら}しい{錆|さび}」の{比較|ひかく}{写真|しゃしん}——{古|ふる}い{錆|さび}＝{黒|くろ}ずんで{表面|ひょうめん}が{均一|きんいつ}。**{新|あたら}しい{錆|さび}＝{赤茶色|あかちゃいろ}で{点状|てんじょう}・{表面|ひょうめん}が{粗|あら}い**。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カード4の{比較|ひかく}{写真|しゃしん}と{見|み}くらべると——スパチュラの{錆|さび}は**{新|あたら}しい{錆|さび}**の{特徴|とくちょう}と{完全|かんぜん}に{一致|いっち}する。これは{最近|さいきん}できた{錆|さび}だと{化学的|かがくてき}に{証明|しょうめい}できる。"
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souda
+        text: "じゃあ「{乾|かわ}かした」って{全員|ぜんいん}が{言|い}ってるのに、この{錆|さび}はどこから？{片付|かたづ}け{記録|きろく}と{照|て}らし{合|あ}わせないと……"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: リトマの急ぎ足
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "【{証拠|しょうこ}カード5】リトマが「{実験|じっけん}{後|ご}に{急|いそ}いでいた」という{証言|しょうげん}を{別|べつ}の{人物|じんぶつ}から{得|え}た{記録|きろく}——"
+      - type: sprite
+        character: nesa
+        expression: surprised
+        position: left
+      - type: dialog
+        character: nesa
+        text: "「リトマさん、あの{日|ひ}{委員会|いいんかい}があって{急|いそ}いでた」って{誰|だれ}かが{言|い}ってた……{急|いそ}いでいたとき、{見落|みおと}としが{起|お}きる{文脈|ぶんみゃく}があったんだね。"
+        expression: thinking
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: right
+      - type: dialog
+        character: souda
+        text: "えっ、リトマが？{信|しん}じられない！でも……{証拠|しょうこ}がある。どうすればいい？"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{委員会|いいんかい}があって{急|いそ}いでいた → {洗|あら}ったスパチュラを「{乾|かわ}かした」と{思|おも}い{込|こ}んで{棚|たな}に{戻|もど}した → {実際|じっさい}は{水滴|すいてき}が{残|のこ}っていた → 2〜3{日|にち}で**{赤茶色|あかちゃいろ}の{点状|てんじょう}の{錆|さび}**が{出現|しゅつげん}。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が濡れたまま放置した？
+      - type: sprite
+        character: moru
+        expression: determined
+        position: left
+      - type: dialog
+        character: moru
+        text: "{錆|さび}の{面積|めんせき}と{形成|けいせい}{速度|そくど}から「{何日前|なんにちまえ}にできた{錆|さび}か」を{逆算|ぎゃくさん}できる。{片付|かたづ}け{記録|きろく}の{日時|にちじ}と{一致|いっち}するのは……リトマの{片付|かたづ}け{日|び}だ。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nesa
+        text: "{急|いそ}いでいたとき、「{乾|かわ}かした」と{思|おも}い{込|こ}んでしまうことは{誰|だれ}にでも{起|お}きる。でも{自己|じこ}イメージを{守|まも}るために{認|みと}めたくなかった——それが「ちゃんと{乾|かわ}かした」と{言|い}い{張|は}る{動機|どうき}になったんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{錆|さび}の{形状|けいじょう}＝{新|あたら}しい{錆|さび}（カード4）。{水分|すいぶん}が{残|のこ}ると2〜3{日|にち}（カード3）。リトマの{片付|かたづ}け{日|び}に{時期|じき}が{一致|いっち}（カード2）。{委員会|いいんかい}で{急|いそ}いでいた（カード5）。"
+      - type: choice
+        id: q1
+        question: スパチュラを濡れたまま放置した人は誰？
+        options:
+          - text: リトマ（急いでいた日に片付け＋錆の形成時期が一致＋「乾かした」と思い込んだ）
+            value: ritoma
+            correct: true
+            feedback: "{正解|せいかい}！ リトマは{委員会|いいんかい}で{急|いそ}いでいたため、{洗|あら}ったスパチュラの{水滴|すいてき}を{見落|みおと}としてしまった。「{几帳面|きちょうめん}な{自分|じぶん}が{失敗|しっぱい}するはずがない」という{思|おも}い{込|こ}みが、{見落|みおと}とした{事実|じじつ}を{認|みと}めにくくした。{錆|さび}の{形成|けいせい}{条件|じょうけん}——この{化学|かがく}の{知識|ちしき}が{真実|しんじつ}を{見抜|みぬ}く{鍵|かぎ}だった。"
+          - text: モル（情報を整理していた人）
+            value: moru
+            feedback: "モルは{証拠|しょうこ}と{照合|しょうごう}しながら{冷静|れいせい}に{分析|ぶんせき}している{側|がわ}。{片付|かたづ}け{日時|にちじ}が{錆|さび}の{形成|けいせい}{時期|じき}と{一致|いっち}していないよ。"
+          - text: ソウダ（驚いていた人）
+            value: souda
+            feedback: "ソウダは{事実|じじつ}と{感情|かんじょう}の{間|あいだ}で{揺|ゆ}れながらも{証拠|しょうこ}を{出|だ}している{側|がわ}。{片付|かたづ}け{日時|にちじ}が{錆|さび}の{形成|けいせい}{時期|じき}と{一致|いっち}していないよ。"
+          - text: ネーサ（動機を引き出した人）
+            value: nesa
+            feedback: "ネーサはリトマに{共感|きょうかん}しながら{動機|どうき}を{引|ひ}き{出|だ}した{側|がわ}。{片付|かたづ}け{日時|にちじ}が{錆|さび}の{形成|けいせい}{時期|じき}と{一致|いっち}していないよ。"
+
+  # ==================== 真実：リトマの告白 ====================
+  - id: truth-ritoma
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: リトマの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ritoma
+        expression: worried
+        position: center
+      - type: dialog
+        character: ritoma
+        text: "……{確|たし}かに、あの{日|ひ}{急|いそ}いで{棚|たな}に{戻|もど}した。{完全|かんぜん}に{乾|かわ}いてなかったかも。"
+        expression: worried
+      - type: dialog
+        character: ritoma
+        text: "{錆|さび}が{出|で}たとき「{自分|じぶん}のせいかも」って{思|おも}った。でも「{几帳面|きちょうめん}な{私|わたし}が{失敗|しっぱい}するはずがない」って……{認|みと}めるのが{怖|こわ}かった。"
+        expression: thinking
+      - type: dialog
+        character: ritoma
+        text: "私が{見落|みおと}とした{可能性|かのうせい}を{認|みと}めるのが{怖|こわ}かった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souda
+        text: "リトマを{疑|うたが}いたくなかった。でも{証拠|しょうこ}と{向|む}き{合|あ}ったら……{信|しん}じるってことと、{事実|じじつ}を{見|み}ることって、{別々|べつべつ}にできるんだね。"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: moru
+        expression: normal
+        position: right
+      - type: dialog
+        character: moru
+        text: "{錆|さび}の{形状|けいじょう}と{形成|けいせい}{速度|そくど}——{化学|かがく}の{知識|ちしき}があれば「いつできた{錆|さび}か」が{分|わ}かる。{感情|かんじょう}じゃなく{証拠|しょうこ}が{答|こた}えを{出|だ}す。"
+        expression: normal
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{水|みず}+{酸素|さんそ}＝{酸化|さんか}{鉄|てつ}（{錆|さび}）。{新|あたら}しい{錆|さび}は{赤茶色|あかちゃいろ}で{点状|てんじょう}、{古|ふる}い{錆|さび}は{黒|くろ}ずんで{均一|きんいつ}。この{知識|ちしき}がなければ、「いつできた{錆|さび}か」なんて{分|わ}からなかったでしょ？{化学|かがく}は{見|み}えないものを{見|み}える{力|ちから}を{与|あた}えてくれるの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "リトマが「{認|みと}めるのが{怖|こわ}かった」と{言|い}えた{勇気|ゆうき}——それもとっても{大切|たいせつ}よ。{失敗|しっぱい}を{認|みと}めることが、{次|つぎ}の{一歩|いっぽ}に{繋|つな}がるから。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「ちゃんとやった」という{思|おも}い{込|こ}みが、{見落|みおと}としを{生|う}む。{証拠|しょうこ}と{向|む}き{合|あ}うことで、{自分|じぶん}でも{気|き}づかなかった{失敗|しっぱい}が{見|み}えてくる。"
+      - type: narration
+        text: "{錆|さび}の{化学|かがく}——{赤茶色|あかちゃいろ}か{黒|くろ}ずんでいるか。{点状|てんじょう}か{均一|きんいつ}か。その{違|ちが}いが{真実|しんじつ}を{語|かた}っていた。"
+      - type: effect
+        name: fade-out

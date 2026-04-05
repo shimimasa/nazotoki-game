@@ -1,0 +1,367 @@
+meta:
+  id: chemistry-03
+  title: あわの証拠
+  series: 化学探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}1{組|くみ}の「お{楽|たの}しみ{会|かい}」の{準備|じゅんび}{中|ちゅう}——{準備|じゅんび}{係|かかり}の4{人|にん}は、{教室|きょうしつ}をかざりつけるため{放課後|ほうかご}に{残|のこ}っていた。"
+      - type: narration
+        text: "ところが、{教室|きょうしつ}のゴミ{箱|ばこ}のそばに、{謎|なぞ}の{白|しろ}い{泡|あわ}が{残|のこ}っているのを{山田先生|やまだせんせい}が{発見|はっけん}した。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "この{泡|あわ}、{誰|だれ}かが{作|つく}ったものでしょう。{危|あぶ}ないものを{持|も}ち{込|こ}んだの？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: thinking
+          - character: souda
+            expression: worried
+          - character: ritoma
+            expression: surprised
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "{白|しろ}くてぶくぶくした{泡|あわ}。{炭酸飲料|たんさんいんりょう}の{泡|あわ}より{粒|つぶ}が{細|こま}かく、においはない。{誰|だれ}が、{何|なに}を{使|つか}って{作|つく}ったのか——4{人|にん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: あわの証拠
+        subtitle: 化学探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 来た時刻と持ちものの記録・泡の観察
+      - type: narration
+        text: "{準備|じゅんび}{係|かかり}4{人|にん}が{教室|きょうしつ}に{来|き}た{時刻|じこく}と、それぞれが{持|も}ってきたものの{記録|きろく}が{見|み}つかった。"
+      - type: narration
+        text: "{物質|ぶっしつ}を{持|も}ち{込|こ}んだ{可能性|かのうせい}がある{人物|じんぶつ}を{特定|とくてい}するための{手|て}がかりだ。"
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "{泡|あわ}の{写真|しゃしん}も{見|み}つかった。{白|しろ}い・{大量|たいりょう}・においなし・{炭酸飲料|たんさんいんりょう}の{泡|あわ}より{粒|つぶ}が{細|こま}かい——この{性質|せいしつ}から、{何|なに}の{泡|あわ}か{推定|すいてい}できるよ。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "においがない……。{食塩水|しょくえんすい}の{泡|あわ}とは{違|ちが}う。においなし＝CO₂の{可能性|かのうせい}が{高|たか}いかも。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== 調査：証拠カード3+4（左右対話） ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 化学反応の早見表・ロッカーの発見
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: left
+      - type: dialog
+        character: yamada
+        text: "これが{先生|せんせい}の{手書|てが}きメモ。「{重曹|じゅうそう}＋{酢|す}＝CO₂＋{水|みず}＋{塩|しお}」「{石灰水|せっかいすい}＋CO₂＝{白|しろ}く{濁|にご}る」。{泡|あわ}の{正体|しょうたい}を{特定|とくてい}するための{知識|ちしき}よ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: surprised
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "{重曹|じゅうそう}と{酢|す}が{反応|はんのう}するとCO₂が{出|で}る！においなし・{白|しろ}い{泡|あわ}——ぴったり{合|あ}う！"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: moru
+        expression: determined
+        position: left
+      - type: dialog
+        character: moru
+        text: "さらに、{教室|きょうしつ}のロッカーに「{重曹|じゅうそう}の{袋|ふくろ}」と「{酢|す}のボトル」が{見|み}つかったって{報告|ほうこく}があった。{誰|だれ}のロッカーか{照合|しょうごう}すれば、{持|も}ち{込|こ}んだ{人|ひと}が{分|わ}かるはず。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 証拠カード5（se:discover） ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: カバンの中の設計メモ
+      - type: narration
+        text: "{調査|ちょうさ}を{続|つづ}けると、{決定的|けっていてき}な{証拠|しょうこ}が{見|み}つかった——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "**ソウダのカバンの{中|なか}**から「{火山模型|かざんもけい}の{設計|せっけい}メモ」と「{重曹|じゅうそう}の{残|のこ}り」が{発見|はっけん}された。"
+      - type: narration
+        text: "{準備|じゅんび}のために{持|も}ってきた——という{動機|どうき}も、この{瞬間|しゅんかん}に{明|あき}らかになった。"
+
+  # ==================== 反転：tension-quiet ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: カバンと火山模型の設計メモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: left
+      - type: dialog
+        character: nesa
+        text: "ソウダ……もしかして、お{楽|たの}しみ{会|かい}のために{準備|じゅんび}してたの？"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: sprite
+        character: souda
+        expression: worried
+        position: right
+      - type: dialog
+        character: souda
+        text: "……{火山噴火|かざんふんか}の{模型|もけい}で{みんなを驚|みんなをおどろ}かせようと{思|おも}って。{失敗|しっぱい}したら{恥|は}ずかしいから、こっそり{試|ため}しておこうとしたんだ。"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: moru
+        expression: determined
+        position: left
+      - type: dialog
+        character: moru
+        text: "{重曹|じゅうそう}は{家|いえ}から{持|も}ってきて、{教室|きょうしつ}に{余|あま}っていた{酢|す}と{組|く}み{合|あ}わせた。{泡|あわ}の{量|りょう}が{想定|そうてい}より{多|おお}くて、{処理|しょり}しきれずにゴミ{箱|ばこ}の{近|ちか}くに{残|のこ}ってしまったんだ。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{重曹|じゅうそう}＋{酢|す}＝CO₂ → においなしの{白|しろ}い{泡|あわ} → ロッカーに{重曹|じゅうそう}と{酢|す} → カバンに{設計|せっけい}メモと{重曹|じゅうそう}の{残|のこ}り → **ソウダが{教室|きょうしつ}で{実験|じっけん}した**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心になって問題を起こしたのは誰だ？
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "においなし＝CO₂の{可能性|かのうせい}、と{最初|さいしょ}に{気|き}づいた。{重曹|じゅうそう}と{酢|す}の{反応|はんのう}——{食品|しょくひん}だから{安全|あんぜん}、と{思|おも}い{込|こ}んでいたのが{問題|もんだい}だったんだね。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{泡|あわ}の{性質|せいしつ}（CO₂と{一致|いっち}）②ロッカーに{重曹|じゅうそう}と{酢|す}③カバンに{設計|せっけい}メモと{重曹|じゅうそう}の{残|のこ}り④お{楽|たの}しみ{会|かい}の{出|で}し{物|もの}で{火山模型|かざんもけい}を{計画|けいかく}——{事前確認|じぜんかくにん}なしで{教室|きょうしつ}で{実験|じっけん}した。"
+      - type: choice
+        id: q1
+        question: 中心になって問題を起こしたのは誰？
+        options:
+          - text: ソウダ（カバンに設計メモ＋重曹の残り＋教室の酢を使って実験＋泡を処理しきれなかった）
+            value: souda
+            correct: true
+            feedback: "{正解|せいかい}！ ソウダは「{安全|あんぜん}なもの＝{教室|きょうしつ}でやってもOK」と{思|おも}い{込|こ}んでいた。{善意|ぜんい}の{行動|こうどう}でも、{事前確認|じぜんかくにん}なしで{実験|じっけん}するのは{危|あぶ}ない。{重曹|じゅうそう}＋{酢|す}→CO₂——この{化学反応|かがくはんのう}の{知識|ちしき}が{真相|しんそう}を{見|み}つける{鍵|かぎ}だった。"
+          - text: モル（泡の量を分析した人）
+            value: moru
+            feedback: "モルは{泡|あわ}の{残|のこ}り{方|かた}から{反応量|はんのうりょう}を{逆算|ぎゃくさん}した{情報型|じょうほうがた}。{分析|ぶんせき}する{側|がわ}であって、{問題|もんだい}を{起|お}こした{側|がわ}ではないよ。"
+          - text: リトマ（においがないと最初に気づいた人）
+            value: ritoma
+            feedback: "リトマは「においなし＝CO₂」と{観察|かんさつ}した{観察型|かんさつがた}。{泡|あわ}の{正体|しょうたい}を{絞|しぼ}り{込|こ}む{手助|てだす}けをしたけど、{教室|きょうしつ}で{実験|じっけん}したのはリトマじゃないよ。"
+          - text: ネーサ（ソウダの動機を引き出した人）
+            value: nesa
+            feedback: "ネーサは「なぜこっそりやったのか」を{問|と}いかけて{動機|どうき}を{引|ひ}き{出|だ}した{感情型|かんじょうがた}。{事件|じけん}の{中心|ちゅうしん}にいたのはネーサじゃないよ。"
+
+  # ==================== 真実：ソウダ ====================
+  - id: truth-souda
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ソウダの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: souda
+        expression: worried
+        position: center
+      - type: dialog
+        character: souda
+        text: "……{火山噴火|かざんふんか}の{模型|もけい}を{作|つく}りたかった。お{楽|たの}しみ{会|かい}でみんなを{驚|おどろ}かせたくて。{失敗|しっぱい}したら{恥|は}ずかしいから、こっそり{先|さき}に{試|ため}しておこうと{思|おも}ったんだ。"
+        expression: worried
+      - type: dialog
+        character: souda
+        text: "{重曹|じゅうそう}は{食品|しょくひん}だし、{酢|す}も{食品|しょくひん}。{安全|あんぜん}だと{思|おも}ってた。でも{泡|あわ}の{量|りょう}が{想定|そうてい}より{全然|ぜんぜん}{多|おお}くて……{処理|しょり}しきれなかった。"
+        expression: thinking
+      - type: dialog
+        character: souda
+        text: "テストしただけだもん。でも……{先生|せんせい}に{確認|かくにん}してからやるべきだった。ルールは{守|まも}るべきだったと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: nesa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nesa
+        text: "ソウダがお{楽|たの}しみ{会|かい}のために{準備|じゅんび}してくれてたんだ……{気持|きも}ちは{分|わ}かるよ。でも{一人|ひとり}でこっそりやらなくてよかったのに。"
+        expression: thinking
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "「{食品|しょくひん}だから{安全|あんぜん}」は{思|おも}い{込|こ}みだったんだね。{混|ま}ぜたとき{化学反応|かがくはんのう}が{起|お}きる——それを{知|し}ってたら、{先|さき}に{相談|そうだん}できたかも。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{重曹|じゅうそう}＋{酢|す}＝CO₂＋{水|みず}＋{塩|しお}。この{化学反応|かがくはんのう}を{知|し}っていたから、{泡|あわ}の{正体|しょうたい}に{気|き}づけた。においなし・{白|しろ}い{泡|あわ}——{証拠|しょうこ}を{積|つ}み{重|かさ}ねると{真相|しんそう}に{近|ちか}づけるのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ソウダの{気持|きも}ちは{素直|すなお}なもの。でも{実験|じっけん}をするときは、{安全|あんぜん}かどうか{先|さき}に{確認|かくにん}してね。{先生|せんせい}は{一緒|いっしょ}に{考|かんが}えるよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{食品|しょくひん}だから{安全|あんぜん}」という{思|おも}い{込|こ}みが{事件|じけん}のもとだった。{混|ま}ぜると{化学反応|かがくはんのう}が{起|お}きる——{知識|ちしき}があれば{防|ふせ}げた{失敗|しっぱい}だ。"
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}して{筋道|すじみち}を{立|た}てる——それが{真相|しんそう}を{見抜|みぬ}く{力|ちから}になる。"
+      - type: effect
+        name: fade-out

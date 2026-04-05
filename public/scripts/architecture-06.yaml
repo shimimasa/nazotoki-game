@@ -1,0 +1,389 @@
+meta:
+  id: architecture-06
+  title: 使えない広場
+  series: 建築探偵団
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{住宅街|じゅうたくがい}のまんなかの{空|あ}き{地|ち}に「みんなの{広場|ひろば}」を{作|つく}る{計画|けいかく}が{進|すす}んでいた。"
+      - type: narration
+        text: "{担当|たんとう}の{建築探偵団|けんちくたんていだん}のメンバーはそれぞれ{調査|ちょうさ}を{進|すす}めていたが、ある{日|ひ}——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「{法律|ほうりつ}で{使|つか}えない」という{通知書|つうちしょ}が{届|とど}き、{計画|けいかく}が{止|と}まってしまった。"
+      - type: narration
+        text: "「ちゃんと{調|しら}べた」と{言|い}っているのに、なぜ{止|と}まったのか。{建築探偵団|けんちくたんていだん}は「{誰|だれ}の{調査|ちょうさ}が{間違|まちが}っていたか」を{追|お}う。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{用途地域|ようとちいき}には{住居系|じゅうきょけい}・{商業系|しょうぎょうけい}・{工業系|こうぎょうけい}と{様々|さまざま}な{種別|しゅべつ}があって、それぞれに{制限|せいげん}の{中身|なかみ}があるの。{種別|しゅべつ}だけ{確認|かくにん}しても、{制限内容|せいげんないよう}まで{調|しら}べないと{正確|せいかく}な{答|こた}えは{出|で}ないわよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: worried
+          - character: hari
+            expression: thinking
+          - character: noki
+            expression: normal
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{証拠|しょうこ}カードを{手|て}に、{誰|だれ}の{調査|ちょうさ}に{問題|もんだい}があったのかを{探|さが}り{始|はじ}める。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 使えない広場
+        subtitle: 建築探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 広場計画と通知書
+      - type: narration
+        text: "{広場|ひろば}{計画|けいかく}の{説明書|せつめいしょ}と、「{法律|ほうりつ}で{使|つか}えない」という{通知書|つうちしょ}が{配|くば}られた。{通知書|つうちしょ}には**{用途地域制限|ようとちいきせいげん}を{理由|りゆう}とする**と{書|か}かれている。"
+      - type: narration
+        text: "{住宅街|じゅうたくがい}のまんなかに{公共|こうきょう}の{広場|ひろば}を{作|つく}る——はずだったのに、なぜ{使|つか}えないのか。{事実確認|じじつかくにん}と{問題提起|もんだいていき}のカードだ。"
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: noki
+        text: "{用途地域|ようとちいき}って{何|なん}の{種類|しゅるい}があるの？ {全部|ぜんぶ}の{中身|なかみ}を{確認|かくにん}した？"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: izumi
+        text: "あそこに{広場|ひろば}ができるの{楽|たの}しみにしてた{人|ひと}がいるのに……。どうして{止|と}まっちゃったんだろう。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 用途地域の分類とタテルの調査記録
+      - type: sprite
+        character: hari
+        expression: normal
+        position: left
+      - type: dialog
+        character: hari
+        text: "{用途地域|ようとちいき}は3{系統|けいとう}あって、{住居系|じゅうきょけい}が8{種|しゅ}、{商業系|しょうぎょうけい}が2{種|しゅ}、{工業系|こうぎょうけい}が3{種|しゅ}。それぞれ**{建物|たてもの}の{種類|しゅるい}や{規模|きぼ}を{制限|せいげん}する**んだ。"
+        expression: normal
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: normal
+        position: right
+      - type: dialog
+        character: tateru
+        text: "ぼくの{調査記録|ちょうさきろく}には「{第一種低層住居専用地域|だいいっしゅていそうじゅうきょせんようちいき}であることを{確認|かくにん}」と{書|か}いてあります。{種別|しゅべつ}はちゃんと{調|しら}べました。"
+        expression: normal
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "タテルの{調査記録|ちょうさきろく}には{地図|ちず}も{添付|てんぷ}されていて、{空|あ}き{地|ち}の{位置|いち}と{周囲|しゅうい}の{地域色分|ちいきいろわ}けが{示|しめ}されている。「{確認|かくにん}した」と{書|か}かれているが——**{何|なに}を{確認|かくにん}したか**が{問題|もんだい}だ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 用途地域の制限内容一覧
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「{用途地域|ようとちいき}の{制限内容一覧表|せいげんないよういちらんひょう}」が{公開|こうかい}された。そこには——"
+      - type: narration
+        text: "**{第一種低層住居専用地域|だいいっしゅていそうじゅうきょせんようちいき}での{集会施設|しゅうかいしせつ}の{床面積制限|ゆかめんせきせいげん}**が{記載|きさい}されていた。"
+      - type: sprite
+        character: noki
+        expression: surprised
+        position: left
+      - type: dialog
+        character: noki
+        text: "{種別|しゅべつ}だけじゃなくて、その{種別|しゅべつ}の{中|なか}の**{制限内容|せいげんないよう}**まで{確認|かくにん}しないといけなかったんだ。タテルはこの{表|ひょう}を{見|み}た？"
+        expression: surprised
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tateru
+        text: "……{制限|せいげん}の{中身|なかみ}まで{調|しら}べていませんでした。「{種別|しゅべつ}が{分|わ}かれば{大丈夫|だいじょうぶ}」と{思|おも}い{込|こ}んでいて……"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 住民の声とチェックリスト
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{地域住民|ちいきじゅうみん}の{声|こえ}——「{広場|ひろば}を{楽|たの}しみにしていたのに」。そしてハリの{調査チェックリスト|ちょうさチェックリスト}が{明|あき}らかになる。"
+      - type: sprite
+        character: hari
+        expression: determined
+        position: left
+      - type: dialog
+        character: hari
+        text: "{調査|ちょうさ}すべき{項目|こうもく}はこれだよ。①{種別|しゅべつ} ②{制限内容|せいげんないよう} ③{建蔽率|けんぺいりつ}・{容積率|ようせきりつ} ④{日影規制|にちえいきせい}。{種別|しゅべつ}だけ{確認|かくにん}しても、②が{抜|ぬ}けたら{意味|いみ}がない。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tateru
+        text: "{種別|しゅべつ}だけ{確認|かくにん}して{十分|じゅうぶん}だと{思|おも}った。{制限|せいげん}の{中身|なかみ}まで{見|み}なかった……。「{調|しら}べた」と「{十分|じゅうぶん}に{調|しら}べた」が{違|ちが}うことを、{分|わ}かっていなかった。"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "「{調|しら}べた（{種別|しゅべつ}を{確認|かくにん}した）」と「{十分|じゅうぶん}に{調|しら}べた（{制限内容|せいげんないよう}も{確認|かくにん}した）」を{混同|こんどう}する——これが{確証バイアス|かくしょうバイアス}だ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰の調査が間違っていたか？
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: izumi
+        text: "{広場|ひろば}を{楽|たの}しみにしてた{人|ひと}がいるのに、{調査|ちょうさ}ミスで{計画|けいかく}が{止|と}まっちゃった。きちんと{調|しら}べることがどれだけ{大切|たいせつ}か、{分|わ}かる{気|き}がする。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。タテルの{記録|きろく}に「{種別|しゅべつ}を{確認|かくにん}」とある。{制限内容一覧表|せいげんないようかんじほん}には{集会施設制限|しゅうかいしせつせいげん}が{記載|きさい}。タテルは「{制限|せいげん}の{中身|なかみ}まで{見|み}なかった」と{認|みと}めた。チェックリストの②が{未確認|みかくにん}だった。"
+      - type: choice
+        id: q1
+        question: 広場計画を止めた調査ミスの中心にいたのは誰？
+        options:
+          - text: タテル（種別は確認したが制限内容を調べなかった）
+            value: tateru
+            correct: true
+            feedback: "{正解|せいかい}！ タテルは「{第一種低層住居専用地域|だいいっしゅていそうじゅうきょせんようちいき}である」と{種別|しゅべつ}を{確認|かくにん}したが、{集会施設|しゅうかいしせつ}の{床面積制限|ゆかめんせきせいげん}という{中身|なかみ}まで{調|しら}べなかった。「{調|しら}べた」と「{十分|じゅうぶん}に{調|しら}べた」の{違|ちが}いが{事件|じけん}の{核心|かくしん}だ。"
+          - text: ハリ（チェックリストを持っていた人）
+            value: hari
+            feedback: "ハリはチェックリストで「{調査項目|ちょうさこうもく}が{必要|ひつよう}」と{知|し}っていた{側|がわ}だよ。タテルの{調査漏|ちょうさも}れを{発見|はっけん}したのもハリだ。"
+          - text: ノキ（制限内容に気づいた人）
+            value: noki
+            feedback: "ノキは「{全部|ぜんぶ}の{中身|なかみ}を{確認|かくにん}した？」と{問題|もんだい}に{気|き}づいた{観察者|かんさつしゃ}だよ。{調査|ちょうさ}を{担当|たんとう}していたのはタテルだ。"
+          - text: イズミ（住民の気持ちを代弁した人）
+            value: izumi
+            feedback: "イズミは{地域|ちいき}の{人|ひと}たちへの{影響|えいきょう}を{想像|そうぞう}した{感情型|かんじょうがた}だよ。{調査|ちょうさ}の{担当|たんとう}はタテルだ。"
+
+  # ==================== 真実：タテル ====================
+  - id: truth-tateru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: タテルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tateru
+        text: "……{正直|しょうじき}に{話|はな}します。「{広場|ひろば}が{作|つく}れるか{調|しら}べて」と{頼|たの}まれたとき、「{第一種低層住居専用地域|だいいっしゅていそうじゅうきょせんようちいき}だ」と{種別|しゅべつ}まで{確認|かくにん}しました。"
+        expression: worried
+      - type: dialog
+        character: tateru
+        text: "でも「{第一種低層住居専用地域|だいいっしゅていそうじゅうきょせんようちいき}では{公衆|こうしゅう}が{集|あつ}まる{集会施設|しゅうかいしせつ}に{制限|せいげん}がある」という**{中身|なかみ}まで{調|しら}べなかった**。"
+        expression: thinking
+      - type: dialog
+        character: tateru
+        text: "「{種別|しゅべつ}を{確認|かくにん}した＝{大丈夫|だいじょうぶ}」と{思|おも}い{込|こ}んで{報告|ほうこく}してしまいました。{制限|せいげん}の{中身|なかみ}まで{見|み}れば、すぐに{分|わ}かったのに……。"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hari
+        text: "{調査項目|ちょうさこうもく}を{全部|ぜんぶ}リストアップすれば、{漏|も}れが{見|み}つかる。チェックリストがあれば{防|ふせ}げた{ミス|みす}だった。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: noki
+        expression: normal
+        position: right
+      - type: dialog
+        character: noki
+        text: "{用途地域|ようとちいき}の{種別|しゅべつ}を{確認|かくにん}したら、{次|つぎ}はその{種別|しゅべつ}の{制限内容|せいげんないよう}を{確認|かくにん}する——{順番|じゅんばん}に{全部|ぜんぶ}{確認|かくにん}することが{大切|たいせつ}だったね。"
+        expression: normal
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: izumi
+        text: "{広場|ひろば}を{楽|たの}しみにしてた{人|ひと}がいる。{調査|ちょうさ}ミスの{影響|えいきょう}は、{計画|けいかく}を{立|た}てた{人|ひと}だけじゃなくて、{地域|ちいき}の{人|ひと}たち{全員|ぜんいん}に{広|ひろ}がるんだね。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{用途地域|ようとちいき}には{種別|しゅべつ}と{制限内容|せいげんないよう}の2{段階|だんかい}がある。{種別|しゅべつ}を{確認|かくにん}しただけでは、{建物|たてもの}の{種類|しゅるい}や{床面積制限|ゆかめんせきせいげん}まで{把握|はあく}したことにはならないの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{調|しら}べた」と「{十分|じゅうぶん}に{調|しら}べた」は{違|ちが}う。チェックリストで{確認|かくにん}すべき{項目|こうもく}を{事前|じぜん}に{整理|せいり}しておけば、こんな{ミス|みす}は{防|ふせ}げたわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{正確|せいかく}に{調|しら}べることは、{地域|ちいき}に{住|す}む{人|ひと}たちの{夢|ゆめ}や{生活|せいかつ}を{守|まも}ることにもつながるのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{確認|かくにん}した（{種別|しゅべつ}を{確認|かくにん}した）」と「{十分|じゅうぶん}に{確認|かくにん}した（{制限内容|せいげんないよう}まで{確認|かくにん}した）」を{混同|こんどう}する——これが**{確証バイアス|かくしょうバイアス}**だ。"
+      - type: narration
+        text: "{調査|ちょうさ}には{順番|じゅんばん}がある。{種別|しゅべつ}→{制限内容|せいげんないよう}→{建蔽率|けんぺいりつ}・{容積率|ようせきりつ}→{日影規制|にちえいきせい}。チェックリストで{漏|も}れをなくすことが、{正確|せいかく}な{調査|ちょうさ}の{第一歩|だいいっぽ}だ。"
+      - type: effect
+        name: fade-out

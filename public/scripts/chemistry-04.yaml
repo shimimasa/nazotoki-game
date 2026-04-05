@@ -1,0 +1,337 @@
+meta:
+  id: chemistry-04
+  title: 消えた氷
+  series: 化学探偵団
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科|りか}の{実験|じっけん}「{水|みず}の{三態変化|さんたいへんか}を{観察|かんさつ}しよう」。{使|つか}う{予定|よてい}だった{氷|こおり}を、{昨日|きのう}の{放課後|ほうかご}に{断熱|だんねつ}コンテナに{入|い}れて{保管|ほかん}していた。"
+      - type: narration
+        text: ところが{今朝|けさ}、{理科室|りかしつ}に{来|く}ると——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{断熱|だんねつ}コンテナの{中|なか}に{氷|こおり}がない**。{残|のこ}っているのは{水|みず}だけ。"
+      - type: narration
+        text: "{断熱|だんねつ}コンテナに{入|い}れておいたはずなのに、なぜ{氷|こおり}が{消|き}えたのか。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{水|みず}には{固体|こたい}・{液体|えきたい}・{気体|きたい}の3つの{姿|すがた}があります。{氷|こおり}は{固体|こたい}で、{温度|おんど}が0℃{以上|いじょう}になると{溶|と}けて{水|みず}になる。でも、{断熱|だんねつ}コンテナならそう{簡単|かんたん}には{溶|と}けないはずなのに……"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: worried
+          - character: souda
+            expression: surprised
+          - character: ritoma
+            expression: thinking
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "{氷|こおり}の{管理|かんり}を{担当|たんとう}していた4{人|にん}。{全員|ぜんいん}が「{自分|じぶん}はちゃんとしていた」と{言|い}う。では、なぜ{氷|こおり}は{消|き}えたのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた氷
+        subtitle: 化学探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: タイムラインと断熱コンテナのデータ
+      - type: narration
+        text: "【{証拠|しょうこ}カード1】4{人|にん}が「{氷|こおり}を{最後|さいご}に{確認|かくにん}した{時刻|じこく}」のメモ。それぞれの{時刻|じこく}が{異|こと}なる。"
+      - type: narration
+        text: "モル: {昨日|きのう}の{放課後|ほうかご}16:00に{確認|かくにん} — {氷|こおり}あり。ソウダ: 16:20に{確認|かくにん} — {氷|こおり}あり。リトマ: 17:00に{確認|かくにん} — {氷|こおり}あり。ネーサ: {今朝|けさ}7:30に{確認|かくにん} — **{氷|こおり}なし、{水|みず}のみ**。"
+      - type: narration
+        text: "【{証拠|しょうこ}カード2】{断熱|だんねつ}コンテナのスペック: 6{時間|じかん}で10%の{融解|ゆうかい}{率|りつ}。{昨日|きのう}17:00〜{今朝|けさ}7:30は14.5{時間|じかん}。スペック{通|どお}りなら{自然|しぜん}{融解|ゆうかい}は24%{程度|ていど}のはず。"
+      - type: narration
+        text: "しかし{実際|じっさい}には{氷|こおり}が**ほぼ100%**{溶|と}けている。{自然|しぜん}{融解|ゆうかい}だけではこの{量|りょう}は{説明|せつめい}できない。"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 室温の記録と昨日の残留者
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{証拠|しょうこ}カード3を{見|み}て。{昨日|きのう}の{放課後|ほうかご}〜{今朝|けさ}の{室温|しつおん}{記録|きろく}と{断熱|だんねつ}{効率|こうりつ}の{関係表|かんけいひょう}だよ。{室温|しつおん}が22℃で{断熱|だんねつ}コンテナの{ふた|ふた}を1{時間|じかん}{開|あ}けたままにすると、{融解|ゆうかい}{速度|そくど}が3{倍|ばい}になるって{書|か}いてある。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: right
+      - type: dialog
+        character: souda
+        text: "{証拠|しょうこ}カード4も{重要|じゅうよう}だ！「{昨日|きのう}の{放課後|ほうかご}、{誰|だれ}が{理科室|りかしつ}に{残|のこ}っていたか」の{記録|きろく}。17:00{以降|いこう}に{理科室|りかしつ}に{残|のこ}っていたのは……**モルだけ**だ。"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: narration
+        text: "{室温|しつおん}22℃で{断熱|だんねつ}コンテナの{ふた|ふた}を{開|あ}けたまま{放置|ほうち}すると{融解|ゆうかい}が{加速|かそく}する。モルは17:00{以降|いこう}も{理科室|りかしつ}に1{人|り}で{残|のこ}っていた。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ふたの内側の指の跡
+      - type: narration
+        text: "【{証拠|しょうこ}カード5】{断熱|だんねつ}コンテナのふたの{内側|うちがわ}に「{指|ゆび}の{跡|あと}（{手袋|てぶくろ}なしで{触|さわ}った{痕|あと}）」が{見|み}つかったという{報告|ほうこく}。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{素手|すで}で{断熱|だんねつ}コンテナのふたを{触|さわ}った{人物|じんぶつ}がいる。ふたを{素手|すで}で{長時間|ちょうじかん}{開|あ}けたままにしていれば、{体温|たいおん}が{伝|つた}わって{融解|ゆうかい}がさらに{進|すす}む。"
+      - type: narration
+        text: "これは{自然|しぜん}{融解|ゆうかい}ではなく、**{人為的|じんいてき}な{原因|げんいん}**があったことを{示|しめ}している。"
+
+  # ==================== 緊張シーン ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: モルの行動の真相
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: left
+      - type: dialog
+        character: nesa
+        text: "モルって、いつもすごく{責任感|せきにんかん}が{強|つよ}いよね。{昨日|きのう}「{氷|こおり}が{少|すく}なかったら{実験|じっけん}が{成立|せいりつ}しないかも」って{心配|しんぱい}してた。{何|なに}かしようとしたんじゃないかな……"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: determined
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "{断熱|だんねつ}コンテナのふたを{開|あ}けた{時間|じかん}と{室温|しつおん}の{関係|かんけい}で{溶|と}ける{量|りょう}を{推定|すいてい}できる。{計算|けいさん}すると……17:00〜19:00の2{時間|じかん}{開|あ}けたままなら、ほぼ{全量|ぜんりょう}が{溶|と}ける。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{モルは17:00{以降|いこう}も{理科室|りかしつ}に1{人|り}でいた → ふたの{内側|うちがわ}に{素手|すで}の{指|ゆび}{跡|あと} → {室温|しつおん}22℃でふたを{開|あ}けると{融解|ゆうかい}3{倍|ばい}速 → 2{時間|じかん}で{全量|ぜんりょう}{融解|ゆうかい}が{可能|かのう} → **モルが{断熱|だんねつ}コンテナのふたを{長時間|ちょうじかん}{開|あ}けていた**。}"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心になって問題を起こしたのは誰だ？
+      - type: sprite
+        character: souda
+        expression: worried
+        position: right
+      - type: dialog
+        character: souda
+        text: "モルが{言|い}ってたよ。「{氷|こおり}が{少|すく}なすぎると{実験|じっけん}が{成立|せいりつ}しないかもしれない」って。{補充|ほじゅう}しようとして、ビーカーに{水|みず}を{入|い}れて{冷凍|れいとう}するために{断熱|だんねつ}コンテナのふたを{開|あ}けたんじゃないかな。"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。17:00{以降|いこう}に1{人|り}で{残留|ざんりゅう}。ふたの{内側|うちがわ}に{素手|すで}の{指|ゆび}{跡|あと}。{室温|しつおん}と{融解|ゆうかい}{速度|そくど}の{計算|けいさん}が{合致|がっち}。{氷|こおり}{補充|ほじゅう}を{心配|しんぱい}していた。"
+      - type: choice
+        id: q1
+        question: 中心になって問題を起こしたのは誰？
+        options:
+          - text: モル（残留＋指の跡＋計算が合致＋氷補充を心配していた）
+            value: moru
+            correct: true
+            feedback: "{正解|せいかい}！ モルは「{氷|こおり}が{少|すく}なすぎると{実験|じっけん}が{成立|せいりつ}しない」と{心配|しんぱい}し、{補充|ほじゅう}しようとした。しかし{液体|えきたい}の{水|みず}より{氷|こおり}の{方|ほう}が{体積|たいせき}が{大|おお}きいという{物質|ぶっしつ}の{三態|さんたい}の{知識|ちしき}があいまいで、ふたを{開|あ}けたままにしてしまった。「{完璧|かんぺき}にやろうとした」{行動|こうどう}が{裏目|うらめ}に{出|で}た。"
+          - text: ソウダ（焦って行動する人）
+            value: souda
+            feedback: "ソウダは{焦|あせ}っているが、17:00{以降|いこう}は{理科室|りかしつ}にいない{記録|きろく}がある。ふたの{指|ゆび}{跡|あと}とも{結|むす}びつかないよ。"
+          - text: リトマ（断熱容器の問題を指摘した人）
+            value: ritoma
+            feedback: "リトマは{断熱|だんねつ}コンテナの{問題|もんだい}を{冷静|れいせい}に{分析|ぶんせき}している{側|がわ}。17:00{以降|いこう}の{残留|ざんりゅう}{記録|きろく}もないよ。"
+          - text: ネーサ（モルの行動を心配した人）
+            value: nesa
+            feedback: "ネーサはモルの{責任感|せきにんかん}に{気|き}づいて{問|と}いかけた{側|がわ}。{断熱|だんねつ}コンテナに{近|ちか}づく{理由|りゆう}もなく、{残留|ざんりゅう}{記録|きろく}もないよ。"
+
+  # ==================== 真実：モル ====================
+  - id: truth-moru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: モルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: moru
+        expression: worried
+        position: center
+      - type: dialog
+        character: moru
+        text: "……{僕|ぼく}が{原因|げんいん}です。{断熱|だんねつ}コンテナのふたを{開|あ}けていたのは、{僕|ぼく}だった。"
+        expression: worried
+      - type: dialog
+        character: moru
+        text: "{氷|こおり}が{少|すく}なすぎると{実験|じっけん}が{成立|せいりつ}しないって{心配|しんぱい}で。ビーカーに{水|みず}を{入|い}れて{冷凍|れいとう}して{補充|ほじゅう}しようとしたんだ。"
+        expression: thinking
+      - type: dialog
+        character: moru
+        text: "ふたを{開|あ}けたまま{作業|さぎょう}してたら、いつの{間|ま}にか2{時間|じかん}{以上|いじょう}{経|た}ってた。{断熱|だんねつ}コンテナに{入|い}れてあれば{絶対|ぜったい}{大丈夫|だいじょうぶ}って{思|おも}い{込|こ}んでたけど、ふたを{開|あ}けたらそうじゃなかった……"
+        expression: worried
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{断熱|だんねつ}コンテナのふたを{開|あ}けた{時間|じかん}と{室温|しつおん}、{融解|ゆうかい}{速度|そくど}の{計算|けいさん}で{分|わ}かったよ。{補充|ほじゅう}しようとした{気持|きも}ちは{分|わ}かるけど、{条件|じょうけん}を{整理|せいり}してから{行動|こうどう}すれば{違|ちが}ったかもね。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: right
+      - type: dialog
+        character: nesa
+        text: "モルが{一番|いちばん}{責任感|せきにんかん}が{強|つよ}かったから、{何|なに}かしようとするって{思|おも}ってた。もっと{早|はや}く{声|こえ}をかけてあげればよかった。"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{水|みず}の{三態|さんたい}——{固体|こたい}・{液体|えきたい}・{気体|きたい}。{氷|こおり}を{保存|ほぞん}するには{断熱|だんねつ}コンテナを{使|つか}うだけでなく、ふたを{閉|し}めておくことが{大切|たいせつ}です。{断熱|だんねつ}コンテナは{魔法|まほう}の{箱|はこ}ではなく、{正|ただ}しく{使|つか}ってこそ{効果|こうか}が{出|で}る{道具|どうぐ}なんですよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "モルの{行動|こうどう}は{責任感|せきにんかん}から{来|き}ていました。でも{行動|こうどう}する{前|まえ}に「{条件|じょうけん}を{整理|せいり}する」{習慣|しゅうかん}があれば、{結果|けっか}は{違|ちが}っていたはずです。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{断熱|だんねつ}コンテナに{入|い}れてあれば{大丈夫|だいじょうぶ}」という{思|おも}い{込|こ}みが{原因|げんいん}だった。{条件|じょうけん}を{整理|せいり}して、{筋道|すじみち}を{立|た}てて{考|かんが}えてから{行動|こうどう}しよう。"
+      - type: narration
+        text: "{ふた|ふた}を{開|あ}ける{時間|じかん}・{室温|しつおん}・{断熱|だんねつ}{効率|こうりつ}の{関係|かんけい}——{証拠|しょうこ}を{組|く}み{合|あ}わせると{真実|しんじつ}が{見|み}えてくる。"
+      - type: effect
+        name: fade-out

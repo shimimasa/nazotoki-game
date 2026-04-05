@@ -1,0 +1,428 @@
+meta:
+  id: architecture-10
+  title: 夢のまちの設計図
+  series: 建築探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}{探偵|たんてい}{団|だん}の4{人|にん}。{学校|がっこう}の「{未来|みらい}のまち{設計|せっけい}コンペ」がいよいよ{発表|はっぴょう}{当日|とうじつ}をむかえた。{審査|しんさ}を{担当|たんとう}したハリが{選|えら}んだ{優秀|ゆうしゅう}{作|さく}には「すべての{人|ひと}が{使|つか}えるまち」というキャッチコピーが{書|か}かれていた。"
+      - type: narration
+        text: ところが、{発表|はっぴょう}{準備|じゅんび}の{最中|さなか}にノキが{設計図|せっけいず}を{細|こま}かく{見|み}て——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「この{勾配|こうばい}、バリアフリー{基準|きじゅん}を{満|みた}たしてない。ここも{断熱|だんねつ}{材|ざい}がない」——{設計図|せっけいず}に{複数|ふくすう}の{問題点|もんだいてん}が{発見|はっけん}された。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{安全|あんぜん}に{関|かか}わる{問題|もんだい}は{平均化|へいきんか}できません。バリアフリーでも{断熱|だんねつ}でも{防災|ぼうさい}でも、**{一|ひと}つの{欠落|けつらく}がだれかを{排除|はいじょ}する**のです。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: determined
+          - character: hari
+            expression: worried
+          - character: noki
+            expression: surprised
+          - character: izumi
+            expression: thinking
+      - type: narration
+        text: "「すべての{人|ひと}が{使|つか}えるまち」と{書|か}いてあるのに、{使|つか}えない{人|ひと}がいる。{問題|もんだい}を{隠|かく}して{発表|はっぴょう}を{進|すす}めようとしたのは{誰|だれ}か——{建築探偵団|けんちくたんていだん}が{追|お}う。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 夢のまちの設計図
+        subtitle: 建築探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 優秀作の設計図と選考記録
+      - type: narration
+        text: "{優秀|ゆうしゅう}{作|さく}の{設計図|せっけいず}——キャッチコピー「すべての{人|ひと}が{使|つか}えるまち」。コンペの{選考|せんこう}{記録|きろく}には{審査|しんさ}{担当|たんとう}：ハリ、と{記|しる}されている。"
+      - type: narration
+        text: "{設計図|せっけいず}の{評価|ひょうか}{基準|きじゅん}：{安全|あんぜん}{性|せい}・バリアフリー・{断熱|だんねつ}・{耐震|たいしん}・{用途|ようと}{地域|ちいき}・{避難|ひなん}{経路|けいろ}・{持続|じぞく}{可能|かのう}{性|せい}の7{項目|こうもく}。"
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hari
+        text: "この{設計図|せっけいず}を{選|えら}んだのはぼくだ。{全体|ぜんたい}の{完成度|かんせいど}が{高|たか}くて……でも{正直|しょうじき}に{言|い}うと、いくつか{気|き}になるところはあった。"
+        expression: worried
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: Vol.1-9の知識と評価基準
+      - type: sprite
+        character: tateru
+        expression: determined
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{Vol.1|ぼりゅーむいち}から{全部|ぜんぶ}{使|つか}えるぞ！{構造|こうぞう}・{材料|ざいりょう}・{耐震|たいしん}・{防災|ぼうさい}・バリアフリー・{断熱|だんねつ}・{用途|ようと}{地域|ちいき}・{歴史|れきし}{保存|ほぞん}・データ{比較|ひかく}、ぜんぶ{設計図|せっけいず}の{評価|ひょうか}に{使|つか}える{知識|ちしき}だ。"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: noki
+        expression: normal
+        position: right
+      - type: dialog
+        character: noki
+        text: "{評価|ひょうか}{基準|きじゅん}7{項目|こうもく}を{設計図|せっけいず}と{照|てら}らし{合|あ}わせてみよう。どの{項目|こうもく}が{満|みた}たされていて、どの{項目|こうもく}が{問題|もんだい}になるのか、{順番|じゅんばん}に{確認|かくにん}していけば{分|わ}かるはず。"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 設計図の詳細と問題点のタグ
+      - type: narration
+        text: "{設計図|せっけいず}の{詳細|しょうさい}を{調査|ちょうさ}した{結果|けっか}——"
+      - type: narration
+        text: "{車椅子|くるまいす}{動線|どうせん}の{勾配|こうばい} ❌ バリアフリー{基準|きじゅん}を{超過|ちょうか}（1/12{以下|いか}が{必要|ひつよう}なところ1/8）"
+      - type: narration
+        text: "{断熱|だんねつ}{材|ざい}の{有無|うむ} ❌ {外壁|がいへき}{部分|ぶぶん}に{断熱|だんねつ}{材|ざい}なし"
+      - type: narration
+        text: "{非常口|ひじょうぐち}の{幅員|ふくいん} ❌ {規定|きてい}の90cmを{下回|したまわ}る80cm"
+      - type: narration
+        text: "{耐震|たいしん}{設計|せっけい}{年代|ねんだい} ✅ {新耐震|しんたいしん}{基準|きじゅん}を{満|みた}たす / {用途|ようと}{地域|ちいき} ✅ {適正|てきせい} / {持続|じぞく}{可能|かのう}{性|せい} ✅ {太陽光|たいようこう}{発電|はつでん}{設備|せつび}あり"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "7{項目|こうもく}{中|ちゅう}3{項目|こうもく}に**{明確|めいかく}な{違反|いはん}**がある。「すべての{人|ひと}が{使|つか}えるまち」を{名乗|なの}るには{致命的|ちめいてき}な{欠陥|けっかん}だ。"
+
+  # ==================== 推理・投票（第1選択：犯人は誰だ） ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 問題を隠して発表を進めようとしたのは誰だ？
+      - type: sprite
+        character: tateru
+        expression: determined
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{証拠|しょうこ}カード4が{決定的|けっていてき}だよ。ハリの{選考|せんこう}メモを{見|み}てほしい。「{問題点|もんだいてん}あり。しかし{全体的|ぜんたいてき}な{完成度|かんせいど}が{高|たか}い。{一生|いっしょう}{懸命|けんめい}{作|つく}ったのだから」——{問題|もんだい}に{気|き}づいて{黙|だま}っていた、ということじゃないか。"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: izumi
+        text: "「すべての{人|ひと}が{使|つか}えるまち」って{書|か}いてあるのに、なぜ{使|つか}えない{人|ひと}がいるの？ ハリは{設計図|せっけいず}を{長時間|ちょうじかん}{見|み}ていた。{何|なに}かを{考|かんが}えているみたいだった——タテルがそう{言|い}ってたよね。"
+        expression: thinking
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{審査|しんさ}{担当|たんとう}はハリ。{選考|せんこう}メモに「{問題点|もんだいてん}あり」と{記載|きさい}。それでも{優秀|ゆうしゅう}{作|さく}に{選|えら}んだ。{設計図|せっけいず}を{長時間|ちょうじかん}{見|み}ていた{目撃|もくげき}{証言|しょうげん}あり。"
+      - type: choice
+        id: q1
+        question: 問題を隠して発表を進めようとした中心人物は誰？
+        options:
+          - text: ハリ（問題点を発見しながらも「全体的な完成度」を理由に優秀作に選び、黙って発表を進めようとした）
+            value: hari
+            correct: true
+            feedback: "{正解|せいかい}！ ハリは{問題点|もんだいてん}を{発見|はっけん}したとき「{今更|いまさら}{変|か}えると{選考|せんこう}ミスだと{思|おも}われる、{一生|いっしょう}{懸命|けんめい}{作|つく}った{子|こ}に{申|もう}し{訳|わけ}ない」という{罪悪感|ざいあくかん}から{黙|だま}っていた。しかし、この{話|はなし}には**{第|だい}2{層|そう}**がある——{次|つぎ}の{証拠|しょうこ}を{見|み}てみよう。"
+          - text: タテル（設計図の問題点を見つけて声を上げた行動型）
+            value: tateru
+            feedback: "タテルは{問題点|もんだいてん}を{積極的|せっきょくてき}に{見|み}つけようとしていた{行動型|こうどうがた}。{不正|ふせい}を{追|お}う{側|がわ}だよ。"
+          - text: ノキ（バリアフリー違反を最初に指摘した観察型）
+            value: noki
+            feedback: "ノキはバリアフリー{基準|きじゅん}の{違反|いはん}を{最初|さいしょ}に{発見|はっけん}した{観察型|かんさつがた}。{問題|もんだい}を{見|み}つけた{側|がわ}で、{隠|かく}した{側|がわ}ではないよ。"
+          - text: イズミ（問いへの誘導で感情的に関わった感情型）
+            value: izumi
+            feedback: "イズミは「なぜ{使|つか}えない{人|ひと}がいるの？」という{本質的|ほんしつてき}な{問|と}いを{引|ひ}き{出|だ}した{感情型|かんじょうがた}。{中心|ちゅうしん}にいたのは{問題|もんだい}を{隠|かく}した{人物|じんぶつ}だよ。"
+
+  # ==================== 反転：証拠カード5（パラダイムシフト） ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 新しい証拠
+        subtitle: パラダイムシフト
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{設計図|せっけいず}を{作|つく}った{子|こ}の{声|こえ}——「すべての{人|ひと}のために{一生|いっしょう}{懸命|けんめい}{作|つく}りました」。"
+      - type: sprite
+        character: hari
+        expression: worried
+        position: center
+      - type: dialog
+        character: hari
+        text: "……{正直|しょうじき}に{言|い}います。{問題点|もんだいてん}は{見|み}つかってた。でも{発表|はっぴょう}を{止|と}めたら{作|つく}った{子|こ}が{傷|きず}つくと{思|おも}った。{かばおうと}したんです。"
+        expression: worried
+      - type: dialog
+        character: hari
+        text: "でも……それって{本当|ほんとう}に{かばう}ことだったのかな。{安全|あんぜん}に{関|かか}わる{問題|もんだい}を{隠|かく}して、{誰|だれ}かが{傷|きず}ついたら……"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: right
+      - type: dialog
+        character: yamada
+        text: "**{安全|あんぜん}に{関|かか}わる{問題|もんだい}は{平均化|へいきんか}できません。** バリアフリーでも{断熱|だんねつ}でも{防災|ぼうさい}でも、{一|ひと}つの{欠落|けつらく}が{誰|だれ}かを{排除|はいじょ}する。{作|つく}った{子|こ}を{かばう}ことと{安全|あんぜん}を{守|まも}ることは、{両立|りょうりつ}しないんです。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ハリの{動機|どうき}は**{かばう{罪悪感|ざいあくかん}}**だった。しかし「{かばう}」ことと「{安全|あんぜん}を{守|まも}る」ことは{両立|りょうりつ}しない——これが{建築|けんちく}の{原則|げんそく}だ。では、「すべての{人|ひと}のためのまち」を{設計|せっけい}するとは、どういうことなのか。"
+
+  # ==================== 振り返り（第2選択：正解なし） ====================
+  - id: reflection
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 問いを考えよう
+        subtitle: 正解のない選択
+      - type: sprite
+        character: izumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: izumi
+        text: "「{誰|だれ}かのためのデザイン」と「{誰|だれ}も{排除|はいじょ}しないデザイン」は、{違|ちが}うの？ ハリは{作|つく}った{子|こ}のことを{思|おも}ってた。でも{車椅子|くるまいす}の{人|ひと}は{排除|はいじょ}されてた。"
+        expression: thinking
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: noki
+        text: "Vol.1から{全部|ぜんぶ}の{知識|ちしき}を{統合|とうごう}して{初|はじ}めて{分|わ}かること——{構造|こうぞう}・{断熱|だんねつ}・{耐震|たいしん}・バリアフリー・{用途地域|ようとちいき}・{歴史|れきし}{保存|ほぞん}・{防災|ぼうさい}・データ、{全部|ぜんぶ}{揃|そろ}って「すべての{人|ひと}のためのまち」が{成立|せいりつ}する。"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+      - type: narration
+        text: "「{一生|いっしょう}{懸命|けんめい}{作|つく}った{人|ひと}を{傷|きず}つけたくない」——それは{大切|たいせつ}な{気持|きも}ちだ。でも{安全|あんぜん}に{関|かか}わる{問題|もんだい}があるとき、あなたならどうする？"
+      - type: choice
+        id: q2
+        question: あなたはどう思う？（正解はありません。自分の考えを選んでください）
+        options:
+          - text: 作った人の気持ちを守るために、問題点を指摘するタイミングと言い方を工夫する
+            value: option-a
+            feedback: "{大切|たいせつ}な{視点|してん}だね。{伝|つた}え{方|かた}の{工夫|くふう}は{現実|げんじつ}の{建築|けんちく}でも{重要|じゅうよう}。ただ、{安全|あんぜん}に{関|かか}わる{問題|もんだい}は「{伝|つた}える{前|まえ}に{隠|かく}す」と{手遅|ておく}れになることもある。「{いつ}・どう{伝|つた}えるか」を{考|かんが}え{続|つづ}けよう。"
+          - text: どんなに傷ついても、安全に関わる問題はすぐに全員に伝える
+            value: option-b
+            feedback: "{安全|あんぜん}{最優先|さいゆうせん}の{視点|してん}だね。{建築|けんちく}の{原則|げんそく}として{正|ただ}しい。でも{現実|げんじつ}には「{伝|つた}え{方|かた}」も{問題|もんだい}を{解決|かいけつ}できるかどうかに{影響|えいきょう}する。どちらの{大切|たいせつ}さも{持|も}ち{続|つづ}けよう。"
+          - text: まず作った人に個別に話して、一緒に改善する方法を探す
+            value: option-c
+            feedback: "{協力|きょうりょく}して{解決|かいけつ}しようとする{姿勢|しせい}は{大切|たいせつ}。「{一緒|いっしょ}に{改善|かいぜん}する」という{方向|ほうこう}は、{作|つく}った{人|ひと}の{成長|せいちょう}にもつながる。ただし「{改善|かいぜん}が{間|ま}に{合|あ}わない」{場合|ばあい}の{判断|はんだん}も{考|かんが}えておこう。"
+          - text: 問題点を指摘することよりも、完成させた努力を先に認める
+            value: option-d
+            feedback: "{努力|どりょく}を{認|みと}める{視点|してん}も{大切|たいせつ}。「{認|みと}める」と「{問題|もんだい}を{指摘|してき}する」は{同時|どうじ}にできる。でも{安全|あんぜん}に{関|かか}わる{問題|もんだい}は「{後回|あとまわ}し」にすると{被害|ひがい}が{出|で}ることもある——この{順番|じゅんばん}の{問題|もんだい}を{考|かんが}えてみよう。"
+
+  # ==================== 真実：ハリ ====================
+  - id: truth-hari
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hari
+        expression: worried
+        position: center
+      - type: dialog
+        character: hari
+        text: "……{選|えら}んだのは{自分|じぶん}です。{問題|もんだい}を{黙|だま}って{発表|はっぴょう}に{進|すす}もうとした。{作|つく}った{子|こ}を{傷|きず}つけたくなかった——それだけだった。"
+        expression: worried
+      - type: dialog
+        character: hari
+        text: "でも{証拠|しょうこ}カード5で{先生|せんせい}に{言|い}われて、{分|わ}かった。{かばおう}としたのは{間違|まちが}いだった。{安全|あんぜん}に{関|かか}わる{問題|もんだい}は{隠|かく}せない。"
+        expression: thinking
+      - type: dialog
+        character: hari
+        text: "{一生|いっしょう}{懸命|けんめい}{作|つく}った{子|こ}をかばいたかった。でも{本当|ほんとう}に{守|まも}りたいなら、{安全|あんぜん}の{問題|もんだい}を{一緒|いっしょ}に{直|なお}すことの{方|ほう}が{誠実|せいじつ}だったと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "ハリが{設計図|せっけいず}を{長時間|ちょうじかん}{見|み}ていたとき、{何|なに}か{考|かんが}えてるなとは{思|おも}ってた。{声|こえ}を{かけ}ればよかった。"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: noki
+        expression: worried
+        position: right
+      - type: dialog
+        character: noki
+        text: "バリアフリー{基準|きじゅん}の{違反|いはん}は{数字|すうじ}を{見|み}れば{分|わ}かった。でも「{誰|だれ}がなぜそれを{見逃|みのが}したか」——そっちの{方|ほう}が{難|むずか}しい{問題|もんだい}だったね。"
+        expression: worried
+      - type: sprite
+        character: noki
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{建築探偵団|けんちくたんていだん}はVol.1からここまで{長|なが}い{道|みち}のりを{歩|ある}いてきました。{構造|こうぞう}・{材料|ざいりょう}・{耐震|たいしん}・バリアフリー・{断熱|だんねつ}・{用途地域|ようとちいき}・{歴史|れきし}{保存|ほぞん}・{防災|ぼうさい}・データ{比較|ひかく}——そのすべてが{今日|きょう}の{設計図|せっけいず}の{中|なか}にありました。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "**{安全|あんぜん}に{関|かか}わる{項目|こうもく}は{平均化|へいきんか}できない。** これが{建築|けんちく}の{根本|こんぽん}{原則|げんそく}。{一|ひと}つでも{欠|か}けたら「すべての{人|ひと}のためのまち」とは{言|い}えない——この{問い|とい}は、{建築|けんちく}の{外|そと}でも{続|つづ}きます。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{かばう}こと」と「{安全|あんぜん}を{守|まも}ること」が{ぶつかった}とき、あなたはどうする？ その{問い|とい}に、{答|こた}えを{出|だ}し{続|つづ}けてください。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: happy
+          - character: hari
+            expression: determined
+          - character: noki
+            expression: happy
+          - character: izumi
+            expression: happy
+      - type: narration
+        text: "「{すべての人|すべてのひと}のためのまち」——それは7つの{条件|じょうけん}が{揃|そろ}って{初|はじ}めて{成立|せいりつ}する。{建築探偵団|けんちくたんていだん}はVol.1からのすべての{知識|ちしき}を{使|つか}い、その{意味|いみ}を{問|と}い{続|つづ}けた。"
+      - type: sprite_group
+        characters: []
+      - type: narration
+        text: "{かばう{罪悪感|ざいあくかん}}——その{気持|きも}ちは{自然|しぜん}だ。でも「{かばう}こと」と「{本当|ほんとう}に{守|まも}ること」は{違|ちが}う。この{問い|とい}は、{建築|けんちく}の{外|そと}にも{続|つづ}く。"
+      - type: effect
+        name: fade-out

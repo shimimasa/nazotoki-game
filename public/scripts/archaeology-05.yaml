@@ -1,0 +1,386 @@
+meta:
+  id: archaeology-05
+  title: 石の旅路
+  series: 考古学探偵団
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{考古学|こうこがく}{探偵|たんてい}{団|だん}の4{人|にん}は、{学校|がっこう}の「{石器|せっき}コレクション{展示|てんじ}」の{準備|じゅんび}をしていた。{展示|てんじ}の{目玉|めだま}は{黒|くろ}く{光|ひか}る{不思議|ふしぎ}な{石器|せっき}——{黒曜石|こくようせき}でできたナイフだ。"
+      - type: narration
+        text: "ところが{展示|てんじ}カードには「{材質|ざいしつ}：{黒曜石|こくようせき}。{産地|さんち}：{不明|ふめい}」と{書|か}かれていた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{黒曜石|こくようせき}の{産地|さんち}は{特定|とくてい}できるはず**——なのに「{不明|ふめい}」と{書|か}いたのはなぜ？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{黒曜石|こくようせき}は{産地|さんち}によって{光沢|こうたく}・{色味|いろみ}・{化学|かがく}{成分|せいぶん}が{異|こと}なるの。{産地|さんち}と{遺跡|いせき}の{距離|きょり}から、{縄文|じょうもん}{時代|じだい}の{交易|こうえき}ルートを{復元|ふくげん}できる。「{不明|ふめい}」では{何|なに}も{分|わ}からないわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: thinking
+          - character: horibe
+            expression: thinking
+          - character: tsuchika
+            expression: surprised
+          - character: fumiko
+            expression: worried
+      - type: narration
+        text: "{展示|てんじ}の{解説|かいせつ}カードを{作|つく}ったのはイシノ。{黒曜石|こくようせき}の{産地|さんち}を{調|しら}べる{方法|ほうほう}を{知|し}っているはずなのに、なぜ「{不明|ふめい}」と{書|か}いたのか。4{人|にん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 石の旅路
+        subtitle: 考古学探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 展示カードの謎
+      - type: narration
+        text: "{展示|てんじ}{中|ちゅう}の{石器|せっき}{写真|しゃしん}（{黒|くろ}{光|ひか}りするガラス{質|しつ}の{石|いし}）と、イシノが{書|か}いた{解説|かいせつ}カードが{並|なら}んでいる。"
+      - type: narration
+        text: "**{解説|かいせつ}カード**: 「{材質|ざいしつ}：{黒曜石|こくようせき}。{産地|さんち}：{不明|ふめい}」"
+      - type: narration
+        text: "ツチカの{疑問|ぎもん}{メモ}: 「{黒曜石|こくようせき}なのに{産地|さんち}{不明|ふめい}っておかしい。{光沢|こうたく}や{色味|いろみ}で{産地|さんち}は{絞|しぼ}れるはずなのに」"
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{黒曜石|こくようせき}ってガラス{質|しつ}でしょ。{産地|さんち}によって{光沢|こうたく}の{強|つよ}さや{青|あお}みの{有無|うむ}が{違|ちが}うんだよ。{写真|しゃしん}を{見|み}るかぎり、この{石|いし}には{特徴|とくちょう}がある。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 黒曜石の産地と分析メモ
+      - type: narration
+        text: "{黒曜石|こくようせき}の{特徴|とくちょう}カード: ガラス{質|しつ}・{貝殻|かいがら}{状|じょう}の{割|わ}れ{目|め}・{産地|さんち}によって{色味|いろみ}が{異|こと}なる。"
+      - type: narration
+        text: "{主要|しゅよう}{産地|さんち}{一覧|いちらん}: **{信州|しんしゅう}**（{長野県|ながのけん}・{青|あお}みがかった{光沢|こうたく}）、**{伊豆|いず}**（{静岡県|しずおかけん}・{黒|くろ}みが{強|つよ}い）、**{北海道|ほっかいどう}**（{透明感|とうめいかん}あり）"
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{分析|ぶんせき}{メモ}をまとめた。この{石|いし}は「{強|つよ}い{光沢|こうたく}とわずかな{青|あお}み」があって、{気泡|きほう}は{見当|みあた}たらない。{信州産|しんしゅうさん}の{特徴|とくちょう}に{一致|いっち}しているよ。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: thinking
+        position: right
+      - type: dialog
+        character: horibe
+        text: "{地元|じもと}から{信州|しんしゅう}まで{地図|ちず}で{測|はか}ったら**{約|やく}300km**だった。{縄文|じょうもん}{時代|じだい}に300km……{歩|ある}いて{運|はこ}んだってこと？"
+        expression: surprised
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "「{追加|ついか}HO{条件|じょうけん}: 2つの{産地|さんち}{候補|こうほ}に{絞|しぼ}り{込|こ}めたら{産地|さんち}マップを{公開|こうかい}」——イシノはこの{条件|じょうけん}を{知|し}っていた。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 産地マップと交易ルート
+      - type: narration
+        text: "{追加|ついか}HO（{産地|さんち}マップと{距離|きょり}{計算|けいさん}）が{公開|こうかい}された。"
+      - type: narration
+        text: "{信州産|しんしゅうさん}{黒曜石|こくようせき}の{遺跡|いせき}{分布|ぶんぷ}: {関東|かんとう}から{東北|とうほく}にかけての{広|ひろ}い{範囲|はんい}で{発見|はっけん}されている。"
+      - type: narration
+        text: "{地元|じもと}から{信州|しんしゅう}までの{距離|きょり}: **{約|やく}300km**。{縄文|じょうもん}{時代|じだい}の{交易|こうえき}ルートの{研究|けんきゅう}{資料|しりょう}。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: horibe
+        expression: surprised
+        position: left
+      - type: dialog
+        character: horibe
+        text: "300kmだよ。{縄文|じょうもん}{時代|じだい}に300km{移動|いどう}したってこと？ それ{自体|じたい}がすごい{話|はなし}じゃないか。{石|いし}を{持|も}って{旅|たび}をした{人|ひと}がいたんだ。"
+        expression: surprised
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{石|いし}を{持|も}って{旅|たび}した{人|ひと}がいた。{何日|なんにち}{歩|ある}いたんだろう。{何|なん}のために？ その{石|いし}には{旅|たび}の{記憶|きおく}がある。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: narration
+        text: "{仮説|かせつ}が{確定|かくてい}に{近|ちか}づいた: この{石器|せっき}は{信州|しんしゅう}から{約|やく}300km{運|はこ}ばれてきた{遠来品|えんらいひん}だ。では、なぜイシノは「{産地|さんち}{不明|ふめい}」と{書|か}いたのか。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生のメモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}がイシノに{直接|ちょくせつ}{聞|き}いた{結果|けっか}のメモが{見|み}つかった。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: left
+      - type: dialog
+        character: yamada
+        text: "イシノに{聞|き}いたら——「{産地|さんち}の{調|しら}べ{方|かた}は{分|わ}かっていた。でも{書|か}いちゃったらみんなが{考|かんが}えなくなると{思|おも}って」と{言|い}っていたわ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{考古学|こうこがく}では「{分|わ}かっていること」と「{仮説|かせつ}」を{区別|くべつ}して{書|か}くのが{大切|たいせつ}。でも——{縄文|じょうもん}{時代|じだい}に300km{以上|いじょう}の{交易|こうえき}ネットワークがあったことは、{本当|ほんとう}にすごいことなのよ。"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: worried
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{産地|さんち}が{分|わ}かったらもっと{面白|おもしろ}い{展示|てんじ}になると{思|おも}って……みんなが{自分|じぶん}で{考|かんが}えるように、わざと{書|か}かなかった。"
+        expression: worried
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "**{動機|どうき}{確定|かくてい}**: イシノは{黒曜石|こくようせき}の{産地|さんち}を{特定|とくてい}できれば「{縄文|じょうもん}{時代|じだい}に{遠距離|えんきょり}{交易|こうえき}があった{証拠|しょうこ}」になると{分|わ}かっていた。しかし「{産地|さんち}{不明|ふめい}」と{書|か}いてみんなに「どこから{来|き}た？」と{考|かんが}えさせ、{展示|てんじ}を「{謎|なぞ}めいた{面白|おもしろ}いもの」にしようとした。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心になって問題を起こしたのは？
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{証拠|しょうこ}をまとめると、イシノは{蛍光|けいこう}X{線|せん}{分析|ぶんせき}の{方法|ほうほう}も{産地|さんち}{分類|ぶんるい}リストも{持|も}っていた。{産地|さんち}を{特定|とくてい}できたのに、わざと「{不明|ふめい}」と{書|か}いたってことだよ。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{イシノ|いしの}の{気持|きも}ちは{分|わ}かる。{謎|なぞ}めいた{展示|てんじ}は{面白|おもしろ}いもの。でも{考古学|こうこがく}って「{分|わ}かったこと」と「{仮説|かせつ}」をちゃんと{分|わ}けて{書|か}くのが{大事|だいじ}なんだよね。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{産地|さんち}{同定|どうてい}の{方法|ほうほう}を{知|し}っていた → {産地|さんち}{分類|ぶんるい}リストを{持|も}っていた → わざと「{不明|ふめい}」と{書|か}いた → {動機|どうき}は{好奇心|こうきしん}（{みんな|みんな}に{考|かんが}えさせたかった）"
+      - type: choice
+        id: q1
+        question: 問題の中心になったのは誰？
+        options:
+          - text: イシノ（産地の調べ方を知りながらわざと「不明」と書いた）
+            value: ishino
+            correct: true
+            feedback: "{正解|せいかい}！ イシノは{好奇心|こうきしん}から{産地|さんち}を{意図的|いとてき}に{曖昧|あいまい}にした。{考古学|こうこがく}では「{分|わ}かっていること」と「{仮説|かせつ}」を{区別|くべつ}して{書|か}くことが{大切|たいせつ}——この{姿勢|しせい}が{証拠|しょうこ}に{基|もと}づく{推理|すいり}の{土台|どだい}になる。"
+          - text: ツチカ（観察メモをまとめた人）
+            value: tsuchika
+            feedback: "ツチカは{黒曜石|こくようせき}の{外見|がいけん}{分析|ぶんせき}をして{産地|さんち}{候補|こうほ}を{絞|しぼ}り{込|こ}んだ{調査|ちょうさ}{側|がわ}だよ。"
+          - text: ホリベ（距離計算をした人）
+            value: horibe
+            feedback: "ホリベは{産地|さんち}と{遺跡|いせき}の{距離|きょり}を{計算|けいさん}して{交易|こうえき}ルートを{調査|ちょうさ}した{協力|きょうりょく}{者|しゃ}だよ。"
+          - text: フミコ（縄文人の気持ちを想像した人）
+            value: fumiko
+            feedback: "フミコは{縄文|じょうもん}{人|じん}が{石|いし}を{持|も}って{旅|たび}した{背景|はいけい}を{考察|こうさつ}した{側|がわ}だよ。"
+
+  # ==================== 真実：イシノ ====================
+  - id: truth-ishino
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イシノの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ishino
+        expression: worried
+        position: center
+      - type: dialog
+        character: ishino
+        text: "……そうだよ。{産地|さんち}は{分|わ}かっていた。「{信州|しんしゅう}{産|さん}」って{書|か}いても{良|よ}かった。"
+        expression: worried
+      - type: dialog
+        character: ishino
+        text: "でも「{産地|さんち}{不明|ふめい}」にしたら、みんなが「どこから{来|き}たんだろう？」って{自分|じぶん}で{考|かんが}えてくれると{思|おも}ったんだ。{展示|てんじ}をもっと{面白|おもしろ}くしたかった。"
+        expression: thinking
+      - type: dialog
+        character: ishino
+        text: "でも……それって{考古学|こうこがく}の{正|ただ}しい{書|か}き{方|かた}じゃなかった。ごめん。"
+        expression: worried
+      - type: sprite
+        character: ishino
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: horibe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: horibe
+        text: "イシノの{好奇心|こうきしん}は{分|わ}かる。{縄文|じょうもん}{時代|じだい}に300km——それ{自体|じたい}がすごい{話|はなし}だもん。でも{事実|じじつ}は{事実|じじつ}として{書|か}かないといけないよ。"
+        expression: thinking
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: normal
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "{石|いし}には{旅|たび}の{記憶|きおく}がある——それは{本当|ほんとう}のことだよ。その{本当|ほんとう}のすごさを、ちゃんと{伝|つた}えてほしかったな。"
+        expression: normal
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{黒曜石|こくようせき}の{産地|さんち}{同定|どうてい}——{光沢|こうたく}・{色味|いろみ}・{化学|かがく}{成分|せいぶん}で{産地|さんち}が{分|わ}かる。そこから{遺跡|いせき}との{距離|きょり}を{計算|けいさん}すると、{縄文|じょうもん}{時代|じだい}に300km{以上|いじょう}の{交易|こうえき}ネットワークがあったことが{見|み}えてくる。それは{本当|ほんとう}にすごいことよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{考古学|こうこがく}は「{分|わ}かっていること」と「{仮説|かせつ}」を{区別|くべつ}することが{大切|たいせつ}。{謎|なぞ}を{演出|えんしゅつ}するより、{事実|じじつ}を{正確|せいかく}に{伝|つた}えることで{本当|ほんとう}の{面白|おもしろ}さが{伝|つた}わるの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{展示|てんじ}を{面白|おもしろ}くしたかった」——その{好奇心|こうきしん}は{悪|わる}いものじゃない。でも{事実|じじつ}を{曖昧|あいまい}にすることは、{見|み}る{人|ひと}への{不誠実|ふせいじつ}につながる。"
+      - type: narration
+        text: "{黒曜石|こくようせき}が{運|はこ}んできた{旅|たび}の{記憶|きおく}——300kmの{道|みち}のりは、{正確|せいかく}な{記録|きろく}があってこそ{輝|かがや}く。"
+      - type: effect
+        name: fade-out

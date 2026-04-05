@@ -1,0 +1,360 @@
+meta:
+  id: body-02
+  title: 「いやだ」の声
+  series: からだ探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  karada:
+    name: カラダ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mamoru:
+    name: マモル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kokochi:
+    name: ココチ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kizuna:
+    name: キズナ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{体育|たいいく}の{時間|じかん}、ドッジボールの{試合|しあい}が{終|お}わった。チームは{勝|か}った。でも——"
+      - type: narration
+        text: "カラダだけが{教室|きょうしつ}の{隅|すみ}で1{人|り}、{黙|だま}ったまま{座|すわ}っている。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「どうしたの？」と{聞|き}いても、「なんでもない」と{繰|く}り{返|かえ}すだけだ。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{体|からだ}が「{嫌|いや}だ」と{感|かん}じたとき、「やめて」と{声|こえ}に{出|だ}す{権利|けんり}がある。それは{弱|よわ}さじゃない——**{拒否|きょひ}の{権利|けんり}**というの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: karada
+            expression: worried
+          - character: mamoru
+            expression: thinking
+          - character: kokochi
+            expression: surprised
+          - character: kizuna
+            expression: worried
+      - type: narration
+        text: "「なぜカラダは\"いやだ\"と{言|い}えなかったのか？」——4{人|にん}の{探偵|たんてい}が{事件|じけん}の{真相|しんそう}に{迫|せま}る。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 「いやだ」の声
+        subtitle: からだ探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事件の違和感
+      - type: narration
+        text: "**{証拠|しょうこ}カード①**: ドッジボール{後|ご}、カラダだけ{元気|げんき}がない。「なんでもない」を{繰|く}り{返|かえ}す。チームは{勝|か}った。"
+      - type: narration
+        text: "チームが{勝|か}ったのに、なぜカラダだけが{暗|くら}い{顔|かお}をしているのか。{事実|じじつ}と{違和感|いわかん}がかみ合わない。"
+      - type: narration
+        text: "「なんでもない」という{言葉|ことば}の{裏|うら}に、{何|なに}かが{隠|かく}れているのかもしれない。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 体のサインとマモルの観察
+      - type: sprite
+        character: kokochi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "**{証拠|しょうこ}カード②**——{嫌|いや}なとき、{体|からだ}はどうなるか。{体|からだ}がすくむ、{胸|むね}がぎゅっとする、{声|こえ}が{出|で}なくなる。これが「{体|からだ}のサイン」だよ。"
+        expression: thinking
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: mamoru
+        expression: normal
+        position: right
+      - type: dialog
+        character: mamoru
+        text: "**{証拠|しょうこ}カード③**——{試合|しあい}{中|ちゅう}にカラダを{見|み}てた。カラダは5{回|かい}{体|からだ}をすくめてた。ボールが{来|く}るたびに{顔|かお}をそむけてた。でも{誰|だれ}も{声|こえ}をかけなかった。"
+        expression: normal
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: narration
+        text: "{体|からだ}をすくめる・{顔|かお}をそむける——これは「{体|からだ}のサイン」そのものだ。カラダは{嫌|いや}だと{感|かん}じていた。でも{誰|だれ}も{気|き}づかなかった。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 言えなかった構造のデータ
+      - type: narration
+        text: "**{証拠|しょうこ}カード④**: キズナの{証言|しょうげん}——「{試合|しあい}{中|ちゅう}すごく{盛|も}り{上|あ}がってた。\"やめて\"なんて{言|い}ったら{白|しら}けちゃうと{思|おも}った」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "さらに、クラスメイトの{過去|かこ}の{発言|はつげん}{記録|きろく}——**「{男|おとこ}の{子|こ}なのに{弱|よわ}い」**。"
+      - type: narration
+        text: "{盛|も}り{上|あ}がった{空気|くうき}＋「{弱|よわ}い」と{言|い}われた{過去|かこ}の{経験|けいけん}。この2つが「{声|こえ}を{封|ふう}じた{構造|こうぞう}」のデータだ。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: カラダの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: left
+      - type: dialog
+        character: yamada
+        text: "**{証拠|しょうこ}カード⑤**——{密談|みつだん}{後|ご}、カラダが{告白|こくはく}してくれた。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: karada
+        expression: worried
+        position: right
+      - type: dialog
+        character: karada
+        text: "ほんとは……{痛|いた}くて、{嫌|いや}だった。"
+        expression: worried
+      - type: dialog
+        character: karada
+        text: "でも「やめて」って{言|い}ったら{弱|よわ}いって{思|おも}われる。{前|まえ}に{言|い}ったとき「{男|おとこ}の{子|こ}なのに」って{言|い}われたから……"
+        expression: worried
+      - type: sprite
+        character: karada
+        action: hide
+      - type: narration
+        text: "「{声|こえ}を{封|ふう}じた3つの{理由|りゆう}」が{確定|かくてい}した。①{チーム|チーム}の{空気|くうき}（{盛|も}り{上|あ}がっていた）②{過去|かこ}の{経験|けいけん}（「{男|おとこ}の{子|こ}なのに」と{言|い}われた）③{恥|はずかしさ}（{弱|よわ}いと{思|おも}われたくない）"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 「いやだ」と言えなかったのは誰？
+      - type: sprite
+        character: kokochi
+        expression: determined
+        position: left
+      - type: dialog
+        character: kokochi
+        text: "カラダは「なんでもない」って{言|い}ったけど、{顔|かお}は{全然|ぜんぜん}「なんでもない」じゃなかった。"
+        expression: determined
+      - type: sprite
+        character: kokochi
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "わたしだって{楽|たの}しいときに「やめて」なんて{言|い}えない。{空気|くうき}がこわい……。"
+        expression: thinking
+      - type: sprite
+        character: kizuna
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{体|からだ}をすくめていた（{証拠|しょうこ}③）。{過去|かこ}に「{男|おとこ}の{子|こ}なのに」と{言|い}われた（{証拠|しょうこ}④）。{チーム|チーム}が{盛|も}り{上|あ}がっていた（{証拠|しょうこ}④）。{告白|こくはく}——「{痛|いた}くて{嫌|いや}だった」（{証拠|しょうこ}⑤）。"
+      - type: choice
+        id: q1
+        question: 「いやだ」と言えなかった事件の中心にいるのは？
+        options:
+          - text: カラダ（空気・過去の経験・恥ずかしさの3つが声を封じた当事者）
+            value: karada
+            correct: true
+            feedback: "{正解|せいかい}！ カラダが「{声|こえ}を{出|だ}せなかった」のは{弱|よわ}さではない。{空気|くうき}と{経験|けいけん}が{声|こえ}を{封|ふう}じた**{構造|こうぞう}**があったのだ。「いやだ」と{言|い}う{権利|けんり}は、{誰|だれ}にでもある。"
+          - text: ココチ（カラダの表情に気づいていた観察者）
+            value: kokochi
+            feedback: "ココチは{密談|みつだん}でカラダの{本音|ほんね}を{引|ひ}き{出|だ}した{側|がわ}。{事件|じけん}の{当事者|とうじしゃ}ではないよ。"
+          - text: マモル（試合中のカラダを見ていた目撃者）
+            value: mamoru
+            feedback: "マモルは{客観的|きゃっかんてき}な{観察|かんさつ}を{報告|ほうこく}した{側|がわ}。{事件|じけん}の{中心|ちゅうしん}にいるのは{誰|だれ}が「{声|こえ}を{出|だ}せなかった」かを{考|かんが}えよう。"
+          - text: キズナ（盛り上がっていたと証言した人）
+            value: kizuna
+            feedback: "キズナは「{言|い}えない{気持|きも}ち」を{代弁|だいべん}した。でも{事件|じけん}の{当事者|とうじしゃ}はカラダ自身だよ。"
+
+  # ==================== 真実：カラダ ====================
+  - id: truth-karada
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: カラダの本音
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: karada
+        expression: worried
+        position: center
+      - type: dialog
+        character: karada
+        text: "……{痛|いた}くて、{嫌|いや}だった。でも{言|い}えなかった。"
+        expression: worried
+      - type: dialog
+        character: karada
+        text: "{前|まえ}に「{嫌|いや}だ」って{言|い}ったとき「{男|おとこ}の{子|こ}なのに」って{言|い}われた。それから「{言|い}ったら{弱|よわ}い」って、ずっと{思|おも}い{込|こ}んでた。"
+        expression: thinking
+      - type: dialog
+        character: karada
+        text: "みんなが{盛|も}り{上|あ}がってたし……{空気|くうき}を{壊|こわ}したくなかった。"
+        expression: worried
+      - type: sprite
+        character: karada
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mamoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamoru
+        text: "カラダが{何度|なんど}も{体|からだ}をすくめてたのに、{誰|だれ}も「{大丈夫|だいじょうぶ}？」って{聞|き}かなかった。{気|き}づけなかった{自分|じぶん}にも、{責任|せきにん}があると{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: mamoru
+        action: hide
+      - type: sprite
+        character: kizuna
+        expression: worried
+        position: right
+      - type: dialog
+        character: kizuna
+        text: "{言|い}えない{気持|きも}ち、わかる……。{空気|くうき}がこわくて、「やめて」が{出|で}なくなるんだよね。"
+        expression: worried
+      - type: sprite
+        character: kizuna
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「いやだ」と{言|い}うのは{弱|よわ}さじゃない。{体|からだ}が{嫌|いや}だと{感|かん}じたとき「やめて」と{声|こえ}に{出|だ}す{権利|けんり}が、あなたにはある。それを**{拒否|きょひ}の{権利|けんり}**というの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "カラダが{声|こえ}を{出|だ}せなかったのは、{空気|くうき}と{過去|かこ}の{経験|けいけん}が{重|かさ}なったから。それは{カラダ|カラダ}の{せいじゃない|せいじゃない}。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{次|つぎ}に{体|からだ}のサインを{感|かん}じたら——{誰|だれ}かに{伝|つた}えてみよう。{先生|せんせい}でも、{友達|ともだち}でも、{一緒|いっしょ}に{考|かんが}えるから。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: karada
+        expression: happy
+        position: center
+      - type: dialog
+        character: karada
+        text: "……{言|い}っていいんだ。「いやだ」って、{言|い}っていいんだ。"
+        expression: happy
+      - type: sprite
+        character: karada
+        action: hide
+      - type: narration
+        text: "「{言|い}えない{気持|きも}ち」には{必|かなら}ず{理由|りゆう}がある。{空気|くうき}・{恥|はずかしさ}・{過去|かこ}の{経験|けいけん}——それを{整理|せいり}するだけで、{見|み}え{方|かた}が{変|か}わる。"
+      - type: narration
+        text: "{拒否|きょひ}の{権利|けんり}——「いやだ」は{弱|よわ}さではない。{体|からだ}のサインを{無視|むし}しないこと。それが{自分|じぶん}を{守|まも}る{第一歩|だいいっぽ}だ。"
+      - type: effect
+        name: fade-out

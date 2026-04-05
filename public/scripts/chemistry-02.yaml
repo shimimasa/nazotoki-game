@@ -1,0 +1,451 @@
+meta:
+  id: chemistry-02
+  title: とけた謎
+  series: 化学探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科|りか}の{実験|じっけん}で「{食塩水|しょくえんすい}を{作|つく}る」{実習|じっしゅう}をしていたグループ4{人|にん}。{実験|じっけん}は{無事|ぶじ}に{終|お}わり、あとはビーカーを{片付|かたづ}けるだけだった。"
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ビーカーを{次|つぎ}の{授業|じゅぎょう}のためにきれいに{洗|あら}っておいてね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: ところが——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ビーカーを{確認|かくにん}すると、{水|みず}が**{白|しろ}く{濁|にご}っていた**。"
+      - type: narration
+        text: "「だれかが{何|なに}かを{入|い}れた？」とグループが{騒|さわ}ぎ{始|はじ}める。"
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: surprised
+          - character: souda
+            expression: worried
+          - character: ritoma
+            expression: thinking
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "ビーカーを{扱|あつか}った4{人|にん}のうち、{誰|だれ}が{何|なに}をしたのかを{推理|すいり}する。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: とけた謎
+        subtitle: 化学探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 確認メモとビーカーの写真
+      - type: narration
+        text: "4{人|にん}が「ビーカーを{確認|かくにん}した{時刻|じこく}」と「そのときの{状態|じょうたい}」を{書|か}いたメモが{見|み}つかった。"
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "ぼくは{実験|じっけん}{後|ご}にビーカーを{洗|あら}った。{洗|あら}い{終|お}わったとき、ビーカーの{中|なか}は**{透明|とうめい}だった**。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: souda
+        expression: worried
+        position: right
+      - type: dialog
+        character: souda
+        text: "おれが{片付|かたづ}けようとしたとき、ビーカーは**すでに{濁|にご}っていた**よ！ {早|はや}く{次|つぎ}の{授業|じゅぎょう}に{間|ま}に{合|あ}わせないと！"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+      - type: narration
+        text: "モルの「{透明|とうめい}だった」という{証言|しょうげん}と、ソウダの「{濁|にご}っていた」という{証言|しょうげん}が{食|く}い{違|ちが}う。{一体|いったい}{何|なに}が{起|お}きたのか？"
+      - type: narration
+        text: "さらに、{白|しろ}く{濁|にご}ったビーカーの{写真|しゃしん}と、**{底|そこ}に{沈|しず}んだ{白|しろ}い{粉末|ふんまつ}**の{写真|しゃしん}も{見|み}つかった。"
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "この{濁|にご}り{方|かた}……{食塩水|しょくえんすい}の{濁|にご}り{方|かた}とは{違|ちが}う。{何|なに}か{別|べつ}のものが{入|い}っている{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== 調査：証拠カード2+3（left/right証言） ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 理科室の保管棚と砂糖の容器
+      - type: sprite
+        character: ritoma
+        expression: determined
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{理科室|りかしつ}の{砂糖|さとう}・{食塩|しょくえん}・デンプンの{保管|ほかん}{場所|ばしょ}を{確認|かくにん}したら……**{砂糖|さとう}の{容器|ようき}のふたが{開|あ}いていた**！"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: right
+      - type: dialog
+        character: souda
+        text: "{砂糖|さとう}？ {食塩水|しょくえんすい}の{実験|じっけん}に{砂糖|さとう}は{関係|かんけい}ないはずだよ。なんで{砂糖|さとう}の{容器|ようき}が{開|あ}いてるんだ？"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "{砂糖|さとう}も{水|みず}に{溶|と}けるけど……{入|い}れすぎると{飽和|ほうわ}って{言|い}って、それ{以上|いじょう}{溶|と}けなくなるって{授業|じゅぎょう}で{習|なら}ったよ。もしかして……"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: narration
+        text: "{誰|だれ}かが{砂糖|さとう}に{触|さわ}れた{可能性|かのうせい}が{出|で}てきた。{物質|ぶっしつ}の{特定|とくてい}に{向|む}けた{手|て}がかりだ。"
+
+  # ==================== 調査：証拠カード4（se:discover） ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 実験後の行動記録
+      - type: narration
+        text: "{各自|かくじ}の「{実験|じっけん}{後|ご}に{何|なに}をしたか」の{証言録|しょうげんろく}が{出|で}てきた。"
+      - type: sprite
+        character: moru
+        expression: normal
+        position: left
+      - type: dialog
+        character: moru
+        text: "ぼくはビーカーを{洗|あら}って、{棚|たな}に{戻|もど}した。それだけ。"
+        expression: normal
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: souda
+        expression: normal
+        position: right
+      - type: dialog
+        character: souda
+        text: "おれは{道具|どうぐ}を{片付|かたづ}けて、すぐ{教室|きょうしつ}に{戻|もど}った。"
+        expression: normal
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: normal
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{実験|じっけん}ノートに{結果|けっか}をまとめて、{先生|せんせい}に{確認|かくにん}してもらってた。"
+        expression: normal
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: right
+      - type: dialog
+        character: nesa
+        text: "わたしは……{特|とく}に{何|なに}もしていない、かな……。"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "モル・ソウダ・リトマの{証言|しょうげん}は{具体的|ぐたいてき}だ。でも**ネーサの{証言|しょうげん}だけが「{特|とく}に{何|なに}もしていない」と{曖昧|あいまい}**——{何|なに}かを{隠|かく}しているのでは？"
+
+  # ==================== 反転：証拠カード5（tension-quiet） ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ビーカーの底の白い粉末
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ビーカーの{底|そこ}に{残|のこ}っていた{白|しろ}い{粉末|ふんまつ}を{水|みず}に{溶|と}かして{確認|かくにん}したら……**{甘|あま}い{味|あじ}がした**の。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{試験紙|しけんし}でも{確認|かくにん}済|す}み。あの{白|しろ}い{粉末|ふんまつ}は**{砂糖|さとう}**だったわ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{砂糖|さとう}」という{物質|ぶっしつ}の{特定|とくてい}{完了|かんりょう}。{砂糖|さとう}を{入|い}れすぎた→**{飽和|ほうわ}**→{溶|と}けきれなかった{砂糖|さとう}が**{再結晶|さいけっしょう}**してビーカーに{残|のこ}った。{砂糖|さとう}の{容器|ようき}のふたが{開|あ}いていた。{証言|しょうげん}が{曖昧|あいまい}なのはネーサだけ——{全|すべ}てが1{人|り}の{人物|じんぶつ}を{指|さ}している。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: ritoma
+        expression: determined
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{白|しろ}い{粉末|ふんまつ}は{砂糖|さとう}。{砂糖|さとう}の{容器|ようき}のふたが{開|あ}いていた。{証言|しょうげん}が{曖昧|あいまい}な{人物|じんぶつ}は1{人|り}だけ。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souda
+        text: "ちょっと{待|ま}って。「{飽和|ほうわ}」って{何|なに}？ {砂糖|さとう}を{入|い}れすぎると{本当|ほんとう}に{白|しろ}くなるの？"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: moru
+        expression: determined
+        position: left
+      - type: dialog
+        character: moru
+        text: "{物質|ぶっしつ}には{溶|と}ける{量|りょう}の{上限|じょうげん}がある。それを{超|こ}えると{溶|と}けきれなかった{分|ぶん}が{結晶|けっしょう}になって{出|で}てくる。それが**{再結晶|さいけっしょう}**——{白|しろ}く{見|み}える{理由|りゆう}だよ。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{白|しろ}い{粉末|ふんまつ}＝{砂糖|さとう}（{確認|かくにん}{済|ず}み）。{砂糖|さとう}の{容器|ようき}のふたが{開|あ}いていた。{曖昧|あいまい}な{証言|しょうげん}。{好奇心|こうきしん}が{強|つよ}いキャラ。{全|すべ}てが1{人|り}の{人物|じんぶつ}を{指|さ}している——。"
+      - type: choice
+        id: q1
+        question: ビーカーを白く濁らせた人物は？
+        options:
+          - text: ネーサ（曖昧な証言＋砂糖容器のふたが開いていた＋白い粉末は砂糖と判明）
+            value: nesa
+            correct: true
+            feedback: "{正解|せいかい}！ ネーサは「{砂糖|さとう}もたくさん{入|い}れたら{白|しろ}く{濁|にご}るのかな」と{好奇心|こうきしん}から{砂糖|さとう}を{入|い}れすぎた。{飽和|ほうわ}を{超|こ}えて{再結晶|さいけっしょう}した——これが{白|しろ}い{粉末|ふんまつ}の{正体|しょうたい}だった。"
+          - text: モル（ビーカーを洗った人）
+            value: moru
+            feedback: "モルはビーカーを{洗|あら}い、{洗|あら}い{終|お}わったとき{透明|とうめい}だったと{証言|しょうげん}している。{具体的|ぐたいてき}な{証言|しょうげん}と{行動|こうどう}で{疑|うたが}う{根拠|こんきょ}がないよ。"
+          - text: ソウダ（早く解決しようとしていた人）
+            value: souda
+            feedback: "ソウダは{発見|はっけん}したとき{教室|きょうしつ}に{戻|もど}っていた{側|がわ}。{行動|こうどう}は{具体的|ぐたいてき}で{砂糖|さとう}に{触|ふ}れた{証拠|しょうこ}がないよ。"
+          - text: リトマ（白い粉末に気づいた人）
+            value: ritoma
+            feedback: "リトマは{白|しろ}い{粉末|ふんまつ}を{発見|はっけん}し、{積極的|せっきょくてき}に{調査|ちょうさ}を{進|すす}めた{側|がわ}。{証言|しょうげん}も{具体的|ぐたいてき}で{矛盾|むじゅん}がないよ。"
+
+  # ==================== 真実：ネーサ ====================
+  - id: truth-nesa
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ネーサの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: center
+      - type: dialog
+        character: nesa
+        text: "……{実|じつ}は……わたしが{砂糖|さとう}を{入|い}れた。ごめんなさい。"
+        expression: worried
+      - type: dialog
+        character: nesa
+        text: "「{砂糖|さとう}もたくさん{入|い}れたら{白|しろ}く{濁|にご}るのかな」って{思|おも}ったの。{食塩水|しょくえんすい}が{完成|かんせい}したとき、{水|みず}が{透明|とうめい}なままで……{砂糖|さとう}だったらどうなるか、ちょっと{試|ため}したくて。"
+        expression: thinking
+      - type: dialog
+        character: nesa
+        text: "{最初|さいしょ}は{透明|とうめい}だったの。でも{砂糖|さとう}を{入|い}れ{続|つづ}けたら……{急|きゅう}に{白|しろ}くなってきて、{底|そこ}に{白|しろ}い{粉|こな}みたいなものが{出|で}てきた。「{飽和|ほうわ}」なんて{知|し}らなかった……。"
+        expression: worried
+      - type: dialog
+        character: nesa
+        text: "「{砂糖|さとう}は{食|た}べ{物|もの}だから{安全|あんぜん}だ」って{思|おも}ってた。みんなに{迷惑|めいわく}をかけるなんて{考|かんが}えてなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "ぼくが{洗|あら}ったあとは{透明|とうめい}だったのに……。ネーサが{砂糖|さとう}を{入|い}れたのがその{後|あと}だったんだね。{証言|しょうげん}が{食|く}い{違|ちが}っていたのはそういうことか。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: normal
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "「{再結晶|さいけっしょう}かもしれない」って{思|おも}ったのは{当|あ}たってた。{飽和|ほうわ}を{超|こ}えると{溶|と}けきれなかった{分|ぶん}が{出|で}てくるって……{化学|かがく}って{面白|おもしろ}いね。"
+        expression: normal
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: left
+      - type: dialog
+        character: souda
+        text: "ネーサの{好奇心|こうきしん}は{分|わ}かる。でも{実験|じっけん}する{前|まえ}に{聞|き}いてくれたら、{一緒|いっしょ}に{正|ただ}しいやり{方|かた}で{試|ため}せたのに。"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{物質|ぶっしつ}には{溶|と}ける{量|りょう}の{上限|じょうげん}がある——それを**{飽和|ほうわ}**と{言|い}うの。{上限|じょうげん}を{超|こ}えると{溶|と}けきれなかった{物質|ぶっしつ}が**{再結晶|さいけっしょう}**して{出|で}てくる。これが{白|しろ}い{粉末|ふんまつ}の{正体|しょうたい}だったわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ネーサの{好奇心|こうきしん}は{素晴|すば}らしい。でも{実験|じっけん}は{正|ただ}しい{知識|ちしき}と{手順|てじゅん}で{行|おこな}うことが{大切|たいせつ}。{試|ため}したいことがあったら、まず{先生|せんせい}に{相談|そうだん}してね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{砂糖|さとう}は{食|た}べ{物|もの}だから{安全|あんぜん}」という{思|おも}い{込|こ}みが{事件|じけん}を{起|お}こした。{正|ただ}しい{知識|ちしき}があれば、{好奇心|こうきしん}を{安全|あんぜん}に{活|い}かせる。"
+      - type: narration
+        text: "{飽和|ほうわ}と{再結晶|さいけっしょう}——{溶|と}ける{量|りょう}には{限界|げんかい}がある。この{知識|ちしき}が{謎|なぞ}を{解|と}く{鍵|かぎ}になった。"
+      - type: effect
+        name: fade-out

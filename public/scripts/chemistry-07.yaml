@@ -1,0 +1,360 @@
+meta:
+  id: chemistry-07
+  title: 火の三角形
+  series: 化学探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: science-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科|りか}{室|しつ}でアルコールランプを{使|つか}った{実験|じっけん}{中|ちゅう}、ネーサの{班|はん}のランプだけが{途中|とちゅう}で{火|ひ}が{消|き}えてしまった。"
+      - type: narration
+        text: "「{誰|だれ}かが{勝手|かって}に{消|き}した？」「それとも{自然|しぜん}に{消|き}えた？」"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{記録|きろく}を{確認|かくにん}すると、{消|き}えた{時刻|じこく}と{各自|かくじ}の{行動|こうどう}に{矛盾|むじゅん}がある。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{燃焼|ねんしょう}の{三要素|さんようそ}——{燃料|ねんりょう}・{酸素|さんそ}・{発火点|はっかてん}。**この3つのうち1つが{欠|か}けると{火|ひ}は{消|き}える**わ。なぜ{消|き}えたか、みんなで{考|かんが}えてみましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: thinking
+          - character: souda
+            expression: surprised
+          - character: ritoma
+            expression: worried
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "4{人|にん}はそれぞれ{消|き}えた{前後|ぜんご}に{何|なに}かを{見|み}ていた。でも{全員|ぜんいん}の{話|はなし}がかみ合わない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 火の三角形
+        subtitle: 化学探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: science-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 実験記録と燃焼の三要素
+      - type: narration
+        text: "{実験|じっけん}の{記録用紙|きろくようし}——{消|き}えた{時刻|じこく}が{明記|めいき}されている。タイムライン{構築|こうちく}の{起点|きてん}だ。"
+      - type: narration
+        text: "「{燃焼|ねんしょう}の{三要素|さんようそ}」{説明|せつめい}カード——**①{可燃物|かねんぶつ}（{燃料|ねんりょう}）　②{酸素|さんそ}　③{発火点|はっかてん}**。この3つのうち1つが{欠|か}けると{火|ひ}は{消|き}える。"
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souda
+        text: "ランプが{自然|しぜん}に{消|き}えることなんてある？{誰|だれ}かが{消|き}したはずだ！でも……{燃焼|ねんしょう}の{三要素|さんようそ}から{考|かんが}えると、{候補|こうほ}が3つになるね。"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "{消|き}えた{時刻|じこく}を{基準|きじゅん}に、{各自|かくじ}の{行動記録|こうどうきろく}を{照合|しょうごう}しよう。{時間|じかん}のズレがあれば{手|て}がかりになる。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: science-room
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 行動記録とランプの状態
+      - type: narration
+        text: "4{人|にん}の「{消|き}えた{前後|ぜんご}5{分|ふん}の{行動記録|こうどうきろく}」（{全員|ぜんいん}{自己|じこ}{申告|しんこく}）——"
+      - type: narration
+        text: "モル・ソウダ・リトマの{記録|きろく}はそれぞれ{詳細|しょうさい}に{書|か}かれている。しかし**ネーサの{記録|きろく}だけ「{記録|きろく}なし」の1{分間|ぷんかん}**がある。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: ritoma
+        expression: surprised
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{記録|きろく}なしの1{分間|ぷんかん}……ちょうどランプが{消|き}えた{時刻|じこく}と{重|かさ}なる。この1{分間|ぷんかん}に{何|なに}があったのかが{最重要|さいじゅうよう}の{問い|とい}ね。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: narration
+        text: "アルコールランプのふたの{状態|じょうたい}{写真|しゃしん}——**ふたが{完全|かんぜん}に{閉|し}まっていない**。{内側|うちがわ}にアルコールの{痕|あと}がついている。"
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "ランプのアルコール{残量|ざんりょう}と、このふたの{状態|じょうたい}……「{誰|だれ}かがふたを{操作|そうさ}した」という{仮説|かせつ}が{成|な}り{立|た}つ。{燃焼|ねんしょう}の{三要素|さんようそ}の「{除酸素|じょさんそ}」と{繋|つな}がるかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: right
+      - type: dialog
+        character: nesa
+        text: "……{一番|いちばん}にしたかっただけなのに、{消|き}えちゃった。なんで？"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: science-room
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: アルコール蒸気の秘密
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "「アルコールランプのふたを{開|あ}けたときに{起|お}きること」の{説明|せつめい}——"
+      - type: narration
+        text: "**「{気化|きか}したアルコール{蒸気|じょうき}が{広|ひろ}がり、{一時的|いちじてき}に{酸素|さんそ}バランスが{崩|くず}れる」**"
+      - type: sprite
+        character: moru
+        expression: determined
+        position: left
+      - type: dialog
+        character: moru
+        text: "{繋|つな}がった。ネーサの{記録|きろく}なしの1{分間|ぷんかん} → ふたを{開|あ}けてアルコールを{補充|ほじゅう}しようとした → {気化|きか}アルコール → {一時的|いちじてき}に{酸素|さんそ}{濃度|のうど}が{低下|ていか} → {消火|しょうか}。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: right
+      - type: dialog
+        character: souda
+        text: "ネーサが「{自分|じぶん}の{班|はん}のランプを{一番|いちばん}{長|なが}く{燃|も}やしたい」と{思|おも}って、アルコールをたくさん{補充|ほじゅう}しようとしたんだ……でも、それが{逆|ぎゃく}に{消火|しょうか}を{引|ひ}き{起|お}こした！"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{より|より}{長|なが}く{燃|も}やそうとした」{行動|こうどう}が「{消火|しょうか}」を{引|ひ}き{起|お}こすという{皮肉|ひにく}な{結果|けっか}。**{燃料|ねんりょう}を{増|ふ}やせば{燃|も}え{続|つづ}ける**という{思|おも}い{込|こ}みが、{酸素|さんそ}の{供給|きょうきゅう}バランスを{無視|むし}させてしまった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: science-room
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心だった？
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{整理|せいり}しよう。①{消|き}えた{時刻|じこく}にネーサの{記録|きろく}が{空白|くうはく}。②ふたが{半開|はんびら}きでアルコール{痕|あと}あり。③{気化|きか}アルコールで{酸素|さんそ}バランスが{崩|くず}れる。{全部|ぜんぶ}{繋|つな}がってる。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{記録|きろく}なしの1{分間|ぷんかん}と{消|き}えた{時刻|じこく}が{一致|いっち}。ふたの{状態|じょうたい}（{半開|はんびら}き・アルコール{痕|あと}）。{気化|きか}アルコール{蒸気|じょうき}→{酸素|さんそ}{濃度|のうど}{低下|ていか}のメカニズム。「{一番|いちばん}にしたかった」{承認|しょうにん}{欲求|よっきゅう}。"
+      - type: choice
+        id: q1
+        question: ランプの火を消えさせた中心人物は？
+        options:
+          - text: ネーサ（記録なしの1分間＋ふた操作＋アルコール補充しようとした）
+            value: nesa
+            correct: true
+            feedback: "{正解|せいかい}！ ネーサは「{自分|じぶん}の{班|はん}のランプを{一番|いちばん}{長|なが}く{燃|も}やしたい」と{思|おも}い、アルコールを{補充|ほじゅう}しようとした。しかしふたを{開|あ}けた{瞬間|しゅんかん}、{気化|きか}したアルコール{蒸気|じょうき}が{広|ひろ}がって{酸素|さんそ}バランスが{崩|くず}れ、{逆|ぎゃく}に{消火|しょうか}してしまった。{燃焼|ねんしょう}の{三要素|さんようそ}——{燃料|ねんりょう}だけでなく**{酸素|さんそ}のバランス**も{重要|じゅうよう}だと{分|わ}かる{鍵|かぎ}だった。"
+          - text: モル（行動記録を照合した情報型）
+            value: moru
+            feedback: "モルは{消|き}えた{時刻|じこく}と{行動記録|こうどうきろく}を{照合|しょうごう}して{空白|くうはく}を{特定|とくてい}した{側|がわ}。{真相|しんそう}に{近|ちか}づく{手助|てだす}けをしたよ。"
+          - text: ソウダ（自然消火に疑念を持った行動型）
+            value: souda
+            feedback: "ソウダは「{誰|だれ}かが{消|き}したはずだ」と{疑念|ぎねん}を{持|も}ち、{燃焼|ねんしょう}の{三要素|さんようそ}で{原因|げんいん}を{探|さが}そうとした{側|がわ}。{犯人|はんにん}ではないよ。"
+          - text: リトマ（ふたの状態に気づいた観察型）
+            value: ritoma
+            feedback: "リトマはランプのアルコール{残量|ざんりょう}とふたの{状態|じょうたい}から「{操作|そうさ}された」{仮説|かせつ}を{立|た}てた{観察者|かんさつしゃ}。{仮説|かせつ}を{提示|ていじ}した{側|がわ}だよ。"
+
+  # ==================== 真実：ネーサの告白 ====================
+  - id: truth-nesa
+    bg: science-room
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ネーサの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: center
+      - type: dialog
+        character: nesa
+        text: "……ごめんなさい。{私|わたし}が{勝手|かって}にアルコールを{補充|ほじゅう}しようとしました。"
+        expression: worried
+      - type: dialog
+        character: nesa
+        text: "{自分|じぶん}の{班|はん}のランプが{一番|いちばん}{長|なが}く{燃|も}え{続|つづ}けることを{証明|しょうめい}したかった。{燃料|ねんりょう}を{増|ふ}やせば{長|なが}く{燃|も}えると{思|おも}ってたから……"
+        expression: thinking
+      - type: dialog
+        character: nesa
+        text: "でも、ふたを{開|あ}けた{瞬間|しゅんかん}に{火|ひ}が{消|き}えちゃって。{自分|じぶん}でもなんで{消|き}えたか{分|わ}からなかった。"
+        expression: surprised
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: science-room
+    steps:
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "{気化|きか}したアルコール{蒸気|じょうき}が{酸素|さんそ}バランスを{一時的|いちじてき}に{崩|くず}した——それが{消|き}えた{原因|げんいん}だ。{燃料|ねんりょう}を{足|た}そうとした{行動|こうどう}が、{逆|ぎゃく}に「{酸素|さんそ}」の{要素|ようそ}を{乱|みだ}したんだ。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: souda
+        expression: worried
+        position: right
+      - type: dialog
+        character: souda
+        text: "「{一番|いちばん}になりたい」って{気持|きも}ちは{分|わ}かるよ。でも、{先生|せんせい}に{相談|そうだん}してほしかったな……"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: science-room
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{燃焼|ねんしょう}の{三要素|さんようそ}——{可燃物|かねんぶつ}・{酸素|さんそ}・{発火点|はっかてん}。{燃料|ねんりょう}を{増|ふ}やすだけでは{長|なが}く{燃|も}えない。{酸素|さんそ}のバランスが{崩|くず}れたら{消|き}えてしまう。ネーサは{知識|ちしき}の{欠|か}けた{部分|ぶぶん}が{思|おも}わぬ{結果|けっか}を{招|まね}くことを{身|み}をもって{体験|たいけん}したわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{一番|いちばん}になりたい」という{気持|きも}ちは{悪|わる}くない。でも{次回|じかい}は、{実験|じっけん}{前|まえ}に{先生|せんせい}に{聞|き}いてね。{一緒|いっしょ}に{考|かんが}えましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{燃料|ねんりょう}を{足|た}せば{燃|も}え{続|つづ}ける」——その{思|おも}い{込|こ}みが、{酸素|さんそ}のバランスという{大切|たいせつ}な{要素|ようそ}を{見落|みお}とさせた。"
+      - type: narration
+        text: "{燃焼|ねんしょう}の{三要素|さんようそ}は{火|ひ}を{燃|も}やすためだけでなく、**なぜ{消|き}えたかを{推理|すいり}する{力|ちから}**にもなる。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,343 @@
+meta:
+  id: architecture-01
+  title: ひびの入った柱
+  series: 建築探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}探偵団の4{人|にん}。ある{朝|あさ}、{学校|がっこう}の{廊下|ろうか}で{先生|せんせい}が{騒|さわ}いでいる。"
+      - type: narration
+        text: "{廊下|ろうか}の{柱|はしら}に——{大|おお}きなひびが{入|はい}っていた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「これって{危|あぶ}ない？ いつからある？」{先生|せんせい}の{声|こえ}がひびく。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{柱|はしら}のひびは{見|み}た{目|め}より{危険|きけん}なことがある。{方向|ほうこう}・{位置|いち}・{形状|けいじょう}によっては{建物|たてもの}の{構造|こうぞう}に{関|かか}わる{重大|じゅうだい}なサインよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: surprised
+          - character: hari
+            expression: thinking
+          - character: noki
+            expression: worried
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{調|しら}べはじめた。すると、{誰|だれ}かが1{週間|しゅうかん}{前|まえ}にひびを{発見|はっけん}していたのに、{報告|ほうこく}しなかったことが{分|わ}かってきた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ひびの入った柱
+        subtitle: 建築探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 発見報告書と地震記録
+      - type: narration
+        text: "{柱|はしら}のひびの{報告書|ほうこくしょ}——{発見日|はっけんび}・{場所|ばしょ}・ひびの{写真|しゃしん}が{記録|きろく}されている。"
+      - type: narration
+        text: "さらに、{今週|こんしゅう}の{地震|じしん}{記録|きろく}。{今日|きょう}の{午前|ごぜん}、{学校|がっこう}{周辺|しゅうへん}で{震度|しんど}2の{揺|ゆ}れがあった。"
+      - type: narration
+        text: "{报告書|ほうこくしょ}には「{今朝|けさ}{発見|はっけん}」とある。でも——ひびの{状態|じょうたい}は{新|あたら}しいものとは{言|い}えない{大|おお}きさだ。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 建物の構造図と掃除担当表
+      - type: sprite
+        character: hari
+        expression: normal
+        position: left
+      - type: dialog
+        character: hari
+        text: "{建物|たてもの}の{構造|こうぞう}{図|ず}を{見|み}ると——{柱|はしら}は{垂直|すいちょく}{荷重|かじゅう}と{横|よこ}{力|ちから}の{両方|りょうほう}を{受|う}ける{重要|じゅうよう}な{部材|ぶざい}なんだ。ひびの{方向|ほうこう}や{位置|いち}によって{危険度|きけんど}がちがう。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: normal
+        position: right
+      - type: dialog
+        character: tateru
+        text: "{先週|せんしゅう}の{掃除|そうじ}{{担当|たんとう}}{表|ひょう}を{見|み}つけた！ {各自|かくじ}がどの{廊下|ろうか}を{担当|たんとう}したか、{時刻|じこく}{記録|きろく}もある。"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "{掃除|そうじ}{担当|たんとう}{表|ひょう}——{先週|せんしゅう}{火曜日|かようび}の{放課後|ほうかご}。{例|れい}の{廊下|ろうか}の{柱|はしら}エリアを{担当|たんとう}したのは2{人|にん}に{絞|しぼ}られた。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ノキの掃除記録とタテルの証言
+      - type: narration
+        text: "{掃除|そうじ}{記録|きろく}を{詳|くわ}しく{照合|しょうごう}すると——{問題|もんだい}の{柱|はしら}の{近|ちか}くを{担当|たんとう}していたのは**ノキ**だと{分|わ}かった。"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: tateru
+        expression: determined
+        position: right
+      - type: dialog
+        character: tateru
+        text: "{先週|せんしゅう}{火曜日|かようび}の{掃除|そうじ}{中|ちゅう}、ノキが{柱|はしら}をじっと{見|み}ていたのを{覚|おぼ}えてる。{手|て}を{止|と}めて、{何|なん}かを{確認|かくにん}するみたいに。"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "ノキの{掃除|そうじ}{記録|きろく}には{柱|はしら}{近辺|きんぺん}が{含|ふく}まれている。タテルの{証言|しょうげん}と{合|あ}わせると——ノキは{先週|せんしゅう}、{問題|もんだい}の{柱|はしら}の{前|まえ}に{立|た}っていた。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 専門家のコメント
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{斜|なな}め45{度|ど}のひびは**{構造的|こうぞうてき}せん{断力|だんりょく}のサイン**よ。これは{早急|さっきゅう}に{専門家|せんもんか}に{報告|ほうこく}しなければいけないひびの{形|かたち}。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "ノキに{聞|き}いたら「{大丈夫|だいじょうぶ}だと{思|おも}った」と{答|こた}えたわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{斜|なな}め45{度|ど}のひび → {構造的|こうぞうてき}{危険|きけん}のサイン → {専門家|せんもんか}に{即|そく}{報告|ほうこく}が{正解|せいかい}。ノキは1{週間|しゅうかん}{前|まえ}にこのひびを{見|み}ていた。でも「{細|ほそ}いひびだから{大丈夫|だいじょうぶ}」と{判断|はんだん}し、{先生|せんせい}に{伝|つた}えなかった——**{建築|けんちく}の{知識|ちしき}がなかったから**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こしたか？
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: izumi
+        text: "もし{授業中|じゅぎょうちゅう}に{柱|はしら}が{崩|くず}れてきたら……{早|はや}く{報告|ほうこく}してくれてたら、{先週|せんしゅう}のうちに{修理|しゅうり}できたのに。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{先週|せんしゅう}{火曜日|かようび}の{掃除|そうじ}{中|ちゅう}に{柱|はしら}エリアを{担当|たんとう}したのはノキ。タテルが「ノキが{柱|はしら}をじっと{見|み}ていた」と{証言|しょうげん}。{山田先生|やまだせんせい}の{確認|かくにん}でノキは「{大丈夫|だいじょうぶ}だと{思|おも}った」と{答|こた}えた。{斜|なな}め45{度|ど}のひびは{構造的|こうぞうてき}{危険|きけん}のサイン。"
+      - type: choice
+        id: q1
+        question: 事件の中心になって問題を起こしたのは誰？
+        options:
+          - text: ノキ（柱のひびを発見したのに報告しなかった）
+            value: noki
+            correct: true
+            feedback: "{正解|せいかい}！ ノキは1{週間|しゅうかん}{前|まえ}に{斜|なな}め45{度|ど}のひびを{見|み}つけたが、「{細|ほそ}いひびだから{大丈夫|だいじょうぶ}」と{判断|はんだん}して{報告|ほうこく}しなかった。{建築|けんちく}の{知識|ちしき}がなければ{危険|きけん}なサインを{見|み}{逃|のが}してしまう——これが{今回|こんかい}の{学|まな}びだ。"
+          - text: タテル（柱を触って確かめようとした人）
+            value: tateru
+            feedback: "タテルは{柱|はしら}を{実際|じっさい}に{確認|かくにん}しようとした{行動派|こうどうは}。{先週|せんしゅう}{火曜日|かようび}にノキが{柱|はしら}を{見|み}ていた{重要|じゅうよう}な{証言|しょうげん}もしてくれたよ。"
+          - text: ハリ（掃除担当表を照合した人）
+            value: hari
+            feedback: "{掃除|そうじ}{担当|たんとう}{表|ひょう}と{時刻|じこく}を{照合|しょうごう}して{犯人|はんにん}を{特定|とくてい}した{情報|じょうほう}のプロだよ。{事件|じけん}を{解決|かいけつ}する{側|がわ}の{人物|じんぶつ}だ。"
+          - text: イズミ（心配していた人）
+            value: izumi
+            feedback: "イズミは{事件|じけん}の{危険性|きけんせい}を{心配|しんぱい}していた{感情型|かんじょうがた}。「もし{授業中|じゅぎょうちゅう}に{倒|たお}れてきたら」という{視点|してん}を{持|も}っていたよ。"
+
+  # ==================== 真実：ノキ ====================
+  - id: truth-noki
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ノキの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: noki
+        expression: worried
+        position: center
+      - type: dialog
+        character: noki
+        text: "……{先週|せんしゅう}の{掃除|そうじ}{中|ちゅう}に、{柱|はしら}にひびが{入|はい}っているのを{見|み}つけた。"
+        expression: worried
+      - type: dialog
+        character: noki
+        text: "でも——「{細|ほそ}いひびだし、{大丈夫|だいじょうぶ}かな。{気|き}のせいかも」って{思|おも}ったの。{先生|せんせい}に{言|い}ったら{大|おお}ごとになりそうで……"
+        expression: thinking
+      - type: dialog
+        character: noki
+        text: "{斜|なな}め45{度|ど}のひびが{危|あぶ}ないって、{知|し}らなかった。{本当|ほんとう}に{大丈夫|だいじょうぶ}だと{思|おも}ってたんだ……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: noki
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{先週|せんしゅう}{火曜日|かようび}、ノキが{柱|はしら}をじっと{見|み}ていたのを{覚|おぼ}えてた。あのとき{声|こえ}をかけていれば——"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hari
+        text: "{掃除|そうじ}{担当|たんとう}{表|ひょう}と{時刻|じこく}を{照合|しょうごう}すれば{分|わ}かると{思|おも}ってた。{証拠|しょうこ}はちゃんと{残|のこ}っていたよ。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: izumi
+        text: "{知|し}らなかったのは{責|せ}めない。でも{次|つぎ}から{建物|たてもの}のサインは{大人|おとな}に{伝|つた}えよう。{気|き}になったことは{小|ちい}さくても{報告|ほうこく}が{大事|だいじ}だって{学|まな}んだよ。"
+        expression: normal
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{柱|はしら}のひびは{幅|はば}より{方向|ほうこう}・{位置|いち}・{形状|けいじょう}が{重要|じゅうよう}よ。{斜|なな}め45{度|ど}のひびは**{構造的|こうぞうてき}せん{断力|だんりょく}のサイン**。この{知識|ちしき}がなければ{危険|きけん}なサインを{見|み}{逃|のが}してしまう。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{気|き}になることがあったら、{大|おお}ごとになりそうでも{大人|おとな}に{伝|つた}えてね。{判断|はんだん}するのは{専門家|せんもんか}の{仕事|しごと}。みんなの{仕事|しごと}は{気|き}づいたことを{報告|ほうこく}することよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ノキは{悪気|わるぎ}があったわけじゃなかった。{建築|けんちく}の{知識|ちしき}があれば{報告|ほうこく}できていた——{知識|ちしき}は{身|み}を{守|まも}る{力|ちから}になる。"
+      - type: narration
+        text: "{小|ちい}さな{気|き}づきを{報告|ほうこく}する{勇気|ゆうき}。それが{建物|たてもの}の{安全|あんぜん}を——みんなの{安全|あんぜん}を{守|まも}ることに{繋|つな}がる。"
+      - type: effect
+        name: fade-out

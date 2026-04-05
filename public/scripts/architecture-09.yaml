@@ -1,0 +1,358 @@
+meta:
+  id: architecture-09
+  title: まちが違いすぎる
+  series: 建築探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}{探偵|たんてい}{団|だん}の4{人|にん}。{授業|じゅぎょう}で「A{市|し}とB{市|し}のまちの{安全|あんぜん}と{快適|かいてき}さ」を{比較|ひかく}するレポートをまとめることになった。{公園|こうえん}{面積|めんせき}・{日照|にっしょう}{時間|じかん}・{緑化|りょっか}{率|りつ}・{バリアフリー}{整備|せいび}{率|りつ}・ハザードマップ{危険|きけん}{度|ど}の5つの{指標|しひょう}を{使|つか}って、どちらのまちがより{暮|く}らしやすいかを{調|しら}べる{予定|よてい}。"
+      - type: narration
+        text: ところが、{提出|ていしゅつ}されたデータに{不正確|ふせいかく}な{数値|すうち}が{混|ま}ざっていた——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「A{市|し}の{方|ほう}が{安全|あんぜん}でいい」という{結論|けつろん}が、データを{操作|そうさ}することで{導|みちび}かれていた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{データ}{比較|ひかく}の{大原則|だいげんそく}があります。**{同一|どういつ}{年度|ねんど}・{同一|どういつ}{出典|しゅってん}でなければ{比較|ひかく}は{無効|むこう}**です。{指標|しひょう}によって{年度|ねんど}が{違|ちが}えば、{正確|せいかく}な{比較|ひかく}はできません。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: worried
+          - character: hari
+            expression: thinking
+          - character: noki
+            expression: surprised
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "だれのデータが{間違|まちが}っていたか——そして、なぜそのデータを{提出|ていしゅつ}したか。{建築|けんちく}{探偵|たんてい}{団|だん}が{追|お}う。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: まちが違いすぎる
+        subtitle: 建築探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 2市比較レポートと5つの指標
+      - type: narration
+        text: "2{市|し}{比較|ひかく}レポート——{結論|けつろん}：「A{市|し}は5{指標|しひょう}{中|ちゅう}4つでB{市|し}を{上回|うわまわ}る{安全|あんぜん}で{快適|かいてき}なまち」。"
+      - type: narration
+        text: "5つの{指標|しひょう}データ{一覧|いちらん}——{公園|こうえん}{面積|めんせき}：A{市|し}✅ {日照|にっしょう}{時間|じかん}：A{市|し}✅ {緑化|りょっか}{率|りつ}：A{市|し}✅ バリアフリー{整備|せいび}{率|りつ}：A{市|し}✅ ハザードマップ{危険|きけん}{度|ど}：B{市|し}✅"
+      - type: narration
+        text: "どの{指標|しひょう}のデータに{問題|もんだい}があるのだろう。{数値|すうち}をよく{見|み}てみると……"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 比較ルールと出典記録
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hari
+        text: "{指標|しひょう}の{説明|せつめい}を{確認|かくにん}しよう。{公園|こうえん}{面積|めんせき}は{住民|じゅうみん}の{憩|いこ}いの{場|ば}の{広|ひろ}さ、{日照|にっしょう}{時間|じかん}は{住環境|じゅうかんきょう}の{快適|かいてき}さ、{緑化|りょっか}{率|りつ}は{環境|かんきょう}{整備|せいび}の{程度|ていど}を{示|しめ}す。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: noki
+        expression: normal
+        position: right
+      - type: dialog
+        character: noki
+        text: "データ{比較|ひかく}の{大原則|だいげんそく}：「{同一|どういつ}{年度|ねんど}・{同一|どういつ}{出典|しゅってん}でなければ{無効|むこう}」。4つの{指標|しひょう}は{出典|しゅってん}・{年度|ねんど}ともに{一致|いっち}しているけど……{バリアフリー}{整備|せいび}{率|りつ}だけ**{出典|しゅってん}{欄|らん}が{空欄|くうらん}**なの。"
+        expression: normal
+      - type: sprite
+        character: noki
+        action: hide
+      - type: narration
+        text: "4{指標|しひょう}の{出典|しゅってん}・{年度|ねんど}{記録|きろく}——すべて{最新|さいしん}{年度|ねんど}・{出典|しゅってん}{一致|いっち}。しかし、バリアフリー{整備|せいび}{率|りつ}のみ{出典|しゅってん}{欄|らん}が**{空欄|くうらん}**だった。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: バリアフリー整備率の出典調査
+      - type: narration
+        text: "バリアフリー{整備|せいび}{率|りつ}の{出典|しゅってん}{年度|ねんど}を{調査|ちょうさ}した{追加|ついか}ハンドアウト——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "タテルの{調査|ちょうさ}メモに「**3{年前|ねんまえ}の{統計|とうけい}を{使用|しよう}**」と{記載|きさい}されていた。"
+      - type: sprite
+        character: tateru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tateru
+        text: "それは……{確|たし}かに3{年前|ねんまえ}のデータを{使|つか}ったけど、{数値|すうち}は{本物|ほんもの}だよ。{捏造|ねつぞう}じゃない。"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: izumi
+        text: "でも、{同一|どういつ}{年度|ねんど}でないといけないって{大原則|だいげんそく}があるよね。タテルがA{市|し}{好|す}きなのは{分|わ}かるけど、{比較|ひかく}って{公平|こうへい}にしないと{意味|いみ}がないと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 最新データで逆転
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{最新|さいしん}{年度|ねんど}のバリアフリー{整備|せいび}{率|りつ}データ——"
+      - type: narration
+        text: "A{市|し} 38%　→　B{市|し} 61%（**A{市|し}とB{市|し}が{逆転|ぎゃくてん}**）"
+      - type: narration
+        text: "3{年前|ねんまえ}のデータではA{市|し}が{上|うえ}だった。しかし{最新|さいしん}{年度|ねんど}では、B{市|し}の{整備|せいび}が{大幅|おおはば}に{進|すす}んでいた。「A{市|し}{優位|ゆうい}」の{結論|けつろん}が**{崩壊|ほうかい}**する。"
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tateru
+        text: "A{市|し}の{方|ほう}がいいって{証明|しょうめい}したかった。{古|ふる}いデータを{選|えら}んだ。{捏造|ねつぞう}じゃないけど……"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心になって問題を起こしたのは誰だ？
+      - type: sprite
+        character: hari
+        expression: determined
+        position: left
+      - type: dialog
+        character: hari
+        text: "5つの{指標|しひょう}を{全部|ぜんぶ}{同|おな}じ{年度|ねんど}のデータで{揃|そろ}えれば{正|ただ}しく{比較|ひかく}できる。1つでも{年度|ねんど}がずれていたら、その{比較|ひかく}は{無効|むこう}だよ。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: noki
+        text: "バリアフリー{整備|せいび}{率|りつ}の{数値|すうち}が{他|ほか}と{比|くら}べて{変|へん}じゃないかと{思|おも}ってた。{帰納的|きのうてき}に{見|み}ていけば、どのデータがおかしいか{分|わ}かる。"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。バリアフリー{整備|せいび}{率|りつ}の{出典|しゅってん}{欄|らん}のみ{空欄|くうらん}。タテルの{調査|ちょうさ}メモに「3{年前|ねんまえ}の{統計|とうけい}を{使用|しよう}」と{記載|きさい}。{最新|さいしん}{年度|ねんど}ではA{市|し}とB{市|し}の{数値|すうち}が{逆転|ぎゃくてん}。A{市|し}{出身|しゅっしん}のタテルは「A{市|し}を{良|よ}く{見|み}せたかった」と{認|みと}めた。"
+      - type: choice
+        id: q1
+        question: 中心になって問題を起こしたのは誰？
+        options:
+          - text: タテル（古いデータを意図的に選んでA市を優位に見せようとした）
+            value: tateru
+            correct: true
+            feedback: "{正解|せいかい}！ タテルはA{市|し}{出身|しゅっしん}で、A{市|し}が{良|よ}いまちだということをみんなに{認|みと}めてほしかった。バリアフリー{整備|せいび}{率|りつ}のデータを{調|しら}べる{際|さい}、{最新|さいしん}{年度|ねんど}ではなく「A{市|し}に{有利|ゆうり}な3{年前|ねんまえ}のデータ」を{意図的|いとてき}に{選|えら}んで{提出|ていしゅつ}した。{厳密|げんみつ}な「{捏造|ねつぞう}」ではなく「{古|ふる}いデータを{使|つか}った{不正|ふせい}」だ。"
+          - text: ハリ（データをまとめた情報型）
+            value: hari
+            feedback: "ハリは{各|かく}データの{年度|ねんど}を{整理|せいり}して「バリアフリー{整備|せいび}{率|りつ}だけ{年度|ねんど}が{違|ちが}う」を{発見|はっけん}した{側|がわ}だよ。{帰納的|きのうてき}に{問題|もんだい}を{見|み}つける{役割|やくわり}を{担|にな}っていたね。"
+          - text: ノキ（異常値を最初に指摘した観察型）
+            value: noki
+            feedback: "ノキは{数値|すうち}の{異常|いじょう}を{最初|さいしょ}に{指摘|してき}した{観察|かんさつ}{型|がた}。{問題|もんだい}を{見|み}つけた{側|がわ}で、{不正|ふせい}を{行|おこな}った{側|がわ}ではないよ。"
+          - text: イズミ（追加HO要求のきっかけを作った感情型）
+            value: izumi
+            feedback: "イズミは{追加|ついか}ハンドアウト{要求|ようきゅう}のきっかけを{作|つく}った。「A{市|し}もB{市|し}も、{正|ただ}しいデータで{比|くら}べてこそ{良|よ}さが{分|わ}かる」と{語|かた}った{公平|こうへい}な{視点|してん}の{持|も}ち{主|ぬし}だよ。"
+
+  # ==================== 真実：タテル ====================
+  - id: truth-tateru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: タテルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tateru
+        text: "……{正直|しょうじき}に{言|い}います。バリアフリー{整備|せいび}{率|りつ}のデータ、3{年前|ねんまえ}のものを{使|つか}いました。"
+        expression: worried
+      - type: dialog
+        character: tateru
+        text: "ぼく、A{市|し}{出身|しゅっしん}なんです。A{市|し}って{良|よ}いまちなのに、なんかB{市|し}の{方|ほう}がいいみたいに{言|い}われるのが{嫌|いや}で。{最新|さいしん}{年度|ねんど}のデータだとA{市|し}が{負|ま}けてたから……"
+        expression: thinking
+      - type: dialog
+        character: tateru
+        text: "「{捏造|ねつぞう}じゃない、{古|ふる}いデータを{選|えら}んだだけ」って{思|おも}ってたけど、それって{結局|けっきょく}{不正|ふせい}だよね。みんなに{認|みと}めてほしかっただけだったけど、{間違|まちが}ってた。"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: noki
+        text: "バリアフリー{整備|せいび}{率|りつ}の{数値|すうち}、{他|ほか}の{指標|しひょう}とくらべて{差|さ}が{大|おお}きすぎると{思|おも}ってた。{帰納的|きのうてき}に{見|み}ていけば{見破|みやぶ}れる{はず|ハズ}だった。"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: izumi
+        text: "タテルがA{市|し}{好|す}きなの、{分|わ}かってた。でも{比較|ひかく}って{公平|こうへい}にしないと{意味|いみ}がない。A{市|し}もB{市|し}も、{正|ただ}しいデータで{比|くら}べてこそ{良|よ}さが{分|わ}かるんだから。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "データ{比較|ひかく}には{大原則|だいげんそく}があります。**{同一|どういつ}{年度|ねんど}・{同一|どういつ}{出典|しゅってん}**でなければ{比較|ひかく}は{無効|むこう}。この{知識|ちしき}がなければ、{古|ふる}いデータを{使|つか}った{不正|ふせい}に{気|き}づけなかったでしょう。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "タテルの{動機|どうき}は{承認欲求|しょうにんよっきゅう}——「{自分|じぶん}の{好|す}きなまちを{認|みと}めてほしい」。その{気持|きも}ちは{自然|しぜん}です。でも、その{思|おも}いが{不公平|ふこうへい}なデータ{操作|そうさ}につながってしまった。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{正|ただ}しいデータで{比|くら}べてこそ、{本当|ほんとう}の{良|よ}さが{伝|つた}わります。{消去法|しょうきょほう}で{条件|じょうけん}を{整理|せいり}し、{筋道|すじみち}{立|た}てて{考|かんが}える——それが{建築探偵団|けんちくたんていだん}の{力|ちから}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{古|ふる}いデータを{使|つか}っただけ」でも、{比較|ひかく}の{公平|こうへい}さを{歪|ゆが}める{結果|けっか}に。{証拠|しょうこ}を{整理|せいり}すると{真相|しんそう}に{近|ちか}づける。"
+      - type: narration
+        text: "データ{比較|ひかく}の{大原則|だいげんそく}——{同一|どういつ}{年度|ねんど}・{同一|どういつ}{出典|しゅってん}。この{知識|ちしき}は、{正|ただ}しく{考|かんが}えるための{武器|ぶき}にもなる。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,349 @@
+meta:
+  id: archaeology-01
+  title: 割れた土器
+  series: 考古学探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: museum
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{考古学|こうこがく}{クラブ}の4{人|にん}は、{地域|ちいき}の{博物館|はくぶつかん}を{見学|けんがく}中だった。{展示|てんじ}ケースにはレプリカの{縄文土器|じょうもんどき}・{弥生土器|やよいどき}・{土師器|はじき}が{並|なら}んでいる。"
+      - type: narration
+        text: "{縄文土器|じょうもんどき}は{縄目文様|なわめもよう}が{刻|きざ}まれた{厚|あつ}みのある{焼|や}き{物|もの}——{もろくて}{丁寧|ていねい}に{扱|あつか}わないと{割|わ}れてしまう。"
+      - type: narration
+        text: ところがその{見学|けんがく}の{途中|とちゅう}——
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{縄文|じょうもん}コーナーの{展示|てんじ}ケース{内|ない}のレプリカにひびが{入|はい}り、{割|わ}れてしまった。**"
+      - type: narration
+        text: "{博物館|はくぶつかん}のスタッフが{気|き}づき、{問題|もんだい}になった。{ガラスケースにも{圧力|あつりょく}の{痕跡|こんせき}が{残|のこ}っていた。}"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{縄文土器|じょうもんどき}は{縄目文様|なわめもよう}が{特徴|とくちょう}で{厚|あつ}みがあるけれどもろい。{弥生土器|やよいどき}は{薄|うす}くなめらか、{土師器|はじき}は{赤褐色|せきかっしょく}の{素焼|すや}き。{年代|ねんだい}によって{特徴|とくちょう}が{全然|ぜんぜん}ちがうのよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: thinking
+          - character: horibe
+            expression: worried
+          - character: tsuchika
+            expression: surprised
+          - character: fumiko
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{全員|ぜんいん}「{触|さわ}っていない」と{言|い}う。でも{本当|ほんとう}にそうなのだろうか——{証拠|しょうこ}を{集|あつ}めて{真相|しんそう}を{明|あき}らかにしよう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 割れた土器
+        subtitle: 考古学探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: museum
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 土器の破損報告と展示室の地図
+      - type: narration
+        text: "{博物館|はくぶつかん}スタッフの{報告|ほうこく}——{展示|てんじ}ケース{内|ない}のレプリカが{割|わ}れていた。{ガラスケースにも{圧力|あつりょく}の{痕跡|こんせき}がある。}"
+      - type: narration
+        text: "{割|わ}れた{土器|どき}のレプリカには**{縄目文様|なわめもよう}**が{刻|きざ}まれ、{壁面|へきめん}は{厚|あつ}い。これは{縄文土器|じょうもんどき}の{特徴|とくちょう}だ。"
+      - type: narration
+        text: "{展示室|てんじしつ}{配置図|はいちず}——{入|い}り{口|ぐち}から{入|はい}ると、{左|ひだり}に{縄文|じょうもん}コーナー、{中央|ちゅうおう}に{弥生|やよい}コーナー、{奥|おく}に{古墳|こふん}コーナーがある。"
+      - type: narration
+        text: "{土器|どき}の{年代|ねんだい}ごとの{特徴|とくちょう}——{縄文|じょうもん}:{縄目|なわめ}/{厚|あつ}い/{もろい}。{弥生|やよい}:{薄|うす}い/なめらか。{土師器|はじき}:{赤褐色|せきかっしょく}/{素焼|すや}き。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: museum
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 行動記録と証言
+      - type: narration
+        text: "{見学|けんがく}{時間|じかん}ごとの{移動|いどう}{記録|きろく}——{各自|かくじ}がどのコーナーにいたかを{照合|しょうごう}した{結果|けっか}——"
+      - type: sprite
+        character: ishino
+        expression: normal
+        position: left
+      - type: dialog
+        character: ishino
+        text: "{展示室|てんじしつ}の{地図|ちず}と{入館|にゅうかん}{記録|きろく}を{照合|しょうごう}した。{縄文|じょうもん}コーナーに{行|い}ったのは**フミコとホリベ**だけだ。イシノとツチカは{弥生|やよい}コーナーと{古墳|こふん}コーナーにいた。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: tsuchika
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsuchika
+        text: "{割|わ}れた{土器|どき}に{縄目文様|なわめもよう}が{刻|きざ}まれているのは{確認|かくにん}した。これは{縄文土器|じょうもんどき}の{特徴|とくちょう}で、{展示室|てんじしつ}の{入口|いりぐち}から{左|ひだり}の{縄文|じょうもん}コーナーにしかない。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: narration
+        text: "{縄文|じょうもん}コーナーにいた{可能性|かのうせい}があるのは**フミコとホリベ**の2{人|にん}。{次|つぎ}の{証拠|しょうこ}でさらに{絞|しぼ}り{込|こ}めるかもしれない。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: museum
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ケース周辺の痕跡調査
+      - type: narration
+        text: "{ホリベが{縄文|じょうもん}コーナーのガラスケース{外側|そとがわ}を{調査|ちょうさ}した{結果|けっか}——}"
+      - type: se
+        sound: discover
+      - type: sprite
+        character: horibe
+        expression: determined
+        position: left
+      - type: dialog
+        character: horibe
+        text: "ガラスケースの{外側|そとがわ}に**{額|ひたい}の{高|たか}さの{皮脂|ひし}{跡|あと}**があった。フミコの{身長|しんちょう}と{一致|いっち}する{位置|いち}だ。ボクはその{時間帯|じかんたい}に{弥生|やよい}コーナーにいたと{記録|きろく}が{残|のこ}っているし、ボクじゃない。"
+        expression: determined
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "ガラスケースに{残|のこ}った{痕跡|こんせき}の{高|たか}さはフミコの{身長|しんちょう}と{一致|いっち}する。ホリベは{別|べつ}のコーナーにいたことが{確認|かくにん}されている。{容疑者|ようぎしゃ}は**フミコ**に{絞|しぼ}られた。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: museum
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生の確認と動機
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "フミコに{話|はなし}を{聞|き}いたら「{縄文人|じょうもんじん}がどんな{気持|きも}ちで{作|つく}ったか{想像|そうぞう}しながら{見|み}ていた。ガラスに{額|ひたい}をつけたかもしれない」と{言|い}っていたわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{文化財|ぶんかざい}{保護|ほご}の{解説|かいせつ}——たとえレプリカであっても、{博物館|はくぶつかん}の{展示物|てんじもの}はケースに{近|ちか}づきすぎず、{触|ふ}れないことが{大切|たいせつ}。"
+      - type: narration
+        text: "{縄文人|じょうもんじん}の{暮|く}らしに{強|つよ}い{興味|きょうみ}を{持|も}つフミコは、「{縄目|なわめ}が{触|ふ}れたらどんな{感触|かんしょく}だろう」と{思|おも}いながら{近|ちか}づいた。**{悪意|あくい}なき{行動|こうどう}が{事故|じこ}を{引|ひ}き{起|お}こした**のだった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: museum
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こしたのか？
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{割|わ}れた{土器|どき}は{縄文|じょうもん}コーナーにしかない{縄目文様|なわめもよう}の{縄文土器|じょうもんどき}。だから{縄文|じょうもん}コーナーにいた{人|ひと}が{原因|げんいん}を{作|つく}ったはずだ。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: determined
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{縄文|じょうもん}コーナーにいたのはフミコとホリベ。でもホリベは{別|べつ}の{場所|ばしょ}にいたことが{確認|かくにん}されている。{消去法|しょうきょほう}で{絞|しぼ}ると——"
+        expression: determined
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{縄文|じょうもん}コーナーにいた（イシノの{記録|きろく}）→ ガラスケースに{額|ひたい}の{痕跡|こんせき}（ホリベの{調査|ちょうさ}）→ {身長|しんちょう}{一致|いっち}（ホリベ{分析|ぶんせき}）→ {本人|ほんにん}も「{近|ちか}づいた」と{認|みと}めた（{先生|せんせい}の{確認|かくにん}）。"
+      - type: choice
+        id: q1
+        question: 中心になって問題を起こしたのは誰だ？
+        options:
+          - text: フミコ（縄文コーナーにいた＋額の痕跡が一致＋本人も近づいたと認めた）
+            value: fumiko
+            correct: true
+            feedback: "{正解|せいかい}！ フミコは{縄文人|じょうもんじん}の{暮|く}らしを{感|かん}じたくて{展示|てんじ}ケースに{額|ひたい}を{近|ちか}づけ、バランスを{崩|くず}してガラスを{押|お}してしまった。「{触|ふ}れた」という{自覚|じかく}がなかったから「{触|さわ}っていない」と{言|い}ったのは{嘘|うそ}ではなかった——{土器|どき}の{年代|ねんだい}と{展示|てんじ}{場所|ばしょ}の{知識|ちしき}が{真相|しんそう}への{鍵|かぎ}だった。"
+          - text: ホリベ（ケース周辺を調査した人）
+            value: horibe
+            feedback: "ホリベは{痕跡|こんせき}{調査|ちょうさ}をした{側|がわ}。{当時|とうじ}は{弥生|やよい}コーナーにいたことが{記録|きろく}で{確認|かくにん}されているよ。"
+          - text: ツチカ（土器の特徴を観察した人）
+            value: tsuchika
+            feedback: "ツチカは{土器|どき}の{観察|かんさつ}と{分類|ぶんるい}をした{探偵|たんてい}{役|やく}。{縄文|じょうもん}コーナーにはいなかった{記録|きろく}があるよ。"
+          - text: イシノ（行動記録を照合した人）
+            value: ishino
+            feedback: "イシノは{展示室|てんじしつ}の{配置図|はいちず}と{入館|にゅうかん}{記録|きろく}を{照合|しょうごう}した{探偵|たんてい}{役|やく}。{縄文|じょうもん}コーナーには{行|い}っていない{記録|きろく}があるよ。"
+
+  # ==================== 真実：フミコ ====================
+  - id: truth-fumiko
+    bg: museum
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: フミコの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: fumiko
+        expression: worried
+        position: center
+      - type: dialog
+        character: fumiko
+        text: "……{触|さわ}ったつもりは、なかった。でも、ガラスにすごく{近|ちか}づいたのは{本当|ほんとう}です。"
+        expression: worried
+      - type: dialog
+        character: fumiko
+        text: "{縄文人|じょうもんじん}がどんな{気持|きも}ちでこの{土器|どき}を{作|つく}ったのか、{肌|はだ}で{感|かん}じたくて……{縄目|なわめ}が{触|ふ}れたらどんな{感触|かんしょく}だろうって{思|おも}いながら、どんどん{近|ちか}づいてしまって。"
+        expression: thinking
+      - type: dialog
+        character: fumiko
+        text: "バランスを{崩|くず}してガラスを{押|お}してしまったのかも。「{触|さわ}った」という{自覚|じかく}がなかったから「{触|さわ}っていない」って{言|い}いました。うそじゃなかったけど……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: museum
+    steps:
+      - type: sprite
+        character: horibe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: horibe
+        text: "ガラスに{額|ひたい}の{跡|あと}があったから{気|き}づいたんだ。{意図的|いとてき}じゃなくても{触|ふ}れたってことだ。"
+        expression: thinking
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: worried
+        position: right
+      - type: dialog
+        character: ishino
+        text: "フミコが{歴史|れきし}が{好|す}きなのは{知|し}ってた。でも{博物館|はくぶつかん}では{展示物|てんじもの}に{近|ちか}づきすぎちゃいけないんだよな……。"
+        expression: worried
+      - type: sprite
+        character: ishino
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: museum
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{縄文土器|じょうもんどき}・{弥生土器|やよいどき}・{土師器|はじき}——それぞれの{特徴|とくちょう}を{知|し}っていたから、「{割|わ}れた{土器|どき}がどこにあったか」が{分|わ}かった。その{知識|ちしき}があったからこそ、{誰|だれ}が{近|ちか}くにいたかを{絞|しぼ}り{込|こ}めたのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "フミコは{悪意|あくい}があったわけじゃない。でも{好奇心|こうきしん}が{強|つよ}すぎて{距離感|きょりかん}を{忘|わす}れてしまった。{文化財|ぶんかざい}は{大切|たいせつ}に{扱|あつか}うこと——それが{過去|かこ}を{未来|みらい}につなぐ{方法|ほうほう}なの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{消去法|しょうきょほう}——{条件|じょうけん}に{合|あ}わない{選択肢|せんたくし}を{順番|じゅんばん}に{除|のぞ}いていくと、{真相|しんそう}に{近|ちか}づける。"
+      - type: narration
+        text: "{知識|ちしき}は{推理|すいり}の{武器|ぶき}になる。{土器|どき}の{年代|ねんだい}を{知|し}らなければ、{展示|てんじ}{場所|ばしょ}も{分|わ}からない。{学|まな}ぶことは、{謎|なぞ}を{解|と}く{力|ちから}を{育|そだ}てることだ。"
+      - type: effect
+        name: fade-out

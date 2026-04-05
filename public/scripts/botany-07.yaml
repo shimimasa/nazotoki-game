@@ -1,0 +1,421 @@
+meta:
+  id: botany-07
+  title: 植物のよろい
+  series: 植物探偵団
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{植物|しょくぶつ}{探偵|たんてい}{団|だん}の4{人|にん}は、{理科|りか}の{授業|じゅぎょう}でヘチマの{観察実験|かんさつじっけん}をしていた。"
+      - type: narration
+        text: "{今朝|けさ}、{観察記録|かんさつきろく}を{見比|みくら}べると——{同|おな}じヘチマの{葉|は}を{観察|かんさつ}したのに、モリとハナの{記録|きろく}が{正反対|せいはんたい}だった。"
+      - type: sprite
+        character: mori
+        expression: worried
+        position: left
+      - type: dialog
+        character: mori
+        text: "8{時|じ}30{分|ふん}に{観察|かんさつ}した。{葉|は}に5ミリの{穴|あな}が3つあったよ。ちゃんと{記録|きろく}に{書|か}いた。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: hana
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hana
+        text: "9{時|じ}15{分|ふん}に{同|おな}じ{葉|は}を{観察|かんさつ}した。**{穴|あな}はなかった**。これは{正確|せいかく}な{記録|きろく}だよ。"
+        expression: surprised
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{同|おな}じ{葉|は}を{見|み}て、{片方|かたほう}は「{穴|あな}がある」、もう{片方|かたほう}は「{穴|あな}がない」……どちらかが{間違|まちが}えたの？ それとも{何|なに}か{別|べつ}のことが{起|お}きたの？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: worried
+          - character: hana
+            expression: surprised
+          - character: tsubomi
+            expression: thinking
+      - type: narration
+        text: "{記録|きろく}の{矛盾|むじゅん}——どちらかが{嘘|うそ}をついている？ それとも{見|み}え{方|かた}が{違|ちが}う{理由|りゆう}がある？ 4{人|にん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 植物のよろい
+        subtitle: 植物探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 観察記録の矛盾レポート
+      - type: narration
+        text: "{観察記録|かんさつきろく}の{矛盾|むじゅん}レポートが{配|くば}られた。"
+      - type: narration
+        text: "モリの{記録|きろく}（8{時|じ}30{分|ふん}）: 「{南西|なんせい}の{葉|は}に5ミリの{穴|あな}が3つあった」"
+      - type: narration
+        text: "ハナの{記録|きろく}（9{時|じ}15{分|ふん}）: 「{同|おな}じ{葉|は}に**{穴|あな}はなかった**」"
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: neko
+        text: "モリが{観察|かんさつ}した8{時|じ}30{分|ふん}とハナが{観察|かんさつ}した9{時|じ}15{分|ふん}……**45{分間|ふんかん}の{空白|くうはく}**がある。"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "ヘチマには{植物|しょくぶつ}の{防御戦略|ぼうぎょせんりゃく}がある。{傷|きず}ついた{葉|は}からシグナル{物質|ぶっしつ}が{出|で}て、{周囲|しゅうい}の{葉|は}が{防御|ぼうぎょ}{物質|ぶっしつ}を{増産|ぞうさん}するの。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: narration
+        text: "この{矛盾|むじゅん}の{答|こた}えを{見|み}つけるカギは、45{分間|ふんかん}の{空白|くうはく}にある——{何|なに}かが{起|お}きたはずだ。"
+
+  # ==================== 調査：証拠カード2・3（左右） ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 植物の防御戦略と当日のタイムライン
+      - type: sprite
+        character: hana
+        expression: normal
+        position: left
+      - type: dialog
+        character: hana
+        text: "{植物|しょくぶつ}の{防御|ぼうぎょ}は4{種類|しゅるい}ある。①{物理|ぶつり}{防御|ぼうぎょ}（トゲ・{硬|かた}い{表皮|ひょうひ}）②{化学|かがく}{防御|ぼうぎょ}（{苦味|にがみ}・{毒|どく}）③{揮発性|きはつせい}シグナル（{傷|きず}→ジャスモン{酸|さん}→{隣|となり}の{葉|は}が{防御|ぼうぎょ}{物質|ぶっしつ}{増産|ぞうさん}）④アリとの{共生|きょうせい}{防御|ぼうぎょう}。"
+        expression: normal
+      - type: dialog
+        character: hana
+        text: "ヘチマは**シグナル{型|がた}{防御|ぼうぎょ}**を{持|も}つ{植物|しょくぶつ}。{傷|きず}ついた{葉|は}が{周囲|しゅうい}に「{警告|けいこく}」を{出|だ}しているのよ。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: neko
+        expression: determined
+        position: right
+      - type: dialog
+        character: neko
+        text: "タイムラインを{整理|せいり}した。モリ：8{時|じ}30{分|ふん}に{南西|なんせい}の{葉|は}を{観察|かんさつ}。ハナ：9{時|じ}15{分|ふん}に{同|おな}じ{葉|は}を{観察|かんさつ}。**8{時|じ}30{分|ふん}〜9{時|じ}15{分|ふん}の45{分間|ふんかん}は{記録|きろく}なし**。"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "この{空白|くうはく}の45{分間|ふんかん}に、{誰|だれ}かが{何|なに}かをした{可能性|かのうせい}がある——{記録|きろく}に{書|か}かれていないことが{鍵|かぎ}だ。"
+
+  # ==================== 調査：証拠カード4（発見SE） ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ツボミの葉の観察
+      - type: sprite
+        character: tsubomi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubomi
+        text: "{問題|もんだい}の{葉|は}をじっくり{見|み}てみた。{穴|あな}の{縁|ふち}がね……「{食|た}べられた{跡|あと}」じゃなくて、**「{何|なに}かが{取|と}り{除|のぞ}かれた{後|あと}の{修復|しゅうふく}{跡|あと}」**みたいに{見|み}える。"
+        expression: thinking
+      - type: dialog
+        character: tsubomi
+        text: "{植物|しょくぶつ}も{傷|きず}ついたら{治|なお}ろうとするんだよ。ヘチマが{頑張|がんば}ってる。"
+        expression: happy
+      - type: se
+        sound: discover
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: sprite
+        character: mori
+        expression: worried
+        position: right
+      - type: dialog
+        character: mori
+        text: "……{実験|じっけん}を{守|まも}ろうとしただけだった。でも、{記録|きろく}に{書|か}かなかったのは……{まずかったかも|まずかったかも}。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+      - type: narration
+        text: "{修復|しゅうふく}{跡|あと}——それは「{食|た}べられた」のではなく「{何|なに}かを{取|と}り{除|のぞ}いた{後|あと}」。{隣|となり}の{葉|は}からは{苦味|にがみ}{成分|せいぶん}の{増加|ぞうか}も{確認|かくにん}された。{植物|しょくぶつ}は{自|みずか}ら{戦|たたか}っていた。"
+
+  # ==================== 反転：証拠カード5（tension-quiet） ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: イモムシの痕跡
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヘチマの{茎|くき}の{付近|ふきん}に**イモムシの{糞|ふん}**が{落|お}ちていた。{問題|もんだい}の{葉|は}の{穴|あな}の{縁|ふち}は{乾|かわ}いた{新|あたら}しい{状態|じょうたい}——8{時|じ}30{分|ふん}{以前|いぜん}に{作|つく}られた{可能性|かのうせい}が{高|たか}い。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: neko
+        expression: surprised
+        position: left
+      - type: dialog
+        character: neko
+        text: "イモムシが{実在|じつざい}した{証拠|しょうこ}だ！ つまり……モリが{観察|かんさつ}したとき、{葉|は}に{穴|あな}を{開|あ}けているイモムシがいた。そして45{分間|ふんかん}の{空白|くうはく}の{間|あいだ}に**{誰|だれ}かがイモムシを{取|と}り{除|のぞ}いた**。"
+        expression: surprised
+      - type: sprite
+        character: neko
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{隣|となり}の{葉|は}からシグナル{物質|ぶっしつ}の{反応|はんのう}も{確認|かくにん}された。{傷|きず}ついた{葉|は}が「{危険|きけん}！」とサインを{出|だ}して、{周囲|しゅうい}の{葉|は}が**{苦味|にがみ}{物質|ぶっしつ}（ククルビタシン）を{増産|ぞうさん}**したのね。"
+        expression: thinking
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "イモムシの{糞|ふん} → {実験|じっけん}に{イモムシ|いもむし}がいた → 誰かが{取|と}り{除|のぞ}いた → {記録|きろく}には{書|か}かれていない → モリの「{穴|あな}あり」とハナの「{穴|あな}なし」の**{矛盾|むじゅん}が{解消|かいしょう}される**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 記録の矛盾を生じさせたのは誰だ？
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hana
+        text: "{整理|せいり}しよう。モリが{観察|かんさつ}した8{時|じ}30{分|ふん}には{穴|あな}があった。ハナが{観察|かんさつ}した9{時|じ}15{分|ふん}には{穴|あな}がなかった。45{分間|ふんかん}に**誰かがイモムシを{取|と}り{除|のぞ}き**、その{事実|じじつ}が{記録|きろく}に{書|か}かれなかった。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: neko
+        expression: determined
+        position: right
+      - type: dialog
+        character: neko
+        text: "{記録|きろく}に「{イモムシ|いもむし}を{取|と}り{除|のぞ}いた」と{書|か}かなかった{人物|じんぶつ}——それが{矛盾|むじゅん}を{生|う}んだ{中心人物|ちゅうしんじんぶつ}だ。"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。8{時|じ}30{分|ふん}に{穴|あな}あり（モリ{観察|かんさつ}）。9{時|じ}15{分|ふん}に{穴|あな}なし（ハナ{観察|かんさつ}）。{茎|くき}にイモムシの{糞|ふん}。{修復|しゅうふく}{跡|あと}。{隣|となり}の{葉|は}の{苦味|にがみ}{物質|ぶっしつ}{増加|ぞうか}。"
+      - type: choice
+        id: q1
+        question: 観察記録に矛盾を生じさせた行為をしたのは誰？
+        options:
+          - text: モリ（8時30分に観察→イモムシを取り除いた→記録に書かなかった）
+            value: mori
+            correct: true
+            feedback: "{正解|せいかい}！ モリは{実験|じっけん}を{守|まも}ろうとイモムシを{取|と}り{除|のぞ}いた。でも「{怒|おこ}られる」と{思|おも}って{記録|きろく}に{書|か}かなかった。この「{情報|じょうほう}の{欠落|けつらく}」が{矛盾|むじゅん}を{生|う}んだ。{科学|かがく}の{記録|きろく}は、すべての{行為|こうい}を{書|か}くことが{大切|たいせつ}なんだ。"
+          - text: ハナ（植物の防御戦略を知っていた人）
+            value: hana
+            feedback: "ハナは9{時|じ}15{分|ふん}に{正直|しょうじき}に{観察|かんさつ}して「{穴|あな}はなかった」と{記録|きろく}した。これは{真実|しんじつ}——モリがイモムシを{取|と}り{除|のぞ}いた{後|あと}の{状態|じょうたい}だったよ。"
+          - text: ネコ（タイムラインを記録していた人）
+            value: neko
+            feedback: "ネコはタイムラインを{記録|きろく}していただけ。{葉|は}に{触|ふ}れていないし、イモムシとも{関係|かんけい}ない。{空白|くうはく}45{分間|ふんかん}を{指摘|してき}してくれた{大事|だいじ}な{手|て}がかり{役|やく}だよ。"
+          - text: ツボミ（葉の縁の状態に気づいた人）
+            value: tsubomi
+            feedback: "ツボミは{葉|は}の{修復|しゅうふく}{跡|あと}を{観察|かんさつ}しただけ。イモムシの{取|と}り{除|のぞ}きにも{記録|きろく}の{省略|しょうりゃく}にも{関与|かんよ}していないよ。"
+
+  # ==================== 真実：モリの告白 ====================
+  - id: truth-mori
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: モリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mori
+        expression: worried
+        position: center
+      - type: dialog
+        character: mori
+        text: "……{正直|しょうじき}に{話|はな}す。8{時|じ}30{分|ふん}に{観察|かんさつ}していたとき、{葉|は}に{穴|あな}を{開|あ}けているイモムシを{見|み}つけた。"
+        expression: worried
+      - type: dialog
+        character: mori
+        text: "「このままでは{実験|じっけん}のヘチマが{全部|ぜんぶ}{食|た}べられてしまう」って{思|おも}って……イモムシを{手|て}で{取|と}り{除|のぞ}いた。{実験|じっけん}を{守|まも}ろうとしたんだ。"
+        expression: thinking
+      - type: dialog
+        character: mori
+        text: "でも{記録|きろく}に「イモムシを{取|と}り{除|のぞ}いた」と{書|か}いたら、「{勝手|かって}に{実験|じっけん}に{手|て}を{加|くわ}えた」って{怒|おこ}られると{思|おも}って……{書|か}かなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hana
+        text: "モリが{取|と}り{除|のぞ}いた{後|あと}だったから「{穴|あな}はなかった」という{記録|きろく}になったんだ。{嘘|うそ}じゃなかった。{記録|きろく}に{書|か}かれていない{情報|じょうほう}が{矛盾|むじゅん}を{生|う}んでいたの。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "モリが{実験|じっけん}を{守|まも}ろうとした{気持|きも}ちは{分|わ}かる。{植物|しょくぶつ}も{自分|じぶん}で{身|み}を{守|まも}ろうとするんだもんね。でも……{全部|ぜんぶ}{記録|きろく}しておけばよかったね。"
+        expression: normal
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "モリの{行動|こうどう}は{正義感|せいぎかん}から{来|き}ていた。イモムシを{取|と}り{除|のぞ}いたこと{自体|じたい}は{間違|まちが}いじゃない。でも**{科学|かがく}の{記録|きろく}は、すべての{行為|こうい}を{書|か}く**ことが{大切|たいせつ}なの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "「{実験|じっけん}に{手|て}を{加|くわ}えた{場合|ばあい}はその{事実|じじつ}も{記録|きろく}する」——それが{科学者|かがくしゃ}の{姿勢|しせい}よ。{隠|かく}したり{省|はぶ}いたりすると、{記録|きろく}が{意味|いみ}を{失|うしな}ってしまうから。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{植物|しょくぶつ}も{自分|じぶん}を{守|まも}るために{戦略|せんりゃく}を{持|も}っている——トゲ・{毒|どく}・{化学|かがく}シグナル。{植物|しょくぶつ}は{能動的|のうどうてき}に{生|い}きている。"
+      - type: narration
+        text: "そして{私|わたし}たちも{科学|かがく}を{学|まな}ぶなら、{勇気|ゆうき}を{持|も}って**すべてを{記録|きろく}する{力|ちから}**を{育|そだ}てよう。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,347 @@
+meta:
+  id: archaeology-02
+  title: 地層の秘密
+  series: 考古学探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{考古学|こうこがく}{探偵|たんてい}{団|だん}の4{人|にん}は、{野外|やがい}{学習|がくしゅう}で{地層|ちそう}の{断面|だんめん}を{観察|かんさつ}した。それぞれがサンプルを{採取|さいしゅ}し、{記録|きろく}シートに{地層名|ちそうめい}・{深|ふか}さ・{出土品|しゅつどひん}を{書|か}き{込|こ}んだ。"
+      - type: narration
+        text: "ところが{翌日|よくじつ}、{先生|せんせい}が{記録|きろく}シートを{確認|かくにん}すると——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{一部|いちぶ}の{記録|きろく}が、{元|もと}の{書|か}き{込|こ}みの{上|うえ}から{修正|しゅうせい}されている**ことが{分|わ}かった。"
+      - type: narration
+        text: "{地層|ちそう}の{重|かさ}なり{方|かた}（{下|した}が{古|ふる}い・{上|うえ}が{新|あたら}しい）と{出土品|しゅつどひん}の{時代|じだい}を{照合|しょうごう}すれば、「どの{記録|きろく}が{矛盾|むじゅん}しているか」「{誰|だれ}が{書|か}き{換|か}えたか」が{分|わ}かるはずだ。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{地層|ちそう}は{下|した}ほど{古|ふる}い——これが{地質学|ちしつがく}の{大原則|だいげんそく}です。{各|かく}{地層|ちそう}から{出|で}る{出土品|しゅつどひん}の{時代|じだい}は、{地層|ちそう}の{年代|ねんだい}と{一致|いっち}するはずなの。{矛盾|むじゅん}があれば、それが{手|て}がかりになるわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: worried
+          - character: horibe
+            expression: thinking
+          - character: tsuchika
+            expression: surprised
+          - character: fumiko
+            expression: thinking
+      - type: narration
+        text: "{記録|きろく}シートの{一部|いちぶ}だけ、{書|か}き{直|なお}されている。{誰|だれ}が、なぜ{修正|しゅうせい}したのか。{証拠|しょうこ}を{集|あつ}めて{真相|しんそう}を{解|と}き{明|あ}かそう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 地層の秘密
+        subtitle: 考古学探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 記録シートと地層の原則
+      - type: narration
+        text: "{記録|きろく}シートを{見|み}ると、4{人分|にんぶん}の{地層|ちそう}{採取|さいしゅ}{記録|きろく}（{地層名|ちそうめい}・{深|ふか}さ・{出土品|しゅつどひん}）がある。**1か{所|しょ}だけ、{上書|うわが}き{修正|しゅうせい}の{跡|あと}**がはっきり{残|のこ}っている。"
+      - type: narration
+        text: "{地層|ちそう}の{原則|げんそく}カード——「{地層|ちそう}は{下|した}ほど{古|ふる}い。{深|ふか}さと{年代|ねんだい}の{対応|たいおう}{表|ひょう}」。{縄文|じょうもん}/{弥生|やよい}/{古墳|こふん}/{奈良|なら}{時代|じだい}の{目安|めやす}{深|ふか}さが{示|しめ}されている。"
+      - type: narration
+        text: "もし{記録|きろく}に「{深|ふか}い{地層|ちそう}から{新|あたら}しい{時代|じだい}の{出土品|しゅつどひん}が{出|で}た」と{書|か}いてあれば、それは**{地層|ちそう}の{原則|げんそく}に{反|はん}する{矛盾|むじゅん}**だ。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 現場写真と証言
+      - type: sprite
+        character: horibe
+        expression: normal
+        position: left
+      - type: dialog
+        character: horibe
+        text: "{現場|げんば}で{撮|と}った{地層|ちそう}{断面|だんめん}の{写真|しゃしん}を{持|も}ってきた。{第|だい}3{層|そう}は{黒褐色|こっかっしょく}の{粘土|ねんど}{層|そう}で、{見|み}た{目|め}は{一番|いちばん}{古|ふる}そうだよ。{弥生|やよい}の{出土品|しゅつどひん}が{出|で}るとは{思|おも}えない。"
+        expression: thinking
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: sprite
+        character: tsuchika
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsuchika
+        text: "サンプルの{外観|がいかん}メモ（{土|つち}の{色|いろ}・{粒|つぶ}の{大|おお}きさ・{混入物|こんにゅうぶつ}）を{記録|きろく}シートと{照合|しょうごう}してみたの。4{人分|にんぶん}を{見|み}ると、**{土質|どしつ}と{記録|きろく}の{地層名|ちそうめい}が{一致|いっち}しない{組|く}み{合|あ}わせが1つある**よ。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: narration
+        text: "ホリベの{写真|しゃしん}が{示|しめ}す{地層|ちそう}の{色|いろ}と、ツチカが{照合|しょうごう}したサンプルの{土質|どしつ}。この2つを{組|く}み{合|あ}わせると、どの{記録|きろく}が{矛盾|むじゅん}しているかが{見|み}えてくる。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: サンプル照合と筆跡分析
+      - type: narration
+        text: "ツチカのサンプル{照合|しょうごう}メモ——**イシノのサンプルの{土質|どしつ}が、{記録|きろく}の{地層名|ちそうめい}と{合|あ}わない**。イシノの{記録|きろく}では「{第|だい}3{層|そう}（{最古層|さいこそう}）」となっているが、{実際|じっさい}のサンプルは{粘土|ねんど}{質|しつ}ではなく{砂|すな}{質|しつ}だ。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{記録|きろく}シートの{筆圧|ひっさつ}{分析|ぶんせき}——{上書|うわが}き{修正|しゅうせい}の{部分|ぶぶん}だけ{筆跡|ひっせき}が{違|ちが}う。{修正液|しゅうせいえき}ではなく**「{消|け}して{上書|うわが}き」の{跡|あと}**が{残|のこ}っている。これは{記録|きろく}が**{後|あと}から{書|か}かれた{証拠|しょうこ}**だ。"
+      - type: sprite
+        character: fumiko
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "{修正|しゅうせい}した{人|ひと}、{何|なに}か{事情|じじょう}があったんじゃないかな。{怖|こわ}かったのかも。{記録|きろく}シートの{書|か}き{方|かた}を{見|み}ると、{焦|あせ}りが{伝|つた}わってくる{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生のメモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "{先生|せんせい}のメモが{発見|はっけん}された。「イシノに{確認|かくにん}したら**『{採取|さいしゅ}した{時|とき}に{層名|そうめい}を{書|か}き{忘|わす}れた。{帰|かえ}ってから{見|み}た{目|め}で{推測|すいそく}した』**と{言|い}った。"
+      - type: narration
+        text: "{考古学|こうこがく}の{記録|きろく}は{後|あと}から{変|か}えられない。**{野外|やがい}で{必|かなら}ずその{場|ば}で{記録|きろく}することが{鉄則|てっそく}**」——"
+      - type: sprite
+        character: ishino
+        expression: worried
+        position: right
+      - type: dialog
+        character: ishino
+        text: "……{正直|しょうじき}に{言|い}う。{野外|やがい}{学習|がくしゅう}の{時|とき}、{採取|さいしゅ}した{層|そう}の{欄|らん}を{書|か}き{忘|わす}れたんだ。{帰|かえ}ってから「たぶんこの{層|そう}だろう」って{推測|すいそく}で{書|か}き{加|くわ}えた。でも{推測|すいそく}が{外|はず}れてて……"
+        expression: worried
+      - type: dialog
+        character: ishino
+        text: "「{古|ふる}い{地層|ちそう}から{新|あたら}しい{時代|じだい}の{出土品|しゅつどひん}」って{地層|ちそう}の{原則|げんそく}に{反|はん}する{記録|きろく}になってしまった。{誰|だれ}かに{指摘|してき}されるのが{恥|は}ずかしくて、{黙|だま}ってた。"
+        expression: determined
+      - type: sprite
+        character: ishino
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "サンプルの{土質|どしつ}と{記録|きろく}が{一致|いっち}しないのは、イシノの{分|ぶん}だけ。{推測|すいそく}で{書|か}いたから{地層|ちそう}の{原則|げんそく}に{反|はん}する{記録|きろく}になったってこと？"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: right
+      - type: dialog
+        character: horibe
+        text: "{写真|しゃしん}で{見|み}ると{明|あき}らかに{第|だい}3{層|そう}は{最古層|さいこそう}の{特徴|とくちょう}がある。でもイシノの{記録|きろく}には{弥生|やよい}の{出土品|しゅつどひん}が……{地層|ちそう}の{原則|げんそく}からしてあり{得|え}ない{組|く}み{合|あ}わせだよ。"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{記録|きろく}シートに{上書|うわが}き{修正|しゅうせい}の{跡|あと}。{土質|どしつ}と{地層名|ちそうめい}の{不一致|ふいっち}はイシノの{分|ぶん}のみ。{筆跡|ひっせき}が{違|ちが}う＝{後|あと}から{書|か}いた。{先生|せんせい}のメモで「{書|か}き{忘|わす}れて{推測|すいそく}で{補|おぎな}った」と{判明|はんめい}。"
+      - type: choice
+        id: q1
+        question: 記録を書き換えた中心人物は誰？
+        options:
+          - text: イシノ（土質と記録が不一致＋推測で記録を補った＋先生のメモで確認）
+            value: ishino
+            correct: true
+            feedback: "{正解|せいかい}！ イシノは{野外|やがい}{学習|がくしゅう}で{採取層|さいしゅそう}の{記録|きろく}を{書|か}き{忘|わす}れ、{帰宅後|きたくご}に{推測|すいそく}で{補|おぎな}った。{推測|すいそく}が{外|はず}れて{地層|ちそう}の{原則|げんそく}に{反|はん}する{記録|きろく}になった。{恥|は}ずかしさから{黙|だま}っていたのが、{証拠|しょうこ}をたどって{明|あき}らかになった。"
+          - text: ホリベ（現場写真を持っている人）
+            value: horibe
+            feedback: "ホリベは{現場|げんば}{写真|しゃしん}と{記録|きろく}を{照合|しょうごう}する{根拠|こんきょ}を{提供|ていきょう}している{側|がわ}。{土質|どしつ}の{不一致|ふいっち}はホリベの{記録|きろく}には{見|み}られないよ。"
+          - text: ツチカ（サンプルを照合した人）
+            value: tsuchika
+            feedback: "ツチカは{正確|せいかく}にサンプルを{照合|しょうごう}して{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}。{記録|きろく}の{書|か}き{換|か}えはツチカの{分|ぶん}には{見|み}られないよ。"
+          - text: フミコ（筆圧を分析した人）
+            value: fumiko
+            feedback: "フミコは{記録|きろく}シートの{筆跡|ひっせき}の{違|ちが}いを{発見|はっけん}して{疑問|ぎもん}を{提起|ていき}した{側|がわ}。{土質|どしつ}と{地層名|ちそうめい}の{不一致|ふいっち}はフミコの{記録|きろく}には{見|み}られないよ。"
+
+  # ==================== 真実：イシノ ====================
+  - id: truth-ishino
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イシノの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ishino
+        expression: worried
+        position: center
+      - type: dialog
+        character: ishino
+        text: "……{本当|ほんとう}のことを{話|はな}す。{野外|やがい}{学習|がくしゅう}の{時|とき}に、あの{欄|らん}を{書|か}き{忘|わす}れたんだ。{帰|かえ}ってから{推測|すいそく}で{書|か}いた。"
+        expression: worried
+      - type: dialog
+        character: ishino
+        text: "{第|だい}3{層|そう}の{見|み}た{目|め}は{覚|おぼ}えてたんだけど、{層名|そうめい}の{対応|たいおう}を{間違|まちが}えた。「{古|ふる}い{地層|ちそう}から{新|あたら}しい{時代|じだい}の{出土品|しゅつどひん}」っていう{矛盾|むじゅん}した{記録|きろく}になってたって、{後|あと}で{気|き}づいたんだ……"
+        expression: thinking
+      - type: dialog
+        character: ishino
+        text: "でも{誰|だれ}かに{言|い}うのが{恥|は}ずかしくて、{黙|だま}ってた。{記録|きろく}の{大切|たいせつ}さ、{分|わ}かってたのに。ごめん。"
+        expression: worried
+      - type: sprite
+        character: ishino
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: fumiko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "{修正|しゅうせい}した{人|ひと}に{何|なに}か{事情|じじょう}があるって{思|おも}ってた。{書|か}き{忘|わす}れの{恥|は}ずかしさ……わかる{気|き}がする。でも{黙|だま}ってたら{もっと|もっと}{困|こま}ることになったね。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: right
+      - type: dialog
+        character: horibe
+        text: "イシノを{疑|うたが}いたくなかったけど、{写真|しゃしん}の{地層|ちそう}と{記録|きろく}が{合|あ}わなかったから……もっと{早|はや}く「{一緒|いっしょ}に{確認|かくにん}しよう」って{言|い}えばよかった。"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{地層|ちそう}は{下|した}ほど{古|ふる}い——これが{地質学|ちしつがく}の{大原則|だいげんそく}。{各|かく}{地層|ちそう}の{出土品|しゅつどひん}の{時代|じだい}はその{原則|げんそく}と{一致|いっち}するはず。この{知識|ちしき}がなければ、どの{記録|きろく}が「あり{得|え}ない」かを{判断|はんだん}できなかったわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{野外|やがい}での{記録|きろく}はその{場|ば}で{必|かなら}ず。{書|か}き{忘|わす}れた{時|とき}は「{分|わ}からない」と{正直|しょうじき}に{書|か}く。それが{考古学|こうこがく}の{鉄則|てっそく}です。{困|こま}ったことは{一人|ひとり}で{抱|かか}え込|こ}まずに{相談|そうだん}してね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{恥|は}ずかしさから{一人|ひとり}で{抱|かか}え込|こ}んだことが、みんなの{混乱|こんらん}につながった。{正直|しょうじき}に{話|はな}すことと、その{場|ば}での{記録|きろく}——{考古学|こうこがく}の{現場|げんば}では{当然|とうぜん}のことが、{日常生活|にちじょうせいかつ}でも{大切|たいせつ}な{知恵|ちえ}になる。"
+      - type: narration
+        text: "{地層|ちそう}の{原則|げんそく}と{矛盾|むじゅん}を{見|み}つける{力|ちから}——それは{証拠|しょうこ}を{丁寧|ていねい}に{照合|しょうごう}する{思考|しこう}の{訓練|くんれん}だ。"
+      - type: effect
+        name: fade-out

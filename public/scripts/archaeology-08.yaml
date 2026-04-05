@@ -1,0 +1,376 @@
+meta:
+  id: archaeology-08
+  title: 炭素の時計
+  series: 考古学探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科|りか}の{特別|とくべつ}{授業|じゅぎょう}で「{放射性炭素年代測定|ほうしゃせいたんそねんだいそくてい}」を{学|まな}んだ{後|あと}、{課題|かだい}レポートを{提出|ていしゅつ}する{日|ひ}が{来|き}た。"
+      - type: narration
+        text: "{考古学探偵団|こうこがくたんていだん}の4{人|にん}は、{遺物|いぶつ}のC14{測定|そくてい}データを{使|つか}って、{それぞれ}の{役割|やくわり}で{調査|ちょうさ}に{臨|のぞ}んでいた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: ところが——ツチカが{提出|ていしゅつ}したレポートに「{測定|そくてい}{誤差|ごさ}を{超|こ}えた{矛盾|むじゅん}がある」という{先生|せんせい}の{指摘|してき}が{入|はい}った。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{放射性炭素|ほうしゃせいたんそ}C14の{半減期|はんげんき}は{約|やく}5730{年|ねん}。{測定|そくてい}{結果|けっか}は「○○{年前|ねんまえ}±○○{年|ねん}」という{形|かたち}で{表|あらわ}される。この±の{範囲内|はんいない}は{全部|ぜんぶ}{等|ひと}しくあり{得|え}るわ。ツチカのレポートには、{数値|すうち}の{解釈|かいしゃく}に{大|おお}きな{問題|もんだい}がある。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: thinking
+          - character: horibe
+            expression: worried
+          - character: tsuchika
+            expression: surprised
+          - character: fumiko
+            expression: thinking
+      - type: narration
+        text: "{測定|そくてい}{誤差|ごさ}を{正確|せいかく}に{理解|りかい}しないと、「{データが|データが}{本当|ほんとう}に{矛盾|むじゅん}しているのか、それとも{誤差|ごさ}の{範囲内|はんいない}か」の{判断|はんだん}ができない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 炭素の時計
+        subtitle: 考古学探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: ツチカのレポートと先生の指摘
+      - type: narration
+        text: "ツチカのレポート——「{測定|そくてい}{値|ち}：3050{年前|ねんまえ}。{誤差|ごさ}±180{年|ねん}。この{遺物|いぶつ}は{縄文時代|じょうもんじだい}のものと{断定|だんてい}できる」"
+      - type: narration
+        text: "{先生|せんせい}の{指摘|してき}——「{測定|そくてい}{値|ち}と{断定|だんてい}の{間|あいだ}に{矛盾|むじゅん}がある」"
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ishino
+        text: "3050{年前|ねんまえ}という{数値|すうち}……{元|もと}のデータと{全然|ぜんぜん}{違|ちが}う{気|き}がするんだけど。{測定|そくてい}{原票|げんぴょう}を{確認|かくにん}したい。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: right
+      - type: dialog
+        character: horibe
+        text: "{縄文時代|じょうもんじだい}の{遺物|いぶつ}なら{約|やく}3000{年前以上|ねんまえいじょう}のはず。でもレポートの{数値|すうち}、{本当|ほんとう}に{正|ただ}しいのかな。"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 測定原票と半減期データ
+      - type: narration
+        text: "{測定|そくてい}データの{原票|げんぴょう}が{公開|こうかい}された——C14{測定値|そくていち}：**1050±180{年前|ねんまえ}**"
+      - type: narration
+        text: "「{追加|ついか}条件：{半減期|はんげんき}の{計算|けいさん}ができたら{計算表|けいさんひょう}を{公開|こうかい}」"
+      - type: sprite
+        character: ishino
+        expression: determined
+        position: left
+      - type: dialog
+        character: ishino
+        text: "C14の{半減期|はんげんき}は5730{年|ねん}。{測定|そくてい}{結果|けっか}1050±180{年前|ねんまえ}というのは——870{年前|ねんまえ}から1230{年前|ねんまえ}のどこかが{測定値|そくていち}ということ。**これは{完全|かんぜん}に{正常|せいじょう}な{範囲内|はんいない}だよ**。"
+        expression: determined
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "イシノの{分析|ぶんせき}——「3050{年前|ねんまえ}は{元|もと}データのどこにも{出|で}ない{数値|すうち}」"
+      - type: sprite
+        character: tsuchika
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tsuchika
+        text: "え……そんな{計算|けいさん}の{仕方|しかた}をしたの？ {誤差|ごさ}を{無視|むし}して{自分|じぶん}で{計算|けいさん}し{直|なお}せば{縄文時代|じょうもんじだい}になると{思|おも}って……"
+        expression: surprised
+      - type: sprite
+        character: tsuchika
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 地層照合とメモの書き換え
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ホリベの{地層|ちそう}{照合|しょうごう}——{遺物|いぶつ}が{出|で}た{第|だい}2{層|そう}は**{平安時代|へいあんじだい}の{地層|ちそう}に{一致|いっち}**。"
+      - type: sprite
+        character: horibe
+        expression: determined
+        position: left
+      - type: dialog
+        character: horibe
+        text: "この{地層|ちそう}、{見|み}た{目|め}では{縄文|じょうもん}っぽいかもしれないけど、{深|ふか}さと{土|つち}の{質|しつ}は{平安時代|へいあんじだい}に{一致|いっち}する。{縄文時代|じょうもんじだい}の{遺物|いぶつ}という{根拠|こんきょ}がないよ。"
+        expression: determined
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "さらに——ツチカのメモの{書|か}き{直|なお}し{跡|あと}が{見|み}つかった。「1050{年前|ねんまえ}」を「3050{年前|ねんまえ}」に{計算|けいさん}し{直|なお}した{跡|あと}。**{意図的|いとてき}な{数値|すうち}{書|か}き{換|か}えの{証拠|しょうこ}**。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生のメモ：動機の告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツチカに{確認|かくにん}したら「{縄文時代|じょうもんじだい}のものだと{思|おも}いたかった。3050は{自分|じぶん}で{計算|けいさん}し{直|なお}した{数字|すうじ}」と{言|い}った。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でもね——{平安時代|へいあんじだい}の{遺物|いぶつ}も、{縄文|じょうもん}の{遺物|いぶつ}と{同|おな}じように{誰|だれ}かの{生活|せいかつ}の{証拠|しょうこ}よ。「{古|ふる}い{方|ほう}がすごい」ではなく、どの{時代|じだい}の{記録|きろく}も{等|ひと}しく{大切|たいせつ}なの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ツチカは「{縄文時代|じょうもんじだい}の{遺物|いぶつ}ではなかった」という{事実|じじつ}を{認|みと}めたくない{自己|じこ}{防衛|ぼうえい}から、{測定|そくてい}{誤差|ごさ}を{意図的|いとてき}に{無視|むし}した{報告|ほうこく}をしていた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心になって問題を起こしたのは誰だ？
+      - type: sprite
+        character: fumiko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "ツチカがこの{地元|じもと}の{縄文遺跡|じょうもんいせき}をすごく{誇|ほこ}りに{思|おも}ってたのは{知|し}ってた。「{縄文時代|じょうもんじだい}の{遺物|いぶつ}を{見|み}つけたい」って{強|つよ}く{願|ねが}ってたんだよね。"
+        expression: thinking
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: sprite
+        character: ishino
+        expression: determined
+        position: right
+      - type: dialog
+        character: ishino
+        text: "{証拠|しょうこ}をまとめよう。{元|もと}データは1050±180{年前|ねんまえ}。3050{年前|ねんまえ}は{元|もと}データに{存在|そんざい}しない{数値|すうち}。{地層|ちそう}は{平安時代|へいあんじだい}に{一致|いっち}。メモに{書|か}き{換|か}えの{跡|あと}。{誤差|ごさ}を{無視|むし}した{意図的|いとてき}な{操作|そうさ}だよ。"
+        expression: determined
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: choice
+        id: q1
+        question: レポートの数値を意図的に書き換えた中心人物は？
+        options:
+          - text: ツチカ（元データ1050年前を3050年前に書き換え＋誤差を意図的に無視＋縄文への思い込みが動機）
+            value: tsuchika
+            correct: true
+            feedback: "{正解|せいかい}！ ツチカは「{縄文時代|じょうもんじだい}の{遺物|いぶつ}だと{思|おも}いたかった」という{自己|じこ}{防衛|ぼうえい}から、C14{測定|そくてい}{誤差|ごさ}±180{年|ねん}を{無視|むし}し、1050{年前|ねんまえ}を3050{年前|ねんまえ}に{書|か}き{換|か}えた。「{誤差|ごさ}の{範囲内|はんいない}か{範囲外|はんいがい}か」——この{判断|はんだん}が{推理|すいり}の{核心|かくしん}だった。"
+          - text: イシノ（半減期データの提供者）
+            value: ishino
+            feedback: "イシノは{正確|せいかく}な{半減期|はんげんき}データと{誤差|ごさ}の{解説|かいせつ}を{提供|ていきょう}した{側|がわ}。{問題|もんだい}を{明|あ}らかにした{人物|じんぶつ}だよ。"
+          - text: ホリベ（地層照合の担当者）
+            value: horibe
+            feedback: "ホリベは{地層|ちそう}{照合|しょうごう}で{平安時代|へいあんじだい}の{証拠|しょうこ}を{示|しめ}した{側|がわ}。{葛藤|かっとう}しながらも{事実|じじつ}を{伝|つた}えた{人物|じんぶつ}だよ。"
+          - text: フミコ（縄文遺跡への誇りを持つ人）
+            value: fumiko
+            feedback: "フミコは{縄文|じょうもん}への{憧|あこが}れを{理解|りかい}しながらも、「{平安時代|へいあんじだい}の{遺物|いぶつ}も{等|ひと}しく{大切|たいせつ}」という{視点|してん}を{持|も}っていた{人物|じんぶつ}。{書|か}き{換|か}えには{関与|かんよ}していないよ。"
+
+  # ==================== 真実：ツチカ ====================
+  - id: truth-tsuchika
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツチカの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsuchika
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsuchika
+        text: "……{本当|ほんとう}のことを{言|い}います。{元|もと}のC14{測定|そくてい}データは、1050±180{年前|ねんまえ}でした。"
+        expression: worried
+      - type: dialog
+        character: tsuchika
+        text: "でも「{地元|じもと}の{縄文遺跡|じょうもんいせき}から{出|で}た{遺物|いぶつ}なんだから{縄文時代|じょうもんじだい}のはず」って{強|つよ}く{思|おも}ってた。だから{誤差|ごさ}を「{外|はず}れ{値|ち}」として{無視|むし}して、3050{年前|ねんまえ}という{数字|すうじ}を{自分|じぶん}で{計算|けいさん}し{直|なお}したんです。"
+        expression: thinking
+      - type: dialog
+        character: tsuchika
+        text: "「{縄文時代|じょうもんじだい}の{遺物|いぶつ}ではなかった」という{事実|じじつ}を{認|みと}めたくなかった。……{自分|じぶん}の{思|おも}い込みが、データの{解釈|かいしゃく}を{歪|ゆが}めてしまった。"
+        expression: worried
+      - type: sprite
+        character: tsuchika
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: ishino
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ishino
+        text: "1050±180{年前|ねんまえ}なら870〜1230{年前|ねんまえ}が{測定値|そくていち}の{範囲|はんい}。3050という{数値|すうち}は{元|もと}データのどこにも{存在|そんざい}しない。{誤差|ごさ}の{概念|がいねん}を{正確|せいかく}に{使|つか}えば、{最初|さいしょ}から{分|わ}かるはずだった。"
+        expression: thinking
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: worried
+        position: right
+      - type: dialog
+        character: horibe
+        text: "ツチカを{責|せ}めたいわけじゃない。でも{地層|ちそう}は{嘘|うそ}をつかない。{第|だい}2{層|そう}は{平安時代|へいあんじだい}——それが{事実|じじつ}だから。"
+        expression: worried
+      - type: sprite
+        character: horibe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: fumiko
+        expression: normal
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "{縄文|じょうもん}への{憧|あこが}れ、わたしも{理解|りかい}できる。でも{平安時代|へいあんじだい}の{人|ひと}もここで{暮|く}らしてたんだ。{縄文|じょうもん}じゃなくても、その{人|ひと}の{生活|せいかつ}がここに{残|のこ}ってる——それも{同|おな}じように{大切|たいせつ}な{歴史|れきし}だよ。"
+        expression: happy
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "C14の{半減期|はんげんき}5730{年|ねん}と±の{誤差|ごさ}の{意味|いみ}——これを{正確|せいかく}に{理解|りかい}すれば、「{本当|ほんとう}に{矛盾|むじゅん}しているのか、それとも{誤差|ごさ}の{範囲内|はんいない}か」が{判断|はんだん}できるの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「こうであってほしい」という{願望|がんぼう}がデータの{解釈|かいしゃく}を{歪|ゆが}めることを**{認知|にんち}バイアス**というわ。{科学|かがく}ではデータを{事実|じじつ}のまま{受|う}け{入|い}れる{勇気|ゆうき}が{大切|たいせつ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{古|ふる}い{方|ほう}がすごい」のではなく、どの{時代|じだい}の{記録|きろく}も{等|ひと}しく{大切|たいせつ}。{事実|じじつ}をそのまま{受|う}け{入|い}れることが、{本当|ほんとう}の{学|まな}びへの{第一歩|だいいっぽ}だ。"
+      - type: narration
+        text: "{放射性炭素年代測定|ほうしゃせいたんそねんだいそくてい}の{半減期|はんげんき}と{誤差|ごさ}の{概念|がいねん}——それは{遺物|いぶつ}の{年代|ねんだい}を{読|よ}むためだけでなく、**{思|おも}い込みに{支配|しはい}されずに{考|かんが}える{力|ちから}**でもある。"
+      - type: effect
+        name: fade-out

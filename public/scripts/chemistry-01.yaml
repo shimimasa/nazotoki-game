@@ -1,0 +1,359 @@
+meta:
+  id: chemistry-01
+  title: リトマスのひみつ
+  series: 化学探偵団
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{5年|ごねん}2{組|くみ}の{理科|りか}の{授業|じゅぎょう}で{使|つか}う{理科|りか}{係|がかり}4{人|にん}——{モル}・{ソウダ}・{リトマ}・{ネーサ}。{今日|きょう}の{実験|じっけん}では{青|あお}いリトマス{試験紙|しけんし}と{赤|あか}いリトマス{試験紙|しけんし}を{使|つか}う{予定|よてい}だった。"
+      - type: narration
+        text: "ところが{授業|じゅぎょう}の{前|まえ}に——"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{新品|しんぴん}のはずの{青|あお}いリトマス{試験紙|しけんし}が3{枚|まい}、{赤|あか}く{変色|へんしょく}していた**。"
+      - type: narration
+        text: "{青|あお}いリトマス{試験紙|しけんし}は{酸性|さんせい}の{液体|えきたい}に{触|ふ}れると{赤|あか}くなる。{新品|しんぴん}なのになぜ{変色|へんしょく}したのか？"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{青|あお}いリトマス{試験紙|しけんし}は、{酸性|さんせい}のもの——{酢|す}や{レモン{汁|じる}|レモンじる}など——が{触|ふ}れると{赤|あか}くなるわ。{新品|しんぴん}の{試験紙|しけんし}がこうなっているということは、だれかが{触|ふ}ったときに{酸性|さんせい}のものが{指|ゆび}についていたのかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: thinking
+          - character: souda
+            expression: worried
+          - character: ritoma
+            expression: worried
+          - character: nesa
+            expression: surprised
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}、4{人|にん}は{理科室|りかしつ}で{掃除|そうじ}や{準備|じゅんび}をしていた。でも{全員|ぜんいん}が「{試験紙|しけんし}を{変色|へんしょく}させるようなことはしていない」と{言|い}う。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: リトマスのひみつ
+        subtitle: 化学探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 入室記録と変色した試験紙
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}の{理科室|りかしつ}{入室|にゅうしつ}{記録|きろく}——{モル}: 15:00{入室|にゅうしつ}・16:00{退室|たいしつ}。{ソウダ}: 15:10{入室|にゅうしつ}・15:50{退室|たいしつ}。**{リトマ}: 15:05{入室|にゅうしつ}・16:30{退室|たいしつ}（{最後|さいご}）**。{ネーサ}: 15:15{入室|にゅうしつ}・15:40{退室|たいしつ}。"
+      - type: narration
+        text: "{試験紙|しけんし}は{棚|たな}の{新品|しんぴん}{ケース|けーす}に{入|い}っていた。{山田先生|やまだせんせい}は{昨日|きのう}の14:50に「{全部|ぜんぶ}{青|あお}いまま」を{確認|かくにん}している。"
+      - type: narration
+        text: "{変色|へんしょく}した{試験紙|しけんし}の{写真|しゃしん}——{青|あお}→{赤|あか}に{変|か}わった{試験紙|しけんし}が3{枚|まい}。{変色|へんしょく}の{濃|こ}さは{全部|ぜんぶ}{同|おな}じくらい。「{しっかり|しっかり}{酸性|さんせい}のものが{触|ふ}れた」ことを{示|しめ}している。"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: シンク周辺と4人の証言
+      - type: narration
+        text: "{理科室|りかしつ}のシンク{周辺|しゅうへん}スケッチ——{シンク|しんく}の{右|みぎ}に**{酢|す}の{容器|ようき}**（{料理実習|りょうりじっしゅう}{用|よう}に{残|のこ}っていたもの）が{置|お}いてある。{洗剤|せんざい}と{水道|すいどう}もシンク{近|ちか}くにある。"
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "{入室|にゅうしつ}{記録|きろく}と{変色|へんしょく}の{程度|ていど}を{見|み}ると、{昨日|きのう}の{遅|おそ}い{時間帯|じかんたい}に{試験紙|しけんし}に{触|ふ}れた{人|ひと}が{怪|あや}しい。{変色|へんしょく}の{濃|こ}さからして、さわったのは1{人|り}だと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: souda
+        expression: worried
+        position: right
+      - type: dialog
+        character: souda
+        text: "{授業|じゅぎょう}で{使|つか}えなくなったら{実験|じっけん}できない！ {残|のこ}りの{試験紙|しけんし}は{大丈夫|だいじょうぶ}か{確認|かくにん}しないと。……{他|ほか}の{試験紙|しけんし}は{全部|ぜんぶ}まだ{青|あお}いままだった。{変色|へんしょく}してるのは{棚|たな}の{一番上|いちばんうえ}の{段|だん}のだけ。"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: worried
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{掃除|そうじ}しただけなのに……もしかして{私|わたし}のせい？ {昨日|きのう}{理科室|りかしつ}の{棚|たな}{周辺|しゅうへん}を{掃除|そうじ}したのは{私|わたし}。でも{試験紙|しけんし}を{変色|へんしょく}させるようなことはしていないと{思|おも}う……{思|おも}う、けど。"
+        expression: worried
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: normal
+        position: right
+      - type: dialog
+        character: nesa
+        text: "{リトマ|りとま}が{一番|いちばん}{丁寧|ていねい}に{掃除|そうじ}してたのは{知|し}ってる。{悪意|あくい}があるとは{思|おも}えない。でも{掃除|そうじ}{中|ちゅう}に{何|なに}か{気|き}づかなかったかな……"
+        expression: normal
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: narration
+        text: "{証言|しょうげん}メモ：{掃除|そうじ}の{担当|たんとう}エリア——{リトマ}: {棚|たな}{周辺|しゅうへん}＋シンク{周辺|しゅうへん}。{ソウダ}: {床|ゆか}{全体|ぜんたい}。{モル}: {黒板|こくばん}・{窓|まど}。{ネーサ}: {実験|じっけん}{台|だい}{上|うえ}。シンク{周辺|しゅうへん}を{担当|たんとう}したのは**{リトマ}だけ**。"
+
+  # ==================== 調査：証拠カード発見 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 残りの試験紙の観察
+      - type: narration
+        text: "{棚|たな}の{一番上|いちばんうえ}の{段|だん}だけが{変色|へんしょく}——{一番上|いちばんうえ}の{段|だん}は{手|て}が{届|とど}きにくく、{近|ちか}づいて{触|ふ}れる{必要|ひつよう}がある{場所|ばしょ}。"
+      - type: narration
+        text: "{変色|へんしょく}の{パターン|ぱたーん}——{試験紙|しけんし}の{端|はし}（{指先|ゆびさき}が{触|ふ}れやすい{部分|ぶぶん}）だけが{赤|あか}くなっている。「{手|て}に{酸性|さんせい}のものが{付|つ}いたまま{触|ふ}れた」ことと{一致|いっち}する。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "{ここまでをまとめると}——{変色|へんしょく}は「{手|て}に{酸性|さんせい}が{付|つ}いたまま{触|ふ}れた」{形跡|けいせき}。シンク{周辺|しゅうへん}には{酢|す}の{容器|ようき}がある。シンクを{掃除|そうじ}したのは{リトマ}だけ。{リトマ}は{最後|さいご}まで{在室|ざいしつ}。……{酢|す}が{指|ゆび}に{付|つ}いていたとしたら？"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: シンクに残った酢のにおい
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: left
+      - type: dialog
+        character: yamada
+        text: "{今朝|けさ}{理科室|りかしつ}のシンクを{確認|かくにん}したら、{水切|みずき}り{籠|かご}に**{酢|す}のにおいが{残|のこ}っていた**わ。{酢|す}は{酸性|さんせい}。{料理実習|りょうりじっしゅう}{後|ご}に{誰|だれ}かが{使|つか}った{酢|す}が{容器|ようき}から{少|すこ}しこぼれて{残|のこ}っていたみたい。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: moru
+        expression: determined
+        position: right
+      - type: dialog
+        character: moru
+        text: "これで{因果|いんが}{関係|かんけい}が{繋|つな}がった。{リトマ}がシンクの{水切|みずき}り{籠|かご}を{掃除|そうじ}した→{酢|す}が{指|ゆび}に{付|つ}いた→{気|き}づかずに{試験紙|しけんし}を{触|ふ}れた→{青|あお}いリトマス{試験紙|しけんし}が{赤|あか}く{変色|へんしょく}した。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{リトマ}はシンク{周辺|しゅうへん}を{掃除|そうじ} → {酢|す}が{指|ゆび}に{付|つ}く → {試験紙|しけんし}を{棚|たな}に{移動|いどう}（{水|みず}から{守|まも}るため） → {酸性|さんせい}の{指|ゆび}で{触|ふ}れる → {青|あお}い{試験紙|しけんし}が{赤|あか}く{変色|へんしょく}。**{悪意|あくい}はゼロ——{全部|ぜんぶ}{誤解|ごかい}と{勘違|かんちが}いだった**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 変色の原因を起こした人は？
+      - type: sprite
+        character: ritoma
+        expression: worried
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "……{試験紙|しけんし}が{水|みず}で{濡|ぬ}れたら{困|こま}ると{思|おも}って、シンクの{近|ちか}くから{棚|たな}の{上|うえ}に{移|うつ}したの。その{時|とき}、{手|て}が{酢|す}で{汚|よご}れてた{可能性|かのうせい}が……"
+        expression: worried
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。シンク{周辺|しゅうへん}を{掃除|そうじ}したのは{リトマ}だけ。{シンク|しんく}の{水切|みずき}り{籠|かご}に{酢|す}（{酸性|さんせい}）が{残|のこ}っていた。{変色|へんしょく}は{指先|ゆびさき}{接触|せっしょく}のパターン。{リトマ}は{最後|さいご}まで{在室|ざいしつ}で{棚|たな}{周辺|しゅうへん}を{担当|たんとう}。{悪意|あくい}はなく「{安全|あんぜん}のために」と{思|おも}っての{行動|こうどう}。"
+      - type: choice
+        id: q1
+        question: 試験紙を変色させた原因を作ったのは？
+        options:
+          - text: リトマ（シンク掃除で酢が指に付き、気づかずに試験紙を触ってしまった）
+            value: ritoma
+            correct: true
+            feedback: "{正解|せいかい}！ {リトマ}は「{試験紙|しけんし}を{水|みず}から{守|まも}ろう」と{思|おも}っての{行動|こうどう}だった。でも{シンク|しんく}に{残|のこ}っていた{酢|す}（{酸性|さんせい}）が{指|ゆび}に{付|つ}いたまま{触|ふ}れてしまった。**{青|あお}いリトマス{試験紙|しけんし}は{酸性|さんせい}で{赤|あか}くなる**——この{知識|ちしき}が{真相|しんそう}を{解|と}く{鍵|かぎ}だった。"
+          - text: モル（入室記録の矛盾を知っていた人）
+            value: moru
+            feedback: "{モル}は{入室|にゅうしつ}{記録|きろく}の{矛盾|むじゅん}に{気|き}づいた{情報|じょうほう}{係|がかり}。{掃除|そうじ}のエリアはシンク{周辺|しゅうへん}ではなく、{試験紙|しけんし}に{触|ふ}れる{機会|きかい}がないよ。"
+          - text: ソウダ（残りの試験紙を確認しに動いた人）
+            value: souda
+            feedback: "{ソウダ}は{授業|じゅぎょう}を{心配|しんぱい}して{行動|こうどう}した{側|がわ}。{掃除|そうじ}{担当|たんとう}は{床|ゆか}{全体|ぜんたい}で、シンク{周辺|しゅうへん}は{担当|たんとう}していないよ。"
+          - text: ネーサ（リトマをかばっていた人）
+            value: nesa
+            feedback: "{ネーサ}は{感情|かんじょう}で{状況|じょうきょう}を{読|よ}んでいた{側|がわ}。{掃除|そうじ}{担当|たんとう}は{実験|じっけん}{台|だい}{上|うえ}で、シンク{周辺|しゅうへん}には{近|ちか}づいていないよ。"
+
+  # ==================== 真実：リトマ ====================
+  - id: truth-ritoma
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: リトマの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ritoma
+        expression: worried
+        position: center
+      - type: dialog
+        character: ritoma
+        text: "……{私|わたし}が{原因|げんいん}だったと{思|おも}います。{昨日|きのう}{棚|たな}{周辺|しゅうへん}を{掃除|そうじ}して、シンクの{水切|みずき}り{籠|かご}も{洗|あら}いました。"
+        expression: worried
+      - type: dialog
+        character: ritoma
+        text: "{試験紙|しけんし}が{台|だい}の{上|うえ}に{出|で}ていたから、{水|みず}で{濡|ぬ}れたら{困|こま}ると{思|おも}って{棚|たな}に{移|うつ}したんです。でも、そのとき{手|て}に{何|なに}かが{付|つ}いていたのかも……"
+        expression: thinking
+      - type: dialog
+        character: ritoma
+        text: "{変色|へんしょく}させるつもりは{全然|ぜんぜん}なかった。{守|まも}ろうと{思|おも}っただけなのに……ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "{入室|にゅうしつ}{記録|きろく}と{変色|へんしょく}の{濃|こ}さから、{リトマ}が{一番|いちばん}{可能性|かのうせい}が{高|たか}いとは{思|おも}っていた。でも{悪意|あくい}じゃないとは{思|おも}ってなかったよ。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: normal
+        position: right
+      - type: dialog
+        character: nesa
+        text: "{リトマ}は{丁寧|ていねい}に{掃除|そうじ}してた。{知|し}らなかっただけ。{知|し}ってたら{絶対|ぜったい}{触|ふ}れなかったと{思|おも}う。"
+        expression: normal
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{青|あお}いリトマス{試験紙|しけんし}は{酸性|さんせい}のものが{触|ふ}れると{赤|あか}くなる。{酢|す}もレモン{汁|じる}も{酸性|さんせい}。{リトマ}は{悪意|あくい}なく{行動|こうどう}して、{知|し}らないうちに{酸性|さんせい}の{指|ゆび}で{試験紙|しけんし}を{触|ふ}れてしまったの。{化学|かがく}の{知識|ちしき}があれば{防|ふせ}げた{出来事|できごと}だったわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{大切|たいせつ}なのは、{実験|じっけん}{器具|きぐ}を{扱|あつか}う{前|まえ}に{手|て}をしっかり{洗|あら}うこと。そして「{何|なに}かがおかしい」と{思|おも}ったら、すぐに{先生|せんせい}に{相談|そうだん}してね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{悪意|あくい}がなくても、{知識|ちしき}がないと{起|お}きてしまう{事故|じこ}がある。「{知|し}らなかった」を「{知|し}っている」に{変|か}えることが、{化学|かがく}を{学|まな}ぶ{力|ちから}になる。"
+      - type: narration
+        text: "リトマス{試験紙|しけんし}の{変色|へんしょく}——{酸性|さんせい}か{アルカリ性|あるかりせい}かを{見分|みわ}ける{道具|どうぐ}。この{知識|ちしき}が、{今日|きょう}は{真相|しんそう}を{解|と}く{鍵|かぎ}にもなった。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,347 @@
+meta:
+  id: botany-08
+  title: 成長のサイン
+  series: 植物探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{植物|しょくぶつ}{探偵|たんてい}{団|だん}の4{人|にん}は、{理科|りか}の{授業|じゅぎょう}で「{向光性|こうこうせい}」の{実験|じっけん}に{取|と}り{組|く}んでいた。{暗箱|あんばこ}に{小|ちい}さな{穴|あな}を{開|あ}け、インゲン{豆|まめ}の{芽|め}が{光|ひかり}の{方向|ほうこう}に{曲|ま}がる{様子|ようす}を{観察|かんさつ}するはずだった。"
+      - type: narration
+        text: "ところが{実験|じっけん}{結果|けっか}を{確認|かくにん}すると——"
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**ツボミの{担当|たんとう}した{実験箱|じっけんばこ}だけ、{芽|め}が{光源|こうげん}の「{逆方向|ぎゃくほうこう}」に{曲|ま}がっていた。**"
+      - type: narration
+        text: "「{誰|だれ}かが{鉢|はち}を{逆|さか}さにした？　{暗箱|あんばこ}の{穴|あな}を{変|か}えた？」——{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{向光性|こうこうせい}は、{植物|しょくぶつ}ホルモン「オーキシン」が{光|ひかり}の{当|あ}たらない{側|がわ}に{移動|いどう}して{細胞|さいぼう}を{伸|の}ばすことで{起|お}きるの。{光源|こうげん}の{位置|いち}が{変|か}わると、{曲|ま}がる{方向|ほうこう}も{変|か}わるかもしれないわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: surprised
+          - character: hana
+            expression: thinking
+          - character: tsubomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}はそれぞれ{違|ちが}う{情報|じょうほう}を{持|も}っている。{証拠|しょうこ}を{集|あつ}めて、この{不思議|ふしぎ}な{現象|げんしょう}の{真相|しんそう}を{解|と}き{明|あ}かそう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 成長のサイン
+        subtitle: 植物探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 実験箱と光源穴の観察
+      - type: narration
+        text: "4{人|にん}の{実験箱|じっけんばこ}を{並|なら}べると、{穴|あな}の{位置|いち}に{明|あき}らかな{違|ちが}いがあった。"
+      - type: narration
+        text: "ハナの{実験箱|じっけんばこ}: {穴|あな}は{上|うえ}から5cm　→　{芽|め}は{穴|あな}に{向|む}かって{斜|なな}めに{傾|かたむ}いている"
+      - type: narration
+        text: "モリの{実験箱|じっけんばこ}: {穴|あな}は{上|うえ}から8cm　→　{芽|め}は{緩|ゆる}やかに{穴|あな}に{向|む}かって{傾|かたむ}いている"
+      - type: narration
+        text: "ネコの{実験箱|じっけんばこ}: {穴|あな}は{上|うえ}から6cm　→　{芽|め}はやや{斜|なな}めに{穴|あな}へ{向|む}かっている"
+      - type: narration
+        text: "**ツボミの{実験箱|じっけんばこ}: {穴|あな}は{下|した}から3cm　→　{芽|め}が{上|うえ}に{真|ま}っすぐ{伸|の}びている（{穴|あな}の{反対|はんたい}{方向|ほうこう}）**"
+
+  # ==================== 調査：証拠カード2（左右）====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の証言
+      - type: sprite
+        character: hana
+        expression: normal
+        position: left
+      - type: dialog
+        character: hana
+        text: "{植物|しょくぶつ}ホルモン「オーキシン」は{茎|くき}の{先端|せんたん}で{作|つく}られて、{光|ひかり}が{当|あ}たる{側|がわ}から{暗|くら}い{側|がわ}に{移動|いどう}するの。{暗|くら}い{側|がわ}の{細胞|さいぼう}が{伸|の}びるから、{茎|くき}は{光|ひかり}に{向|む}かって{曲|ま}がる——これが{向光性|こうこうせい}よ。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: mori
+        expression: normal
+        position: right
+      - type: dialog
+        character: mori
+        text: "4{人|にん}の{実験箱|じっけんばこ}の{光源|こうげん}{穴|あな}の{位置|いち}を{全部|ぜんぶ}{測|はか}ったんだ。ハナ：{上|うえ}から5cm、{自分|じぶん}：{上|うえ}から8cm、ネコ：{上|うえ}から6cm——でもツボミだけ**{下|した}から3cm**。{明|あき}らかに{違|ちが}う！"
+        expression: surprised
+      - type: sprite
+        character: mori
+        action: hide
+
+  # ==================== 調査：証拠カード3（se:discover）====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 芽の曲がり方の詳細観察
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: neko
+        text: "ツボミの{実験箱|じっけんばこ}の{芽|め}をよく{見|み}ると——{光源|こうげん}（{底|そこ}の{穴|あな}）に**{向|む}かって**{伸|の}びているんじゃなくて、{重力|じゅうりょく}に{逆|さか}らって**{上方向|うえほうこう}に{伸|の}び{続|つづ}けている**んだ。"
+        expression: thinking
+      - type: se
+        sound: discover
+      - type: dialog
+        character: neko
+        text: "{向光性|こうこうせい}（{下|した}に{向|む}かう{力|ちから}）と{重力屈性|じゅうりょくくっせい}（{上|うえ}に{向|む}かう{力|ちから}）が{競合|きょうごう}してる{痕跡|こんせき}だよ。"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "{光源|こうげん}が{下|した}にある。{向光性|こうこうせい}なら{下|した}に{向|む}かうはず。でも{茎|くき}は{重力|じゅうりょく}{屈性|くっせい}で{上|うえ}に{伸|の}びようとする。**2つの{力|ちから}が{競合|きょうごう}した{結果|けっか}、{茎|くき}は「{逆方向|ぎゃくほうこう}」に{曲|ま}がっているように{見|み}えた**のだ。"
+
+  # ==================== 反転：証拠カード5（tension-quiet）====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 実験記録とツボミの行動
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mori
+        expression: determined
+        position: left
+      - type: dialog
+        character: mori
+        text: "{実験|じっけん}{前日|ぜんじつ}、ツボミが{暗箱|あんばこ}を{長|なが}い{時間|じかん}{触|さわ}っているのを{見|み}た。{穴|あな}を{下|した}に{移動|いどう}させていたんだと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: hana
+        expression: determined
+        position: right
+      - type: dialog
+        character: hana
+        text: "{光源|こうげん}を{底|そこ}の{近|ちか}くに{置|お}いたとき——{向光性|こうこうせい}で{下|した}に{引|ひ}っ{張|ぱ}られながら、{重力屈性|じゅうりょくくっせい}で{上|うえ}に{引|ひ}っ{張|ぱ}られる。**「{逆方向|ぎゃくほうこう}に{曲|ま}がる」{現象|げんしょう}が{起|お}きて{当然|とうぜん}**なのよ！"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: narration
+        text: "ツボミは「もっと{目|め}を{引|ひ}くデータを{出|だ}したい」と{思|おも}って{穴|あな}の{位置|いち}を{変|か}えた。でも{予想外|よそうがい}の{結果|けっか}が{出|で}て、「{失敗|しっぱい}した」と{思|おも}い**{報告|ほうこく}しなかった**。ところがその{結果|けっか}は——{失敗|しっぱい}ではなく、{植物|しょくぶつ}の{複合|ふくごう}{屈性|くっせい}という**{新|あたら}しい{発見|はっけん}**だったのだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こした？
+      - type: sprite
+        character: neko
+        expression: worried
+        position: right
+      - type: dialog
+        character: neko
+        text: "ツボミの{実験箱|じっけんばこ}だけ{穴|あな}の{位置|いち}が{全然|ぜんぜん}{違|ちが}う。そしてツボミは{結果|けっか}を{隠|かく}してた。でも「{逆|さか}さに{曲|ま}がる」のは{実|じつ}はすごいことで……"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{穴|あな}は{下|した}から3cm（{他|ほか}の3{人|にん}と{明|あき}らかに{違|ちが}う）。{芽|め}が{向光性|こうこうせい}と{重力屈性|じゅうりょくくっせい}の{競合|きょうごう}で{上|うえ}に{伸|の}びた。ツボミは「{失敗|しっぱい}した」と{思|おも}って{報告|ほうこく}しなかった。"
+      - type: choice
+        id: q1
+        question: 事件の中心になって問題を起こしたのは誰か？
+        options:
+          - text: ツボミ（光源穴の位置を変えて、異常な結果を報告しなかった）
+            value: tsubomi
+            correct: true
+            feedback: "{正解|せいかい}！　ツボミは「もっと{目立|めだ}つデータを{出|だ}したい」という{承認|しょうにん}{欲求|よっきゅう}から{穴|あな}の{位置|いち}を{変|か}えた。{予想外|よそうがい}の{結果|けっか}を「{失敗|しっぱい}」と{思|おも}って{隠|かく}したが、{実|じつ}は{複合|ふくごう}{屈性|くっせい}という{価値|かち}ある{発見|はっけん}だった。"
+          - text: ハナ（植物ホルモンの知識を持っていた人）
+            value: hana
+            feedback: "ハナは{向光性|こうこうせい}の{理論|りろん}を{解説|かいせつ}してくれた{情報|じょうほう}{提供|ていきょう}{役|やく}だよ。{実験箱|じっけんばこ}を{操作|そうさ}した{証拠|しょうこ}はないよ。"
+          - text: モリ（実験箱の穴の位置を測定した人）
+            value: mori
+            feedback: "モリは{穴|あな}の{位置|いち}を{丁寧|ていねい}に{測|はか}って{記録|きろく}を{残|のこ}してくれた{行動|こうどう}{役|やく}だよ。{異常|いじょう}を{発見|はっけん}したのもモリだよ。"
+          - text: ネコ（芽の曲がり方を詳しく観察した人）
+            value: neko
+            feedback: "ネコは{芽|め}の{曲|ま}がり{方|かた}を{詳|くわ}しく{観察|かんさつ}して{仮説|かせつ}を{立|た}てた{観察|かんさつ}{役|やく}だよ。{実験箱|じっけんばこ}を{変|か}えた{証拠|しょうこ}はないよ。"
+
+  # ==================== 真実：ツボミ ====================
+  - id: truth-tsubomi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ツボミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsubomi
+        text: "……{穴|あな}の{位置|いち}を{変|か}えたのは、{私|わたし}です。"
+        expression: worried
+      - type: dialog
+        character: tsubomi
+        text: "{観察|かんさつ}{発表|はっぴょう}でみんなに{注目|ちゅうもく}されたくて、もっと{変|か}わったデータが{出|で}るかなって。{穴|あな}を{底|そこ}に{近|ちか}い{位置|いち}に{移動|いどう}させたんです。"
+        expression: thinking
+      - type: dialog
+        character: tsubomi
+        text: "でも{結果|けっか}が「{逆方向|ぎゃくほうこう}に{曲|ま}がった」{様子|ようす}になって——「{失敗|しっぱい}した」って{思|おも}って、{恥|は}ずかしくて{報告|ほうこく}できなかった。"
+        expression: worried
+      - type: dialog
+        character: tsubomi
+        text: "まさかそれが{新|あたら}しい{発見|はっけん}だったなんて……{本当|ほんとう}にごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mori
+        text: "ツボミの{穴|あな}だけ{位置|いち}が{全然|ぜんぜん}{違|ちが}ったから{絶対|ぜったい}{気|き}づくと{思|おも}ってた。でも「{失敗|しっぱい}した」って{感|かん}じてたとは{知|し}らなかったよ。"
+        expression: thinking
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: neko
+        expression: worried
+        position: right
+      - type: dialog
+        character: neko
+        text: "{向光性|こうこうせい}と{重力屈性|じゅうりょくくっせい}が{競合|きょうごう}するなんて、{普通|ふつう}の{実験|じっけん}では{見|み}られないよ。{隠|かく}さないで{教|おし}えてくれたら、みんなで{一緒|いっしょ}に「すごい！」ってなれたのに。"
+        expression: worried
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{植物|しょくぶつ}は「{光|ひかり}に{向|む}かう{力|ちから}」と「{重力|じゅうりょく}に{逆|さか}らう{力|ちから}」の{両方|りょうほう}を{持|も}っているの。{光源|こうげん}の{位置|いち}によって{複合|ふくごう}{屈性|くっせい}が{起|お}きる——これはとても{貴重|きちょう}な{観察|かんさつ}{結果|けっか}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{変|か}わった{結果|けっか}が{出|で}たとき、「{失敗|しっぱい}」と{思|おも}って{隠|かく}すより、**「なぜ？」と{考|かんが}えて{報告|ほうこく}する**ことが{科学|かがく}の{第一歩|だいいっぽ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "ツボミの「{失敗|しっぱい}」は{実|じつ}は{発見|はっけん}だった。{予想外|よそうがい}の{結果|けっか}こそ、{新|あたら}しい{知識|ちしき}への{扉|とびら}になる。"
+      - type: narration
+        text: "{向光性|こうこうせい}と{重力屈性|じゅうりょくくっせい}——{植物|しょくぶつ}は2つの{力|ちから}を{使|つか}いながら、{今日|きょう}も{光|ひかり}に{向|む}かって{成長|せいちょう}し{続|つづ}ける。"
+      - type: effect
+        name: fade-out

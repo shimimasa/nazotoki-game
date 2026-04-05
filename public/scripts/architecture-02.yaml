@@ -1,0 +1,348 @@
+meta:
+  id: architecture-02
+  title: まちがった素材
+  series: 建築探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図工室|ずこうしつ}に「{木製|もくせい}の{展示棚|てんじだな}」が{新|あたら}しく{設置|せっち}されたはずなのに——"
+      - type: narration
+        text: "{触|さわ}ってみると、{明|あき}らかに{感触|かんしょく}が{違|ちが}う。{重|おも}さも、{叩|たた}いたときの{音|おと}も{木|き}らしくない。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "「{本当|ほんとう}に{木|き}の{棚|たな}？　それとも{別|べつ}の{素材|そざい}？」——{建築探偵団|けんちくたんていだん}は{調査|ちょうさ}を{開始|かいし}した。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{正|ただ}しい{素材|そざい}を{注文|ちゅうもん}したはずなのに、なぜか{違|ちが}う{素材|そざい}の{棚|たな}が{届|とど}いていたわ。{誰|だれ}の{指示|しじ}でこうなったのか……{一緒|いっしょ}に{調|しら}べましょう。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: worried
+          - character: hari
+            expression: thinking
+          - character: noki
+            expression: determined
+          - character: izumi
+            expression: surprised
+      - type: narration
+        text: "{建築探偵団|けんちくたんていだん}の4{人|にん}。{外見|がいけん}と{実体|じったい}が{一致|いっち}しない{謎|なぞ}に、それぞれが{手|て}がかりを{握|にぎ}っている。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: まちがった素材
+        subtitle: 建築探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 棚の写真と設置記録
+      - type: narration
+        text: "{図工室|ずこうしつ}の{棚|たな}の{写真|しゃしん}——{表面|ひょうめん}には{木目|もくめ}{模様|もよう}が{印刷|いんさつ}されている。{設置日時|せっちにちじ}の{記録|きろく}もある。"
+      - type: narration
+        text: "でも{実際|じっさい}に{触|さわ}ると……{冷|つめ}たい。{重|おも}い。{叩|たた}くと「ゴンゴン」という{音|おと}がする。"
+      - type: narration
+        text: "{見|み}た{目|め}は{木|き}なのに、{感触|かんしょく}は{木|き}じゃない。——これが{今回|こんかい}の{事件|じけん}のはじまりだ。"
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 素材の特性と発注記録
+      - type: sprite
+        character: noki
+        expression: determined
+        position: left
+      - type: dialog
+        character: noki
+        text: "{建築|けんちく}{材料|ざいりょう}の{特性|とくせい}を{確認|かくにん}したよ。{木|き}は{軽|かる}くて{温|あたた}かくて「コンコン」{音|おと}がする。コンクリートは{重|おも}くて{冷|つめ}たくて「ゴンゴン」{音|おと}がする。{石|いし}は{重|おも}くて{冷|つめ}たくて「カンカン」{音|おと}がする。"
+        expression: determined
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hari
+        text: "{発注記録|はっちゅうきろく}を{全部|ぜんぶ}{並|なら}べて{比較|ひかく}してみたんだ。{木製|もくせい}の{発注書|はっちゅうしょ}と、コンクリート{製|せい}の{発注書|はっちゅうしょ}——2{枚|まい}が{存在|そんざい}していた。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: narration
+        text: "{棚|たな}の「ゴンゴン」という{音|おと}はコンクリートと{一致|いっち}する。そして{発注書|はっちゅうしょ}が2{枚|まい}あるという{矛盾|むじゅん}——どこかで{間違|まちが}いが{起|お}きたはずだ。"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 密談カード
+      - type: se
+        sound: discover
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: izumi
+        text: "タテル、なんか{元気|げんき}ないけど{大丈夫|だいじょうぶ}？　{何|なに}か{知|し}ってるんじゃないかな……"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tateru
+        text: "……{実|じつ}は、{発注書|はっちゅうしょ}を{見間違|みまちが}えたのかもしれない。「{木製|もくせい}」と「{木目|もくめ}シートを{貼|は}ったコンクリートブロック{製|せい}」——どっちかよく{確認|かくにん}しなかった。でも……{恥|はず}ずかしくて{言|い}い{出|だ}せなかった。"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: タテルがイズミに{打|う}ち{明|あ}けた{密談|みつだん}の{内容|ないよう}。{発注書|はっちゅうしょ}を{見間違|みまちが}えた{可能性|かのうせい}——これが{犯人特定|はんにんとくてい}の{鍵|かぎ}だ。
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 発注書の控え
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hari
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hari
+        text: "{発注書|はっちゅうしょ}の{控|ひか}えが{見|み}つかった！　タテルの{署名|しょめい}がある——「{木目|もくめ}シート{貼|は}りコンクリート{製|せい}」の{発注書|はっちゅうしょ}に。"
+        expression: surprised
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: noki
+        expression: determined
+        position: right
+      - type: dialog
+        character: noki
+        text: "「{木目|もくめ}シート」って{知|し}ってる？　コンクリートや{金属|きんぞく}に{木|き}の{柄|がら}を{印刷|いんさつ}したシートを{貼|は}ったものよ。{建築|けんちく}でよく{使|つか}われるの。{見|み}た{目|め}は{木|き}でも{中身|なかみ}は{別物|べつもの}。"
+        expression: determined
+      - type: sprite
+        character: noki
+        action: hide
+      - type: narration
+        text: "タテルの{署名|しょめい}入|い}りの{発注書|はっちゅうしょ}が{証明|しょうめい}する。「{木製|もくせい}」ではなく「{木目|もくめ}シート{貼|は}りコンクリート{製|せい}」を{注文|ちゅうもん}していた——タテルが{間違|まちが}えて、{気|き}づいていても{黙|だま}っていた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 問題を起こした中心人物は誰だ？
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: izumi
+        text: "タテル、{密談|みつだん}で「{発注書|はっちゅうしょ}を{見間違|みまちが}えたかもしれない」って{言|い}ってたよね。{恥|はず}ずかしくて{言|い}い{出|だ}せなかったって……"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{発注書|はっちゅうしょ}が2{枚|まい}{存在|そんざい}する{矛盾|むじゅん}。{棚|たな}の{素材|そざい}はコンクリートと{一致|いっち}。タテルの{署名|しょめい}{入|い}りの「{木目|もくめ}シート{貼|は}りコンクリート{製|せい}」の{発注書|はっちゅうしょ}。タテルが{間違|まちが}いを{知|し}って{黙|だま}っていた。"
+      - type: choice
+        id: q1
+        question: 問題を起こした中心人物は誰？
+        options:
+          - text: タテル（発注書を見間違えて、気づいていても黙っていた）
+            value: tateru
+            correct: true
+            feedback: "{正解|せいかい}！　タテルは「{木製|もくせい}」と「{木目|もくめ}シート{貼|は}りコンクリート{製|せい}」の{発注書|はっちゅうしょ}を{見間違|みまちが}えた。{間違|まちが}いに{気|き}づいたのに、{恥|はず}ずかしさから{黙|だま}っていた。{外見|がいけん}と{実体|じったい}が{一致|いっち}しない「{木目|もくめ}シート」の{知識|ちしき}が{真相|しんそう}を{解|と}く{鍵|かぎ}だった。"
+          - text: ノキ（素材の違いに気づいていた人）
+            value: noki
+            feedback: "ノキは{棚|たな}の{素材|そざい}を{観察|かんさつ}して「コンクリート」と{見抜|みぬ}いた{側|がわ}。{問題|もんだい}を{見|み}つけた{人|ひと}だよ。"
+          - text: ハリ（発注記録を調べた人）
+            value: hari
+            feedback: "ハリは{発注記録|はっちゅうきろく}を{並|なら}べて{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}。{調査|ちょうさ}に{貢献|こうけん}した{人|ひと}だよ。"
+          - text: イズミ（タテルの様子を心配していた人）
+            value: izumi
+            feedback: "イズミはタテルを{心配|しんぱい}して{密談|みつだん}で{打|う}ち{明|あ}けてもらった{側|がわ}。{気|き}づかいで{真相|しんそう}に{近|ちか}づいた{人|ひと}だよ。"
+
+  # ==================== 真実：タテル ====================
+  - id: truth-tateru
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: タテルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tateru
+        text: "……{発注書|はっちゅうしょ}を{間違|まちが}えたのは、{僕|ぼく}です。「{木製|もくせい}」のつもりで{選|えら}んだのに、「{木目|もくめ}シート{貼|は}りコンクリート{製|せい}」を{注文|ちゅうもん}してしまった。"
+        expression: worried
+      - type: dialog
+        character: tateru
+        text: "{棚|たな}が{届|とど}いたときに{気|き}づいた。でも……{自分|じぶん}が{間違|まちが}えたって{言|い}うのが{恥|はず}ずかしくて、{黙|だま}っていた。{木目|もくめ}{模様|もよう}のシートが{貼|は}ってあったから、{見|み}た{目|め}では{分|わ}かりにくかったし……"
+        expression: thinking
+      - type: dialog
+        character: tateru
+        text: "みんなが{変|へん}だって{言|い}い{出|だ}したとき、{本当|ほんとう}は{正直|しょうじき}に{言|い}わなきゃいけなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: tateru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: noki
+        text: "「ゴンゴン」って{音|おと}がしたとき、これはコンクリートだって{確信|かくしん}したの。{木目|もくめ}{模様|もよう}があっても、{音|おと}と{温度|おんど}と{重|おも}さは{ごまかせない|誤魔化せない}。"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: hari
+        expression: determined
+        position: right
+      - type: dialog
+        character: hari
+        text: "2{枚|まい}の{発注書|はっちゅうしょ}を{並|なら}べて{比較|ひかく}したら、タテルの{署名|しょめい}がある{方|ほう}が「コンクリート{製|せい}」だった。{記録|きろく}を{整理|せいり}すると{真実|しんじつ}が{見|み}えてくる。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{木目|もくめ}シートって{知|し}ってた？　コンクリートや{金属|きんぞく}の{表面|ひょうめん}に{木|き}の{柄|がら}を{印刷|いんさつ}したシートを{貼|は}って、{木|き}のように{見|み}せる{建築|けんちく}{素材|そざい}よ。{外見|がいけん}だけで{判断|はんだん}せず、{音|おと}・{温度|おんど}・{重|おも}さで{確認|かくにん}する——それが{建築|けんちく}の{知恵|ちえ}ね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "タテルの{間違|まちが}いは{恥|はず}ずかしいことじゃない。でも、{気|き}づいたのに{黙|だま}っていたことが{問題|もんだい}を{大|おお}きくしたの。{間違|まちが}えたときこそ、{早|はや}く{話|はな}してくれると{一緒|いっしょ}に{解決|かいけつ}できるわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{見|み}た{目|め}」と「{実体|じったい}」は{必|かなら}ずしも{同|おな}じじゃない。{素材|そざい}を{判断|はんだん}するときは、{複数|ふくすう}の{感覚|かんかく}で{確|たし}かめよう。"
+      - type: narration
+        text: "{間違|まちが}えることは{誰|だれ}にでもある。{大切|たいせつ}なのは、{気|き}づいたとき{正直|しょうじき}に{伝|つた}える{勇気|ゆうき}だ。"
+      - type: effect
+        name: fade-out

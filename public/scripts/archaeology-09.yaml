@@ -1,0 +1,371 @@
+meta:
+  id: archaeology-09
+  title: ふたつの遺跡
+  series: 考古学探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  ishino:
+    name: イシノ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  horibe:
+    name: ホリベ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tsuchika:
+    name: ツチカ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  fumiko:
+    name: フミコ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{考古学|こうこがく}{探偵|たんてい}団の4{人|にん}は、{縄文|じょうもん}{時代|じだい}の{遺跡|いせき}を{比較|ひかく}する{授業|じゅぎょう}の{課題|かだい}に{取|と}り{組|く}んでいた。A{遺跡|いせき}とB{遺跡|いせき}、それぞれ3{回|かい}の{調査|ちょうさ}{時点|じてん}のデータをまとめた{比較|ひかく}レポートを{作|つく}ることになっている。"
+      - type: narration
+        text: "ところが{今日|きょう}、{授業|じゅぎょう}でイシノのレポートを{見|み}た{先生|せんせい}が首をかしげた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "イシノ、このレポートおかしくない？{同|おな}じ{縄文|じょうもん}{時代|じだい}の{遺跡|いせき}なのに、B{遺跡|いせき}の{調査|ちょうさ}②だけ「{農耕|のうこう}・{高床|たかゆか}{倉庫|そうこ}・{薄型|うすがた}の{土器|どき}」って{書|か}いてある。これ、{縄文|じょうもん}{時代|じだい}の{特徴|とくちょう}じゃないわよ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: ishino
+            expression: worried
+          - character: horibe
+            expression: surprised
+          - character: tsuchika
+            expression: thinking
+          - character: fumiko
+            expression: surprised
+      - type: narration
+        text: "B{遺跡|いせき}の{調査|ちょうさ}①と{調査|ちょうさ}③は{縄文|じょうもん}{時代|じだい}らしいデータなのに、{調査|ちょうさ}②だけが{明|あき}らかに{異|こと}なる{特徴|とくちょう}を{示|しめ}している。いったい何が{起|お}きたのか——4{人|にん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ふたつの遺跡
+        subtitle: 考古学探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: イシノの比較レポート
+      - type: narration
+        text: "イシノの{比較|ひかく}レポートを{確認|かくにん}した。A{遺跡|いせき}{調査|ちょうさ}①②③、B{遺跡|いせき}{調査|ちょうさ}①②③の{比較|ひかく}表だ。"
+      - type: narration
+        text: "A{遺跡|いせき}はすべての{調査|ちょうさ}で{縄文|じょうもん}{時代|じだい}の{特徴|とくちょう}（{狩猟|しゅりょう}{採集|さいしゅう}・{竪穴式|たてあなしき}{住居|じゅうきょ}・{縄目|なわめ}{土器|どき}）。"
+      - type: narration
+        text: "B{遺跡|いせき}{調査|ちょうさ}①: {縄文|じょうもん}の{特徴|とくちょう} ✅　B{遺跡|いせき}{調査|ちょうさ}③: {縄文|じょうもん}の{特徴|とくちょう} ✅"
+      - type: narration
+        text: "**B{遺跡|いせき}{調査|ちょうさ}②のみ**: {生業|せいぎょう}:{農耕|のうこう}　{集落|しゅうらく}:{高床|たかゆか}{倉庫|そうこ}　{土器|どき}:{薄型|うすがた} ❓"
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{同|おな}じ{遺跡|いせき}の{調査|ちょうさ}なのに、②だけ{全然|ぜんぜん}{違|ちが}うデータ。これ、{縄文|じょうもん}{時代|じだい}のデータじゃない{気|き}がする……"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+
+  # ==================== 調査：証拠カード2＋3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 時代の特徴と土器の比較
+      - type: sprite
+        character: fumiko
+        expression: normal
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "{縄文|じょうもん}{時代|じだい}の{特徴|とくちょう}を{整理|せいり}するね。{縄文|じょうもん}は{狩猟|しゅりょう}{採集|さいしゅう}・{竪穴式|たてあなしき}{住居|じゅうきょ}・{貝塚|かいづか}。{土器|どき}は{厚|あつ}くてデコボコした{縄目|なわめ}{模様|もよう}。"
+        expression: normal
+      - type: dialog
+        character: fumiko
+        text: "それに{対|たい}して{弥生|やよい}{時代|じだい}は{農耕|のうこう}・{高床|たかゆか}{倉庫|そうこ}・{水田|すいでん}。{土器|どき}は{薄|うす}くてなめらか。B{遺跡|いせき}{調査|ちょうさ}②のデータは……{明|あき}らかに{弥生|やよい}{時代|じだい}の{特徴|とくちょう}だよ。"
+        expression: determined
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: sprite
+        character: tsuchika
+        expression: determined
+        position: right
+      - type: dialog
+        character: tsuchika
+        text: "B{遺跡|いせき}{調査|ちょうさ}②の{土器|どき}{写真|しゃしん}と{縄文|じょうもん}{土器|どき}を{並|なら}べてみたよ。{薄|うす}くてなめらか——これは{弥生式|やよいしき}の{特徴|とくちょう}に{完全|かんぜん}に{一致|いっち}する。B{遺跡|いせき}の{他|ほか}の{調査|ちょうさ}とは{全然|ぜんぜん}{違|ちが}う。"
+        expression: determined
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: narration
+        text: "{縄文|じょうもん}と{弥生|やよい}の{特徴|とくちょう}が{判明|はんめい}した。B{遺跡|いせき}{調査|ちょうさ}②は{縄文|じょうもん}ではなく{弥生|やよい}{時代|じだい}のデータだ。では、なぜイシノの{レポート|れぽーと}に{弥生|やよい}のデータが{混|ま}じったのか？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 引用した報告書の正体
+      - type: sprite
+        character: horibe
+        expression: determined
+        position: left
+      - type: dialog
+        character: horibe
+        text: "イシノが{引用|いんよう}した{報告書|ほうこくしょ}を{図書室|としょしつ}で{調|しら}べたよ。{正式|せいしき}タイトルはこれ——「B{遺跡|いせき}{第|だい}二次{調査|ちょうさ}{報告|ほうこく}（{弥生|やよい}{時代|じだい}・2018{年|ねん}）」。{縄文|じょうもん}{時代|じだい}とはどこにも{書|か}いてない。"
+        expression: determined
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: se
+        sound: discover
+      - type: sprite
+        character: ishino
+        expression: worried
+        position: right
+      - type: dialog
+        character: ishino
+        text: "……それ、{確認|かくにん}した{報告書|ほうこくしょ}だ。「B{遺跡|いせき}の{報告書|ほうこくしょ}」で{検索|けんさく}して{最初|さいしょ}に{出|で}てきたから、{縄文|じょうもん}{時代|じだい}のものだと{思|おも}って……"
+        expression: worried
+      - type: sprite
+        character: ishino
+        action: hide
+      - type: narration
+        text: "イシノの{検索|けんさく}{履歴|りれき}には{締|し}め{切|き}り{前夜|ぜんや}の{時刻|じこく}{記録|きろく}が{残|のこ}っていた。B{遺跡|いせき}の{縄文|じょうもん}{時代|じだい}の{発掘|はっくつ}{報告書|ほうこくしょ}が{見|み}つからず、{題名|だいめい}が{似|に}た{弥生|やよい}{時代|じだい}の{文書|ぶんしょ}を{誤認|ごにん}して{引用|いんよう}した——その{経緯|けいい}が{判明|はんめい}した。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "イシノに{確認|かくにん}したら「{急|いそ}いで{検索|けんさく}したら{題名|だいめい}が{似|に}ていた。{縄文|じょうもん}と{弥生|やよい}の{区別|くべつ}を{確認|かくにん}しなかった」って。{締|し}め{切|き}りの{焦|あせ}りは{分|わ}かるけど——"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{同|おな}じ{場所|ばしょ}でも{縄文|じょうもん}と{弥生|やよい}では{人々|ひとびと}の{暮|く}らしが{全|まった}く{変|か}わる。その{違|ちが}いを{混同|こんどう}したら{比較|ひかく}の{意味|いみ}がなくなる。でも{今回|こんかい}の{経験|けいけん}で{縄文|じょうもん}と{弥生|やよい}の{違|ちが}いは{一生|いっしょう}{忘|わす}れないはずよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "B{遺跡|いせき}{調査|ちょうさ}②が{弥生|やよい}のデータ → {引用|いんよう}{報告書|ほうこくしょ}のタイトルに「{弥生|やよい}{時代|じだい}」と{明記|めいき} → {縄文|じょうもん}のものと{誤認|ごにん} → {締|し}め{切|き}り{前夜|ぜんや}に{確認|かくにん}を{省略|しょうりゃく} → **イシノが{誤|あやま}った{資料|しりょう}を{引用|いんよう}した**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心になって問題を起こした？
+      - type: sprite
+        character: fumiko
+        expression: worried
+        position: left
+      - type: dialog
+        character: fumiko
+        text: "イシノが{先週|せんしゅう}「B{遺跡|いせき}の{縄文|じょうもん}{時代|じだい}の{資料|しりょう}、{全然|ぜんぜん}{見|み}つからないんだよね……」って{言|い}ってた。{締|し}め{切|き}りが{近|ちか}くて{焦|あせ}ってたのは{分|わ}かるんだけど。"
+        expression: worried
+      - type: sprite
+        character: fumiko
+        action: hide
+      - type: sprite
+        character: horibe
+        expression: thinking
+        position: right
+      - type: dialog
+        character: horibe
+        text: "{急|いそ}いでたのは{分|わ}かる。でも{報告書|ほうこくしょ}のタイトルに「{弥生|やよい}{時代|じだい}」って{書|か}いてあったのに……もう1{回|かい}{確認|かくにん}していれば{防|ふせ}げた{間違|まちが}いだよ。"
+        expression: thinking
+      - type: sprite
+        character: horibe
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。B{遺跡|いせき}{調査|ちょうさ}②のデータだけが{弥生|やよい}{時代|じだい}の{特徴|とくちょう}。{引用|いんよう}した{報告書|ほうこくしょ}のタイトルに「{弥生|やよい}{時代|じだい}」と{明記|めいき}。{締|し}め{切|き}り{前夜|ぜんや}に{確認|かくにん}を{省|はぶ}いた{検索|けんさく}{履歴|りれき}。"
+      - type: choice
+        id: q1
+        question: 誰が中心になって問題を起こした？
+        options:
+          - text: イシノ（弥生時代の報告書を縄文と誤認して引用した比較レポートの作成者）
+            value: ishino
+            correct: true
+            feedback: "{正解|せいかい}！ イシノは{締|し}め{切|き}りの{焦|あせ}りから{確認|かくにん}を{省略|しょうりゃく}し、B{遺跡|いせき}の{弥生|やよい}{時代|じだい}の{報告書|ほうこくしょ}を{縄文|じょうもん}のものと{誤認|ごにん}して{引用|いんよう}した。{帰納法|きのうほう}で3つの{調査|ちょうさ}{時点|じてん}を{横断的|おうだんてき}に{比較|ひかく}すると、{矛盾|むじゅん}{パターン|ぱたーん}が{見|み}えてくる——これが{今日|きょう}の{学|まな}びだ。"
+          - text: ホリベ（引用した報告書のタイトルを確認した人）
+            value: horibe
+            feedback: "ホリベは{問題|もんだい}を{発見|はっけん}した{側|がわ}。{報告書|ほうこくしょ}の{正式|せいしき}タイトルを{調|しら}べて{誤引用|ごいんよう}を{明|あき}らかにしたのがホリベだよ。"
+          - text: ツチカ（土器の比較分析をした人）
+            value: tsuchika
+            feedback: "ツチカはB{遺跡|いせき}{調査|ちょうさ}②の{土器|どき}が{弥生式|やよいしき}だと{指摘|してき}した{探偵|たんてい}の{役割|やくわり}。{問題|もんだい}を{起|お}こした{側|がわ}ではないよ。"
+          - text: フミコ（縄文と弥生の違いを説明した人）
+            value: fumiko
+            feedback: "フミコは{縄文|じょうもん}と{弥生|やよい}の{違|ちが}いを{解説|かいせつ}して{分析|ぶんせき}を{助|たす}けた{役割|やくわり}。{機会|きかい}も{動機|どうき}もないよ。"
+
+  # ==================== 真実：イシノ ====================
+  - id: truth-ishino
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イシノの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: ishino
+        expression: worried
+        position: center
+      - type: dialog
+        character: ishino
+        text: "……ごめんなさい。{比較|ひかく}レポートに{間違|まちが}ったデータを{使|つか}ったのは、ぼくです。"
+        expression: worried
+      - type: dialog
+        character: ishino
+        text: "B{遺跡|いせき}の{縄文|じょうもん}{時代|じだい}の{報告書|ほうこくしょ}がどうしても{見|み}つからなくて。{締|し}め{切|き}りの{前日|ぜんじつ}の{夜|よる}、{検索|けんさく}で{最初|さいしょ}に{出|で}てきた「B{遺跡|いせき}{第|だい}二次{調査|ちょうさ}{報告|ほうこく}」を{見|み}て、{縄文|じょうもん}のものだと{思|おも}ってしまった。"
+        expression: thinking
+      - type: dialog
+        character: ishino
+        text: "タイトルに「{弥生|やよい}{時代|じだい}」って{書|か}いてあったのに、{焦|あせ}りすぎて{読|よ}み{飛|と}ばしてしまった。ちゃんと{確認|かくにん}すればよかった。"
+        expression: worried
+      - type: sprite
+        character: ishino
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsuchika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsuchika
+        text: "{土器|どき}の{写真|しゃしん}を{並|なら}べたとき、すぐ{分|わ}かった。{弥生|やよい}と{縄文|じょうもん}の{土器|どき}はこんなに{違|ちが}う。3つの{調査|ちょうさ}{時点|じてん}を{比較|ひかく}すると{矛盾|むじゅん}が{浮|う}き{上|あ}がるんだ。"
+        expression: thinking
+      - type: sprite
+        character: tsuchika
+        action: hide
+      - type: sprite
+        character: fumiko
+        expression: worried
+        position: right
+      - type: dialog
+        character: fumiko
+        text: "イシノの{気持|きも}ちは{分|わ}かる。でも{縄文|じょうもん}と{弥生|やよい}が{混|ま}ざったら{比較|ひかく}の{意味|いみ}がなくなる。{困|こま}ったときは{早|はや}めに{相談|そうだん}してほしかったな。"
+        expression: worried
+      - type: sprite
+        character: fumiko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{縄文|じょうもん}と{弥生|やよい}——{同|おな}じ{場所|ばしょ}の{遺跡|いせき}でも、{時代|じだい}が{変|か}わると{人|ひと}の{暮|く}らしが{全|まった}く{異|こと}なるの。だから{複数|ふくすう}の{遺跡|いせき}データを{比較|ひかく}するときは、{時代|じだい}と{出典|しゅってん}を{必|かなら}ず{確認|かくにん}する。これが{考古学|こうこがく}の{基本|きほん}よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "3つの{調査|ちょうさ}{時点|じてん}を{横|よこ}に{並|なら}べて{矛盾|むじゅん}を{見|み}つけた{今日|きょう}の{推理|すいり}——それが「{帰納法|きのうほう}」という{考|かんが}え{方|かた}よ。{複数|ふくすう}の{事例|じれい}からパターンを{読|よ}み{取|と}る{力|ちから}は、{考古学|こうこがく}だけじゃなくてどんな{調査|ちょうさ}にも{役立|やくだ}つわ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{資料|しりょう}が{見|み}つからなくて{困|こま}ったときは、{先生|せんせい}や{司書|ししょ}に{相談|そうだん}してね。{一緒|いっしょ}に{探|さが}せることもあるから。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{焦|あせ}りから{確認|かくにん}を{省|はぶ}くと、{大切|たいせつ}な{違|ちが}いを{見落|みお}としてしまう。{締|し}め{切|き}りが{近|ちか}いときこそ、{一度|いちど}{立|た}ち{止|と}まって{出典|しゅってん}を{確かめ|たしかめ}よう。"
+      - type: narration
+        text: "{複数|ふくすう}のデータを{比較|ひかく}するとき——3つの{調査|ちょうさ}{時点|じてん}を{横断|おうだん}して{見|み}ると、{矛盾|むじゅん}のパターンが{浮|う}き{上|あ}がる。これが{考古学|こうこがく}の{帰納的|きのうてき}{分析|ぶんせき}の{力|ちから}だ。"
+      - type: effect
+        name: fade-out

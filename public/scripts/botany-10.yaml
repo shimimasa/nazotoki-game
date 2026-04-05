@@ -1,0 +1,415 @@
+meta:
+  id: botany-10
+  title: 緑の未来
+  series: 植物探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{植物|しょくぶつ}{探偵団|たんていだん}の4{人|にん}。ある{朝|あさ}、{校庭|こうてい}の{隅|すみ}に{生|は}えていた「{見慣|みな}れない{草|くさ}」が{全部|ぜんぶ}{枯|か}れていた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かが{除草剤|じょそうざい}をまいた{可能性|かのうせい}があります。{校庭|こうてい}の{草|くさ}が{不自然|ふしぜん}な{枯|か}れ{方|かた}をしているわ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: surprised
+          - character: hana
+            expression: worried
+          - character: tsubomi
+            expression: worried
+      - type: narration
+        text: "{土|つち}に{白|しろ}い{粉|こな}の{痕跡|こんせき}。{除草剤|じょそうざい}の{成分|せいぶん}と{一致|いっち}する。{誰|だれ}が、なぜ——4{人|にん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 緑の未来
+        subtitle: 植物探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 校庭の報告書
+      - type: narration
+        text: "{校庭|こうてい}{北東|ほくとう}の{隅|すみ}にあった{草|くさ}（{高|たか}さ{約|やく}20cm、ピンクの{花|はな}）が1{週間|しゅうかん}{以内|いない}に{全|すべ}て{枯|か}れた。"
+      - type: narration
+        text: "{土|つち}に{白|しろ}い{粉|こな}の{痕跡|こんせき}あり——{除草剤|じょそうざい}の{成分|せいぶん}と{一致|いっち}。{枯|か}れ{方|かた}が{自然|しぜん}な{枯|か}れ{方|かた}ではない。"
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: neko
+        text: "{枯|か}れた{植物|しょくぶつ}の{根|ね}に{小|ちい}さな{粒|つぶ}が{付|つ}いていた。{根粒菌|こんりゅうきん}だ。{普通|ふつう}の{草|くさ}とは{違|ちが}う{構造|こうぞう}をしている。"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== 調査：証拠カード2 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 生き物の観察記録
+      - type: sprite
+        character: mori
+        expression: surprised
+        position: right
+      - type: dialog
+        character: mori
+        text: "{去年|きょねん}6〜8{月|がつ}、{北東|ほくとう}の{草|くさ}の{周|まわ}りにミヤマシジミ（{小|ちい}さな{青|あお}い{蝶|ちょう}）が{毎週|まいしゅう}{観察|かんさつ}できた。でも{今年|ことし}7{月|がつ}{以降|いこう}——ゼロ{匹|ひき}。"
+        expression: surprised
+      - type: dialog
+        character: mori
+        text: "{枯|か}れた{草|くさ}の{近|ちか}くだけに{来|き}ていた{蝶|ちょう}が、{今年|ことし}は1{匹|ぴき}も{見|み}ていない。"
+        expression: thinking
+      - type: sprite
+        character: mori
+        action: hide
+      - type: narration
+        text: "1{種|しゅ}の{植物|しょくぶつ}が{消|き}えると、{蝶|ちょう}も{消|き}える——この{相関|そうかん}は{偶然|ぐうぜん}ではないかもしれない。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 除草剤の入手経路
+      - type: sprite
+        character: hana
+        expression: worried
+        position: left
+      - type: dialog
+        character: hana
+        text: "{美化委員|びかいいん}として、{校庭|こうてい}をきれいにするのが{私|わたし}の{仕事|しごと}だと{思|おも}っていた。{名前|なまえ}もわからない{草|くさ}は{取|と}り{除|のぞ}くべきだと……"
+        expression: worried
+      - type: dialog
+        character: hana
+        text: "{除草剤|じょそうざい}は、{家|いえ}から{持|も}ってきた。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{枯|か}れる{前|まえ}に{押|お}し{花|はな}にしておいたの。すごくきれいな{花|はな}だったのに……{花|はな}びらの{色|いろ}と{形|かたち}から、{植物図鑑|しょくぶつずかん}で{調|しら}べてみる。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: narration
+        text: "{除草剤|じょそうざい}は{家|いえ}から{持|も}ってきた——ハナの{言葉|ことば}は{重|おも}い。{美化委員|びかいいん}としての{責任感|せきにんかん}が{行動|こうどう}を{駆動|くどう}した。"
+
+  # ==================== 推理・第1回投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 第1回 推理タイム
+        subtitle: 除草剤をまいたのは誰だ？
+      - type: sprite
+        character: neko
+        expression: determined
+        position: left
+      - type: dialog
+        character: neko
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{除草剤|じょそうざい}が{使|つか}われた。{入手|にゅうしゅ}できる{人物|じんぶつ}は——{家|いえ}にあったと{言|い}っている{人|ひと}は{誰|だれ}？"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "{除草剤|じょそうざい}の{成分|せいぶん}と{一致|いっち}する{痕跡|こんせき}。{家庭用|かていよう}{除草剤|じょそうざい}を{持|も}ち{込|こ}んだ{人物|じんぶつ}。{美化委員|びかいいん}としての{思|おも}い{込|こ}み——{証拠|しょうこ}を{合|あ}わせると……"
+      - type: choice
+        id: q1
+        question: 除草剤をまいたのは誰？
+        options:
+          - text: ハナ（美化委員の責任感＋家から除草剤を持参＋先生に相談せず行動）
+            value: hana
+            correct: true
+            feedback: "{正解|せいかい}！ ハナは「{校庭|こうてい}{美化委員|びかいいん}」として{強|つよ}い{責任感|せきにんかん}を{感|かん}じていた。「{名前|なまえ}もわからない{草|くさ}が{生|は}えているのは{自分|じぶん}の{手入|ていれ}れが{足|た}りない{証拠|しょうこ}」と{思|おも}い、{先生|せんせい}に{相談|そうだん}せずに{家|いえ}の{除草剤|じょそうざい}をまいた。{悪意|あくい}はゼロ——{知識|ちしき}がなかっただけ。"
+          - text: モリ（生き物の観察記録をしていた人）
+            value: mori
+            feedback: "モリは{観察|かんさつ}{記録|きろく}をしていた{側|がわ}。{除草剤|じょそうざい}を{入手|にゅうしゅ}・{使用|しよう}した{証拠|しょうこ}がない。"
+          - text: ネコ（根粒菌を観察していた人）
+            value: neko
+            feedback: "ネコは{植物|しょくぶつ}の{観察|かんさつ}{記録|きろく}をしていた。{除草剤|じょそうざい}の{行動|こうどう}と{一致|いっち}しない。"
+          - text: ツボミ（押し花を作っていた人）
+            value: tsubomi
+            feedback: "ツボミは{植物|しょくぶつ}を{押|お}し{花|はな}にして{保存|ほぞん}していた——{枯|か}らしたい{人間|にんげん}の{行動|こうどう}ではない。"
+
+  # ==================== 証拠カード5：パラダイムシフト ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 新たな証拠
+        subtitle: 植物の正体が判明した
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsubomi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: tsubomi
+        text: "{押|お}し{花|はな}の{記録|きろく}を{植物図鑑|しょくぶつずかん}と{照|てら}らし{合|あ}わせた。{花|はな}びらの{色|いろ}と{形|かたち}——これは**カワラナデシコ**（Dianthus superbus）。"
+        expression: surprised
+      - type: dialog
+        character: tsubomi
+        text: "……{環境省|かんきょうしょう}レッドリスト、**{絶滅危惧|ぜつめつきぐ}II{類|るい}**。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: se
+        sound: discover
+      - type: narration
+        text: "カワラナデシコの{特徴|とくちょう}——①ミヤマシジミの{唯一|ゆいいつ}の{食草|しょくそう}（{幼虫|ようちゅう}が{葉|は}を{食|た}べる）②アリが{種子|しゅし}を{運|はこ}ぶ③{根粒菌|こんりゅうきん}が{共生|きょうせい}し{土|つち}の{窒素|ちっそ}を{固定|こてい}④{実|み}を{食|た}べる{鳥|とり}が3{種|しゅ}。"
+      - type: sprite
+        character: mori
+        expression: surprised
+        position: left
+      - type: dialog
+        character: mori
+        text: "ミヤマシジミが{消|き}えた{理由|りゆう}がわかった。{食|た}べる{草|くさ}がなくなったから。1{種|しゅ}の{植物|しょくぶつ}が{消|き}えると——{蝶|ちょう}が{消|き}え、{蝶|ちょう}を{食|た}べる{鳥|とり}が{減|へ}り、{種|たね}を{運|はこ}ぶ{生|い}き{物|もの}が{減|へ}る……"
+        expression: surprised
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: neko
+        expression: determined
+        position: right
+      - type: dialog
+        character: neko
+        text: "{根粒菌|こんりゅうきん}が{消|き}えれば{土|つち}の{窒素|ちっそ}が{減|へ}る。{土|つち}が{痩|や}せる。{他|ほか}の{植物|しょくぶつ}も{育|そだ}ちにくくなる。これが**キーストーン{種|しゅ}**——1{種|しゅ}の{消滅|しょうめつ}が{連鎖崩壊|れんさほうかい}を{引|ひ}き{起|お}こす。"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "「{雑草|ざっそう}を{取|と}り{除|のぞ}く＝{良|よ}いこと」——そのパラダイムが{今|いま}、{崩|くず}れた。{名前|なまえ}のわからない{草|くさ}に、{名前|なまえ}があった。{役割|やくわり}があった。{知|し}らなかっただけで。"
+
+  # ==================== 振り返り・第2回投票 ====================
+  - id: reflection
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 第2回 問い直しタイム
+        subtitle: この事件の本当の問題は何？
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{除草剤|じょそうざい}をまいた{人|ひと}はわかった。でも——この{事件|じけん}の**{本当|ほんとう}の{問題|もんだい}**は、それだけかしら？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "カワラナデシコが{絶滅危惧種|ぜつめつきぐしゅ}だったこと、{食物連鎖|しょくもつれんさ}の{要|かなめ}だったこと——あなたはどう{考|かんが}える？"
+      - type: choice
+        id: q2
+        question: この事件の本当の問題は何だと思う？
+        options:
+          - text: 先生に相談せずに除草剤を使ったこと
+            value: a
+            feedback: "{一部|いちぶ}{正|ただ}しい。でも「{先生|せんせい}に{相談|そうだん}すれば{良|よ}かった」だけでは、この{事件|じけん}の{深|ふか}さには{届|とど}かない。"
+          - text: 絶滅危惧種を枯らしてしまったこと
+            value: b
+            feedback: "{結果|けっか}として{正|ただ}しい。でも「なぜそうなったか」——{知識|ちしき}がなかったことの{方|ほう}が{重要|じゅうよう}かもしれない。"
+          - text: 「名前のわからない草＝雑草＝取り除くべき」という思い込みが問題だった
+            value: c
+            feedback: "{核心|かくしん}に{近|ちか}い。{名前|なまえ}を{知|し}らないことが{誤|あやま}った{行動|こうどう}につながった。「{知|し}ること」が「{守|まも}ること」の{始|はじ}まり。"
+          - text: 全部。「名前を知ること」が「守ること」の始まり——1種の植物が食物連鎖を支えている仕組みを理解することが今日の学びの全て
+            value: d
+            feedback: "シリーズの{全|すべ}ての{学|まな}びの{統合|とうごう}。{植物探偵団|しょくぶつたんていだん}{Vol.1〜10|}{で}{学|まな}んだ{知識|ちしき}が、この{一|ひと}つの{事件|じけん}に{繋|つな}がっていた。"
+
+  # ==================== 真相：ハナの告白 ====================
+  - id: truth-hana
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハナの言葉
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "……{除草剤|じょそうざい}をまいたのは、わたしです。"
+        expression: worried
+      - type: dialog
+        character: hana
+        text: "{美化委員|びかいいん}として、{名前|なまえ}もわからない{草|くさ}が{生|は}えているのは{私|わたし}の{手入|てい}れが{足|た}りない{証拠|しょうこ}だと{思|おも}っていた。{先生|せんせい}に{相談|そうだん}もしないで……"
+        expression: thinking
+      - type: dialog
+        character: hana
+        text: "**{名前|なまえ}があったんだ。{絶滅危惧種|ぜつめつきぐしゅ}だったんだ。**{知|し}らなかった——だから{知|し}ることが{大切|たいせつ}だと{今|いま}わかった。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+
+  # ==================== 真相：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tsubomi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsubomi
+        text: "{ハナ|ハナ}を{責|せ}めたいわけじゃない。わたしだって、{押|お}し{花|はな}にするまで{名前|なまえ}を{知|し}らなかった。みんな{知|し}らなかった——だから{今日|きょう}{知|し}れた。"
+        expression: thinking
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: sprite
+        character: mori
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mori
+        text: "ミヤマシジミが{消|き}えたとき、{原因|げんいん}を{探|さが}すべきだったかもしれない。{観察|かんさつ}{記録|きろく}が、{今日|きょう}{初|はじ}めて{意味|いみ}を{持|も}った。"
+        expression: thinking
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: neko
+        expression: normal
+        position: left
+      - type: dialog
+        character: neko
+        text: "{根粒菌|こんりゅうきん}の{粒|つぶ}を{見|み}たとき「{普通|ふつう}じゃない」と{感|かん}じた。{名前|なまえ}を{調|しら}べていれば——{今日|きょう}からは、{知|し}ることを{後回|あとまわ}しにしない。"
+        expression: normal
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{雑草|ざっそう}という{名|な}の{植物|しょくぶつ}はない」——{牧野富太郎|まきのとみたろう}という{植物学者|しょくぶつがくしゃ}の{言葉|ことば}よ。すべての{植物|しょくぶつ}に{名前|なまえ}があり、{役割|やくわり}がある。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{今日|きょう}の{事件|じけん}で{学|まな}んだこと——{生物多様性|せいぶつたようせい}の3{つ|つ}のレベル。{種|しゅ}の{多様性|たようせい}、{遺伝子|いでんし}の{多様性|たようせい}、{生態系|せいたいけい}の{多様性|たようせい}。1{種|しゅ}が{消|き}えると{連鎖|れんさ}が{崩|くず}れる。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{校庭|こうてい}の{隅|すみ}にある{草|くさ}——{今日|きょう}から{見|み}え{方|かた}が{変|か}わった？ すべての{植物|しょくぶつ}に{名前|なまえ}があり、{役割|やくわり}がある。「{雑草|ざっそう}」と{呼|よ}ぶことをやめたとき、{世界|せかい}が{変|か}わって{見|み}えます。"
+      - type: narration
+        text: "{知|し}ることが、{守|まも}ることの{始|はじ}まり。"
+      - type: effect
+        name: fade-out

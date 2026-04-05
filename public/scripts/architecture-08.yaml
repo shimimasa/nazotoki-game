@@ -1,0 +1,352 @@
+meta:
+  id: architecture-08
+  title: ふさがれた非常口
+  series: 建築探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}{探偵|たんてい}団の4{人|にん}。ある{日|ひ}の{朝|あさ}、{先生|せんせい}が{体育館|たいいくかん}に{向|む}かうと——{非常口|ひじょうぐち}の{前|まえ}に{段|だん}ボール{箱|はこ}が{大量|たいりょう}に{積|つ}み{上|あ}げられていた。"
+      - type: narration
+        text: "{防火|ぼうか}{設備|せつび}{点検|てんけん}の{前日|ぜんじつ}に{積|つ}まれた、と{言|い}われている。でも——{誰|だれ}が{積|つ}んだのか。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{非常口|ひじょうぐち}は{法律|ほうりつ}で**{常|つね}に{使|つか}えるように{維持|いじ}する{義務|ぎむ}**がある——それを{知|し}りながら{積|つ}んだのか、{知|し}らずに{積|つ}んだのか。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{建築基準法|けんちくきじゅんほう}では、{非常口|ひじょうぐち}は{常|つね}に{使|つか}えるようにしておかなければなりません。{避難|ひなん}{経路|けいろ}がふさがれると、{火事|かじ}のときに{命|いのち}に{関|かか}わります。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: surprised
+          - character: hari
+            expression: thinking
+          - character: noki
+            expression: normal
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "{建築|けんちく}{探偵|たんてい}団の4{人|にん}が{調査|ちょうさ}に{乗|の}り{出|だ}した。{非常口|ひじょうぐち}をふさいだのは{誰|だれ}なのか——そして{なぜ|なぜ}なのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ふさがれた非常口
+        subtitle: 建築探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 非常口の状況と法律の知識
+      - type: narration
+        text: "【{証拠|しょうこ}カード①】{体育館|たいいくかん}{非常口|ひじょうぐち}{前|まえ}の{状況|じょうきょう}{写真|しゃしん}——{段|だん}ボール{箱|はこ}が{床|ゆか}から{天井|てんじょう}まで{隙間|すきま}なく{積|つ}み{上|あ}げられ、{扉|とびら}が{完全|かんぜん}に{ふさ}がれている。"
+      - type: narration
+        text: "{防火|ぼうか}{設備|せつび}{点検|てんけん}の{予定日|よていび}は**{明日|あした}**。{前日|ぜんじつ}に{積|つ}まれた{記録|きろく}が{残|のこ}っている。"
+      - type: narration
+        text: "【{証拠|しょうこ}カード②】{建築基準法|けんちくきじゅんほう}の{避難|ひなん}{経路|けいろ}{規定|きてい}——{直通|ちょくつう}{階段|かいだん}・2{方向|ほうこう}{避難|ひなん}・{非常口|ひじょうぐち}の{有効|ゆうこう}{幅員|はばいん}75cm{以上|いじょう}・{常時|じょうじ}{開放|かいほう}{義務|ぎむ}。"
+      - type: narration
+        text: "「{なぜ|なぜ}{非常口|ひじょうぐち}は{常|つね}にふさいではいけないか」——{火事|かじ}や{地震|じしん}のとき、{人|ひと}が{パニック|ぱにっく}になって{正確|せいかく}な{判断|はんだん}ができなくなる。{避難|ひなん}{経路|けいろ}が1{本|ほん}でもふさがれると、{命|いのち}に{関|かか}わる。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 日時記録と使用状況
+      - type: sprite
+        character: hari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hari
+        text: "【{証拠|しょうこ}カード③】{倉庫|そうこ}{工事|こうじ}の{記録|きろく}を{見|み}てほしい。{工事|こうじ}{開始日|かいしび}と{段|だん}ボールが{積|つ}まれた{日付|ひづけ}——{照合|しょうごう}してみよう。"
+        expression: thinking
+      - type: sprite
+        character: hari
+        action: hide
+      - type: narration
+        text: "【{証拠|しょうこ}カード③】{倉庫|そうこ}{工事|こうじ}{記録|きろく}（{工事|こうじ}{開始日|かいしび}）＋{段|だん}ボールが{積|つ}まれた{日付|ひづけ}{記録|きろく}＋{体育館|たいいくかん}{使用|しよう}スケジュール。"
+      - type: sprite
+        character: noki
+        expression: normal
+        position: right
+      - type: dialog
+        character: noki
+        text: "{防火|ぼうか}{設備|せつび}{点検|てんけん}{前日|ぜんじつ}というのは{偶然|ぐうぜん}じゃないかも。{誰|だれ}かが{気|き}づいてほしかった？ それとも、{点検|てんけん}で{発見|はっけん}される{前|まえ}に{何|なん}とかしようとしていた？"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: カード組み合わせで犯人特定
+      - type: narration
+        text: "【{証拠|しょうこ}カード④】カード③を{組|く}み{合|あ}わせた{結果|けっか}——**「{倉庫|そうこ}{工事|こうじ}{開始日|かいしび}」＝「{段|だん}ボール{積|つ}み{始|はじ}め{日|び}」が{一致|いっち}**。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "さらに、{倉庫|そうこ}{使用|しよう}{申請|しんせい}{記録|きろく}にイズミの{名前|なまえ}があった——「{倉庫|そうこ}が{使|つか}えないので{代替|だいたい}{場所|ばしょ}を{探|さが}している」。"
+      - type: sprite
+        character: tateru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{非常口|ひじょうぐち}の{前|まえ}に{積|つ}むって、{危機感|ききかん}なさすぎ！ そこがふさがれたら{避難|ひなん}できないじゃないか！"
+        expression: determined
+      - type: sprite
+        character: tateru
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: イズミの証言
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: izumi
+        text: "【{証拠|しょうこ}カード⑤】……{倉庫|そうこ}{工事|こうじ}で{資材|しざい}を{置|お}く{場所|ばしょ}がなかった。{誰|だれ}かが{困|こま}っていたから{助|たす}けたかった。あそこなら{誰|だれ}も{通|とお}らないと{思|おも}った……。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: right
+      - type: dialog
+        character: yamada
+        text: "「{普段|ふだん}{通|とお}らない」と「{置|お}いていい」は{違|ちが}います。{非常口|ひじょうぐち}は{避難|ひなん}のとき{命|いのち}を{守|まも}る{場所|ばしょ}——{普段|ふだん}{使|つか}われていなくても、{緊急時|きんきゅうじ}に{必要|ひつよう}な{場所|ばしょ}なのです。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "**{前提|ぜんてい}{破壊|はかい}**——「{普段|ふだん}{通|とお}らない＝{置|お}いていい」というイズミのバイアスが{崩|くず}れた。{善意|ぜんい}で{行動|こうどう}しても、{法|ほう}に{触|ふ}れてしまう{理由|りゆう}がここにある。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: hari
+        expression: determined
+        position: left
+      - type: dialog
+        character: hari
+        text: "{積|つ}んだ{日時|にちじ}と{倉庫|そうこ}が{使|つか}えなくなった{日時|にちじ}が{一致|いっち}。{倉庫|そうこ}{代替|だいたい}{場所|ばしょ}の{申請|しんせい}記録もある。{証拠|しょうこ}を{全部|ぜんぶ}{つなげれば|つなげれば}、{答|こた}えは1つだ。"
+        expression: determined
+      - type: sprite
+        character: hari
+        action: hide
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: noki
+        text: "{段|だん}ボールの{構造|こうぞう}を{観察|かんさつ}したら、{全部|ぜんぶ}{倉庫|そうこ}{方面|ほうめん}から{運|はこ}んだ{跡|あと}があった。{出所|でどころ}は{明|あき}らか。"
+        expression: normal
+      - type: sprite
+        character: noki
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{倉庫|そうこ}{工事|こうじ}{開始日|かいしび}＝{積|つ}み{始|はじ}め{日|び}。イズミの{代替|だいたい}{場所|ばしょ}{申請|しんせい}{記録|きろく}。「{普段|ふだん}{通|とお}らない」バイアスの{告白|こくはく}。{段|だん}ボールの{運搬|うんぱん}{経路|けいろ}が{倉庫|そうこ}から{一致|いっち}。"
+      - type: choice
+        id: q1
+        question: 非常口をふさいだ中心人物は誰？
+        options:
+          - text: イズミ（倉庫代替場所申請＋工事開始日＝積み始め日＋「普段通らない」告白）
+            value: izumi
+            correct: true
+            feedback: "{正解|せいかい}！ イズミは{倉庫|そうこ}が{工事|こうじ}で{使|つか}えなくなり、{善意|ぜんい}で{仮置|かりお}き{場所|ばしょ}を{探|さが}した{結果|けっか}、{法律|ほうりつ}で{禁止|きんし}されている{場所|ばしょ}に{積|つ}んでしまった。「{普段|ふだん}{通|とお}らない＝{置|お}いていい」——この{思|おも}い{込|こ}みが{命|いのち}に{関|かか}わるミスを{招|まね}いた。"
+          - text: タテル（怒って調査した人）
+            value: tateru
+            feedback: "タテルは{非常口|ひじょうぐち}の{有効|ゆうこう}{幅員|はばいん}を{実測|じっそく}して{問題|もんだい}を{確認|かくにん}した{側|がわ}。{積|つ}んだ{側|がわ}ではないよ。"
+          - text: ハリ（記録を照合した人）
+            value: hari
+            feedback: "ハリは{倉庫|そうこ}{工事|こうじ}{開始日|かいしび}と{段|だん}ボールの{日付|ひづけ}を{照合|しょうごう}した{情報|じょうほう}{担当|たんとう}。{積|つ}んだ{側|がわ}ではないよ。"
+          - text: ノキ（段ボールの出所を追った人）
+            value: noki
+            feedback: "ノキは{積|つ}まれた{段|だん}ボールの{構造|こうぞう}を{観察|かんさつ}して{出所|でどころ}を{追|お}った{側|がわ}。{積|つ}んだ{側|がわ}ではないよ。"
+
+  # ==================== 真実：イズミ ====================
+  - id: truth-izumi
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: イズミの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: izumi
+        text: "……{私|わたし}が{積|つ}みました。{倉庫|そうこ}が{工事|こうじ}で{使|つか}えなくなって、{資材|しざい}の{置|お}き{場所|ばしょ}がどこにもなかったんです。"
+        expression: worried
+      - type: dialog
+        character: izumi
+        text: "{誰|だれ}かが{困|こま}っていたから{助|たす}けたくて……。あそこは{普段|ふだん}{誰|だれ}も{通|とお}らないから、{大丈夫|だいじょうぶ}だと{思|おも}った。"
+        expression: thinking
+      - type: dialog
+        character: izumi
+        text: "{助|たす}けようとしただけなのに、{法律|ほうりつ}{違反|いはん}になるなんて……{知|し}らなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "……{助|たす}けようとしたのか。でも、{非常口|ひじょうぐち}がふさがれたら{火事|かじ}のとき{逃|に}げられない{人|ひと}が{出|で}るかもしれない。{善意|ぜんい}でも、{結果|けっか}が{危険|きけん}なら{止|と}めないといけない。"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: hari
+        expression: normal
+        position: right
+      - type: dialog
+        character: hari
+        text: "{記録|きろく}を{見|み}れば{分|わ}かると{思|おも}っていた。{日時|にちじ}が{一致|いっち}したとき、「やっぱり」って{感|かん}じだった。"
+        expression: happy
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{非常口|ひじょうぐち}は{普段|ふだん}{使|つか}わない。だから「{置|お}いていい」と{思|おも}いやすい。でも{非常口|ひじょうぐち}の{価値|かち}は、**{いざ|いざ}というときに{使|つか}えること**——{普段|ふだん}{使|つか}われていない{時間|じかん}に{守|まも}られているものがある。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "イズミは{善意|ぜんい}で{行動|こうどう}した。でも{法律|ほうりつ}は{善意|ぜんい}に{関係|かんけい}なく{適用|てきよう}される。だから、{困|こま}ったときは**まず{確認|かくにん}、まず{相談|そうだん}**。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{普段|ふだん}{使|つか}わない＝{置|お}いていい」——この{思|おも}い{込|こ}みが{命|いのち}に{関|かか}わるミスを{招|まね}く。{建築|けんちく}のルールは、{見|み}えないところで{人|ひと}の{命|いのち}を{守|まも}っている。"
+      - type: narration
+        text: "{善意|ぜんい}は{大切|たいせつ}。でも{善意|ぜんい}と「{正|ただ}しい{行動|こうどう}」は{同|おな}じではない。{知識|ちしき}があってはじめて、{善意|ぜんい}は{本当|ほんとう}の{助|たす}けになる。"
+      - type: effect
+        name: fade-out

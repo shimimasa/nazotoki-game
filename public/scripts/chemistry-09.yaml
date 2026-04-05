@@ -1,0 +1,347 @@
+meta:
+  id: chemistry-09
+  title: データの矛盾
+  series: 化学探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{化学|かがく}{探偵団|たんていだん}の4{人|にん}。「{食塩|しょくえん}が{水|みず}に{溶|と}ける{量|りょう}は{温度|おんど}によって{変|か}わるか」——3グループが{同|おな}じ{実験|じっけん}で{調|しら}べた。"
+      - type: narration
+        text: ところが{結果|けっか}を{見|み}ると——
+      - type: se
+        sound: discover
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**1グループだけ{結果|けっか}が{大|おお}きく{外|はず}れている**。グループ1・2が「20℃で36g/100mL{溶|と}ける」という{結果|けっか}なのに、グループ3だけ「**20℃で48g/100mL{溶|と}けた**」と{記録|きろく}していた。"
+      - type: narration
+        text: "{手順|てじゅん}は{合|あ}っていたとグループ3の4{人|にん}は{主張|しゅちょう}する。でも{数値|すうち}の{差|さ}は12g——これは{単|たん}なる{誤差|ごさ}ではない。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{溶解度|ようかいど}というのは{一定|いってい}の{温度|おんど}で{水|みず}100mLに{溶|と}ける{最大量|さいだいりょう}のことよ。20℃の{食塩水|しょくえんすい}なら{基準値|きじゅんち}は35.9g。グループ3の48gは{基準|きじゅん}の1.3{倍以上|ばいいじょう}——これは{手順|てじゅん}のどこかが{変|か}わっていた{証拠|しょうこ}ね。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: thinking
+          - character: souda
+            expression: worried
+          - character: ritoma
+            expression: thinking
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "グループ3のメンバーはモル・ソウダ・リトマ・ネーサ。それぞれが「{手順|てじゅん}は{正|ただ}しかった」と{言|い}っている。しかし{複数|ふくすう}のデータを{比較|ひかく}すると{矛盾|むじゅん}が{浮|う}かび{上|あ}がる——"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: データの矛盾
+        subtitle: 化学探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 3グループのデータと溶解度基準
+      - type: narration
+        text: "3グループのデータ{比較表|ひかくひょう}——グループ1: **36.1g** ✅　グループ2: **35.8g** ✅　グループ3: **48.2g** ❓"
+      - type: narration
+        text: "{食塩|しょくえん}の{溶解度|ようかいど}{基準値|きじゅんち}（20℃で100mLの{水|みず}に{最大|さいだい}35.9g{溶|と}ける）と{誤差|ごさ}の{説明|せつめい}（±0.5g{程度|ていど}が{通常|つうじょう}の{誤差範囲|ごさはんい}）。"
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "3グループのデータを{表|ひょう}にすると{一目|ひとめ}で{分|わ}かる。グループ1・2と3の{測定値|そくていち}の{比率|ひりつ}が{約|やく}1:1.3——どこかで{量|りょう}が{増|ふ}えたんだ。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: normal
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "{誤差|ごさ}の{範囲|はんい}かどうかを{判断|はんだん}しよう。0.1gの{誤差|ごさ}と12gの{誤差|ごさ}は{全然|ぜんぜん}{違|ちが}う——これは{桁|けた}が{違|ちが}いすぎる。{手順|てじゅん}のミスとしか{考|かんが}えられないわ。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 手順記録とネーサの証言
+      - type: narration
+        text: "グループ3の{実験|じっけん}{手順|てじゅん}{記録|きろく}——「だれが{何|なに}のステップを{担当|たんとう}したか」の{記録|きろく}。**ソウダの{担当|たんとう}ステップだけ「{追記|ついき}あり」**。"
+      - type: sprite
+        character: souda
+        expression: worried
+        position: left
+      - type: dialog
+        character: souda
+        text: "{実験|じっけん}の{途中|とちゅう}でネーサが{体調|たいちょう}が{悪|わる}そうだったから、「{代|か}わりに{自分|じぶん}が{計|はか}る」って{申|もう}し{出|で}たんだ。みんなに{体験|たいけん}させたいと{思|おも}ってたから……"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: right
+      - type: dialog
+        character: nesa
+        text: "{途中|とちゅう}で{体調|たいちょう}が{悪|わる}くて、ソウダが{代|か}わってくれたの。{自分|じぶん}が{測|はか}れなかったのがいけなかった？ ソウダが{代|か}わりに{計|はか}ってくれたのに……"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: narration
+        text: "ソウダは{自分|じぶん}がネーサの{代|か}わりに{測定|そくてい}したと{正直|しょうじき}に{言|い}っている。でも{数値|すうち}がなぜ{大|おお}きくなったのか——それはまだ{分|わ}からない。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-3
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 秤量記録の比較
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "各グループの「{食塩|しょくえん}の{秤量|ひょうりょう}{記録|きろく}」の{比較|ひかく}——グループ1・2：**1{回|かい}の{秤量|ひょうりょう}**。グループ3：**2つの{値|あたい}を{合算|がっさん}した{記録|きろく}の{跡|あと}**。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "グループ3だけ{秤量|ひょうりょう}{記録|きろく}に2つの{数値|すうち}が{残|のこ}っていた。18.1gと18.2g——{合計|ごうけい}すると36.3g。{基準値|きじゅんち}の35.9gにほぼ{一致|いっち}する。"
+      - type: sprite
+        character: moru
+        expression: determined
+        position: left
+      - type: dialog
+        character: moru
+        text: "グループ1・2は1{回|かい}で{溶|と}ける{最大量|さいだいりょう}を{計|はか}っている。でもグループ3は2つの{数値|すうち}を{足|た}している——これは{ネーサの分|ねーさのぶん}とソウダの{自分|じぶん}の{分|ぶん}の**2{人分|にんぶん}を{合算|がっさん}した**んだ。"
+        expression: determined
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: determined
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "「{ネーサの分|ねーさのぶん}も{合|あ}わせた{量|りょう}」を{測定|そくてい}してしまったのね。{水|みず}100mLに{対|たい}して{食塩|しょくえん}を2{人分|にんぶん}で{記録|きろく}——だから{数値|すうち}が{倍近|ばいちか}くになった。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "ソウダが2つの{測定値|そくていち}を{足|た}した → 36g+12g分の{増加|ぞうか} → **{約束|やくそく}を{守|まも}ろうとして{手順|てじゅん}を{変|か}えた** → 「{測定|そくてい}の{正確|せいかく}さ」と「みんなの{参加|さんか}」を{両立|りょうりつ}させようとした{思|おも}い{込|こ}みが{原因|げんいん}。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 問題の中心は誰だ？
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: right
+      - type: dialog
+        character: nesa
+        text: "ソウダは{悪|わる}いことをしようとしたんじゃないよ……{私|わたし}のために{代|か}わってくれたのに。でも{手順|てじゅん}の{意味|いみ}を{理解|りかい}していなかったから、こんなことに……"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{秤量|ひょうりょう}{記録|きろく}に2つの{数値|すうち}の{跡|あと}。ソウダが{担当|たんとう}ステップを{追記|ついき}。「みんなに{体験|たいけん}させたい」という{約束|やくそく}。{手順|てじゅん}の{意味|いみ}への{理解不足|りかいぶそく}。"
+      - type: choice
+        id: q1
+        question: 問題の中心になったのは誰？
+        options:
+          - text: ソウダ（2人分の食塩を合算して記録＋手順の意味を理解していなかった）
+            value: souda
+            correct: true
+            feedback: "{正解|せいかい}！ ソウダは「グループ{全員|ぜんいん}が{実験|じっけん}を{体験|たいけん}できるように」という{約束|やくそく}を{守|まも}ろうとした。でも「ネーサの{分|ぶん}も{合|あ}わせた{量|りょう}」を{測定|そくてい}し、2つの{数値|すうち}を{足|た}してしまった。{帰納法|きのうほう}で{複数|ふくすう}のデータを{比較|ひかく}すれば、この{矛盾|むじゅん}は{見|み}えてくる。"
+          - text: ネーサ（体調不良で測定を任せてしまった人）
+            value: nesa
+            feedback: "ネーサは{体調|たいちょう}が{悪|わる}く{測定|そくてい}できなかっただけ。{意図|いと}的に{手順|てじゅん}を{変|か}えたわけではないよ。ソウダが{代|か}わることを{申|もう}し{出|で}たのだから。"
+          - text: モル（データの比較表を作った人）
+            value: moru
+            feedback: "モルは{帰納|きのう}{比較表|ひかくひょう}で{矛盾|むじゅん}を{発見|はっけん}する{側|がわ}。{問題|もんだい}を{起|お}こしたのではなく、{解明|かいめい}に{貢献|こうけん}したよ。"
+          - text: リトマ（誤差の範囲を指摘した人）
+            value: ritoma
+            feedback: "リトマは「0.1gの{誤差|ごさ}と12gの{誤差|ごさ}は{桁|けた}が{違|ちが}う」と{指摘|してき}した{観察役|かんさつやく}。{問題|もんだい}の{原因|げんいん}ではなく、{解決|かいけつ}の{鍵|かぎ}を{示|しめ}した{人|ひと}だよ。"
+
+  # ==================== 真実：ソウダの告白 ====================
+  - id: truth-souda
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ソウダの気づき
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: souda
+        expression: worried
+        position: center
+      - type: dialog
+        character: souda
+        text: "……そうか。{自分|じぶん}が{間違|まちが}えていたんだ。"
+        expression: worried
+      - type: dialog
+        character: souda
+        text: "ネーサが{体調|たいちょう}{悪|わる}そうだったから、「{代|か}わりに{自分|じぶん}が{計|はか}る」って{言|い}ったの。でも{ネーサの分|ねーさのぶん}も{合|あ}わせた{量|りょう}を{測定|そくてい}してしまって……{数値|すうち}を{足|た}したのが{間違|まちが}いだったんだ。"
+        expression: thinking
+      - type: dialog
+        character: souda
+        text: "みんなに{体験|たいけん}させようとしたのに、それが{原因|げんいん}だったの？ {手順|てじゅん}の{意味|いみ}を{分|わ}かっていなかった……"
+        expression: worried
+      - type: sprite
+        character: souda
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "グループ1・2と3の{比率|ひりつ}が1:1.3——{数値|すうち}を{表|ひょう}にした{瞬間|しゅんかん}、どこかで{量|りょう}が{増|ふ}えたと{気|き}づいた。{帰納|きのう}で{比較|ひかく}すると{法則|ほうそく}が{見|み}えてくるんだね。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+      - type: sprite
+        character: ritoma
+        expression: normal
+        position: right
+      - type: dialog
+        character: ritoma
+        text: "0.1gと12gの{差|さ}——{桁|けた}が{違|ちが}いすぎると{感|かん}じた。{誤差|ごさ}じゃない、{手順|てじゅん}のミスだって{判断|はんだん}できたのは{基準値|きじゅんち}を{知|し}っていたから。"
+        expression: normal
+      - type: sprite
+        character: ritoma
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{帰納法|きのうほう}——{複数|ふくすう}のデータを{比較|ひかく}して{共通|きょうつう}の{法則|ほうそく}を{見|み}つける{考|かんが}え{方|かた}よ。グループ1・2・3を{並|なら}べたとき、グループ3だけが{違|ちが}う——この「{外|はず}れ{値|ち}」に{気|き}づけるかどうかが{科学|かがく}の{目|め}ね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ソウダは{悪|わる}いことをしようとしたわけじゃない。でも「{手順|てじゅん}の{意味|いみ}」を{理解|りかい}せずに{変|か}えてしまった。{実験|じっけん}の{手順|てじゅん}には、それぞれ{意味|いみ}があるのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{困|こま}ったときは{手順|てじゅん}を{変|か}える{前|まえ}に{相談|そうだん}しよう。「{代|か}わりに{やる|やる}」だけでなく、「{方法|ほうほう}は{合|あ}っているか」も{確認|かくにん}することが{大切|たいせつ}。"
+      - type: narration
+        text: "{帰納法|きのうほう}と{データ|でーた}{比較|ひかく}——{複数|ふくすう}の{証拠|しょうこ}を{並|なら}べると、{一つ|ひとつ}では{見|み}えなかった{矛盾|むじゅん}が{浮|う}かび{上|あ}がる。"
+      - type: effect
+        name: fade-out

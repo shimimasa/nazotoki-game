@@ -1,0 +1,347 @@
+meta:
+  id: chemistry-08
+  title: 正体不明の液体
+  series: 化学探偵団
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  moru:
+    name: モル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souda:
+    name: ソウダ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ritoma:
+    name: リトマ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nesa:
+    name: ネーサ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: science-room
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科|りか}{室|しつ}の{棚|たな}に「{水|みず}」とラベルされたビーカーがある。{理科|りか}{係|がかり}の4{人|にん}が{実験|じっけん}{準備|じゅんび}をしていると——"
+      - type: narration
+        text: "「{試|ため}しにBTB{溶液|ようえき}をたらしてみよう」——{一滴|いってき}{落|お}とした{途端|とたん}、{液体|えきたい}は**{緑|みどり}から{青|あお}へ**と{変化|へんか}した。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "BTB{溶液|ようえき}は{中性|ちゅうせい}なら{緑|みどり}のまま。{青|あお}に{変|か}わるということは**アルカリ{性|せい}**——{水|みず}じゃないわ。しかも、このラベルの「{水|みず}」という{字|じ}をよく{見|み}て。**{書|か}き{直|なお}した{跡|あと}**があるわよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: moru
+            expression: thinking
+          - character: souda
+            expression: surprised
+          - character: ritoma
+            expression: thinking
+          - character: nesa
+            expression: worried
+      - type: narration
+        text: "{誰|だれ}かが{中身|なかみ}を{替|か}え、ラベルを{書|か}き{換|か}えた。{理科|りか}{係|がかり}の4{人|にん}はそれぞれ{何|なに}かを{知|し}っている——でも、{誰|だれ}も{本当|ほんとう}のことを{話|はな}していない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 正体不明の液体
+        subtitle: 化学探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: science-room
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: BTB反応とラベルの謎
+      - type: narration
+        text: "「{水|みず}」ラベルのビーカーにBTB{溶液|ようえき}をたらした{写真|しゃしん}——**{緑|みどり}→{青|あお}に{変化|へんか}**している。{水|みず}なら{変|か}わらないはず。これが{謎|なぞ}の{起点|きてん}だ。"
+      - type: narration
+        text: "BTB{溶液|ようえき}の{反応|はんのう}：{酸性|さんせい}＝{黄|き}、{中性|ちゅうせい}＝{緑|みどり}、アルカリ{性|せい}＝{青|あお}。フェノールフタレイン：{酸性|さんせい}・{中性|ちゅうせい}＝{無色|むしょく}、アルカリ{性|せい}＝{赤|あか}。リトマス：{酸性|さんせい}＝{赤|あか}、アルカリ{性|せい}＝{青|あお}。"
+      - type: narration
+        text: "3{種類|しゅるい}の{指示薬|しじやく}の{結果|けっか}を**{組|く}み{合|あ}わせる**と、{物質|ぶっしつ}を{絞|しぼ}り{込|こ}める。"
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souda
+        text: "{誰|だれ}かが{勝手|かって}に{中身|なかみ}を{替|か}えたんだ！でも{指示薬|しじやく}3{種類|しゅるい}の{結果|けっか}があれば、**{何|なに}のアルカリ{性|せい}か{特定|とくてい}できる**はずだ。早く{試|ため}してみよう。"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: moru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: moru
+        text: "ラベルの{書|か}き{直|なお}した{跡|あと}も{気|き}になる。{筆跡|ひっせき}が{分|わ}かれば、{誰|だれ}が{書|か}いたか{絞|しぼ}れるかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: science-room
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 筆跡と追加指示薬の結果
+      - type: narration
+        text: "ラベルの{写真|しゃしん}——{消|け}した{跡|あと}がある。そのそばに「4{人|にん}の{手書|てが}き{文字|もじ}サンプル」が{置|お}かれていた。"
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "ラベルを{信|しん}じるより、{指示薬|しじやく}の{結果|けっか}を{信|しん}じよう。{証拠|しょうこ}は{嘘|うそ}をつかない。{筆跡|ひっせき}は{方向性|ほうこうせい}を{示|しめ}すが、{断定|だんてい}はできない。"
+        expression: thinking
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: narration
+        text: "フェノールフタレインで{同|おな}じビーカーを{試|ため}した{結果|けっか}——**{赤|あか}くなった**→アルカリ{性|せい}{確定|かくてい}。リトマスの{結果|けっか}——**{青|あお}**→アルカリ{性|せい}。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "BTB＝{青|あお}・フェノールフタレイン＝{赤|あか}・リトマス＝{青|あお}——**3{種類|しゅるい}{全部|ぜんぶ}アルカリ{性|せい}**。「{水|みず}」ではなく、{確実|かくじつ}にアルカリ{性|せい}の{液体|えきたい}だ。"
+      - type: sprite
+        character: nesa
+        expression: worried
+        position: right
+      - type: dialog
+        character: nesa
+        text: "ラベルが{違|ちが}うって……{信頼|しんらい}できるものがないってこと？{怖|こわ}い。{誰|だれ}かが{故意|こい}に{替|か}えたの？"
+        expression: worried
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: science-room
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: モルの記録メモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "モルの「{指示薬|しじやく}テスト{記録|きろく}メモ」が{理科|りか}{室|しつ}の{引|ひ}き{出|だ}しから{発見|はっけん}された——"
+      - type: narration
+        text: "**「{全|ぜん}ビーカーを{確認|かくにん}しようとした{記録|きろく}。BTB→{青|あお}、フェノール→{赤|あか}。でも{物質|ぶっしつ}{名|めい}は？」**"
+      - type: sprite
+        character: ritoma
+        expression: determined
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{繋|つな}がった。モルは**{事前|じぜん}にテストしていた**。アルカリ{性|せい}と{分|わ}かったのにラベルを{書|か}き{直|なお}した——でも{物質|ぶっしつ}の{正確|せいかく}な{名前|なまえ}が{分|わ}からなくて、{結局|けっきょく}「{水|みず}」に{戻|もど}した。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: sprite
+        character: souda
+        expression: surprised
+        position: right
+      - type: dialog
+        character: souda
+        text: "「{正確|せいかく}にしたい→ラベルを{直|なお}す→でも{名前|なまえ}が{分|わ}からない→とりあえず{元|もと}に{戻|もど}す」……{善意|ぜんい}の{行動|こうどう}が{余計|よけい}に{混乱|こんらん}を{招|まね}いたんだ！"
+        expression: surprised
+      - type: sprite
+        character: souda
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "モルの{記録|きろく}メモ → {事前|じぜん}にアルカリ{性|せい}と{知|し}っていた → ラベルを{書|か}き{換|か}えようとした → {物質|ぶっしつ}{名|めい}が{特定|とくてい}できず「{水|みず}」に{書|か}き{戻|もど}した → **{善意|ぜんい}の{暴走|ぼうそう}が{事件|じけん}の{原因|げんいん}**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: science-room
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 誰が中心だった？
+      - type: sprite
+        character: ritoma
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ritoma
+        text: "{整理|せいり}しよう。①モルの{記録|きろく}メモに「BTB→{青|あお}、フェノール→{赤|あか}」とある。②ラベルに{書|か}き{直|なお}した{跡|あと}あり。③{物質|ぶっしつ}{名|めい}が{書|か}けないまま「{水|みず}」に{戻|もど}した。{全部|ぜんぶ}{繋|つな}がってる。"
+        expression: determined
+      - type: sprite
+        character: ritoma
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{引|ひ}き{出|だ}しのテスト{記録|きろく}メモ（BTB・フェノール{両方|りょうほう}を{試|ため}した{物証|ぶっしょう}）。{正確|せいかく}にしたかった{動機|どうき}（{正義感|せいぎかん}の{暴走|ぼうそう}）。{物質|ぶっしつ}{名|めい}が{分|わ}からず{中途半端|ちゅうとはんぱ}に{書|か}き{直|なお}した{行動|こうどう}。"
+      - type: choice
+        id: q1
+        question: ビーカーの中身を替え、ラベルを書き換えた中心人物は？
+        options:
+          - text: モル（事前テスト記録＋ラベル書き直し＋物質名が分からず「水」に戻した）
+            value: moru
+            correct: true
+            feedback: "{正解|せいかい}！ モルは「{授業|じゅぎょう}で{使|つか}う{液体|えきたい}が{正|ただ}しくラベルされているか{確認|かくにん}しよう」と{思|おも}い{立|た}ち、{全|ぜん}ビーカーを{指示薬|しじやく}でテストした。アルカリ{性|せい}と{判明|はんめい}したが、{物質|ぶっしつ}{名|めい}を{特定|とくてい}できないまま「{水|みず}」と{書|か}き{直|なお}してしまった。{指示薬|しじやく}3{種類|しゅるい}の{組|く}み{合|あ}わせ——この{知識|ちしき}が{善意|ぜんい}の{行動|こうどう}の{限界|げんかい}を{見抜|みぬ}く{鍵|かぎ}だった。"
+          - text: ソウダ（早く特定しようと行動した人）
+            value: souda
+            feedback: "ソウダは「{早|はや}く{特定|とくてい}しよう」と{行動|こうどう}を{促|うなが}した{側|がわ}。{引|ひ}き{出|だ}しの{記録|きろく}メモとは{無関係|むかんけい}で、{原因|げんいん}を{作|つく}ったのはソウダではないよ。"
+          - text: リトマ（指示薬の結果を重視した観察型）
+            value: ritoma
+            feedback: "リトマは「{ラベル|らべる}より{指示薬|しじやく}の{結果|けっか}を{信|しん}じよう」と{観察|かんさつ}した{側|がわ}。{証拠|しょうこ}を{整理|せいり}して{真相|しんそう}に{近|ちか}づいた{探偵|たんてい}だよ。"
+          - text: ネーサ（ラベルが違うことを怖がった感情型）
+            value: nesa
+            feedback: "ネーサは{事件|じけん}の{影響|えいきょう}に{不安|ふあん}を{感|かん}じた{感情型|かんじょうがた}。「{正確|せいかく}にしたい」という{動機|どうき}を{持|も}っていたのは、ネーサではなくモルだよ。"
+
+  # ==================== 真実：モルの告白 ====================
+  - id: truth-moru
+    bg: science-room
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: モルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: moru
+        expression: worried
+        position: center
+      - type: dialog
+        character: moru
+        text: "……ごめんなさい。ビーカーのラベルを{書|か}き{換|か}えたのは、{私|わたし}です。"
+        expression: worried
+      - type: dialog
+        character: moru
+        text: "{授業|じゅぎょう}の{前|まえ}に「{本当|ほんとう}に{水|みず}かどうか{確認|かくにん}しよう」と{思|おも}って、{全部|ぜんぶ}のビーカーを{指示薬|しじやく}でテストしたんだ。そうしたら「{水|みず}」のビーカーが{青|あお}くなって……"
+        expression: thinking
+      - type: dialog
+        character: moru
+        text: "「{正|ただ}しく{直|なお}さないと！」とラベルを{消|け}したけど、アルカリ{性|せい}の{何|なに}かって{分|わ}からなかった。{結局|けっきょく}「{水|みず}」と{書|か}き{直|なお}すしかなかった……{確認|かくにん}してから{直|なお}すべきだった。"
+        expression: worried
+      - type: sprite
+        character: moru
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: science-room
+    steps:
+      - type: sprite
+        character: souda
+        expression: thinking
+        position: right
+      - type: dialog
+        character: souda
+        text: "モルが「{正確|せいかく}にしたかった」って{気持|きも}ちは{分|わ}かるよ。でも{物質|ぶっしつ}{名|めい}が{分|わ}からないなら、{先生|せんせい}に{聞|き}いてから{直|なお}せばよかったのに。"
+        expression: thinking
+      - type: sprite
+        character: souda
+        action: hide
+      - type: sprite
+        character: nesa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nesa
+        text: "でも……モルは{正|ただ}しくしようとした。その{気持|きも}ちは{悪|わる}くない。{確認|かくにん}してから{行動|こうどう}する{大切|たいせつ}さを{忘|わす}れただけで。"
+        expression: thinking
+      - type: sprite
+        character: nesa
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: science-room
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{指示薬|しじやく}3{種類|しゅるい}——BTB・フェノールフタレイン・リトマス。{組|く}み{合|あ}わせると{物質|ぶっしつ}の{性質|せいしつ}を{確実|かくじつ}に{絞|しぼ}れる。モルはその{知識|ちしき}を{正|ただ}しく{使|つか}ったのに、**「{何|なに}のアルカリ{性|せい}か」まで{特定|とくてい}する{知識|ちしき}が{足|た}りなかった**わ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{正確|せいかく}にしたいと{思|おも}ったら、{分|わ}からないことは{先生|せんせい}に{相談|そうだん}してね。「{確認|かくにん}してから{行動|こうどう}する」が{理科|りか}の{基本|きほん}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "「{正しくしたい|ただしくしたい}」という{善意|ぜんい}でも、{知識|ちしき}が{中途半端|ちゅうとはんぱ}だと{余計|よけい}な{混乱|こんらん}を{招|まね}く。"
+      - type: narration
+        text: "{指示薬|しじやく}3{種類|しゅるい}の{組|く}み{合|あ}わせ——{液体|えきたい}の{正体|しょうたい}を{見抜|みぬ}くだけでなく、**{行動|こうどう}の{前|まえ}に「{何|なに}を{知|し}っているか」を{確認|かくにん}する{力|ちから}**にもなる。"
+      - type: effect
+        name: fade-out

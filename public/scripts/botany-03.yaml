@@ -1,0 +1,357 @@
+meta:
+  id: botany-03
+  title: 種の旅立ち
+  series: 植物探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の{花壇|かだん}の{植木係|うえきがかり}4{人|にん}。ホウセンカ・パンジー・マリーゴールドを{毎日|まいにち}{世話|せわ}している。{月曜|げつよう}の{朝|あさ}、いつものように{花壇|かだん}に{行|い}くと——"
+      - type: narration
+        text: "{花壇|かだん}のホウセンカの{実|み}が{大量|たいりょう}に{弾|は}けて、{種|たね}が{花壇|かだん}{全体|ぜんたい}に{散乱|さんらん}していた。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "さらに、{隣|となり}のプランターで{育|そだ}てていた**パンジーが{数本|すうほん}{倒|たお}れていた**。"
+      - type: narration
+        text: "「だれかが{わざと}ホウセンカを{揺|ゆ}らして{種|たね}を{飛|と}ばした？」「パンジーを{倒|たお}した？」"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ホウセンカは「{弾裂型|だんれつがた}」の{種子散布|しゅししさんぷ}をする{植物|しょくぶつ}よ。{熟|じゅく}した{実|み}に{触|ふ}れると、{果皮|かひ}が{巻|ま}き{上|あ}がって{種|たね}を{高速|こうそく}で{射出|しゃしゅつ}するの。{飛距離|ひきょり}は1〜2メートル。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: worried
+          - character: hana
+            expression: thinking
+          - character: tsubomi
+            expression: surprised
+      - type: narration
+        text: "{植木係|うえきがかり}4{人|にん}は、{種|たね}の{飛|と}び{散|ち}り{方|かた}と{倒|たお}れた{方向|ほうこう}から{真相|しんそう}を{解明|かいめい}しようとしていた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 種の旅立ち
+        subtitle: 植物探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 種の落下地点と植木係ノート
+      - type: narration
+        text: "{月曜|げつよう}の{朝|あさ}に{発見|はっけん}された{状況|じょうきょう}——ホウセンカの{実|み}が{大量|たいりょう}に{弾|は}けて{種|たね}が{花壇|かだん}{全体|ぜんたい}に{散乱|さんらん}。{隣|となり}のプランターのパンジー3{本|ほん}が{倒|たお}れていた。"
+      - type: narration
+        text: "{ネコ|ネコ}が{種|たね}の{落下地点|らっかちてん}を{花壇|かだん}{全体|ぜんたい}でマッピングした{記録|きろく}——{種|たね}は{中心|ちゅうしん}から{放射状|ほうしゃじょう}に{広|ひろ}がっている。{中心点|ちゅうしんてん}はホウセンカの{根元|ねもと}あたりだ。"
+      - type: narration
+        text: "{植木係|うえきがかり}の{活動|かつどう}ノート——{土曜|どようび}15:00〜16:00、{日曜|にちようび}17:00に{記録|きろく}あり。{日曜|にちようび}17:00の{欄|らん}：「ホウセンカの{実|み}を{確認|かくにん}した」とだけ{書|か}かれている。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の証言
+      - type: sprite
+        character: mori
+        expression: normal
+        position: left
+      - type: dialog
+        character: mori
+        text: "{日曜|にちよう}の{夕方|ゆうがた}17{時|じ}に{花壇|かだん}に{来|き}たよ。{観察課題|かんさつかだい}の{締|し}め{切|き}りが{月曜|げつよう}の{朝|あさ}だったから。ホウセンカの{実|み}を{手|て}でつかんだら{弾|は}けた。{焦|あせ}って{帰|かえ}った。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: hana
+        expression: normal
+        position: right
+      - type: dialog
+        character: hana
+        text: "{種子散布|しゅししさんぷ}の4{種類|しゅるい}の{図解|ずかい}メモを{作|つく}ったの。ホウセンカは{弾裂型|だんれつがた}で、{射出距離|しゃしゅつきょり}は1〜2メートルだよ。{成熟|せいじゅく}した{実|み}は{外側|そとがわ}からの{圧力|あつりょく}で{果皮|かひ}が{破|やぶ}れるの。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: neko
+        expression: normal
+        position: left
+      - type: dialog
+        character: neko
+        text: "{種|たね}の{落下地点|らっかちてん}を{全部|ぜんぶ}マッピングしたよ。{中心|ちゅうしん}から{放射状|ほうしゃじょう}に{広|ひろ}がっている。これって{弾裂型|だんれつがた}のパターンと{一致|いっち}する。だれかが{手|て}で{揺|ゆ}らしたのと{同|おな}じ{形|かたち}だよ。"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{倒|たお}れたパンジーをよく{見|み}たら、{茎|くき}が{折|お}れていなかった。{横|よこ}に{押|お}された{様子|ようす}なの。{小石|こいし}か{何|なに}かが{当|あ}たったのかな……ってずっと{気|き}になってた。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: narration
+        text: "{モリ|モリ}は{日曜|にちよう}17{時|じ}に{花壇|かだん}に{来|き}て、ホウセンカの{実|み}を{手|て}でつかんだと{言|い}っている。{種子散布|しゅししさんぷ}の{知識|ちしき}と{照|て}らし{合|あ}わせると——{何|なに}が{起|お}きたのだろう？"
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 弾裂のしくみと飛んだ種
+      - type: narration
+        text: "ハナの{図解|ずかい}メモより——{種子散布|しゅししさんぷ}の4{戦略|せんりゃく}：①{風|かぜ}（タンポポ・カエデ）②{動物|どうぶつ}（ヒッツキムシ・{実|み}を{食|た}べる{鳥|とり}）③{水|みず}（ヤシ・ジュズダマ）④{弾裂|だんれつ}（ホウセンカ・カタバミ・スミレ）。"
+      - type: narration
+        text: "ホウセンカの{射出速度|しゃしゅつそくど}は{最大|さいだい}0.3m/s、{飛距離|ひきょり}は1〜2メートル。{熟|じゅく}した{実|み}は{外側|そとがわ}からの{圧力|あつりょく}——{風|かぜ}・{動物|どうぶつ}の{接触|せっしょく}——で{縫合線|ほうごうせん}が{破|やぶ}れ、{巻|ま}き{上|あ}がった{果皮|かひ}が{種|たね}を{高速|こうそく}で{射出|しゃしゅつ}する。"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ネコの{マップ|マップ}の{中心点|ちゅうしんてん}＝ホウセンカの{根元|ねもと}。{種|たね}は{放射状|ほうしゃじょう}に1〜2メートル{飛|と}んだ。**{隣|となり}のプランター（パンジー）まで{約|やく}1.2メートル**。{射出|しゃしゅつ}された{種|たね}がパンジーの{茎|くき}に{当|あ}たって{横|よこ}に{押|お}したとしたら——ツボミの{観察|かんさつ}と{一致|いっち}する！"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 観察課題と日曜の記録
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hana
+        expression: determined
+        position: left
+      - type: dialog
+        character: hana
+        text: "{先生|せんせい}の{観察課題|かんさつかだい}ノートを{確認|かくにん}したら、{提出|ていしゅつ}リストに**モリだけ「ホウセンカの{種|たね}：{未採取|みさいしゅ}」**って{書|か}かれてた。{締|し}め{切|き}りは{月曜|げつよう}の{朝|あさ}。{日曜|にちよう}の{夕方|ゆうがた}しか{採取|さいしゅ}できなかったんだと{思|おも}う。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: neko
+        expression: determined
+        position: right
+      - type: dialog
+        character: neko
+        text: "{植木係|うえきがかり}ノートの{日曜|にちよう}17:00の{記録|きろく}、{筆跡|ひっせき}がモリのだよ。「ホウセンカの{実|み}を{確認|かくにん}した」——{種|たね}を{採|と}ろうとして{触|さわ}ったら{弾|は}けたんじゃないかな。{中心点|ちゅうしんてん}がちょうどホウセンカの{根元|ねもと}で{一致|いっち}してる。"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{モリ|モリ}が{日曜|にちよう}17{時|じ}に{花壇|かだん}へ → {宿題|しゅくだい}のため{実|み}を{手|て}でつかんだ → {触|ふ}れた{瞬間|しゅんかん}に{弾|は}けた → {種|たね}が{放射状|ほうしゃじょう}に1〜2メートル{飛|と}んだ → {種|たね}がパンジーの{茎|くき}に{当|あ}たって{倒|たお}れた → **モリが{中心|ちゅうしん}になって{起|お}きた{出来事|できごと}**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 中心人物は誰だ？
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{モリ|モリ}って、{課題|かだい}のことで{先週|せんしゅう}から{焦|あせ}ってたよね。「ホウセンカの{実|み}、まだ{採|と}れてない」って。{急|いそ}いでいたから{種|たね}が{飛|と}ぶって{知|し}らなかったのかも。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{日曜|にちよう}17{時|じ}に{花壇|かだん}にいた → {実|み}を{手|て}でつかんだ → {種|たね}が{放射状|ほうしゃじょう}に{飛|と}んだ → パンジーまで1.2メートル → {茎|くき}が{折|お}れずに{横|よこ}に{倒|たお}れた → {弾裂型|だんれつがた}の{射出|しゃしゅつ}と{一致|いっち}。"
+      - type: choice
+        id: q1
+        question: 事件の中心になって問題を起こしたのは？
+        options:
+          - text: モリ（日曜夕方に花壇へ・実を手でつかんだ・弾裂で種が飛んだ・パンジーが倒れた）
+            value: mori
+            correct: true
+            feedback: "{正解|せいかい}！ モリは{観察課題|かんさつかだい}の{締|し}め{切|き}りに{焦|あせ}り、{日曜|にちよう}{夕方|ゆうがた}に{花壇|かだん}へ{来|き}た。{熟|じゅく}した{実|み}に{触|ふ}れた{瞬間|しゅんかん}、ホウセンカの{弾裂散布|だんれつさんぷ}が{起動|きどう}。{種|たね}が1〜2メートル{飛|と}んでパンジーを{倒|たお}した。「{種|たね}がどこまで{飛|と}ぶか」を{知|し}らなかったことが{原因|げんいん}だった。"
+          - text: ハナ（種子散布の知識を持っていた人）
+            value: hana
+            feedback: "ハナは{弾裂型|だんれつがた}の{知識|ちしき}を{持|も}っていたけど、{日曜|にちよう}に{花壇|かだん}にいた{記録|きろく}はないよ。{知識|ちしき}を{持|も}っていることと、{行動|こうどう}したことは{別|べつ}だよ。"
+          - text: ネコ（種のマッピングをした人）
+            value: neko
+            feedback: "ネコは{月曜|げつよう}の{朝|あさ}に{種|たね}の{分布|ぶんぷ}をマッピングした{観察者|かんさつしゃ}だよ。{植木係|うえきがかり}ノートにも{日曜|にちよう}の{記録|きろく}はない。"
+          - text: ツボミ（パンジーを観察した人）
+            value: tsubomi
+            feedback: "ツボミは{倒|たお}れたパンジーをよく{観察|かんさつ}した{感情型|かんじょうがた}だよ。でも{日曜|にちよう}に{花壇|かだん}にいた{証拠|しょうこ}はないし、ホウセンカの{実|み}に{触|さわ}った{記録|きろく}もない。"
+
+  # ==================== 真実：モリ ====================
+  - id: truth-mori
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: モリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mori
+        expression: worried
+        position: center
+      - type: dialog
+        character: mori
+        text: "……そうだよ。{日曜|にちよう}の{夕方|ゆうがた}、{宿題|しゅくだい}の{種|たね}を{採|と}ろうと{思|おも}って{花壇|かだん}に{行|い}ったんだ。{締|し}め{切|き}りが{月曜|げつよう}の{朝|あさ}で、{焦|あせ}ってた。"
+        expression: worried
+      - type: dialog
+        character: mori
+        text: "{実|み}を{手|て}でつかんだら、{触|ふ}れた{瞬間|しゅんかん}にパンって{弾|は}けて、{種|たね}がバーッと{飛|と}んでいった。{驚|おどろ}いて{固|かた}まってたら、パンジーが{倒|たお}れていて……{怖|こわ}くなって{帰|かえ}っちゃった。"
+        expression: surprised
+      - type: dialog
+        character: mori
+        text: "ホウセンカの{種|たね}がそんなに{遠|とお}くまで{飛|と}ぶとは{思|おも}ってなかった。{パンジーを倒|たおしてごめん}。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hana
+        text: "{弾裂型|だんれつがた}の{飛距離|ひきょり}は1〜2メートル。ホウセンカを{採取|さいしゅ}するときは、{周|まわ}りのプランターから{離|はな}れた{場所|ばしょ}で{袋|ふくろ}をかぶせてから{触|ふ}れないといけないの。{知識|ちしき}があれば{防|ふせ}げたんだよね。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "モリが{焦|あせ}ってたのはわかってたよ。でも、{急|いそ}いで{帰|かえ}っちゃったからパンジーが{倒|たお}れてるの、{月曜|げつよう}の{朝|あさ}まで{誰|だれ}も{知|し}らなかった。もっと{話|はな}してくれれば{よかった|よかった}のに。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ホウセンカの{弾裂散布|だんれつさんぷ}——{成熟|せいじゅく}した{実|み}は{触|ふ}れただけで{種|たね}を{射出|しゃしゅつ}するの。これは{植物|しょくぶつ}が{子孫|しそん}を{遠|とお}くへ{運|はこ}ぶための{戦略|せんりゃく}。{美|うつく}しいしくみだけど、{知|し}らないと{予想外|よそうがい}の{結果|けっか}につながることもあるわね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{植物|しょくぶつ}の{観察|かんさつ}をするときは、その{植物|しょくぶつ}の{性質|せいしつ}をまず{調|しら}べてから{触|ふ}れましょう。{焦|あせ}っているときこそ、{一度|いちど}{立|た}ち{止|と}まることが{大切|たいせつ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{モリ|もり}は{宿題|しゅくだい}の{締|し}め{切|き}りに{焦|あせ}り、ホウセンカの{弾裂|だんれつ}のしくみを{知|し}らずに{実|み}に{触|ふ}れた。{種|たね}が{飛|と}んでパンジーが{倒|たお}れた——{悪意|あくい}ではなく、{知識|ちしき}の{不足|ふそく}が{原因|げんいん}だった。"
+      - type: narration
+        text: "{種子散布|しゅししさんぷ}の4{戦略|せんりゃく}——{風|かぜ}・{動物|どうぶつ}・{水|みず}・{弾裂|だんれつ}。この{知識|ちしき}が{植物|しょくぶつ}の{行動|こうどう}を{予測|よそく}する{力|ちから}になる。"
+      - type: effect
+        name: fade-out

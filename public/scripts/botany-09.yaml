@@ -1,0 +1,352 @@
+meta:
+  id: botany-09
+  title: データの庭
+  series: 植物探偵団
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{植物|しょくぶつ}{探偵|たんてい}{団|だん}の4{人|にん}は、それぞれトマトを{育|そだ}てて{記録|きろく}をつけていた。{草丈|くさたけ}・{葉|は}の{枚数|まいすう}・{実|み}の{数|かず}を{表|ひょう}にまとめ、{今日|きょう}{発表|はっぴょう}する{予定|よてい}だ。"
+      - type: narration
+        text: ところが{発表|はっぴょう}の{直前|ちょくぜん}——
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "モリのデータだけが**{草丈|くさたけ}は{高|たか}いのに{実|み}が{全|まった}くない**という、あきらかな{異常値|いじょうち}だった。"
+      - type: narration
+        text: "「モリが{嘘|うそ}のデータを{書|か}いた」と{疑|うたが}う{声|こえ}が{上|あ}がる。しかしモリは「{全部|ぜんぶ}{正直|しょうじき}に{書|か}いた。{嘘|うそ}なんてない！」と{主張|しゅちょう}する。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{対照|たいしょう}{実験|じっけん}では{変数|へんすう}を1つに{絞|しぼ}るのが{基本|きほん}よ。{条件|じょうけん}が{変|か}わると、データの{意味|いみ}も{変|か}わってしまうわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: worried
+          - character: hana
+            expression: thinking
+          - character: tsubomi
+            expression: worried
+      - type: narration
+        text: "{データは{嘘|うそ}ではないのに、なぜおかしいのか？ {植物|しょくぶつ}の{成長|せいちょう}の{条件|じょうけん}と{対照|たいしょう}{実験|じっけん}の{仕組|しくみ}みを{理解|りかい}しないと、{異常値|いじょうち}の{原因|げんいん}が{見|み}えてこない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: データの庭
+        subtitle: 植物探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: データ比較表と土の観察
+      - type: narration
+        text: "{ハナがまとめた4{人|にん}の{比較|ひかく}{表|ひょう}——{草丈|くさたけ}・{葉|は}の{枚数|まいすう}・{実|み}の{数|かず}の{相関|そうかん}を{分析|ぶんせき}した{結果|けっか}、**{通常|つうじょう}は{草丈|くさたけ}と{実|み}の{数|かず}は{正|せい}の{相関|そうかん}**がある。"
+      - type: narration
+        text: "ネコ・ハナ・ツボミの3{人|にん}は{草丈|くさたけ}と{実|み}の{数|かず}が{比例|ひれい}している。しかし**モリだけ{草丈|くさたけ}は{高|たか}いのに{実|み}の{数|かず}がゼロ**——{負|ふ}の{相関|そうかん}になっている。"
+      - type: narration
+        text: "ネコが4{人|にん}の{植木鉢|うえきばち}の{土|つち}の{状態|じょうたい}を{確認|かくにん}した{結果|けっか}——ネコ・ハナ・ツボミの{鉢|はち}の{土|つち}は{古|ふる}く{締|し}まっている。しかし**モリの{鉢|はち}の{土|つち}だけ{新|あたら}しく{柔|やわ}らかい**。"
+      - type: narration
+        text: "さらにモリの{根|ね}が{浅|あさ}い——{最近|さいきん}{植|う}えた{苗|なえ}の{特徴|とくちょう}だ。"
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 4人の証言
+      - type: sprite
+        character: mori
+        expression: worried
+        position: left
+      - type: dialog
+        character: mori
+        text: "{途中|とちゅう}でトマトが{枯|か}れて{植|う}え{直|なお}した。{古|ふる}いデータと{新|あたら}しいデータを{続|つづ}けて{記録|きろく}した。{嘘|うそ}はない……と{思|おも}っている。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hana
+        text: "{草丈|くさたけ}が{高|たか}いのに{実|み}が0なんて、ふつうはあり{得|え}ない。データのどこかに{矛盾|むじゅん}がある。モリのデータだけ{成長|せいちょう}ステージが{混在|こんざい}している{気|き}がするの。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubomi
+        text: "モリのトマト、なんか{不自然|ふしぜん}。{上|うえ}の{葉|は}と{下|した}の{茎|くき}が{別|べつ}の{株|かぶ}みたい。{葉|は}がまだ{若|わか}い（{開|ひら}いてから{日|ひ}が{浅|あさ}い）のに{茎|くき}は{太|ふと}い。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: right
+      - type: dialog
+        character: neko
+        text: "{土|つち}の{状態|じょうたい}が{他|ほか}と{違|ちが}う。{植|う}え{替|か}えた{跡|あと}かもしれない。{根|ね}が{浅|あさ}いのも、{最近|さいきん}{植|う}えた{証拠|しょうこ}だと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 成長記録ノートの検証
+      - type: se
+        sound: discover
+      - type: narration
+        text: "モリの{成長|せいちょう}{記録|きろく}ノートを{詳|くわ}しく{見|み}ると——{前半|ぜんはん}（1〜3{週|しゅう}）の{記録|きろく}: {草丈|くさたけ}20cm→35cm→50cm、{実|み}2→4→6{個|こ}。{後半|こうはん}（4〜6{週|しゅう}）の{記録|きろく}: {草丈|くさたけ}55cm→60cm→65cm、{実|み}0→0→0{個|こ}。"
+      - type: narration
+        text: "**{前半|ぜんはん}と{後半|こうはん}で{成長|せいちょう}パターンが{断絶|だんぜつ}している**。{草丈|くさたけ}は{急|きゅう}に{増|ふ}えているのに、{実|み}がゼロにリセットされた{形|かたち}だ。"
+      - type: narration
+        text: "{対照|たいしょう}{実験|じっけん}の{原則|げんそく}：{変数|へんすう}を1つに{絞|しぼ}り、{他|ほか}の{条件|じょうけん}を{統一|とういつ}する。**{株|かぶ}を{植|う}え{直|なお}せば「{実験|じっけん}{開始日|かいしび}が{変|か}わる」「{成長|せいちょう}ステージが{変|か}わる」**という{変数|へんすう}が{複数|ふくすう}{変|か}わってしまう。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 植え替えの事実
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hana
+        expression: determined
+        position: left
+      - type: dialog
+        character: hana
+        text: "トマトは{受粉|じゅふん}{後|ご}、{約|やく}45〜50{日|にち}で{実|み}が{赤|あか}くなる。**{草丈|くさたけ}が{高|たか}くても{植|う}え{替|か}えたばかりなら{実|み}はない**。{後半|こうはん}のデータは{別|べつ}の{新|あたら}しい{株|かぶ}のデータのはず。"
+        expression: determined
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: neko
+        expression: determined
+        position: right
+      - type: dialog
+        character: neko
+        text: "{土|つち}が{新|あたら}しくて{根|ね}が{浅|あさ}い。これは{最近|さいきん}{植|う}えた{証拠|しょうこ}そのものだよ。{前半|ぜんはん}と{後半|こうはん}が{別|べつ}の{株|かぶ}なら、{異常値|いじょうち}のつじつまが{合|あ}う。"
+        expression: determined
+      - type: sprite
+        character: neko
+        action: hide
+      - type: narration
+        text: "{草丈|くさたけ}が{高|たか}い（{古|ふる}いデータ）のに{実|み}がない（{新|あたら}しい{株|かぶ}でまだ{実|み}がならない{時期|じき}）——**{異常値|いじょうち}は「{嘘|うそ}」ではなく「{別|べつ}の{株|かぶ}のデータが{混在|こんざい}している」**ことで{説明|せつめい}できる。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 問題の中心は誰だ？
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "モリが{枯|か}らせてしまったとき、すごく{落|お}ち{込|こ}んでいたの。「{実験|じっけん}のやり{直|なお}しは{報告|ほうこく}が{必要|ひつよう}」なルールを{知|し}りながら、{言|い}い{出|だ}せなかったんだと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をまとめよう。{土|つち}が{新|あたら}しく{根|ね}が{浅|あさ}い（{植|う}え{替|か}えの{証拠|しょうこ}）。{記録|きろく}ノートの{前後|ぜんご}で{成長|せいちょう}パターンが{断絶|だんぜつ}。{草丈|くさたけ}と{実|み}の{不一致|ふいっち}は{別|べつ}の{株|かぶ}のデータ{混在|こんざい}で{説明|せつめい}できる。"
+      - type: choice
+        id: q1
+        question: データの異常値の中心となった人物は？
+        options:
+          - text: モリ（植え直しを報告せず古いデータと新しいデータをつぎはぎした）
+            value: mori
+            correct: true
+            feedback: "{正解|せいかい}！ モリはトマトを{枯|か}らせてしまい、{新|あたら}しい{株|かぶ}を{植|う}え{直|なお}した。しかし{報告|ほうこく}できず、{古|ふる}いデータと{新|あたら}しいデータをつぎはぎして{提出|ていしゅつ}した。{対照|たいしょう}{実験|じっけん}では{条件|じょうけん}の{変化|へんか}を{正直|しょうじき}に{報告|ほうこく}することが{大切|たいせつ}だ。"
+          - text: ハナ（データの矛盾を指摘した人）
+            value: hana
+            feedback: "ハナは{データ|でーた}の{矛盾|むじゅん}に{気|き}づいて{分析|ぶんせき}した{側|がわ}だよ。{比較表|ひかくひょう}をまとめたのもハナ。{問題|もんだい}の{中心|ちゅうしん}ではないね。"
+          - text: ネコ（鉢の土の状態を調べた人）
+            value: neko
+            feedback: "ネコは{植木鉢|うえきばち}の{物理的|ぶつりてき}な{証拠|しょうこ}を{示|しめ}した{観察|かんさつ}タイプだよ。{問題|もんだい}を{見|み}つけた{側|がわ}だ。"
+          - text: ツボミ（葉と茎の不一致に気づいた人）
+            value: tsubomi
+            feedback: "ツボミは{葉|は}と{茎|くき}の{成長|せいちょう}ステージの{不一致|ふいっち}を{感覚的|かんかくてき}に{気|き}づいた{側|がわ}だよ。{問題|もんだい}を{発見|はっけん}した{探偵|たんてい}だ。"
+
+  # ==================== 真実：モリ ====================
+  - id: truth-mori
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: モリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: mori
+        expression: worried
+        position: center
+      - type: dialog
+        character: mori
+        text: "……{本当|ほんとう}のことを{言|い}います。{途中|とちゅう}でトマトが{枯|か}れてしまって……{水|みず}{切|き}れで{根|ね}が{傷|いた}んだんだ。"
+        expression: worried
+      - type: dialog
+        character: mori
+        text: "{新|あたら}しい{株|かぶ}を{植|う}え{直|なお}した。でも「{実験|じっけん}のやり{直|なお}しは{報告|ほうこく}が{必要|ひつよう}」なルールを{知|し}っていたのに、「{実験|じっけん}{開始|かいし}から{日数|にっすう}が{経|た}っているのに{植|う}え{直|なお}しは{許|ゆる}されない」と{思|おも}って{言|い}えなかった。"
+        expression: thinking
+      - type: dialog
+        character: mori
+        text: "{枯|か}れた{株|かぶ}のデータと{新|あたら}しい{株|かぶ}のデータをつぎはぎにして{提出|ていしゅつ}した。データは{全部|ぜんぶ}{本当|ほんとう}のことを{書|か}いた……でも2{本|ほん}のトマトのデータが{混|ま}ざっていた。"
+        expression: worried
+      - type: sprite
+        character: mori
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: hana
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hana
+        text: "データの{矛盾|むじゅん}は{嘘|うそ}じゃなかった。{別|べつ}の{株|かぶ}の{記録|きろく}が{混|ま}ざっていたから{異常値|いじょうち}に{見|み}えたんだね。"
+        expression: thinking
+      - type: sprite
+        character: hana
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "モリ、{言|い}い{出|だ}せなかったんだよね。もっと{早|はや}く「{一緒|いっしょ}に{考|かんが}えよう」って{言|い}ってあげればよかった。"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{対照|たいしょう}{実験|じっけん}は{変数|へんすう}を1つに{絞|しぼ}ることが{基本|きほん}よ。{株|かぶ}を{植|う}え{直|なお}せば{実験|じっけん}{条件|じょうけん}が{変|か}わる。その{変化|へんか}を{正直|しょうじき}に{記録|きろく}することが、{科学|かがく}の{第一歩|だいいっぽ}なの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{失敗|しっぱい}は{恥|は}ずかしいことじゃない。{失敗|しっぱい}を{正直|しょうじき}に{報告|ほうこく}して、そこから{学|まな}ぶことが{大切|たいせつ}。{次|つぎ}からは{一緒|いっしょ}に{考|かんが}えましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{データは{嘘|うそ}ではなかった。しかし{条件|じょうけん}の{変化|へんか}を{記録|きろく}しなければ、{正確|せいかく}な{比較|ひかく}はできない。"
+      - type: narration
+        text: "{言|い}い{出|だ}しにくいことがあっても、{正直|しょうじき}に{報告|ほうこく}することが{科学|かがく}と{信頼|しんらい}の{両方|りょうほう}を{守|まも}る。"
+      - type: effect
+        name: fade-out

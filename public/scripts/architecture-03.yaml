@@ -1,0 +1,368 @@
+meta:
+  id: architecture-03
+  title: ゆれる学校
+  series: 建築探偵団
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  tateru:
+    name: タテル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hari:
+    name: ハリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  noki:
+    name: ノキ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  izumi:
+    name: イズミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{建築|けんちく}{探偵|たんてい}{団|だん}の4{人|にん}。{小|ちい}さな{地震|じしん}が{起|お}きた{翌日|よくじつ}、{学校|がっこう}の{揺|ゆ}れ{記録|きろく}をめぐってクラスがざわついていた。"
+      - type: narration
+        text: "「{新|あたら}しい{棟|とう}は{全然|ぜんぜん}{揺|ゆ}れなかった」「{古|ふる}い{棟|とう}はすごく{揺|ゆ}れた」——みんなの{声|こえ}はバラバラだ。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "そして、{揺|ゆ}れ{記録|きろく}の{集計表|しゅうけいひょう}に**おかしな{数値|すうち}**が{見|み}つかった。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{地震|じしん}の{後|あと}の{安全|あんぜん}{記録|きろく}は、{建物|たてもの}の{危険|きけん}を{判断|はんだん}するための{大切|たいせつ}なデータよ。{記録|きろく}に{矛盾|むじゅん}があるとしたら、だれかが{書|か}き{換|か}えたか、{間違|まちが}って{記入|きにゅう}したか……どちらかね。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tateru
+            expression: thinking
+          - character: hari
+            expression: worried
+          - character: noki
+            expression: surprised
+          - character: izumi
+            expression: worried
+      - type: narration
+        text: "{新棟|しんとう}（1990{年|ねん}{築|ちく}）と{旧棟|きゅうとう}（1975{年|ねん}{築|ちく}）——{建|た}てられた{年|ねん}が{違|ちが}えば、{耐震|たいしん}{性能|せいのう}も{違|ちが}う。4{人|にん}は{記録|きろく}の{矛盾|むじゅん}を{調|しら}べ{始|はじ}めた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ゆれる学校
+        subtitle: 建築探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 揺れ記録集計表と地震の規模
+      - type: narration
+        text: "{地震|じしん}{後|ご}の{揺|ゆ}れ{記録|きろく}{集計表|しゅうけいひょう}（ハリが{作成|さくせい}）と{地震|じしん}の{規模|きぼ}の{記録|きろく}が{配|くば}られた。"
+      - type: narration
+        text: "{今回|こんかい}の{地震|じしん}は**{震度|しんど}2**。ハリが{集計|しゅうけい}した{記録|きろく}には、{各|かく}{教室|きょうしつ}ごとの「{揺|ゆ}れた / {揺|ゆ}れなかった」の{人数|にんずう}がまとめられている。"
+      - type: narration
+        text: "{集計表|しゅうけいひょう}を{見|み}ると……{新棟|しんとう}の{教室|きょうしつ}: {揺|ゆ}れなかったと{答|こた}えた{生徒|せいと}が{多数|たすう}。{旧棟|きゅうとう}の{教室|きょうしつ}: **{揺|ゆ}れが{少|すく}なかったと{記録|きろく}されている**。"
+      - type: narration
+        text: "でも{旧棟|きゅうとう}の{生徒|せいと}たちは「すごく{揺|ゆ}れた」と{言|い}っている。**{集計表|しゅうけいひょう}の{数値|すうち}と{声|こえ}が{食|く}い{違|ちが}っている**。"
+
+  # ==================== 調査：証拠カード2・3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 棟の築年数・耐震基準と予測揺れ範囲
+      - type: sprite
+        character: tateru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tateru
+        text: "{学校|がっこう}の{棟|とう}{一覧|いちらん}を{見|み}てよ。{新棟|しんとう}は1990{年|ねん}{築|ちく}、{旧棟|きゅうとう}は1975{年|ねん}{築|ちく}だ。"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: izumi
+        text: "1981{年|ねん}に{耐震|たいしん}{基準|きじゅん}が{改正|かいせい}されたって{書|か}いてある。{新耐震|しんたいしん}{基準|きじゅん}（1981{年|ねん}{以降|いこう}）は{揺|ゆ}れに{強|つよ}くて、{旧耐震|きゅうたいしん}（1981{年|ねん}{以前|いぜん}）は{揺|ゆ}れやすいの？"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "**{新棟|しんとう}（{新耐震|しんたいしん}{基準|きじゅん}）**: {震度|しんど}2では{揺|ゆ}れが{小|ちい}さいと{予測|よそく}される。**{旧棟|きゅうとう}（{旧耐震|きゅうたいしん}{基準|きじゅん}）**: {震度|しんど}2でも{揺|ゆ}れが**やや{大|おお}きくなる**と{予測|よそく}される。"
+      - type: sprite
+        character: noki
+        expression: determined
+        position: left
+      - type: dialog
+        character: noki
+        text: "つまり{旧棟|きゅうとう}が「{揺|ゆ}れが{少|すく}ない」という{集計|しゅうけい}は**{予測|よそく}と{逆|ぎゃく}**。ハリの{集計表|しゅうけいひょう}はおかしい！"
+        expression: determined
+      - type: sprite
+        character: noki
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 集計メモと目撃証言
+      - type: narration
+        text: "ハリの{集計|しゅうけい}メモに{不思議|ふしぎ}なものが{見|み}つかった——"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "**ノキの{記録|きろく}{欄|らん}に{鉛筆|えんぴつ}で{書|か}き{直|なお}した{跡|あと}**がある。もともとの{数字|すうじ}を{消|け}して、{別|べつ}の{数字|すうじ}が{上書|うわが}きされているのだ。"
+      - type: sprite
+        character: tateru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tateru
+        text: "ぼく、{見|み}てたんだ。ハリが{集計|しゅうけい}{中|ちゅう}に{急|いそ}いで{記録|きろく}を{書|か}いていた。「{早|はや}く{終|お}わらせなきゃ」ってつぶやいてた。"
+        expression: surprised
+      - type: sprite
+        character: tateru
+        action: hide
+      - type: narration
+        text: "ハリが{急|いそ}いでいた。ノキの{記録|きろく}{欄|らん}だけ{数値|すうち}が{書|か}き{換|か}えられている。**なぜノキの{分|ぶん}だけ？**"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ノキの実際の観測値
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: noki
+        expression: determined
+        position: left
+      - type: dialog
+        character: noki
+        text: "わたし、{後|あと}から{自分|じぶん}の{実際|じっさい}の{観測値|かんそくち}を{提出|ていしゅつ}した。{旧棟|きゅうとう}は**{揺|ゆ}れが{大|おお}きかった**——{予測|よそく}{通|どお}りよ。ハリの{集計|しゅうけい}と**{全然|ぜんぜん}{違|ちが}う**！"
+        expression: determined
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: hari
+        expression: worried
+        position: right
+      - type: dialog
+        character: hari
+        text: "……{時間|じかん}がなかったんだ。ノキがまだ{記録|きろく}を{出|だ}してなくて、「{旧棟|きゅうとう}だから{少|すこ}し{揺|ゆ}れたくらいかな」って{推測|すいそく}で{書|か}いてしまって……。"
+        expression: worried
+      - type: sprite
+        character: hari
+        action: hide
+      - type: effect
+        name: shake
+        duration: 300
+      - type: narration
+        text: "{旧棟|きゅうとう}の{実際|じっさい}の{揺|ゆ}れ＝{大|おお}きい（ノキの{観測|かんそく}{値|ち}）→ ハリの{集計|しゅうけい}＝{旧棟|きゅうとう}の{揺|ゆ}れが{少|すく}ない → 数値が{逆|ぎゃく} → ノキの{記録|きろく}{欄|らん}に{鉛筆|えんぴつ}で{上書|うわが}き → ハリが{推測|すいそく}で{記入|きにゅう}した。**{正確|せいかく}ではない{記録|きろく}が{安全|あんぜん}{判断|はんだん}を{狂|くる}わせていた**。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 犯人は誰だ？
+      - type: sprite
+        character: izumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: izumi
+        text: "もし{本当|ほんとう}に{危|あぶ}ない{建物|たてもの}だったら、{誰|だれ}かが{怪我|けが}するかもしれない。{安全|あんぜん}{記録|きろく}って、そんなに{大事|だいじ}なんだ……"
+        expression: worried
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ノキの{記録|きろく}{欄|らん}だけ{書|か}き{換|か}えられていた。タテルが「ハリが{急|いそ}いで{書|か}いていた」と{目撃|もくげき}。ノキの{実際|じっさい}の{観測値|かんそくち}は{集計|しゅうけい}{表|ひょう}と{真逆|まぎゃく}。ハリ{自身|じしん}が「{推測|すいそく}で{書|か}いた」と{認|みと}めた。"
+      - type: choice
+        id: q1
+        question: 揺れ記録を間違って書いた中心人物は？
+        options:
+          - text: ハリ（推測で記録を書き換えた＋急いでいた目撃情報＋本人が認めた）
+            value: hari
+            correct: true
+            feedback: "{正解|せいかい}！ ハリは{集計|しゅうけい}{係|がかり}として{急|いそ}ぐあまり、ノキがまだ{出|だ}していない{記録|きろく}を「{推測|すいそく}」で{書|か}いてしまった。{新棟|しんとう}・{旧棟|きゅうとう}の{耐震|たいしん}{性能|せいのう}の{違|ちが}いを{知|し}らずに{書|か}いた{数値|すうち}が、{安全|あんぜん}{記録|きろく}を{狂|くる}わせた。"
+          - text: ノキ（自分の記録をわざと提出しなかった人）
+            value: noki
+            feedback: "ノキは{記録|きろく}の{提出|ていしゅつ}が{遅|おく}れただけ。{後|あと}から{正確|せいかく}な{観測値|かんそくち}を{提出|ていしゅつ}している。{悪意|あくい}はないよ。"
+          - text: タテル（急いでいるハリを見ていた目撃者）
+            value: tateru
+            feedback: "タテルは{目撃者|もくげきしゃ}として{情報|じょうほう}を{提供|ていきょう}した{側|がわ}。{記録|きろく}を{書|か}き{換|か}えたのはタテルではないよ。"
+          - text: イズミ（安全への不安を語った人）
+            value: izumi
+            feedback: "イズミは{建物|たてもの}の{安全性|あんぜんせい}を{心配|しんぱい}していた{感情型|かんじょうがた}。{集計表|しゅうけいひょう}には{関与|かんよ}していないよ。"
+
+  # ==================== 真実：ハリ ====================
+  - id: truth-hari
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハリの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hari
+        expression: worried
+        position: center
+      - type: dialog
+        character: hari
+        text: "……ごめん。{揺|ゆ}れ{記録|きろく}の{集計|しゅうけい}を{任|まか}されてたのに、{時間|じかん}が{足|た}りなくなって……"
+        expression: worried
+      - type: dialog
+        character: hari
+        text: "ノキがまだ{記録|きろく}を{出|だ}してなかったから、「{旧棟|きゅうとう}だしちょっと{揺|ゆ}れたくらいかな」って{推測|すいそく}で{書|か}いてしまったんだ。{鉛筆|えんぴつ}で{書|か}いて、あとで{直|なお}せばいいと{思|おも}ってた。"
+        expression: thinking
+      - type: dialog
+        character: hari
+        text: "でも{耐震|たいしん}{基準|きじゅん}のことを{知|し}らなかった。{旧棟|きゅうとう}は{本当|ほんとう}はもっと{大|おお}きく{揺|ゆ}れるって……。{早|はや}く{終|お}わらせようとしたのが{間違|まちが}いだった。"
+        expression: worried
+      - type: sprite
+        character: hari
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: noki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: noki
+        text: "わたしの{記録|きろく}が{勝手|かって}に{書|か}き{換|か}えられてたのは{悔|くや}しい。でも……ハリが{焦|あせ}ってたのは{分|わ}かってたのに、{声|こえ}をかけてあげればよかった。"
+        expression: thinking
+      - type: sprite
+        character: noki
+        action: hide
+      - type: sprite
+        character: tateru
+        expression: worried
+        position: right
+      - type: dialog
+        character: tateru
+        text: "{新棟|しんとう}と{旧棟|きゅうとう}でこんなに{揺|ゆ}れ{方|かた}が{違|ちが}うなんて{思|おも}わなかったよ。{建|た}てられた{年|ねん}が{違|ちが}うだけで、こんなに{差|さ}が{出|で}るんだな。"
+        expression: thinking
+      - type: sprite
+        character: tateru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "1981{年|ねん}の{新耐震|しんたいしん}{基準|きじゅん}——これは{地震|じしん}から{命|いのち}を{守|まも}るために{作|つく}られた{大切|たいせつ}なルールよ。{旧棟|きゅうとう}は{揺|ゆ}れやすい。それを{知|し}らずに{記録|きろく}を{推測|すいそく}で{書|か}くと、{危険|きけん}を{見落|みお}とすことになるわ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{安全|あんぜん}{記録|きろく}は{正確|せいかく}でなければ{意味|いみ}がない。{間|ま}に{合|あ}わないときは**「まだ{集|あつ}まっていない」と{正直|しょうじき}に{伝|つた}える**ことが、{建物|たてもの}と{人|ひと}を{守|まも}ることに{繋|つな}がるの。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: izumi
+        expression: happy
+        position: left
+      - type: dialog
+        character: izumi
+        text: "{推測|すいそく}じゃなく{事実|じじつ}を{記録|きろく}すること。それが{建物|たてもの}の{安全|あんぜん}を{守|まも}る{第一歩|だいいっぽ}なんだね。"
+        expression: happy
+      - type: sprite
+        character: izumi
+        action: hide
+      - type: narration
+        text: "{耐震|たいしん}{基準|きじゅん}の{知識|ちしき}が{記録|きろく}の{矛盾|むじゅん}を{見抜|みぬ}く{鍵|かぎ}になった。{建物|たてもの}の{築年数|ちくねんすう}と{安全|あんぜん}{記録|きろく}の{正確|せいかく}さ——{建築|けんちく}と{命|いのち}は{繋|つな}がっている。"
+      - type: narration
+        text: "{急|いそ}いでいるときほど、「{分|わ}からない」「まだ{出|で}ていない」と{正直|しょうじき}に{言|い}える{勇気|ゆうき}が{大切|たいせつ}だ。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,356 @@
+meta:
+  id: botany-02
+  title: 水の旅
+  series: 植物探偵団
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  neko:
+    name: ネコ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mori:
+    name: モリ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hana:
+    name: ハナ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsubomi:
+    name: ツボミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の{授業|じゅぎょう}で「セロリの{色水|いろみず}{実験|じっけん}」をすることになった。{青|あお}い{食紅|しょくべに}を{入|い}れた{水|みず}にセロリを{浸|ひた}すと、{茎|くき}と{葉|は}が{青|あお}く{染|そ}まるはず。"
+      - type: narration
+        text: "4{人|にん}はそれぞれ{自分|じぶん}のセロリを{用意|ようい}して、{実験|じっけん}に{臨|のぞ}んだ。"
+      - type: se
+        sound: crash
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ところが——**ハナのセロリだけが、まったく{色|いろ}がつかなかった**。"
+      - type: narration
+        text: "「{誰|だれ}かが{水|みず}を{変|か}えた？」「セロリが{悪|わる}かった？」{実験|じっけん}{記録|きろく}の{矛盾|むじゅん}を{追|お}ううちに、{意外|いがい}な{真相|しんそう}が{浮|う}かびあがる。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{植物|しょくぶつ}は{根|ね}から{吸|す}った{水|みず}を、{茎|くき}の{中|なか}にある「{道管|どうかん}」という{管|くだ}を{通|とお}して{葉|は}まで{運|はこ}ぶの。{葉|は}が{水|みず}を{蒸散|じょうさん}させることで、{下|した}から{水|みず}を{引|ひ}き{上|あ}げる{力|ちから}が{生|う}まれるのよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: neko
+            expression: thinking
+          - character: mori
+            expression: thinking
+          - character: hana
+            expression: worried
+          - character: tsubomi
+            expression: surprised
+      - type: narration
+        text: "{4|よん}{人|にん}は{顔|かお}を{見合|みあ}わせた。ハナのセロリだけがなぜ{色|いろ}{水|みず}を{吸|す}い{上|あ}げられなかったのか——{調査|ちょうさ}が{始|はじ}まる。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 水の旅
+        subtitle: 植物探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 実験記録
+      - type: narration
+        text: "【{実験|じっけん}{記録|きろく}カード】{青|あお}い{食紅|しょくべに}の{水|みず}に4{本|ほん}のセロリを{浸|ひた}した{結果|けっか}——"
+      - type: narration
+        text: "モリのセロリ ✅ {茎|くき}と{葉|は}が{青|あお}く{染|そ}まった。ネコのセロリ ✅ {茎|くき}と{葉|は}が{青|あお}く{染|そ}まった。ツボミのセロリ ✅ {茎|くき}と{葉|は}が{青|あお}く{染|そ}まった。**ハナのセロリ ❌ まったく{変化|へんか}なし**。"
+      - type: narration
+        text: "4{人|にん}とも{同|おな}じ{食紅|しょくべに}、{同|おな}じ{濃度|のうど}の{水|みず}を{使|つか}っている。なぜハナのセロリだけ{色|いろ}がつかなかったのか？"
+
+  # ==================== 調査：証拠カード2＋3 ====================
+  - id: evidence-2
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 切り口の観察と蒸散の仕組み
+      - type: sprite
+        character: neko
+        expression: thinking
+        position: left
+      - type: dialog
+        character: neko
+        text: "{4|よん}{本|ほん}のセロリの{切|き}り{口|ぐち}を{比較|ひかく}した{写真|しゃしん}があるよ。モリ・ネコ・ツボミのは{白|しろ}くてきれいな{断面|だんめん}。でも**ハナのだけが{茶色|ちゃいろ}く{変色|へんしょく}してる**。"
+        expression: thinking
+      - type: sprite
+        character: neko
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{葉|は}にビニール{袋|ぶくろ}をかぶせる{結露|けつろ}の{実験|じっけん}をしたとき、{袋|ぶくろ}の{内側|うちがわ}に{水滴|すいてき}がついたの。{葉|は}から{水|みず}が{蒸発|じょうはつ}していることがわかった——これが「{蒸散|じょうさん}」。"
+        expression: normal
+      - type: dialog
+        character: tsubomi
+        text: "{蒸散|じょうさん}によって{葉|は}から{水|みず}が{出|で}ていくから、{茎|くき}の{水|みず}が{引|ひ}き{上|あ}げられる。{道管|どうかん}が{働|はたら}かないと、{水|みず}は{上|うえ}に{行|い}けないんだよ。"
+        expression: thinking
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== 調査：証拠カード4 ====================
+  - id: evidence-3
+    bg: classroom
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: 密談——前日の行動
+      - type: se
+        sound: discover
+      - type: sprite
+        character: mori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mori
+        text: "{僕|ぼく}のセロリは{前日|ぜんじつ}{夜|よる}にスーパーで{買|か}って、{何|なに}も{加工|かこう}してないよ。{買|か}ったままを{朝|あさ}まで{水|みず}に{立|た}てておいた。"
+        expression: thinking
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: hana
+        expression: worried
+        position: right
+      - type: dialog
+        character: hana
+        text: "わたしは……{前日|ぜんじつ}{夜|よる}に、{葉|は}についた{汚|よご}れを{取|と}ろうと{水道水|すいどうすい}で{丁寧|ていねい}に{洗|あら}ったの。そのとき{根元|ねもと}を{少|すこ}し{切|き}ったんだけど……{色|いろ}がつかないのは、セロリが{悪|わる}かっただけだと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: hana
+        action: hide
+      - type: narration
+        text: "ハナは{前日|ぜんじつ}{夜|よる}にセロリを{洗|あら}い、{根元|ねもと}を{切|き}った——この{行動|こうどう}が{何|なに}かに{関係|かんけい}しているかもしれない。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 顕微鏡の追加調査
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: neko
+        expression: surprised
+        position: left
+      - type: dialog
+        character: neko
+        text: "ハナのセロリの{切|き}り{口|ぐち}を{顕微鏡|けんびきょう}で{見|み}たら、**{道管|どうかん}の{穴|あな}が{茶色|ちゃいろ}い{物質|ぶっしつ}で{詰|つ}まってた**。{酸化|さんか}による{変色|へんしょく}だって！"
+        expression: surprised
+      - type: sprite
+        character: neko
+        action: hide
+      - type: sprite
+        character: mori
+        expression: determined
+        position: right
+      - type: dialog
+        character: mori
+        text: "{切|き}り{花|ばな}を{長持|ながも}ちさせるとき「{水切|みずき}り」って{方法|ほうほう}があるよね。{水|みず}の{中|なか}で{切|き}り{直|なお}すことで、{空気|くうき}が{道管|どうかん}に{入|はい}るのを{防|ふせ}ぐんだ。{空気|くうき}に{触|ふ}れたまま{切|き}ると{道管|どうかん}が{詰|つ}まっちゃう。"
+        expression: determined
+      - type: sprite
+        character: mori
+        action: hide
+      - type: narration
+        text: "{切|き}り{口|ぐち}が{空気|くうき}に{触|ふ}れて{酸化|さんか}→{道管|どうかん}が{詰|つ}まる→{水|みず}を{吸|す}い{上|あ}げられない——{全部|ぜんぶ}がつながった。ハナが{前日|ぜんじつ}{夜|よる}に「{根元|ねもと}を{切|き}った」という{行動|こうどう}が、{実験|じっけん}{失敗|しっぱい}の{原因|げんいん}だったのでは？"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 色水を吸えなかった原因を作ったのは誰だ？
+      - type: sprite
+        character: tsubomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsubomi
+        text: "ハナが{洗|あら}っただけのつもりでも、{切|き}り{口|ぐち}を{空気|くうき}にさらしちゃったんだと{思|おも}う。{丁寧|ていねい}にしようとした{気持|きも}ちはわかるけど……"
+        expression: worried
+      - type: sprite
+        character: tsubomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。ハナのセロリの{切|き}り{口|ぐち}が{茶色|ちゃいろ}い。{道管|どうかん}が{詰|つ}まっている。{前日|ぜんじつ}{夜|よる}に{根元|ねもと}を{切|き}った。{水|みず}の{中|なか}で{切|き}り{直|なお}さなかった。"
+      - type: choice
+        id: q1
+        question: ハナのセロリが色水を吸い上げられなかった原因を作ったのは誰？
+        options:
+          - text: ハナ（前日夜に根元を切ったが水中で切り直さなかった）
+            value: hana
+            correct: true
+            feedback: "{正解|せいかい}！ ハナは{実験|じっけん}を{丁寧|ていねい}にしたいと{思|おも}い、{前日|ぜんじつ}{夜|よる}にセロリを{洗|あら}って{根元|ねもと}を{切|き}った。でも{水|みず}の{中|なか}で{切|き}り{直|なお}さなかったため、{切|き}り{口|ぐち}が{空気|くうき}に{触|ふ}れて{酸化|さんか}し、{道管|どうかん}が{詰|つ}まってしまった。「{水切|みずき}り」の{方法|ほうほう}を{知|し}っていれば{防|ふせ}げた{失敗|しっぱい}だった。"
+          - text: モリ（同じ食紅を用意した人）
+            value: mori
+            feedback: "モリは{前日|ぜんじつ}{夜|よる}に{何|なに}も{加工|かこう}せずにスーパーで{買|か}ったセロリをそのまま{使|つか}い、{茎|くき}は{青|あお}く{染|そ}まった。ハナのセロリには{関係|かんけい}していないよ。"
+          - text: ネコ（切り口の写真を撮った人）
+            value: neko
+            feedback: "ネコは{切|き}り{口|ぐち}を{観察|かんさつ}して{写真|しゃしん}を{撮|と}っただけ。{実験|じっけん}{前|まえ}にハナのセロリに{触|ふ}れた{証拠|しょうこ}はないよ。"
+          - text: ツボミ（蒸散の話をした人）
+            value: tsubomi
+            feedback: "ツボミは{蒸散|じょうさん}の{仕組|しく}みを{説明|せつめい}してくれた{側|がわ}。ハナのセロリには{触|ふ}れていないよ。"
+
+  # ==================== 真実：ハナ ====================
+  - id: truth-hana
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真実
+        subtitle: ハナの気づき
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hana
+        expression: worried
+        position: center
+      - type: dialog
+        character: hana
+        text: "……{切|き}り{口|ぐち}が{茶色|ちゃいろ}い。あのとき{水|みず}の{中|なか}で{切|き}り{直|なお}さなかったから——わたしが{原因|げんいん}だったんだ。"
+        expression: worried
+      - type: dialog
+        character: hana
+        text: "{実験|じっけん}をきれいにしたかっただけなの。{汚|よご}れを{落|お}とそうと{洗|あら}って、{根元|ねもと}を{切|き}ったけど……{水切|みずき}りの{方法|ほうほう}なんて{知|し}らなかった。"
+        expression: thinking
+      - type: dialog
+        character: hana
+        text: "「{丁寧|ていねい}にしたかっただけ」って{言|い}い{訳|わけ}してたけど、{道管|どうかん}が{詰|つ}まったのはわたしの{行動|こうどう}のせいだった。"
+        expression: worried
+      - type: sprite
+        character: hana
+        action: hide
+
+  # ==================== 真実：他のメンバー ====================
+  - id: truth-others
+    bg: classroom
+    steps:
+      - type: sprite
+        character: mori
+        expression: determined
+        position: left
+      - type: dialog
+        character: mori
+        text: "じゃあ{今|いま}から{水|みず}の{中|なか}で{切|き}り{直|なお}してみよう！{道管|どうかん}が{詰|つ}まりを{解消|かいしょう}できるか、{再実験|さいじっけん}してみようよ。"
+        expression: determined
+      - type: sprite
+        character: mori
+        action: hide
+      - type: sprite
+        character: tsubomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: tsubomi
+        text: "{色|いろ}がつかないセロリがかわいそうって{思|おも}ってたけど、{水切|みずき}りで{復活|ふっかつ}できるなら{嬉|うれ}しい！{蒸散|じょうさん}の{力|ちから}で{水|みず}を{引|ひ}き{上|あ}げてくれるといいね。"
+        expression: happy
+      - type: sprite
+        character: tsubomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{道管|どうかん}は{根|ね}→{茎|くき}→{葉|は}に{水|みず}と{無機塩類|むきえんるい}を{運|はこ}ぶ{管|くだ}。{蒸散|じょうさん}によって{葉|は}から{水|みず}が{蒸発|じょうはつ}することが、{水|みず}を{上|うえ}に{引|ひ}き{上|あ}げる「{引力|いんりょく}」になっているの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{切|き}り{花|ばな}・{切|き}り{野菜|やさい}を{長持|ながも}ちさせるには「{水切|みずき}り」が{大切|たいせつ}。{空気|くうき}に{触|ふ}れた{切|き}り{口|ぐち}は{道管|どうかん}が{空気|くうき}で{詰|つ}まるから、{水|みず}の{中|なか}で{切|き}り{直|なお}す{必要|ひつよう}があるのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ハナの{気持|きも}ちはよくわかるわ。{丁寧|ていねい}にしようとした{姿勢|しせい}は{正|ただ}しい。{知識|ちしき}があれば{防|ふせ}げた{失敗|しっぱい}——今日{覚|おぼ}えたことを{活|い}かしてね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{丁寧|ていねい}にしようとした{行動|こうどう}が、{予想外|よそうがい}の{失敗|しっぱい}につながることがある。でも{知識|ちしき}があれば{防|ふせ}げる——それが{今日|きょう}の{学|まな}び。"
+      - type: narration
+        text: "{植物|しょくぶつ}は{動|うご}かないのに、{葉|は}の{蒸散|じょうさん}の{力|ちから}で{水|みず}を{引|ひ}き{上|あ}げている。{証拠|しょうこ}を{整理|せいり}すると、{真相|しんそう}に{近|ちか}づける。"
+      - type: effect
+        name: fade-out
