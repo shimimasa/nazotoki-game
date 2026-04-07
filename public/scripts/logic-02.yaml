@@ -1,0 +1,287 @@
+meta:
+  id: logic-02
+  title: "みんなが言ってる"
+  series: "論理ミステリー"
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  ron:
+    name: "ロン"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  rika:
+    name: "リカ"
+    color: "#E86B8A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  koto:
+    name: "コト"
+    color: "#2E8B57"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  kana:
+    name: "カナ"
+    color: "#E8943A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "論理ミステリー Vol.2"
+        subtitle: "みんなが言ってる"
+      - type: sprite_group
+        characters:
+          - id: ron
+            expression: normal
+          - id: rika
+            expression: normal
+          - id: koto
+            expression: normal
+          - id: kana
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ron
+        action: hide
+      - type: sprite
+        character: rika
+        action: hide
+      - type: sprite
+        character: koto
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: ron
+        expression: normal
+        position: left
+      - type: dialog
+        character: ron
+        text: "最初に話を聞いたとき、自分で見たわけではなかった"
+      - type: dialog
+        character: ron
+        text: "最初に話を聞いたとき、自分で見たわけではなかった"
+        expression: thinking
+      - type: sprite
+        character: ron
+        action: hide
+      - type: sprite
+        character: rika
+        expression: normal
+        position: right
+      - type: dialog
+        character: rika
+        text: "自分はカナから「そんな話を聞いた」と聞いただけで、直接見ていない"
+      - type: dialog
+        character: rika
+        text: "自分はカナから「そんな話を聞いた」と聞いただけで、直接見ていない"
+        expression: thinking
+      - type: sprite
+        character: rika
+        action: hide
+      - type: sprite
+        character: koto
+        expression: normal
+        position: left
+      - type: dialog
+        character: koto
+        text: "最初に聞いた話は「あやしかったかも」という弱い表現だった"
+      - type: dialog
+        character: koto
+        text: "最初に聞いた話は「あやしかったかも」という弱い表現だった"
+        expression: thinking
+      - type: sprite
+        character: koto
+        action: hide
+      - type: sprite
+        character: kana
+        expression: normal
+        position: right
+      - type: dialog
+        character: kana
+        text: "うわさの対象になった子は、はっきり否定していた"
+      - type: dialog
+        character: kana
+        text: "うわさの対象になった子は、はっきり否定していた"
+        expression: thinking
+      - type: sprite
+        character: kana
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: ron
+            expression: thinking
+          - id: rika
+            expression: thinking
+          - id: koto
+            expression: thinking
+          - id: kana
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "ロン"
+            value: ron
+            correct: true
+            feedback: "ロンの行動が、証拠といちばん一致している。"
+          - text: "リカ"
+            value: rika
+            correct: false
+            feedback: "リカは手がかりを持っているが、決め手は足りない。"
+          - text: "コト"
+            value: koto
+            correct: false
+            feedback: "コトは手がかりを持っているが、決め手は足りない。"
+          - text: "カナ"
+            value: kana
+            correct: false
+            feedback: "カナは手がかりを持っているが、決め手は足りない。"
+      - type: sprite
+        character: ron
+        action: hide
+      - type: sprite
+        character: rika
+        action: hide
+      - type: sprite
+        character: koto
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "ロン"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ron
+        expression: worried
+        position: center
+      - type: dialog
+        character: ron
+        text: "わたしの行動が原因だった。"
+      - type: sprite
+        character: ron
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: narration
+        text: "バンドワゴン効果は、「多くの人がそう言うなら正しい」と感じてしまう思考のくせである"
+      - type: narration
+        text: "でも、人数が多いことと、証拠が強いことは同じではない"
+      - type: narration
+        text: "情報を信じる前に、「だれが最初に見たのか」「自分で確かめた人がいるのか」を考える必要がある"
+      - type: sprite_group
+        characters:
+          - id: ron
+            expression: happy
+          - id: rika
+            expression: happy
+          - id: koto
+            expression: happy
+          - id: kana
+            expression: happy
+      - type: narration
+        text: "論理ミステリーの学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ron
+        action: hide
+      - type: sprite
+        character: rika
+        action: hide
+      - type: sprite
+        character: koto
+        action: hide
+      - type: sprite
+        character: kana
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500

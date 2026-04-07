@@ -1,0 +1,277 @@
+meta:
+  id: invention-10
+  title: "未来の発明家"
+  series: "発明ミステリー"
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  aidea:
+    name: "アイデア"
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  hakkin:
+    name: "ハッキン"
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kaizen:
+    name: "カイゼン"
+    color: "#2E8B57"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  souzou:
+    name: "ソウゾウ"
+    color: "#E8943A"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "発明ミステリー Vol.10"
+        subtitle: "未来の発明家"
+      - type: sprite_group
+        characters:
+          - id: aidea
+            expression: normal
+          - id: hakkin
+            expression: normal
+          - id: kaizen
+            expression: normal
+          - id: souzou
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: aidea
+        action: hide
+      - type: sprite
+        character: hakkin
+        action: hide
+      - type: sprite
+        character: kaizen
+        action: hide
+      - type: sprite
+        character: souzou
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: aidea
+        expression: normal
+        position: left
+      - type: dialog
+        character: aidea
+        text: "アイデアが今回の手がかりを持っている。"
+      - type: sprite
+        character: aidea
+        action: hide
+      - type: sprite
+        character: hakkin
+        expression: normal
+        position: right
+      - type: dialog
+        character: hakkin
+        text: "カイゼンは、まとめカードをシリーズの核だと思っていた。"
+      - type: dialog
+        character: hakkin
+        text: "カイゼンは、まとめカードをシリーズの核だと思っていた。"
+        expression: thinking
+      - type: sprite
+        character: hakkin
+        action: hide
+      - type: sprite
+        character: kaizen
+        expression: normal
+        position: left
+      - type: dialog
+        character: kaizen
+        text: "かっこいいだけの発明では、人を助けられない。"
+      - type: dialog
+        character: kaizen
+        text: "かっこいいだけの発明では、人を助けられない。"
+        expression: thinking
+      - type: sprite
+        character: kaizen
+        action: hide
+      - type: sprite
+        character: souzou
+        expression: normal
+        position: right
+      - type: dialog
+        character: souzou
+        text: "未来の発明はわくわく感も大切だが、それだけでは足りない。"
+      - type: dialog
+        character: souzou
+        text: "未来の発明はわくわく感も大切だが、それだけでは足りない。"
+        expression: thinking
+      - type: sprite
+        character: souzou
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: aidea
+            expression: thinking
+          - id: hakkin
+            expression: thinking
+          - id: kaizen
+            expression: thinking
+          - id: souzou
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "アイデア"
+            value: aidea
+            correct: false
+            feedback: "アイデアは手がかりを持っているが、決め手は足りない。"
+          - text: "ハッキン"
+            value: hakkin
+            correct: false
+            feedback: "ハッキンは手がかりを持っているが、決め手は足りない。"
+          - text: "カイゼン"
+            value: kaizen
+            correct: false
+            feedback: "カイゼンは手がかりを持っているが、決め手は足りない。"
+          - text: "ソウゾウ"
+            value: souzou
+            correct: true
+            feedback: "ソウゾウの行動が、証拠といちばん一致している。"
+      - type: sprite
+        character: aidea
+        action: hide
+      - type: sprite
+        character: hakkin
+        action: hide
+      - type: sprite
+        character: kaizen
+        action: hide
+      - type: sprite
+        character: souzou
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "ソウゾウ"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: souzou
+        expression: worried
+        position: center
+      - type: dialog
+        character: souzou
+        text: "わたしの行動が原因だった。"
+      - type: sprite
+        character: souzou
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: sprite_group
+        characters:
+          - id: aidea
+            expression: happy
+          - id: hakkin
+            expression: happy
+          - id: kaizen
+            expression: happy
+          - id: souzou
+            expression: happy
+      - type: narration
+        text: "発明ミステリーの学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: aidea
+        action: hide
+      - type: sprite
+        character: hakkin
+        action: hide
+      - type: sprite
+        character: kaizen
+        action: hide
+      - type: sprite
+        character: souzou
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500

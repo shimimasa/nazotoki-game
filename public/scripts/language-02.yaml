@@ -1,0 +1,281 @@
+meta:
+  id: language-02
+  title: "ていねいのわな"
+  series: "ことば探偵団"
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  kotoha:
+    name: "コトハ"
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  fumi:
+    name: "フミ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  yomi:
+    name: "ヨミ"
+    color: "#2E8B57"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  tsuzuri:
+    name: "ツヅリ"
+    color: "#E8943A"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#6A5ACD"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "ことば探偵団 Vol.2"
+        subtitle: "ていねいのわな"
+      - type: sprite_group
+        characters:
+          - id: kotoha
+            expression: normal
+          - id: fumi
+            expression: normal
+          - id: yomi
+            expression: normal
+          - id: tsuzuri
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite
+        character: fumi
+        action: hide
+      - type: sprite
+        character: yomi
+        action: hide
+      - type: sprite
+        character: tsuzuri
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: kotoha
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoha
+        text: "フミの下書きは意味が分かりやすかった。"
+      - type: dialog
+        character: kotoha
+        text: "フミの下書きは意味が分かりやすかった。"
+        expression: thinking
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite
+        character: fumi
+        expression: normal
+        position: right
+      - type: dialog
+        character: fumi
+        text: "丁寧さは、むずかしさではなく、相手に合わせた自然さにある。"
+      - type: dialog
+        character: fumi
+        text: "丁寧さは、むずかしさではなく、相手に合わせた自然さにある。"
+        expression: thinking
+      - type: sprite
+        character: fumi
+        action: hide
+      - type: sprite
+        character: yomi
+        expression: normal
+        position: left
+      - type: dialog
+        character: yomi
+        text: "敬語は音のひびきだけでなく、だれをどう立てているかが大事。"
+      - type: dialog
+        character: yomi
+        text: "敬語は音のひびきだけでなく、だれをどう立てているかが大事。"
+        expression: thinking
+      - type: sprite
+        character: yomi
+        action: hide
+      - type: sprite
+        character: tsuzuri
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsuzuri
+        text: "ていねい語は全体を整える。"
+      - type: dialog
+        character: tsuzuri
+        text: "ていねい語は全体を整える。"
+        expression: thinking
+      - type: sprite
+        character: tsuzuri
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: kotoha
+            expression: thinking
+          - id: fumi
+            expression: thinking
+          - id: yomi
+            expression: thinking
+          - id: tsuzuri
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "コトハ"
+            value: kotoha
+            correct: false
+            feedback: "コトハは手がかりを持っているが、決め手は足りない。"
+          - text: "フミ"
+            value: fumi
+            correct: false
+            feedback: "フミは手がかりを持っているが、決め手は足りない。"
+          - text: "ヨミ"
+            value: yomi
+            correct: false
+            feedback: "ヨミは手がかりを持っているが、決め手は足りない。"
+          - text: "ツヅリ"
+            value: tsuzuri
+            correct: true
+            feedback: "ツヅリの行動が、証拠といちばん一致している。"
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite
+        character: fumi
+        action: hide
+      - type: sprite
+        character: yomi
+        action: hide
+      - type: sprite
+        character: tsuzuri
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "ツヅリ"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: tsuzuri
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsuzuri
+        text: "わたしの行動が原因だった。"
+      - type: sprite
+        character: tsuzuri
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: sprite_group
+        characters:
+          - id: kotoha
+            expression: happy
+          - id: fumi
+            expression: happy
+          - id: yomi
+            expression: happy
+          - id: tsuzuri
+            expression: happy
+      - type: narration
+        text: "ことば探偵団の学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: sprite
+        character: fumi
+        action: hide
+      - type: sprite
+        character: yomi
+        action: hide
+      - type: sprite
+        character: tsuzuri
+        action: hide
+
+      - type: effect
+        name: fade-out
+        duration: 1500
