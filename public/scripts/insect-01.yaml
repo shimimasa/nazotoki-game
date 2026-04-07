@@ -1,0 +1,384 @@
+meta:
+  id: insect-01
+  title: "6本あしのひみつ"
+  series: "昆虫ミステリー"
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  mushi:
+    name: "ムシ"
+    color: "#4A90D9"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hane:
+    name: "ハネ"
+    color: "#E8943A"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mitsu:
+    name: "ミツ"
+    color: "#E86B8A"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sanagi:
+    name: "サナギ"
+    color: "#7B68EE"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "昆虫ミステリー Vol.1"
+        subtitle: "6本あしのひみつ"
+      - type: narration
+        text: "3年1組の生活科ラボで、虫の観察カードを使った発表会が開かれることになった。"
+      - type: narration
+        text: "ところが、教室の前に貼られたラベルには"
+      - type: narration
+        text: "「クモは昆虫」「ダンゴムシも昆虫」「6本足ならだいたい虫」"
+      - type: sprite_group
+        characters:
+          - id: mushi
+            expression: normal
+          - id: hane
+            expression: normal
+          - id: mitsu
+            expression: normal
+          - id: sanagi
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mushi
+        action: hide
+      - type: sprite
+        character: hane
+        action: hide
+      - type: sprite
+        character: mitsu
+        action: hide
+      - type: sprite
+        character: sanagi
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: mushi
+        expression: normal
+        position: left
+      - type: dialog
+        character: mushi
+        text: "あなたは虫が大好きで、見つけた生き物をすぐに仲間にしたくなる。 でも今回は、その気持ちが先に走ってしまった。"
+      - type: sprite
+        character: mushi
+        action: hide
+      - type: sprite
+        character: hane
+        expression: normal
+        position: right
+      - type: dialog
+        character: hane
+        text: "あなたは観察が得意で、足の数や羽の有無を丁寧に見る。"
+      - type: dialog
+        character: hane
+        text: "アリとチョウは足が6本"
+        expression: thinking
+      - type: sprite
+        character: hane
+        action: hide
+      - type: sprite
+        character: mitsu
+        expression: normal
+        position: left
+      - type: dialog
+        character: mitsu
+        text: "あなたは観察カードを集めて並べた担当。 どのカードが元の資料なのかをはっきり言える。"
+      - type: dialog
+        character: mitsu
+        text: "元のカードには、アリ・チョウ・クモ・ダンゴムシの足の数がそれぞれ書いてあった"
+        expression: thinking
+      - type: sprite
+        character: mitsu
+        action: hide
+      - type: sprite
+        character: sanagi
+        expression: normal
+        position: right
+      - type: dialog
+        character: sanagi
+        text: "あなたは、見つけたことを言葉でまとめるのが得意。 今回は昆虫の体のつくりを説明役として整理している。"
+      - type: dialog
+        character: sanagi
+        text: "昆虫は頭・胸・腹の3つに体が分かれる"
+        expression: thinking
+      - type: sprite
+        character: sanagi
+        action: hide
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠1"
+        subtitle: "昆虫の体の図"
+      - type: narration
+        text: "昆虫の体は「頭・胸・腹」の3つに分かれている"
+      - type: narration
+        text: "足は胸から6本出る"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "昆虫かどうかの基本条件がわかる。"
+  - id: evidence-2
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠2"
+        subtitle: "足の本数カード"
+      - type: narration
+        text: "アリ: 6本"
+      - type: narration
+        text: "チョウ: 6本"
+      - type: narration
+        text: "クモ: 8本"
+      - type: narration
+        text: "ダンゴムシ: 6本より多い"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "クモとダンゴムシは昆虫の条件に合わない。"
+  - id: evidence-3
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠3"
+        subtitle: "元の観察カード"
+      - type: narration
+        text: "ミツが並べたカードには、足の本数と体の図が正しく書かれていた"
+      - type: narration
+        text: "「クモは昆虫」という文は最初からなかった"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "間違いは観察そのものではなく、あとから足されたラベルにある。"
+  - id: evidence-4
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠4"
+        subtitle: "書き足しラベル"
+      - type: narration
+        text: "「クモは昆虫」「ダンゴムシも昆虫」と、太いペンであとから書かれている"
+      - type: narration
+        text: "字はムシのメモとよく似ている"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ムシがラベルを書いた可能性が高い。"
+  - id: evidence-5
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠5"
+        subtitle: "ムシの追加情報"
+      - type: narration
+        text: "ムシは「小さくて歩く生き物は、みんな虫の仲間だと思った」と話した"
+      - type: narration
+        text: "足の数の違いは見たが、気にしなかった"
+      - type: narration
+        text: "昆虫の条件をちゃんと確かめずに書いてしまった"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "犯人はムシ。 思いこみでラベルを書いたが、正しい観察と分類を学び直せば直せる事件だった。"
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: mushi
+            expression: thinking
+          - id: hane
+            expression: thinking
+          - id: mitsu
+            expression: thinking
+          - id: sanagi
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "ムシ"
+            value: mushi
+            correct: true
+            feedback: "ムシの行動が、証拠といちばん一致している。"
+          - text: "ハネ"
+            value: hane
+            correct: false
+            feedback: "ハネは手がかりを持っているが、決め手は足りない。"
+          - text: "ミツ"
+            value: mitsu
+            correct: false
+            feedback: "ミツは手がかりを持っているが、決め手は足りない。"
+          - text: "サナギ"
+            value: sanagi
+            correct: false
+            feedback: "サナギは手がかりを持っているが、決め手は足りない。"
+      - type: sprite
+        character: mushi
+        action: hide
+      - type: sprite
+        character: hane
+        action: hide
+      - type: sprite
+        character: mitsu
+        action: hide
+      - type: sprite
+        character: sanagi
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "ムシ"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ムシは、"
+      - type: dialog
+        character: sensei
+        text: "クモやダンゴムシも「虫っぽいから昆虫」だと思いこみ、"
+      - type: dialog
+        character: sensei
+        text: "発表ラベルに「クモは昆虫」「ダンゴムシも昆虫」と書き足した。"
+      - type: dialog
+        character: sensei
+        text: "しかし昆虫の決め手は、頭・胸・腹の体のつくりと6本足である。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mushi
+        expression: worried
+        position: center
+      - type: dialog
+        character: mushi
+        text: "虫が大好きで、いろいろな生き物を同じ仲間として紹介したかった"
+      - type: dialog
+        character: mushi
+        text: "似て見えることを重視しすぎた"
+        expression: thinking
+      - type: sprite
+        character: mushi
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: narration
+        text: "Card 1 で昆虫の基本条件を確認する"
+      - type: narration
+        text: "Card 2 でクモは8本足、ダンゴムシはさらに多い足だとわかる"
+      - type: narration
+        text: "Card 3 で元の観察カードは正しかったと整理する"
+      - type: narration
+        text: "Card 4 でラベルを書き足したのがムシらしいとしぼる"
+      - type: sprite_group
+        characters:
+          - id: mushi
+            expression: happy
+          - id: hane
+            expression: happy
+          - id: mitsu
+            expression: happy
+          - id: sanagi
+            expression: happy
+      - type: narration
+        text: "昆虫ミステリーの学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mushi
+        action: hide
+      - type: sprite
+        character: hane
+        action: hide
+      - type: sprite
+        character: mitsu
+        action: hide
+      - type: sprite
+        character: sanagi
+        action: hide

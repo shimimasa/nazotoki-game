@@ -22,9 +22,11 @@ interface Props {
   script: ScriptData
   state: GameState
   onEvent: (event: GameEvent) => void
+  onGoBack?: () => void
+  canGoBack?: boolean
 }
 
-export function GameScreen({ script, state, onEvent }: Props) {
+export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Props) {
   const prevBgmRef = useRef<string | null>(null)
   const [showBacklog, setShowBacklog] = useState(false)
   const [autoMode, setAutoMode] = useState(false)
@@ -42,7 +44,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
   const flashControls = useCallback(() => {
     setControlsActive(true)
     if (controlsTimerRef.current) clearTimeout(controlsTimerRef.current)
-    controlsTimerRef.current = window.setTimeout(() => setControlsActive(false), 3000)
+    controlsTimerRef.current = window.setTimeout(() => setControlsActive(false), 6000)
   }, [])
 
   const toggleFurigana = useCallback(() => {
@@ -155,6 +157,10 @@ export function GameScreen({ script, state, onEvent }: Props) {
         case 'Enter':
           e.preventDefault()
           onEvent({ type: 'click' })
+          break
+        case 'ArrowLeft':
+          e.preventDefault()
+          if (onGoBack && canGoBack) onGoBack()
           break
         case 'Escape':
           setShowBacklog((prev) => !prev)
@@ -270,6 +276,17 @@ export function GameScreen({ script, state, onEvent }: Props) {
         onTouchStart={flashControls}
       >
         <button
+          class={`game-ctrl-btn ${canGoBack ? '' : 'disabled'}`}
+          title="ひとつ前にもどる（←キー）"
+          onClick={(e) => {
+            e.stopPropagation()
+            flashControls()
+            if (onGoBack && canGoBack) onGoBack()
+          }}
+        >
+          ◀ もどる
+        </button>
+        <button
           class="game-ctrl-btn"
           title="前の文をふりかえる"
           onClick={(e) => {
@@ -278,7 +295,7 @@ export function GameScreen({ script, state, onEvent }: Props) {
             setShowBacklog(true)
           }}
         >
-          もどる
+          履歴
         </button>
         <button
           class={`game-ctrl-btn ${furigana ? 'active' : ''}`}

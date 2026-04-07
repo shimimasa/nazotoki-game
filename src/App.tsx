@@ -6,7 +6,7 @@
  * localStorageでプレイ進行を自動保存・再開
  */
 
-import { useState, useEffect, useCallback } from 'preact/hooks'
+import { useState, useEffect, useCallback, useRef } from 'preact/hooks'
 import type { ScriptData, GameState, GameEvent } from './engine/types'
 import {
   createInitialState,
@@ -38,6 +38,7 @@ export function App() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [hasSavedProgress, setHasSavedProgress] = useState(false)
+  const stateHistoryRef = useRef<GameState[]>([])
 
   // 起動時: URLパラメータからシナリオを自動読み込み
   useEffect(() => {
@@ -73,6 +74,13 @@ export function App() {
       if (!script || !scriptId) return
 
       setState((prev) => {
+        // クリックで進むとき、現在の表示状態を履歴にpush（最大50件）
+        if (event.type === 'click' && prev.waitingForClick) {
+          const history = stateHistoryRef.current
+          history.push(prev)
+          if (history.length > 50) history.shift()
+        }
+
         let next = processEvent(script, prev, event)
 
         if (event.type === 'choice_selected' && !next.showingFeedback && !next.activeChoice) {
@@ -136,6 +144,16 @@ export function App() {
     setHasSavedProgress(false)
   }, [])
 
+  // 1ステップ戻る
+  const handleGoBack = useCallback(() => {
+    const history = stateHistoryRef.current
+    if (history.length === 0) return
+    const prev = history.pop()!
+    setState(prev)
+  }, [])
+
+  const canGoBack = stateHistoryRef.current.length > 0
+
   // 次のシナリオへ（同シリーズの次Vol）
   const handleNextScenario = useCallback(() => {
     if (!scriptId) return
@@ -185,7 +203,7 @@ export function App() {
     case 'playing':
       if (!script) return null
       return (
-        <GameScreen script={script} state={state} onEvent={handleEvent} />
+        <GameScreen script={script} state={state} onEvent={handleEvent} onGoBack={handleGoBack} canGoBack={canGoBack} />
       )
 
     case 'result':

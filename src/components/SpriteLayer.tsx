@@ -8,6 +8,7 @@
  * - 非発言キャラは暗く
  */
 
+import { useCallback, useState } from 'preact/hooks'
 import type { SpriteState, CharacterDef } from '../engine/types'
 
 interface Props {
@@ -38,6 +39,49 @@ function getCardWidth(total: number): string {
     case 5: return '17vw'
     default: return '22vw'
   }
+}
+
+function SpriteImage({ spriteFile, charName, charColor, isSpeaking }: {
+  spriteFile: string | undefined
+  charName: string
+  charColor: string
+  isSpeaking: boolean
+}) {
+  const [failed, setFailed] = useState(false)
+  const handleError = useCallback(() => setFailed(true), [])
+
+  if (!spriteFile || failed) {
+    return (
+      <div style={{
+        height: '30vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: charColor,
+        fontSize: '48px',
+      }}>
+        👤
+      </div>
+    )
+  }
+
+  return (
+    <img
+      src={`/images/sprites/${spriteFile}`}
+      alt={charName}
+      onError={handleError}
+      style={{
+        width: '100%',
+        height: 'auto',
+        maxHeight: '50vh',
+        objectFit: 'contain',
+        objectPosition: 'top center',
+        display: 'block',
+        filter: isSpeaking ? 'brightness(1.05)' : 'brightness(0.65)',
+        transition: 'filter 0.4s ease',
+      }}
+    />
+  )
 }
 
 const NAMED_POSITIONS: Record<string, string> = {
@@ -109,33 +153,12 @@ export function SpriteLayer({ sprites, characters, speakingCharacter }: Props) {
                 overflow: 'hidden',
               }}
             >
-              {spriteFile ? (
-                <img
-                  src={`/images/sprites/${spriteFile}`}
-                  alt={charDef.name}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    maxHeight: '50vh',
-                    objectFit: 'contain',
-                    objectPosition: 'top center',
-                    display: 'block',
-                    filter: isSpeaking ? 'brightness(1.05)' : 'brightness(0.65)',
-                    transition: 'filter 0.4s ease',
-                  }}
-                />
-              ) : (
-                <div style={{
-                  height: '30vh',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: charColor,
-                  fontSize: '48px',
-                }}>
-                  👤
-                </div>
-              )}
+              <SpriteImage
+              spriteFile={spriteFile}
+              charName={charDef.name}
+              charColor={charColor}
+              isSpeaking={isSpeaking}
+            />
             </div>
 
             {/* キャラ名タグ */}

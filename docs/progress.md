@@ -1,5 +1,8 @@
 # 進捗ログ
 
+## 2026-04-07 18:43
+- Update game: subject filter restoration + next scenario button + loading animation
+
 ## 2026-04-07 12:39
 - Update catalog.json: 325 → 435 entries (110 new game scripts)
 
