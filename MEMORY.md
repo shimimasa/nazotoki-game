@@ -13,20 +13,38 @@
 ## プロジェクト
 - [ゲームデザイン原則spec作成](project_game_design_spec.md) — Phase 2完了。spec作成済み。Phase 3（機能実装）が次ステップ
 
-## 現在の状態（最終更新: 2026-04-07 夕方）
+## 現在の状態（最終更新: 2026-04-07 夜）
 
 ### ★ 即再開用: 次やること
 
-> **Codex Phase 2 進行中。experiment/farm/geology の6ファイル生成完了。ゲームYAML変換中。**
+> **ゲームUX改善3件デプロイ済み（9f34128）。画像生成・スクリプト補完が次の最重要タスク。**
 >
-> **★ 次やること:**
-> 1. Codex Phase 2 の残り11シリーズ（insect〜weather）の6ファイル生成 + ゲームYAML変換を継続
-> 2. 完了済み3シリーズ（experiment/farm/geology）のゲームYAML変換完了を確認
-> 3. catalog.json 再同期（/sync-game-catalog）
-> 4. ゲームデザイン原則spec Phase 3
+> **★ 次やること（優先順）:**
+> 1. **切れたスクリプト40本の補完** — experiment/farm/geology/insect 全40本の末尾にfade-outエフェクト追記（一括スクリプトで修正可能）
+> 2. **スプライト画像60枚の生成** — Phase 1: boy-a/boy-b/girl-b/girl-c/teacher-f × 6表情 = 30枚（Gemini推奨）
+> 3. **背景画像24枚の生成** — Phase 1: hallway/school/schoolyard/science-lab等12枚
+> 4. Codex Phase 2 の残りシリーズの6ファイル生成継続
+> 5. ゲームデザイン原則spec Phase 3
+>
+> **画像生成方針（決定済み）:**
+> - ツール: Gemini推奨（透過PNG対応、アニメ風得意）
+> - スプライト: 10タイプ×6表情=60枚（512×768 WebP 透過）
+> - 背景: 24種の学校シーン（1280×720 WebP）
+> - Phase 1（主要42枚）を手動、Phase 2（残り42枚）をAPI
+> - プロンプト設計済み（このセッションの会話内に詳細あり）
+>
+> **今日デプロイした改善（9f34128）:**
+> - catalog.json全435エントリにsubject反映（教科フィルター復活）
+> - series-registry.json 11シリーズ追加+6件修正
+> - ResultScreen「つぎのシナリオへ」ボタン追加
+> - Background.tsx: 欠損BGをclassroomにフォールバック
+> - SpriteLayer.tsx: 欠損スプライトを👤にフォールバック
+> - GameScreen: ◀もどるボタン（←キー対応、最大50ステップ）
+> - コントロールパネル視認性改善（0.3→0.7、自動非表示3→6秒）
+> - ローディング演出（探偵手帳アイコン）
 >
 > **ゲームスクリプト状況:**
-> - catalog.json: 435エントリ（game repo push済み 6b45746）
+> - catalog.json: 435エントリ（game repo push済み 9f34128）
 > - 完了済み13シリーズ: archaeology〜energy（110本新規変換）
 > - Codex進行中: experiment/farm/geology（6ファイル生成完了→ゲームYAML変換中）
 > - Codex待ち: insect〜weather（11シリーズ、各10本）

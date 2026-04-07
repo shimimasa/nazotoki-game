@@ -1,5 +1,11 @@
 # 進捗ログ
 
+## 2026-04-08 08:48
+- Add fade-out effect to 140 game scripts (14 series)
+
+## 2026-04-07 20:30
+- Fix game UX: back step, image fallbacks, control visibility
+
 ## 2026-04-07 18:43
 - Update game: subject filter restoration + next scenario button + loading animation
 
