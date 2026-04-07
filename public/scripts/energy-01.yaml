@@ -1,0 +1,447 @@
+meta:
+  id: energy-01
+  title: 回路のなぞ
+  series: エネルギー探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科室|りかしつ}の{実験台|じっけんだい}に、{豆電球|まめでんきゅう}と{電池|でんち}が{並|なら}んでいる。{今日|きょう}は{直列回路|ちょくれつかいろ}の{実験|じっけん}——4つの{班|はん}がそれぞれ{回路|かいろ}を{組|く}み{立|た}てて、{豆電球|まめでんきゅう}を{光|ひか}らせる{授業|じゅぎょう}だ。"
+      - type: narration
+        text: "ところが{実験開始|じっけんかいし}から5{分|ふん}もたたないうちに——{隣|となり}の{班|はん}から{叫|さけ}び{声|こえ}が{上|あ}がった。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: denta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: denta
+        text: "ちょっと{待|ま}って！　{僕|ぼく}たちの{班|はん}の{豆電球|まめでんきゅう}が1{個|こ}なくなってる！　{在庫|ざいこ}リストと{数|かず}が{合|あ}わない！"
+        expression: surprised
+      - type: sprite
+        character: denta
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: worried
+          - character: hikaru
+            expression: thinking
+          - character: netsumi
+            expression: worried
+          - character: chikara
+            expression: surprised
+      - type: narration
+        text: "{隣|となり}の{班|はん}の{豆電球|まめでんきゅう}が1{個|こ}{消|き}えた。そしてチカラの{班|はん}には{見|み}{覚|おぼ}えのない{新品|しんぴん}の{豆電球|まめでんきゅう}が1{個|こ}——{誰|だれ}が、なぜ{動|うご}いたのか。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 回路のなぞ
+        subtitle: エネルギー探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 実験記録と在庫リスト
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{配|くば}った{今日|きょう}の{実験|じっけん}の{記録|きろく}——{各班|かくはん}の{回路図|かいろず}と、{実験開始時|じっけんかいしじ}の{豆電球|まめでんきゅう}{在庫|ざいこ}リストが{残|のこ}されていた。"
+      - type: evidence
+        id: card-1
+        title: 今日の実験の記録（回路図＋在庫リスト）
+        content: "【{実験|じっけん}{内容|ないよう}】{直列回路|ちょくれつかいろ}の{組|く}み{立|た}て——{各班|かくはん}2{個|こ}の{豆電球|まめでんきゅう}を{使用|しよう}　【{開始時|かいしじ}の{在庫|ざいこ}リスト】A{班|はん}:{豆電球|まめでんきゅう}2{個|こ}・{電池|でんち}1{本|ほん}・{導線|どうせん}4{本|ほん}　B{班|はん}（チカラ）:{豆電球|まめでんきゅう}2{個|こ}・{電池|でんち}1{本|ほん}・{導線|どうせん}4{本|ほん}　【{回路図|かいろず}】B{班|はん}の{回路|かいろ}は{直列接続|ちょくれつせつぞく}——{豆電球|まめでんきゅう}2{個|こ}を{一列|いちれつ}につないだ{設計|せっけい}"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{実験|じっけん}{開始時|かいしじ}はA{班|はん}もB{班|はん}も2{個|こ}ずつ{持|も}っていた。でも{今|いま}、A{班|はん}は1{個|こ}しかない——1{個|こ}{多|おお}い{班|はん}がどこかにあるはずだ。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "デンタが{実験台|じっけんだい}を{順番|じゅんばん}に{確認|かくにん}した。そして——チカラの{班|はん}（B{班|はん}）に3{個|こ}の{豆電球|まめでんきゅう}があることを{発見|はっけん}した。"
+      - type: evidence
+        id: card-2
+        title: ヒカルの目撃証言
+        content: "【{目撃者|もくげきしゃ}】ヒカル　【{目撃時刻|もくげきじこく}】{実験|じっけん}{開始|かいし}から3{分|ふん}ごろ　【{内容|ないよう}】「チカラが{小|ちい}さな{箱|はこ}のようなものを{手|て}に{持|も}って、A{班|はん}の{実験台|じっけんだい}の{方向|ほうこう}から{戻|もど}ってきた。{走|はし}っていたのでよく{見|み}えなかったけど、{豆電球|まめでんきゅう}の{入|はい}った{透明|とうめい}なケースに{見|み}えた」"
+      - type: sprite
+        character: hikaru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "チカラが{何|なに}かを{手|て}に{持|も}って{走|はし}ってた！　あの{透明|とうめい}ケース——{豆電球|まめでんきゅう}じゃない？　A{班|はん}の{方向|ほうこう}から{戻|もど}ってきてた。"
+        expression: surprised
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: デンタの分析とチカラの弁明
+      - type: narration
+        text: "デンタが{各班|かくはん}の{豆電球|まめでんきゅう}{個数|こすう}を{丁寧|ていねい}に{数|かぞ}え{直|なお}し、{分析|ぶんせき}メモを{作|つく}った。"
+      - type: evidence
+        id: card-3
+        title: デンタの分析メモ（在庫の不一致）
+        content: "【{現在|げんざい}の{豆電球|まめでんきゅう}{個数|こすう}】A{班|はん}:1{個|こ}（{開始時|かいしじ}は2{個|こ}）→1{個|こ}{不足|ふそく}　B{班|はん}（チカラ）:3{個|こ}（{開始時|かいしじ}は2{個|こ}）→1{個|こ}{超過|ちょうか}　C{班|はん}・D{班|はん}:2{個|こ}ずつ（{変化|へんか}なし）　【{結論|けつろん}】A{班|はん}から1{個|こ}{移動|いどう}してB{班|はん}に{加|くわ}わった。{差|さ}はぴったり1{個|こ}。{偶然|ぐうぜん}ではない。"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{在庫|ざいこ}リストと{今|いま}の{数|かず}が{合|あ}わない。A{班|はん}が1{個|こ}{少|すく}なくて、B{班|はん}が1{個|こ}{多|おお}い。{差|さ}はぴったり1——{豆電球|まめでんきゅう}が{移動|いどう}したのは{間違|まちが}いない。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "チカラが{自分|じぶん}から{口|くち}を{開|ひら}いた。"
+      - type: evidence
+        id: card-4
+        title: チカラの弁明
+        content: "【チカラの{発言|はつげん}】「{実験|じっけん}を{始|はじ}めたら、{自分|じぶん}たちの{回路|かいろ}の{豆電球|まめでんきゅう}が1{個|こ}だけ{光|ひか}らなかった。{絶対|ぜったい}{壊|こわ}れてると{思|おも}った。だから{隣|となり}のA{班|はん}から{新品|しんぴん}の{良|い}い{豆電球|まめでんきゅう}を1{個|こ}借りて、{壊|こわ}れたやつと{交換|こうかん}するつもりだった。{断|ことわ}らずに{取|と}ったのはよくなかったけど、{急|いそ}いでたから」"
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "1{個|こ}だけ{光|ひか}らなかったんだ……{絶対|ぜったい}{壊|こわ}れてると{思|おも}った。{新品|しんぴん}に{換|か}えれば{直|なお}るって——でも{断|ことわ}れば{良|よ}かった。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "ちょっと{待|ま}って。{本当|ほんとう}に{豆電球|まめでんきゅう}が{壊|こわ}れていたの？　{直列回路|ちょくれつかいろ}で1{個|こ}だけ{光|ひか}らないって……なんか{変|へん}じゃない？"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{集|あつ}まってきた。チカラがA{班|はん}から{豆電球|まめでんきゅう}を{持|も}ち{出|だ}した——それは{間違|まちが}いない。でも「{豆電球|まめでんきゅう}が{壊|こわ}れていた」という{前提|ぜんてい}は{本当|ほんとう}に{正|ただ}しかったのか——"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{直列回路|ちょくれつかいろ}って、1{個|こ}だけ{消|き}えることってあるの？　{全部|ぜんぶ}が{切|き}れるか、{全部|ぜんぶ}が{光|ひか}るかじゃないの？"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: denta
+        text: "{直列|ちょくれつ}は{全部|ぜんぶ}が1{本|ほん}の{道|みち}でつながってる。だから1か{所|しょ}でも{切|き}れたら{全員|ぜんいん}が{消|き}えるはず——「1{個|こ}だけ{光|ひか}らない」は{理論|りろん}的に{変|へん}だ。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: netsumi
+        text: "もしかして{豆電球|まめでんきゅう}じゃなくて、{接続|せつぞく}の{問題|もんだい}だったんじゃないかな。{電池|でんち}ボックスの{端子|たんし}とか——{確認|かくにん}してみる。"
+        expression: worried
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の検証結果
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ネツミに{指摘|してき}してもらったから、{先生|せんせい}でB{班|はん}の{電池|でんち}ボックスを{確認|かくにん}したわ。そして{全員|ぜんいん}の{豆電球|まめでんきゅう}をテスターで{計|はか}ってみた。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{結果|けっか}を{話|はな}すね。{豆電球|まめでんきゅう}は——A{班|はん}もB{班|はん}も、{全員|ぜんいん}の{分|ぶん}が{正常|せいじょう}だった。{壊|こわ}れているものは1{個|こ}もなかったの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 先生の検証結果＋直列回路の解説
+        content: "【{検証|けんしょう}{結果|けっか}①】{豆電球|まめでんきゅう}{全員分|ぜんいんぶん}テスター{計測|けいそく}→{全部|ぜんぶ}{正常|せいじょう}（{壊|こわ}れた{豆電球|まめでんきゅう}はゼロ）　【{検証|けんしょう}{結果|けっか}②】B{班|はん}{電池|でんち}ボックスの{端子|たんし}→{押|お}し{込|こ}みが{浅|あさ}く{接触不良|せっしょくふりょう}の{状態|じょうたい}（ネツミが{発見|はっけん}）　【{直列回路|ちょくれつかいろ}の{解説|かいせつ}】{直列|ちょくれつ}では{電気|でんき}が1{本|ほん}の{道|みち}を{流|なが}れる。1か{所|しょ}でも{断線|だんせん}・{接触不良|せっしょくふりょう}があると{電気|でんき}は{流|なが}れなくなり、{全部|ぜんぶ}の{豆電球|まめでんきゅう}が{消|き}える。「1{個|こ}だけ{光|ひか}らない」{原因|げんいん}は{豆電球|まめでんきゅう}ではなく{接続部分|せつぞくぶぶん}にある。"
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "この{端子|たんし}、ちゃんと{押|お}し{込|こ}まれてない。{接触不良|せっしょくふりょう}ってこういうことだよ——{電気|でんき}の{道|みち}がここで{途切|とぎ}れてたから、{全部|ぜんぶ}が{消|き}えてたんだ。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{豆電球|まめでんきゅう}は{壊|こわ}れていなかった。{電池|でんち}ボックスの{端子|たんし}の{接触不良|せっしょくふりょう}が{原因|げんいん}だった。**チカラが「{豆電球|まめでんきゅう}が{壊|こわ}れた」と{思|おも}い{込|こ}んで{動|うご}いたが、{直列回路|ちょくれつかいろ}の{仕組|しく}みを{知|し}っていれば——{最初|さいしょ}から{接続部分|せつぞくぶぶん}を{確認|かくにん}できたはずだった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 隣のグループから電球を持っていったのは誰？
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①A{班|はん}の{豆電球|まめでんきゅう}が1{個|こ}{不足|ふそく}、B{班|はん}が1{個|こ}{超過|ちょうか}。②ヒカルがチカラの{移動|いどう}を{目撃|もくげき}。③チカラ{自身|じしん}が「{借|か}りた」と{認|みと}めた。④{豆電球|まめでんきゅう}は{全員|ぜんいん}{正常|せいじょう}——{壊|こわ}れていなかった。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{並|なら}べると——{誰|だれ}が{中心|ちゅうしん}にいたか、{見|み}えてくる。{豆電球|まめでんきゅう}を{断|ことわ}らずに{持|も}ち{出|だ}したのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 隣のグループから電球を断りなく持っていったのは誰？
+        options:
+          - text: チカラ（「自分の電球が壊れた」と思い込んで動いた）
+            value: chikara
+            correct: true
+            feedback: "{正解|せいかい}！　チカラは{助|たす}けようとしました。でも「{直列回路|ちょくれつかいろ}は1か{所|しょ}が{切|き}れると{全部|ぜんぶ}{消|き}える」ことを{知|し}っていたら、{豆電球|まめでんきゅう}を{疑|うたが}わずに{接続部分|せつぞくぶぶん}を{確認|かくにん}できました。**{電気|でんき}は「{道|みち}」が{全部|ぜんぶ}つながって{初|はじ}めて{流|なが}れる——これを{回路|かいろ}といいます。{消去法|しょうきょほう}で{原因|げんいん}{候補|こうほ}を1つずつ{確認|かくにん}すれば、{正|ただ}しい{診断|しんだん}ができます。**"
+          - text: デンタ（在庫の不一致を発見した人）
+            value: denta
+            feedback: "デンタは{在庫|ざいこ}リストを{分析|ぶんせき}して{不一致|ふいっち}を{発見|はっけん}した{側|がわ}だよ。{実験|じっけん}{中|ちゅう}は{自分|じぶん}の{班|はん}の{実験台|じっけんだい}で{作業|さぎょう}していたよ。"
+          - text: ヒカル（チカラの移動を目撃した人）
+            value: hikaru
+            feedback: "ヒカルはチカラが{移動|いどう}しているのを{目撃|もくげき}した{側|がわ}だよ。{自分|じぶん}の{班|はん}から{動|うご}いていないよ。"
+          - text: ネツミ（電池ボックスの不具合を発見した人）
+            value: netsumi
+            feedback: "ネツミは{電池|でんち}ボックスの{接触不良|せっしょくふりょう}を{発見|はっけん}した{側|がわ}だよ。{慎重|しんちょう}に{観察|かんさつ}して{真|ほんとう}の{原因|げんいん}を{見|み}つけたよ。"
+
+  # ==================== 真相：チカラの告白 ====================
+  - id: truth-chikara
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: チカラの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "……{私|わたし}です。A{班|はん}から{豆電球|まめでんきゅう}を{断|ことわ}らずに{持|も}っていったのは。"
+        expression: worried
+      - type: dialog
+        character: chikara
+        text: "{自分|じぶん}の{回路|かいろ}の{豆電球|まめでんきゅう}が{光|ひか}らなかった。{絶対|ぜったい}{壊|こわ}れてると{思|おも}った。{早|はや}く{直|なお}してみんなに{迷惑|めいわく}かけたくなかったから——{新品|しんぴん}に{換|か}えれば{直|なお}るって{信|しん}じてた。"
+        expression: worried
+      - type: dialog
+        character: chikara
+        text: "でも……{直列回路|ちょくれつかいろ}だと1{個|こ}でも{切|き}れたら{全部|ぜんぶ}{消|き}えるって{知|し}らなかった。{豆電球|まめでんきゅう}が{原因|げんいん}じゃなかった。{仕組|しく}みを{知|し}ってれば、{端子|たんし}を{確認|かくにん}すれば{良|よ}かったのに。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{怒|おこ}ってたよ、{最初|さいしょ}は。でも——チカラが{急|いそ}いで{直|なお}そうとしてたのは{分|わ}かった。{僕|ぼく}だって{仕組|しく}みを{知|し}らなかったら、{同|おな}じことしてたかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: normal
+        position: right
+      - type: dialog
+        character: denta
+        text: "チカラの{気持|きも}ちは{分|わ}かる。でも「{借|か}りる{前|まえ}に{一声|ひとこえ}かける」のが{大事|たいせつ}だったよ。それと、{消去法|しょうきょほう}で{原因|げんいん}を1つずつ{確認|かくにん}してれば——{豆電球|まめでんきゅう}が{正常|せいじょう}だって{分|わ}かったはず。"
+        expression: normal
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{直列|ちょくれつ}で1{個|こ}だけ{光|ひか}らないのは{変|へん}——そこに{気|き}づければ、{豆電球|まめでんきゅう}じゃなく{接続|せつぞく}を{疑|うたが}える。{仕組|しく}みを{知|し}ることが、{正|ただ}しい{診断|しんだん}への{近道|ちかみち}だよ。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{直列回路|ちょくれつかいろ}の{大切|たいせつ}な{仕組|しく}みを{確認|かくにん}しましょう。{電気|でんき}は1{本|ほん}の{道|みち}を{一続|ひとつづ}きに{流|なが}れる。1か{所|しょ}でも{断線|だんせん}や{接触不良|せっしょくふりょう}があれば——{全部|ぜんぶ}の{豆電球|まめでんきゅう}が{消|き}えてしまう。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "チカラは{助|たす}けようとした。その{気持|きも}ちは{本当|ほんとう}に{優|やさ}しかった。でも{次回|じかい}は「{原因|げんいん}{候補|こうほ}を1つずつ{確認|かくにん}する」——{消去法|しょうきょほう}を{使|つか}ってみてね。それが{科学|かがく}の{考|かんが}え{方|かた}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{直列回路|ちょくれつかいろ}の{仕組|しく}み】{直列|ちょくれつ}では{電気|でんき}が{一筆書|いっぴつが}きの{道|みち}を{流|なが}れる。1か{所|しょ}が{切|き}れると{全体|ぜんたい}が{消|き}える——だから「1{個|こ}だけ{光|ひか}らない」は{豆電球|まめでんきゅう}ではなく{接続部分|せつぞくぶぶん}に{原因|げんいん}があるサイン。"
+      - type: narration
+        text: "【{学|まな}び②：{消去法|しょうきょほう}】{原因|げんいん}の{候補|こうほ}（{豆電球|まめでんきゅう}A・{豆電球|まめでんきゅう}B・{導線|どうせん}・{電池|でんち}・{接続部分|せつぞくぶぶん}）を1つずつ{確認|かくにん}して{除外|じょがい}していく。{思|おも}い{込|こ}みを{外|はず}して、{証拠|しょうこ}で{確|たし}かめることが{正|ただ}しい{診断|しんだん}への{鍵|かぎ}。"
+      - type: sprite
+        character: chikara
+        expression: determined
+        position: left
+      - type: dialog
+        character: chikara
+        text: "{次|つぎ}は{仕組|しく}みを{先|さき}に{確認|かくにん}する。{豆電球|まめでんきゅう}が{原因|げんいん}か、{導線|どうせん}か、{端子|たんし}か——1つずつ{確|たし}かめてから{動|うご}く。それが{本当|ほんとう}の{問題解決|もんだいかいけつ}だって{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: happy
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{直列|ちょくれつ}と{並列|へいれつ}の{違|ちが}い、{今日|きょう}こそちゃんと{覚|おぼ}えた！　{次|つぎ}の{実験|じっけん}では{消去法|しょうきょほう}で{確認|かくにん}しながら{進|すす}めよう。"
+        expression: happy
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: effect
+        name: fade-out

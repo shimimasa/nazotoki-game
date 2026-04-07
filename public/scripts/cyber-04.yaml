@@ -1,0 +1,438 @@
+meta:
+  id: cyber-04
+  title: そっくりサイト
+  series: ネット探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: library
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}で{人気|にんき}の「{読書|どくしょ}ポイントキャンペーン」がある。{図書|としょ}{委員会|いいんかい}の{公式|こうしき}サイトで{本|ほん}を{登録|とうろく}するとポイントが{貯|た}まる{仕組|しくみ}みだ。"
+      - type: sprite
+        character: rogu
+        expression: happy
+        position: center
+      - type: dialog
+        character: rogu
+        text: "みんな！　{新|あたら}しいキャンペーンが{始|はじ}まったって！　ボーナスポイントがもらえるサイト、{見|み}つけたよ！"
+        expression: happy
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**しかし——そのサイトは{公式|こうしき}サイトにそっくりな{偽|にせ}サイトだった。クラスで3{人|にん}がすでに{名前|なまえ}とクラスの{情報|じょうほう}を{入力|にゅうりょく}してしまった。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへん！　{図書|としょ}{委員会|いいんかい}に{確認|かくにん}したら「そんなキャンペーンは{始|はじ}めていない」って。URLが{本物|ほんもの}のサイトと1{文字|もじ}{違|ちが}う{偽|にせ}サイトだったの。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "ネット{探偵団|たんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。{偽|にせ}サイトのURLをクラスに{広|ひろ}めたのは{誰|だれ}か——{証拠|しょうこ}を{集|あつ}めて{真相|しんそう}を{解|と}き{明|あか}かしてください。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: netto
+            expression: thinking
+          - character: pasu
+            expression: thinking
+          - character: rogu
+            expression: worried
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{本物|ほんもの}と{見分|みわ}けがつかないくらいそっくりな{偽|にせ}サイト——どうやって{見破|みやぶ}ればよかったのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: そっくりサイト
+        subtitle: ネット探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: library
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 偽サイトの正体を調べる
+      - type: narration
+        text: "{偽|にせ}サイトと{本物|ほんもの}サイトのスクリーンショット——デザインはほぼ{同|おな}じ。「ボーナスポイントキャンペーン」の{告知|こくち}{画面|がめん}まで{本物|ほんもの}そっくりだ。"
+      - type: narration
+        text: "でも——よく{見|み}ると、{何|なに}かが{違|ちが}う。その「{何|なに}か」を{見|み}つけることが、この{事件|じけん}のカギだ。"
+      - type: evidence
+        id: card-1
+        title: 偽サイトと本物サイトのスクリーンショット比較
+        content: "{偽|にせ}サイト「ボーナスポイントキャンペーン！」と{本物|ほんもの}サイトを{並|なら}べると——デザイン・{色|いろ}・{文字|もじ}{配置|はいち}はほぼ{同|おな}じ。{違|ちが}いは{分|わ}かりにくい。「{見|み}た{目|め}では{区別|くべつ}できない」ことを{体感|たいかん}しよう。"
+      - type: sprite
+        character: gado
+        expression: worried
+        position: left
+      - type: dialog
+        character: gado
+        text: "クラスで3{人|にん}が{情報|じょうほう}を{入|い}れちゃったって……。{本物|ほんもの}そっくりだったんだから{仕方|しかた}ないよ。{見|み}た{目|め}が{同|おな}じなのに、どうして{偽物|にせもの}だって{分|わ}かるの？"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: narration
+        text: "URLの{構造|こうぞう}——プロトコル（https://）・ドメイン（{一番|いちばん}{重要|じゅうよう}な{部分|ぶぶん}）・パス（/以{降|こう}の{階層|かいそう}）。この3つを{読|よ}めれば、{偽|にせ}サイトを{見|み}つけられる。"
+      - type: evidence
+        id: card-2
+        title: URLの構造説明カード
+        content: "URLの3つの{部分|ぶぶん}: ①プロトコル「https://」——「s」は{安全|あんぜん}な{通信|つうしん}の{印|しるし} ②ドメイン——サイトの{住所|じゅうしょ}。**ここが{一番|いちばん}{重要|じゅうよう}な{判断|はんだん}{基準|きじゅん}** ③パス「/以{降|こう}の{部分|ぶぶん}」——{階層|かいそう}{構造|こうぞう}。「URLで{見分|みわ}ける3ステップ」: ①https://か{確認|かくにん} ②ドメインを{正確|せいかく}に{読|よ}む ③1{文字|もじ}でも{違|ちが}えば{別|べつ}のサイト"
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: pasu
+        text: "URLはサイトの「{住所|じゅうしょ}」みたいなもの。{見|み}た{目|め}はコピーできるけど——URLは{変|か}えられない。{住所|じゅうしょ}が{違|ちが}えば{別|べつ}の{場所|ばしょ}だ。ドメインの{部分|ぶぶん}を{一文字|ひともじ}ずつ{確認|かくにん}すれば{見分|みわ}けられる！"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: library
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: URLの違いとアクセスログを追う
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "URLを{並|なら}べて{比較|ひかく}してみよう！　{本物|ほんもの}と{偽|にせ}サイト、{全部|ぜんぶ}の{文字|もじ}を1{個|こ}ずつ{見比|みくら}べたら——どこかに{違|ちが}いがあるはず！"
+        expression: determined
+      - type: sprite
+        character: netto
+        action: hide
+      - type: evidence
+        id: card-3
+        title: URL比較表とアクセスログ
+        content: "{本物|ほんもの}: dokusho-**points**.jp　{偽物|にせもの}: dokusho-**point**.jp — 「s」が1{文字|もじ}{足|た}りない！\nアクセスログ（{時刻|じこく}{順|じゅん}）: ログ 月{曜日|ようび}16:12（{最初|さいしょ}）→ {他|ほか}3{人|にん} 月{曜日|ようび}16:20〜16:35。**{偽|にせ}サイトに{最初|さいしょ}にアクセスしたのは1{人|り}だけ。**"
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "あった！　「dokusho-points.jp」が{本物|ほんもの}で、「dokusho-point.jp」が{偽物|にせもの}——「s」が1{文字|もじ}{ない|な}い！　{本当|ほんとう}に1{文字|もじ}だけ{違|ちが}う……。ぼくも{気|き}づかずクリックしてたかも。"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: determined
+        position: right
+      - type: dialog
+        character: pasu
+        text: "ドメインが1{文字|もじ}{違|ちが}う——これは{本物|ほんもの}じゃない！　URLの{読|よ}み{方|かた}を{知|し}っていれば{見抜|みぬ}けた。「s」1{文字|もじ}の{違|ちが}いでも、{住所|じゅうしょ}が{変|か}わるんだ。"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: evidence
+        id: card-4
+        title: クラスのチャットログ
+        content: "月{曜日|ようび}16:10 ログ→クラス全員: 「{読書|どくしょ}ポイントのボーナスキャンペーン{始|はじ}まったよ！　ここから{登録|とうろく}するとポイント2{倍|ばい}！　[dokusho-point.jp/bonus]」\n⬇ これが{最初|さいしょ}にURLを{広|ひろ}めた{記録|きろく}。クラスメイトはこのメッセージを{見|み}て{偽|にせ}サイトにアクセスした。"
+      - type: sprite
+        character: rogu
+        expression: worried
+        position: left
+      - type: dialog
+        character: rogu
+        text: "そのチャット……{私|わたし}が{送|おく}ったやつだ。{本物|ほんもの}の{新|あたら}しいキャンペーンだって{思|おも}ってたから——{急|いそ}いでみんなに{教|おし}えたくて。"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: library
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{最初|さいしょ}に{偽|にせ}サイトのURLをクラスに{送|おく}ったのはログ——でも「{本物|ほんもの}のキャンペーンだと{思|おも}った」という。なぜURLを{確認|かくにん}しなかったのか？"
+      - type: sprite
+        character: gado
+        expression: normal
+        position: right
+      - type: dialog
+        character: gado
+        text: "ログは{情報|じょうほう}を{集|あつ}めるのが{得意|とくい}な{子|こ}なのに……。でもさ、{見|み}た{目|め}が{本物|ほんもの}そっくりだったんだから——{騙|だま}されるのは{仕方|しかた}なくない？　URLを{確認|かくにん}しなかったのは、なんで？"
+        expression: normal
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rogu
+        text: "……{検索|けんさく}して{見|み}つけたとき、「{検索|けんさく}{結果|けっか}に{出|で}てきた＝{公式|こうしき}」だって{思|おも}い{込|こ}んでた。{早|はや}くみんなに{教|おし}えたくて、URLをよく{見|み}なかった……。"
+        expression: thinking
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: library
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ログの検索履歴
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ログの{端末|たんまつ}を{確認|かくにん}したら——{検索|けんさく}{履歴|りれき}が{残|のこ}っていたわ。「{読書|どくしょ}ポイント ボーナス」で{検索|けんさく}して、{偽|にせ}サイトが{上位|じょうい}に{表示|ひょうじ}されて——そのままクリックしたみたい。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "ログに{聞|き}いたら「{検索|けんさく}で{出|で}てきたから{本物|ほんもの}だと{思|おも}った」と{言|い}っていたわ。URLを{確認|かくにん}する{習慣|しゅうかん}がなかったのね。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ログの検索履歴
+        content: "月{曜日|ようび}16:08 {検索|けんさく}: 「{読書|どくしょ}ポイント ボーナス」\n→{検索|けんさく}{結果|けっか}の{上位|じょうい}に「dokusho-point.jp」が{表示|ひょうじ}された\n→URLを{確認|かくにん}せずそのままクリック\n→「{公式|こうしき}サイトが{新|あたら}しいキャンペーンを{始|はじ}めた！」と{思|おも}い{込|こ}んだ\n{先生|せんせい}メモ: 「ログは"{検索|けんさく}で{出|で}てきたから{本物|ほんもの}だと{思|おも}った。URLを{確認|かくにん}しなかった"と{言|い}っていた」"
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "{検索|けんさく}{結果|けっか}の{上位|じょうい}に{出|で}てきた＝{公式|こうしき}じゃないんだ！　{偽|にせ}サイトでも{検索|けんさく}{上位|じょうい}に{表示|ひょうじ}されることがあるって……{知|し}らなかった。"
+        expression: surprised
+      - type: sprite
+        character: netto
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{検索|けんさく}{結果|けっか}の{上位|じょうい}＝{本物|ほんもの}」という{思|おも}い{込|こ}み。{見|み}た{目|め}が{同|おな}じなら{本物|ほんもの}という{思|おも}い{込|こ}み。2つの{思|おも}い{込|こ}みが{重|かさ}なって、ログは{偽|にせ}サイトを{疑|うたが}わなかった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: library
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 偽サイトのURLをクラスに広めたのは誰？
+      - type: sprite
+        character: pasu
+        expression: determined
+        position: right
+      - type: dialog
+        character: pasu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。チャットログでURLを{最初|さいしょ}に{送|おく}ったのは1{人|り}だけ。アクセスログでも{最初|さいしょ}のアクセスは1{人|り}だけ。そして{検索|けんさく}{履歴|りれき}が{残|のこ}っていた——"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{偽|にせ}サイトへの{最初|さいしょ}のアクセスは月{曜日|ようび}16:12。②その2{分|ふん}{前|まえ}、16:10にクラスにURLを{送|おく}った{記録|きろく}がある。③{検索|けんさく}{履歴|りれき}にはその2{分|ふん}{前|まえ}に「{読書|どくしょ}ポイント ボーナス」で{検索|けんさく}した{記録|きろく}がある。④「{検索|けんさく}で{出|で}てきたから{本物|ほんもの}だと{思|おも}った」という{発言|はつげん}がある。"
+      - type: choice
+        id: q1
+        question: 偽サイトのURLをクラスに広めたのは誰？
+        options:
+          - text: ログ（検索で見つけた偽サイトを公式だと思い込んでクラスに広めた）
+            value: rogu
+            correct: true
+            feedback: "{正解|せいかい}！　ログは「{読書|どくしょ}ポイント ボーナス」で{検索|けんさく}して、{偽|にせ}サイトが{上位|じょうい}に{表示|ひょうじ}されたのを{見|み}て「{公式|こうしき}だ」と{思|おも}い{込|こ}んだ。URLを{確認|かくにん}せずにクラスに{広|ひろ}めてしまった。**「{検索|けんさく}{結果|けっか}の{上位|じょうい}＝{本物|ほんもの}」ではない。サイトの{見分|みわ}け{方|かた}で{一番|いちばん}{大事|だいじ}なのはURLのドメイン{名|めい}だよ。**"
+          - text: ネット（URLの違いに最初に気づいた人）
+            value: netto
+            feedback: "{ネット|ねっと}は「URLを{並|なら}べて{比較|ひかく}しよう」と{提案|ていあん}した{側|がわ}。{偽|にせ}サイトの「s」{不足|ぶそく}を{発見|はっけん}した{探偵|たんてい}だよ。"
+          - text: パス（URLの構造を分析した人）
+            value: pasu
+            feedback: "{パス|ぱす}はURLの{読|よ}み{方|かた}を{説明|せつめい}してくれた{側|がわ}。「ドメインが1{文字|もじ}{違|ちが}う」と{見|み}つける{手助|てだす}けをしたよ。"
+          - text: ガード（被害者の気持ちをフォローした人）
+            value: gado
+            feedback: "{ガード|がーど}は{騙|だま}されたクラスメイトの{気持|きも}ちに{寄|よ}り{添|そ}った{側|がわ}。「{騙|だま}されたことは{恥|はずか}ずかしくない」と{伝|つた}えてくれたよ。"
+
+  # ==================== 真相：ログの告白 ====================
+  - id: truth-rogu
+    bg: library
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ログの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: rogu
+        expression: worried
+        position: center
+      - type: dialog
+        character: rogu
+        text: "……{私|わたし}がURLを{広|ひろ}めました。{読書|どくしょ}ポイントでクラスで{一番|いちばん}になりたくて——ボーナスのサイトを{探|さが}してたの。"
+        expression: worried
+      - type: dialog
+        character: rogu
+        text: "{検索|けんさく}{結果|けっか}の{一番|いちばん}{上|うえ}に{出|で}てきたから、「{公式|こうしき}だ！」って{信|しん}じた。{見|み}た{目|め}も{本物|ほんもの}そっくりだったし——URLなんて{確認|かくにん}しなかった。"
+        expression: thinking
+      - type: dialog
+        character: rogu
+        text: "みんなに{早|はや}く{教|おし}えたくて、{急|いそ}いで{送|おく}ってしまった。URLを1{文字|もじ}ずつ{確認|かくにん}してたら……{気|き}づけたのかな。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: library
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "{検索|けんさく}で{上位|じょうい}に{出|で}てきたら{信|しん}じたくなる{気持|きも}ちは……{分|わ}かる。ぼくも{気|き}づかずクリックしてたかも。「{見|み}た{目|め}が{同|おな}じ＝{本物|ほんもの}」って{思|おも}い{込|こ}むよね。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: normal
+        position: right
+      - type: dialog
+        character: pasu
+        text: "でも——URLの{読|よ}み{方|かた}を{知|し}っていれば{防|ふせ}げた。「dokusho-points.jp」と「dokusho-point.jp」——ドメインの「s」1{文字|もじ}を{確認|かくにん}するだけでよかった。{知識|ちしき}があれば{守|まも}れる。"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: normal
+        position: left
+      - type: dialog
+        character: gado
+        text: "{騙|だま}されたことは{恥|はず}ずかしくない。{見|み}た{目|め}で{判断|はんだん}するのは{自然|しぜん}なこと——URLを{確認|かくにん}する{習慣|しゅうかん}を{知|し}らなかっただけ。これからは{分|わ}かってる。"
+        expression: happy
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: library
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ログは{悪意|あくい}があったわけじゃない。{好奇心|こうきしん}とポイントへの{気持|きも}ちが、{確認|かくにん}を{後回|あとまわ}しにさせてしまった。でも——{知識|ちしき}があれば{防|ふせ}げた{事件|じけん}だったの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "サイトを{見|み}るとき、{一番|いちばん}{大事|だいじ}なのはURLのドメイン{名|めい}よ。{見|み}た{目|め}はコピーできるけど、ドメインは{変|か}えられない。「{検索|けんさく}{上位|じょうい}＝{本物|ほんもの}」でもないから——{必|かなら}ずURLを{確認|かくにん}する{習慣|しゅうかん}をつけてね。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】URLで{見分|みわ}ける3ステップ——①https://か{確認|かくにん} ②ドメインを1{文字|もじ}ずつ{読|よ}む ③1{文字|もじ}でも{違|ちが}えば{別|べつ}のサイト。この{習慣|しゅうかん}が{自分|じぶん}を{守|まも}る。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】タイムライン{推理|すいり}——{誰|だれ}が{最初|さいしょ}に{見|み}つけ、{広|ひろ}めたかを{時系列|じけいれつ}で{追|お}う。{アクセスログ|あくせすろぐ}・{チャット|ちゃっと}{記録|きろく}・{検索|けんさく}{履歴|りれき}の3つが{重|かさ}なって{真相|しんそう}に{届|とど}いた。"
+      - type: effect
+        name: fade-out

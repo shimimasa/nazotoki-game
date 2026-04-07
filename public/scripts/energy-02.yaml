@@ -1,0 +1,441 @@
+meta:
+  id: energy-02
+  title: 電磁石の証言
+  series: エネルギー探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科室|りかしつ}の{実験台|じっけんだい}に、{電磁石|でんじしゃく}の{実験|じっけん}{道具|どうぐ}が{並|なら}んでいる。{今日|きょう}は{コイル|こいる}に{電流|でんりゅう}を{流|なが}して、どんな{物質|ぶっしつ}が{引|ひ}き{付|つ}けられるかを{確|たし}かめる{授業|じゅぎょう}だ。"
+      - type: narration
+        text: "{実験|じっけん}{終了後|しゅうりょうご}、{各班|かくはん}の{報告書|ほうこくしょ}が{集|あつ}まった。ところが——{山田先生|やまだせんせい}が{一枚|いちまい}の{報告書|ほうこくしょ}の{前|まえ}で{眉|まゆ}をひそめた。"
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デンタ{班|はん}の{報告書|ほうこくしょ}に……「アルミ{缶|かん}も{引|ひ}き{付|つ}けた」と{書|か}いてある。{本当|ほんとう}に？"
+        expression: worried
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: worried
+          - character: hikaru
+            expression: surprised
+          - character: netsumi
+            expression: thinking
+          - character: chikara
+            expression: worried
+      - type: narration
+        text: "{電磁石|でんじしゃく}はアルミを{引|ひ}き{付|つ}けない——それは{理科|りか}の{基本|きほん}だ。なぜデンタの{報告書|ほうこくしょ}にそう{書|か}かれているのか。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 電磁石の証言
+        subtitle: エネルギー探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 4班の実験報告書
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{全員|ぜんいん}に{配|くば}った{実験|じっけん}{報告書|ほうこくしょ}——{各班|かくはん}の{実験|じっけん}{結果|けっか}が{比較表|ひかくひょう}でまとめられていた。"
+      - type: evidence
+        id: card-1
+        title: 4班の実験報告書（比較表）
+        content: "【{実験|じっけん}{内容|ないよう}】{電磁石|でんじしゃく}に{引|ひ}き{付|つ}けられる{物質|ぶっしつ}を{確|たし}かめる　【A{班|はん}】{砂鉄|さてつ}:○　アルミ{缶|かん}:×　{銅線|どうせん}:×　【B{班|はん}】{砂鉄|さてつ}:○　アルミ{缶|かん}:×　{銅線|どうせん}:×　【C{班|はん}】{砂鉄|さてつ}:○　アルミ{缶|かん}:×　{銅線|どうせん}:×　【デンタ{班|はん}(D{班|はん})】{砂鉄|さてつ}:○　アルミ{缶|かん}:**○**　{銅線|どうせん}:×　{砂鉄取得数|さてつしゅとくすう}:25{個|こ}（{他班平均|たはんへいきん}:13{個|こ}）"
+      - type: sprite
+        character: netsumi
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "デンタ{班|はん}だけアルミ{缶|かん}が○になってる。{他|ほか}の3{班|はん}は{全部|ぜんぶ}×——おかしくない？"
+        expression: surprised
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "それに{砂鉄|さてつ}の{数|かず}も{変|へん}だ。D{班|はん}だけ25{個|こ}で、{他|ほか}は13{個|こ}くらい。{倍|ばい}くらい{違|ちが}う。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "もう1{枚|まい}の{証拠|しょうこ}——ヒカルだけが{知|し}っている{目撃|もくげき}{証言|しょうげん}が{共有|きょうゆう}された。"
+      - type: evidence
+        id: card-2
+        title: ヒカルの目撃証言
+        content: "【{目撃者|もくげきしゃ}】ヒカル　【{目撃時刻|もくげきじこく}】{実験|じっけん}{終了後|しゅうりょうご}、{報告書|ほうこくしょ}{提出|ていしゅつ}の5{分|ふん}{前|まえ}　【{内容|ないよう}】「デンタが{報告書|ほうこくしょ}を2{回|かい}{書|か}き{直|なお}していた。{消|け}しゴムをたくさん{使|つか}っていて、{紙|かみ}が{少|すこ}し{汚|よご}れていた。なんで2{回|かい}{書|か}いてたのか{気|き}になった」"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{消|け}しゴムの{跡|あと}が{残|のこ}ってる{報告書|ほうこくしょ}——{何|なに}かを{書|か}き{換|か}えた{証拠|しょうこ}かもしれない。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 科学的知識とデンタの様子
+      - type: narration
+        text: "ネツミの{知識|ちしき}カードと、チカラの{観察|かんさつ}メモが{共有|きょうゆう}された。"
+      - type: evidence
+        id: card-3
+        title: ネツミの知識カード（電磁石の性質）
+        content: "【{電磁石|でんじしゃく}が{引|ひ}き{付|つ}ける{物質|ぶっしつ}】{鉄|てつ}・ニッケル・コバルト（{磁性体|じせいたい}）→○　アルミ・{銅|どう}・ガラス・プラスチック（{非磁性体|ひじせいたい}）→×　【{理由|りゆう}】{電磁石|でんじしゃく}は{永久磁石|えいきゅうじしゃく}と{同|おな}じく{磁力|じりょく}で{物質|ぶっしつ}を{引|ひ}き{付|つ}ける。アルミは{磁性|じせい}を{持|も}たないため、どんなに{強|つよ}い{電磁石|でんじしゃく}でも{引|ひ}き{付|つ}けることはできない。"
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "アルミは{磁性体|じせいたい}じゃない。{電磁石|でんじしゃく}でもアルミは{動|うご}かせない——これ、{物理|ぶつり}{的|てき}に{無理|むり}なんです。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: evidence
+        id: card-4
+        title: チカラの観察メモ（デンタの様子）
+        content: "【{観察者|かんさつしゃ}】チカラ　【{内容|ないよう}】「デンタは{実験|じっけん}{途中|とちゅう}からずっと{元気|げんき}がなかった。『{巻|ま}き{数|かず}が{少|すく}ない……』と{小声|こごえ}でつぶやいていた。{報告書|ほうこくしょ}を{書|か}くときは{誰|だれ}とも{目|め}が{合|あ}わないようにしていた」"
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: left
+      - type: dialog
+        character: chikara
+        text: "デンタ、{実験|じっけん}の{途中|とちゅう}から{様子|ようす}が{変|へん}だった。「{巻|ま}き{数|かず}が{少|すく}ない」って……{何|なに}か{失敗|しっぱい}に{気|き}づいてたのかな。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: denta
+        expression: worried
+        position: center
+      - type: dialog
+        character: denta
+        text: "……{聞|き}こえてたんだ。"
+        expression: worried
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。デンタの{報告書|ほうこくしょ}だけアルミ{缶|かん}が「○」——だが{電磁石|でんじしゃく}はアルミを{引|ひ}き{付|つ}けられない。{書|か}き{直|なお}しの{跡|あと}がある。そして{実験中|じっけんちゅう}のつぶやき——{点|てん}と{点|てん}がつながり{始|はじ}める。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "アルミ{缶|かん}を{引|ひ}き{付|つ}けたって{書|か}いてあるのに、{物理|ぶつり}{的|てき}に{不可能|ふかのう}なんでしょ。それって——{嘘|うそ}のデータが{入|はい}ってるってこと？"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{砂鉄|さてつ}の{数|かず}も{変|へん}。{他班|たはん}の{約|やく}2{倍|ばい}、25{個|こ}って{多|おお}すぎる。{実際|じっさい}は{少|すく}なかったのを、{多|おお}く{見|み}せようとしたのかも。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 報告書の裏に残されたもの
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{報告書|ほうこくしょ}の{裏|うら}を{確認|かくにん}したら……{消|け}しゴムのカスと、{最初|さいしょ}の{記録|きろく}の{跡|あと}が{残|のこ}っていました。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 先生の発見＋電磁石の強さの解説
+        content: "【{発見|はっけん}①】{報告書|ほうこくしょ}の{裏面|うらめん}に{消|け}しゴムカス＋{薄|うす}く{残|のこ}った{最初|さいしょ}の{記録|きろく}：「{砂鉄|さてつ}12{個|こ}」「アルミ{缶|かん}:×」　【{発見|はっけん}②】{書|か}き{換|か}え{後|ご}の{記録|きろく}：「{砂鉄|さてつ}25{個|こ}」「アルミ{缶|かん}:○」　【{電磁石|でんじしゃく}の{強|つよ}さの{解説|かいせつ}】{電磁石|でんじしゃく}の{強|つよ}さはコイルの{巻|ま}き{数|かず}と{電流|でんりゅう}で{決|き}まる。{巻|ま}き{数|かず}が{少|すく}ないと{電磁力|でんじりょく}は{弱|よわ}くなり、{引|ひ}き{付|つ}ける{砂鉄|さてつ}の{量|りょう}も{少|すく}なくなる。どれだけ{強|つよ}くしてもアルミ{缶|かん}は{引|ひ}き{付|つ}けられない。"
+      - type: se
+        sound: reveal
+      - type: sprite
+        character: netsumi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "{最初|さいしょ}の{記録|きろく}が{残|のこ}ってた——「{砂鉄|さてつ}12{個|こ}、アルミ{缶|かん}:×」。それが{本当|ほんとう}のデータ。{書|か}き{換|か}えたのは{間違|まちが}いない。"
+        expression: surprised
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: narration
+        text: "**{最初|さいしょ}の{記録|きろく}は「{砂鉄|さてつ}12{個|こ}、アルミ{缶|かん}:×」だった。**{コイル|こいる}の{巻|ま}き{数|かず}が{少|すく}なく{電磁力|でんじりょく}が{弱|よわ}かった——それが{正|ただ}しいデータ。それを{隠|かく}すために{数|かず}と{引|ひ}き{付|つ}けた{物質|ぶっしつ}を{書|か}き{換|か}えた。しかし{電磁石|でんじしゃく}はアルミを{引|ひ}き{付|つ}けない——その{知識|ちしき}があれば{嘘|うそ}はすぐに{見破|みやぶ}られる。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 実験報告書にうそのデータを書いたのは誰？
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①デンタ{班|はん}の{報告書|ほうこくしょ}だけ{物理|ぶつり}{的|てき}に{不可能|ふかのう}な「アルミ{缶|かん}:○」がある。②{書|か}き{直|なお}しの{跡|あと}と{消|け}しゴムカス。③{最初|さいしょ}の{記録|きろく}「{砂鉄|さてつ}12{個|こ}」が{裏|うら}に{残|のこ}っていた。④チカラが「{巻|ま}き{数|かず}が{少|すく}ない」というつぶやきを{目撃|もくげき}。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{並|なら}べると——{誰|だれ}がデータを{書|か}き{換|か}えたか、{見|み}えてくる。"
+      - type: choice
+        id: q1
+        question: 実験報告書にうそのデータを書いたのは誰？
+        options:
+          - text: デンタ（コイルの巻き数が少なく失敗した結果を書き換えた）
+            value: denta
+            correct: true
+            feedback: "{正解|せいかい}！　デンタは{失敗|しっぱい}が{恥|はず}ずかしくてデータを{書|か}き{換|か}えました。でも{電磁石|でんじしゃく}はアルミを{引|ひ}き{付|つ}けない——その{知識|ちしき}があれば{嘘|うそ}はすぐに{見破|みやぶ}られます。**{科学|かがく}では{失敗|しっぱい}したデータこそ{大切|たいせつ}な{情報|じょうほう}。「なぜ{少|すく}なかったか（コイルの{巻|ま}き{数|かず}）」を{調|しら}べることが{本当|ほんとう}の{実験|じっけん}です。**"
+          - text: ヒカル（消しゴムの使用を目撃した人）
+            value: hikaru
+            feedback: "ヒカルは{書|か}き{換|か}えを{目撃|もくげき}した{側|がわ}だよ。{自分|じぶん}は{正直|しょうじき}に{報告|ほうこく}していたよ。"
+          - text: ネツミ（電磁石の知識を持っている人）
+            value: netsumi
+            feedback: "ネツミは{電磁石|でんじしゃく}の{性質|せいしつ}を{知|し}っている{側|がわ}だよ。その{知識|ちしき}で{嘘|うそ}のデータを{見破|みやぶ}ったんだよ。"
+          - text: チカラ（デンタの様子に気づいた人）
+            value: chikara
+            feedback: "チカラはデンタの{様子|ようす}の{変化|へんか}に{気|き}づいた{側|がわ}だよ。{観察眼|かんさつがん}で{動機|どうき}の{手|て}がかりを{見|み}つけてくれたよ。"
+
+  # ==================== 真相：デンタの告白 ====================
+  - id: truth-denta
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: デンタの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: denta
+        expression: worried
+        position: center
+      - type: dialog
+        character: denta
+        text: "……{僕|ぼく}です。{報告書|ほうこくしょ}を{書|か}き{換|か}えたのは。"
+        expression: worried
+      - type: dialog
+        character: denta
+        text: "コイルの{巻|ま}き{数|かず}が{少|すく}なくて、{電磁力|でんじりょく}が{弱|よわ}かった。{砂鉄|さてつ}は12{個|こ}しか{引|ひ}き{付|つ}けられなかった。{他|ほか}の{班|はん}の{半分|はんぶん}も{満|み}たない{数|かず}で——{恥|はず}ずかしくて。"
+        expression: worried
+      - type: dialog
+        character: denta
+        text: "だから{砂鉄|さてつ}を25{個|こ}にして、「アルミ{缶|かん}も{引|ひ}き{付|つ}けた」って{書|か}き{足|た}した。でも……{電磁石|でんじしゃく}がアルミを{引|ひ}き{付|つ}けないって{知識|ちしき}があれば、すぐ{見破|みやぶ}られるって、{今|いま}なら{分|わ}かる。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "デンタ、{失敗|しっぱい}が{怖|こわ}かったんだよね。でも{失敗|しっぱい}を{隠|かく}したら{科学|かがく}にならない——{失敗|しっぱい}こそ「なぜ？」を{考|かんが}えるはじまりだから。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: normal
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "コイルの{巻|ま}き{数|かず}が{少|すく}なかった{理由|りゆう}を{調|しら}べたら、もっと{面白|おもしろ}い{発見|はっけん}があったかもしれないのに。{正直|しょうじき}に{書|か}いてたら、みんなで{一緒|いっしょ}に{考|かんが}えられたよ。"
+        expression: normal
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{複数|ふくすう}の{班|はん}のデータを{並|なら}べて{比較|ひかく}したら、デンタの{数値|すうち}だけ{飛|と}び{抜|ぬ}けていた。{情報整理|じょうほうせいり}で{矛盾|むじゅん}を{見|み}つけるのが{今日|きょう}の{新|あたら}しい{推理|すいり}スキルだよ。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{電磁石|でんじしゃく}は{鉄|てつ}・ニッケル・コバルトを{引|ひ}き{付|つ}けるけれど、アルミ・{銅|どう}・プラスチックは{引|ひ}き{付|つ}けられない。これが{今日|きょう}の{大切|たいせつ}な{知識|ちしき}。その{知識|ちしき}があれば、データの{矛盾|むじゅん}は{必|かなら}ず{見|み}つけられます。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "デンタは{失敗|しっぱい}が{恥|はず}ずかしかった。その{気持|きも}ちはよく{分|わ}かります。でも{科学|かがく}では{失敗|しっぱい}したデータこそ{宝物|たからもの}——「なぜ{少|すく}なかったか」を{探|さぐ}ることが{本当|ほんとう}の{実験|じっけん}なのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{電磁石|でんじしゃく}の{性質|せいしつ}】{電磁石|でんじしゃく}は{鉄|てつ}・ニッケル・コバルト（{磁性体|じせいたい}）を{引|ひ}き{付|つ}ける。アルミ・{銅|どう}・ガラス・プラスチック（{非磁性体|ひじせいたい}）は{引|ひ}き{付|つ}けられない。これは{電磁石|でんじしゃく}がどれだけ{強|つよ}くても{変|か}わらない{物理|ぶつり}の{法則|ほうそく}。"
+      - type: narration
+        text: "【{学|まな}び②：{情報整理|じょうほうせいり}】{複数|ふくすう}の{情報源|じょうほうげん}を{表|ひょう}に{並|なら}べて{比較|ひかく}すると、{矛盾|むじゅん}する{箇所|かしょ}が{見|み}つかりやすい。「{物理|ぶつり}{的|てき}に{不可能|ふかのう}な{記述|きじゅつ}」は{強力|きょうりょく}な{証拠|しょうこ}になる。"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: left
+      - type: dialog
+        character: denta
+        text: "{次|つぎ}は{正直|しょうじき}に{書|か}く。「{巻|ま}き{数|かず}が{少|すく}なくて{砂鉄|さてつ}が12{個|こ}しか{引|ひ}き{付|つ}けられなかった」——それが{本当|ほんとう}のデータ。なぜ{少|すく}なかったかを{調|しら}べるのが{本当|ほんとう}の{実験|じっけん}だって{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: happy
+        position: right
+      - type: dialog
+        character: chikara
+        text: "{失敗|しっぱい}は{怖|こわ}くない。{失敗|しっぱい}から「なぜ？」を{考|かんが}えることが{科学|かがく}のはじまりだよ。デンタなら{絶対|ぜったい}できる。"
+        expression: happy
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: effect
+        name: fade-out

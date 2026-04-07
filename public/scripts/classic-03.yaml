@@ -1,0 +1,394 @@
+meta:
+  id: classic-03
+  title: 徒然草のトリック
+  series: 古典探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{読書|どくしょ}{感想文|かんそうぶん}コンテストの{結果発表|けっかはっぴょう}が{近|ちか}づいたある{放課後|ほうかご}——教室に{緊張感|きんちょうかん}が{走|はし}った。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**ウタヨミの{感想文|かんそうぶん}に「{盗作|とうさく}」の{疑い|うたがい}がかかった。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ウタヨミの{感想文|かんそうぶん}に「{つれづれなるままに、日ぐらし{硯|すずり}に{向|む}かひて}」という{一節|いっせつ}があるの。{審査員|しんさいん}が「ネットからコピーした」と{判断|はんだん}して、{盗作|とうさく}{疑惑|ぎわく}になってしまったのよ。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "でも{本当|ほんとう}に{盗作|とうさく}なのかしら？　{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: surprised
+          - character: utayomi
+            expression: worried
+          - character: shirabe
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{盗作|とうさく}——まさか。でも{審査員|しんさいん}が{言|い}うなら？　{事件|じけん}の{真相|しんそう}は、{言葉|ことば}の{解釈|かいしゃく}の{深|ふか}いところに{隠|かく}れていた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 徒然草のトリック
+        subtitle: 古典探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: library
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 感想文と審査員の判定書
+      - type: narration
+        text: "ウタヨミの{感想文|かんそうぶん}——「{つれづれなるままに}、日ぐらし{硯|すずり}に{向|む}かひて」の{部分|ぶぶん}に{黄色|きいろ}いマーカーが{引|ひ}かれている。{出典|しゅってん}には「{徒然草|つれづれぐさ} {序文|じょぶん}（{兼好法師|けんこうほうし}）」と{明記|めいき}されていた。"
+      - type: narration
+        text: "{審査員|しんさいん}の{判定書|はんていしょ}には「ネットからの{盗用|とうよう}と{判断|はんだん}」とだけ{書|か}かれている。"
+      - type: evidence
+        id: card-1
+        title: 感想文と審査員の判定書
+        content: "ウタヨミの{感想文|かんそうぶん}：「{つれづれなるままに}、日ぐらし{硯|すずり}に{向|む}かひて」を{引用|いんよう}。{出典|しゅってん}「{徒然草|つれづれぐさ} {序文|じょぶん}（{兼好法師|けんこうほうし}）」を{明記|めいき}。{審査員|しんさいん}の{判定書|はんていしょ}：「ネットからの{盗用|とうよう}と{判断|はんだん}」"
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{出典|しゅってん}も{書|か}いてある。{引用|いんよう}のルールは{守|まも}ってる。これは{盗作|とうさく}じゃない——でも、なぜ{審査員|しんさいん}は{盗作|とうさく}だと{思|おも}ったんだろう？"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{古語|こご}ガイド——「{つれづれなるままに}」の{原文|げんぶん}・{現代語訳|げんだいごやく}・{兼好法師|けんこうほうし}の{紹介|しょうかい}。{古語|こご}の「{つれづれ}」は「することがなく{手持|てもち}ちぶさた」。{現代語|げんだいご}の「{退屈|たいくつ}」とは{少|すこ}し{違|ちが}う。"
+      - type: evidence
+        id: card-2
+        title: 古語ガイド「つれづれなるままに」
+        content: "{原文|げんぶん}：「{つれづれなるままに}、日ぐらし{硯|すずり}に{向|む}かひて」{現代語訳|げんだいごやく}：「することがなくて、ぼんやりするうちに、一日じゅう{硯|すずり}に{向|む}かって」{古語|こご}の「{つれづれ}」＝することがなく{手持|てもち}ちぶさた。{現代語|げんだいご}の「{退屈|たいくつ}」とは{少|すこ}し{違|ちが}う。{作者|さくしゃ}：{兼好法師|けんこうほうし}（700{年前|ねんまえ}）"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: library
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 審査員の判断根拠と因果の流れ
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{審査員|しんさいん}に{話|はなし}を{聞|き}いてきた。「{つれづれなるままに}」をネットで{検索|けんさく}したら{ヒット|ひっと}した——だから「コピーした」と{思|おも}ったって。でも700{年前|ねんまえ}の{文章|ぶんしょう}だよ？　{検索|けんさく}でヒットするのは{当|あ}たり{前|まえ}じゃないか……"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-3
+        title: コトバの調査メモ＋フミカの分析
+        content: "【コトバの{調査|ちょうさ}メモ】{審査員|しんさいん}は「{つれづれなるままに}」をネットで{検索|けんさく}→ヒット→「コピーだ」と{判断|はんだん}。【フミカの{分析|ぶんせき}（{カード交換|かーどこうかん}）】{感想文|かんそうぶん}の{引用|いんよう}ルールは{守|まも}られている。{出典|しゅってん}{明記|めいき}あり。"
+      - type: sprite
+        character: utayomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "「{つれづれ}」は「{退屈|たいくつ}」じゃない。「することがなくて、ぼんやりするうちに{筆|ふで}を{取|と}った」——{兼好法師|けんこうほうし}の{気持|きも}ちを{伝|つた}えたかった。だから{引用|いんよう}したのに……"
+        expression: worried
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: evidence
+        id: card-4
+        title: 因果連鎖の整理表
+        content: "①{古語|こご}の「{つれづれ}」の{意味|いみ}（{手持|てもち}ちぶさた）→②{審査員|しんさいん}が{現代語|げんだいご}で{解釈|かいしゃく}（「{退屈|たいくつ}」）→③ネット{検索|けんさく}でヒット→④「コピーした」と{誤判断|ごはんだん}。この{流|なが}れが「{盗作|とうさく}{疑惑|ぎわく}」を{生|う}んだ。"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{感想文|かんそうぶん}には{出典|しゅってん}が{書|か}かれ、{引用|いんよう}ルールは{守|まも}られている。しかし{審査員|しんさいん}はネット{検索|けんさく}で「コピーした」と{判断|はんだん}した。{何|なに}がずれているのか？"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "{審査員|しんさいん}も「{盗作|とうさく}を{見|み}のがしてはいけない」という{責任感|せきにんかん}で{判断|はんだん}したんだと{思|おも}う。{悪意|あくい}はなかったはず。{ウタヨミ|うたよみ}も{悪|わる}いことはしていない——どこで{何|なに}がずれたんだろう？"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{引用|いんよう}ルールは{守|まも}ってる。でも{審査員|しんさいん}は「コピーだ」と{判断|はんだん}した。この{矛盾|むじゅん}は……{言葉|ことば}の{意味|いみ}の{解釈|かいしゃく}の{違|ちが}いが{原因|げんいん}なのかもしれない。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{審査員|しんさいん}に{説明|せつめい}して{誤解|ごかい}が{解|と}けました。ウタヨミの{引用|いんよう}は{正当|せいとう}です。でもこの{事件|じけん}は{大切|たいせつ}なことを{教|おし}えてくれるの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{古語|こご}を{知|し}らないと、{正|ただ}しく{読|よ}むことができない」——これが、{盗作|とうさく}{疑惑|ぎわく}の{本当|ほんとう}の{原因|げんいん}だったのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "「{審査員|しんさいん}に{説明|せつめい}して{誤解|ごかい}が{解|と}けました。ウタヨミの{引用|いんよう}は{正当|せいとう}です。しかしこの{事件|じけん}は{大切|たいせつ}なことを{教|おし}えてくれます——'{古語|こご}を{知|し}らないと、{正|ただ}しく{読|よ}むことができない'のです」"
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "やっぱり！　「{つれづれ}」の{意味|いみ}が{古語|こご}と{現代語|げんだいご}でずれていたから、{審査員|しんさいん}は{誤解|ごかい}したんだ。{私|わたし}が{悪|わる}いんじゃなかった——{言葉|ことば}の{解釈|かいしゃく}の{違|ちが}いが{全部|ぜんぶ}の{原因|げんいん}だったんだ！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{古語|こご}の{意味|いみ}→{審査員|しんさいん}が{現代語|げんだいご}で{解釈|かいしゃく}→ネット{検索|けんさく}でヒット→{盗作|とうさく}と{誤判断|ごはんだん}。**　「{言葉|ことば}の{意味|いみ}のずれ」が{誤解|ごかい}を{生|う}んだ——これがこの{事件|じけん}の{核心|かくしん}だった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 盗作と誤解された本当の原因は何？
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{証拠|しょうこ}をまとめると——{引用|いんよう}ルールは{守|まも}られていた。{出典|しゅってん}も{明記|めいき}されていた。でも{審査員|しんさいん}は{盗作|とうさく}だと{判断|はんだん}した。その{理由|りゆう}は……{古語|こご}を「{退屈|たいくつ}」と{現代語|げんだいご}で{読|よ}んでネット{検索|けんさく}したからだ。"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①ウタヨミの{感想文|かんそうぶん}には{出典|しゅってん}{明記|めいき}あり。②{引用|いんよう}ルールは{守|まも}られている。③{審査員|しんさいん}は「{つれづれなるままに}」をネット{検索|けんさく}してヒット→コピーと{判断|はんだん}。④{古語|こご}の「{つれづれ}」と{現代語|げんだいご}では{意味|いみ}が{違|ちが}う。⑤{山田先生|やまだせんせい}のメモで{誤解|ごかい}が{解|と}けた。"
+      - type: choice
+        id: q1
+        question: ウタヨミの感想文が「盗作」と誤解された本当の原因は何？
+        options:
+          - text: 審査員が古語の「つれづれ」の意味を知らず、現代語で読んで誤解した
+            value: kogo-misread
+            correct: true
+            feedback: "{正解|せいかい}！　「{つれづれなるままに}」は700{年前|ねんまえ}の{兼好法師|けんこうほうし}の{言葉|ことば}。{古語|こご}の「{つれづれ}」は「することがなくて、ぼんやりするうちに」という{意味|いみ}で、{現代語|げんだいご}の「{退屈|たいくつ}」とは{少|すこ}し{違|ちが}う。{古語|こご}を{知|し}らないと{正|ただ}しく{読|よ}めない——だから{古典|こてん}を{学|まな}ぶ{意味|いみ}があるんだ。ウタヨミは{徒然草|つれづれぐさ}の{魅力|みりょく}を{伝|つた}えたかった。その{気持|きも}ちは{間違|まちが}っていない。"
+          - text: ウタヨミがネットからコピーした
+            value: utayomi-copied
+            feedback: "ウタヨミは{原文|げんぶん}を{正確|せいかく}に{引用|いんよう}して{出典|しゅってん}も{書|か}いている。{盗作|とうさく}ではないよ。"
+          - text: 感想文のルールが曖昧だった
+            value: rule-ambiguous
+            feedback: "ルール{自体|じたい}は{明確|めいかく}。{問題|もんだい}は「{古典|こてん}の{引用|いんよう}」を「ネットからのコピー」と{混同|こんどう}した{判断|はんだん}だよ。"
+          - text: 誰かがウタヨミを陥れた
+            value: someone-framed
+            feedback: "{悪意|あくい}のある{人|ひと}はいない。{審査員|しんさいん}も{真剣|しんけん}に{判断|はんだん}した{結果|けっか}だよ。"
+
+  # ==================== 真相：ウタヨミの告白 ====================
+  - id: truth-utayomi
+    bg: library
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ウタヨミの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: utayomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: utayomi
+        text: "{徒然草|つれづれぐさ}の{序文|じょぶん}を{読|よ}んだとき、すごく{心|こころ}を{打|う}たれたんです。「することがなくて、ぼんやりするうちに{筆|ふで}を{取|と}った」——700{年前|ねんまえ}の{人|ひと}も{同|おな}じ{気持|きも}ちを{持|も}っていたんだって。"
+        expression: thinking
+      - type: dialog
+        character: utayomi
+        text: "だから{感想文|かんそうぶん}に{引用|いんよう}したかった。{出典|しゅってん}も{書|か}いた。{引用|いんよう}のルールも{守|まも}った——なのに{盗作|とうさく}だって……ちゃんと{引用|いんよう}したのに、なぜ？"
+        expression: worried
+      - type: dialog
+        character: utayomi
+        text: "「{つれづれ}」は「{退屈|たいくつ}」じゃない。{兼好法師|けんこうほうし}の{気持|きも}ちを{伝|つた}えたかった——それだけだったのに。"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{審査員|しんさいん}は「{つれづれなるままに}」をネットで{検索|けんさく}してヒットした——それで「コピーだ」と{思|おも}った。でも700{年前|ねんまえ}の{文章|ぶんしょう}だよ？　{検索|けんさく}でヒットするのは{当|あ}たり{前|まえ}じゃないか。{古語|こご}を{知|し}らないと、こういう{誤解|ごかい}が{起|お}きるんだな。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{出典|しゅってん}も{書|か}いてある。{引用|いんよう}のルールは{守|まも}ってる。これは{盗作|とうさく}じゃない——{証拠|しょうこ}を{一|ひと}つずつ{確|たし}かめれば、ちゃんと{分|わ}かることだった。"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: normal
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "{審査員|しんさいん}もウタヨミも、{真剣|しんけん}だったのは{同|おな}じ。「{言葉|ことば}の{意味|いみ}のずれ」が{誤解|ごかい}を{生|う}んだんだ——{悪|わる}い{人|ひと}はいない。{古語|こご}を{知|し}っていれば、この{誤解|ごかい}は{起|お}きなかったんだね。"
+        expression: normal
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{徒然草|つれづれぐさ}は700{年前|ねんまえ}の{言葉|ことば}で{書|か}かれているの。{古語|こご}の「{つれづれ}」は「することがなくて、ぼんやりするうちに」という{意味|いみ}——{現代語|げんだいご}の「{退屈|たいくつ}」とは{少|すこ}し{違|ちが}う{豊|ゆた}かな{意味|いみ}が{込|こ}められているのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{古語|こご}を{知|し}らないと、{正|ただ}しく{読|よ}めない」——これが、{古典|こてん}を{学|まな}ぶ{本当|ほんとう}の{意味|いみ}。{言葉|ことば}の{解釈|かいしゃく}が{違|ちが}えば、{誤解|ごかい}が{生|う}まれる。それを{防|ふせ}ぐために、{言葉|ことば}を{正確|せいかく}に{知|し}ることが{大切|たいせつ}なのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{因果連鎖|いんがれんさ}——「{解釈|かいしゃく}の{違|ちが}い→{判断|はんだん}の{誤|あやま}り→{盗作|とうさく}{疑惑|ぎわく}」という{流|なが}れをたどることで、{真相|しんそう}にたどり{着|つ}いた。"
+      - type: narration
+        text: "ウタヨミは{盗作|とうさく}をしていなかった。{引用|いんよう}のルールを{守|まも}り、{出典|しゅってん}も{明記|めいき}した。{古語|こご}の{知識|ちしき}があれば——{誤解|ごかい}は{起|お}きなかった。{言葉|ことば}を{正確|せいかく}に{知|し}ることが、{互|たが}いの{理解|りかい}につながる。"
+      - type: effect
+        name: fade-out

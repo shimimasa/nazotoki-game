@@ -1,0 +1,474 @@
+meta:
+  id: cyber-09
+  title: あつめられたデータ
+  series: ネット探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "クラスで「おすすめ{無料|むりょう}アプリ」を{紹介|しょうかい}する{発表会|はっぴょうかい}が{近|ちか}づいていた。"
+      - type: narration
+        text: "ネットは3つの{無料|むりょう}アプリ——ゲーム・カメラ{加工|かこう}・{歩数計|ほすうけい}——を{紹介|しょうかい}しようと{準備|じゅんび}していた。"
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: pasu
+        text: "ちょっと{待|ま}って、ネット。この3つのアプリ——{全部|ぜんぶ}やたらと{権限|けんげん}を{要求|ようきゅう}してない？　{位置情報|いちじょうほう}・{連絡先|れんらくさき}・{写真|しゃしん}……{全部|ぜんぶ}アクセスを{求|もと}めてる。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: netto
+        expression: normal
+        position: left
+      - type: dialog
+        character: netto
+        text: "べ、{便利|べんり}だから{全部|ぜんぶ}「{許可|きょか}」にしたよ。{許可|きょか}しないとアプリが{使|つか}えないと{思|おも}ったし……"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ゲームに{連絡先|れんらくさき}は{必要|ひつよう}かしら？　カメラアプリに{位置情報|いちじょうほう}は？　3つとも{同|おな}じ{権限|けんげん}を{要求|ようきゅう}している……これは{調|しら}べる{必要|ひつよう}があるわね。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "ネット{探偵団|たんていだん}、お{願|ねが}い。「なぜ{無料|むりょう}アプリがこんなに{情報|じょうほう}を{集|あつ}めるのか」——{証拠|しょうこ}を{集|あつ}めて{真相|しんそう}を{解明|かいめい}してください。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: netto
+            expression: worried
+          - character: pasu
+            expression: thinking
+          - character: rogu
+            expression: thinking
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{無料|むりょう}アプリの{裏|うら}に、{何|なに}かが{隠|かく}れている——{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: あつめられたデータ
+        subtitle: ネット探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 3つのアプリを比べる
+      - type: narration
+        text: "3つの{無料|むりょう}アプリの{権限|けんげん}{要求|ようきゅう}リスト——ゲーム・カメラ{加工|かこう}・{歩数計|ほすうけい}、どれも{位置情報|いちじょうほう}・{連絡先|れんらくさき}・{写真|しゃしん}へのアクセスを{求|もと}めている。"
+      - type: evidence
+        id: card-1
+        title: 3つのアプリの権限要求リスト
+        content: "【ゲームアプリ】{要求権限|ようきゅうけんげん}: {位置情報|いちじょうほう}・{連絡先|れんらくさき}・{写真|しゃしん}　【カメラ{加工|かこう}アプリ】{要求権限|ようきゅうけんげん}: {位置情報|いちじょうほう}・{連絡先|れんらくさき}・カメラ・{写真|しゃしん}　【{歩数計|ほすうけい}アプリ】{要求権限|ようきゅうけんげん}: {位置情報|いちじょうほう}・{連絡先|れんらくさき}・{写真|しゃしん}　→3つとも{同|おな}じ{権限|けんげん}を{要求|ようきゅう}している。"
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: pasu
+        text: "3つとも{全部|ぜんぶ}{同|おな}じ{権限|けんげん}を{要求|ようきゅう}してる……{変|へん}だよ。ゲームに{連絡先|れんらくさき}って、{何|なん}のために？"
+        expression: thinking
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: narration
+        text: "{権限|けんげん}の{説明|せつめい}カード——{位置情報|いちじょうほう}・{連絡先|れんらくさき}・カメラ・{写真|しゃしん}・マイク、それぞれが「どんな{情報|じょうほう}へアクセスできるか」を{示|しめ}している。"
+      - type: evidence
+        id: card-2
+        title: アプリの権限説明カード
+        content: "【{位置情報|いちじょうほう}】いま{自分|じぶん}がどこにいるかが{分|わ}かる。【{連絡先|れんらくさき}】{電話帳|でんわちょう}の{名前|なまえ}・{電話番号|でんわばんごう}が{読|よ}み{取|と}れる。【カメラ・{写真|しゃしん}】{撮影|さつえい}や{写真|しゃしん}フォルダへのアクセスができる。→これらの{権限|けんげん}をアプリに{渡|わた}すと、アプリがその{情報|じょうほう}を{使|つか}えるようになる。「{本当|ほんとう}に{必要|ひつよう}な{権限|けんげん}か？」を{確認|かくにん}することが{大切|たいせつ}。"
+      - type: sprite
+        character: rogu
+        expression: worried
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{連絡先|れんらくさき}を{渡|わた}すって……{電話帳|でんわちょう}の{中身|なかみ}が{全部|ぜんぶ}アプリに{渡|わた}るってこと？　それは{怖|こわ}い……"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: アプリが裏でしていたこと
+      - type: narration
+        text: "アプリが{裏|うら}でどれだけデータにアクセスしているか、{記録|きろく}を{調|しら}べてみた——その{数字|すうじ}に4{人|にん}は{驚|おどろ}いた。"
+      - type: evidence
+        id: card-3
+        title: アプリのデータアクセスログ
+        content: "【{位置情報|いちじょうほう}】5{分|ふん}ごとに{取得|しゅとく}——1{時間|じかん}で12{回|かい}。【{連絡先|れんらくさき}】インストール{直後|ちょくご}に1{回|かい}{読|よ}み{取|と}り——{全件|ぜんけん}アクセス。【{写真|しゃしん}フォルダ】1{日|にち}1{回|かい}スキャン——{新|あたら}しい{写真|しゃしん}を{確認|かくにん}。→アプリを{使|つか}っていない{時間|じかん}にも、{裏|うら}で{動|うご}いている。"
+      - type: sprite
+        character: rogu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{位置情報|いちじょうほう}が5{分|ふん}おきに！　{使|つか}ってもいない{時間|じかん}に、ずっと{場所|ばしょ}を{追|お}いかけてる……これは{本当|ほんとう}にゲームに{必要|ひつよう}なの？"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: worried
+        position: right
+      - type: dialog
+        character: gado
+        text: "{連絡先|れんらくさき}が{全件|ぜんけん}……わたしの{電話番号|でんわばんごう}も{友|とも}だちのも、{全部|ぜんぶ}アプリに{渡|わた}ってる？　{自分|じぶん}だけの{問題|もんだい}じゃないよ……"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: narration
+        text: "4{人|にん}のうち、{全部|ぜんぶ}の{権限|けんげん}を「{許可|きょか}」にしたのは{誰|だれ}か——{調査|ちょうさ}{記録|きろく}が{明|あき}らかにする。"
+      - type: evidence
+        id: card-4
+        title: 権限許可の調査記録
+        content: "4{人|にん}の{権限|けんげん}{設定|せってい}を{調|しら}べた{結果|けっか}: パス→「{必要|ひつよう}な{権限|けんげん}だけ{許可|きょか}」。ログ→「{許可|きょか}しなかった」。ガード→「{必要|ひつよう}な{権限|けんげん}だけ{許可|きょか}」。4{人目|にんめ}→3つのアプリ{全部|ぜんぶ}に{全権限|ぜんけんげん}を「{許可|きょか}」にした。→{全権限|ぜんけんげん}を{許可|きょか}したのは4{人|にん}のうちの1{人|ひとり}だけ。"
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: pasu
+        text: "{全部|ぜんぶ}「{許可|きょか}」にしたのは1{人|ひとり}だけ……{帰納的|きのうてき}に{考|かんが}えると、その1{人|ひとり}が{問題|もんだい}の{中心|ちゅうしん}にいる。"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。3つのアプリは{全部|ぜんぶ}{同|おな}じ{権限|けんげん}を{要求|ようきゅう}し、{裏|うら}で{絶|たえ}えずデータにアクセスしている。{全権限|ぜんけんげん}を{許可|きょか}したのは4{人|にん}のうちの1{人|ひとり}だけ——"
+      - type: sprite
+        character: netto
+        expression: worried
+        position: center
+      - type: dialog
+        character: netto
+        text: "……{許可|きょか}しないとアプリが{起動|きどう}しないと{思|おも}ったんだ。「{全部|ぜんぶ}OKにすれば{使|つか}える」って——{間違|まちが}いだったの？"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: gado
+        expression: worried
+        position: right
+      - type: dialog
+        character: gado
+        text: "{連絡先|れんらくさき}を{渡|わた}すって、{友|とも}だちの{電話番号|でんわばんごう}も{渡|わた}したってこと。{自分|じぶん}だけの{問題|もんだい}じゃない——{友|とも}だちには{何|なに}も{知|し}らせてないのに。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 「必要な権限」と「過剰な権限」の比較表
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "3つのアプリの「{必要|ひつよう}な{権限|けんげん}」と「{過剰|かじょう}な{権限|けんげん}」を{表|ひょう}にまとめたわ。これを{見|み}れば、どの{権限|けんげん}が{本当|ほんとう}に{必要|ひつよう}か{分|わ}かる。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "そしてもう1つ——ネットの{権限|けんげん}{設定|せってい}{画面|がめん}を{確認|かくにん}したら、3つのアプリ{全部|ぜんぶ}に{全権限|ぜんけんげん}を「{許可|きょか}」にしていたわ。"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 必要権限 vs 過剰権限の比較表 + ネットの設定画面
+        content: "【ゲームアプリ】{必要|ひつよう}=なし / {過剰|かじょう}={連絡先|れんらくさき}・{位置情報|いちじょうほう}・{写真|しゃしん}。【カメラ{加工|かこう}】{必要|ひつよう}=カメラ・{写真|しゃしん} / {過剰|かじょう}={連絡先|れんらくさき}・{位置情報|いちじょうほう}。【{歩数計|ほすうけい}】{必要|ひつよう}={位置情報|いちじょうほう} / {過剰|かじょう}={連絡先|れんらくさき}・{写真|しゃしん}。→ネットの{設定|せってい}:{全|すべ}てのアプリに{全権限|ぜんけんげん}「{許可|きょか}」。山田{先生|せんせい}のメモ:「{無料|むりょう}アプリは"タダ"じゃない。あなたのデータが{対価|たいか}なんだ」"
+      - type: sprite
+        character: pasu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: pasu
+        text: "{無料|むりょう}の{対価|たいか}が……データ。「タダ」だと{思|おも}ってたけど、{使|つか}うたびに{自分|じぶん}の{情報|じょうほう}を{渡|わた}していたんだ。"
+        expression: surprised
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{無料|むりょう}＝タダ」という{前提|ぜんてい}が{崩|くず}れた。{無料|むりょう}アプリの{対価|たいか}は{広告|こうこく}ターゲティングや{データ|でーた}{販売|はんばい}のための{個人情報|こじんじょうほう}——「{自分|じぶん}のデータが{商品|しょうひん}」だったのだ。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 全権限を許可したのは誰？
+      - type: sprite
+        character: pasu
+        expression: determined
+        position: left
+      - type: dialog
+        character: pasu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。Card 4で「{全部|ぜんぶ}{許可|きょか}したのは1{人|ひとり}」と{分|わ}かった。Card 5でその1{人|ひとり}の{設定|せってい}{画面|がめん}が{確認|かくにん}された——3つのアプリに{全権限|ぜんけんげん}「{許可|きょか}」。{帰納的|きのうてき}に{考|かんが}えると……"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①3つのアプリは{全部|ぜんぶ}{機能|きのう}に{不要|ふよう}な{権限|けんげん}まで{要求|ようきゅう}していた。②アプリは{裏|うら}で{絶|たえ}えずデータにアクセスしていた。③{全権限|ぜんけんげん}を{許可|きょか}したのは4{人|にん}のうち1{人|ひとり}だけ。④Card 5でその{人物|じんぶつ}の{設定|せってい}{画面|がめん}が{特定|とくてい}された。⑤「{許可|きょか}しないと{使|つか}えない」という{思|おも}い{込|こ}みが{動機|どうき}。"
+      - type: choice
+        id: q1
+        question: 3つのアプリに全ての権限を許可したのは誰？
+        options:
+          - text: ネット（「許可しないと使えない」と思い込んで全部OKにした）
+            value: netto
+            correct: true
+            feedback: "{正解|せいかい}！　ネットは「{許可|きょか}しないとアプリが{使|つか}えない」と{思|おも}い{込|こ}んで{全権限|ぜんけんげん}を{渡|わた}した。でも{権限|けんげん}は1つずつ{選|えら}べる。**{無料|むりょう}アプリは「タダ」ではなく、データが{対価|たいか}。「この{権限|けんげん}は{本当|ほんとう}に{必要|ひつよう}か？」を{確認|かくにん}する{習慣|しゅうかん}が{自分|じぶん}を{守|まも}るよ。**"
+          - text: パス（権限の過剰さに最初に気づいた人）
+            value: pasu
+            feedback: "{パス|ぱす}は{必要|ひつよう}な{権限|けんげん}だけ{許可|きょか}した{側|がわ}。{権限|けんげん}の{過剰|かじょう}さに{最初|さいしょ}に{気|き}づいてくれたのもパスだよ。"
+          - text: ログ（データアクセスログを確認した人）
+            value: rogu
+            feedback: "{ログ|ろぐ}は{権限|けんげん}を{許可|きょか}しなかった{側|がわ}。アクセスログの{具体的|ぐたいてき}な{回数|かいすう}を{提示|ていじ}して{事件|じけん}を{解決|かいけつ}に{導|みちび}いたよ。"
+          - text: ガード（データが集められた側の気持ちを考えた人）
+            value: gado
+            feedback: "{ガード|がーど}は{必要|ひつよう}な{権限|けんげん}だけ{許可|きょか}した{側|がわ}。「{連絡先|れんらくさき}を{渡|わた}す＝{友|とも}だちの{情報|じょうほう}も{渡|わた}す」と{他者|たしゃ}への{影響|えいきょう}に{気|き}づいてくれたよ。"
+
+  # ==================== 真相：ネットの気持ち ====================
+  - id: truth-netto
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ネットの思い込み
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: netto
+        expression: worried
+        position: center
+      - type: dialog
+        character: netto
+        text: "……{僕|ぼく}が{全部|ぜんぶ}{許可|きょか}にしました。{許可|きょか}しないとアプリが{起動|きどう}しないと{思|おも}って——「{全部|ぜんぶ}OKにすれば{使|つか}える」って{信|しん}じてたんだ。"
+        expression: worried
+      - type: dialog
+        character: netto
+        text: "でも……Card 5を{見|み}たら、{歩数計|ほすうけい}は{位置情報|いちじょうほう}だけで{動|うご}く。ゲームは{権限|けんげん}{不要|ふよう}でも{遊|あそ}べる。{権限|けんげん}は「{断|ことわ}っても{使|つか}えた」んだ。"
+        expression: thinking
+      - type: dialog
+        character: netto
+        text: "「{許可|きょか}しないと{使|つか}えない」——それは{思|おも}い{込|こ}みだった。{権限|けんげん}は1つずつ{選|えら}べたのに、{全部|ぜんぶ}{渡|わた}してしまった。ごめん。"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: pasu
+        expression: normal
+        position: left
+      - type: dialog
+        character: pasu
+        text: "3つのアプリの{権限|けんげん}を{並|なら}べて{比|くら}べたら、{全部|ぜんぶ}「{機能|きのう}に{不要|ふよう}な{権限|けんげん}が{含|ふく}まれている」という{共通|きょうつう}パターンが{見|み}えた。これが{帰納法|きのうほう}——{複数|ふくすう}の{事実|じじつ}から{共通|きょうつう}ルールを{見|み}つけ{出|だ}す{考|かんが}え{方|かた}だよ。"
+        expression: happy
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: normal
+        position: right
+      - type: dialog
+        character: rogu
+        text: "{位置情報|いちじょうほう}が5{分|ふん}おきに{取得|しゅとく}——{数字|すうじ}で{見|み}ると{重|おも}さが{変|か}わる。「アプリが{裏|うら}で{動|うご}いている」ことを{具体的|ぐたいてき}に{示|しめ}すのが{大切|たいせつ}。ログは{嘘|うそ}をつかない。"
+        expression: normal
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: normal
+        position: left
+      - type: dialog
+        character: gado
+        text: "{連絡先|れんらくさき}を{渡|わた}すって、{友|とも}だちの{電話番号|でんわばんごう}も{渡|わた}したってこと。{自分|じぶん}だけの{問題|もんだい}じゃない——アプリを{使|つか}う{前|まえ}に「{誰|だれ}かに{迷惑|めいわく}をかけないか」も{考|かんが}えなきゃ。"
+        expression: normal
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== 2回目投票：権限チェック ====================
+  - id: second-vote
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 2回目の投票
+        subtitle: 正しい権限はどれ？
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "Card 5の{比較表|ひかくひょう}を{見|み}ながら、3つのアプリにどの{権限|けんげん}を{許可|きょか}すべきだったか——{一緒|いっしょ}に{考|かんが}えてみましょう。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: choice
+        id: q2
+        question: 歩数計アプリに許可すべき権限はどれ？（正しいものを選ぼう）
+        options:
+          - text: 位置情報のみ（歩いた場所を記録するのに必要）
+            value: location-only
+            correct: true
+            feedback: "{正解|せいかい}！　{歩数計|ほすうけい}に{必要|ひつよう}なのは{位置情報|いちじょうほう}だけ。{連絡先|れんらくさき}や{写真|しゃしん}は{歩数|ほすう}の{計測|けいそく}に{関係|かんけい}ない——{過剰|かじょう}な{権限|けんげん}は{断|ことわ}っていい。"
+          - text: 位置情報＋連絡先（友だちと歩数を比べるかもしれないから）
+            value: location-contacts
+            feedback: "{歩数計|ほすうけい}で{友|とも}だちと{比|くら}べる{機能|きのう}があっても、{連絡先|れんらくさき}の{全件|ぜんけん}データは{不要|ふよう}。{必要|ひつよう}な{機能|きのう}と{必要|ひつよう}な{権限|けんげん}を{分|わ}けて{考|かんが}えよう。"
+          - text: 全部許可（使えなくなったら困るから）
+            value: all-allow
+            feedback: "「{使|つか}えなくなると{困|こま}る」という{思|おも}い{込|こ}みが{問題|もんだい}の{始|はじ}まり。{権限|けんげん}を{断|ことわ}ってもアプリは{動|うご}く。「{必要|ひつよう}か？」を{確認|かくにん}してから{許可|きょか}しよう。"
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ネットは{悪|わる}いことをしようとしたわけじゃない。「{許可|きょか}しないと{使|つか}えない」という{思|おも}い{込|こ}みが、{結果|けっか}として{大量|たいりょう}のデータを{渡|わた}すことになった。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{無料|むりょう}アプリは「タダ」ではない——あなたのデータが{対価|たいか}。{広告|こうこく}ターゲティングや{データ|でーた}{販売|はんばい}のために{情報|じょうほう}が{使|つか}われることがある。{自分|じぶん}のデータを{守|まも}るのは、{自分|じぶん}{自身|じしん}の{判断|はんだん}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{権限|けんげん}は「{許可|きょか}」か「{拒否|きょひ}」を{選|えら}べる。アプリの{機能|きのう}に{必要|ひつよう}か{確認|かくにん}してから{決|き}めよう——{断|ことわ}っても{使|つか}えることが{多|おお}い。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{帰納法|きのうほう}——{複数|ふくすう}の{事例|じれい}（3つのアプリ）から{共通|きょうつう}パターン（{機能|きのう}に{不要|ふよう}な{権限|けんげん}を{要求|ようきゅう}する）を{発見|はっけん}する{考|かんが}え{方|かた}。データを{並|なら}べて{比|くら}べれば、{見|み}えてくるものがある。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び③】「{無料|むりょう}＝タダ」ではない。{無料|むりょう}アプリの{裏|うら}には{データ|でーた}{収集|しゅうしゅう}がある。{自分|じぶん}の{情報|じょうほう}は{自分|じぶん}でコントロール——それが{現代|げんだい}の{自己|じこ}{防衛|ぼうえい}。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,451 @@
+meta:
+  id: cyber-02
+  title: 読まれたパスワード
+  series: ネット探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ある{朝|あさ}、ネットが{青|あお}ざめた{顔|かお}で{教室|きょうしつ}に{飛|と}び{込|こ}んできた。"
+      - type: sprite
+        character: netto
+        expression: worried
+        position: center
+      - type: dialog
+        character: netto
+        text: "たいへんだ！　ぼくの{学習|がくしゅう}アカウント——{誰|だれ}かが{勝手|かって}に{入|はい}ってプロフィール{画像|がぞう}を{変|か}えられた！　{自己紹介文|じこしょうかいぶん}まで{書|か}き{換|か}えられてる！"
+        expression: worried
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: dialog
+        character: netto
+        text: "パスワードは{絶対|ぜったい}{誰|だれ}にも{教|おし}えてない。なのに……どうやって{入|はい}ったんだろう？"
+        expression: surprised
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ネット{探偵団|たんていだん}に{調査|ちょうさ}をお{願|ねが}いするわ。「{不正|ふせい}ログイン」した{人物|じんぶつ}を{特定|とくてい}して——でも、{調査|ちょうさ}の{途中|とちゅう}で{大切|たいせつ}な{学|まな}びが{見|み}えてくるはずよ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "まずは{証拠|しょうこ}を{集|あつ}めて、{事実|じじつ}を{整理|せいり}することから{始|はじ}めましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: pasu
+            expression: thinking
+          - character: rogu
+            expression: worried
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "3{人|にん}は{顔|かお}を{見合|みあ}わせた。「{不正|ふせい}ログイン」——でも、{本当|ほんとう}に{外部|がいぶ}の{誰|だれ}かが{入|はい}ったのだろうか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 読まれたパスワード
+        subtitle: ネット探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: アカウントの現状を確認する
+      - type: narration
+        text: "ネットの{学習|がくしゅう}アカウント——プロフィール{画像|がぞう}が{見知|みし}らぬ{絵|え}に{変|か}わり、{自己紹介文|じこしょうかいぶん}には「ぼくは{謎|なぞ}の{人物|じんぶつ}」と{書|か}かれていた。"
+      - type: evidence
+        id: card-1
+        title: ネットのアカウント画面
+        content: "プロフィール{画像|がぞう}: {見知|みし}らぬキャラクターの{絵|え}に{変更|へんこう}済み。{自己紹介文|じこしょうかいぶん}: 「ぼくは{謎|なぞ}の{人物|じんぶつ}」と{書|か}き{換|か}えられている。ネットの{証言|しょうげん}: 「パスワードは{誰|だれ}にも{教|おし}えていない。{自分|じぶん}では{変|か}えていない」"
+      - type: sprite
+        character: netto
+        expression: worried
+        position: left
+      - type: dialog
+        character: netto
+        text: "{昨日|きのう}まで{普通|ふつう}だったのに……{誰|だれ}かが{勝手|かって}に{入|はい}った{証拠|しょうこ}だよ。パスワードは「0815」——{誰|だれ}にも{教|おし}えてない。"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: narration
+        text: "{次|つぎ}に{確認|かくにん}したのはパスワードの{強|つよ}さ。「0815」——{一体|いったい}どれほど{安全|あんぜん}なのか？"
+      - type: evidence
+        id: card-2
+        title: パスワード強度の説明カード
+        content: "{弱|よわ}いパスワードの{例|れい}: ①{誕生日|たんじょうび}（例: 0815、1204）②{簡単|かんたん}な{数字|すうじ}の{並|なら}び（例: 1234、0000）③{名前|なまえ}や{好|す}きなもの。これらは「{辞書攻撃|じしょこうげき}リスト」に{載|の}っており、{短時間|たんじかん}で{推測|すいそく}できる。ネットのパスワード「0815」は4{桁|けた}の{数字|すうじ}。"
+      - type: sprite
+        character: pasu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: pasu
+        text: "「0815」……{待|ま}って、これって{誕生日|たんじょうび}じゃないかな？　8{月|がつ}15{日|にち}——ネット、{誕生日|たんじょうび}はいつ？"
+        expression: thinking
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "……8{月|がつ}15{日|にち}だけど、それが{何|なん}か{関係|かんけい}あるの？"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: ログイン履歴を追う
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rogu
+        text: "ログイン{履歴|りれき}を{確認|かくにん}してみる。{端末|たんまつ}の{記録|きろく}は{嘘|うそ}をつかない——"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: evidence
+        id: card-3
+        title: ログイン履歴の表
+        content: "【{問題|もんだい}のログイン{記録|きろく}】{時刻|じこく}: 21:30　{端末|たんまつ}: タブレットB　Wi-Fi: {不明|ふめい}\n【ネットの{通常|つうじょう}ログイン{記録|きろく}】{端末|たんまつ}: タブレットA　Wi-Fi: school-wifi\n→{別|べつ}の{端末|たんまつ}・{別|べつ}のWi-Fiからのログインが1{回|かい}{確認|かくにん}された。"
+      - type: sprite
+        character: rogu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{別|べつ}の{端末|たんまつ}「タブレットB」——ネットがいつも{使|つか}う「タブレットA」とは{違|ちが}う。しかも{時刻|じこく}は21:30。{夜|よる}に{学校|がっこう}の{外|そと}からのアクセス……"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "{密談|みつだん}——パスとログが{情報|じょうほう}を{持|も}ち{寄|よ}った。そして{決定的|けっていてき}な{発見|はっけん}があった。"
+      - type: evidence
+        id: card-4
+        title: 密談の結果（パス＋ログの発見）
+        content: "【パスの{調査|ちょうさ}】ネットのSNSプロフィールを{確認|かくにん}→{誕生日|たんじょうび}「8/15」が{公開|こうかい}されていた。パスワード「0815」と{完全|かんぜん}に{一致|いっち}。\n【ログの{調査|ちょうさ}】Wi-Fi{名|めい}「net-home」——{見覚|みおぼ}えがある{名前|なまえ}。もしこれがネットの{自宅|じたく}のWi-Fiなら……\n→{誰|だれ}でもSNSを{見|み}れば「0815」を{試|ため}せた。でも{実際|じっさい}に{入|はい}ったのは{誰|だれ}？"
+      - type: sprite
+        character: gado
+        expression: worried
+        position: right
+      - type: dialog
+        character: gado
+        text: "ネットのSNS、{見|み}てみたら……{誕生日|たんじょうび}{以外|いがい}にも{好|す}きなもの・ペットの{名前|なまえ}まで{全部|ぜんぶ}{公開|こうかい}されてる。これ{全部|ぜんぶ}、パスワードによく{使|つか}われがちな{情報|じょうほう}だよ……"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: determined
+        position: right
+      - type: dialog
+        character: pasu
+        text: "SNSに{誕生日|たんじょうび}を{公開|こうかい}していて、パスワードが{誕生日|たんじょうび}——これは「{誰|だれ}でも{推測|すいそく}できた」ってことだよ。{問題|もんだい}は……{本当|ほんとう}にやったのが{誰|だれ}かだ。"
+        expression: thinking
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。パスワード「0815」はSNSで{公開|こうかい}されている{誕生日|たんじょうび}と{一致|いっち}。{問題|もんだい}のログインは{時刻|じこく}21:30、{端末|たんまつ}「タブレットB」、Wi-Fi「net-home（{接続先|せつぞくさき}{不明|ふめい}）」。"
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rogu
+        text: "Wi-Fi{名|めい}「net-home」——この「net」って{文字|もじ}が{気|き}になる。ネットの{名前|なまえ}に{似|に}てない？　もしかして……"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: center
+      - type: dialog
+        character: netto
+        text: "……{待|ま}って。{昨晩|さくばん}のこと、{少|すこ}し{記憶|きおく}が{曖昧|あいまい}で……{夜|よる}に{何|なに}かしようとした{気|き}がするんだけど——"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: Wi-Fi「net-home」の正体
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "システム{管理者|かんりしゃ}に{確認|かくにん}してもらったわ。Wi-Fi「net-home」はネットの{自宅|じたく}のルーター{名|めい}。タブレットBはネットの{家族|かぞく}{共用|きょうよう}タブレットだそうよ。"
+        expression: surprised
+      - type: dialog
+        character: yamada
+        text: "それで……ネットに{直接|ちょくせつ}{聞|き}いてみたの。{昨晩|さくばん}21{時|じ}ごろ、{自宅|じたく}のタブレットで{何|なに}かしなかったか、って。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の調査結果
+        content: "Wi-Fi「net-home」= ネットの{自宅|じたく}のルーター{名|めい}（{確認|かくにん}{済|ず}み）\nタブレットB = ネットの{家族|かぞく}{共用|きょうよう}タブレット（{確認|かくにん}{済|ず}み）\nネットへの{聞|き}き{取|と}り: 「そういえば{夜|よる}に{自己紹介文|じこしょうかいぶん}を{変|か}えようとした……{恥|は}ずかしくなってやめた{気|き}がする……」"
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: center
+      - type: dialog
+        character: netto
+        text: "そ、そうだ……{思|おも}い{出|だ}した！　{昨晩|さくばん}{自己紹介文|じこしょうかいぶん}を{格好良|かっこよ}く{書|か}き{直|なお}そうとして——でも「{恥|は}ずかしい」って{思|おも}い{直|なお}して、{途中|とちゅう}のまま{放置|ほうち}したんだ。それで{朝|あさ}に{見|み}たら{変|か}わってて……{自分|じぶん}のこと{忘|わす}れてた！"
+        expression: surprised
+      - type: sprite
+        character: netto
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{不正|ふせい}ログイン」の{犯人|はんにん}は、{過去|かこ}の{自分|じぶん}自身だった。しかし{問題|もんだい}はそれだけではない——もし{本当|ほんとう}に{他人|たにん}が{試|ため}みていたら、{誕生日|たんじょうび}パスワード＋SNS{公開|こうかい}という{組|く}み{合|あ}わせが{全|すべ}てをさらけ出していた。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: アカウントに"不正ログイン"したのは誰？
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①Wi-Fi「net-home」はネットの{自宅|じたく}。②タブレットBはネットの{家族|かぞく}{共用|きょうよう}。③{時刻|じこく}21:30はネットが{自宅|じたく}にいる{時間|じかん}。④ネット{本人|ほんにん}が「{変|か}えようとして{放置|ほうち}した」と{認|みと}めた——"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{問題|もんだい}のログインは{時刻|じこく}21:30・{端末|たんまつ}タブレットB・Wi-Fi「net-home」。②「net-home」はネットの{自宅|じたく}Wi-Fi。③タブレットBはネットの{家族|かぞく}{共用|きょうよう}。④ネットが「{夜|よる}にプロフィールを{変|か}えようとして{放置|ほうち}した」と{告白|こくはく}。⑤パスワード「0815」=SNS{公開|こうかい}の{誕生日|たんじょうび}8/15と{一致|いっち}。"
+      - type: choice
+        id: q1
+        question: アカウントに"不正ログイン"したのは誰？
+        options:
+          - text: ネット自身（自分で別端末からログインしたのを忘れていた）
+            value: netto
+            correct: true
+            feedback: "{正解|せいかい}！　「{不正|ふせい}ログイン」の{正体|しょうたい}は、{過去|かこ}の{自分|じぶん}自身だった。でも{大事|たいせつ}なのはここから——パスワード「0815」は{誕生日|たんじょうび}、SNSに{誕生日|たんじょうび}を{公開|こうかい}している。**もし{本当|ほんとう}に{他人|たにん}が{狙|ねら}っていたら、{誰|だれ}でも30{秒|びょう}で{推測|すいそく}できた。パスワードは{推測|すいそく}されにくいものに{変|か}えて、SNSの{公開|こうかい}{情報|じょうほう}も{見直|みなお}そう。**"
+          - text: パス（パスワードの弱さを最初に指摘した人）
+            value: pasu
+            feedback: "{パス|ぱす}はパスワード「0815」が{誕生日|たんじょうび}と{一致|いっち}することを{分析|ぶんせき}した{側|がわ}。{事件|じけん}の{真相|しんそう}に{近|ちか}づく{手助|てだす}けをしたよ。"
+          - text: ログ（ログイン履歴を調べた人）
+            value: rogu
+            feedback: "{ログ|ろぐ}はWi-Fi「net-home」が{鍵|かぎ}だと{気|き}づいてくれた{側|がわ}。{履歴|りれき}の{分析|ぶんせき}で{真相|しんそう}が{見|み}えてきたよ。"
+          - text: ガード（SNSの公開情報リスクを指摘した人）
+            value: gado
+            feedback: "{ガード|がーど}はSNSに{誕生日|たんじょうび}・{好|す}きなもの・ペット{名|めい}が{全部|ぜんぶ}{公開|こうかい}されているリスクを{指摘|してき}した{側|がわ}。{大切|たいせつ}な{学|まな}びを{届|とど}けてくれたよ。"
+
+  # ==================== 真相：ネットの告白 ====================
+  - id: truth-netto
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ネットの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: netto
+        expression: worried
+        position: center
+      - type: dialog
+        character: netto
+        text: "……{僕|ぼく}が{自分|じぶん}でやったことを{忘|わす}れてた。{夜|よる}に「{自己紹介文|じこしょうかいぶん}、もっと{格好良|かっこよ}くしたい」って{思|おも}って、{家|いえ}のタブレットでログインして——でも{書|か}いた{文章|ぶんしょう}が{恥|は}ずかしくて、{途中|とちゅう}のままにして{寝|ね}てしまった。"
+        expression: worried
+      - type: dialog
+        character: netto
+        text: "{朝|あさ}に{見|み}たら{変|か}わってて——{自分|じぶん}でやったこと、{完全|かんぜん}に{忘|わす}れてたんだ。「{誰|だれ}かが{入|はい}った！」って{思|おも}い{込|こ}んで……みんなに{心配|しんぱい}{掛|か}けてごめんなさい。"
+        expression: worried
+      - type: dialog
+        character: netto
+        text: "それに……パスワードが「0815」なのも、SNSに{誕生日|たんじょうび}{全部|ぜんぶ}{公開|こうかい}してたのも、{危|あぶ}なかったんだね。{今回|こんかい}は{自分|じぶん}だったけど……{本当|ほんとう}に{他人|たにん}がやろうとしたら、{簡単|かんたん}にできてた。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: pasu
+        expression: normal
+        position: right
+      - type: dialog
+        character: pasu
+        text: "「0815」——4{桁|けた}の{誕生日|たんじょうび}パスワードは、{辞書攻撃|じしょこうげき}リストに{必|かなら}ず{入|はい}ってる{定番|ていばん}だよ。{専用|せんよう}のプログラムを{使|つか}えば30{秒|びょう}で{全部|ぜんぶ}の4{桁|けた}{数字|すうじ}を{試|ため}せる。{自分|じぶん}の{誕生日|たんじょうび}だから{覚|おぼ}えやすい——でもそれが{危|あぶ}なさなんだ。"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: normal
+        position: left
+      - type: dialog
+        character: rogu
+        text: "ログ{履歴|りれき}の「{端末|たんまつ}・Wi-Fi・{時刻|じこく}」を{表|ひょう}に{整理|せいり}したら、{矛盾|むじゅん}が{見|み}えてきた。「{別|べつ}のWi-Fi」が{実|じつ}はネットの{家|いえ}のWi-Fiだったとわかった{瞬間|しゅんかん}、{全部|ぜんぶ}つながった。{情報|じょうほう}は{丁寧|ていねい}に{整理|せいり}することが{大事|たいせつ}だね。"
+        expression: normal
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: normal
+        position: right
+      - type: dialog
+        character: gado
+        text: "SNSに{誕生日|たんじょうび}・{好|す}きなもの・ペット{名|めい}を{公開|こうかい}してるって——それ{全部|ぜんぶ}「{典型的|てんけいてき}なパスワード候補|こうほ}」なんだよね。{公開|こうかい}すること{自体|じたい}が{悪|わる}いわけじゃないけど、「{何|なに}を{公開|こうかい}するか」は{一度|いちど}{見直|みなお}す{価値|かち}があると{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ネットは{悪意|あくい}があったわけじゃない。でも「{恥|は}ずかしくてやめた」という{小|ちい}さな{行動|こうどう}が{忘|わす}れられて、「{不正|ふせい}ログイン」という{思|おも}い{込|こ}みを{生|う}んだわ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "今回{大事|たいせつ}なのは、{事件|じけん}の{真相|しんそう}より{先|さき}の{話|はなし}——「{仮|かり}に{他人|たにん}が{試|ため}みていたら？」という{問い|とい}よ。パスワードの{弱|よわ}さとSNS{公開|こうかい}の{組|く}み{合|あ}わせは、{本物|ほんもの}の{危険|きけん}だった。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{弱|よわ}いパスワードの3{パターン|ぱたーん}——①{誕生日|たんじょうび}（0815など）②{簡単|かんたん}な{数字|すうじ}の{並|なら}び（1234など）③{名前|なまえ}や{好|す}きなもの。{知|し}っている{情報|じょうほう}から{推測|すいそく}されないパスワードを{選|えら}ぼう。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{情報整理|じょうほうせいり}——「{端末|たんまつ}・Wi-Fi・{時刻|じこく}」を{表|ひょう}に{並|なら}べることで{矛盾|むじゅん}が{見|み}えた。{事実|じじつ}を{整理|せいり}するスキルは、どんな{問題|もんだい}でも{役立|やくだ}つ。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び③】SNSの{公開|こうかい}{情報|じょうほう}——{公開|こうかい}すること{自体|じたい}が{悪|わる}いわけではない。でも「パスワードに{使|つか}いがちな{情報|じょうほう}」を{意識|いしき}して、{何|なに}を{載|の}せるか{一度|いちど}{考|かんが}えよう。"
+      - type: effect
+        name: fade-out

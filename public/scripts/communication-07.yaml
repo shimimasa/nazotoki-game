@@ -1,0 +1,432 @@
+meta:
+  id: communication-07
+  title: フィードバックの炎
+  series: コミュニケーション探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学習|がくしゅう}{発表|はっぴょう}{会|かい}の{準備|じゅんび}が{大詰め|おおづめ}を{迎|むか}えた{放課後|ほうかご}。グループの{作業|さぎょう}が{続|つづ}いていた。"
+      - type: narration
+        text: "そのとき、マナブはグループのメンバーに{向|む}かってフィードバックを{伝|つた}えた——「この{部分|ぶぶん}が{問題|もんだい}だから、こうすべき」と。"
+      - type: se
+        sound: whisper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{翌日|よくじつ}、フィードバックを{受|う}けた{子|こ}が「{発表会|はっぴょうかい}に{出|で}たくない」と{言|い}いだした。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マナブが{昨日|きのう}{言|い}ったことで、{傷|きず}ついた{子|こ}がいるの。「{批判|ひはん}された」って……でもマナブは「{改善|かいぜん}してほしくて{言|い}っただけ」と{主張|しゅちょう}している。どういうことなのかしら。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: kiku
+            expression: worried
+          - character: kotoba
+            expression: worried
+          - character: tsutae
+            expression: worried
+          - character: manabu
+            expression: surprised
+      - type: narration
+        text: "「{改善|かいぜん}{提案|ていあん}のつもりが{批判|ひはん}になった」のはなぜか。フィードバックの{構造|こうぞう}を{時系列|じけいれつ}と{証拠|しょうこ}から{追|お}う——コミュニケーション{探偵団|たんていだん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: フィードバックの炎
+        subtitle: コミュニケーション探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事件の概要とフィードバックの4要素
+      - type: narration
+        text: "【{事件|じけん}{概要|がいよう}】{発表|はっぴょう}2{日前|にちまえ}の{放課後|ほうかご}、グループ{全員|ぜんいん}の{前|まえ}でマナブが{発言|はつげん}した。フィードバックを{受|う}けた{子|こ}は「{批判|ひはん}された」と{傷|きず}つき、「{発表会|はっぴょうかい}に{出|で}たくない」と{言|い}いだしている。"
+      - type: evidence
+        id: card-1
+        title: 事件概要＋マナブの主張
+        content: "【{日時|にちじ}】{発表|はっぴょう}2{日前|にちまえ}・{放課後|ほうかご}　【{場所|ばしょ}】グループ{作業|さぎょう}{中|ちゅう}　【{起|お}きたこと】マナブがグループ{全員|ぜんいん}の{前|まえ}でフィードバックを{発言|はつげん}→フィードバックを{受|う}けた{子|こ}が「{発表会|はっぴょうかい}に{出|で}たくない」と{言|い}いだした。【マナブの{主張|しゅちょう}】「{改善|かいぜん}してほしくて{言|い}っただけ。{悪意|あくい}はなかった」"
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: manabu
+        text: "ぼくはただ、{発表会|はっぴょうかい}をよくしたくて{言|い}っただけなのに……なんで「{批判|ひはん}」になるんだ。{改善|かいぜん}のために{必要|ひつよう}なことを{言|い}ったつもりだよ。"
+        expression: surprised
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: narration
+        text: "フィードバックには{効果的|こうかてき}な4つの{要素|ようそ}がある。この{ツール|つーる}を{使|つか}って、「{何|なに}が{欠|か}けていたか」を{調|しら}べよう。"
+      - type: evidence
+        id: card-2
+        title: フィードバックの4要素リスト
+        content: "①{良|よ}い{点|てん}から{始|はじ}める（ポジティブスタート）②「あなたはダメ」ではなく「こうすると{良|よ}くなる」で{表現|ひょうげん}する（{成長|せいちょう}{志向|しこう}）③タイミングと{場所|ばしょ}を{選|えら}ぶ（プライベートで・{準備|じゅんび}できているときに）④{相手|あいて}の{感情|かんじょう}への{関心|かんしん}を{持|も}つ（「{今|いま}{話|はな}せる？」と{確認|かくにん}する）。【{批判|ひはん}vs{改善|かいぜん}{提案|ていあん}】{批判|ひはん}:「この{部分|ぶぶん}が{問題|もんだい}だ」→{改善|かいぜん}{提案|ていあん}:「この{部分|ぶぶん}は〇〇するともっとよくなると{思|おも}う」"
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "この4つの{要素|ようそ}……マナブのフィードバックには、どれが{含|ふく}まれていて、どれが{欠|か}けていたんだろう。「マナブは{悪|わる}い{人|ひと}じゃないのに、なぜ{傷|きず}ついたの？」って{気|き}になる。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: hallway
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 状況記録と密談
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "ぼく、あの{場面|ばめん}をそばで{見|み}てたんだ。マナブは{良|よ}い{点|てん}を{一切|いっさい}{言|い}わずに、{問題点|もんだいてん}だけを{指摘|してき}してた。{受|う}けた{子|こ}は{最初|さいしょ}から{困|こま}った{顔|かお}してたけど、マナブは{気|き}づいてないみたいで……"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: evidence
+        id: card-3
+        title: フィードバック状況記録（キク・コトバ）
+        content: "①{発表|はっぴょう}2{日前|にちまえ}（{最悪|さいあく}のタイミング）②{全員|ぜんいん}が{疲|つか}れていた{放課後|ほうかご}（{準備|じゅんび}ができていない{状態|じょうたい}）③グループ{全員|ぜんいん}の{前|まえ}でマナブが{発言|はつげん}（プライベートな{場所|ばしょ}ではない）→4{要素|ようそ}の③タイミング・{場所|ばしょ}と④{感情|かんじょう}への{配慮|はいりょ}が{欠|か}けていた{証拠|しょうこ}。"
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "フィードバックを{受|う}けた{子|こ}がこう{言|い}ってたの——『そこが{問題|もんだい}』という{言|い}い{方|かた}は、{自分|じぶん}が{問題|もんだい}だと{言|い}われた{気|き}がした、って。{言葉|ことば}{自体|じたい}じゃなくて、タイミングと{言|い}い{方|かた}のどこかに{問題|もんだい}がある。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsutae
+        text: "マナブと{話|はな}したんだ。「{発表会|はっぴょうかい}を{失敗|しっぱい}させたくなかった。あのまま{続|つづ}けたらグループがバラバラになると{思|おも}った」って……{本当|ほんとう}に{心配|しんぱい}してたんだよ、グループのことを。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: evidence
+        id: card-4
+        title: 密談概要（ツタエ・マナブ）
+        content: "【マナブの{本音|ほんね}】「{発表会|はっぴょうかい}を{失敗|しっぱい}させたくなかった。あのまま{続|つづ}けたらグループがバラバラになると{思|おも}った」（{強|つよ}い{責任感|せきにんかん}が{動機|どうき}）。【ツタエの{気|き}づき】「でも{最初|さいしょ}に{一言|ひとこと}『ここは{良|よ}かった』ってなかったよ」→4{要素|ようそ}の①ポジティブスタートが{欠|か}けていた{証拠|しょうこ}。"
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsutae
+        text: "マナブは「みんなのために{言|い}った」って。でも……{相手|あいて}に{聞|き}く{準備|じゅんび}があったか{確認|かくにん}してなかったんだよね。{葛藤|かっとう}する——マナブの{責任感|せきにんかん}は{本物|ほんもの}だったんだから。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。マナブには「{発表会|はっぴょうかい}を{成功|せいこう}させたい」という{強|つよ}い{責任感|せきにんかん}があった。でも4{要素|ようそ}と{照|て}らし{合|あ}わせると——{欠|か}けていたものが{見|み}えてきた。"
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "フィードバックを{受|う}けた{子|こ}は「{最初|さいしょ}に{一言|ひとこと}でも『{良|よ}かったよ』が{欲|ほ}しかった」って{言|い}ってた。{問題点|もんだいてん}だけを{突然|とつぜん}、みんなの{前|まえ}で——それだと{攻撃|こうげき}に{感|かん}じちゃうよな。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "マナブが{悪意|あくい}じゃなかったのは{分|わ}かる。でも「{良|よ}い{意図|いと}が{良|よ}い{方法|ほうほう}を{保証|ほしょう}する」わけじゃないんだ。{相手|あいて}に{届|とど}く{形|かたち}で{伝|つた}えないと、どんな{善意|ぜんい}も{傷|きず}つけることがある。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: マナブのフィードバック全文と4要素照合
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "マナブのフィードバック{全文|ぜんぶん}{記録|きろく}が{公開|こうかい}された——「この{部分|ぶぶん}が{問題|もんだい}だから、こうすべき。あと{時間|じかん}{配分|はいぶん}も{悪|わる}い。もっとしっかり{練習|れんしゅう}して」"
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: center
+      - type: dialog
+        character: manabu
+        text: "……これが、ぼくが{言|い}った{言葉|ことば}。{改善|かいぜん}{提案|ていあん}のつもりだったんだ。でも{確|たし}かに、「{良|よ}かったよ」って{一言|ひとこと}も{言|い}ってない。"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: evidence
+        id: card-5
+        title: フィードバック全文記録＋4要素照合
+        content: "【マナブの{発言|はつげん}】「この{部分|ぶぶん}が{問題|もんだい}だから、こうすべき。あと{時間|じかん}{配分|はいぶん}も{悪|わる}い。もっとしっかり{練習|れんしゅう}して」【4{要素|ようそ}との{照合|しょうごう}】①ポジティブスタート:❌（{良|よ}い{点|てん}なし）②{成長|せいちょう}{志向|しこう}の{表現|ひょうげん}:△（「こうすべき」は{指示|しじ}に{近|ちか}い）③タイミング・{場所|ばしょ}:❌（{疲|つか}れた{放課後|ほうかご}・{全員|ぜんいん}の{前|まえ}）④{感情|かんじょう}への{配慮|はいりょ}:❌（「{今|いま}{話|はな}せる？」の{確認|かくにん}なし）"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{前提|ぜんてい}{崩壊|ほうかい}——「マナブは{正|ただ}しい{改善|かいぜん}{提案|ていあん}をした」という{前提|ぜんてい}が{崩|くず}れた。4{要素|ようそ}のうち3つが{欠|か}けていた{事実|じじつ}が{確定|かくてい}した。**"
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: center
+      - type: dialog
+        character: manabu
+        text: "4{要素|ようそ}で{確認|かくにん}すると……①{良|よ}い{点|てん}から{言|い}う、③タイミングを{確認|かくにん}する、④{一人|ひとり}の{場所|ばしょ}で{言|い}う——{全部|ぜんぶ}やってなかった。{改善|かいぜん}が{目的|もくてき}だったのに、{相手|あいて}に{届|とど}く{方法|ほうほう}を{考|かんが}えてなかった。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 傷ついた子が出た原因を作ったのは誰？
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。コトバは{傷|きず}ついた{子|こ}の{気持|きも}ちを{代弁|だいべん}した{側|がわ}。キクはフィードバックの{場面|ばめん}を{観察|かんさつ}していた{側|がわ}。ツタエは{密談|みつだん}でマナブの{本音|ほんね}を{聞|き}いた{側|がわ}。そしてマナブは——"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①コトバ:{傷|きず}ついた{子|こ}の{気持|きも}ちを{代弁|だいべん}した{側|がわ}。②キク:マナブが{良|よ}い{点|てん}を{一切|いっさい}{言|い}わずに{問題点|もんだいてん}だけ{指摘|してき}したと{観察|かんさつ}した{側|がわ}。③ツタエ:{密談|みつだん}でマナブの{責任感|せきにんかん}を{聞|き}いたが、①の{欠落|けつらく}にも{気|き}づいた{側|がわ}。④マナブ:4{要素|ようそ}のうち①③④が{欠|か}けたフィードバックをした{当事者|とうじしゃ}。"
+      - type: choice
+        id: q1
+        question: 傷ついた子が出た原因を作ったのは誰？
+        options:
+          - text: コトバ
+            value: kotoba
+            correct: false
+            feedback: "コトバは{傷|きず}ついた{子|こ}の{気持|きも}ちを{代弁|だいべん}した{側|がわ}だよ。{問題|もんだい}の{原因|げんいん}を{作|つく}った{側|がわ}じゃない。{証拠|しょうこ}を{見直|みなお}してみよう。"
+          - text: キク
+            value: kiku
+            correct: false
+            feedback: "キクはフィードバックの{場面|ばめん}を{観察|かんさつ}していた{側|がわ}だよ。{問題|もんだい}のフィードバックをしたわけじゃない。{証拠|しょうこ}カード3を{確認|かくにん}してみよう。"
+          - text: ツタエ
+            value: tsutae
+            correct: false
+            feedback: "ツタエは{密談|みつだん}でマナブの{本音|ほんね}を{聞|き}いた{側|がわ}だよ。フィードバックをしたのはツタエじゃない。{証拠|しょうこ}カード4を{見直|みなお}してみよう。"
+          - text: マナブ（4要素のうち3つを欠いたフィードバックをした）
+            value: manabu
+            correct: true
+            feedback: "{正解|せいかい}！　マナブには「{改善|かいぜん}したい」という{善意|ぜんい}があった。でもフィードバックの4{要素|ようそ}のうち①{良|よ}い{点|てん}から{始|はじ}める、③タイミング・{場所|ばしょ}、④{感情|かんじょう}への{配慮|はいりょ}が{欠|か}けていた。**「{正|ただ}しいことを{言|い}う」だけでは{不十分|ふじゅうぶん}——「{相手|あいて}に{届|とど}く{方法|ほうほう}で{言|い}う」ことが{必要|ひつよう}。{責任感|せきにんかん}が{強|つよ}すぎると、{相手|あいて}の{準備|じゅんび}{状態|じょうたい}を{確認|かくにん}する{余裕|よゆう}がなくなることがあるんだ。**"
+
+  # ==================== 真相：マナブの気づき ====================
+  - id: truth-manabu
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 責任感が生んだ欠落
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: center
+      - type: dialog
+        character: manabu
+        text: "……ぼくは{発表会|はっぴょうかい}を{失敗|しっぱい}させたくなかった。あのまま{続|つづ}けたら、グループがバラバラになると{思|おも}ったから。だから{言|い}った。{悪意|あくい}はなかったんだ。"
+        expression: worried
+      - type: dialog
+        character: manabu
+        text: "でも……4{要素|ようそ}で{確認|かくにん}したら、{全部|ぜんぶ}{欠|か}けてた。{良|よ}い{点|てん}から{言|い}う——してなかった。タイミングを{確認|かくにん}する——してなかった。{一人|ひとり}の{場所|ばしょ}で{言|い}う——してなかった。"
+        expression: thinking
+      - type: dialog
+        character: manabu
+        text: "{改善|かいぜん}してほしかっただけなのに……{相手|あいて}に{届|とど}く{方法|ほうほう}を{全然|ぜんぜん}{考|かんが}えてなかった。"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsutae
+        text: "マナブの{責任感|せきにんかん}は{本物|ほんもの}だった。それは{分|わ}かってる。でも……「みんなのために{言|い}った」という{気持|きも}ちが、{相手|あいて}に{届|とど}かなかったんだよね。"
+        expression: worried
+      - type: dialog
+        character: tsutae
+        text: "「{今|いま}{話|はな}せる？」って{一言|ひとこと}{聞|き}いてくれたら、{違|ちが}ったかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kiku
+        text: "フィードバックを{受|う}けた{子|こ}は「{最初|さいしょ}に{一言|ひとこと}でも『{良|よ}かったよ』が{欲|ほ}しかった」って{言|い}ってた。{問題点|もんだいてん}だけを{突然|とつぜん}、{疲|つか}れたときに、みんなの{前|まえ}で——{受|う}け{取|と}る{側|がわ}にとっては{攻撃|こうげき}に{感|かん}じちゃう。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "マナブが{悪意|あくい}じゃなかったのは{分|わ}かる。でも——「{良|よ}い{意図|いと}が{良|よ}い{方法|ほうほう}を{保証|ほしょう}する」わけじゃないんだ。{言葉|ことば}{自体|じたい}じゃなくて、タイミングと{言|い}い{方|かた}のどこかに{問題|もんだい}がある——そう{感|かん}じてたのは、{正|ただ}しかった。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マナブは{悪意|あくい}がなかった。{発表会|はっぴょうかい}を{成功|せいこう}させたいという{強|つよ}い{責任感|せきにんかん}があった。でもね——**「{正|ただ}しいことを{言|い}う」だけでは{不十分|ふじゅうぶん}なの。「{相手|あいて}に{届|とど}く{方法|ほうほう}で{言|い}う」ことが{必要|ひつよう}よ。**"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "効果的なフィードバックには4つの{要素|ようそ}がある。①{良|よ}い{点|てん}から{始|はじ}める。②「こうすると{良|よ}くなる」と{成長|せいちょう}{志向|しこう}で{伝|つた}える。③タイミングと{場所|ばしょ}を{選|えら}ぶ。④「{今|いま}{話|はな}せる？」と{相手|あいて}の{感情|かんじょう}に{配慮|はいりょ}する。マナブは②は{意識|いしき}していたけど、①③④が{欠|か}けていたの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{責任感|せきにんかん}が{強|つよ}いことは{素晴|すば}らしい。でも{強|つよ}すぎると、{相手|あいて}の{準備|じゅんび}{状態|じょうたい}を{確認|かくにん}する{余裕|よゆう}がなくなることがある。{思|おも}いやりと{方法|ほうほう}の{両方|りょうほう}が{大切|たいせつ}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{情報|じょうほう}{欠落|けつらく}——「あるべき{情報|じょうほう}が{欠|か}けていた」という{視点|してん}で{問題|もんだい}の{構造|こうぞう}を{特定|とくてい}する{推理|すいり}スキル。①ポジティブスタート:❌　②{成長|せいちょう}{志向|しこう}:△　③タイミング・{場所|ばしょ}:❌　④{感情|かんじょう}への{配慮|はいりょ}:❌。{欠|か}けている{要素|ようそ}を{特定|とくてい}することで、{解決策|かいけつさく}が{見|み}えてくる。"
+      - type: narration
+        text: "フィードバックは{成長|せいちょう}のために{必要|ひつよう}なもの。「フィードバックをしないほうがいい」ではなく、「{相手|あいて}に{届|とど}く{方法|ほうほう}を{学|まな}ぶ」ことが{今日|きょう}の{学|まな}び。あなたなら、マナブと{同|おな}じ{立場|たちば}だったときにどう{行動|こうどう}する？"
+      - type: effect
+        name: fade-out

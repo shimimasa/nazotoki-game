@@ -1,0 +1,447 @@
+meta:
+  id: energy-08
+  title: 電池の暗号
+  series: エネルギー探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科室|りかしつ}の{実験台|じっけんだい}に、{電池|でんち}と{電流計|でんりゅうけい}が{並|なら}んでいる。{今日|きょう}は{電池|でんち}の{実験|じっけん}——{新品|しんぴん}の{電池|でんち}を{使|つか}って{電流|でんりゅう}を{計測|けいそく}する{授業|じゅぎょう}だ。"
+      - type: narration
+        text: "ところが{実験終了後|じっけんしゅうりょうご}、ある{報告書|ほうこくしょ}をめぐって{疑問|ぎもん}の{声|こえ}が{上|あ}がった。「{新品|しんぴん}の{電池|でんち}を{使|つか}ったのに、{電流|でんりゅう}が{弱|よわ}すぎる」——と。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: denta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: denta
+        text: "ちょっと{待|ま}って！　この{測定値|そくていち}、おかしい。{新品|しんぴん}の{電池|でんち}なら{電圧|でんあつ}は1.5Vのはず——なのに{実際|じっさい}の{計測値|けいそくち}は1.1Vだ！"
+        expression: surprised
+      - type: sprite
+        character: denta
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: worried
+          - character: hikaru
+            expression: thinking
+          - character: netsumi
+            expression: worried
+          - character: chikara
+            expression: surprised
+      - type: narration
+        text: "{新品|しんぴん}のはずの{電池|でんち}から、{消耗品|しょうもうひん}と{同|おな}じ{電圧|でんあつ}が{計測|けいそく}された。{報告書|ほうこくしょ}には「{新品|しんぴん}{使用|しよう}」と{明記|めいき}されている——{誰|だれ}が、なぜ、{本当|ほんとう}のことを{隠|かく}したのか。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 電池の暗号
+        subtitle: エネルギー探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 実験記録と電圧の矛盾
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{今日|きょう}の{実験|じっけん}の{記録|きろく}を{配|くば}った。{各班|かくはん}の{実験|じっけん}{条件|じょうけん}と、{電流計|でんりゅうけい}の{測定値|そくていち}が{一覧|いちらん}になっている。"
+      - type: evidence
+        id: card-1
+        title: 実験記録（新品電池使用の記載＋電流計測定値）
+        content: "【{実験|じっけん}{内容|ないよう}】{電池|でんち}1{本|ほん}を{使|つか}った{電流|でんりゅう}{計測|けいそく}{実験|じっけん}　【{報告書|ほうこくしょ}の{記載|きさい}】「{使用|しよう}{電池|でんち}：{新品|しんぴん}マンガン{乾電池|かんでんち}（1.5V）」　【{実際|じっさい}の{計測値|けいそくち}】{電流|でんりゅう}：{新品|しんぴん}なら{出|で}るはずの{値|あたい}の{約|やく}70%　【{矛盾点|むじゅんてん}】{新品|しんぴん}（1.5V）と{実測値|じっそくち}（1.1V）の{差|さ}は{消耗|しょうもう}した{電池|でんち}の{典型的|てんけいてき}な{数値|すうち}"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{新品|しんぴん}の{電池|でんち}なら1.5V{出|で}るはず。でも{測定値|そくていち}は1.1V——この{差|さ}は{電池|でんち}が{消耗|しょうもう}しているときに{出|で}る{数値|すうち}だ。{報告書|ほうこくしょ}と{実際|じっさい}の{電圧|でんあつ}が{合|あ}ってない。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "デンタが{電圧計|でんあつけい}を{使|つか}って{計測値|けいそくち}を{再確認|さいかくにん}した。{測定値|そくていち}は{変|か}わらない——1.1V。{新品|しんぴん}には{程遠|ほどとお}い{数値|すうち}だ。"
+      - type: evidence
+        id: card-2
+        title: デンタの電圧測定メモ（新品1.5V vs 実測1.1V）
+        content: "【{測定者|そくていしゃ}】デンタ　【{計測|けいそく}{結果|けっか}】{実験|じっけん}で{使|つか}われた{電池|でんち}：1.1V　【{比較|ひかく}】{新品|しんぴん}マンガン{乾電池|かんでんち}の{初期|しょき}{電圧|でんあつ}：1.5V　【{解説|かいせつ}】{電池|でんち}は{使|つか}い{始|はじ}めから{化学|かがく}{反応|はんのう}が{進|すす}むにつれて{電圧|でんあつ}が{低下|ていか}する。1.1Vは{使用済み|しようずみ}の{電池|でんち}の{典型的|てんけいてき}な{数値|すうち}——{残量|ざんりょう}20%{程度|ていど}に{相当|そうとう}する。"
+      - type: sprite
+        character: hikaru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "1.5Vと1.1Vって、そんなに{違|ちが}うの？　{電池|でんち}って{使|つか}うにつれて{電圧|でんあつ}が{下|さ}がっていくんだ——{知|し}らなかった。"
+        expression: surprised
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 廃棄電池の行方とネツミの言動
+      - type: narration
+        text: "ヒカルが{廃棄物置|はいきものお}き{場|ば}の{調査|ちょうさ}に{向|む}かった。{廃棄予定|はいきよてい}の{電池|でんち}リストと{現物|げんぶつ}を{照合|しょうごう}する——{目|め}に{見|み}えない{手|て}がかりを{追|お}って。"
+      - type: evidence
+        id: card-3
+        title: 廃棄予定電池リストと現物数の差異（ヒカル調査）
+        content: "【{調査者|ちょうさしゃ}】ヒカル　【{調査場所|ちょうさばしょ}】{廃棄物置|はいきものお}き{場|ば}の{電池|でんち}ボックス　【{調査結果|ちょうさけっか}】{廃棄予定|はいきよてい}{電池|でんち}リスト：8{本|ほん}　{現物|げんぶつ}{確認数|かくにんすう}：7{本|ほん}　【{差異|さい}】1{本|ほん}{不足|ふそく}——{廃棄予定|はいきよてい}の{電池|でんち}が1{本|ほん}{持|も}ち{出|だ}されている。{廃棄予定|はいきよてい}{電池|でんち}のロット{番号|ばんごう}リスト{添付|てんぷ}あり。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{廃棄|はいき}ボックスの{電池|でんち}を{全部|ぜんぶ}{数|かぞ}えたら1{本|ほん}{足|た}りない！　リストには8{本|ほん}{書|か}いてあるのに、{現物|げんぶつ}は7{本|ほん}——{誰|だれ}かが{取|と}り{出|だ}した？"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "チカラが{静|しず}かに{口|くち}を{開|ひら}いた。{実験前日|じっけんぜんじつ}の{観察|かんさつ}——ネツミの{言動|げんどう}が、{重要|じゅうよう}な{手|て}がかりになるかもしれない。"
+      - type: evidence
+        id: card-4
+        title: チカラの観察メモ（ネツミの言動＋ロット番号照合）
+        content: "【{観察者|かんさつしゃ}】チカラ　【{観察時期|かんさつじき}】{実験|じっけん}{前日|ぜんじつ}　【{内容|ないよう}】ネツミが{廃棄物置|はいきものお}き{場|ば}の{電池|でんち}ボックスを{長|なが}い{時間|じかん}{眺|なが}めていた。「まだ{少|すこ}し{使|つか}えそうなのに、もったいないな」とつぶやいていた。　【ロット{確認|かくにん}】{実験|じっけん}で{使|つか}われた{電池|でんち}のロット{番号|ばんごう}：LBT-2024-07　{廃棄予定|はいきよてい}リストの{該当品|がいとうひん}：LBT-2024-07（{一致|いっち}）"
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "ネツミが{廃棄|はいき}ボックスの{電池|でんち}を{見|み}ながら「もったいない」って——そのとき{実験|じっけん}に{使|つか}われた{電池|でんち}のロット{番号|ばんごう}が、{廃棄予定|はいきよてい}リストと{同|おな}じだって{気|き}づいた。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "……{私|わたし}は、ただ……{廃棄|はいき}される{前|まえ}に{使|つか}い{切|き}った{方|ほう}がいいと{思|おも}っただけ。{残量|ざんりょう}があるのに{捨|す}てるのは、もったいなくて——"
+        expression: worried
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{重|かさ}なってきた。{電圧|でんあつ}の{矛盾|むじゅん}、{廃棄|はいき}ボックスの{不足|ふそく}、ロット{番号|ばんごう}の{一致|いっち}——そして「もったいない」というつぶやき。{点|てん}と{点|てん}が{繋|つな}がろうとしている。"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{電池|でんち}のロット{番号|ばんごう}が{廃棄予定|はいきよてい}リストと{一致|いっち}——これは「{別|べつ}の{電池|でんち}が{使|つか}われた」という{証拠|しょうこ}だ。でも、なぜ{報告書|ほうこくしょ}に「{新品|しんぴん}」と{書|か}いたんだろう。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "ネツミは「{残量|ざんりょう}があるから{同|おな}じ{結果|けっか}が{出|で}る」と{思|おも}ってたんじゃないかな——でも{電池|でんち}の{電圧|でんあつ}って、{残量|ざんりょう}があっても{下|さ}がるんだよね？"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "ネツミの{気持|きも}ちは{分|わ}かる。{廃棄|はいき}される{電池|でんち}を{有効活用|ゆうこうかつよう}しようとした——でも、{実験|じっけん}の「{条件|じょうけん}を{同|おな}じにする」って{大切|たいせつ}なことだよ。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の検証結果
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{廃棄予定|はいきよてい}の{電池|でんち}（ロット：LBT-2024-07）を{先生|せんせい}が{計測|けいそく}したわ。{残量|ざんりょう}がどれくらいあるか——{電圧|でんあつ}を{測定|そくてい}した{結果|けっか}を{伝|つた}えます。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{廃棄予定|はいきよてい}{電池|でんち}の{計測値|けいそくち}は——1.1V。{実験|じっけん}で{使|つか}われた{電池|でんち}の{値|あたい}と{完全|かんぜん}に{一致|いっち}しました。これで{確実|かくじつ}に{分|わ}かります。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 先生の検証＋電池の仕組み解説
+        content: "【{検証|けんしょう}{結果|けっか}】{廃棄予定|はいきよてい}{電池|でんち}（LBT-2024-07）{電圧|でんあつ}{計測|けいそく}：1.1V　{実験|じっけん}で{使|つか}われた{電池|でんち}の{計測値|けいそくち}：1.1V　→{完全|かんぜん}{一致|いっち}。「{新品|しんぴん}」は{虚偽|きょぎ}だった。　【{電池|でんち}の{仕組|しく}み①】{一次電池|いちじでんち}（{使|つか}い{捨|す}て）と{二次電池|にじでんち}（{充電可能|じゅうでんかのう}）の{違|ちが}い。{乾電池|かんでんち}は{一次電池|いちじでんち}——{化学|かがく}{反応|はんのう}が{進|すす}むと{元|もと}に{戻|もど}らない。　【{電池|でんち}の{仕組|しく}み②】{電圧|でんあつ}は{使用|しよう}とともに{低下|ていか}し{内部抵抗|ないぶていこう}が{増加|ぞうか}する。「{残量|ざんりょう}あり＝{同|おな}じ{結果|けっか}」は{成立|せいりつ}しない。{実験|じっけん}では{条件|じょうけん}を{統一|とういつ}することが{必須|ひっす}。"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{廃棄|はいき}{電池|でんち}の{電圧|でんあつ}が1.1Vで、{実験|じっけん}の{計測値|けいそくち}も1.1V——{同|おな}じだ。{新品|しんぴん}（1.5V）じゃなく、{廃棄予定|はいきよてい}の{電池|でんち}が{実験|じっけん}に{使|つか}われた。{報告書|ほうこくしょ}の「{新品|しんぴん}」は{虚偽|きょぎ}だった。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{電池|でんち}は{使用|しよう}するにつれて{化学|かがく}{反応|はんのう}が{進|すす}み、{電圧|でんあつ}が{下|さ}がる。「{残量|ざんりょう}があれば{同|おな}じ{結果|けっか}が{出|で}る」という{思|おも}い{込|こ}みは、{電池|でんち}の{仕組|しく}みを{知|し}れば{崩|くず}れる。**{廃棄予定|はいきよてい}の{電池|でんち}（1.1V）を{新品|しんぴん}（1.5V）と{偽|いつわ}って{実験|じっけん}に{使|つか}ったのは——{誰|だれ}か。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 新品のふりをして廃棄予定の電池を実験に使ったのは誰？
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{実験|じっけん}の{計測値|けいそくち}は1.1V（{新品|しんぴん}1.5Vと{不一致|ふいっち}）。②{廃棄|はいき}ボックスの{電池|でんち}が1{本|ほん}{不足|ふそく}。③ロット{番号|ばんごう}が{廃棄予定|はいきよてい}リストと{一致|いっち}。④ネツミが「もったいない」と{廃棄|はいき}{電池|でんち}を{眺|なが}めていた。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{並|なら}べると——{誰|だれ}が{中心|ちゅうしん}にいたか、{見|み}えてくる。{新品|しんぴん}と{偽|いつわ}って{廃棄予定|はいきよてい}の{電池|でんち}を{実験|じっけん}に{持|も}ち{込|こ}んだのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 新品のふりをして廃棄予定の電池を実験に使ったのは誰？
+        options:
+          - text: ネツミ（「廃棄より使い切る方が環境に良い」という思いから廃棄電池を新品と偽って使った）
+            value: netsumi
+            correct: true
+            feedback: "{正解|せいかい}！　ネツミの{環境|かんきょう}への{気持|きも}ちは{本物|ほんもの}です。でも{電池|でんち}は{使|つか}うにつれて{化学|かがく}{反応|はんのう}が{進|すす}み、{電圧|でんあつ}が{下|さ}がります——{同|おな}じ1.5Vでも{新品|しんぴん}と{消耗品|しょうもうひん}では{電気|でんき}の{量|りょう}が{違|ちが}う。{実験|じっけん}では「{条件|じょうけん}を{同|おな}じにする」ことが{大切|たいせつ}です。**{環境|かんきょう}のためなら、{正|ただ}しい{方法|ほうほう}で{伝|つた}える——「この{電池|でんち}はまだ{使|つか}えます」と{提案|ていあん}することが、{本当|ほんとう}の{問題解決|もんだいかいけつ}です。**"
+          - text: デンタ（電圧の違いを分析した人）
+            value: denta
+            feedback: "デンタは{電圧|でんあつ}の{違|ちが}いを{分析|ぶんせき}した{側|がわ}だよ。{測定値|そくていち}の{矛盾|むじゅん}に{最初|さいしょ}に{気|き}づいて{調査|ちょうさ}を{進|すす}めたよ。"
+          - text: ヒカル（廃棄電池の行方を調べた人）
+            value: hikaru
+            feedback: "ヒカルは{廃棄|はいき}ボックスの{電池|でんち}の{行方|ゆくえ}を{調|しら}べた{側|がわ}だよ。{廃棄|はいき}{電池|でんち}が1{本|ほん}{足|た}りないことを{発見|はっけん}したよ。"
+          - text: チカラ（ネツミの発言に気づいた人）
+            value: chikara
+            feedback: "チカラはネツミの「もったいない」という{発言|はつげん}に{気|き}づいた{側|がわ}だよ。ロット{番号|ばんごう}の{照合|しょうごう}で{重要|じゅうよう}な{手|て}がかりを{見|み}つけたよ。"
+
+  # ==================== 真相：ネツミの告白 ====================
+  - id: truth-netsumi
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ネツミの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: netsumi
+        text: "……{私|わたし}です。{廃棄予定|はいきよてい}の{電池|でんち}を{新品|しんぴん}と{偽|いつわ}って{実験|じっけん}に{使|つか}ったのは。"
+        expression: worried
+      - type: dialog
+        character: netsumi
+        text: "{廃棄|はいき}ボックスの{電池|でんち}を{見|み}ていたら、まだ{少|すこ}し{重|おも}さが{残|のこ}っていた。{捨|す}てるのがもったいなくて——「{残量|ざんりょう}があれば{同|おな}じ{結果|けっか}になるはず」って{思|おも}い{込|こ}んでた。"
+        expression: worried
+      - type: dialog
+        character: netsumi
+        text: "でも……{電池|でんち}の{電圧|でんあつ}が{使|つか}うほど{下|さ}がるって、{知|し}らなかった。{良|よ}いことをしようとしたのに——{実験|じっけん}の{条件|じょうけん}を{変|か}えてしまった。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "ネツミの{気持|きも}ちは{分|わ}かる——{環境|かんきょう}を{大切|たいせつ}にしたかったんだよね。{私|わたし}だって{同|おな}じ{場面|ばめん}だったら「もったいない」って{思|おも}うかもしれない。でも……{実験|じっけん}は{条件|じょうけん}が{大事|たいせつ}だった。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: normal
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{怒|おこ}ってたよ、{最初|さいしょ}は。でも——ネツミが{環境|かんきょう}のことを{本気|ほんき}で{考|かんが}えてたのは{分|わ}かった。{僕|ぼく}も{電池|でんち}の{仕組|しく}みを{知|し}らなかったら、{同|おな}じことをしてたかもしれない。"
+        expression: normal
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: denta
+        text: "ネツミの{行動|こうどう}で{問題|もんだい}だったのは{二|ふた}つ——「{報告書|ほうこくしょ}に{虚偽|きょぎ}を{書|か}いた」こと、そして「{電池|でんち}の{仕組|しく}みを{確認|かくにん}しなかった」こと。{環境|かんきょう}への{想|おも}いは{本物|ほんもの}——{次|つぎ}は{正|ただ}しい{方法|ほうほう}で{伝|つた}えてほしい。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{電池|でんち}の{大切|たいせつ}な{仕組|しく}みを{確認|かくにん}しましょう。{電池|でんち}は{化学|かがく}{反応|はんのう}によって{電気|でんき}を{生|う}み{出|だ}す——その{反応|はんのう}が{進|すす}むほど、{電圧|でんあつ}が{低下|ていか}して{内部抵抗|ないぶていこう}が{増|ふ}えていくの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ネツミは{環境|かんきょう}を{思|おも}う{心|こころ}から{行動|こうどう}した。その{気持|きも}ちは{本当|ほんとう}に{大切|たいせつ}。でも{次回|じかい}は——「この{電池|でんち}はまだ{使|つか}えます、{再利用|さいりよう}しませんか」と{正直|しょうじき}に{提案|ていあん}してみてね。それが{本当|ほんとう}の{問題解決|もんだいかいけつ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{電池|でんち}の{仕組|しく}み】{一次電池|いちじでんち}（{乾電池|かんでんち}など）は{化学|かがく}{反応|はんのう}を{使|つか}って{電気|でんき}を{作|つく}る。{使|つか}うほど{電圧|でんあつ}が{下|さ}がり、{内部抵抗|ないぶていこう}が{増加|ぞうか}する——「{残量|ざんりょう}あり＝{新品|しんぴん}と{同|おな}じ{性能|せいのう}」ではない。{二次電池|にじでんち}（{充電池|じゅうでんち}）は{繰|く}り{返|かえ}し{使|つか}えるが、{一次電池|いちじでんち}は{使|つか}い{切|き}ったら{終|お}わりだ。"
+      - type: narration
+        text: "【{学|まな}び②：{認知|にんち}バイアス】「{環境|かんきょう}に{良|よ}いことをしようとした＝{正|ただ}しい{方法|ほうほう}を{選|えら}んだ」という{思|おも}い{込|こ}みに{気|き}をつけよう。{動機|どうき}が{良|よ}くても、{方法|ほうほう}が{間違|まちが}っていることがある。{視点|してん}を{変|か}えると、{別|べつ}の{問題|もんだい}が{見|み}えてくる。"
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{電池|でんち}の{電圧|でんあつ}は{使|つか}うほど{下|さ}がる——{今日|きょう}{学|まな}んだ。{次|つぎ}は{正直|しょうじき}に「この{電池|でんち}にはまだ{残量|ざんりょう}があります」と{伝|つた}えて、{再利用|さいりよう}を{提案|ていあん}する。それが{本当|ほんとう}に{環境|かんきょう}のためになる{行動|こうどう}だ。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: happy
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{電池|でんち}の{仕組|しく}みを{知|し}って、{良|よ}かった！　{一次電池|いちじでんち}と{二次電池|にじでんち}の{違|ちが}い——{今日|きょう}こそちゃんと{覚|おぼ}えた。{次|つぎ}の{実験|じっけん}では{条件|じょうけん}を{必|かなら}ず{確認|かくにん}してから{進|すす}めよう。"
+        expression: happy
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: effect
+        name: fade-out

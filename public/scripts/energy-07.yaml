@@ -1,0 +1,466 @@
+meta:
+  id: energy-07
+  title: 節電のウソ
+  series: エネルギー探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科室|りかしつ}の{実験台|じっけんだい}に{電力計|でんりょくけい}が{並|なら}ぶ。クラスの「{節電|せつでん}コンテスト」の{最終日|さいしゅうび}——{各班|かくはん}の{電力|でんりょく}{使用量|しようりょう}が{発表|はっぴょう}されようとしていた。"
+      - type: narration
+        text: "コンテスト{期間中|きかんちゅう}、デンタは{声高|こわだか}に{宣言|せんげん}していた。「{待機電力|たいきでんりょく}を{全部|ぜんぶ}{切|き}った！　{僕|ぼく}たちの{班|はん}は{必|かなら}ず{優勝|ゆうしょう}する！」——しかし{集計|しゅうけい}{結果|けっか}は、{誰|だれ}も{予想|よそう}していなかったものを{示|しめ}した。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "え……{集計|しゅうけい}{結果|けっか}が{出|で}ました。デンタ{班|はん}が——{一番|いちばん}{電力|でんりょく}を{使|つか}っています。"
+        expression: surprised
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: murmur
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: worried
+          - character: hikaru
+            expression: surprised
+          - character: netsumi
+            expression: thinking
+          - character: chikara
+            expression: worried
+      - type: narration
+        text: "「{待機電力|たいきでんりょく}を{全部|ぜんぶ}{切|き}った」と{宣言|せんげん}したデンタの{班|はん}が、{最も|もっとも}{電力|でんりょく}を{使|つか}っていた。しかも{電力計|でんりょくけい}の{最終|さいしゅう}{記録|きろく}の{数字|すうじ}が——おかしい。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 節電のウソ
+        subtitle: エネルギー探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 最終記録と待機電力リスト
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{各班|かくはん}の{節電|せつでん}コンテスト{最終記録|さいしゅうきろく}を{黒板|こくばん}に{貼|は}り{出|だ}した。デンタ{班|はん}の{最終日|さいしゅうび}の{記録|きろく}だけが——どこか{違|ちが}う。"
+      - type: evidence
+        id: card-1
+        title: 各班の節電コンテスト最終記録
+        content: "【コンテスト{期間|きかん}】{月曜日|げつようび}〜{金曜日|きんようび}（5{日間|にちかん}）　【{各班|かくはん}{合計|ごうけい}{使用量|しようりょう}】A{班|はん}（デンタ）:8.2kWh　B{班|はん}:12.1kWh　C{班|はん}:11.4kWh　D{班|はん}:10.8kWh　【{問題点|もんだいてん}】A{班|はん}の{途中記録|とちゅうきろく}{合計|ごうけい}（{月|げつ}〜{木|もく}）は7.8kWh。{最終日|さいしゅうび}の{記録|きろく}は1.2kWhと{書|か}かれているが、{合計|ごうけい}すると9.0kWhになるはず——{記録|きろく}の{数字|すうじ}が{合|あ}わない。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{待|ま}って——{途中記録|とちゅうきろく}を{足|た}すと7.8kWh。{最終|さいしゅう}{合計|ごうけい}は8.2kWhって{書|か}いてある。{金曜|きんよう}の{記録|きろく}を{加|くわ}えると9.0kWhになるはずなのに……{数字|すうじ}が{合|あ}わない。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "さらにデンタ{自身|じしん}が{作|つく}った{待機電力|たいきでんりょく}リストが{残|のこ}っていた。これが{重要|じゅうよう}な{手|て}がかりになる。"
+      - type: evidence
+        id: card-2
+        title: デンタの待機電力リスト（デンタ自身が作成）
+        content: "【デンタ{班|はん}が{使用|しよう}した{機器|きき}の{待機電力|たいきでんりょく}】{冷蔵庫|れいぞうこ}:120W（{常時稼働|じょうじかどう}・{切|き}れない）　{電子|でんし}レンジ{待機|たいき}:3W　エアコン{待機|たいき}:5W　テレビ{待機|たいき}:2W　【デンタの{宣言|せんげん}】「{待機電力|たいきでんりょく}を{全部|ぜんぶ}{切|き}った」　【{矛盾|むじゅん}】{冷蔵庫|れいぞうこ}120Wは{食品|しょくひん}を{守|まも}るために24{時間|じかん}{動|うご}く——「{切|き}れない{待機電力|たいきでんりょく}」の{代表例|だいひょうれい}。"
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{冷蔵庫|れいぞうこ}は120W……{一日|いちにち}{中|じゅう}{動|うご}いてる。「{全部|ぜんぶ}{切|き}った」って{宣言|せんげん}したけど、{冷蔵庫|れいぞうこ}だけで{一日|いちにち}に{相当|そうとう}な{電力量|でんりょくりょう}になるはず。{計算|けいさん}してみよう。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 書き換えの痕跡と記録の空白
+      - type: narration
+        text: "ヒカルが{電力計|でんりょくけい}の{記録用紙|きろくようし}を{手|て}に{取|と}り、{最後|さいご}の{行|ぎょう}を{じっ}と{見|み}つめた。"
+      - type: evidence
+        id: card-3
+        title: ヒカルの観察メモ（記録用紙の筆跡）
+        content: "【ヒカルの{観察|かんさつ}】{最終日|さいしゅうび}の{電力量|でんりょくりょう}{記録|きろく}（{金曜日|きんようび}{夕方|ゆうがた}）だけ、{数字|すうじ}の{書|か}き{方|かた}が{違|ちが}う。{他|ほか}の{行|ぎょう}は{同|おな}じ{筆圧|ひつあつ}・{同|おな}じ{字体|じたい}——{最後|さいご}の1{行|ぎょう}だけ{消|け}した{跡|あと}のような{凹|へこ}みがあり、{上|うえ}から{書|か}き{直|なお}した{形跡|けいせき}がある。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{最後|さいご}の{行|ぎょう}だけ、{数字|すうじ}の{書|か}き{方|かた}が{違|ちが}う。{消|け}した{跡|あと}みたいな{感|かん}じ——ここだけ{別|べつ}の{時間|じかん}に{書|か}いた？　{書|か}き{換|か}えたんじゃない？"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "ネツミが{各班|かくはん}の{部分|ぶぶん}{記録|きろく}を{持|も}ち{寄|よ}り、{照合|しょうごう}してきた。そこに——{奇妙|きみょう}な{空白|くうはく}があった。"
+      - type: evidence
+        id: card-4
+        title: ネツミの部分記録照合結果（空白時間帯の発見）
+        content: "【ネツミの{照合|しょうごう}{結果|けっか}】{火曜日|かようび}{午後|ごご}3{時|じ}〜5{時|じ}のデータだけ、デンタ{班|はん}の{記録|きろく}が{空白|くうはく}——{他|ほか}の{班|はん}はすべて{記録|きろく}あり　【{待機電力|たいきでんりょく}の{計算|けいさん}】{冷蔵庫|れいぞうこ}0.12kW×2h=0.24kWh。この{時間帯|じかんたい}の{電力|でんりょく}{消費|しょうひ}はゼロになれない。{空白|くうはく}は「{何|なに}も{起|お}きなかった」ではなく「{記録|きろく}が{隠|かく}された」を{意味|いみ}する。"
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{火曜|かよう}の{午後|ごご}3{時|じ}〜5{時|じ}のデータだけ、デンタ{班|はん}の{記録|きろく}が{空白|くうはく}。その{時間帯|じかんたい}の{待機電力|たいきでんりょく}は{必|かなら}ずあるはず——{冷蔵庫|れいぞうこ}は{止|と}まらないから。"
+        expression: worried
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: center
+      - type: dialog
+        character: chikara
+        text: "デンタ、コンテスト{期間中|きかんちゅう}ずっと{苦|くる}しそうだったんだ。{一人|ひとり}で{何|なに}か{抱|かか}えてたんじゃないかな……"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{計算|けいさん}の{矛盾|むじゅん}、{書|か}き{換|か}えの{痕跡|こんせき}、{記録|きろく}の{空白|くうはく}——3つの{糸口|いとぐち}が{一人|ひとり}を{指|さ}し{示|しめ}している。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{記録|きろく}に「{空白|くうはく}」があるってことは——その{時間帯|じかんたい}に{何|なに}かを{書|か}きたくなかったってこと？　{隠|かく}したかった{数字|すうじ}があったんだよね。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: worried
+        position: left
+      - type: dialog
+        character: denta
+        text: "……{待機電力|たいきでんりょく}の{計算|けいさん}をしてみると、{冷蔵庫|れいぞうこ}だけで{一日|いちにち}2.88kWh。5{日間|にちかん}で14.4kWh——「{全部|ぜんぶ}{切|き}った」は{最初|さいしょ}から{無理|むり}な{宣言|せんげん}だった。"
+        expression: worried
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: center
+      - type: dialog
+        character: netsumi
+        text: "{空白|くうはく}はゼロじゃない。「{隠|かく}された{情報|じょうほう}」。{記録|きろく}されていない{時間帯|じかんたい}にも{電力|でんりょく}は{流|なが}れていた——そこが{決|き}め{手|て}になりそう。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足とチカラの観察
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "みんなに{大事|たいせつ}なことを{教|おし}えます。{冷蔵庫|れいぞうこ}は{食品|しょくひん}を{守|まも}るために24{時間|じかん}{動|うご}き{続|つづ}けます。{切|き}ることは{絶対|ぜったい}にできない——つまり「{待機電力|たいきでんりょく}を{全部|ぜんぶ}{切|き}った」という{宣言|せんげん}は、{科学|かがく}的に{不可能|ふかのう}だったんです。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{冷蔵庫|れいぞうこ}の{待機電力|たいきでんりょく}120W。1{時間|じかん}で0.12kWh、1{日|にち}で2.88kWh——これが{最低限|さいていげん}{必|かなら}ず{消費|しょうひ}される{電力量|でんりょくりょう}です。{節電|せつでん}は「{削|けず}れるものを{正|ただ}しく{削|けず}ること」で、「{全部|ぜんぶ}{切|き}る」ことではありません。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 先生の補足＋kWh計算の解説＋チカラの観察
+        content: "【{先生|せんせい}の{補足|ほそく}】{冷蔵庫|れいぞうこ}は「{切|き}れない{待機電力|たいきでんりょく}」の{代表例|だいひょうれい}。0.12kW×24h=2.88kWh/{日|にち}　【kWh{計算|けいさん}の{解説|かいせつ}】{電力量|でんりょくりょう}（kWh）={消費電力|しょうひでんりょく}（kW）×{時間|じかん}（h）。{冷蔵庫|れいぞうこ}0.12kW×5{日|にち}×24h=14.4kWh　【チカラの{観察|かんさつ}】「デンタはコンテスト{期間中|きかんちゅう}、{月曜|げつよう}の{途中|とちゅう}から{顔色|かおいろ}が{悪|わる}かった。{毎日|まいにち}{電力計|でんりょくけい}の{前|まえ}で{長|なが}い{時間|じかん}{立|た}ち{止|と}まっていた」"
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: right
+      - type: dialog
+        character: chikara
+        text: "デンタ、コンテストの{最初|さいしょ}から{無理|むり}してた。{電力計|でんりょくけい}の{前|まえ}でずっと{一人|ひとり}で{悩|なや}んでた——リーダーだからって{全部|ぜんぶ}{背負|せお}わなくていいのに。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{待機電力|たいきでんりょく}を{全部|ぜんぶ}{切|き}った」は{科学|かがく}的に{不可能|ふかのう}だった。** {冷蔵庫|れいぞうこ}は{切|き}れない。エアコンの{設定温度|せっていおんど}を{変|か}えても{消費量|しょうひりょう}は{大|おお}きく{変|か}わらない——{週|しゅう}の{途中|とちゅう}で{気|き}づいたデンタは、{最終|さいしゅう}{記録|きろく}だけを{書|か}き{換|か}えることで「{結果|けっか}」を{作|つく}ろうとした。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 節電記録の最終数値を書き換えたのは誰？
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{最終|さいしゅう}{合計|ごうけい}の{計算|けいさん}が{合|あ}わない。②{最後|さいご}の{行|ぎょう}だけ{書|か}き{直|なお}した{跡|あと}がある。③{火曜|かよう}{午後|ごご}に{記録|きろく}の{空白|くうはく}がある。④{冷蔵庫|れいぞうこ}は{切|き}れない——「{全部|ぜんぶ}{切|き}った」は{最初|さいしょ}から{不可能|ふかのう}だった。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{空白|くうはく}がある{時間帯|じかんたい}に、{誰|だれ}かが{数字|すうじ}を{消|け}した。{最終|さいしゅう}{記録|きろく}を{書|か}き{換|か}えたのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 節電記録の最終数値を書き換えたのは誰？
+        options:
+          - text: デンタ（リーダーとして失敗できないプレッシャーから、最終記録だけ少なく書き換えた）
+            value: denta
+            correct: true
+            feedback: "{正解|せいかい}！　デンタはリーダーとして{責任|せきにん}を{感|かん}じすぎました。でも{待機電力|たいきでんりょく}は{完全|かんぜん}には{切|き}れません——{冷蔵庫|れいぞうこ}は{食品|しょくひん}を{守|まも}るために24{時間|じかん}{動|うご}いています。**{節電|せつでん}は「{全部|ぜんぶ}{切|き}る」ではなく「{削|けず}れるものを{正|ただ}しく{削|けず}ること」。{電力量|でんりょくりょう}（kWh）を{計算|けいさん}することで、{本当|ほんとう}に{効果|こうか}のある{節電|せつでん}が{分|わ}かります。「{記録|きろく}がない」={空白|くうはく}は「{情報|じょうほう}が{隠|かく}された」{証拠|しょうこ}になります。**"
+          - text: ヒカル（記録の書き方の違いを発見した人）
+            value: hikaru
+            feedback: "ヒカルは{記録|きろく}の{書|か}き{方|かた}の{違|ちが}いを{発見|はっけん}した{側|がわ}だよ。{物的証拠|ぶってきしょうこ}を{見|み}つけた{探偵|たんてい}だよ。"
+          - text: ネツミ（空白時間帯を発見した人）
+            value: netsumi
+            feedback: "ネツミは{空白|くうはく}{時間帯|じかんたい}を{照合|しょうごう}して{発見|はっけん}した{側|がわ}だよ。{情報|じょうほう}の{欠落|けつらく}に{気|き}づいた{観察者|かんさつしゃ}だよ。"
+          - text: チカラ（デンタの様子を観察した人）
+            value: chikara
+            feedback: "チカラはデンタの{様子|ようす}を{観察|かんさつ}した{側|がわ}だよ。デンタの{重圧|じゅうあつ}に{気|き}づいて{共感|きょうかん}した{存在|そんざい}だよ。"
+      - type: title_card
+        text: もう一つの問い
+        subtitle: 節電について考えよう
+      - type: choice
+        id: q2
+        question: 「待機電力を全部切る」ことができないのはなぜ？
+        options:
+          - text: 冷蔵庫など、切ると困る機器があるから
+            value: fridge
+            correct: true
+            feedback: "{正解|せいかい}！　{冷蔵庫|れいぞうこ}は{食品|しょくひん}を{腐|くさ}らせないために24{時間|じかん}{稼働|かどう}が{必要|ひつよう}です。「{切|き}れない{電力|でんりょく}」と「{削|けず}れる{電力|でんりょく}」を{見分|みわ}けることが{本当|ほんとう}の{節電|せつでん}のスタートです。"
+          - text: 電気の量が多すぎて切れないから
+            value: toomuch
+            feedback: "{電気|でんき}の{量|りょう}が{問題|もんだい}なのではなく、{機器|きき}の{役割|やくわり}が{理由|りゆう}だよ。{冷蔵庫|れいぞうこ}は{食品|しょくひん}を{守|まも}るために{止|と}められないんだ。"
+          - text: スイッチが難しいから
+            value: switch
+            feedback: "{スイッチ|すいっち}の{難|むずか}しさではないよ。{冷蔵庫|れいぞうこ}は{切|き}ることが{物理的|ぶつりてき}にはできるけど、{切|き}ってはいけない{理由|りゆう}があるんだ。"
+
+  # ==================== 真相：デンタの告白 ====================
+  - id: truth-denta
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: デンタの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: denta
+        expression: worried
+        position: center
+      - type: dialog
+        character: denta
+        text: "……{僕|ぼく}です。{電力計|でんりょくけい}の{最終|さいしゅう}{記録|きろく}を{書|か}き{換|か}えたのは。"
+        expression: worried
+      - type: dialog
+        character: denta
+        text: "{コンテスト|こんてすと}の{途中|とちゅう}で{気|き}づいてた。{冷蔵庫|れいぞうこ}の{待機電力|たいきでんりょく}が{予想|よそう}より{大|おお}きかった。「{全部|ぜんぶ}{切|き}った」なんて{無理|むり}だったのに{宣言|せんげん}してしまった。"
+        expression: worried
+      - type: dialog
+        character: denta
+        text: "リーダーとして{失敗|しっぱい}できないって{思|おも}った。「{今更|いまさら}{失敗|しっぱい}と{言|い}えない」って{思|おも}い{込|こ}んで——{最後|さいご}の{記録|きろく}だけ{少|すく}なく{書|か}き{直|なお}した。ごめんなさい。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: left
+      - type: dialog
+        character: chikara
+        text: "デンタ、ずっと{一人|ひとり}で{抱|かか}えてたんだよ。リーダーだからって{全部|ぜんぶ}{背負|せお}わなくていい。{途中|とちゅう}で「{難|むずか}しかった」って{言|い}ってくれれば{良|よ}かったのに。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{怒|おこ}ってたよ、{最初|さいしょ}は。でも——「{冷蔵庫|れいぞうこ}は{切|き}れない」って{知|し}らなかったら、{僕|ぼく}だって{同|おな}じ{宣言|せんげん}してたかもしれない。{科学|かがく}を{知|し}ることが{大事|たいせつ}だった。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{記録|きろく}の{空白|くうはく}が{決|き}め{手|て}だった。「{空白|くうはく}=ゼロ」じゃない——「{空白|くうはく}={隠|かく}された{情報|じょうほう}」。{記録|きろく}されていない{時間帯|じかんたい}にも{電力|でんりょく}は{流|なが}れてた。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "今日{大切|たいせつ}なことを{確認|かくにん}しましょう。{節電|せつでん}には「{削|けず}れる{電力|でんりょく}」と「{切|き}れない{電力|でんりょく}」があります。{冷蔵庫|れいぞうこ}・{医療|いりょう}{機器|きき}は{切|き}ることができない——「{全部|ぜんぶ}{切|き}る」を{目指|めざ}すことが{正|ただ}しい{節電|せつでん}ではありません。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "デンタは{責任|せきにん}を{感|かん}じすぎました。リーダーが{一人|ひとり}で{抱|かか}え{込|こ}まず、「{難|むずか}しい」と{言|い}える{雰囲気|ふんいき}を{作|つく}ることも{大切|たいせつ}なことですね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{待機電力|たいきでんりょく}の{科学|かがく}】{待機電力|たいきでんりょく}とは{使|つか}っていなくても{流|なが}れ{続|つづ}ける{電力|でんりょく}のこと。{冷蔵庫|れいぞうこ}（120W）のように「{切|き}れない{待機電力|たいきでんりょく}」と「{削|けず}れる{待機電力|たいきでんりょく}」を{見分|みわ}けることが{本当|ほんとう}の{省|しょう}エネルギーへの{第一歩|だいいっぽ}。"
+      - type: narration
+        text: "【{学|まな}び②：kWh{計算|けいさん}と{情報欠落|じょうほうけつらく}】{電力量|でんりょくりょう}（kWh）={消費電力|しょうひでんりょく}（kW）×{時間|じかん}（h）——{計算|けいさん}で「{本当|ほんとう}に{節電|せつでん}できているか」を{確|たし}かめられる。「{記録|きろく}がない」={空白|くうはく}は「{情報|じょうほう}が{隠|かく}された」{可能性|かのうせい}がある——{欠落|けつらく}そのものが{証拠|しょうこ}になる。"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: left
+      - type: dialog
+        character: denta
+        text: "{次|つぎ}は{正直|しょうじき}に{話|はな}す。「{冷蔵庫|れいぞうこ}は{切|き}れない」——それを{最初|さいしょ}から{知|し}っていれば、{削|けず}れるものを{削|けず}ることに{集中|しゅうちゅう}できた。{計算|けいさん}で{確|たし}かめながら{進|すす}める。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: happy
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "{記録|きろく}の{空白|くうはく}に{気|き}づいた{時|とき}、{最初|さいしょ}は「{単|たん}なる{書|か}き{忘|わす}れ」かと{思|おも}った。でも{待機電力|たいきでんりょく}がゼロになるはずがないと{計算|けいさん}したら——{空白|くうはく}が{証拠|しょうこ}になった。"
+        expression: happy
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: effect
+        name: fade-out

@@ -1,0 +1,490 @@
+meta:
+  id: communication-10
+  title: 伝わるということ
+  series: コミュニケーション探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学級会議|がっきゅうかいぎ}が{終|お}わって、みんなが{帰|かえ}り{支度|じたく}を{始|はじ}めたとき——コトバが{画面|がめん}を{見|み}つめたまま、{動|うご}かなくなった。"
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "「{全員|ぜんいん}が{完全|かんぜん}に{賛成|さんせい}した」……これ、さっき{確認|かくにん}したときと{文章|ぶんしょう}が{変|か}わってる。{誰|だれ}かが{書|か}き{換|か}えた。"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: se
+        sound: whisper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{学級会議|がっきゅうかいぎ}で{決|き}まったことをまとめたメッセージが、{誰|だれ}かによって{書|か}き{換|か}えられていた。"
+      - type: narration
+        text: "「{全員|ぜんいん}が{完全|かんぜん}に{賛成|さんせい}した」→「{多数決|たすうけつ}で{決定|けってい}した」——たった{一行|いちぎょう}の{変化|へんか}が、{大|おお}きな{問|とい}いを{連|つ}れてきた。"
+      - type: sprite_group
+        characters:
+          - character: kotoba
+            expression: determined
+          - character: kiku
+            expression: worried
+          - character: tsutae
+            expression: worried
+          - character: manabu
+            expression: normal
+      - type: narration
+        text: "{書|か}き{換|か}えたのは{誰|だれ}か——そしてなぜ「{全員|ぜんいん}{賛成|さんせい}」では{足|た}りなかったのか。コミュニケーション{探偵団|たんていだん}{最後|さいご}の{謎|なぞ}が{始|はじ}まる。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 伝わるということ
+        subtitle: コミュニケーション探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書き換えの発見と学級会議の記録
+      - type: narration
+        text: "コトバが{気|き}づいた——{学級会議|がっきゅうかいぎ}の{決定|けってい}メッセージの{文章|ぶんしょう}が、{会議|かいぎ}のあとで{書|か}き{換|か}えられていた。"
+      - type: evidence
+        id: card-1
+        title: 書き換えの発見記録
+        content: "【{元|もと}のメッセージ】「{全員|ぜんいん}が{完全|かんぜん}に{賛成|さんせい}した」【{書|か}き{換|か}え{後|ご}】「{多数決|たすうけつ}で{決定|けってい}した」【{発見者|はっけんしゃ}】コトバが{差分|さぶん}に{気|き}づいた。どちらが{正確|せいかく}で、なぜ{変|か}えたのか——{誰|だれ}かが、この{違|ちが}いを{重要|じゅうよう}だと{思|おも}った。"
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「{全員|ぜんいん}が{賛成|さんせい}した」と「{多数決|たすうけつ}で{決定|けってい}した」は{全然|ぜんぜん}{違|ちが}う。{誰|だれ}かが、この{違|ちが}いを{重要|じゅうよう}だと{思|おも}ったんだ。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "そして{学級会議|がっきゅうかいぎ}の{議事録|ぎじろく}がある。{議事録|ぎじろく}を{作|つく}ったのはツタエだ。"
+      - type: evidence
+        id: card-2
+        title: 学級会議の議事録（ツタエ作成）
+        content: "【{議事録|ぎじろく}{記録|きろく}】「{全員|ぜんいん}{賛成|さんせい}」【{会議|かいぎ}の{流|なが}れ】{参加者|さんかしゃ}{全員|ぜんいん}が「{分|わ}かった」と{発言|はつげん}した{記録|きろく}あり。【ツタエの{説明|せつめい}】「{全員|ぜんいん}が"分かった"と{言|い}ったから{全員|ぜんいん}{賛成|さんせい}と{書|か}いた」"
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "「{分|わ}かった」って{全員|ぜんいん}{言|い}ったよ？ それが{全員|ぜんいん}{賛成|さんせい}じゃないの？ {私|わたし}は{聞|き}こえた{言葉|ことば}をそのまま{記録|きろく}しただけなのに……"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: サオリの証言とマナブの手書きメモ
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{会議|かいぎ}のあと、サオリが{話|はな}してくれたんだ。「{本当|ほんとう}は{賛成|さんせい}じゃなかった。でも{多数決|たすうけつ}だから{仕方|しかた}ないと{思|おも}った。ちゃんと"分かった"って{言|い}ったのに」って。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: evidence
+        id: card-3
+        title: サオリの証言＋修正履歴の分析
+        content: "【サオリの{証言|しょうげん}（キクが{収集|しゅうしゅう}）】「{本当|ほんとう}は{賛成|さんせい}じゃなかった。でも{多数決|たすうけつ}だから{仕方|しかた}ないと{思|おも}った。ちゃんと"分かった"って{言|い}ったのに」【{修正|しゅうせい}{履歴|りれき}{分析|ぶんせき}（コトバ）】{書|か}き{換|か}えは{会議|かいぎ}{終了|しゅうりょう}{直後|ちょくご}。{修正|しゅうせい}{履歴|りれき}にマナブのアカウントが{確認|かくにん}できる。"
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{修正|しゅうせい}{履歴|りれき}にマナブのアカウントが{残|のこ}ってる。{書|か}き{換|か}えたのは……マナブだ。"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: right
+      - type: dialog
+        character: manabu
+        text: "……{見|み}てたんだ。サオリが「{仕方|しかた}ない」って{言|い}いながら{賛成|さんせい}したところを。「{全員|ぜんいん}が{完全|かんぜん}に{賛成|さんせい}した」は{嘘|うそ}だって、{思|おも}った。"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: evidence
+        id: card-4
+        title: マナブの手書きメモ
+        content: "【マナブの{手書|てが}きメモ】「サオリは{本当|ほんとう}は{違|ちが}う{意見|いけん}だった。でも"仕方ない"と{言|い}ってた。"全員が完全に賛成した"は{嘘|うそ}だ」「せめて{正確|せいかく}な{記録|きろく}にしたかった」——{書|か}き{換|か}えは{悪意|あくい}ではなく、{友人|ゆうじん}をかばうための{罪悪感|ざいあくかん}からだった。"
+
+  # ==================== 中間点（第1投票前） ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{書|か}き{換|か}えたのはマナブ——{修正|しゅうせい}{履歴|りれき}がそれを{示|しめ}している。動機はサオリをかばう{罪悪感|ざいあくかん}だった。"
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "サオリは「{分|わ}かった」って{言|い}ったけど、{本当|ほんとう}は{分|わ}かってなかったんじゃなくて、{言|い}えなかったんだと{思|おも}う。「{分|わ}かった」が{本当|ほんとう}の「{分|わ}かった」じゃないことって、よくある。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "{私|わたし}は「{分|わ}かった」という{言葉|ことば}をそのまま{信|しん}じた。それが{間違|まちが}いだったの？ でも{確認|かくにん}って、どうすればよかったの？"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 推理・第1投票（犯人特定） ====================
+  - id: deduction-1
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 第1推理タイム
+        subtitle: 学級会議のメッセージを書き換えたのは誰？
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{証拠|しょうこ}を{整理|せいり}すると——コトバは{書|か}き{換|か}えを{発見|はっけん}した{側|がわ}。キクはサオリの{証言|しょうげん}を{集|あつ}めた{側|がわ}。ツタエは{議事録|ぎじろく}を{作|つく}った{側|がわ}で{書|か}き{換|か}えはしていない。そして{修正|しゅうせい}{履歴|りれき}には——"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}の{整理|せいり}: ①コトバは{書|か}き{換|か}えを{発見|はっけん}し、{差分|さぶん}記録を{持|も}つ。②キクはサオリの「{仕方|しかた}なく{従|したが}った」という{証言|しょうげん}を{持|も}つ。③ツタエは{議事録|ぎじろく}{作成|さくせい}者で{書|か}き{換|か}えの{履歴|りれき}はない。④マナブの{手書|てが}きメモと{修正|しゅうせい}{履歴|りれき}が{一致|いっち}している。"
+      - type: choice
+        id: q1
+        question: 学級会議のメッセージを書き換えたのは誰？
+        options:
+          - text: コトバ（書き換えを発見した）
+            value: kotoba
+            correct: false
+            feedback: "コトバは{書|か}き{換|か}えを{発見|はっけん}した{側|がわ}だよ。{差分|さぶん}{記録|きろく}を{持|も}っていて、{問題|もんだい}を{明|あき}らかにしようとしていた。{書|か}き{換|か}えた{人|ひと}ではないね。"
+          - text: キク（サオリの証言を集めた）
+            value: kiku
+            correct: false
+            feedback: "キクはサオリの{本音|ほんね}を{聞|き}き、{証言|しょうげん}を{集|あつ}めた{側|がわ}。{修正|しゅうせい}{履歴|りれき}にキクの{記録|きろく}はない。もう{一度|いちど}{証拠|しょうこ}を{確認|かくにん}しよう。"
+          - text: ツタエ（議事録を作った）
+            value: tsutae
+            correct: false
+            feedback: "ツタエは{議事録|ぎじろく}を{作|つく}った{側|がわ}で、「{全員|ぜんいん}{賛成|さんせい}」と{書|か}いた。でも{書|か}き{換|か}えの{修正|しゅうせい}{履歴|りれき}にツタエのアカウントはない。{方向|ほうこう}が{違|ちが}うよ。"
+          - text: マナブ（友人サオリをかばうため）
+            value: manabu
+            correct: true
+            feedback: "{正解|せいかい}！　マナブは{修正|しゅうせい}{履歴|りれき}に{記録|きろく}されており、{手書|てが}きメモも{一致|いっち}している。サオリが{本当|ほんとう}には{納得|なっとく}していないのに「{全員|ぜんいん}が{完全|かんぜん}に{賛成|さんせい}した」と{記録|きろく}されることへの{罪悪感|ざいあくかん}から{書|か}き{換|か}えた。**{善意|ぜんい}と{罪悪感|ざいあくかん}からの{行動|こうどう}だったが、それはより{大|おお}きな{問題|もんだい}——{学級会議|がっきゅうかいぎ}のコミュニケーション{自体|じたい}の{構造|こうぞう}——を{指|さ}し{示|しめ}している。**"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 「分かった」≠「理解した」の証拠
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{新|あたら}しい{証拠|しょうこ}があります。{学級会議|がっきゅうかいぎ}{直後|ちょくご}に、「{会議|かいぎ}で{決|き}まった{内容|ないよう}を{自分|じぶん}の{言葉|ことば}で{言|い}い{直|なお}せたか」を{確認|かくにん}したデータです。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 3機能カード：伝わるということの証拠
+        content: "①【{解決|かいけつ}】マナブが{書|か}き{換|か}えた{証拠|しょうこ}({修正|しゅうせい}{履歴|りれき}+{手書|てが}きメモ){確定|かくてい}。動機: サオリをかばう{罪悪感|ざいあくかん}。②【{開放|かいほう}】{学級会議|がっきゅうかいぎ}{後|ご}に「{内容|ないよう}を{自分|じぶん}の{言葉|ことば}で{言|い}い{直|なお}せた」{子|こ}は{半数|はんすう}以下だったというデータ——「{分|わ}かった」≠「{理解|りかい}した」の{証拠|しょうこ}。③【メタ{認知|にんち}】「{今日|きょう}、{誰|だれ}かに{何|なに}か{伝|つた}えたとき、"伝わったかな"と{確認|かくにん}したことがある？」——「{伝|つた}える」と「{伝|つた}わる」は{違|ちが}うことを、{今日|きょう}の{あなた}は{知|し}っている。"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{全員|ぜんいん}が「{分|わ}かった」と{言|い}ったのに、{半数|はんすう}以上が{内容|ないよう}を{言|い}い{直|なお}せなかった。**　これは{記憶力|きおくりょく}の{問題|もんだい}ではない——「{伝|つた}えた」「{返事|へんじ}が{来|き}た」だけでコミュニケーションは{完結|かんけつ}しないということだ。"
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: center
+      - type: dialog
+        character: manabu
+        text: "「{分|わ}かった」と{言|い}わせる{会議|かいぎ}は、{本当|ほんとう}に{伝|つた}わったことにならない——{確認|かくにん}するって、こういうことだったんだ。"
+        expression: surprised
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "「{分|わ}かった」が{全員|ぜんいん}に{届|とど}いていなかった……{私|わたし}が「{全員|ぜんいん}{賛成|さんせい}」と{書|か}いたのは、{言葉|ことば}を{信|しん}じすぎたから？"
+        expression: surprised
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{会議|かいぎ}で「{分|わ}かった」と{言|い}った{人|ひと}が{半数|はんすう}以上{内容|ないよう}を{理解|りかい}していなかった——マナブが{書|か}き{換|か}えたのは{嘘|うそ}を{正|ただ}そうとしたのかもしれないけど、{本当|ほんとう}の{問題|もんだい}はもっと{深|ふか}いところにあった。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 第2推理・投票（哲学的議論） ====================
+  - id: deduction-2
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 第2推理タイム
+        subtitle: コミュニケーションが「成功した」と言えるのはいつ？
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マナブが{書|か}き{換|か}えた{理由|りゆう}は{分|わ}かった。でも{本当|ほんとう}の{問題|もんだい}はもっと{大|おお}きい。{コミュニケーション|こみゅにけーしょん}が「{成功|せいこう}した」と{言|い}えるのは、{一体|いったい}いつなの？"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "4つの{選択肢|せんたくし}がある。{正解|せいかい}はない——でも「{確認|かくにん}する」という{ステップ|すてっぷ}の{意味|いみ}を{考|かんが}えることが、{今日|きょう}の{一番|いちばん}{大切|たいせつ}な{学|まな}びだ。"
+      - type: choice
+        id: q2
+        question: コミュニケーションが「成功した」と言えるのはいつ？
+        options:
+          - text: A：言葉で正確に伝えたとき
+            value: option-a
+            correct: false
+            feedback: "「{言|い}った＝{終|お}わり」の{送信者|そうしんしゃ}{視点|してん}。{今日|きょう}の{証拠|しょうこ}が{示|しめ}すように、{正確|せいかく}に{伝|つた}えても{相手|あいて}に{届|とど}いていないことがある。「{伝|つた}える」と「{伝|つた}わる」は{別|べつ}のことだ。"
+          - text: B：相手が受け取ったとき
+            value: option-b
+            correct: false
+            feedback: "「{受|う}け{取|と}る」は「{理解|りかい}する」と{同|おな}じではない。サオリは「{分|わ}かった」と{返事|へんじ}した——でも{本当|ほんとう}には{納得|なっとく}していなかった。「{届|とど}いた」だけでは{十分|じゅうぶん}じゃないかもしれない。"
+          - text: C：相手が理解したとき
+            value: option-c
+            correct: false
+            feedback: "「{理解|りかい}した」と{言|い}っても、それが{発信者|はっしんしゃ}の{意図|いと}と{一致|いっち}しているとは{限|かぎ}らない。「{分|わ}かった」と{言|い}った{子|こ}の{半数|はんすう}以上が{内容|ないよう}を{言|い}い{直|なお}せなかった——{理解|りかい}の{確認|かくにん}が{必要|ひつよう}かもしれない。"
+          - text: D：互いの理解が一致したと確認できたとき
+            value: option-d
+            correct: false
+            feedback: "コミュニケーションの{完成|かんせい}{形|けい}——でも{常|つね}に{可能|かのう}か？ {時間|じかん}や{状況|じょうきょう}によって{確認|かくにん}できないこともある。「{確認|かくにん}しようとする{姿勢|しせい}」が{大切|たいせつ}、ということかもしれない。**どの{選択肢|せんたくし}を{選|えら}んだかより、「{確認|かくにん}する」という{ステップ|すてっぷ}の{意味|いみ}を{考|かんが}えたことが、{今日|きょう}の{学|まな}びだ。**"
+
+  # ==================== 真相：マナブの告白 ====================
+  - id: truth-manabu
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: かばう罪悪感、そして本当の問題
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: manabu
+        expression: worried
+        position: center
+      - type: dialog
+        character: manabu
+        text: "……{私|わたし}が{書|か}き{換|か}えました。サオリが「{仕方|しかた}ない」と{言|い}いながら{賛成|さんせい}したところを{見|み}ていた。「{全員|ぜんいん}が{完全|かんぜん}に{賛成|さんせい}した」は{嘘|うそ}だと{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: manabu
+        text: "サオリの{本当|ほんとう}の{気持|きも}ちが{反映|はんえい}されていない{決定|けってい}は、{本当|ほんとう}の{決定|けってい}じゃない——そう{考|かんが}えて、せめて{正確|せいかく}な{記録|きろく}にしようとした。でも……"
+        expression: thinking
+      - type: dialog
+        character: manabu
+        text: "「{確認|かくにん}する」ことなく{一人|ひとり}で{決|き}めたのは{間違|まちが}いだった。{信頼|しんらい}を{壊|こわ}す{行為|こうい}だったかもしれない。"
+        expression: worried
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "マナブの{気持|きも}ちは{分|わ}かる。でも{書|か}き{換|か}えるより、サオリに「{本当|ほんとう}はどう{思|おも}ってる？」と{聞|き}く{方法|ほうほう}もあったかもしれない。{確認|かくにん}するって、そういうことなんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{私|わたし}もサオリが{納得|なっとく}してないって{知|し}ってた。でも{声|こえ}に{出|だ}せなかった。{気|き}づいていたのに{伝|つた}えられなかった{自分|じぶん}も……{確認|かくにん}できたはずだった。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "「{分|わ}かった」という{言葉|ことば}をそのまま{信|しん}じた。でもCard5のデータを{見|み}ると——「{分|わ}かった」が{本当|ほんとう}の「{分|わ}かった」か{確認|かくにん}することが、{私|わたし}の{役割|やくわり}だったんだ。"
+        expression: thinking
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: center
+      - type: dialog
+        character: manabu
+        text: "「{分|わ}かった」と{言|い}わせる{会議|かいぎ}は、{本当|ほんとう}に{伝|つた}わったことにならない——{確認|かくにん}するって、こういうことだったんだ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "マナブは{悪意|あくい}からではなく、{友人|ゆうじん}をかばう{罪悪感|ざいあくかん}から{書|か}き{換|か}えた。その{気持|きも}ちは{本物|ほんもの}だった。でも{一人|ひとり}で{決|き}めるという{方法|ほうほう}は、{信頼|しんらい}を{壊|こわ}す{行為|こうい}でもあった。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "そして{根本|こんぽん}の{問題|もんだい}は——「{分|わ}かった」という{返事|へんじ}を{受|う}け{取|と}っただけで「{伝|つた}わった」と{思|おも}い{込|こ}んだこと。{コミュニケーション|こみゅにけーしょん}は「{発信|はっしん}した」「{返事|へんじ}が{来|き}た」で{完結|かんけつ}しない——{相手|あいて}が{本当|ほんとう}に{理解|りかい}したかどうかを{確認|かくにん}して{初|はじ}めて{完結|かんけつ}するの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{伝|つた}える」と「{伝|つた}わる」——この{違|ちが}いを{知|し}っているあなたは、{今日|きょう}から{少|すこ}しだけ{確認|かくにん}できる{人|ひと}になれる。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{複合|ふくごう}{推理|すいり}——{修正|しゅうせい}{履歴|りれき}・{手書|てが}きメモ・{証言|しょうげん}・{会議|かいぎ}{データ|でーた}という{複数|ふくすう}の{証拠|しょうこ}を{組|く}み{合|あ}わせて{真相|しんそう}に{迫|せま}る{推理|すいり}パターン。"
+      - type: narration
+        text: "{伝|つた}えると{伝|つた}わるの{違|ちが}い——「{発信|はっしん}した＝{伝|つた}わった」ではない。{受信者|じゅしんしゃ}が{理解|りかい}し、それが{発信者|はっしんしゃ}の{意図|いと}と{一致|いっち}していることを{確認|かくにん}して{初|はじ}めて{コミュニケーション|こみゅにけーしょん}が{完結|かんけつ}する。「{今日|きょう}の{自分|じぶん}の{コミュニケーション|こみゅにけーしょん}」に{置|お}き{換|か}えて{考|かんが}えてみよう。"
+      - type: effect
+        name: fade-out

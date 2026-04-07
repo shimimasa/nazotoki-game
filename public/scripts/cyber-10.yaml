@@ -1,0 +1,540 @@
+meta:
+  id: cyber-10
+  title: デジタルの足あと
+  series: ネット探偵団
+  volume: 10
+  estimatedMinutes: 20
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5{年|ねん}2{組|くみ}では「ネット{安全|あんぜん}ガイド」を{作|つく}るプロジェクトが{始|はじ}まった。"
+      - type: narration
+        text: "Vol.1から9まで{学|まな}んできたサイバーセキュリティの{知識|ちしき}を1{年生|ねんせい}にも{分|わ}かる{形|かたち}にまとめる——ネット{探偵団|たんていだん}の4{人|にん}が{中心|ちゅうしん}となって{編集|へんしゅう}を{進|すす}めていた。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "ところがある{朝|あさ}、{共有|きょうゆう}フォルダに{保存|ほぞん}していたガイドの{内容|ないよう}が{書|か}き{換|か}えられていた。"
+      - type: narration
+        text: "**もともとあった「{個人|こじん}の{注意|ちゅうい}」の{項目|こうもく}が、「しくみで{守|まも}る{方法|ほうほう}」に{丸|まる}ごと{変|か}わっている——いったい、{誰|だれ}が{何|なに}のために？**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへん！　{今朝|けさ}、{共有|きょうゆう}フォルダのガイドが{書|か}き{換|か}えられているのを{見|み}つけたの。「{パスワードを|ぱすわーどを}{強|つよ}くしよう」「{怪|あや}しいリンクをクリックしない」という{内容|ないよう}が、「プライバシー{設定|せってい}を{確認|かくにん}しよう」「{二段階|にだんかい}{認証|にんしょう}をオンにしよう」に{変|か}わっているのよ。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "ネット{探偵団|たんていだん}の{皆|みな}さんに{調査|ちょうさ}をお{願|ねが}いしたいわ。{証拠|しょうこ}を{集|あつ}めて、{誰|だれ}がなぜガイドを{書|か}き{換|か}えたのかを{突|つ}き{止|と}めてください。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: netto
+            expression: surprised
+          - character: pasu
+            expression: worried
+          - character: rogu
+            expression: thinking
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{自分|じぶん}たちが{作|つく}っていたガイドが{無断|むだん}で{書|か}き{換|か}えられた——{誰|だれ}が、{何|なに}のために？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: デジタルの足あと
+        subtitle: ネット探偵団 Vol.10（最終巻）
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書き換えの内容を比較する
+      - type: narration
+        text: "まず{書|か}き{換|か}え{前後|ぜんご}のガイドを{比較|ひかく}する。{変化|へんか}の{内容|ないよう}を{正確|せいかく}に{把握|はあく}することが{最初|さいしょ}の{一歩|いっぽ}だ。"
+      - type: evidence
+        id: card-1
+        title: ガイドの書き換え前後の比較
+        content: "【{書|か}き{換|か}え{前|まえ}】①パスワードを{強|つよ}くしよう（{誕生日|たんじょうび}・{名前|なまえ}はNG）②{怪|あや}しいリンクをクリックしない③{知|し}らない{人|ひと}からのメールに{返信|へんしん}しない【{書|か}き{換|か}え{後|ご}】①プライバシー{設定|せってい}を{確認|かくにん}しよう②{二段階|にだんかい}{認証|にんしょう}をオンにしよう③アプリの{権限|けんげん}を{見直|みなお}そう→「{個人|こじん}の{注意|ちゅうい}」から「しくみで{守|まも}る」へ{大|おお}きく{方向性|ほうこうせい}が{変|か}わっている"
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{書|か}き{換|か}え{前|まえ}は「{気|き}をつけよう」という{内容|ないよう}——{書|か}き{換|か}え{後|ご}は「しくみで{守|まも}る」という{内容|ないよう}に{全部|ぜんぶ}{変|か}わっている。ただのミスじゃない。{意図的|いとてき}に{書|か}き{換|か}えた{人|ひと}がいる。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: netto
+        text: "「{二段階|にだんかい}{認証|にんしょう}」「プライバシー{設定|せってい}」……Vol.1-9で{学|まな}んだことと{全部|ぜんぶ}つながる{内容|ないよう}だ。でも、なぜ{最初|さいしょ}の「{個人|こじん}の{注意|ちゅうい}」の{項目|こうもく}を{消|け}したんだろう？"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: evidence
+        id: card-2
+        title: 共有フォルダの編集履歴
+        content: "{共有|きょうゆう}フォルダの{編集|へんしゅう}{履歴|りれき}。{木曜日|もくようび}15:42に1{件|けん}の{編集|へんしゅう}が{記録|きろく}されている。{編集者|へんしゅうしゃ}のアカウント{名|めい}は{一時的|いちじてき}に{不明|ふめい}（{上書|うわが}きのため）。ただし{編集|へんしゅう}{時刻|じこく}は{確実|かくじつ}で、{木曜日|もくようび}の{放課後|ほうかご}に{行|おこな}われたことが{分|わ}かる"
+      - type: sprite
+        character: gado
+        expression: surprised
+        position: left
+      - type: dialog
+        character: gado
+        text: "{木曜|もくよう}{放課後|ほうかご}……{私|わたし}はその{時間|じかん}、{図書室|としょしつ}にいたから{教室|きょうしつ}にはいなかった。{誰|だれ}が{残|のこ}っていたっけ……"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: アクセスログから犯人を絞り込む
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{学校|がっこう}の{共有|きょうゆう}フォルダには{アクセスログ|あくせすろぐ}が{残|のこ}っているはず。「{木曜|もくよう}{放課後|ほうかご}に{教室|きょうしつ}のPCを{使|つか}ったのは{誰|だれ}か」——ログは{嘘|うそ}をつかない。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: evidence
+        id: card-3
+        title: 教室PCのアクセスログ
+        content: "{木曜日|もくようび}{放課後|ほうかご}15:30〜16:00の{教室|きょうしつ}PCログ。{ログイン|ろぐいん}{記録|きろく}: ネット（15:31〜15:58）、パス（15:33〜15:55）の2{名|めい}。ガードは{図書室|としょしつ}で{別|べつ}の{作業|さぎょう}（{図書室|としょしつ}PCのログに{記録|きろく}あり）。ログは{委員|いいん}{活動|かつどう}で{音楽室|おんがくしつ}に{記録|きろく}あり。→{書|か}き{換|か}え{時刻|じこく}15:42に{教室|きょうしつ}にいたのは2{人|り}だけ。"
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: right
+      - type: dialog
+        character: netto
+        text: "{木曜|もくよう}{放課後|ほうかご}の{教室|きょうしつ}にいたのは、{僕|ぼく}と……パスだけ？　でも{僕|ぼく}はその{時間|じかん}、{別|べつ}の{宿題|しゅくだい}をしてたし……"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ネットの作業記録
+        content: "ネットの{木曜日|もくようび}15:42の{作業|さぎょう}{記録|きろく}。{教室|きょうしつ}PCの{別|べつ}のウィンドウで「{算数|さんすう}{ドリル|どりる}アプリ」が15:30〜15:58まで{起動|きどう}している（{自動|じどう}{保存|ほぞん}{記録|きろく}あり）。→ネットが15:42に{共有|きょうゆう}フォルダを{編集|へんしゅう}していた{可能性|かのうせい}は{低|ひく}い。{書|か}き{換|か}えたのは{残|のこ}り1{人|り}の{可能性|かのうせい}が{高|たか}い。"
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: left
+      - type: dialog
+        character: pasu
+        text: "…………。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}から{状況|じょうきょう}が{見|み}えてきた。{書|か}き{換|か}えは{木曜|もくよう}{放課後|ほうかご}15:42。{教室|きょうしつ}にいたのは2{人|り}。{片方|かたほう}にはアリバイがある——{犯人|はんにん}はほぼ{絞|しぼ}れている。"
+      - type: sprite
+        character: rogu
+        expression: worried
+        position: right
+      - type: dialog
+        character: rogu
+        text: "ログは{証拠|しょうこ}が{揃|そろ}っている……でも、なぜ{書|か}き{換|か}えたのかが{分|わ}からない。「{個人|こじん}の{注意|ちゅうい}」から「しくみで{守|まも}る」に{変|か}えた{理由|りゆう}——ただの{悪意|あくい}には{思|おも}えない。"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: thinking
+        position: left
+      - type: dialog
+        character: gado
+        text: "……{私|わたし}、なんか{知|し}ってることがあるかもしれない。でも{言|い}いにくくて……{誰|だれ}かが{傷|きず}つくかもしれないから、{言|い}っていいのかな。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: netto
+        expression: worried
+        position: right
+      - type: dialog
+        character: netto
+        text: "……{実|じつ}は……{僕|ぼく}、{今|いま}でも{誕生日|たんじょうび}をパスワードに{使|つか}ってる。Vol.2で{学|まな}んで「{変|か}える」って{言|い}ったのに……{忘|わす}れてた。ずっと{変|か}えてなかったんだ。"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: パスの端末に残された記録
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "パスの{端末|たんまつ}を{確認|かくにん}したら——{共有|きょうゆう}フォルダの{編集|へんしゅう}{画面|がめん}が{履歴|りれき}に{残|のこ}っていたわ。そして{下書|したが}きファイルが{見|み}つかった。パスに{話|はな}を{聞|き}いたら……すべてを{話|はな}してくれたの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "パスは{水曜日|すいようび}に、ネットのパスワード{設定|せってい}{画面|がめん}をたまたま{見|み}てしまった。まだ{誕生日|たんじょうび}のまま——Vol.2で{学|まな}んだはずなのに、{変|か}えていなかった。パスは「ネットが{傷|きず}つく」と{思|おも}って、ガイドの{内容|ないよう}を{書|か}き{換|か}えることで{問題|もんだい}を{解決|かいけつ}しようとしたの。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: パスの端末から発見された記録
+        content: "①{共有|きょうゆう}フォルダの{編集|へんしゅう}{画面|がめん}が{履歴|りれき}に{残|のこ}存（{木曜|もくよう}15:42）②{下書|したが}きファイルに{動機|どうき}のメモ:「{二段階|にだんかい}{認証|にんしょう}があればパスワードが{弱|よわ}くても{守|まも}れる。「{気|き}をつけよう」だけじゃ{人|ひと}は{忘|わす}れる。しくみで{守|まも}ることを1{年生|ねんせい}に{伝|つた}えたい」③{水曜日|すいようび}のメモ:「ネットのパスワード、まだ{誕生日|たんじょうび}のまま——Vol.2で{学|まな}んだのに……」"
+      - type: se
+        sound: reveal
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: center
+      - type: dialog
+        character: pasu
+        text: "…………{僕|ぼく}がやりました。ネットのパスワードが{変|か}わってないのを{見|み}て——「{気|き}をつけよう」って{学|まな}んでも、{人|ひと}は{忘|わす}れるんだって{気|き}づいた。{悪意|あくい}があったわけじゃない。でも、{勝手|かって}に{書|か}き{換|か}えるべきじゃなかった。"
+        expression: worried
+      - type: dialog
+        character: pasu
+        text: "ガイドを「しくみで{守|まも}る」に{変|か}えれば、ネットのパスワードが{弱|よわ}くても「{二段階|にだんかい}{認証|にんしょう}でカバーできる」——そう{伝|つた}えれば、ネットが{責|せ}められずに{済|す}むと{思|おも}ったんだ。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: narration
+        text: "**{書|か}き{換|か}えた{犯人|はんにん}はパス。でも{動機|どうき}は{悪意|あくい}ではなく——{友達|ともだち}をかばう{罪悪感|ざいあくかん}と、「{気|き}をつけよう」だけでは{守|まも}れないという{問題|もんだい}{提起|ていき}だった。**"
+
+  # ==================== 推理・1回目投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム①
+        subtitle: ネット安全ガイドを書き換えたのは誰？
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{書|か}き{換|か}えは{木曜|もくよう}{放課後|ほうかご}15:42②{教室|きょうしつ}にいたのは{ネット|ねっと}と{パス|ぱす}の2{人|り}③{ネット|ねっと}は{別|べつ}のアプリを{使|つか}っていた{記録|きろく}あり④{パス|ぱす}の{端末|たんまつ}に{編集|へんしゅう}{履歴|りれき}と{動機|どうき}のメモが{残|のこ}っていた。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をつなぐと1{人|り}に{辿|たど}り{着|つ}く。①{書|か}き{換|か}え{時刻|じこく}に{教室|きょうしつ}にいた。②{ネット|ねっと}のアリバイが{成立|せいりつ}。③{端末|たんまつ}に{編集|へんしゅう}{履歴|りれき}と「かばう{動機|どうき}」のメモが{存在|そんざい}。④ネットの{弱|よわ}いパスワードを{水曜日|すいようび}に{目撃|もくげき}していた。"
+      - type: choice
+        id: q1
+        question: ネット安全ガイドを書き換えたのは誰？
+        options:
+          - text: パス（ネットをかばうためにガイドを書き換えた）
+            value: pasu
+            correct: true
+            feedback: "{正解|せいかい}！　パスは{水曜日|すいようび}にネットのパスワードが{誕生日|たんじょうび}のままだと{知|し}り、「ネットが{責|せ}められる」と{思|おも}ってガイドを{書|か}き{換|か}えた。{悪意|あくい}はなかったけれど、{無断|むだん}で{書|か}き{換|か}えたのは{問題|もんだい}だったね。**でも——この{事件|じけん}には、もう1つの{大切|たいせつ}な{問い|とい}がある。**"
+          - text: ネット（弱いパスワードを隠したかった）
+            value: netto
+            feedback: "{ネット|ねっと}は{木曜|もくよう}{放課後|ほうかご}に{算数|さんすう}ドリルのアプリを{使|つか}っていた{記録|きろく}があるよ。{弱|よわ}いパスワードを{使|つか}い{続|つづ}けていたのは{事実|じじつ}だけど、ガイドを{書|か}き{換|か}えたのは{別|べつ}の{人|ひと}だ。"
+          - text: ログ（チェック担当として責任を感じた）
+            value: rogu
+            feedback: "{ログ|ろぐ}は{木曜|もくよう}{放課後|ほうかご}{音楽室|おんがくしつ}で{委員|いいん}{活動|かつどう}をしていた{記録|きろく}があるよ。{書|か}き{換|か}えに{気|き}づけなかったことを{反省|はんせい}していたけど、{書|か}き{換|か}えた{本人|ほんにん}ではない。"
+          - text: ガード（言いにくいことを代わりに伝えたかった）
+            value: gado
+            feedback: "{ガード|がーど}は{木曜|もくよう}{放課後|ほうかご}{図書室|としょしつ}にいた{記録|きろく}があるよ。ネットの{弱|よわ}いパスワードを{知|し}っていたけど「{言|い}いにくくて」{黙|だま}っていた——{行動|こうどう}できなかった{側|がわ}だ。"
+
+  # ==================== Card5反転後：第2層へ ====================
+  - id: truth-shift
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: パラダイムシフト
+        subtitle: 「気をつけよう」だけでは守れない
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: netto
+        expression: worried
+        position: left
+      - type: dialog
+        character: netto
+        text: "……{僕|ぼく}のせいで、パスが{無断|むだん}で{書|か}き{換|か}えることになった。「Vol.2で{学|まな}んだ」のに——{僕|ぼく}は{全然|ぜんぜん}{変|か}えてなかった。「{変|か}える」って{言|い}ったのに。"
+        expression: worried
+      - type: dialog
+        character: netto
+        text: "{知識|ちしき}はあった。{危|あぶ}ないことも{分|わ}かってた。でも……{忘|わす}れた。{人間|にんげん}って、{知|し}ってても{忘|わす}れるんだ。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: gado
+        expression: worried
+        position: right
+      - type: dialog
+        character: gado
+        text: "……{私|わたし}も{知|し}ってたんです。ネットのパスワードが{変|か}わってないこと。でも「{言|い}いにくくて」——{言|い}えなかった。{言|い}っていれば、パスが{無断|むだん}で{書|か}き{換|か}えることもなかったかもしれない。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "Vol.1からVol.9まで、{皆|みな}さんはたくさんのことを{学|まな}んだ。フィッシング、パスワード、なりすまし、{偽|にせ}サイト……でもひとつ{聞|き}いていい？"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "**「{知|し}っていること」と「やっていること」——{全部|ぜんぶ}{一致|いっち}してる？**　パスワードは{強|つよ}い？　プライバシー{設定|せってい}は{確認|かくにん}した？　アプリの{権限|けんげん}は{見直|みなお}した？　——{知識|ちしき}だけでは{人|ひと}は{守|まも}れない。しくみと{知識|ちしき}の{両方|りょうほう}が{必要|ひつよう}なのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ==================== 第2層投票 ====================
+  - id: deduction-2
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム②
+        subtitle: ネットの安全を守るために、何が一番大切？
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: pasu
+        text: "{僕|ぼく}がガイドを「しくみで{守|まも}る」に{書|か}き{換|か}えたのは——「{気|き}をつけよう」と{言|い}うだけでは{人|ひと}は{忘|わす}れるって{気|き}づいたから。でも、{無断|むだん}で{変|か}えるんじゃなくて、{皆|みな}で{話|はな}し{合|あ}えばよかった。"
+        expression: thinking
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: narration
+        text: "Vol.1-9で{学|まな}んだすべての{知識|ちしき}を{使|つか}って、{今日|きょう}の{最後|さいご}の{問い|とい}に{答|こた}えよう——{正解|せいかい}はない。{自分|じぶん}の{考|かんが}えを{理由|りゆう}と{一緒|いっしょ}に{選|えら}んで。"
+      - type: choice
+        id: q2
+        question: ネットの安全を守るために、何が一番大切？
+        options:
+          - text: "A: 1人1人が気をつけること（知識があれば大丈夫）"
+            value: awareness
+            feedback: "{知識|ちしき}は{大切|たいせつ}！　でもネットのように「{学|まな}んでも{忘|わす}れる」ことがある。{知識|ちしき}だけに{頼|たよ}ると、{忘|わす}れたとき{無防備|むぼうび}になってしまう。しくみと{組|く}み{合|あ}わせるとより{強|つよ}くなるよ。"
+          - text: "B: しくみで守ること（二段階認証・プライバシー設定・権限管理）"
+            value: system
+            feedback: "しくみは{強力|きょうりょく}！　{二段階|にだんかい}{認証|にんしょう}や{権限|けんげん}{管理|かんり}は「{忘|わす}れても{守|まも}られる」{状態|じょうたい}を{作|つく}れる。でも{知識|ちしき}があれば、しくみの{使|つか}い{方|かた}をもっとうまく{活|い}かせるよ。"
+          - text: "C: 知識としくみの両方（気をつける＋しくみで守る）"
+            value: both
+            feedback: "この{事件|じけん}が{教|おし}えてくれた{答|こた}えだ！　{知識|ちしき}は{土台|どだい}——でも{人間|にんげん}は{忘|わす}れる。しくみは「{忘|わす}れても{守|まも}られる{仕組|しくみ}」。{両方|りょうほう}を{組|く}み{合|あ}わせることが、{本当|ほんとう}の{安全|あんぜん}につながるよ。**これがVol.1-10、{全部|ぜんぶ}の{学|まな}びの{集大成|しゅうたいせい}だ。**"
+          - text: "D: 大人や先生に相談すること（困ったら1人で解決しない）"
+            value: consult
+            feedback: "1{人|り}で{抱|かか}え{込|こ}まないのは{大切|たいせつ}！　パスがガードやネットに{相談|そうだん}していれば、{無断|むだん}で{書|か}き{換|か}えることもなかった。{信頼|しんらい}できる{人|ひと}に{相談|そうだん}する{習慣|しゅうかん}は、{知識|ちしき}・しくみと{並|なら}ぶ3つ{目|め}の{柱|はしら}だよ。"
+
+  # ==================== 真相 ====================
+  - id: truth-pasu
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: パスの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: center
+      - type: dialog
+        character: pasu
+        text: "{水曜日|すいようび}に{見|み}てしまった——ネットのパスワード{設定|せってい}{画面|がめん}。まだ{誕生日|たんじょうび}のまま。Vol.2で「{絶対|ぜったい}に{変|か}えよう」って{言|い}ってたのに。"
+        expression: worried
+      - type: dialog
+        character: pasu
+        text: "「ネットが{責|せ}められる」と{思|おも}った。だから——「{二段階|にだんかい}{認証|にんしょう}があればパスワードが{弱|よわ}くても{守|まも}れる」という{内容|ないよう}にガイドを{変|か}えれば、ネットが{傷|きず}つかずに{済|す}むと{思|おも}ったんだ。"
+        expression: thinking
+      - type: dialog
+        character: pasu
+        text: "でも、{勝手|かって}に{書|か}き{換|か}えるんじゃなくて——みんなに「{気|き}をつけよう」だけじゃ{足|た}りないかもしれないって{話|はな}し{合|あ}えばよかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 全員の反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "{僕|ぼく}こそ——{本当|ほんとう}に{変|か}えてなくてごめん。「{変|か}える」って{言|い}って{忘|わす}れた。{忘|わす}れたことに{気|き}づいてなかった。パスが{見|み}て{気|き}になったのは……{僕|ぼく}のせいだ。"
+        expression: worried
+      - type: dialog
+        character: netto
+        text: "でも{今日|きょう}{分|わ}かった。{知識|ちしき}があっても{人|ひと}は{忘|わす}れる。だから「しくみ」が{必要|ひつよう}なんだ。{帰|かえ}ったら{絶対|ぜったい}に{二段階|にだんかい}{認証|にんしょう}を{設定|せってい}する。"
+        expression: determined
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: gado
+        expression: normal
+        position: right
+      - type: dialog
+        character: gado
+        text: "{私|わたし}も……{知|し}ってたのに{言|い}えなかった。{言|い}いにくくても、{友|とも}だちを{守|まも}るためなら{伝|つた}えなきゃいけなかった。{次|つぎ}は{言|い}える{勇気|ゆうき}を{出|だ}す。"
+        expression: determined
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: normal
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{私|わたし}は{チェック|ちぇっく}{担当|たんとう}だったのに{書|か}き{換|か}えに{気|き}づけなかった。ログを{読|よ}む{習慣|しゅうかん}を{身|み}につければ——しくみとして「{確認|かくにん}する{仕組|しくみ}」を{作|つく}れる。{個人|こじん}の{注意|ちゅうい}だけじゃなく、{定期|ていき}{確認|かくにん}の{仕組|しくみ}が{必要|ひつよう}だと{分|わ}かった。"
+        expression: thinking
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "パスは{悪意|あくい}があったわけじゃない。{友|とも}だちをかばいたかった——そして「{気|き}をつけよう」だけでは{足|た}りないという{大切|たいせつ}なことに{気|き}づいていた。でも{解決|かいけつ}の{方法|ほうほう}は、{一人|ひとり}で{決|き}めることじゃなかったのよ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{今日|きょう}のネット{探偵団|たんていだん}Vol.1から10まで、{皆|みな}さんは「フィッシング」「パスワード」「なりすまし」「{偽|にせ}サイト」……たくさんのことを{学|まな}んだ。でも{知識|ちしき}は{持|も}っているだけでは{守|まも}れない。**「しくみ」と「{知識|ちしき}」の{両輪|りょうりん}で、{初|はじ}めて{本当|ほんとう}の{安全|あんぜん}が{手|て}に{入|はい}るのよ。**"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】デジタルフットプリント——ネット{上|じょう}の{行動|こうどう}はすべて{記録|きろく}として{残|のこ}る。「しくみで{守|まも}る」とは：{二段階|にだんかい}{認証|にんしょう}・プライバシー{設定|せってい}・アプリの{権限|けんげん}{管理|かんり}を{設定|せってい}することで、{忘|わす}れても{守|まも}られる{状態|じょうたい}を{作|つく}ること。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{知識|ちしき}だけでは{足|た}りない——Vol.2で{学|まな}んだ{後|あと}も、ネットはパスワードを{変|か}えていなかった。「{気|き}をつけよう」は{忘|わす}れる。だから「しくみ」が{必要|ひつよう}。{知識|ちしき}とシステムの{両輪|りょうりん}。"
+      - type: narration
+        text: "【ネット{探偵団|たんていだん} Vol.1-10 {振|ふ}り{返|かえ}り】Vol.1:{偽|にせ}メール→Vol.2:パスワード→Vol.3:なりすまし→Vol.4:{偽|にせ}サイト→Vol.5:デジタルタトゥー→Vol.6:{公衆|こうしゅう}Wi-Fi→Vol.7:AI{音声|おんせい}→Vol.8:{偽|にせ}レビュー→Vol.9:データ{収集|しゅうしゅう}→Vol.10:{知識|ちしき}+しくみの{両輪|りょうりん}——{全部|ぜんぶ}つながった。"
+      - type: effect
+        name: fade-out

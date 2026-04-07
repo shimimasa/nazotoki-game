@@ -1,0 +1,405 @@
+meta:
+  id: classic-04
+  title: 源氏の扇
+  series: 古典探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: library
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図書室|としょしつ}の{古|ふる}い{本棚|ほんだな}の{裏|うら}から、{和紙|わし}の{扇|おうぎ}が{見|み}つかった。"
+      - type: narration
+        text: "{扇|おうぎ}には{筆|ふで}で{和歌|わか}が{書|か}かれている。「{誰|だれ}がいつ{書|か}いたのか」が{分|わ}からない。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{和歌|わか}には{枕詞|まくらことば}と{掛詞|かけことば}が{使|つか}われており、{表向|おもてむ}きは「{花|はな}への{想|おも}い」だが、もう{一|ひと}つの{意味|いみ}を{読|よ}み{解|と}くと「{寂|さみ}しさ」が{浮|う}かび{上|あ}がる。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{図書室|としょしつ}の{古|ふる}い{本棚|ほんだな}の{裏|うら}から{扇|おうぎ}が{見|み}つかったの。{和歌|わか}が{書|か}いてあるんだけど——{誰|だれ}が{書|か}いたのか{全然|ぜんぜん}わからなくて。{差出人|さしだしにん}を{特定|とくてい}してもらえる？"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "今日のカギは「{枕詞|まくらことば}・{掛詞|かけことば}の{仕組|しく}み」——{和歌|わか}の{技法|ぎほう}を{使|つか}って「{表|おもて}の{意味|いみ}」と「{裏|うら}の{意味|いみ}」を{読|よ}み{取|と}ることよ。{古典探偵団|こてんたんていだん}、お{願|ねが}いね。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: surprised
+          - character: utayomi
+            expression: thinking
+          - character: shirabe
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{誰|だれ}がいつ{書|か}いたのか」——{謎|なぞ}は{深|ふか}まるばかりだった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 源氏の扇
+        subtitle: 古典探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: library
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 扇の和歌と古典ガイド
+      - type: narration
+        text: "{図書室|としょしつ}の{本棚|ほんだな}の{裏|うら}から{見|み}つかった{扇|おうぎ}——{和紙|わし}に{筆|ふで}で{丁寧|ていねい}に{書|か}かれた{和歌|わか}が{一首|いっしゅ}。{見|み}るからに{古|ふる}そうだが……"
+      - type: evidence
+        id: card-1
+        title: 扇の和歌（全文と現代語訳）
+        content: "「あしびきの　{山|やま}の{松|まつ}かも　{花|はな}さかむ　いつとも{知|し}らず　{待|ま}ちわびにけり」／{表|おもて}の{意味|いみ}：「{山|やま}の{花|はな}が{美|うつく}しく{咲|さ}いている。いつ{咲|さ}くとも{知|し}れず、ずっと{待|ま}っていた」"
+      - type: sprite
+        character: utayomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "「あしびきの」って{聞|き}いたことある！　{枕詞|まくらことば}——{山|やま}にかかる{言葉|ことば}だ。そして「{松|まつ}」……{松|まつ}って{木|き}の{名前|なまえ}だよね？　でも{何|なに}か{別|べつ}の{意味|いみ}も{隠|かく}れてる{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: narration
+        text: "{枕詞|まくらことば}・{掛詞|かけことば}ガイド——{和歌|わか}の{技法|ぎほう}を、{現代語訳|げんだいごやく}つきでやさしく{解説|かいせつ}してくれている{補助資料|ほじょしりょう}。{古語|こご}が{読|よ}めなくても{大丈夫|だいじょうぶ}。"
+      - type: evidence
+        id: card-2
+        title: 枕詞・掛詞ガイド
+        content: "【{枕詞|まくらことば}】「あしびきの」→{山|やま}にかかる{飾|かざ}りの{言葉|ことば}。{意味|いみ}はなく、{次|つぎ}の{言葉|ことば}を{引|ひ}き{立|た}てる／【{掛詞|かけことば}】「{松|まつ}」→①{木|き}の「{松|まつ}」②{待|ま}ち{続|つづ}ける「{待|ま}つ」の{二|ふた}つの{意味|いみ}を{持|も}つ。{裏|うら}の{意味|いみ}：「{誰|だれ}かを{待|ま}ち{続|つづ}ける{寂|さみ}しさ」"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: library
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: タイムラインの発見と感情の読み取り
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "ちょっと{待|ま}って！　この{扇|おうぎ}の{和紙|わし}——{先週|せんしゅう}の{書写|しょしゃ}の{授業|じゅぎょう}で{配|くば}られたやつだよ！　それと{扇|おうぎ}の{形|かたち}も、{先月|せんげつ}の{図工|ずこう}で{作|つく}ったのと{同|おな}じだ。{古|ふる}そうに{見|み}えるけど、{実|じつ}は{最近|さいきん}のものだ！"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-3
+        title: コトバのタイムライン
+        content: "【{和紙|わし}】{先週|せんしゅう}の{書写|しょしゃ}の{授業|じゅぎょう}で{配布|はいふ}→{最近|さいきん}のもの／【{扇|おうぎ}】{先月|せんげつ}の{図工|ずこう}で{制作|せいさく}→{最近|さいきん}のもの／【{図書室|としょしつ}の{出入|でい}り{記録|きろく}】{先週|せんしゅう}{放課後|ほうかご}に{フミカ|ふみか}が1{人|り}で{図書室|としょしつ}にいた"
+      - type: sprite
+        character: shirabe
+        expression: worried
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "この{歌|うた}……{読|よ}んでたら{泣|な}きそうになった。{書|か}いた{人|ひと}は「さようなら」を{言|い}いたいのに{言|い}えない{人|ひと}だよ。それにフミカ、{最近|さいきん}{元気|げんき}なかったよね——{何|なに}か{悩|なや}んでることがあったのかも。"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ウタヨミの分析＋シラベの証言
+        content: "【ウタヨミの{分析|ぶんせき}】{掛詞|かけことば}「{松|まつ}＝{待|ま}つ」を{読|よ}み{解|と}くと{裏|うら}の{意味|いみ}：「{待|ま}ち{続|つづ}ける{寂|さみ}しさ、{別|わか}れの{予感|よかん}」／【シラベの{証言|しょうげん}】「フミカが{最近|さいきん}{元気|げんき}がなかった」"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: library
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{和紙|わし}も{扇|おうぎ}も{最近|さいきん}のもの——「{古|ふる}い{扇|おうぎ}＝{昔|むかし}の{誰|だれ}かが{書|か}いた」は{思|おも}い{込|こ}みだった。{先週|せんしゅう}{放課後|ほうかご}に1{人|り}で{図書室|としょしつ}にいたのは——フミカ。"
+      - type: sprite
+        character: utayomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "「{松|まつ}」が「{待|ま}つ」の{掛詞|かけことば}なら——この{歌|うた}は{花|はな}の{歌|うた}じゃない。{誰|だれ}かを{待|ま}ち{続|つづ}けている{歌|うた}だ。{寂|さみ}しさを、{古典|こてん}の{言葉|ことば}に{隠|かく}した……?"
+        expression: thinking
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: fumika
+        expression: worried
+        position: left
+      - type: dialog
+        character: fumika
+        text: "……{私|わたし}、{最近|さいきん}{元気|げんき}なかったの、{気|き}づいてたんだ。{伝|つた}えたいことがあったけど、どうやって{言|い}えばいいか{分|わ}からなくて——"
+        expression: worried
+      - type: sprite
+        character: fumika
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: library
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "フミカに{直接|ちょくせつ}{聞|き}いてみたの。そしたら——こう{言|い}ってくれたわ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{転校|てんこう}が{決|き}まって{寂|さみ}しかった。{直接|ちょくせつ}{言|い}えないから{和歌|わか}にした。{源氏物語|げんじものがたり}の{人|ひと}たちみたいに、{気持|きも}ちを{歌|うた}に{託|たく}したかった」……って。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "フミカの{言葉|ことば}：「{転校|てんこう}が{決|き}まって{寂|さみ}しかった。{直接|ちょくせつ}{言|い}えないから{和歌|わか}にした。{源氏物語|げんじものがたり}の{人|ひと}たちみたいに、{気持|きも}ちを{歌|うた}に{託|たく}したかった。{誰|だれ}かに{見|み}つけてほしかった」"
+      - type: sprite
+        character: shirabe
+        expression: surprised
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "フミカ……{転校|てんこう}するの？　だから{元気|げんき}なかったんだ——この{歌|うた}の「さようならを{言|い}いたいのに{言|い}えない」って、フミカの{気持|きも}ちだったんだ。"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "「{松|まつ}＝{待|ま}つ」——フミカは「みんなに{気|き}づいてほしい、{見|み}つけてほしい」という{気持|きも}ちを{掛詞|かけことば}に{込|こ}めたんだ。{千年前|せんねんまえ}の{古典|こてん}の{技法|ぎほう}が、{今日|きょう}の{気持|きも}ちを{運|はこ}ぶ{言葉|ことば}になってた！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{転校|てんこう}が{決|き}まった→{直接|ちょくせつ}{言|い}えない→{和歌|わか}の{技法|ぎほう}で{気持|きも}ちを{託|たく}す→「{見|み}つけてほしい」。{千年前|せんねんまえ}の{人|ひと}が{使|つか}った{枕詞|まくらことば}と{掛詞|かけことば}が、フミカの「{寂|さみ}しさ」を{運|はこ}ぶ{言葉|ことば}になっていた。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: library
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 図書室の扇に和歌を書いたのは誰？
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{証拠|しょうこ}をまとめよう。{和紙|わし}も{扇|おうぎ}も{最近|さいきん}のもの——「{古|ふる}い{扇|おうぎ}＝{昔|むかし}のもの」は{思|おも}い{込|こ}みだった。{先週|せんしゅう}{放課後|ほうかご}に{図書室|としょしつ}にいたのはフミカ。そして{和歌|わか}の{裏|うら}の{意味|いみ}は「{待|ま}ち{続|つづ}ける{寂|さみ}しさ」——"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{和紙|わし}は{先週|せんしゅう}の{書写|しょしゃ}の{授業|じゅぎょう}で{配布|はいふ}——{最近|さいきん}のもの。②{扇|おうぎ}は{先月|せんげつ}の{図工|ずこう}で{制作|せいさく}——{最近|さいきん}のもの。③{先週|せんしゅう}{放課後|ほうかご}、{図書室|としょしつ}に1{人|り}でいたのはフミカ。④{和歌|わか}の{掛詞|かけことば}「{松|まつ}＝{待|ま}つ」は「{寂|さみ}しさ」を{表|あらわ}す。⑤フミカ{本人|ほんにん}が{転校|てんこう}・{和歌|わか}に{気持|きも}ちを{託|たく}したことを{確認|かくにん}。"
+      - type: choice
+        id: q1
+        question: 図書室の扇に和歌を書いたのは誰？
+        options:
+          - text: フミカ（転校が決まって寂しくて、和歌に気持ちを託した）
+            value: fumika
+            correct: true
+            feedback: "{正解|せいかい}！　フミカは{転校|てんこう}する{寂|さみ}しさを{直接|ちょくせつ}{言|い}えなかった。だから{源氏物語|げんじものがたり}の{時代|じだい}の{人|ひと}たちのように、{和歌|わか}に{気持|きも}ちを{込|こ}めた。**{枕詞|まくらことば}・{掛詞|かけことば}は「{飾|かざ}り」ではなく、「{伝|つた}えたい{気持|きも}ちを{表|あらわ}す{技|わざ}」。{千年前|せんねんまえ}の{人|ひと}も{今日|きょう}の{人|ひと}も、{大切|たいせつ}な{気持|きも}ちは{言葉|ことば}に{託|たく}す。**"
+          - text: コトバ（タイムラインを整理した人）
+            value: kotoba
+            feedback: "コトバは{和紙|わし}と{扇|おうぎ}が{最近|さいきん}のものだと{気|き}づいて「{古|ふる}いものじゃない！」と{発見|はっけん}した{側|がわ}だよ。{図書室|としょしつ}には{放課後|ほうかご}{入|はい}っていないよ。"
+          - text: ウタヨミ（和歌の技法を分析した人）
+            value: utayomi
+            feedback: "ウタヨミは{掛詞|かけことば}「{松|まつ}＝{待|ま}つ」を{読|よ}み{解|と}いて{裏|うら}の{意味|いみ}を{発見|はっけん}した{側|がわ}だよ。{和歌|わか}を{書|か}いた{人|ひと}ではないよ。"
+          - text: シラベ（和歌の感情を読み取った人）
+            value: shirabe
+            feedback: "シラベは{歌|うた}の{感情|かんじょう}を{直感|ちょっかん}で{読|よ}み{取|と}り、フミカの{変化|へんか}に{気|き}づいた{側|がわ}だよ。{先週|せんしゅう}{放課後|ほうかご}に{図書室|としょしつ}にいたのはフミカだったよ。"
+
+  # ==================== 真相：フミカの告白 ====================
+  - id: truth-fumika
+    bg: library
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: フミカの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: fumika
+        expression: worried
+        position: center
+      - type: dialog
+        character: fumika
+        text: "……この{和歌|わか}は{私|わたし}が{書|か}きました。{転校|てんこう}することを、みんなに{伝|つた}えられなくて——"
+        expression: worried
+      - type: dialog
+        character: fumika
+        text: "{直接|ちょくせつ}「{寂|さみ}しい」って{言|い}えなかった。でも{国語|こくご}の{授業|じゅぎょう}で{源氏物語|げんじものがたり}を{読|よ}んだとき、{千年前|せんねんまえ}の{人|ひと}も{直接|ちょくせつ}{言|い}えない{気持|きも}ちを{和歌|わか}に{込|こ}めていたって{知|し}って——{私|わたし}も{同|おな}じようにしたかった。"
+        expression: thinking
+      - type: dialog
+        character: fumika
+        text: "「{松|まつ}＝{待|ま}つ」の{掛詞|かけことば}で、「{誰|だれ}かが{気|き}づいてくれるのを{待|ま}っている」という{気持|きも}ちを{込|こ}めたんです。{見|み}つけてほしかった……"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: library
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「{古|ふる}いものじゃない」って{気|き}づいたとき、まさかフミカだとは{思|おも}わなかった。でも{図書室|としょしつ}の{記録|きろく}を{見|み}て——{和紙|わし}の{入手|にゅうしゅ}タイミングとつなぐと、{全部|ぜんぶ}{合|あ}う。{思|おも}い{込|こ}みに{気|き}づかないと、ずっと「{昔|むかし}の{誰|だれ}か」のままだった。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "「{松|まつ}＝{待|ま}つ」——{技法|ぎほう}を{知|し}らなければ、ただの「{山|やま}の{花|はな}の{歌|うた}」に{見|み}えた。{掛詞|かけことば}は{暗号|あんごう}みたいなもの。フミカが{千年前|せんねんまえ}の{言葉|ことば}に{今日|きょう}の{気持|きも}ちを{載|の}せてた——{古典|こてん}って{生|い}きてるんだ。"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: worried
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "「さようならを{言|い}いたいのに{言|い}えない{人|ひと}だよ」って{思|おも}ったとき、フミカの{顔|かお}が{頭|あたま}に{浮|う}かんでた。{証拠|しょうこ}より{先|さき}に、{歌|うた}の{気持|きも}ちがフミカを{指|さ}してた。"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: library
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{源氏物語|げんじものがたり}の{時代|じだい}、{人|ひと}は{直接|ちょくせつ}{言|い}えない{気持|きも}ちを{和歌|わか}に{託|たく}したの。{枕詞|まくらことば}や{掛詞|かけことば}は{飾|かざ}りではなく——「{表|おもて}に{見|み}せながら、{裏|うら}に{本当|ほんとう}の{気持|きも}ちを{込|こ}める」{技|わざ}だったのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "フミカは{千年前|せんねんまえ}の{人|ひと}と{同|おな}じことをした。{大切|たいせつ}な{気持|きも}ちを{言葉|ことば}に{込|こ}めて、{誰|だれ}かに{届|とど}くのを{待|ま}っていた。{古典|こてん}を{読|よ}むということは——そういう{気持|きも}ちに{出会|であ}うことなのよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{タイムライン}——{出来事|できごと}を{時間|じかん}{順|じゅん}に{並|なら}べることで「{古|ふる}い{扇|おうぎ}＝{昔|むかし}のもの」という{思|おも}い{込|こ}みを{崩|くず}した。{和紙|わし}の{入手|にゅうしゅ}{時期|じき}・{扇|おうぎ}の{制作|せいさく}{時期|じき}・{図書室|としょしつ}の{出入|でい}り{記録|きろく}——{三|みっ}つの{事実|じじつ}を{並|なら}べると「{最近|さいきん}{書|か}かれた」と{特定|とくてい}できた。"
+      - type: narration
+        text: "{枕詞|まくらことば}・{掛詞|かけことば}——「{表|おもて}の{意味|いみ}」と「{裏|うら}の{意味|いみ}」を{読|よ}み{取|と}ることで、{和歌|わか}に{込|こ}められた{本当|ほんとう}の{気持|きも}ちに{届|とど}けることができた。{千年前|せんねんまえ}の{言葉|ことば}が、{今日|きょう}の{謎|なぞ}を{解|と}く{鍵|かぎ}になった。"
+      - type: effect
+        name: fade-out

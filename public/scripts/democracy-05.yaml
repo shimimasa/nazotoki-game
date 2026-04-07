@@ -1,0 +1,409 @@
+meta:
+  id: democracy-05
+  title: 公約の嘘
+  series: 選挙探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{児童会長|じどうかいちょう}ヒョウが{選挙|せんきょ}で{掲|かか}げた{公約|こうやく}——「{図書室|としょしつ}を{毎日|まいにち}{放課後|ほうかご}{開放|かいほう}する」。あれから4か{月|げつ}が{過|す}ぎた。"
+      - type: narration
+        text: "クラスメイトの{声|こえ}が{集|あつ}まりはじめた。「{図書室|としょしつ}、{結局|けっきょく}ずっと{閉|し}まってるよね」「{公約|こうやく}って{実現|じつげん}しないの？」——{不満|ふまん}がひそひそと{広|ひろ}がっていた。"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒョウくんの{公約|こうやく}「{図書室|としょしつ}{放課後|ほうかご}{開放|かいほう}」が、4か{月|げつ}たっても{実現|じつげん}していないという{声|こえ}が{上|あ}がっているわ。{選挙探偵団|せんきょたんていだん}のみんなに{調|しら}べてほしいの。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "ヒョウくんは{活動記録|かつどうきろく}を{提出|ていしゅつ}してくれているの。でも{図書室|としょしつ}{開放|かいほう}に{向|む}けて{何|なに}か{動|うご}いたのか、{記録|きろく}をよく{見|み}てほしいわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: gikai
+            expression: thinking
+          - character: tami
+            expression: worried
+          - character: nozomi
+            expression: normal
+      - type: narration
+        text: "{公約|こうやく}は{選挙|せんきょ}の{約束|やくそく}——{選|えら}ばれた{人|ひと}がやり{遂|と}げると{宣言|せんげん}したこと。4か{月|げつ}のあいだ、ヒョウはいったい{何|なに}をしていたのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 公約の嘘
+        subtitle: 選挙探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 公約と活動記録を照らし合わせる
+      - type: narration
+        text: "まず{公約|こうやく}の{内容|ないよう}と、{図書室|としょしつ}の{現状|げんじょう}を{確認|かくにん}した。"
+      - type: evidence
+        id: card-1
+        title: 公約一覧と図書室開放状況
+        content: "【{公約|こうやく}{一覧|いちらん}（ヒョウ）】①{図書室|としょしつ}{毎日|まいにち}{放課後|ほうかご}{開放|かいほう}　②{給食|きゅうしょく}メニューへの{意見|いけん}{収集|しゅうしゅう}　③{掲示板|けいじばん}{更新|こうしん}　④{委員会間|いいんかいかん}の{連絡|れんらく}{強化|きょうか}。【{図書室|としょしつ}{開放|かいほう}{状況|じょうきょう}】{選挙|せんきょ}{前後|ぜんご}で{変化|へんか}なし——{週|しゅう}2{回|かい}（{火曜|かよう}・{木曜|もくよう}{昼休|ひるやす}みのみ）。{放課後|ほうかご}{開放|かいほう}は{一度|いちど}もなし。"
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "{公約|こうやく}の{一番目|いちばんめ}——「{図書室|としょしつ}{毎日|まいにち}{放課後|ほうかご}{開放|かいほう}」。でも{実際|じっさい}の{開放|かいほう}{状況|じょうきょう}は4か{月|げつ}{前|まえ}と{変|か}わってない。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: narration
+        text: "ヒョウが{提出|ていしゅつ}してきた{活動記録|かつどうきろく}を{確認|かくにん}する。4か{月|げつ}ぶん——かなりの{量|りょう}がある。"
+      - type: evidence
+        id: card-2
+        title: ヒョウの活動記録4か月分
+        content: "【{活動記録|かつどうきろく}（4か{月分|げつぶん}）】{掲示板|けいじばん}{更新|こうしん}: 12{回|かい}。{読書|どくしょ}バトル{企画|きかく}・{運営|うんえい}: 8{回|かい}（{参加者|さんかしゃ}{延|のべ}150{名|めい}）。{給食|きゅうしょく}{意見|いけん}{収集|しゅうしゅう}: 3{回|かい}。{委員会間|いいんかいかん}{連絡|れんらく}: 6{回|かい}。{図書室|としょしつ}{開放|かいほう}に{関|かん}する{記録|きろく}: 0{件|けん}。→{合計|ごうけい}29{件|けん}の{活動|かつどう}が{記録|きろく}されているが、{図書室|としょしつ}{交渉|こうしょう}は{一件|いっけん}もない。"
+      - type: sprite
+        character: gikai
+        expression: surprised
+        position: right
+      - type: dialog
+        character: gikai
+        text: "29{件|けん}の{活動|かつどう}……{確|たし}かにいっぱい{動|うご}いてる。でも{図書室|としょしつ}{開放|かいほう}に{関|かん}する{記録|きろく}が{一件|いっけん}もない。{公約|こうやく}の{一番大切|いちばんたいせつ}なやつが——"
+        expression: surprised
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 活動と公約のズレを詳しく調べる
+      - type: narration
+        text: "{活動記録|かつどうきろく}と{公約|こうやく}を{照合|しょうごう}すると、{時間配分|じかんはいぶん}の{偏|かたよ}りが{見|み}えてきた。"
+      - type: evidence
+        id: card-3
+        title: 公約と活動記録の照合表
+        content: "【{公約|こうやく}→{活動記録|かつどうきろく}{照合|しょうごう}】①{図書室|としょしつ}{毎日|まいにち}{放課後|ほうかご}{開放|かいほう}——{関連活動|かんれんかつどう}: 0{件|けん}（{放課後開放|ほうかごかいほう}の{交渉|こうしょう}{記録|きろく}ゼロ）。②{給食|きゅうしょく}{意見|いけん}{収集|しゅうしゅう}——{関連活動|かんれんかつどう}: 3{件|けん}（○）。③{掲示板|けいじばん}{更新|こうしん}——{関連活動|かんれんかつどう}: 12{件|けん}（◎）。④{委員会間|いいんかいかん}{連絡|れんらく}——{関連活動|かんれんかつどう}: 6{件|けん}（◎）。【{読書|どくしょ}バトル{時間|じかん}】{活動時間|かつどうじかん}の{推計|すいけい}: {読書|どくしょ}バトル{企画|きかく}・{運営|うんえい}が{全体|ぜんたい}の{約|やく}4{割|わり}を{占|し}める。"
+      - type: sprite
+        character: nozomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "{活動|かつどう}してないわけじゃない——でも{一番大事|いちばんだいじ}な{公約|こうやく}に{向|む}けた{行動|こうどう}がゼロ。{読書|どくしょ}バトルにすごく{力|ちから}を{入|い}れてるんだね。"
+        expression: thinking
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: narration
+        text: "{図書室|としょしつ}{担当|たんとう}の{先生|せんせい}——ヒョウから{直接|ちょくせつ}{相談|そうだん}があったかどうか、{話|はな}を{聞|き}けた。"
+      - type: evidence
+        id: card-4
+        title: 図書室担当の先生「一度も相談を受けていない」
+        content: "【{図書室|としょしつ}{担当|たんとう}{教員|きょういん}の{証言|しょうげん}】「ヒョウくんから{放課後|ほうかご}{開放|かいほう}について{相談|そうだん}を{受|う}けたことは{一度|いちど}もない。{児童|じどう}{会長|かいちょう}から{交渉|こうしょう}があれば{前向|まえむ}きに{検討|けんとう}するつもりだったのに、{連絡|れんらく}がなかった」。→{公約実現|こうやくじつげん}のための{交渉|こうしょう}{自体|じたい}が{始|はじ}まっていない。"
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: left
+      - type: dialog
+        character: hyou
+        text: "……{図書室|としょしつ}の{先生|せんせい}に{一度|いちど}も{相談|そうだん}してなかった。{先生|せんせい}は「{連絡|れんらく}があれば{前向|まえむ}きに{検討|けんとう}した」って言ってくれてる——{交渉|こうしょう}の{出口|でぐち}はあったのに。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。ヒョウは{確|たし}かに{活動|かつどう}していた——でも{公約|こうやく}の{一番目|いちばんめ}に{向|む}けた{行動|こうどう}はゼロ。{読書|どくしょ}バトルに{熱中|ねっちゅう}している{間|あいだ}、{図書室|としょしつ}{交渉|こうしょう}は{後回|あとまわ}しにされ{続|つづ}けた。"
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: left
+      - type: dialog
+        character: gikai
+        text: "「{活動|かつどう}した」と「{公約|こうやく}のために{活動|かつどう}した」は{違|ちが}う——これが{一番|いちばん}{大事|だいじ}なポイントだと{思|おも}う。{記録|きろく}はあるのに、{約束|やくそく}した{目標|もくひょう}に{近|ちか}づいてない。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: tami
+        expression: worried
+        position: right
+      - type: dialog
+        character: tami
+        text: "ヒョウが{悪意|あくい}を{持|も}ってたとは{思|おも}えない。{読書|どくしょ}バトルが{盛|も}り{上|あ}がってたのも{知|し}ってる。でも——{公約|こうやく}って{何|なん}のためにあるんだろう。"
+        expression: worried
+      - type: sprite
+        character: tami
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ヒョウの告白と先生の言葉
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: center
+      - type: dialog
+        character: hyou
+        text: "……{正直|しょうじき}に{話|はな}します。{読書|どくしょ}バトルが{盛|も}り{上|あ}がって、{交渉|こうしょう}がめんどくさくなってしまった。"
+        expression: worried
+      - type: dialog
+        character: hyou
+        text: "{図書室|としょしつ}{担当|たんとう}の{先生|せんせい}に{話|はな}しかけようとしたこと、{何度|なんど}かあったんだ。でも{読書|どくしょ}バトルの{準備|じゅんび}があって、「{明日|あした}にしよう」って——{ずっと|ずっと}{後回|あとまわ}しにしてた。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ヒョウの告白と先生の言葉
+        content: "【ヒョウの{告白|こくはく}】「{読書|どくしょ}バトルに{熱中|ねっちゅう}して、{交渉|こうしょう}がめんどくさくなってしまった。{公約|こうやく}のことは{忘|わす}れていたわけじゃないが、{後回|あとまわ}しにし{続|つづ}けた。{報告|ほうこく}もしなかった」。【{先生|せんせい}の{言葉|ことば}】{公約|こうやく}は{選挙|せんきょ}の{約束|やくそく}。{難|むずか}しいなら{難|むずか}しいと{報告|ほうこく}する{責任|せきにん}がある。{進|すす}んでいない{事実|じじつ}を{隠|かく}して{活動記録|かつどうきろく}だけ{出|だ}し{続|つづ}けることは、{有権者|ゆうけんしゃ}（クラスメイト）への{説明責任|せつめいせきにん}を{果|は}たしていない。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒョウくんが{活動|かつどう}していたのは{本当|ほんとう}のこと。でも{公約|こうやく}に{向|む}けた{交渉|こうしょう}を{一度|いちど}もしなかったのも{事実|じじつ}——それに{気|き}づいていたなら、{報告|ほうこく}する{義務|ぎむ}があったわ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{選挙|せんきょ}で{約束|やくそく}した{公約|こうやく}が{難|むずか}しいと{分|わ}かったとき、やるべきことは{一|ひと}つ——「{進|すす}んでいません、{理由|りゆう}はこうです、こうします」と{説明|せつめい}すること。それが{選|えら}ばれた{人|ひと}の{責任|せきにん}よ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{活動|かつどう}した」≠「{公約|こうやく}のために{活動|かつどう}した」——{記録|きろく}があっても、{約束|やくそく}した{目標|もくひょう}に{向|む}けて{動|うご}かなければ、{公約|こうやく}を{守|まも}ったことにはならない。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 公約を守らなかった責任は誰にある？
+      - type: sprite
+        character: gikai
+        expression: determined
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{公約|こうやく}の{目標|もくひょう}に{向|む}けた{行動|こうどう}はゼロ。{図書室|としょしつ}{担当|たんとう}の{先生|せんせい}は「{一度|いちど}も{相談|そうだん}がなかった」と{言|い}っている。ヒョウ{自身|じしん}が「{交渉|こうしょう}を{後回|あとまわ}しにした」と{告白|こくはく}した。{真相|しんそう}は{一|ひと}つだ。"
+        expression: determined
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{公約|こうやく}「{図書室|としょしつ}{毎日|まいにち}{放課後|ほうかご}{開放|かいほう}」——4か{月|げつ}で{変化|へんか}なし。②{活動記録|かつどうきろく}29{件|けん}——{図書室|としょしつ}{関連|かんれん}ゼロ。③{図書室|としょしつ}{担当|たんとう}{教員|きょういん}「{一度|いちど}も{相談|そうだん}なし」。④ヒョウ「{読書|どくしょ}バトルに{熱中|ねっちゅう}して{交渉|こうしょう}を{後回|あとまわ}しにした」。⑤{報告|ほうこく}なし——クラスメイトは{状況|じょうきょう}を{知|し}らされていなかった。"
+      - type: choice
+        id: q1
+        question: 公約を守らなかった責任は誰にある？
+        options:
+          - text: ヒョウ（悪意なしでも交渉を怠り、説明責任も果たさなかった）
+            value: hyou
+            correct: true
+            feedback: "{正解|せいかい}！　ヒョウに{悪意|あくい}はなかった——でも{公約|こうやく}に{向|む}けた{交渉|こうしょう}をゼロのまま{放置|ほうち}し、{進|すす}んでいないことを{報告|ほうこく}しなかった。**「{活動|かつどう}した」と「{公約|こうやく}のために{活動|かつどう}した」は{違|ちが}う。{選|えら}ばれた{人|ひと}には{説明責任|せつめいせきにん}がある。**"
+          - text: ギカイ（公約と活動記録の照合で問題を発見した側）
+            value: gikai
+            feedback: "ギカイは{公約|こうやく}と{活動記録|かつどうきろく}を{照合|しょうごう}して「{図書室|としょしつ}{関連|かんれん}がゼロ」という{事実|じじつ}を{発見|はっけん}した{側|がわ}だよ。{問題|もんだい}を{見|み}つける{大切|たいせつ}な{役割|やくわり}を{果|は}たしたね。"
+          - text: タミ（図書室の実態を観察していた側）
+            value: tami
+            feedback: "タミは{図書室|としょしつ}を{利用|りよう}していて、{放課後|ほうかご}が{一度|いちど}も{開|あ}いていないという{実態|じったい}を{観察|かんさつ}した{側|がわ}だよ。{証拠|しょうこ}を{提供|ていきょう}してくれた{大切|たいせつ}な{証人|しょうにん}だね。"
+          - text: ノゾミ（ヒョウの行動を知っていたが責任はヒョウにある）
+            value: nozomi
+            feedback: "ノゾミはヒョウの{活動|かつどう}を{近|ちか}くで{知|し}っていた。でも{ノゾミ|のぞみ}は{公約|こうやく}を{掲|かか}げた{側|がわ}ではないから、{実現|じつげん}の{責任|せきにん}はない。{責任|せきにん}は{公約|こうやく}した{本人|ほんにん}にあるよ。"
+
+  # ==================== 真相：ヒョウの告白 ====================
+  - id: truth-hyou
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ヒョウの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: center
+      - type: dialog
+        character: hyou
+        text: "……{本当|ほんとう}のことを{話|はな}します。{読書|どくしょ}バトルが{本当|ほんとう}に{楽|たの}しくて、どんどん{大|おお}きくなっていって——{気|き}づいたらそっちに{夢中|むちゅう}になってた。"
+        expression: worried
+      - type: dialog
+        character: hyou
+        text: "{図書室|としょしつ}の{先生|せんせい}に{話|はな}しかけようとしたこと、{何度|なんど}かあった。でも「{今日|きょう}はいいか」って、ずっと{後回|あとまわ}しにしてしまった。"
+        expression: worried
+      - type: dialog
+        character: hyou
+        text: "{活動記録|かつどうきろく}を{出|だ}せばいいと{思|おも}ってた……でも{公約|こうやく}のための{行動|こうどう}は{全然|ぜんぜん}してなかった。{図書室|としょしつ}を{待|ま}ってた{子|こ}たちに、{説明|せつめい}もしなかった。それは{間違|まちが}いだったと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 真相：他のキャラの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tami
+        expression: normal
+        position: left
+      - type: dialog
+        character: tami
+        text: "ずっと{待|ま}ってた。{放課後|ほうかご}、{今日|きょう}こそ{開|あ}いてるかなって{毎回|まいかい}{確認|かくにん}してた。でも——ヒョウが{悪意|あくい}を{持|も}ってたわけじゃないのは{分|わ}かった。"
+        expression: normal
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "{読書|どくしょ}バトルのこと、ヒョウが{本当|ほんとう}に{楽|たの}しそうだったのは{分|わ}かる。でも……{公約|こうやく}って{宣言|せんげん}した{以上|いじょう}、{難|むずか}しいなら「{難|むずか}しい」って{言|い}う{責任|せきにん}があるよね。"
+        expression: thinking
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: normal
+        position: left
+      - type: dialog
+        character: gikai
+        text: "{公約|こうやく}は「やります」という{約束|やくそく}——でも{約束|やくそく}が{難|むずか}しいと{気|き}づいたとき、「{難|むずか}しいです」と{報告|ほうこく}するのも{同|おな}じくらい{大切|たいせつ}なんだ。{記録|きろく}を{出|だ}してれば{大丈夫|だいじょうぶ}ってわけじゃない。"
+        expression: normal
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒョウくんが{活動|かつどう}していたのは{本当|ほんとう}のこと。でも「{活動|かつどう}した」こととを「{公約|こうやく}のために{活動|かつどう}した」は{別|べつ}のことよ。{選|えら}ばれた{人|ひと}には、{公約|こうやく}に{向|む}けて{動|うご}く{義務|ぎむ}と——{進|すす}まないなら{報告|ほうこく}する{義務|ぎむ}がある。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{政策|せいさく}{評価|ひょうか}って、「{何|なに}かやった」かじゃなくて「{約束|やくそく}した{目標|もくひょう}に{近|ちか}づいたか」で{見|み}るもの——これは{本物|ほんもの}の{政治|せいじ}でも、{学校|がっこう}の{児童会|じどうかい}でも{同|おな}じよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{公約|こうやく}と{説明責任|せつめいせきにん}——{公約|こうやく}は{選挙|せんきょ}の{約束|やくそく}。{実現|じつげん}が{難|むずか}しい{場合|ばあい}は、{状況|じょうきょう}を{報告|ほうこく}する{責任|せきにん}がある。{活動記録|かつどうきろく}を{出|だ}すだけでは{足|た}りない——{公約|こうやく}に{向|む}けた{行動|こうどう}をしたか、{有権者|ゆうけんしゃ}に{説明|せつめい}できるかが{問|と}われる。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{仮説|かせつ}{検証|けんしょう}——「{活動|かつどう}した」≠「{公約|こうやく}のために{活動|かつどう}した」。{記録|きろく}がある → {活動|かつどう}した（{事実|じじつ}）。{公約|こうやく}に{関連|かんれん}する{記録|きろく}がゼロ → {公約|こうやく}への{努力|どりょく}はなかった（{仮説|かせつ}）。{担当|たんとう}{教員|きょういん}「{一度|いちど}も{相談|そうだん}なし」→ {仮説|かせつ}{確認|かくにん}。{証拠|しょうこ}で{仮説|かせつ}を{検証|けんしょう}する{思|おも}考{習慣|しゅうかん}が{大切|たいせつ}。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,398 @@
+meta:
+  id: democracy-07
+  title: ねじれた記事
+  series: 選挙探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}{新聞|しんぶん}の{最新号|さいしんごう}が{掲示板|けいじばん}に{貼|は}りだされた。{大|おお}きな{見出|みだ}しには「{運動会|うんどうかい}を{廃止|はいし}してほしいという{意見|いけん}が{多数|たすう}！」と{書|か}かれている。"
+      - type: narration
+        text: "クラスがざわついた。「え、{廃止|はいし}したい{子|こ}がそんなにいるの？」「{私|わたし}はそんな{気持|きも}ち{全然|ぜんぜん}ないけど」——{記事|きじ}を{読|よ}んだ{子|こ}たちが{不思議|ふしぎ}そうな{顔|かお}でつぶやく。"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{学校|がっこう}{新聞|しんぶん}に「{運動会|うんどうかい}{廃止|はいし}を{望|のぞ}む{声|こえ}が{多数|たすう}」という{記事|きじ}が{載|の}ったんだけど……{全校|ぜんこう}アンケートの{集計|しゅうけい}{結果|けっか}を{見|み}ると、{廃止|はいし}{派|は}は18パーセントしかいないの。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{新聞|しんぶん}の{記事|きじ}は{嘘|うそ}をついているわけじゃないかもしれない。でも、{全体|ぜんたい}の{姿|すがた}とはずいぶん{違|ちが}う。{選挙探偵団|せんきょたんていだん}のみんなに、{何|なに}が{起|お}きたか{調|しら}べてほしいの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: surprised
+          - character: gikai
+            expression: normal
+          - character: tami
+            expression: thinking
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{掲示板|けいじばん}の{記事|きじ}をもう{一度|いちど}{見上|みあ}げた。「{多数|たすう}」という{言葉|ことば}——{本当|ほんとう}に{多数|たすう}なのか？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ねじれた記事
+        subtitle: 選挙探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 記事とアンケート記録を確かめる
+      - type: narration
+        text: "{学校|がっこう}{新聞|しんぶん}の{問題|もんだい}の{記事|きじ}と、アンケートの{配布|はいふ}・{回収|かいしゅう}{記録|きろく}を{調|しら}べる。{記事|きじ}が{引用|いんよう}したのは、{全|ぜん}12クラスのうちのどこのデータなのか。"
+      - type: evidence
+        id: card-1
+        title: 問題の新聞記事・ギカイの発言
+        content: "【{学校|がっこう}{新聞|しんぶん}{記事|きじ}（{抜粋|ばっすい}）】「{今回|こんかい}のアンケートでは、{運動会|うんどうかい}を{廃止|はいし}してほしいという{意見|いけん}が{多数|たすう}を{占|し}めました。{来年|らいねん}の{運動会|うんどうかい}について{真剣|しんけん}な{議論|ぎろん}が{必要|ひつよう}です」。【ギカイの{発言|はつげん}】「{記事|きじ}に{書|か}いたのは{本物|ほんもの}のアンケートデータ。{嘘|うそ}はひとつも{書|か}いていない」。→{記事|きじ}の{引用|いんよう}{元|もと}が{全体|ぜんたい}の{集計|しゅうけい}かどうかは{記事|きじ}には{書|か}かれていない。"
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{僕|ぼく}が{全|ぜん}12クラスにアンケート{用紙|ようし}を{配|くば}って、{全部|ぜんぶ}{回収|かいしゅう}した。{記事|きじ}に{載|の}ってる{数字|すうじ}は、{全員|ぜんいん}のデータじゃないと{思|おも}う。{何|なに}かがおかしい。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "アンケートの{配布|はいふ}・{回収|かいしゅう}{記録|きろく}を{確認|かくにん}すると、{全|ぜん}12クラスから{回答|かいとう}が{集|あつ}まっている。しかし{記事|きじ}が{引用|いんよう}したのは——"
+      - type: evidence
+        id: card-2
+        title: アンケート配布・回収記録
+        content: "【アンケート{配布|はいふ}・{回収|かいしゅう}{記録|きろく}（ヒョウ{作成|さくせい}）】{全|ぜん}12クラスに{配布|はいふ}・{回収|かいしゅう}{完了|かんりょう}。{総回答|そうかいとう}{数|すう}: 342{人|にん}。【{記事|きじ}の{引用|いんよう}{元|もと}の{確認|かくにん}】{記事|きじ}に{記載|きさい}のある{数字|すうじ}「{廃止|はいし}{派|は}{多数|たすう}」は、4{年|ねん}2{組|くみ}（34{人|にん}）のデータのみと{一致|いっち}する。{残|のこ}り11クラス（308{人|にん}）のデータは{記事|きじ}に{反映|はんえい}されていない。→{記事|きじ}は1クラスのデータだけを「{多数|たすう}」と{表現|ひょうげん}している。"
+      - type: sprite
+        character: nozomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "1クラスだけ？{全|ぜん}12クラスのデータがあるのに、{記事|きじ}には1クラスしか{載|の}っていなかったの？{新聞|しんぶん}に{書|か}いてあったから{本当|ほんとう}だと{思|おも}って、{信|しん}じてた……"
+        expression: surprised
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 全体データと特殊事情を調べる
+      - type: narration
+        text: "{全校|ぜんこう}{集計|しゅうけい}の{結果|けっか}と、4{年|ねん}2{組|くみ}だけが{廃止|はいし}{意見|いけん}{多数|たすう}になった{背景|はいけい}を{調|しら}べる。{記事|きじ}の{数字|すうじ}と{全体|ぜんたい}の{数字|すうじ}の{間|あいだ}には、{大|おお}きな{差|さ}があるはずだ。"
+      - type: evidence
+        id: card-3
+        title: 全校集計データ・4年2組の特殊事情
+        content: "【{全校|ぜんこう}{集計|しゅうけい}（342{人|にん}）】{廃止|はいし}してほしい: 18%（62{人|にん}）/ {内容|ないよう}を{改善|かいぜん}してほしい: 40%（137{人|にん}）/ {今|いま}のまま{維持|いじ}してほしい: 42%（143{人|にん}）。【4{年|ねん}2{組|くみ}のデータ（34{人|にん}）】{廃止|はいし}: 56%（19{人|にん}）/ {改善|かいぜん}: 29%（10{人|にん}）/ {維持|いじ}: 15%（5{人|にん}）。【4{年|ねん}2{組|くみ}の{特殊|とくしゅ}{事情|じじょう}】{去年|きょねん}の{運動会|うんどうかい}でケガ{人|にん}が{複数|ふくすう}{発生|はっせい}。そのクラスでの{廃止|はいし}{意見|いけん}が{特別|とくべつ}に{多|おお}い{背景|はいけい}がある。"
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "4{年|ねん}2{組|くみ}は{去年|きょねん}のケガの{記憶|きおく}があるから、{廃止|はいし}{意見|いけん}が{多|おお}いのは{当然|とうぜん}なんだ。でも{全校|ぜんこう}で{見|み}ると{廃止|はいし}は18パーセントしかいない。{全然|ぜんぜん}{違|ちが}う{風景|ふうけい}になる。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: narration
+        text: "ギカイの{取材|しゅざい}メモが{見|み}つかった。{締切|しめきり}まで{残|のこ}り2{時間|じかん}のとき——{何|なに}を{確認|かくにん}して、{何|なに}を{確認|かくにん}しなかったのか。"
+      - type: evidence
+        id: card-4
+        title: ギカイの取材メモ
+        content: "【ギカイの{取材|しゅざい}メモ（{締切|しめきり}{前日|ぜんじつ}）】「{締切|しめきり}まで2{時間|じかん}。4{年|ねん}2{組|くみ}だけ{確認|かくにん}{済|す}み。{全校|ぜんこう}{集計|しゅうけい}は{未確認|みかくにん}。{時間|じかん}がない。4{年|ねん}2{組|くみ}のデータで{書|か}く。{嘘|うそ}は{書|か}いていない——{事実|じじつ}のデータだから」。→ギカイは{全校|ぜんこう}{集計|しゅうけい}の{存在|そんざい}を{知|し}りながら、{締切|しめきり}に{焦|あせ}って1クラスのデータだけで{記事|きじ}にした。"
+      - type: sprite
+        character: hyou
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hyou
+        text: "「{全校|ぜんこう}{集計|しゅうけい}は{未確認|みかくにん}」——{知|し}っていたのに、{確認|かくにん}しなかった。{締切|しめきり}に{間|ま}に{合|あ}わせるために、1クラスのデータだけで「{多数|たすう}」と{書|か}いた。"
+        expression: surprised
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{全校|ぜんこう}{集計|しゅうけい}では{廃止|はいし}18%・{改善|かいぜん}40%・{維持|いじ}42%。なのに{記事|きじ}は「{廃止|はいし}{多数|たすう}」と{伝|つた}えた。{記事|きじ}に{書|か}かれたデータは{嘘|うそ}ではない——しかし{全体|ぜんたい}を{見|み}せていない。{誰|だれ}が、なぜこうなったのか？"
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "4{年|ねん}2{組|くみ}のデータは{本物|ほんもの}。でも{全体|ぜんたい}の18%と、その1クラスの56%では{全然|ぜんぜん}{違|ちが}う{印象|いんしょう}になる。{一部分|いちぶぶん}だけ{見|み}せると、{嘘|うそ}をついていなくても{読|よ}む{人|ひと}に{間違|まちが}った{印象|いんしょう}を{与|あた}えてしまう。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "{新聞|しんぶん}に{書|か}いてあったから{本当|ほんとう}だって{思|おも}ってた。でも「{多数|たすう}」って{書|か}いてあっても、{全体|ぜんたい}の{何|なん}%なのかを{確認|かくにん}しなきゃいけないんだ……"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ギカイの告白と先生の言葉
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: center
+      - type: dialog
+        character: gikai
+        text: "……{正直|しょうじき}に{話|はな}します。{締切|しめきり}まで2{時間|じかん}しかなかった。{全校|ぜんこう}{集計|しゅうけい}が{存在|そんざい}することは{知|し}っていた。でも{確認|かくにん}する{時間|じかん}がないと{思|おも}って——"
+        expression: worried
+      - type: dialog
+        character: gikai
+        text: "4{年|ねん}2{組|くみ}のデータは{本物|ほんもの}だ。{嘘|うそ}は{書|か}いていない。でも……{全体|ぜんたい}を{見|み}せなかった。それが{問題|もんだい}だったのかもしれない。"
+        expression: worried
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ギカイくん、{正直|しょうじき}に{話|はな}してくれてありがとう。でも{大事|だいじ}なことを{伝|つた}えます。{正確|せいかく}な{数字|すうじ}を{使|つか}っていても、{全体|ぜんたい}を{見|み}せないと{読|よ}む{人|ひと}に{誤解|ごかい}を{与|あた}えてしまう——これを「{切|き}り{取|と}り{報道|ほうどう}」と{言|い}います。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{事実|じじつ}だけを{書|か}いた{記事|きじ}でも、{文脈|ぶんみゃく}や{全体|ぜんたい}{像|ぞう}が{欠|か}けていると、{読|よ}んだ{人|ひと}は{間違|まちが}った{判断|はんだん}をしてしまう。{情報|じょうほう}は{全体|ぜんたい}で{伝|つた}えなければいけないの。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{出|で}そろった。{全校|ぜんこう}{集計|しゅうけい}では{廃止|はいし}18%なのに「{多数|たすう}」と{報道|ほうどう}した{記事|きじ}。{締切|しめきり}の{焦|あせ}りで1クラスのデータだけを{使|つか}った——{間違|まちが}った{印象|いんしょう}を{与|あた}える{記事|きじ}を{書|か}いたのは{誰|だれ}だ？"
+      - type: vote
+        question: 間違った印象を与える記事を書いたのは誰？
+        choices:
+          - id: gikai
+            label: ギカイ
+          - id: hyou
+            label: ヒョウ
+          - id: tami
+            label: タミ
+          - id: nozomi
+            label: ノゾミ
+
+  # ==================== 真相：ギカイの告白 ====================
+  - id: truth-gikai
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 締切の焦りと切り取り報道
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: center
+      - type: dialog
+        character: gikai
+        text: "{僕|ぼく}が{書|か}いた。4{年|ねん}2{組|くみ}のデータは{本当|ほんとう}のことだ。{嘘|うそ}はひとつも{書|か}いていない。でも……{全校|ぜんこう}{集計|しゅうけい}が{存在|そんざい}することを{知|し}っていて、{確認|かくにん}しなかった。"
+        expression: worried
+      - type: dialog
+        character: gikai
+        text: "{締切|しめきり}まで2{時間|じかん}。{急|いそ}いで{手元|てもと}にあったデータで{書|か}いた。「{多数|たすう}」という{言葉|ことば}も、4{年|ねん}2{組|くみ}の{中|なか}では{本当|ほんとう}のことだと{思|おも}ってた。{全体|ぜんたい}の{中|なか}では{少数|しょうすう}だって、{気|き}づいていなかったわけじゃない。でも——{時間|じかん}がなかった。"
+        expression: worried
+      - type: dialog
+        character: gikai
+        text: "{みんな|みんな}に{迷惑|めいわく}をかけてしまった。{正確|せいかく}なデータを{確認|かくにん}してから{書|か}くべきだった。{本当|ほんとう}にごめん。"
+        expression: worried
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 真相：他キャラ反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: hyou
+        expression: determined
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{全|ぜん}12クラスのアンケートを{集|あつ}めたのに、1クラスだけが{使|つか}われてた。{記事|きじ}に「{全校|ぜんこう}の{結果|けっか}」って{書|か}いてあったわけじゃない。でも「{多数|たすう}」って{読|よ}んだら{全体|ぜんたい}の{話|はな}だと{思|おも}うよね。"
+        expression: determined
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "{嘘|うそ}じゃないけど、{全部|ぜんぶ}を{伝|つた}えていない。4{年|ねん}2{組|くみ}がケガの{記憶|きおく}で{廃止|はいし}{意見|いけん}が{多|おお}いことも、{全校|ぜんこう}では{違|ちが}うことも——どちらも{事実|じじつ}。でも{片方|かたほう}だけを「{多数|たすう}」って{書|か}くと、{読|よ}む{人|ひと}に{間違|まちが}った{絵|え}を{見|み}せることになる。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "{私|わたし}、{新聞|しんぶん}に{書|か}いてあったから{信|しん}じちゃった。{数字|すうじ}が{書|か}いてあっても、「{何人|なんにん}の{中|なか}の{何人|なんにん}か」「{全体|ぜんたい}のうちの{何|なん}%か」を{自分|じぶん}で{確認|かくにん}しなきゃいけないんだ。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{今回|こんかい}の{事件|じけん}から2つのことを{学|まな}びましょう。まず「{切|き}り{取|と}り{報道|ほうどう}」。{正確|せいかく}な{数字|すうじ}を{使|つか}っていても、{一部分|いちぶぶん}だけを{取|と}り{上|あ}げて{全体|ぜんたい}のように{伝|つた}えると、{読|よ}む{人|ひと}に{間違|まちが}った{印象|いんしょう}を{与|あた}えてしまう。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "もうひとつは「{情報|じょうほう}の{欠落|けつらく}」。{伝|つた}えない{情報|じょうほう}が{存在|そんざい}するとき、それは{意図|いと}せずとも{嘘|うそ}と{同|おな}じ{効果|こうか}を{生|う}むことがある。{選挙|せんきょ}や{政治|せいじ}のニュースを{読|よ}むときも、{同|おな}じことが{起|お}きている。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: determined
+          - character: gikai
+            expression: worried
+          - character: tami
+            expression: thinking
+          - character: nozomi
+            expression: thinking
+      - type: narration
+        text: "「{多数|たすう}」という{言葉|ことば}が{使|つか}われていても、「{何人|なんにん}の{中|なか}の{多数|たすう}か」を{確認|かくにん}すること。{一部分|いちぶぶん}だけのデータが「{全体|ぜんたい}」として{伝|つた}えられていないか{疑|うたが}うこと。それが{情報|じょうほう}を{正|ただ}しく{読|よ}み{解|と}く{力|ちから}だ。"
+      - type: narration
+        text: "ギカイは{次|つぎ}の{号|ごう}に{訂正|ていせい}{記事|きじ}を{載|の}せることにした。{全校|ぜんこう}{集計|しゅうけい}の{結果|けっか}——{廃止|はいし}18%・{改善|かいぜん}40%・{維持|いじ}42%——を{正確|せいかく}に{全員|ぜんいん}に{伝|つた}えるために。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 解決！
+        subtitle: 切り取り報道と情報欠落のなぞ

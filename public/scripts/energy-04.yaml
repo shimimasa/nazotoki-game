@@ -1,0 +1,451 @@
+meta:
+  id: energy-04
+  title: 風の言い訳
+  series: エネルギー探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{体育館|たいいくかん}の{隅|すみ}に、{風力発電|ふうりょくはつでん}の{模型|もけい}が4つ{並|なら}んでいる。{今日|きょう}は{自然風|しぜんかぜ}で{発電|はつでん}できるかを{記録|きろく}する{実験|じっけん}——4つの{班|はん}がそれぞれ{データ|でーた}を{取|と}って{報告|ほうこく}する{授業|じゅぎょう}だ。"
+      - type: narration
+        text: "ところが{実験後|じっけんご}の{報告会|ほうこくかい}で——ネツミ{班|はん}の{数値|すうち}を{見|み}たデンタが{首|くび}をかしげた。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: denta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: denta
+        text: "ちょっと{待|ま}って！　ネツミ{班|はん}の{発電量|はつでんりょう}、{他|ほか}の{班|はん}の4{倍|ばい}もある。でも{今日|きょう}は{無風|むふう}に{近|ちか}かったはずだ——この{数値|すうち}、{自然風|しぜんかぜ}だけで{出|で}るの？"
+        expression: surprised
+      - type: sprite
+        character: denta
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: thinking
+          - character: hikaru
+            expression: surprised
+          - character: netsumi
+            expression: worried
+          - character: chikara
+            expression: thinking
+      - type: narration
+        text: "ネツミ{班|はん}の{発電量|はつでんりょう}が{不自然|ふしぜん}に{多|おお}い。{その日|そのひ}は{風速|ふうそく}2m/sの{ほぼ無風|ほぼむふう}——{気象記録|きしょうきろく}と{数値|すうち}が{矛盾|むじゅん}している。{誰|だれ}が、なぜ{実験条件|じっけんじょうけん}を{変|か}えたのか。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 風の言い訳
+        subtitle: エネルギー探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 発電記録と気象データ
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{配|くば}った{今日|きょう}の{実験|じっけん}{記録|きろく}——{各班|かくはん}の{発電量|はつでんりょう}と、{当日|とうじつ}の{気象観測|きしょうかんそく}{データ|でーた}が{残|のこ}されていた。"
+      - type: evidence
+        id: card-1
+        title: 各班の発電記録＋当日の気象データ
+        content: "【{実験|じっけん}{内容|ないよう}】{自然風|しぜんかぜ}のみで{風力発電|ふうりょくはつでん}{模型|もけい}を{回|まわ}し、{発電量|はつでんりょう}を{記録|きろく}する　【{各班|かくはん}の{発電量|はつでんりょう}】A{班|はん}:12mWh・B{班|はん}:11mWh・C{班|はん}:13mWh・ネツミ{班|はん}:48mWh　【{当日|とうじつ}の{気象記録|きしょうきろく}】{風速|ふうそく}:2m/s（{無風|むふう}に{近|ちか}い）・{天気|てんき}:{晴|は}れ・{測定時刻|そくていじこく}:{実験|じっけん}{開始|かいし}〜{終了|しゅうりょう}{全時間帯|ぜんじかんたい}　【{理論値|りろんち}】{風速|ふうそく}2m/sで{想定|そうてい}できる{最大発電量|さいだいはつでんりょう}:約11〜13mWh"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{風速|ふうそく}2m/sだと{発電量|はつでんりょう}は11〜13mWhが{限界|げんかい}のはず。ネツミ{班|はん}は48mWh——4{倍|ばい}以上{違|ちが}う。{自然風|しぜんかぜ}だけでこの{数値|すうち}は{物理的|ぶつりてき}に{無理|むり}だ。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "ヒカルが{実験中|じっけんちゅう}の{記憶|きおく}を{呼|よ}び{起|お}こした。"
+      - type: evidence
+        id: card-2
+        title: ヒカルの目撃証言
+        content: "【{目撃者|もくげきしゃ}】ヒカル　【{目撃時刻|もくげきじこく}】{実験|じっけん}{開始|かいし}から5{分|ふん}ごろ　【{内容|ないよう}】「ネツミの{実験台|じっけんだい}の{近|ちか}くに、{白|しろ}い{箱|はこ}のような{小型|こがた}{機器|きき}があった。{実験|じっけん}{前|まえ}にはなかったと{思|おも}う。{風|かぜ}が{出|で}るような{音|おと}がしていた」"
+      - type: sprite
+        character: hikaru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "ネツミのところに{白|しろ}い{箱|はこ}みたいなのがあった！　{実験|じっけん}が{始|はじ}まってから{気|き}づいたんだ。{風|かぜ}みたいな{音|おと}がしてて——あれって{小型|こがた}ファン？"
+        expression: surprised
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: デンタの分析とネツミの様子
+      - type: narration
+        text: "デンタが{風速|ふうそく}と{発電量|はつでんりょう}の{関係|かんけい}を{丁寧|ていねい}に{計算|けいさん}し{直|なお}した。"
+      - type: evidence
+        id: card-3
+        title: デンタの計算メモ（風速と発電量の理論値比較）
+        content: "【{風力発電|ふうりょくはつでん}の{法則|ほうそく}】{発電量|はつでんりょう}は{風速|ふうそく}の「3{乗|じょう}」に{比例|ひれい}する。{例|たとえ}：{風速|ふうそく}が2{倍|ばい}になると{発電量|はつでんりょう}は8{倍|ばい}（2の3{乗|じょう}）になる　【{計算|けいさん}{結果|けっか}】{風速|ふうそく}2m/s→{最大|さいだい}13mWh・{風速|ふうそく}4m/s→{最大|さいだい}104mWh・ネツミ{班|はん}の48mWhを{出|だ}すには{風速|ふうそく}3m/s以上が{必要|ひつよう}　【{当日|とうじつ}の{気象記録|きしょうきろく}】{全時間帯|ぜんじかんたい}で{風速|ふうそく}2m/s——{自然風|しぜんかぜ}だけではネツミ{班|はん}の{数値|すうち}は{出|だ}せない"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{発電量|はつでんりょう}は{風速|ふうそく}の3{乗|じょう}に{比例|ひれい}する——{風|かぜ}が2{倍|ばい}になると{発電|はつでん}は8{倍|ばい}になる。ネツミ{班|はん}の48mWhを{出|だ}すには{自然風|しぜんかぜ}では{絶対|ぜったい}{足|た}りない。{何|なに}かで{風|かぜ}を{補助|ほじょ}したはずだ。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "チカラが{実験前|じっけんまえ}のネツミの{様子|ようす}を{思|おも}い{出|だ}した。"
+      - type: evidence
+        id: card-4
+        title: チカラの観察メモ（実験前のネツミの様子）
+        content: "【{観察者|かんさつしゃ}】チカラ　【{時刻|じこく}】{実験|じっけん}{開始|かいし}の10{分|ふん}前　【{内容|ないよう}】「ネツミが『うちの{班|はん}、{弱|よわ}いかも。{自然風|しぜんかぜ}で{他|ほか}の{班|はん}に{追|お}いつけるか{心配|しんぱい}』とつぶやいていた。{手元|てもと}に{小|ちい}さな{機器|きき}を{持|も}っているのを{見|み}た」"
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: center
+      - type: dialog
+        character: chikara
+        text: "ネツミ、{実験|じっけん}{前|まえ}からすごく{心配|しんぱい}してたんだ。『{弱|よわ}いかも』って{言|い}ってた。{何|なに}かを{手|て}に{持|も}ってたのは{覚|おぼ}えてる。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "……{言|い}いにくいんだけど。{実験中|じっけんちゅう}に{少|すこ}しだけファンを{使|つか}ったのは、{本当|ほんとう}のことだよ。"
+        expression: worried
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{集|あつ}まってきた。ネツミが{実験中|じっけんちゅう}にファンを{使|つか}った——それは{認|みと}めている。でも「なぜ{使|つか}ったのか」「どのくらい{使|つか}ったのか」——{動機|どうき}と{詳細|しょうさい}がまだ{見|み}えない。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "ネツミが{正直|しょうじき}に{言|い}ったのはよかった。でも{実験条件|じっけんじょうけん}「{自然風|しぜんかぜ}のみ」を{守|まも}らなかったのは{事実|じじつ}だよ。{他|ほか}の{班|はん}のデータとどう{比較|ひかく}すればいいの？"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: denta
+        text: "ファンで{風速|ふうそく}を3m/sまで{上|あ}げれば、{計算|けいさん}が{合|あ}う。{実験|じっけん}は「{自然風|しぜんかぜ}のみ」という{条件|じょうけん}があったのに——{条件|じょうけん}を{変|か}えたら{別|べつ}の{実験|じっけん}になってしまう。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "ネツミは{クラス|くらす}のためを{思|おも}ってたんだよ。でも……{科学|かがく}{実験|じっけん}で{条件|じょうけん}を{変|か}えたら、そのデータはどうなるんだろう。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ファンの電源ログ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ファンの{電源|でんげん}ログを{確認|かくにん}しました。{実験装置|じっけんそうち}の{設置記録|せっちきろく}も{合|あ}わせて{見|み}てください。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "それと——ネツミが{正直|しょうじき}に{話|はな}してくれましたね。{科学|かがく}{実験|じっけん}で「{条件|じょうけん}を{守|まも}る」ことの{意味|いみ}を、{一緒|いっしょ}に{考|かんが}えましょう。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ファンの電源ログ＋チカラの観察＋風力発電の仕組み解説
+        content: "【ファンの{電源|でんげん}ログ】{実験|じっけん}{開始|かいし}15{分|ふん}後〜{終了|しゅうりょう}まで「オン」の{記録|きろく}あり（{設置|せっち}{記録|きろく}に「{補助器具|ほじょきぐ}あり」のチェック）　【チカラの{観察|かんさつ}】ネツミは『うちの{班|はん}、{弱|よわ}いかも』と{発言|はつげん}・{実験前|じっけんまえ}に{小型|こがた}{機器|きき}を{所持|しょじ}　【{風力発電|ふうりょくはつでん}の{仕組|しく}み】{羽根|はね}が{風|かぜ}を{受|う}けて{回転|かいてん}→{発電機|はつでんき}で{電気|でんき}を{作|つく}る。{発電量|はつでんりょう}は{風速|ふうそく}の3{乗|じょう}に{比例|ひれい}（{風速|ふうそく}2{倍|ばい}→{発電量|はつでんりょう}8{倍|ばい}）。{羽根|はね}の{形|かたち}・{角度|かくど}・{枚数|まいすう}も{効率|こうりつ}に{影響|えいきょう}する"
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "……{正直|しょうじき}に{言|い}う。{他|ほか}の{班|はん}より{発電量|はつでんりょう}が{明|あき}らかに{少|すく}なくて、{クラス|くらす}の{平均|へいきん}を{下|さ}げたくなかった。ファンを{使|つか}えば{他|ほか}の{班|はん}と{同|おな}じくらいになれると{思|おも}ったんだ。"
+        expression: worried
+      - type: dialog
+        character: netsumi
+        text: "みんなのためのつもりだった。でも——{条件|じょうけん}を{変|か}えたら、それはもう{別|べつ}の{実験|じっけん}だよね。{記録|きろく}として{嘘|うそ}になった。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**ネツミは{善意|ぜんい}からファンを{使|つか}った。しかし「{自然風|しぜんかぜ}のみ」という{実験条件|じっけんじょうけん}を{変|か}えたことで、そのデータは{比較|ひかく}できない{別|べつ}の{実験|じっけん}の{記録|きろく}になってしまった。**{風速|ふうそく}の3{乗|じょう}に{比例|ひれい}する{発電量|はつでんりょう}——この{知識|ちしき}があれば「{自然風|しぜんかぜ}ではありえない{数値|すうち}」と{証明|しょうめい}できた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: こっそりファンで風を補助したのは誰？
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①ネツミ{班|はん}の{発電量|はつでんりょう}が{理論値|りろんち}の4{倍|ばい}以上。②ヒカルが{実験中|じっけんちゅう}にネツミの{台|だい}で{白|しろ}い{機器|きき}を{目撃|もくげき}。③チカラが{実験前|じっけんまえ}のネツミの{不安|ふあん}を{観察|かんさつ}。④ファンの{電源|でんげん}ログで{使用|しよう}が{確認|かくにん}。⑤ネツミ{自身|じしん}が{認|みと}めた。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{並|なら}べると——{誰|だれ}が{中心|ちゅうしん}にいたか、{見|み}えてくる。{実験中|じっけんちゅう}にファンで{風|かぜ}を{補助|ほじょ}したのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 実験中にこっそりファンで風を補助したのは誰？
+        options:
+          - text: ネツミ（クラスの平均を下げたくなくて、ファンで風を補った）
+            value: netsumi
+            correct: true
+            feedback: "{正解|せいかい}！　ネツミはみんなのことを{考|かんが}えていました。でも{科学|かがく}{実験|じっけん}は「{条件|じょうけん}を{守|まも}ること」が{全|すべ}て。{風速|ふうそく}が2{倍|ばい}になると{発電量|はつでんりょう}は8{倍|ばい}になります——それだけ{条件|じょうけん}の{差|さ}は{大|おお}きい。**{善意|ぜんい}でも{条件|じょうけん}を{変|か}えたら、その{実験|じっけん}は{別|べつ}の{実験|じっけん}になってしまいます。{正直|しょうじき}に「{自然風|しぜんかぜ}では{弱|よわ}かった」というデータこそが、{本当|ほんとう}の{科学|かがく}の{記録|きろく}です。**"
+          - text: デンタ（風速と発電量の計算をしていた人）
+            value: denta
+            feedback: "デンタは{風速|ふうそく}と{発電量|はつでんりょう}の{関係|かんけい}を{計算|けいさん}して{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}だよ。{実験中|じっけんちゅう}は{自分|じぶん}の{班|はん}の{実験台|じっけんだい}で{作業|さぎょう}していたよ。"
+          - text: ヒカル（ネツミの台を目撃した人）
+            value: hikaru
+            feedback: "ヒカルはネツミの{実験台|じっけんだい}に{白|しろ}い{機器|きき}があるのを{目撃|もくげき}した{側|がわ}だよ。{自分|じぶん}の{班|はん}から{動|うご}いていないよ。"
+          - text: チカラ（ネツミの心配に気づいた人）
+            value: chikara
+            feedback: "チカラはネツミが{心配|しんぱい}しているのに{気|き}づいて{観察|かんさつ}していた{側|がわ}だよ。{感情型|かんじょうがた}として{共感|きょうかん}の{役|やく}を{担|にな}っていたよ。"
+
+  # ==================== 真相：ネツミの告白 ====================
+  - id: truth-netsumi
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ネツミの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: center
+      - type: dialog
+        character: netsumi
+        text: "……{私|わたし}です。{実験中|じっけんちゅう}に{小型|こがた}ファンで{風|かぜ}を{補助|ほじょ}したのは。"
+        expression: worried
+      - type: dialog
+        character: netsumi
+        text: "{他|ほか}の{班|はん}より{発電量|はつでんりょう}が{明|あき}らかに{少|すく}なかった。このままだと{クラス|くらす}の{平均|へいきん}を{下|さ}げてしまう——みんなに{迷惑|めいわく}をかけたくなかった。"
+        expression: worried
+      - type: dialog
+        character: netsumi
+        text: "でも……「{自然風|しぜんかぜ}のみ」って{条件|じょうけん}があったのに、ファンで{風|かぜ}を{足|た}した。{善意|ぜんい}のつもりでも、{条件|じょうけん}を{変|か}えた{実験|じっけん}は{比較|ひかく}できない。{記録|きろく}として{嘘|うそ}になってしまった。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "ネツミの{気持|きも}ち、{分|わ}かる。{クラス|くらす}のためを{思|おも}ってたんだもん。でも——そのデータ、{他|ほか}の{班|はん}と{比|くら}べられなくなっちゃったよね。{善意|ぜんい}でも{条件|じょうけん}を{変|か}えたら、{科学|かがく}として{使|つか}えないんだ。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{正直|しょうじき}に{言|い}ってくれてよかった。{発電量|はつでんりょう}が{少|すく}ないのはネツミのせいじゃない——その{日|ひ}の{風|かぜ}が{弱|よわ}かっただけ。それが{本当|ほんとう}のデータだったんだよ。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: normal
+        position: left
+      - type: dialog
+        character: denta
+        text: "{風速|ふうそく}の3{乗|じょう}に{比例|ひれい}する——この{知識|ちしき}があれば、「{自然風|しぜんかぜ}では{少|すく}ない{日|ひ}もある」と{理解|りかい}できた。{弱|よわ}いデータが{出|で}たら{恥|はず}じゃない。{場所|ばしょ}や{時期|じき}によって{風|かぜ}は{変|か}わる——それが{科学|かがく}的な{発見|はっけん}だよ。"
+        expression: normal
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{風力発電|ふうりょくはつでん}の{大切|たいせつ}な{仕組|しく}みを{確認|かくにん}しましょう。{発電量|はつでんりょう}は{風速|ふうそく}の「3{乗|じょう}」に{比例|ひれい}する。{風速|ふうそく}が2{倍|ばい}になると{発電量|はつでんりょう}は8{倍|ばい}になる——それだけ{風速|ふうそく}の{条件|じょうけん}は{結果|けっか}に{大|おお}きく{影響|えいきょう}します。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ネツミはクラスを{守|まも}ろうとした。その{思|おも}いやりは{本当|ほんとう}に{優|やさ}しかった。でも{次回|じかい}は「{弱|よわ}いデータが{出|で}ても、それが{正直|しょうじき}な{科学|かがく}の{記録|きろく}」——そう{思|おも}えると{いい}ですね。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{風力発電|ふうりょくはつでん}の{原理|げんり}】{発電量|はつでんりょう}は{風速|ふうそく}の3{乗|じょう}に{比例|ひれい}する。{風速|ふうそく}が2{倍|ばい}なら{発電量|はつでんりょう}は8{倍|ばい}——この{関係|かんけい}を{知|し}ると「{自然風|しぜんかぜ}ではありえない{数値|すうち}」が{計算|けいさん}で{証明|しょうめい}できる。{羽根|はね}の{形|かたち}・{角度|かくど}・{枚数|まいすう}も{効率|こうりつ}に{影響|えいきょう}する。"
+      - type: narration
+        text: "【{学|まな}び②：タイムライン】{実験|じっけん}の{各|かく}ステップを{時系列|じけいれつ}に{並|なら}べると「いつ{条件|じょうけん}が{変|か}わったか」が{見|み}える。{設置記録|せっちきろく}→{気象データ|きしょうでーた}→ファンの{電源|でんげん}ログの{順|じゅん}に{確認|かくにん}することで、{真相|しんそう}へ{近|ちか}づけた。"
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{次|つぎ}は{正直|しょうじき}にデータを{出|だ}す。{弱|よわ}い{風|かぜ}の{日|ひ}は{発電量|はつでんりょう}が{少|すく}なくて{当然|とうぜん}——その{場所|ばしょ}の{風|かぜ}の{特性|とくせい}を{知|し}ることが、{本当|ほんとう}の{科学|かがく}のスタートだって{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: happy
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{風速|ふうそく}の3{乗|じょう}って{最初|さいしょ}はびっくりした！　でも{計算|けいさん}してみたら{数値|すうち}の{矛盾|むじゅん}がはっきり{見|み}えた。{科学|かがく}って{データ|でーた}で{嘘|うそ}を{見破|みやぶ}れるんだね。"
+        expression: happy
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: effect
+        name: fade-out

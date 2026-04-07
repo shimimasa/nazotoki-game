@@ -1,0 +1,417 @@
+meta:
+  id: communication-01
+  title: 壊れたメッセージ
+  series: コミュニケーション探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{帰|かえ}りの{会|かい}が{終|お}わったあと、マナブは{急|いそ}いで{荷物|にもつ}をまとめていた。"
+      - type: narration
+        text: "「{明日|あした}は{早退|そうたい}していいんだよね」——そう{聞|き}いていたマナブは、{体育着|たいいくぎ}をランドセルに{入|い}れていなかった。"
+      - type: se
+        sound: whisper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**でも{先生|せんせい}が{言|い}ったのは「{明日|あした}は{体育着|たいいくぎ}{持参|じさん}」だったのに——**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{明日|あした}は{体育|たいいく}の{授業|じゅぎょう}があります。{体育着|たいいくぎ}を{忘|わす}れずに{持参|じさん}してください」と{伝|つた}えたはずなのに……マナブが「{早退|そうたい}していい」と{聞|き}いているって、どういうこと？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: kiku
+            expression: worried
+          - character: kotoba
+            expression: surprised
+          - character: tsutae
+            expression: worried
+          - character: manabu
+            expression: surprised
+      - type: narration
+        text: "4{人|にん}のリレー{伝言|でんごん}の{中|なか}で、どこで・なぜメッセージが「{壊|こわ}れた」のか——コミュニケーション{探偵団|たんていだん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 壊れたメッセージ
+        subtitle: コミュニケーション探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 原文とマナブが受け取った内容
+      - type: narration
+        text: "{先生|せんせい}の{オリジナル|おりじなる}メッセージ——「{明日|あした}（{水曜|すいよう}）は{体育|たいいく}の{授業|じゅぎょう}があります。{体育着|たいいくぎ}を{忘|わす}れずに{持参|じさん}してください」"
+      - type: narration
+        text: "マナブが{受|う}け{取|と}った{内容|ないよう}——「{明日|あした}は{早退|そうたい}していい」"
+      - type: evidence
+        id: card-1
+        title: 原文 vs マナブの受信内容
+        content: "【{先生|せんせい}の{原文|げんぶん}】{明日|あした}（{水曜|すいよう}）は{体育|たいいく}の{授業|じゅぎょう}があります。{体育着|たいいくぎ}を{忘|わす}れずに{持参|じさん}してください。【マナブが{聞|き}いた{内容|ないよう}】{明日|あした}は{早退|そうたい}していい。"
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: manabu
+        text: "「{早退|そうたい}していい」って{聞|き}いたのに、{全然|ぜんぜん}{違|ちが}う！　{体育着|たいいくぎ}持ってきてなかったら、{明日|あした}{授業|じゅぎょう}どうすんだよ……。4{人|にん}の{伝言|でんごん}チェーンのどこかで、メッセージが{変|か}わったはずだ。"
+        expression: surprised
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: narration
+        text: "4{人|にん}の{伝言|でんごん}チェーン——コトバ→キク→ツタエ→マナブの{順|じゅん}に{連絡|れんらく}が{伝|つた}わった。それぞれが「{受|う}け{取|と}った{内容|ないよう}」を{自己申告|じこしんこく}している。"
+      - type: evidence
+        id: card-2
+        title: 4人の伝言チェーン記録
+        content: "①コトバ（{先生|せんせい}から{受信|じゅしん}）:「{体育着|たいいくぎ}{持参|じさん}」→②キク:「{体育着|たいいくぎ}か{体育|たいいく}か、{何|なに}か{体育|たいいく}のことだった{気|き}がする」→③ツタエ:「{体育|たいいく}があるから、{体育着|たいいくぎ}か{早退|そうたい}かどちらでもOKって{話|はなし}だと{思|おも}う」→④マナブ（{受信|じゅしん}）:「{早退|そうたい}していい」"
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "わたしはちゃんと「{体育着|たいいくぎ}{持参|じさん}」と{言|い}った。そこは{確|たし}かよ。{先生|せんせい}のメモも{持|も}ってるし、{間違|まちが}えるはずない。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: hallway
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: キクの証言とツタエの伝言記録
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{正直|しょうじき}{言|い}うと……コトバが{言|い}ったとき、ちょっと{別|べつ}のこと{考|かんが}えてて。「{体育|たいいく}のことだった{気|き}がする」ってツタエに{伝|つた}えたんだ。「{持参|じさん}」の{意味|いみ}も、あんまりよく{分|わ}かんなかったし……"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: evidence
+        id: card-3
+        title: キクの証言（言語的劣化の証拠）
+        content: "コトバから「{体育着|たいいくぎ}{持参|じさん}」と{聞|き}いた。でも「{持参|じさん}」の{意味|いみ}がよく{分|わ}からなくて、「{体育|たいいく}あるんだな」と{理解|りかい}した。ツタエには「{体育|たいいく}の{授業|じゅぎょう}があるって{話|はなし}だった」と{伝|つた}えた。"
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "キクから「{体育|たいいく}の{授業|じゅぎょう}がある」って{聞|き}いて……{体育|たいいく}があるなら、{体育着|たいいくぎ}か{早退|そうたい}かの{話|はなし}かな、って{思|おも}って。{分|わ}かりやすく{伝|つた}えようとしただけで、{悪意|あくい}はなかったんだ。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ツタエが伝えた内容の記録メモ
+        content: "ツタエがマナブに{伝|つた}えた{内容|ないよう}:「{体育|たいいく}があるから、{体育着|たいいくぎ}か{早退|そうたい}かどちらでもOKって{話|はなし}だと{思|おも}う」。→{実際|じっさい}の{内容|ないよう}（「{体育着|たいいくぎ}{持参|じさん}」）と{大|おお}きなズレあり。"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。コトバは{正確|せいかく}な{内容|ないよう}を{持|も}っていた。キクは「{持参|じさん}」の{意味|いみ}が{分|わ}からず{曖昧|あいまい}に{伝|つた}えた。ツタエは「{体育|たいいく}があるから{早退|そうたい}もOKだろう」と{自分|じぶん}の{解釈|かいしゃく}を{足|た}してマナブに{伝|つた}えた。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "チェーンを{時系列|じけいれつ}で{並|なら}べると——コトバ→キクの{間|あいだ}でも{少|すこ}しズレが{生|う}まれたけど、{大|おお}きく{変|か}わったのはキク→ツタエの{間|あいだ}だ。「{早退|そうたい}」って{言葉|ことば}は{元|もと}のメッセージにはなかった。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "ぼくも「{持参|じさん}」をちゃんと{理解|りかい}してたら、もっと{正確|せいかく}に{伝|つた}えられたかも……{傾聴|けいちょう}って{難|むずか}しいな。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: コトバのメモとツタエのコメント
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{先生|せんせい}から{直接|ちょくせつ}{聞|き}いたとき、すぐにメモしたの。「{明日|あした}（{水曜|すいよう}）は{体育|たいいく}の{授業|じゅぎょう}があります。{体育着|たいいくぎ}を{忘|わす}れずに{持参|じさん}してください」——これが{原文|げんぶん}よ。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "……{正直|しょうじき}に{言|い}う。キクから「{体育|たいいく}があるって{話|はなし}」って{聞|き}いたとき、「だいたい{分|わ}かった」って{思|おも}って。{体育|たいいく}があるなら{早退|そうたい}もOKかな、って{自分|じぶん}で{付|つ}け{加|くわ}えちゃったんだ。"
+        expression: worried
+      - type: dialog
+        character: tsutae
+        text: "{分|わ}かりやすく{伝|つた}えようとしたつもりだったのに……「{聞|き}いた{通|とお}りに{伝|つた}える」のと「{自分|じぶん}が{理解|りかい}した{内容|ないよう}を{伝|つた}える」のが{違|ちが}うって、{気|き}づかなかった。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: evidence
+        id: card-5
+        title: コトバのメモ＋ツタエのコメント
+        content: "【コトバの{原文|げんぶん}メモ】{明日|あした}（{水曜|すいよう}）は{体育|たいいく}の{授業|じゅぎょう}があります。{体育着|たいいくぎ}を{忘|わす}れずに{持参|じさん}してください。【ツタエのコメント】「{体育|たいいく}かな」と{思|おも}ったら、つい{自分|じぶん}の{解釈|かいしゃく}を{足|た}してしまった。"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{伝言|でんごん}ゲームが{変|か}わるのは{記憶力|きおくりょく}の{問題|もんだい}だけじゃない——{人|ひと}は{聞|き}いた{内容|ないよう}を「{自分|じぶん}の{理解|りかい}」で{書|か}き{換|か}えてしまう。**　ツタエの「{早退|そうたい}」という{言葉|ことば}は、{先入観|せんにゅうかん}による{補完|ほかん}だった。"
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: center
+      - type: dialog
+        character: manabu
+        text: "チェーンを{比較|ひかく}すると——{劣化|れっか}{地点|ちてん}はツタエが{伝|つた}えた{時点|じてん}に{集中|しゅうちゅう}している。キクのズレは{小|ちい}さかったけど、ツタエで「{早退|そうたい}」という{元|もと}のメッセージにない{言葉|ことば}が{追加|ついか}された。これが{決定的|けっていてき}だ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: メッセージが大きく変わったのは誰が伝えたとき？
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{証拠|しょうこ}を{整理|せいり}すると——コトバは{先生|せんせい}からの{原文|げんぶん}メモを{正確|せいかく}に{持|も}っていた。キクは「{持参|じさん}」の{意味|いみ}が{分|わ}からず{曖昧|あいまい}になったけど、「{早退|そうたい}」という{言葉|ことば}は{出|で}ていない。そしてツタエの{時点|じてん}で——"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①コトバは{先生|せんせい}からの{原文|げんぶん}を{正確|せいかく}にメモしていた。②キクは「{持参|じさん}」を{誤解|ごかい}したが「{早退|そうたい}」とは{言|い}っていない。③ツタエの{伝言|でんごん}から「{早退|そうたい}」という{言葉|ことば}が{初登場|はつとうじょう}した。④ツタエ{自身|じしん}が「{自分|じぶん}の{解釈|かいしゃく}を{足|た}した」と{認|みと}めている。"
+      - type: choice
+        id: q1
+        question: メッセージが大きく変わったのは誰が伝えたとき？
+        options:
+          - text: コトバ（先生→コトバ）
+            value: kotoba
+            correct: false
+            feedback: "コトバは{先生|せんせい}からの{原文|げんぶん}を{正確|せいかく}にメモしていたよ。「{体育着|たいいくぎ}{持参|じさん}」という{内容|ないよう}は{変|か}わっていない。{変化|へんか}はここじゃない。"
+          - text: キク（コトバ→キク）
+            value: kiku
+            correct: false
+            feedback: "キクは「{持参|じさん}」の{意味|いみ}を{曖昧|あいまい}に{受|う}け{取|と}ったけど、まだ「{体育|たいいく}のことだった{気|き}がする」という{範囲|はんい}に{収|おさ}まっていたよ。「{早退|そうたい}」という{言葉|ことば}は{出|で}ていない。もう{一度|いちど}{確認|かくにん}しよう。"
+          - text: ツタエ（キク→ツタエ）
+            value: tsutae
+            correct: true
+            feedback: "{正解|せいかい}！　ツタエは「{体育|たいいく}があるから{早退|そうたい}もOKかな」と{先入観|せんにゅうかん}で{補完|ほかん}してしまった。これが{情報|じょうほう}{劣化|れっか}の{核心|かくしん}。**{伝言|でんごん}ゲームは{記憶力|きおくりょく}の{問題|もんだい}だけじゃない——{人|ひと}は{聞|き}いた{内容|ないよう}を「{自分|じぶん}の{理解|りかい}」で{書|か}き{換|か}えてしまう。だから{正確|せいかく}に{伝|つた}えるには、「{原文|げんぶん}のまま{繰|く}り{返|かえ}す」か「{確認|かくにん}し{合|あ}う」ことが{大切|たいせつ}なんだ。**"
+          - text: マナブ（ツタエ→マナブ）
+            value: manabu
+            correct: false
+            feedback: "マナブは{変化|へんか}した{後|あと}のメッセージを{受|う}け{取|と}っただけ。{変化|へんか}させた{側|がわ}じゃないよ。マナブは{被害者|ひがいしゃ}であり、{チェーン|ちぇーん}の{分析|ぶんせき}をしてくれた{側|がわ}だ。"
+
+  # ==================== 真相：ツタエの告白 ====================
+  - id: truth-tsutae
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ツタエの補完
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "……{私|わたし}が「{早退|そうたい}」って{言葉|ことば}を{足|た}しました。キクから「{体育|たいいく}の{授業|じゅぎょう}があるって{話|はなし}」と{聞|き}いたとき、「だいたい{分|わ}かった」って{思|おも}って——"
+        expression: worried
+      - type: dialog
+        character: tsutae
+        text: "{体育|たいいく}があるなら{体育着|たいいくぎ}か{早退|そうたい}かの{話|はなし}かな、って。{分|わ}かりやすく{伝|つた}えようとしたつもりだったのに、{元|もと}にない{情報|じょうほう}を{付|つ}け{加|くわ}えてしまってた。"
+        expression: thinking
+      - type: dialog
+        character: tsutae
+        text: "「{聞|き}いた{通|とお}りに{伝|つた}える」と「{自分|じぶん}が{理解|りかい}した{内容|ないよう}を{伝|つた}える」——その{違|ちが}いを{考|かんが}えたことがなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "ぼくも「{持参|じさん}」の{意味|いみ}をちゃんと{確認|かくにん}すればよかった。「だいたい{分|わ}かった」で{進|すす}めたのはぼくも{同|おな}じだから……ツタエだけが{悪|わる}いわけじゃないと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{伝言|でんごん}ゲームって「{記憶力|きおくりょく}が{悪|わる}い」から{変|か}わるんだと{思|おも}ってたけど、{違|ちが}ったんだ。{人|ひと}は{自分|じぶん}の{知識|ちしき}や{先入観|せんにゅうかん}で{勝手|かって}に{情報|じょうほう}を{書|か}き{換|か}えてしまう——だからチェーンで{劣化|れっか}が{起|お}きる。"
+        expression: surprised
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "ツタエが{悪意|あくい}じゃなかったのは{分|わ}かる。{自分|じぶん}なりに「{分|わ}かりやすく」しようとした{結果|けっか}なんだよね。でも、だからこそ{怖|こわ}いな。{悪意|あくい}がなくても{情報|じょうほう}は{変|か}わっちゃう。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{伝言|でんごん}ゲームで{情報|じょうほう}が{変|か}わるのは「{記憶力|きおくりょく}が{悪|わる}い」からだけじゃないの。{受|う}け{取|と}った{人|ひと}が「だいたい{分|わ}かった」と{思|おも}って、{自分|じぶん}の{解釈|かいしゃく}で{補完|ほかん}してしまう——これが{情報|じょうほう}{劣化|れっか}の{本当|ほんとう}の{仕組|しく}みよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ツタエは{悪意|あくい}がなかった。でも「だいたい{分|わ}かった」という{思|おも}い{込|こ}みが{問題|もんだい}だった。{正確|せいかく}に{伝|つた}えたいときは——「{原文|げんぶん}のまま{繰|く}り{返|かえ}す」か「『これで{合|あ}ってる？』と{確認|かくにん}し{合|あ}う」ことが{大切|たいせつ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{消去法|しょうきょほう}——{条件|じょうけん}に{合|あ}わない{人|ひと}を{除外|じょがい}して{劣化|れっか}{地点|ちてん}を{特定|とくてい}する{考|かんが}え{方|かた}。コトバは{原文|げんぶん}{保持|ほじ}→{除外|じょがい}。キクは{小|ちい}さなズレ→{候補|こうほ}。ツタエは「{早退|そうたい}」の{追加|ついか}→**{劣化|れっか}{地点|ちてん}**。"
+      - type: narration
+        text: "{情報|じょうほう}{劣化|れっか}の{仕組|しく}み——{伝言|でんごん}ゲームで{情報|じょうほう}が{変|か}わるのは{記憶力|きおくりょく}の{問題|もんだい}だけでなく、{受信者|じゅしんしゃ}の{解釈|かいしゃく}・{先入観|せんにゅうかん}・{補完|ほかん}が{原因|げんいん}であることを{理解|りかい}する。あなたも{伝言|でんごん}で{補完|ほかん}したことがあるかも——「{明日|あした}の{自分|じぶん}」に{置|お}き{換|か}えて{考|かんが}えてみよう。"
+      - type: effect
+        name: fade-out

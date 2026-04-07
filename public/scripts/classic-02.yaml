@@ -1,0 +1,401 @@
+meta:
+  id: classic-02
+  title: 枕草子のなぞ
+  series: 古典探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "朝、{教室|きょうしつ}の{机|つくえ}の{上|うえ}に——1{枚|まい}のメモが{置|お}かれていた。"
+      - type: se
+        sound: paper
+      - type: narration
+        text: "そこにはたった2{文字|もじ}だけ。**「をかし」**"
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "{面白|おもしろ}い？　{何|なん}が？　{誰|だれ}が{書|か}いた？　クラスのみんなが{首|くび}をかしげた。"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「をかし」とだけ{書|か}かれたメモが{机|つくえ}の{上|うえ}に{置|お}かれていたの。クラスのみんなは「いたずらだ」「{暗号|あんごう}かな」って{言|い}ってるけど——{誰|だれ}が{何|なに}の{意味|いみ}で{書|か}いたのか、{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: worried
+          - character: utayomi
+            expression: surprised
+          - character: shirabe
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{目|め}を{見合|みあ}わせた。「をかし」——この{言葉|ことば}に、どんな{意味|いみ}が{隠|かく}されているのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 枕草子のなぞ
+        subtitle: 古典探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: メモの写真と「をかし」の意味
+      - type: narration
+        text: "{机|つくえ}の{上|うえ}に{置|お}かれていたメモ——{白|しろ}い{紙|かみ}に、{黒|くろ}いペンで「をかし」とだけ{書|か}かれている。{差|さ}し{出|だ}し{人|にん}の{名前|なまえ}はない。"
+      - type: evidence
+        id: card-1
+        title: メモの写真＋クラスの反応
+        content: "メモ：ノートの{切|き}れ{端|はし}に「をかし」とだけ{書|か}かれた{紙|かみ}。クラスの{反応|はんのう}：「いたずらだ」「{面白|おもしろ}い、って{何|なに}が？」「{変|へん}なの」——{誰|だれ}も「{趣|おもむき}がある」とは{思|おも}わなかった。"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "クラスのみんなに{聞|き}いてみたんだけど、「{面白|おもしろ}い」「{変|へん}だ」って{解釈|かいしゃく}した{子|こ}ばかり。「{趣|おもむき}がある」って{意味|いみ}で{受|う}け{取|と}った{子|こ}は、{誰|だれ}もいなかったよ。"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: narration
+        text: "「をかし」——{現代|げんだい}{語|ご}の「おかしい」と{同|おな}じ{音|おと}なのに、{意味|いみ}が{違|ちが}うのかもしれない。{古語|こご}の{辞書|じしょ}で{調|しら}べてみよう。"
+      - type: evidence
+        id: card-2
+        title: 「をかし」の意味ガイド＋枕草子「春はあけぼの」
+        content: "「をかし」の{意味|いみ}：①{趣|おもむき}がある（＝{美|うつく}しくて{心|こころ}が{動|うご}く）②{面白|おもしろ}い　③{変|へん}だ。{枕草子|まくらのそうし}「{春|はる}はあけぼの——やうやう{白|しろ}くなりゆく{山際|やまぎわ}、{少|すこ}し{明|あか}かりて……をかし」→{現代語訳|げんだいごやく}：「{春|はる}は{夜明|よあ}けが{趣|おもむき}がある」"
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "「をかし」には3つの{意味|いみ}がある！　{清少納言|せいしょうなごん}が{枕草子|まくらのそうし}で{使|つか}ったのは①の「{趣|おもむき}がある」——「{美|うつく}しくて{心|こころ}が{動|うご}く」という{意味|いみ}なんだ。みんながイメージした「{変|へん}だ」とは{全然|ぜんぜん}{違|ちが}う！"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 筆跡分析と聞き込み
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "メモの{紙|かみ}、よく{見|み}たらノートの{切|き}れ{端|はし}なんだよね。そして{字|じ}の{形|かたち}——コトバのノートと{比|くら}べてみたら、すごく{似|に}てる。{筆跡|ひっせき}が{一致|いっち}してる気がするんだけど……でもコトバは「いたずらなんかしない」タイプだよ？"
+        expression: worried
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: evidence
+        id: card-3
+        title: フミカの筆跡分析＋密談の結果
+        content: "{筆跡|ひっせき}{分析|ぶんせき}：メモの{字|じ}がコトバのノートに{似|に}ている（{紙質|かみしつ}もノートの{切|き}れ{端|はし}）。{密談|みつだん}の{結果|けっか}：フミカとウタヨミが{確認|かくにん}——「をかし＝{趣|おもむき}がある」は{古語|こご}では{褒|ほ}め{言葉|ことば}で、{悪意|あくい}の{表現|ひょうげん}ではない。"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "{聞|き}き{込|こ}みしてきた！　コトバが{最近|さいきん}「{枕草子|まくらのそうし}ってきれいだね」って{言|い}ってたの、{知|し}ってる{子|こ}がいたよ。それで……コトバの{国語|こくご}ノートに「をかし＝{趣|おもむき}がある」って{書|か}き{込|こ}みがあったって！"
+        expression: surprised
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: evidence
+        id: card-4
+        title: シラベの聞き込み＋コトバの国語ノート
+        content: "{聞|き}き{込|こ}み：コトバが{最近|さいきん}「{枕草子|まくらのそうし}ってきれいだね」と{発言|はつげん}していた{証言|しょうげん}あり。{国語|こくご}ノートの{証拠|しょうこ}：コトバのノートに「をかし＝{趣|おもむき}がある（{美|うつく}しくて{心|こころ}が{動|うご}く）」と{書|か}き{込|こ}みあり。"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{筆跡|ひっせき}はコトバのノートと{一致|いっち}。コトバは{枕草子|まくらのそうし}に{感動|かんどう}していた。でも——なぜ{名前|なまえ}を{書|か}かずに{置|お}いたのか。"
+      - type: sprite
+        character: fumika
+        expression: worried
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{筆跡|ひっせき}と{紙質|かみしつ}だと、コトバが{書|か}いた{可能性|かのうせい}が{高|たか}い。でも……コトバが「いたずら」をするイメージがないんだよね。{悪意|あくい}じゃないとしたら、なぜ{名前|なまえ}を{書|か}かなかったんだろう。"
+        expression: worried
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "……{古典|こてん}に{感動|かんどう}したって、{言|い}いにくかったんだ。「{枕草子|まくらのそうし}ってきれい」なんて{言|い}ったら、{変|へん}って{思|おも}われるかもって——"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "コトバに{直接|ちょくせつ}{聞|き}いたら、こう{言|い}っていたわ。「{枕草子|まくらのそうし}を{読|よ}んで{心|こころ}が{動|うご}いた。"をかし"って{書|か}いて{気持|きも}ちを{伝|つた}えたかったけど、{恥|は}ずかしくて{名前|なまえ}を{書|か}けなかった」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{古語|こご}を{知|し}らないと"いたずら"に{見|み}えるのね。コトバは「{美|うつく}しい」って{伝|つた}えたかっただけなのに——{言葉|ことば}の{意味|いみ}が{時代|じだい}で{変|か}わってしまったから、{誤解|ごかい}が{生|う}まれたの。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "コトバのことば：「{枕草子|まくらのそうし}を{読|よ}んで{心|こころ}が{動|うご}いた。"をかし"って{書|か}いて{気持|きも}ちを{伝|つた}えたかったけど、{恥|は}ずかしくて{名前|なまえ}を{書|か}けなかった。{古語|こご}を{知|し}らないと"いたずら"に{見|み}えたんだね、{知|し}らなかった」"
+      - type: se
+        sound: reveal
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "やっぱり！　コトバは「をかし」を①の「{趣|おもむき}がある」の{意味|いみ}で{使|つか}ったんだ。でもクラスのみんなは③の「{変|へん}だ」と{解釈|かいしゃく}した——{古語|こご}と{現代語|げんだいご}の{意味|いみ}のズレが、{事件|じけん}を{生|う}んだ！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: narration
+        text: "**{感動|かんどう}を{伝|つた}えたい→{恥|は}ずかしくて{名前|なまえ}が{書|か}けない→{古語|こご}で{気持|きも}ちを{込|こ}める→{現代語|げんだいご}と{意味|いみ}がズレて{誤解|ごかい}される。**　{言葉|ことば}は{時代|じだい}と{共|とも}に{変|か}わる——それが、この{事件|じけん}の{核心|かくしん}だった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 「をかし」のメモを書いたのは誰？
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{証拠|しょうこ}をまとめると——メモの{紙質|かみしつ}はノートの{切|き}れ{端|はし}で{筆跡|ひっせき}がコトバのノートと{一致|いっち}。コトバの{国語|こくご}ノートに「をかし＝{趣|おもむき}がある」の{書|か}き{込|こ}みがある。コトバは{枕草子|まくらのそうし}が「きれい」と{言|い}っていた——"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①メモの{筆跡|ひっせき}がコトバのノートと{一致|いっち}する。②コトバの{国語|こくご}ノートに「をかし＝{趣|おもむき}がある」の{書|か}き{込|こ}みがある。③コトバは{最近|さいきん}「{枕草子|まくらのそうし}ってきれい」と{発言|はつげん}していた。④{古語|こご}の「をかし」は{褒|ほ}め{言葉|ことば}——{悪意|あくい}はない。⑤{山田先生|やまだせんせい}のメモでコトバ{本人|ほんにん}が{確認|かくにん}。"
+      - type: choice
+        id: q1
+        question: 「をかし」のメモを書いたのは誰？
+        options:
+          - text: コトバ（枕草子に感動して「をかし」と書いたが、古語と現代語の意味がずれて誤解された）
+            value: kotoba
+            correct: true
+            feedback: "{正解|せいかい}！　コトバは{清少納言|せいしょうなごん}の「{春|はる}はあけぼの」に{感動|かんどう}して、「をかし」と{書|か}いた。{千年前|せんねんまえ}の「をかし」は「{心|こころ}が{動|うご}くくらい{美|うつく}しい」という{意味|いみ}。でも{今|いま}の{日本語|にほんご}では「おかしい＝{変|へん}だ」になってしまう。**{言葉|ことば}は{時代|じだい}で{変|か}わる——だから{古語|こご}を{学|まな}ぶと、{昔|むかし}の{人|ひと}の「{本当|ほんとう}の{気持|きも}ち」が{見|み}えてくるんだ。**"
+          - text: フミカ（筆跡を分析して犯人を追った人）
+            value: fumika
+            feedback: "{フミカ|ふみか}は{筆跡|ひっせき}{分析|ぶんせき}で{真相|しんそう}に{迫|せま}ってくれた{側|がわ}だよ。メモを{書|か}いたのはフミカじゃないよ。"
+          - text: ウタヨミ（「をかし」の3つの意味を調べた人）
+            value: utayomi
+            feedback: "{ウタヨミ|うたよみ}は「をかし」の3つの{意味|いみ}を{調|しら}べて{謎|なぞ}を{解|と}く{手|て}がかりを{見|み}つけてくれた{側|がわ}だよ。メモを{書|か}いたのはウタヨミじゃないよ。"
+          - text: シラベ（クラスの反応を集めた人）
+            value: shirabe
+            feedback: "{シラベ|しらべ}はクラスのみんなの{反応|はんのう}を{集|あつ}めて「{誤解|ごかい}」に{気|き}づかせてくれた{側|がわ}だよ。メモを{書|か}いたのはシラベじゃないよ。"
+
+  # ==================== 真相：コトバの告白 ====================
+  - id: truth-kotoba
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: コトバの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "……{私|わたし}が{書|か}きました。{国語|こくご}の{授業|じゅぎょう}で{枕草子|まくらのそうし}を{読|よ}んだとき、「{春|はる}はあけぼの」がすごくきれいで、{心|こころ}が{動|うご}いたんです。この{感動|かんどう}を{誰|だれ}かに{伝|つた}えたくて——"
+        expression: worried
+      - type: dialog
+        character: kotoba
+        text: "「{古典|こてん}に{感動|かんどう}した」なんて{言|い}ったら{変|へん}だって{思|おも}われるかなって、{恥|は}ずかしくて。だから「をかし」って{書|か}いた{紙|かみ}だけ{置|お}いて、{名前|なまえ}は{書|か}けなかった。"
+        expression: thinking
+      - type: dialog
+        character: kotoba
+        text: "「をかし」は「{趣|おもむき}がある——{美|うつく}しくて{心|こころ}が{動|うご}く」って{意味|いみ}だって、みんなに{分|わ}かってもらえると{思|おも}ってたんですけど……{知|し}らなかったら「{変|へん}だ」に{見|み}えるんですね。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{筆跡|ひっせき}がコトバのノートと{一致|いっち}したとき、コトバかもって{思|おも}った。でも「いたずらをするタイプじゃない」って{直感|ちょっかん}もあった——{悪意|あくい}じゃなくて{感動|かんどう}の{表現|ひょうげん}だったなら、{納得|なっとく}できる。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "「をかし」の3つの{意味|いみ}を{調|しら}べたとき、①の「{趣|おもむき}がある」が{枕草子|まくらのそうし}の{本来|ほんらい}の{意味|いみ}だって{分|わ}かったんだよね。コトバは{古語|こご}の{正|ただ}しい{意味|いみ}で{使|つか}ってたんだ——ただ、{周|まわ}りに{古語|こご}の{知識|ちしき}がなかっただけで。"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: normal
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "みんな「おかしい＝{変|へん}だ」って{思|おも}ったけど、{書|か}いた{人|ひと}は「{美|うつく}しい」って{伝|つた}えたかったんだね。{感動|かんどう}を{伝|つた}えたいのに{伝|つた}わらない——その{気持|きも}ち、{分|わ}かる気がする。"
+        expression: normal
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{清少納言|せいしょうなごん}が「{春|はる}はあけぼの——をかし」と{書|か}いたのは、{千年以上前|せんねんいじょうまえ}のこと。{彼女|かのじょ}は{夜明|よあ}けの{空|そら}を{見|み}て、{心|こころ}が{震|ふる}えるほど{美|うつく}しいと{感|かん}じた。コトバはその{感動|かんどう}を、{千年前|せんねんまえ}と{同|おな}じ{言葉|ことば}で{表現|ひょうげん}しようとしたのね。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{言葉|ことば}は{時代|じだい}と{共|とも}に{意味|いみ}が{変|か}わる。でも{感動|かんどう}する{気持|きも}ちは、{千年前|せんねんまえ}も{今|いま}も{変|か}わらない。{古語|こご}を{学|まな}ぶと、{昔|むかし}の{人|ひと}の「{本当|ほんとう}の{気持|きも}ち」に{近|ちか}づけるのよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{情報整理|じょうほうせいり}——「をかし」の3つの{意味|いみ}（{趣|おもむき}がある・{面白|おもしろ}い・{変|へん}だ）を{分類|ぶんるい}して、どの{意味|いみ}で{使|つか}われたかを{文脈|ぶんみゃく}から{判断|はんだん}する{考|かんが}え{方|かた}。"
+      - type: narration
+        text: "{消去法|しょうきょほう}——{筆跡|ひっせき}と{紙質|かみしつ}でコトバに{絞|しぼ}り、{動機|どうき}の{証拠|しょうこ}（ノートの{書|か}き{込|こ}み・{発言|はつげん}）で{確定|かくてい}。{言葉|ことば}の{意味|いみ}を{知|し}らないと、{正|ただ}しい{答|こた}えに{届|とど}かなかった。"
+      - type: effect
+        name: fade-out

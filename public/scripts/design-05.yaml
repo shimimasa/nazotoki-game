@@ -1,0 +1,453 @@
+meta:
+  id: design-05
+  title: つかえないはずが
+  series: デザイン思考探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}{図書館|としょかん}に、{新|あたら}しい「{本|ほん}の{検索|けんさく}パネル」が{設置|せっち}された。{企画|きかく}した{子|こ}たちは「{全員|ぜんいん}が{使|つか}えるようテストした」と{言|い}う。"
+      - type: se
+        sound: murmur
+      - type: narration
+        text: "しかし{実際|じっさい}には、{使|つか}えない{子|こ}が3{人|にん}いた。{探偵団|たんていだん}は{調査|ちょうさ}に{乗|の}り{出|だ}す——「{使|つか}えない」の{本当|ほんとう}の{意味|いみ}を{解|と}き{明|あ}かすために。"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "ちゃんとテストしたよ！　5{人|にん}に{試|ため}してもらって、{全員|ぜんいん}{使|つか}えたって{確認|かくにん}したんだ。なんで{使|つか}えない{子|こ}が{出|で}るの……？"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: worried
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "「{全員|ぜんいん}」とは{誰|だれ}のことか。「{使|つか}えない」とはどういう{意味|いみ}か——{証拠|しょうこ}を{集|あつ}め、{仮説|かせつ}を{検証|けんしょう}しなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: つかえないはずが
+        subtitle: デザイン思考探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 検索パネルの報告書と使えなかった3人の証言
+      - type: narration
+        text: "{図書館|としょかん}に{設置|せっち}されたばかりの{検索|けんさく}パネル——そこには{企画|きかく}チームの{報告書|ほうこくしょ}が{貼|は}ってあった。「ユーザビリティテスト{実施|じっし}{済|ず}み。{全員|ぜんいん}{使|つか}えることを{確認|かくにん}した。」"
+      - type: evidence
+        id: card-1
+        title: 図書館検索パネルの概要＋テスト報告書
+        content: "【{本|ほん}の{検索|けんさく}パネル{概要|がいよう}】タッチパネル{式|しき}・{日本語|にほんご}{表示|ひょうじ}・{文字|もじ}{入力|にゅうりょく}あり　【テスト{報告書|ほうこくしょ}】「ユーザビリティテストを{実施|じっし}しました。{参加者|さんかしゃ}5{名|めい}が{全員|ぜんいん}{問題|もんだい}なく{操作|そうさ}できたことを{確認|かくにん}しました。」（{記録者|きろくしゃ}：ツクル）"
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanae
+        text: "「{全員|ぜんいん}{使|つか}えた」って{書|か}いてあるのに、{使|つか}えなかった{子|こ}が3{人|にん}もいる……。その3{人|にん}に{話|はな}を{聞|き}いたんだけど、{全員|ぜんいん}{理由|りゆう}が{違|ちが}ったの。それぞれに{聞|き}かないと{分|わ}からないことばかりで。"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: narration
+        text: "{使|つか}えなかった3{人|にん}の{証言|しょうげん}が{記録|きろく}されていた——それぞれの「{使|つか}えない」には、{全|まった}く{異|こと}なる{理由|りゆう}があった。"
+      - type: evidence
+        id: card-2
+        title: 使えなかった3人の証言
+        content: "【Aさんの{証言|しょうげん}】{視力|しりょく}が{弱|よわ}く、パネルの{文字|もじ}が{小|ちい}さすぎて{読|よ}めなかった　【Bさんの{証言|しょうげん}】{手|て}に{不自由|ふじゆう}があり、タッチ{操作|そうさ}が{難|むずか}しかった　【Cさんの{証言|しょうげん}】{日本語|にほんご}が{第一言語|だいいちげんご}でなく、{漢字|かんじ}の{表示|ひょうじ}が{多|おお}くて{読|よ}めなかった"
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "3{人|にん}とも「{使|つか}えない」と{言|い}っているのに、{理由|りゆう}がバラバラ。{視力|しりょく}の{問題|もんだい}、{体|からだ}の{問題|もんだい}、{言語|げんご}の{問題|もんだい}——「{使|つか}えない」という{言葉|ことば}が{意味|いみ}することは1{つ|つ}じゃないのよ。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: テスト記録書と参加者プロフィール（追加HO）
+      - type: narration
+        text: "テスト{記録書|きろくしょ}が{見|み}つかった。{参加者|さんかしゃ}の{名前|なまえ}と{結果|けっか}——しかし{詳細|しょうさい}なプロフィールは{書|か}かれていない。{参加者|さんかしゃ}は{誰|だれ}で、どんな{条件|じょうけん}でテストしたのか？"
+      - type: evidence
+        id: card-3
+        title: テスト記録書（参加者の名前・結果）
+        content: "【テスト{記録書|きろくしょ}】{実施|じっし}{日時|にちじ}：{月曜日|げつようび}{放課後|ほうかご}　{参加者|さんかしゃ}：ダイキ・サクラ・ユウト・アオイ・リョウ（{計|けい}5{名|めい}）　{結果|けっか}：{全員|ぜんいん}{操作|そうさ}{完了|かんりょう}・{特記事項|とっきじこう}なし　※{参加者|さんかしゃ}の{詳細|しょうさい}プロフィールは{別紙|べっし}に{記録|きろく}"
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "5{人|にん}の{名前|なまえ}と{結果|けっか}しか{書|か}いていない……。この5{人|にん}はどんな{子|こ}たちなんだ？　{年齢|ねんれい}・{身体|しんたい}{特性|とくせい}・{言語|げんご}{背景|はいけい}が{分|わ}からないと、テストが{適切|てきせつ}だったか{判断|はんだん}できないよ。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "そこに{追加|ついか}の{情報|じょうほう}が{届|とど}いた——テスト{参加者|さんかしゃ}5{人|にん}への{聞|き}き{込|こ}み{結果|けっか}と、{多様性|たようせい}チェックリストだ。"
+      - type: evidence
+        id: card-4
+        title: 【追加HO】テスト参加者5人への聞き込み＋多様性チェックリスト
+        content: "【{聞|き}き{込|こ}み{結果|けっか}】ダイキ・サクラ・ユウト・アオイ・リョウは{全員|ぜんいん}「{本|ほん}が{大好|だいす}きで{操作|そうさ}が{得意|とくい}」グループ。{全員|ぜんいん}{視力|しりょく}{問題|もんだい}なし・{身体機能|しんたいきのう}に{制約|せいやく}なし・{日本語|にほんご}が{母語|ぼご}　【{多様性|たようせい}チェックリスト】{身体的特性|しんたいてきとくせい}：{空欄|くうらん}　{言語背景|げんごはいけい}：{空欄|くうらん}　{年齢|ねんれい}・{経験|けいけん}：{空欄|くうらん}"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hakaru
+        text: "5{人|にん}{全員|ぜんいん}が「{操作|そうさ}が{得意|とくい}」グループ——プロフィールが{似|に}すぎている。{多様性|たようせい}チェックリストは{全部|ぜんぶ}{空欄|くうらん}だ。これは「{全員|ぜんいん}{使|つか}えた」じゃなくて、「{特定|とくてい}の{条件|じょうけん}の{子|こ}は{使|つか}えた」ってことだよ。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{集|あつ}まってきた。テスト{参加者|さんかしゃ}は{全員|ぜんいん}「{操作|そうさ}が{得意|とくい}な{子|こ}」だった。{使|つか}えなかった3{人|にん}——{視力|しりょく}・{身体|しんたい}・{言語|げんご}の{課題|かだい}がある{子|こ}たちはテストに{含|ふく}まれていなかった。「{全員|ぜんいん}{使|つか}えた」の「{全員|ぜんいん}」とは、{一体|いったい}{誰|だれ}のことだったのか——"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "テストするとき……{早|はや}く{終|お}わらせたかったから、{操作|そうさ}が{得意|とくい}な{子|こ}に{頼|たの}んだんだ。{使|つか}えない{人|ひと}がいるとは{思|おも}わなかった……。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "ユーザビリティテストの{目的|もくてき}は「{使|つか}いにくさを{見|み}つけること」。{使|つか}いやすい{人|ひと}だけでテストしたら、{問題|もんだい}は{見|み}つからない——{当然|とうぜん}の{結果|けっか}よ。テストの{目的|もくてき}そのものが{達成|たっせい}されていなかったの。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kanae
+        text: "「{使|つか}えない」には3{種類|しゅるい}あった——{知識|ちしき}の{問題|もんだい}、{体|からだ}の{問題|もんだい}、{言語|げんご}の{問題|もんだい}。それぞれ{解決策|かいけつさく}が{全部|ぜんぶ}{違|ちが}う。{原因|げんいん}が{分|わ}からなければ、{直|なお}しようがないわ。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足とユーザビリティテストの原則
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツクルに{直接|ちょくせつ}{確認|かくにん}したら、こう{話|はな}してくれたわ。「{得意|とくい}な{子|こ}に{頼|たの}んだ{方|ほう}が{早|はや}くテストできると{思|おも}った。{使|つか}えない{人|ひと}がいるとは{思|おも}わなかった」——{時間|じかん}を{節約|せつやく}しようとした{近道|ちかみち}が、{大切|たいせつ}な{人|ひと}たちを{見落|みお}とす{結果|けっか}になったの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{全員|ぜんいん}{使|つか}えた」と{報告|ほうこく}したとき、その「{全員|ぜんいん}」はテストした5{人|にん}のことだった。{図書館|としょかん}を{使|つか}う{全員|ぜんいん}ではなかったの。{言葉|ことば}の「{全員|ぜんいん}」の{定義|ていぎ}が{偏|かたよ}っていたから、{大切|たいせつ}なことが{見|み}えなくなってしまった。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足＋ユーザビリティテストの多様性原則
+        content: "【ツクルの{発言|はつげん}】「{得意|とくい}な{子|こ}に{頼|たの}んだ{方|ほう}が{早|はや}くテストできると{思|おも}った。{使|つか}えない{人|ひと}がいるとは{思|おも}わなかった」　【ユーザビリティテストの{多様性|たようせい}{原則|げんそく}】テストには{年齢|ねんれい}・{身体|しんたい}{特性|とくせい}・{言語|げんご}{背景|はいけい}・{経験|けいけん}の{異|こと}なる{人|ひと}を{含|ふく}める{必要|ひつよう}がある。「{全員|ぜんいん}{使|つか}えた」の「{全員|ぜんいん}」が{偏|かたよ}っていれば、{結論|けつろん}も{偏|かたよ}る。"
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "テスト{参加者|さんかしゃ}が{得意|とくい}グループだけなら、「{使|つか}えた」という{結論|けつろん}は{正確|せいかく}じゃない。ユーザビリティテストは「{使|つか}いにくさを{見|み}つけるため」にある——{使|つか}えない{人|ひと}を{最初|さいしょ}から{除|のぞ}いたら、{目的|もくてき}が{達成|たっせい}できないわ。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{全員|ぜんいん}」の{定義|ていぎ}が{崩|くず}れた。テストした5{人|にん}は{均質|きんしつ}なグループ——{多様|たよう}なユーザーを{想定|そうてい}しないテストは、{誰|だれ}かを{見落|みお}とす。**ツクルが「{全員|ぜんいん}{使|つか}えた」と{言|い}い{続|つづ}けたことで、{使|つか}えない3{人|にん}の{存在|そんざい}が{見|み}えなくなっていた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 多様なユーザーを無視した責任があるのは誰？
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①テスト{参加者|さんかしゃ}5{人|にん}は{全員|ぜんいん}「{操作|そうさ}{得意|とくい}」グループ。②{視力|しりょく}・{身体|しんたい}・{言語|げんご}の{課題|かだい}がある{子|こ}はテスト{対象外|たいしょうがい}。③「{全員|ぜんいん}{使|つか}えた」の「{全員|ぜんいん}」は5{人|にん}だけの{意味|いみ}だった。④テスト{計画|けいかく}を{立|た}てたのはツクル。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}をつなごう。①テスト{参加者|さんかしゃ}5{人|にん}全員{操作|そうさ}{得意|とくい}・{視力問題|しりょくもんだい}なし・{日本語|にほんご}{母語|ぼご}。②{多様性|たようせい}チェックリストは{全|すべ}て{空欄|くうらん}。③「{全員|ぜんいん}{使|つか}えた」と{報告書|ほうこくしょ}に{記録|きろく}したのはツクル。④ツクル{自身|じしん}が「{得意|とくい}な{子|こ}に{頼|たの}んだ{方|ほう}が{早|はや}い」と{語|かた}った。"
+      - type: choice
+        id: q1
+        question: 検索パネルのテストで、多様なユーザーを無視した責任があるのは誰？
+        options:
+          - text: ツクル（テスト参加者を「使いやすい子」だけで構成し「全員使えた」と報告した）
+            value: tsukuru
+            correct: true
+            feedback: "{正解|せいかい}！　ツクルは{時間|じかん}を{節約|せつやく}しようとした。でもユーザビリティテストは、{使|つか}いにくさを{見|み}つけるためにある。{得意|とくい}な{人|ひと}だけのテストは{問題|もんだい}を{隠|かく}してしまう。**デザイン思考では、{年齢|ねんれい}・{体|からだ}の{特性|とくせい}・{言語|げんご}が{違|ちが}う{人|ひと}でテストすることが{大切|たいせつ}。「{使|つか}えない」には{知識|ちしき}の{問題|もんだい}・{身体|しんたい}の{問題|もんだい}・{言語|げんご}の{問題|もんだい}——それぞれ{違|ちが}う{解決策|かいけつさく}が{必要|ひつよう}。**"
+          - text: カナエ（使えなかった3人の声を代弁した側）
+            value: kanae
+            feedback: "カナエは{使|つか}えなかった3{人|にん}の{声|こえ}を{丁寧|ていねい}に{聞|き}き、それぞれの{理由|りゆう}を{伝|つた}えた{側|がわ}だよ。{問題|もんだい}に{気|き}づいた{大切|たいせつ}な{存在|そんざい}。"
+          - text: ハカル（テスト参加者の多様性の欠如を分析した側）
+            value: hakaru
+            feedback: "ハカルは{参加者|さんかしゃ}のプロフィールが「{似|に}すぎている」と{気|き}づき、{多様性|たようせい}の{欠如|けつじょ}を{分析|ぶんせき}した{側|がわ}だよ。{問題|もんだい}を{明|あき}らかにした{探偵|たんてい}。"
+          - text: ミナオス（ユーザビリティテストの原則を説明した側）
+            value: minaosu
+            feedback: "ミナオスはユーザビリティテストの{目的|もくてき}と{原則|げんそく}を{説明|せつめい}し、「{多様|たよう}なユーザーでテストする」{重要性|じゅうようせい}を{語|かた}った{側|がわ}だよ。"
+
+  # ==================== 真相：ツクルの告白 ====================
+  - id: truth-tsukuru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ツクルの本音
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "……{僕|ぼく}が{間違|まちが}えた。テストするとき、「{早|はや}く{終|お}わらせたい」って{思|おも}って——{操作|そうさ}が{得意|とくい}な{友達|ともだち}に{頼|たの}んだんだ。"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "{使|つか}えない{人|ひと}がいるって、{考|かんが}えてもいなかった。「{全員|ぜんいん}{使|つか}えた」って{報告|ほうこく}したとき——その「{全員|ぜんいん}」は、{図書館|としょかん}を{使|つか}う{全員|ぜんいん}じゃなかった。テストした5{人|にん}のことだった。"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "{使|つか}えなかった3{人|にん}が{困|こま}っているって{聞|き}いたとき……{自分|じぶん}が{守|まも}ろうとしていたのは「{失敗|しっぱい}を{認|みと}めたくない{気持|きも}ち」だったって{気|き}づいた。{誰|だれ}かのためじゃなくて、{自分|じぶん}のために「{大丈夫|だいじょうぶ}」と{言|い}い{続|つづ}けてた。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{使|つか}えなかった3{人|にん}の{話|はな}を{聞|き}いたとき、{私|わたし}も{最初|さいしょ}は「{使|つか}い{方|かた}を{教|おし}えれば{解決|かいけつ}する」って{思|おも}ってた。でも{理由|りゆう}を{聞|き}いたら、{全員|ぜんいん}{違|ちが}う{問題|もんだい}だった。「{使|つか}えない」って{一言|ひとこと}で{済|す}ませると、{本当|ほんとう}の{困|こま}りが{見|み}えなくなるんだって{学|まな}んだわ。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: normal
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "テスト{記録書|きろくしょ}の{参加者|さんかしゃ}{欄|らん}を{見|み}たとき、{名前|なまえ}だけで{詳細|しょうさい}がなかった。データに{多様性|たようせい}があるかどうかを{最初|さいしょ}に{確認|かくにん}する——それを{習慣|しゅうかん}にすれば、こんな{見落|みお}としは{防|ふせ}げる。"
+        expression: normal
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{時間|じかん}を{節約|せつやく}したい{気持|きも}ちは{分|わ}かる。でもユーザビリティテストを{手抜|てぬ}きすると、{後|あと}で{大|おお}きな{問題|もんだい}になる。{多様|たよう}なユーザーでテストすることは「{正|ただ}しいやり{方|かた}」じゃなくて、「{誰|だれ}かを{見落|みお}とさないための{基本|きほん}」なの。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ユーザビリティテストで{大切|たいせつ}なことを{確認|かくにん}しましょう。テストには{年齢|ねんれい}・{身体|しんたい}{特性|とくせい}・{言語|げんご}{背景|はいけい}・{経験|けいけん}の{異|こと}なる{人|ひと}を{含|ふく}める{必要|ひつよう}があります。「{全員|ぜんいん}{使|つか}えた」という{言葉|ことば}の「{全員|ぜんいん}」が{偏|かたよ}っていれば、{結論|けつろん}も{偏|かたよ}ってしまうの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ツクルは{時間|じかん}を{節約|せつやく}しようとしただけで、{悪意|あくい}はなかった。でも{次|つぎ}からは——テストする{前|まえ}に「このテストは{多様|たよう}なユーザーを{含|ふく}んでいるか？」と{自分|じぶん}に{問|と}いかけてほしいわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：ユーザビリティテストと{多様性|たようせい}】テストは「{誰|だれ}が・どんな{条件|じょうけん}で{使|つか}えたか」を{明確|めいかく}にしなければならない。{年齢|ねんれい}・{身体|しんたい}{特性|とくせい}・{言語|げんご}・{経験|けいけん}の{異|こと}なる{人|ひと}を{含|ふく}めることで、{初|はじ}めて「{全員|ぜんいん}{使|つか}えるか」を{確認|かくにん}できる。"
+      - type: narration
+        text: "【{学|まな}び②：{仮説|かせつ}{検証|けんしょう}】「{使|つか}えた」という{結論|けつろん}に{対|たい}して「{誰|だれ}が・どんな{条件|じょうけん}で{使|つか}えたか」を{問|と}い{直|なお}す。{条件|じょうけん}を{絞|しぼ}った{結論|けつろん}は、{条件|じょうけん}が{変|か}わると{成|な}り{立|た}たない——これが「{仮説|かせつ}{検証|けんしょう}」の{考|かんが}え{方|かた}だよ。"
+      - type: sprite
+        character: tsukuru
+        expression: determined
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{次|つぎ}にテストするときは——{操作|そうさ}{得意|とくい}な{子|こ}だけじゃなく、いろんな{子|こ}に{試|ため}してもらう。「{全員|ぜんいん}」って{言葉|ことば}を{使|つか}う{前|まえ}に、その「{全員|ぜんいん}」が{本当|ほんとう}に{多様|たよう}かどうか、{確認|かくにん}する。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: happy
+        position: left
+      - type: dialog
+        character: kanae
+        text: "「{使|つか}えない」は1{種類|しゅるい}じゃなかった。{視力|しりょく}・{体|からだ}・{言語|げんご}——それぞれに{違|ちが}う{解決策|かいけつさく}がある。{多様|たよう}な{声|こえ}を{聞|き}くことで、{初|はじ}めて{本当|ほんとう}の{問題|もんだい}が{見|み}えてくる。"
+        expression: happy
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: choice
+        id: q2
+        question: ユーザビリティテストで一番大切なことは何だと思う？
+        options:
+          - text: 多様なユーザー（年齢・体の特性・言語が違う人）でテストする
+            value: diversity
+            correct: true
+            feedback: "そのとおり！　{多様|たよう}なユーザーでテストすることで、{誰|だれ}もが{使|つか}えるデザインを{目指|めざ}せる。これがデザイン{思考|しこう}の「{共感|きょうかん}」ステップにつながる{大切|たいせつ}な{考|かんが}え{方|かた}だよ。"
+          - text: できるだけ早くテストを終わらせる
+            value: speed
+            feedback: "{効率|こうりつ}も{大切|たいせつ}だけど、テストの{目的|もくてき}は「{使|つか}いにくさを{見|み}つけること」。{早|はや}く{終|お}わらせるために{多様性|たようせい}を{省略|しょうりゃく}すると、{大切|たいせつ}な{問題|もんだい}を{見落|みお}としてしまうよ。"
+          - text: 操作が得意な人に試してもらう
+            value: experts
+            feedback: "{操作|そうさ}{得意|とくい}な{人|ひと}はすでに{使|つか}いやすいので、{問題|もんだい}を{見|み}つけにくい。{使|つか}いにくさを{感|かん}じやすい{人|ひと}を{含|ふく}めることが{大切|たいせつ}だよ。"
+          - text: テスト結果を「全員使えた」とまとめる
+            value: summary
+            feedback: "「{全員|ぜんいん}」という{言葉|ことば}には{注意|ちゅうい}が{必要|ひつよう}。「{誰|だれ}が・どんな{条件|じょうけん}で{使|つか}えたか」を{明確|めいかく}にしないと、{大切|たいせつ}な{情報|じょうほう}が{隠|かく}れてしまうよ。"
+      - type: effect
+        name: fade-out

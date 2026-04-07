@@ -1,0 +1,425 @@
+meta:
+  id: design-01
+  title: 聞かれなかった声
+  series: デザイン思考探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の{水飲|みずの}み{場|ば}{改造|かいぞう}{プロジェクト|ぷろじぇくと}がついに{完成|かんせい}した。{計画|けいかく}・{インタビュー|いんたびゅー}・{設計|せっけい}・{工事|こうじ}の4{段階|だんかい}——{デザイン思考探偵団|でざいんしこうたんていだん}が{半年|はんとし}かけて{取|と}り{組|く}んだ{大作業|だいさぎょう}だ。"
+      - type: narration
+        text: "「{完成|かんせい}したぞ！」と{喜|よろこ}んだのも{束|つか}の{間|ま}——{翌日|よくじつ}から{苦情|くじょう}が{続|つづ}き{始|はじ}めた。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{高|たか}さが{合|あ}わない」「ボタンが{押|お}しにくい」「{操作|そうさ}が{分|わ}からない」——{使|つか}ってみた{子|こ}たちからの{声|こえ}が{止|と}まらないわ。{一体|いったい}{何|なに}が{起|お}きたの？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: worried
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{完成|かんせい}したはずの{水飲|みずの}み{場|ば}が、{誰|だれ}にも{使|つか}われていない——{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 聞かれなかった声
+        subtitle: デザイン思考探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: プロジェクト記録と苦情リスト
+      - type: narration
+        text: "{水飲|みずの}み{場|ば}{プロジェクト|ぷろじぇくと}の{記録|きろく}には4つの{段階|だんかい}が{書|か}かれていた。①{計画|けいかく}、②{インタビュー|いんたびゅー}（{共感|きょうかん}{フェーズ|ふぇーず}）、③{設計|せっけい}、④{工事|こうじ}。{各段階|かくだんかい}に「{実施済|じっしず}み」の{チェック|ちぇっく}が{入|はい}っている。"
+      - type: evidence
+        id: card-1
+        title: 水飲み場プロジェクト記録＋苦情リスト
+        content: "【{記録|きろく}】①{計画|けいかく}：{完了|かんりょう}　②{インタビュー|いんたびゅー}：{実施済|じっしず}み　③{設計|せっけい}：{完了|かんりょう}　④{工事|こうじ}：{完了|かんりょう}　【{苦情|くじょう}{リスト|りすと}】「{高|たか}さが{合|あ}わない」「ボタンが{押|お}しにくい」「どこを{押|お}すか{分|わ}からない」「{水|みず}が{出|で}すぎる」"
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{苦情|くじょう}が4{種類|しゅるい}もある。しかも{全員|ぜんいん}{理由|りゆう}が{違|ちが}う。これは{特定|とくてい}の{失敗|しっぱい}じゃなくて、{根本|こんぽん}のどこかが{崩|くず}れてる{証拠|しょうこ}だよ。{各段階|かくだんかい}の{実施記録|じっしきろく}をもっと{細|こま}かく{調|しら}べないと。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{プロジェクト|ぷろじぇくと}に{参加|さんか}した4{人|にん}の{行動|こうどう}{ログ|ろぐ}——{インタビュー|いんたびゅー}{予定日時|よていにちじ}は10{月|がつ}5{日|か}{午後|ごご}2{時|じ}から4{時|じ}。{当日|とうじつ}、{誰|だれ}が{何|なに}をしていたか。"
+      - type: evidence
+        id: card-2
+        title: 参加者4人の行動ログ＋インタビュー予定日時
+        content: "【{予定|よてい}】{インタビュー|いんたびゅー}：10{月|がつ}5{日|か}（{水|すい}）{午後|ごご}2{時|じ}〜4{時|じ}、{昇降口|しょうこうぐち}{前|まえ}　【{当日|とうじつ}{ログ|ろぐ}】ツクル：{午後|ごご}2{時|じ}〜4{時|じ}「{設計室|せっけいしつ}にて{作業|さぎょう}」ハカル：{午後|ごご}2{時|じ}〜3{時|じ}「{昇降口|しょうこうぐち}{前|まえ}にて{待機|たいき}」カナエ：{午後|ごご}2{時|じ}〜3{時|じ}「{昇降口|しょうこうぐち}{前|まえ}にて{待機|たいき}」ミナオス：{午後|ごご}3{時|じ}〜4{時|じ}「{昇降口|しょうこうぐち}{前|まえ}にて{待機|たいき}」"
+      - type: sprite
+        character: kanae
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kanae
+        text: "ツクルだけ{昇降口|しょうこうぐち}{前|まえ}にいなかった！　{インタビュー|いんたびゅー}の{予定日時|よていにちじ}に、{設計室|せっけいしつ}で{別|べつ}の{作業|さぎょう}をしていたの？"
+        expression: surprised
+      - type: sprite
+        character: kanae
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: インタビュー記録と教室使用記録
+      - type: narration
+        text: "{プロジェクト|ぷろじぇくと}{記録|きろく}に{添付|てんぷ}された{インタビュー|いんたびゅー}{記録|きろく}——「{実施済|じっしず}み」と{書|か}かれているが、{記録|きろく}の{中身|なかみ}をよく{見|み}ると{不自然|ふしぜん}な{点|てん}がいくつかある。"
+      - type: evidence
+        id: card-3
+        title: インタビュー記録（「実施済み」）＋証言
+        content: "【{記録|きろく}】{実施日|じっしび}：10{月|がつ}5{日|か}　{回答者|かいとうしゃ}：「{数人|すうにん}の{生徒|せいと}」（{名前|なまえ}{なし|なし}）　{回答内容|かいとうないよう}：「{使|つか}いやすいと{思|おも}う」（{具体的|ぐたいてき}な{内容|ないよう}{なし|なし}）　【{証言|しょうげん}】ハカル・カナエ・ミナオスの3{人|にん}：「{誰|だれ}かに{話|はな}しかけられた{覚|おぼ}えがない」"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{回答者|かいとうしゃ}の{名前|なまえ}がない。{回答内容|かいとうないよう}が{具体的|ぐたいてき}じゃない。しかもハカル・カナエ・ミナオスの3{人|にん}が「{話|はな}しかけられた{覚|おぼ}えがない」と{言|い}ってる——これは{本当|ほんとう}に{実施|じっし}されたのか？"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{設計室|せっけいしつ}の{使用記録|しようきろく}と{設計図|せっけいず}の{完成日時|かんせいにちじ}——{インタビュー|いんたびゅー}{予定|よてい}と{設計|せっけい}{開始|かいし}のタイミングに{注目|ちゅうもく}しよう。"
+      - type: evidence
+        id: card-4
+        title: 教室使用記録＋設計図完成日時
+        content: "【{設計室|せっけいしつ}{使用記録|しようきろく}】10{月|がつ}5{日|か}（{水|すい}）{午後|ごご}2{時|じ}〜4{時|じ}：ツクル（{入室|にゅうしつ}{確認|かくにん}）　【{設計図|せっけいず}{完成日時|かんせいにちじ}】10{月|がつ}5{日|か}{午後|ごご}3{時|じ}30{分|ぷん}（{インタビュー|いんたびゅー}{予定終了|よていしゅうりょう}より{前|まえ}に{完成|かんせい}）"
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{インタビュー|いんたびゅー}がまだ{終|お}わっていないはずの{時間|じかん}に、{設計図|せっけいず}が{完成|かんせい}している……。{インタビューの結果|いんたびゅーのけっか}を{見|み}る{前|まえ}に{設計|せっけい}を{終|お}わらせたってこと？"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{プロジェクト|ぷろじぇくと}の4{段階|だんかい}のうち、{問題|もんだい}はどの{段階|だんかい}にあったのか——{整理|せいり}してみよう。"
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{苦情|くじょう}を{言|い}っている{子|こ}たちに{直接|ちょくせつ}{話|はな}を{聞|き}いたら、{全員|ぜんいん}{理由|りゆう}が{違|ちが}った。「{車椅子|くるまいす}で{届|とど}かない」「{低学年|ていがくねん}には{高|たか}すぎる」「{手|て}が{不自由|ふじゆう}でボタンが{押|お}せない」——{使|つか}う{人|ひと}ごとに{全然|ぜんぜん}{違|ちが}うニーズがある。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{インタビュー|いんたびゅー}が{本当|ほんとう}に{行|おこな}われていたなら、こういう{声|こえ}が{事前|じぜん}に{集|あつ}まっていたはず。{記録|きろく}には{名前|なまえ}も{具体的|ぐたいてき}な{内容|ないよう}もない——{共感|きょうかん}{フェーズ|ふぇーず}が{機能|きのう}していなかったんだ。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "……{インタビュー|いんたびゅー}は{時間|じかん}がかかると{思|おも}って。{早|はや}く{設計|せっけい}に{進|すす}みたかったから——"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足メモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツクルに{直接|ちょくせつ}{確認|かくにん}したところ、こう{言|い}っていたわ。「{インタビュー|いんたびゅー}は{後|あと}でいいと{思|おも}った。{設計|せっけい}の{方|ほう}が{大事|だいじ}だと{思|おも}って、{先|さき}に{始|はじ}めてしまった」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でも{デザイン思考|でざいんしこう}では、「{誰|だれ}のために{作|つく}るのか」を{最初|さいしょ}に{理解|りかい}するのが{最|もっと}も{大切|たいせつ}なの。{使|つか}う{人|ひと}の{声|こえ}を{聞|き}かずに{作|つく}ったものは、どれだけ{上手|じょうず}に{設計|せっけい}しても「{使|つか}う{人|ひと}のもの」にならないのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足＋共感フェーズの解説
+        content: "【ツクルの{発言|はつげん}】「{インタビュー|いんたびゅー}は{後|あと}でいいと{思|おも}った。{設計|せっけい}の{方|ほう}が{大事|だいじ}だと{思|おも}って{先|さき}に{始|はじ}めた」　【{共感|きょうかん}{フェーズ|ふぇーず}{解説|かいせつ}】{デザイン思考|でざいんしこう}の{最初|さいしょ}のステップは「{共感|きょうかん}」——{使|つか}う{人|ひと}の{立場|たちば}に{立|た}って、{何|なに}に{困|こま}っているか・{何|なに}を{求|もと}めているかを{直接|ちょくせつ}{聞|き}く{段階|だんかい}。この{段階|だんかい}を{飛|と}ばすと、{設計|せっけい}がどれだけ{優|すぐ}れていても「{使|つか}う{人|ひと}の{問題|もんだい}を{解|と}かないもの」になる。"
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "もし{完成前|かんせいまえ}に{実際|じっさい}に{使|つか}う{人|ひと}を{呼|よ}んで{確認|かくにん}していたら——{テスト|てすと}{ユーザー|ゆーざー}を{入|い}れていたら、{苦情|くじょう}になる{前|まえ}に{気|き}づけた{はず|はず}よ。"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{インタビュー|いんたびゅー}を{省略|しょうりゃく}→{使|つか}う{人|ひと}のニーズを{知|し}らない→{設計|せっけい}は{完璧|かんぺき}でも「{誰|だれ}の{声|こえ}も{反映|はんえい}されていない」もの→{苦情|くじょう}{続出|ぞくしゅつ}。**{共感|きょうかん}{フェーズ|ふぇーず}は「{省|はぶ}いていい{準備|じゅんび}」じゃなくて、{デザイン|でざいん}の{出発点|しゅっぱつてん}だった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ユーザーインタビューを省略したのは誰？
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{インタビュー|いんたびゅー}{予定日時|よていにちじ}に{昇降口|しょうこうぐち}{前|まえ}にいたのは3{人|にん}——ハカル・カナエ・ミナオス。{設計室|せっけいしつ}にいたのは1{人|ひと}だけ。しかも{設計図|せっけいず}は{インタビュー|いんたびゅー}{終了前|しゅうりょうまえ}に{完成|かんせい}している。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{インタビュー|いんたびゅー}{予定時刻|よていじこく}に{設計室|せっけいしつ}にいたのは1{人|ひと}だけ。②{インタビュー|いんたびゅー}{記録|きろく}に{名前|なまえ}も{具体的|ぐたいてき}な{内容|ないよう}もない。③3{人|にん}が「{話|はな}しかけられた{覚|おぼ}えがない」と{証言|しょうげん}。④{設計図|せっけいず}の{完成日時|かんせいにちじ}が{インタビュー|いんたびゅー}{予定終了|よていしゅうりょう}より{前|まえ}。⑤「{インタビュー|いんたびゅー}は{後|あと}でいいと{思|おも}った」との{発言|はつげん}。"
+      - type: choice
+        id: q1
+        question: ユーザーインタビューを省略したのは誰？
+        options:
+          - text: ツクル（インタビューより設計が大事と思い込み、先に設計を始めた）
+            value: tsukuru
+            correct: true
+            feedback: "{正解|せいかい}！　ツクルは「{インタビュー|いんたびゅー}は{時間|じかん}がかかる、{設計|せっけい}の{方|ほう}が{大事|だいじ}」という{思|おも}い{込|こ}みから{共感|きょうかん}{フェーズ|ふぇーず}を{省略|しょうりゃく}した。{設計|せっけい}{技術|ぎじゅつ}はあっても、「{誰|だれ}のために」が{抜|ぬ}けていたんだ。**{デザイン|でざいん}は{道具|どうぐ}を{作|つく}ることじゃなく、「{使|つか}う{人|ひと}の{問題|もんだい}を{解|と}くこと」——{共感|きょうかん}{フェーズ|ふぇーず}はその{出発点|しゅっぱつてん}。**"
+          - text: カナエ（苦情の子たちに話を聞いた人）
+            value: kanae
+            feedback: "カナエは{苦情|くじょう}の{後|あと}に{使|つか}う{人|ひと}の{声|こえ}を{集|あつ}めてくれた{共感|きょうかん}{実践|じっせん}{側|がわ}だよ。{インタビュー|いんたびゅー}{予定日時|よていにちじ}にも{昇降口|しょうこうぐち}{前|まえ}にいたことが{記録|きろく}に{残|のこ}っているよ。"
+          - text: ハカル（プロジェクト記録の矛盾を分析した人）
+            value: hakaru
+            feedback: "ハカルは{記録|きろく}の{矛盾|むじゅん}を{見|み}つけて{分析|ぶんせき}してくれた{側|がわ}だよ。{行動|こうどう}{ログ|ろぐ}によると{インタビュー|いんたびゅー}{予定日時|よていにちじ}に{昇降口|しょうこうぐち}{前|まえ}で{待機|たいき}していたことも{確認|かくにん}できるよ。"
+          - text: ミナオス（テスト担当として改善策を提案した人）
+            value: minaosu
+            feedback: "ミナオスは「{完成前|かんせいまえ}に{テスト|てすと}{ユーザー|ゆーざー}を{呼|よ}ぶべきだった」と{検証|けんしょう}{担当|たんとう}として{改善策|かいぜんさく}を{示|しめ}してくれた{側|がわ}だよ。{行動|こうどう}{ログ|ろぐ}でも{昇降口|しょうこうぐち}{前|まえ}にいたことが{確認|かくにん}できるよ。"
+
+  # ==================== 真相：ツクルの告白 ====================
+  - id: truth-tsukuru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ツクルの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "……{僕|ぼく}です。{インタビュー|いんたびゅー}、{省略|しょうりゃく}しました。{早|はや}く{完成|かんせい}させたかったんです。{インタビュー|いんたびゅー}って{時間|じかん}がかかるし、{聞|き}いた{話|はなし}を{設計|せっけい}に{活|い}かせるか{自信|じしん}もなくて——"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "{設計|せっけい}は{得意|とくい}だから、{先|さき}に{進|すす}めればうまくいくと{思|おも}ってた。{記録|きろく}には「{実施済|じっしず}み」って{書|か}いてしまいました。{本当|ほんとう}はやっていなかった。"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "でも……{使|つか}う{人|ひと}の{声|こえ}を{聞|き}かずに{作|つく}ったものが、{誰|だれ}の{問題|もんだい}も{解|と}いていなかったなんて——{設計|せっけい}が{上手|じょうず}でも、{意味|いみ}がなかった。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{苦情|くじょう}の{子|こ}たちに{話|はな}を{聞|き}いたとき、{全員|ぜんいん}{困|こま}っていることが{違|ちが}って{驚|おどろ}いた。{車椅子|くるまいす}の{子|こ}、{低学年|ていがくねん}の{子|こ}、{手|て}が{不自由|ふじゆう}な{子|こ}——{一人|ひとり}ひとりに{違|ちが}うニーズがあった。{事前|じぜん}に{聞|き}いていたら、{設計|せっけい}が{全然|ぜんぜん}{違|ちが}ったと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: normal
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{記録|きろく}に{名前|なまえ}がなくて、{内容|ないよう}が{曖昧|あいまい}だった{時点|じてん}で{怪|あや}しいと{思|おも}ってた。でも……ツクルが{設計|せっけい}を{早|はや}く{進|すす}めたかった{理由|りゆう}はわかる。{技術|ぎじゅつ}{的|てき}に{得意|とくい}なことをやりたくなるのは{自然|しぜん}だから。"
+        expression: normal
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{完成前|かんせいまえ}の{テスト|てすと}もそうだけど、{デザイン|でざいん}って{何度|なんど}も{確認|かくにん}しながら{進|すす}めるものなんだよね。「{完成|かんせい}させること」が{目標|もくひょう}じゃなくて、「{使|つか}う{人|ひと}の{問題|もんだい}を{解|と}くこと」が{目標|もくひょう}だもん。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{デザイン思考|でざいんしこう}の{最初|さいしょ}のステップは「{共感|きょうかん}」——{使|つか}う{人|ひと}の{立場|たちば}に{立|た}って、{直接|ちょくせつ}{声|こえ}を{聞|き}くこと。この{段階|だんかい}を{省|はぶ}くと、{技術|ぎじゅつ}がどれだけ{高|たか}くても「{誰|だれ}かの{役|やく}に{立|た}つもの」にはならないの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ツクルの{設計|せっけい}{力|りょく}は{本物|ほんもの}よ。{次回|じかい}は{使|つか}う{人|ひと}の{声|こえ}を{最初|さいしょ}に{集|あつ}めてから{設計|せっけい}を{始|はじ}める——それだけで、{全員|ぜんいん}が{使|つか}える{水飲|みずの}み{場|ば}に{生|う}まれ{変|か}わるはず。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{共感|きょうかん}{フェーズ|ふぇーず}】{デザイン|でざいん}は「{何|なに}を{作|つく}るか」より「{誰|だれ}のために」から{始|はじ}まる。{インタビュー|いんたびゅー}・{観察|かんさつ}・{体験|たいけん}など、{使|つか}う{人|ひと}の{声|こえ}を{直接|ちょくせつ}{集|あつ}めることが{設計|せっけい}の{出発点|しゅっぱつてん}。"
+      - type: narration
+        text: "【{学|まな}び②：{消去法|しょうきょほう}】{条件|じょうけん}に{合|あ}わない{人|ひと}を{一人|ひとり}ずつ{除外|じょがい}して{犯人|はんにん}を1{人|ひと}に{絞|しぼ}る{考|かんが}え{方|かた}。{インタビュー|いんたびゅー}{予定時刻|よていじこく}に{別|べつ}の{場所|ばしょ}にいた→{記録|きろく}が{曖昧|あいまい}→{設計図|せっけいず}が{先|さき}に{完成|かんせい}——{三|みっ}つの{証拠|しょうこ}がツクルを{指|さ}していた。"
+      - type: sprite
+        character: tsukuru
+        expression: determined
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "{次|つぎ}は{絶対|ぜったい}に{使|つか}う{人|ひと}の{声|こえ}を{最初|さいしょ}に{聞|き}く。{車椅子|くるまいす}の{子|こ}も、{低学年|ていがくねん}の{子|こ}も、{手|て}が{不自由|ふじゆう}な{子|こ}も——{全員|ぜんいん}に{話|はな}を{聞|き}いてから{設計|せっけい}を{始|はじ}める。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: effect
+        name: fade-out

@@ -1,0 +1,466 @@
+meta:
+  id: energy-06
+  title: 変換の手がかり
+  series: エネルギー探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{理科室|りかしつ}の{実験台|じっけんだい}に、{手回|てまわ}し{発電機|はつでんき}と{豆電球|まめでんきゅう}が{並|なら}んでいる。{今日|きょう}は{手回|てまわ}し{発電|はつでん}の{実験|じっけん}——4つの{班|はん}がそれぞれ{発電機|はつでんき}を{回|まわ}して、{豆電球|まめでんきゅう}を{光|ひか}らせる{授業|じゅぎょう}だ。"
+      - type: narration
+        text: "ところが{結果|けっか}を{発表|はっぴょう}する{時間|じかん}になって——{不思議|ふしぎ}なことが{起|お}きた。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: denta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: denta
+        text: "ちょっと{待|ま}って！　ヒカルの{班|はん}の{発電量|はつでんりょう}、ダントツで{多|おお}い！　でも「ゆっくり{回|まわ}しただけ」って{書|か}いてある。それ、{矛盾|むじゅん}してない？"
+        expression: surprised
+      - type: sprite
+        character: denta
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: thinking
+          - character: hikaru
+            expression: worried
+          - character: netsumi
+            expression: thinking
+          - character: chikara
+            expression: surprised
+      - type: narration
+        text: "ヒカルの{班|はん}だけ、{発電量|はつでんりょう}が{突|とび}ぬけて{多|おお}い。でも{報告書|ほうこくしょ}には「ゆっくり{手|て}で{回|まわ}した」と{書|か}かれている。{手回|てまわ}し{発電|はつでん}の{原理|げんり}からすると、ゆっくり{回|まわ}せば{発電量|はつでんりょう}は{少|すく}ないはず——{何|なに}かがおかしい。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 変換の手がかり
+        subtitle: エネルギー探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 発電実験の記録
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{配|くば}った{今日|きょう}の{実験|じっけん}の{記録|きろく}——4つの{班|はん}の{回転速度|かいてんそくど}と{発電量|はつでんりょう}のデータが{残|のこ}されていた。"
+      - type: evidence
+        id: card-1
+        title: 4班の発電実験記録
+        content: "【{実験|じっけん}{内容|ないよう}】{手回|てまわ}し{発電機|はつでんき}で{豆電球|まめでんきゅう}を{光|ひか}らせる　【{各班|かくはん}の{記録|きろく}】A{班|はん}（デンタ）:{回転|かいてん}「ふつう」→{発電量|はつでんりょう}3　B{班|はん}（ネツミ）:{回転|かいてん}「はやめ」→{発電量|はつでんりょう}4　C{班|はん}（チカラ）:{回転|かいてん}「はやい」→{発電量|はつでんりょう}5　D{班|はん}（ヒカル）:{回転|かいてん}「ゆっくり」→{発電量|はつでんりょう}8　【{矛盾|むじゅん}】ゆっくり{回|まわ}したのに、ダントツの{発電量|はつでんりょう}8。「ゆっくり＝{発電量|はつでんりょう}{少|すく}ない」の{原理|げんり}と{真逆|まぎゃく}の{結果|けっか}。"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{手回|てまわ}し{発電機|はつでんき}の{発電量|はつでんりょう}は{回転速度|かいてんそくど}に{比例|ひれい}する。ゆっくり{回|まわ}せば{少|すく}ない——それが{原理|げんり}だ。でもヒカルの{班|はん}の「8」は{速|はや}く{回|まわ}した{場合|ばあい}のはず。ゆっくりで「8」は{理論上|りろんじょう}{あり得|ありえ}ない。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "デンタが{計算|けいさん}メモを{広|ひろ}げた。{回転速度|かいてんそくど}と{発電量|はつでんりょう}の{関係|かんけい}を{数字|すうじ}で{示|しめ}している。"
+      - type: evidence
+        id: card-2
+        title: デンタの計算メモ
+        content: "【{回転速度|かいてんそくど}と{発電量|はつでんりょう}の{関係|かんけい}】{毎秒|まいびょう}1{回転|かいてん}（ゆっくり）→{発電量|はつでんりょう}1〜2　{毎秒|まいびょう}3{回転|かいてん}（ふつう）→{発電量|はつでんりょう}3〜4　{毎秒|まいびょう}5{回転|かいてん}（はやい）→{発電量|はつでんりょう}7〜8　【{結論|けつろん}】{発電量|はつでんりょう}「8」を{出|だ}すには、{毎秒|まいびょう}5{回転|かいてん}{以上|いじょう}が{必要|ひつよう}。「ゆっくり」{手回|てまわ}しでは{絶対|ぜったい}に{出|で}ない{数値|すうち}。"
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "ゆっくり{回|まわ}したのは{本当|ほんとう}だよ。でも……{発電量|はつでんりょう}「8」が{出|で}たのも{本当|ほんとう}なんだ。なぜか{分|わ}からないけど、{実際|じっさい}に{光|ひか}ったから。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: チカラの証言と実験台の記録
+      - type: narration
+        text: "チカラが{実験|じっけん}{前|まえ}に{気|き}になることを{聞|き}いていた、と{口|くち}を{開|ひら}いた。"
+      - type: evidence
+        id: card-3
+        title: チカラの観察メモ
+        content: "【チカラの{証言|しょうげん}】「{実験|じっけん}{始|はじ}まる{前|まえ}、ヒカルが{発電機|はつでんき}を{眺|なが}めながらつぶやいてた。『{位置|いち}エネルギーで{発電|はつでん}できるかな。{坂|さか}と{重|おも}りを{使|つか}ったら……』って」　【{気|き}になった{理由|りゆう}】「{手回|てまわ}し{発電|はつでん}の{実験|じっけん}なのに、なんで{坂|さか}と{重|おも}りの{話|はなし}をしてるのかと{思|おも}って」"
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "ヒカル、{実験|じっけん}{前|まえ}から「{重力|じゅうりょく}で{発電|はつでん}できるか{試|ため}したい」って{気持|きも}ちがあったんじゃないかな。あのつぶやき、すごく{真剣|しんけん}だった。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: narration
+        text: "ネツミが{実験台|じっけんだい}の{状態|じょうたい}を{確認|かくにん}していた。そして——ヒカルの{班|はん}が{使|つか}った{実験台|じっけんだい}に、ある{痕跡|こんせき}を{発見|はっけん}した。"
+      - type: evidence
+        id: card-4a
+        title: 実験台の傾斜記録（条件付き公開①）
+        content: "【ネツミの{観察|かんさつ}メモ】{実験台|じっけんだい}の{足|あし}の{設置角度|せっちかくど}を{確認|かくにん}したところ——A・B・C{班|はん}の{実験台|じっけんだい}はすべて{水平|すいへい}（0{度|ど}）　D{班|はん}（ヒカル）の{実験台|じっけんだい}だけ15{度|ど}{傾|かたむ}いた{跡|あと}がある　【{痕跡|こんせき}の{証拠|しょうこ}】{実験台|じっけんだい}の{足|あし}のゴムに、{傾|かたむ}けた{際|さい}にできる{すり傷|すりきず}が{残|のこ}っている。"
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "この{実験台|じっけんだい}の{足|あし}に{傷|きず}がある。{傾|かたむ}けて{使|つか}った{痕跡|こんせき}——{誰|だれ}かが{設定|せってい}を{変|か}えた。ヒカルの{班|はん}だけ、15{度|ど}の{傾|かたむ}きが{残|のこ}ってる。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: evidence
+        id: card-4b
+        title: 重りの移動記録（条件付き公開②）
+        content: "【{理科室|りかしつ}{備品|びひん}リストの{照合|しょうごう}】{実験前|じっけんまえ}の{備品棚|びひんたな}の{記録|きろく}と{実験後|じっけんご}の{記録|きろく}を{照合|しょうごう}した{結果|けっか}——{金属製|きんぞくせい}{重|おも}り（100g）1{個|こ}が{棚|たな}から{移動|いどう}している　D{班|はん}（ヒカル）の{実験台|じっけんだい}の{下|した}の{引|ひ}き{出|だ}しから{回収|かいしゅう}された　【{組|く}み{合|あ}わせ】{傾|かたむ}いた{実験台|じっけんだい}＋{重|おも}り＝{坂|さか}を{転|ころ}がる{重|おも}りで{発電機|はつでんき}を{高速|こうそく}{回転|かいてん}させる{装置|そうち}が{作|つく}れる。"
+      - type: sprite
+        character: denta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: denta
+        text: "{傾|かたむ}いた{台|だい}＋{重|おも}り——これが「{位置|いち}エネルギー」だ！　{重|おも}りが{高|たか}い{場所|ばしょ}にあることで{位置|いち}エネルギーを{持|も}つ。それが{坂|さか}を{転|ころ}がることで{運動|うんどう}エネルギーになり、{発電機|はつでんき}を{回|まわ}して{電気|でんき}に{変換|へんかん}される！"
+        expression: surprised
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{積|つ}み{重|かさ}なってきた。{発電量|はつでんりょう}の{矛盾|むじゅん}、チカラが{聞|き}いたつぶやき、{傾|かたむ}いた{実験台|じっけんだい}、{移動|いどう}した{重|おも}り——これらをつなぐと、「{手回|てまわ}し{以外|いがい}の{何|なに}か」が{見|み}えてくる。"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "……{本当|ほんとう}は、{重|おも}りを{坂|さか}で{転|ころ}がして{発電機|はつでんき}を{回|まわ}したんだ。「{手|て}だけじゃなくて{重力|じゅうりょく}でも{発電|はつでん}できるか」{試|ため}したくて。{実際|じっさい}に{光|ひか}ったから{嬉|うれ}しかった。でも{記録|きろく}の{書|か}き{方|かた}が……"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "エネルギーの{変換|へんかん}{経路|けいろ}を{全部|ぜんぶ}{並|なら}べてみよう。{手|て}でしか{回|まわ}してないなら「{手|て}の{運動|うんどう}エネルギー→{電気|でんき}エネルギー」だけのはず。でも「8」が{出|で}るには{別|べつ}の{経路|けいろ}が{必要|ひつよう}だ。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: エネルギー変換の全経路図
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "みんなが{集|あつ}めた{証拠|しょうこ}から、{先生|せんせい}でエネルギー{変換|へんかん}の{全|ぜん}{経路|けいろ}を{整理|せいり}してみたわ。これを{見|み}ると、「{手回|てまわ}しだけ」では{説明|せつめい}できないことが、はっきり{分|わ}かるはずよ。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "エネルギーは{形|かたち}を{変|か}えても、{量|りょう}は{保存|ほぞん}される。だからどの{経路|けいろ}でどれだけのエネルギーが{入|はい}ったかを{全探索|ぜんたんさく}すれば——{答|こた}えに{たどり着|たどりつ}けるの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: エネルギー変換の全経路図
+        content: "【{変換|へんかん}{経路|けいろ}の{全探索|ぜんたんさく}】①{手|て}の{運動|うんどう}エネルギー→{電気|でんき}エネルギー→{光|ひかり}エネルギー（{通常|つうじょう}の{手回|てまわ}し）②{位置|いち}エネルギー→{運動|うんどう}エネルギー→{電気|でんき}エネルギー→{光|ひかり}エネルギー（{重|おも}りが{坂|さか}を{転|ころ}がる）【{結論|けつろん}】{発電量|はつでんりょう}「8」は{経路|けいろ}①では{出|で}ない。{経路|けいろ}②——{位置|いち}エネルギー（{重|おも}り＋{坂|さか}）が{入力|にゅうりょく}されたと{考|かんが}えれば{一致|いっち}する。【{学|まな}び】エネルギーは{形|かたち}を{変|か}えても「{量|りょう}は{保存|ほぞん}」される。{変換|へんかん}の{連鎖|れんさ}を{全探索|ぜんたんさく}すれば、{見|み}えない{入力|にゅうりょく}が{分|わ}かる。"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{手|て}だけで「8」は{出|で}ない——{全探索|ぜんたんさく}で{証明|しょうめい}された。{経路|けいろ}②の{位置|いち}エネルギー{入力|にゅうりょく}が{存在|そんざい}しないと、この{数値|すうち}は{説明|せつめい}できない。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{手|て}でゆっくり{回|まわ}した」という{前提|ぜんてい}が{崩|くず}れた。**エネルギー{変換|へんかん}の{全|ぜん}{経路|けいろ}を{並|なら}べると——{位置|いち}エネルギー（{重|おも}り＋{傾斜台|けいしゃだい}）からの{入力|にゅうりょく}が{必|かなら}ずあったはず。「{手回|てまわ}し{以外|いがい}のエネルギーが{使|つか}われた」——それが{唯一|ゆいいつ}の{説明|せつめい}だ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 手回し発電機を手以外の方法で回して「手で回した」と報告したのは誰？
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{発電量|はつでんりょう}「8」は{手回|てまわ}しでは{出|で}ない（デンタの{計算|けいさん}）。②ヒカルが{実験|じっけん}{前|まえ}に「{位置|いち}エネルギーで{発電|はつでん}」とつぶやいていた（チカラの{証言|しょうげん}）。③ヒカル{班|はん}の{実験台|じっけんだい}だけ{傾|かたむ}いた{跡|あと}と{重|おも}りの{移動|いどう}がある。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{全探索|ぜんたんさく}で{並|なら}べると——「{手回|てまわ}し{以外|いがい}のエネルギー{経路|けいろ}」を{作|つく}ったのが{誰|だれ}か、{見|み}えてくる。{手回|てまわ}し{発電機|はつでんき}を{重力|じゅうりょく}（{坂|さか}と{重|おも}り）で{回|まわ}して、「{手|て}で{回|まわ}した」と{報告|ほうこく}したのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 発電方法を変えて「手で回した」と報告したのは誰？
+        options:
+          - text: ヒカル（位置エネルギーで発電を試みたが、記録に正しく書かなかった）
+            value: hikaru
+            correct: true
+            feedback: "{正解|せいかい}！　ヒカルの{発見|はっけん}は{本当|ほんとう}に{面白|おもしろ}い——{重力|じゅうりょく}（{位置|いち}エネルギー）も{電気|でんき}に{変換|へんかん}できます。でも{記録|きろく}には{正直|しょうじき}に「{坂|さか}と{重|おも}りを{使|つか}った」と{書|か}かなければ、{他|ほか}の{人|ひと}が{同|おな}じことを{確|たし}かめられない。**{科学|かがく}の{発見|はっけん}は「{再現|さいげん}できること」が{大切|たいせつ}です。エネルギーは{形|かたち}を{変|か}えても{量|りょう}は{保存|ほぞん}される——この{変換|へんかん}の{連鎖|れんさ}を{全探索|ぜんたんさく}することが、{見|み}えない{真実|しんじつ}を{解|と}くカギです。**"
+          - text: デンタ（回転速度と発電量を計算した人）
+            value: denta
+            feedback: "デンタは{回転速度|かいてんそくど}と{発電量|はつでんりょう}の{関係|かんけい}を{計算|けいさん}して{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}だよ。{自分|じぶん}の{班|はん}で{実験|じっけん}していたよ。"
+          - text: ネツミ（実験台の傾きを発見した人）
+            value: netsumi
+            feedback: "ネツミは{実験台|じっけんだい}の{傾|かたむ}きの{痕跡|こんせき}を{発見|はっけん}した{側|がわ}だよ。{慎重|しんちょう}に{観察|かんさつ}して{証拠|しょうこ}を{集|あつ}めたよ。"
+          - text: チカラ（ヒカルのつぶやきを覚えていた人）
+            value: chikara
+            feedback: "チカラはヒカルの{実験|じっけん}{前|まえ}のつぶやきに{気|き}づいた{側|がわ}だよ。ヒカルの{探究心|たんきゅうしん}に{共感|きょうかん}していたよ。"
+
+  # ==================== 真相：ヒカルの告白 ====================
+  - id: truth-hikaru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ヒカルの探究心
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hikaru
+        text: "……{僕|ぼく}です。{重|おも}りを{坂|さか}で{転|ころ}がして{発電機|はつでんき}を{回|まわ}したのは。「{手|て}で{回|まわ}した」と{書|か}いたのも。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "{授業|じゅぎょう}{前|まえ}からずっと{気|き}になってたんだ——「{重力|じゅうりょく}でも{発電|はつでん}できるかな」って。{坂|さか}に{重|おも}りを{置|お}いて{転|ころ}がしたら、{発電機|はつでんき}がものすごく{速|はや}く{回|まわ}って、{豆電球|まめでんきゅう}がピカッと{光|ひか}った！　{本当|ほんとう}に{嬉|うれ}しかった。"
+        expression: happy
+      - type: dialog
+        character: hikaru
+        text: "でも「{坂|さか}と{重|おも}りで{発電|はつでん}した」って{書|か}くのが{怖|こわ}かった。{先生|せんせい}に{怒|おこ}られるかもって。だから「{手|て}で{回|まわ}した」って{書|か}いちゃった。……{記録|きろく}の{書|か}き{方|かた}が{悪|わる}かった。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "ヒカル、{最初|さいしょ}から{重力|じゅうりょく}で{試|ため}したかったんだよ。その{発見|はっけん}は{本物|ほんもの}だと{思|おも}う。{重|おも}りが{坂|さか}を{転|ころ}がって{電気|でんき}に{変|か}わった——すごい{発見|はっけん}じゃない！"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: denta
+        expression: normal
+        position: right
+      - type: dialog
+        character: denta
+        text: "{発見|はっけん}はすごい。でも「{手|て}で{回|まわ}した」という{記録|きろく}が{残|のこ}ると、{誰|だれ}も{同|おな}じ{実験|じっけん}を{再現|さいげん}できない。{科学|かがく}は「{同|おな}じ{方法|ほうほう}でもう{一度|いちど}できる」ことが{大事|たいせつ}なんだ。"
+        expression: normal
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{全探索|ぜんたんさく}って、こういうときに{使|つか}えるんだ——「どのエネルギーが{入力|にゅうりょく}されたか」を{全部|ぜんぶ}{列挙|れっきょ}して、{一|ひと}つずつ{検証|けんしょう}する。{見落|みお}としを{防|ふせ}ぐ{考|かんが}え{方|かた}だよ。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒカルの{発見|はっけん}を{確認|かくにん}しましょう。{位置|いち}エネルギー（{重|おも}り×{高|たか}さ）→{運動|うんどう}エネルギー（{転|ころ}がる{速|はや}さ）→{電気|でんき}エネルギー（{発電機|はつでんき}の{回転|かいてん}）→{光|ひかり}エネルギー（{豆電球|まめでんきゅう}）——エネルギーは{形|かたち}を{変|か}えても、{量|りょう}は{保存|ほぞん}されるの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ヒカルの{探究心|たんきゅうしん}は{本当|ほんとう}に{素晴|すば}らしかった。でも{次回|じかい}は「{坂|さか}と{重|おも}りを{使|つか}った」と{正直|しょうじき}に{書|か}いてね。{正確|せいかく}な{記録|きろく}があれば、その{発見|はっけん}は{誰|だれ}でも{再現|さいげん}できる——それが{本当|ほんとう}の{科学|かがく}の{発見|はっけん}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：エネルギー{変換|へんかん}の{連鎖|れんさ}】{位置|いち}エネルギー→{運動|うんどう}エネルギー→{電気|でんき}エネルギー→{光|ひかり}エネルギー——エネルギーは{形|かたち}を{変|か}えながら{移動|いどう}する。{変換|へんかん}の「{入口|いりぐち}」と「{出口|でぐち}」を{追|お}えば、{見|み}えないエネルギーの{流|なが}れが{分|わ}かる。"
+      - type: narration
+        text: "【{学|まな}び②：{全探索|ぜんたんさく}】「どのエネルギーが{入力|にゅうりょく}されたか」を{全部|ぜんぶ}{列挙|れっきょ}して、{証拠|しょうこ}で{一|ひと}つずつ{確認|かくにん}していく。「{手回|てまわ}しだけ」という{思|おも}い{込|こ}みを{外|はず}して{全|ぜん}{経路|けいろ}を{見|み}れば、{矛盾|むじゅん}の{原因|げんいん}に{たどり着|たどりつ}ける。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{次|つぎ}は「{坂|さか}と{重|おも}りを{使|つか}って{位置|いち}エネルギーで{発電|はつでん}した」って{記録|きろく}に{書|か}く。そして、{重|おも}りの{高|たか}さを{変|か}えたら{発電量|はつでんりょう}も{変|か}わるか{実験|じっけん}してみたい！"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: happy
+        position: left
+      - type: dialog
+        character: chikara
+        text: "ヒカルの{発見|はっけん}、{本物|ほんもの}だよ。{記録|きろく}さえ{正確|せいかく}に{書|か}けば、みんなで{続|つづ}けて{実験|じっけん}できる。エネルギー{変換|へんかん}の{連鎖|れんさ}——{面白|おもしろ}いって{思|おも}った！"
+        expression: happy
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ==================== テーマの問い ====================
+  - id: theme-question
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 考えてみよう
+        subtitle: エネルギーと記録について
+      - type: narration
+        text: "ヒカルは「{重力|じゅうりょく}で{発電|はつでん}できる」という{面白|おもしろ}い{発見|はっけん}をした。でも「{手|て}で{回|まわ}した」という{間違|まちが}った{記録|きろく}を{残|のこ}してしまった。"
+      - type: choice
+        id: q2
+        question: もしあなたがヒカルの立場だったら、どうすればよかった？
+        options:
+          - text: 最初から「坂と重りを使う実験をしたい」と先生に相談する
+            value: a
+            correct: true
+            feedback: "その{通|とお}り！　{面白|おもしろ}いアイデアがあれば、{先|さき}に{先生|せんせい}に{相談|そうだん}する——それが{科学|かがく}の{正|ただ}しい{進|すす}め{方|かた}です。{先生|せんせい}は「それは{面白|おもしろ}い！　{記録|きろく}の{書|か}き{方|かた}も{一緒|いっしょ}に{考|かんが}えよう」と{言|い}ってくれるはずです。"
+          - text: 実験後に「実は坂と重りを使った」と正直に報告する
+            value: b
+            correct: true
+            feedback: "{後|あと}からでも{正直|しょうじき}に{話|はな}す——それも{大事|たいせつ}です！　「{間違|まちが}えた」と{気|き}づいたら{訂正|ていせい}できる{勇気|ゆうき}が、{科学|かがく}の{誠実|せいじつ}さにつながります。"
+          - text: 発電量「8」の結果だけ報告して、方法は隠す
+            value: c
+            feedback: "それだと{他|ほか}の{人|ひと}が{同|おな}じ{実験|じっけん}を{再現|さいげん}できません。「{同|おな}じ{方法|ほうほう}でもう{一度|いちど}できる」——それが{科学|かがく}の{発見|はっけん}の{条件|じょうけん}です。"

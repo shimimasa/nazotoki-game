@@ -1,0 +1,416 @@
+meta:
+  id: classic-07
+  title: 能面の裏
+  series: 古典探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: gym
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{文化祭|ぶんかさい}まであと1日——{体育館|たいいくかん}の{舞台|ぶたい}では{能|のう}のリハーサルが{予定|よてい}されていた。"
+      - type: narration
+        text: "ところが{朝|あさ}、{舞台裏|ぶたいうら}の{能面|のうめん}を{確認|かくにん}すると、3つの{面|めん}の{配置|はいち}がすべて{入|い}れ{替|か}わっていた。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**「{笑|わら}いの{面|めん}」が「{悲|かな}しみの{場面|ばめん}」に。「{悲|かな}しみの{面|めん}」が「{怒|いか}りの{場面|ばめん}」に——3つ{全部|ぜんぶ}が{入|い}れ{替|か}わっている。{偶然|ぐうぜん}か、それとも{意図的|いとてき}か？**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "リハーサル{前日|ぜんじつ}に{能面|のうめん}の{配置|はいち}が{全部|ぜんぶ}{入|い}れ{替|か}わっていたの。{本番|ほんばん}前日なのに——{誰|だれ}が、どうして{入|い}れ{替|か}えたのか、{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: worried
+          - character: utayomi
+            expression: worried
+          - character: shirabe
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{舞台|ぶたい}を{見|み}つめた。{配置|はいち}は{確|たし}かに{間違|まちが}っている——{単|たん}なる{間違|まちが}いか、{誰|だれ}かの{意図|いと}か。{謎|なぞ}を{解|と}く{時間|じかん}はほとんどない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 能面の裏
+        subtitle: 古典探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: gym
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 能面の配置図と能面ガイド
+      - type: narration
+        text: "{フミカ|ふみか}が{リハーサル|りはーさる}{前日|ぜんじつ}に{書|か}いた{配置|はいち}メモ——「{笑|わら}いの{面|めん}は{喜|よろこ}びの{場面|ばめん}」「{悲|かな}しみの{面|めん}は{悲|かな}しみの{場面|ばめん}」「{怒|いか}りの{面|めん}は{怒|いか}りの{場面|ばめん}」と{正確|せいかく}に{記録|きろく}されていた。"
+      - type: narration
+        text: "ところが{当日|とうじつ}の{配置|はいち}は3つ{全部|ぜんぶ}がズレている。{笑|わら}いの{面|めん}→{悲|かな}しみの{場面|ばめん}、{悲|かな}しみの{面|めん}→{怒|いか}りの{場面|ばめん}、{怒|いか}りの{面|めん}→{喜|よろこ}びの{場面|ばめん}。"
+      - type: evidence
+        id: card-1
+        title: 能面の配置図（前日 vs 当日）
+        content: "【前日の正しい配置】笑いの面→喜びの場面、悲しみの面→悲しみの場面、怒りの面→怒りの場面。【当日の配置】笑いの面→悲しみの場面、悲しみの面→怒りの場面、怒りの面→喜びの場面。3つとも入れ替わっている。"
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "3つとも{入|い}れ{替|か}わってる。{偶然|ぐうぜん}じゃない。{誰|だれ}かが{意図的|いとてき}にやった。{前日|ぜんじつ}の{配置|はいち}メモと{比|くら}べると、{全部|ぜんぶ}がひとつずつズレているんだ——まるで{順番|じゅんばん}を{入|い}れ{替|か}えるように。"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "つぎに{舞台裏|ぶたいうら}に{置|お}いてあった{能面|のうめん}ガイドを{確認|かくにん}する。そこには{驚|おどろ}くべき{情報|じょうほう}が{書|か}かれていた。"
+      - type: evidence
+        id: card-2
+        title: 能面ガイド
+        content: "能面（のうめん）は1つの面でいくつもの感情を表せる。【テラス】面を上に向けると光が当たって「笑い・喜び」に見える。【クモラス】面を下に向けると影になって「悲しみ・苦しみ」に見える。つまり1つの面を傾けるだけで表情が変わる。能楽は600年以上続く日本の芸術。"
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "ちょっと{待|ま}って……「{面|めん}を{上|うえ}に{向|む}けると{笑|わら}い、{下|した}に{向|む}けると{悲|かな}しみ」って{書|か}いてある。{面|めん}の{種類|しゅるい}じゃなくて——{角度|かくど}で{変|か}わるの？"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: gym
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: シラベの証言とフミカの分析
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{舞台裏|ぶたいうら}の{鍵|かぎ}は{部長|ぶちょう}のフミカが{持|も}っているけど、リハーサル{前|まえ}の{朝|あさ}、{扉|とびら}が{開|あ}いていた{時間帯|じかんたい}があった。その{時間|じかん}なら{全員|ぜんいん}が{入|はい}れた——{全員|ぜんいん}にチャンスがあった。でも「{動機|どうき}」があるのは……"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-3
+        title: シラベの証言 + コトバの調査
+        content: "【シラベの証言】ウタヨミが「悲しみの場面」のセリフ練習をするとき、いつも黙ってしまっていた。最近ずっとそうだった。【コトバの調査】舞台裏にウタヨミのノートが落ちていた。「悲しみの場面」の台本にバツ印がついていた。"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "ウタヨミ、{最近|さいきん}ずっと「{悲|かな}しみ」の{場面|ばめん}の{練習|れんしゅう}で{黙|だま}ってたよね。{泣|な}く{演技|えんぎ}が——{怖|こわ}かった？"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: narration
+        text: "そして{フミカ|ふみか}が{入|い}れ{替|か}えのパターンを{詳|くわ}しく{分析|ぶんせき}した。{配置|はいち}のズレに{規則性|きそくせい}があることに{気|き}づく。"
+      - type: evidence
+        id: card-4
+        title: フミカの分析
+        content: "入れ替えパターンをよく見ると——ウタヨミが担当する「悲しみの場面」だけが「笑いの面」になっている。他の2つの面は玉突きで動いた結果。つまり、最初に動かしたのは「笑いの面」→「悲しみの場面」の1手だけ。"
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{入|い}れ{替|か}えの{目的|もくてき}は「{笑|わら}いの{面|めん}をウタヨミの{場面|ばめん}に{置|お}く」ことだった——{他|ほか}の2つは{玉突|たまつ}きで{動|うご}いただけ。{動機|どうき}があって、{行動|こうどう}する{機会|きかい}もあって、{入|い}れ{替|か}えの{意図|いと}も{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: gym
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{全員|ぜんいん}に{機会|きかい}はあった——だが{動機|どうき}はウタヨミだけに{見|み}える。{入|い}れ{替|か}えのゴールも「ウタヨミの{場面|ばめん}を{笑|わら}いの{面|めん}にする」こと。"
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{全員|ぜんいん}が{舞台裏|ぶたいうら}に{入|はい}れた{時間帯|じかんたい}がある。でもその{中|なか}で「{動機|どうき}」があるのは——{笑|わら}いの{面|めん}を{自分|じぶん}の{場面|ばめん}に{置|お}きたかった{人|ひと}……ウタヨミ？"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "……{私|わたし}、「{悲|かな}しみの{場面|ばめん}」を{担当|たんとう}してる。{泣|な}く{演技|えんぎ}が——{本番|ほんばん}でみんなの{前|まえ}で{泣|な}くなんて……どうしても{怖|こわ}くて。"
+        expression: worried
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: gym
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ウタヨミに{直接|ちょくせつ}{聞|き}いたら、こう{言|い}っていたわ。「{悲|かな}しい{演技|えんぎ}が{怖|こわ}くて、{笑|わら}いの{面|めん}にすれば{泣|な}かなくて{済|す}むと{思|おも}った。でも{先生|せんせい}から"能面|のうめんは{角度|かくど}で{表情|ひょうじょう}が{変|か}わる"と{教|おし}えてもらって、{入|い}れ{替|か}える{必要|ひつよう}がなかったと{分|わ}かった」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{知|し}らなくてごめんなさい」——ウタヨミはそう{言|い}っていた。{能面|のうめん}の{仕組|しく}みを{知|し}らなかったから、{間違|まちが}った{行動|こうどう}をとってしまったの。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "ウタヨミのことば：「悲しい演技が怖くて、笑いの面にすれば泣かなくて済むと思った。でも先生から"能面は角度で表情が変わる"と教えてもらって、入れ替える必要がなかったと分かった。知らなくてごめんなさい」"
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "…{待|ま}って。{面|めん}は{角度|かくど}で{変|か}わるんだから——{面|めん}を{入|い}れ{替|か}えなくても、{下|した}に{向|む}けるだけで「{悲|かな}しみ」の{表情|ひょうじょう}になる？　{入|い}れ{替|か}える{必要|ひつよう}がもともとなかった？"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{能面|のうめん}は1つの{面|めん}で{喜怒哀楽|きどあいらく}を{表現|ひょうげん}できる」——ウタヨミはその{仕組|しく}みを{知|し}らなかった。{情報|じょうほう}の{欠落|けつらく}が、{間違|まちが}った{判断|はんだん}を{生|う}んだ。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: gym
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 文化祭の能面を入れ替えたのは誰？
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{証拠|しょうこ}をまとめると——①{全員|ぜんいん}に{機会|きかい}はあった。②{入|い}れ{替|か}えのゴールは「ウタヨミの{場面|ばめん}を{笑|わら}いの{面|めん}にする」こと。③ウタヨミのノートに{台本|だいほん}のバツ{印|じるし}。④ウタヨミは「{悲|かな}しみ」の{練習|れんしゅう}でいつも{黙|だま}っていた。⑤{山田先生|やまだせんせい}のメモでウタヨミ{本人|ほんにん}が{確認|かくにん}——"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{舞台裏|ぶたいうら}には{全員|ぜんいん}が{入|はい}れた{時間帯|じかんたい}がある。②{入|い}れ{替|か}えのパターンから「ウタヨミ{担当|たんとう}の{場面|ばめん}を{笑|わら}いの{面|めん}にする」という{意図|いと}が{見|み}える。③ウタヨミのノートに{台本|だいほん}のバツ{印|じるし}があった。④{能面|のうめん}ガイドに「{角度|かくど}で{表情|ひょうじょう}が{変|か}わる」とある。⑤ウタヨミはそれを{知|し}らずに{面|めん}を{入|い}れ{替|か}えた。"
+      - type: choice
+        id: q1
+        question: 文化祭の能面を入れ替えたのは誰？
+        options:
+          - text: ウタヨミ（悲しい演技が怖くて笑いの面に変えたかったが、能面は角度で表情が変わることを知らなかった）
+            value: utayomi
+            correct: true
+            feedback: "{正解|せいかい}！　ウタヨミは{能面|のうめん}が{角度|かくど}で{表情|ひょうじょう}を{変|か}えられることを{知|し}らなかった。{面|めん}を{上|うえ}に{向|む}けると{笑|わら}い（「テラス」と{言|い}います）、{下|した}に{向|む}けると{悲|かな}しみ（「クモラス」と{言|い}います）。1つの{面|めん}で{人間|にんげん}のいろんな{気持|きも}ちを{表|あらわ}せる——600{年以上|ねんいじょう}{前|まえ}の{人|ひと}が{考|かんが}えた、すごい{技|わざ}だ。**{知|し}らないことは{怖|こわ}い。でも{知|し}れば、{世界|せかい}が{広|ひろ}がる。**"
+          - text: フミカ（能面の配置を記録した人）
+            value: fumika
+            feedback: "{フミカ|ふみか}は{前日|ぜんじつ}の{配置|はいち}を{正確|せいかく}に{記録|きろく}して、{入|い}れ{替|か}わりに{気|き}づいた{側|がわ}だよ。{入|い}れ{替|か}えた{側|がわ}ではないよ。"
+          - text: コトバ（舞台裏のアクセスを調査した人）
+            value: kotoba
+            feedback: "{コトバ|ことば}は{舞台裏|ぶたいうら}へのアクセスを{調査|ちょうさ}した{側|がわ}だよ。{動機|どうき}がある{証拠|しょうこ}は{見|み}つかっていないよ。"
+          - text: シラベ（ウタヨミの異変に気づいた人）
+            value: shirabe
+            feedback: "{シラベ|しらべ}はウタヨミが{悲|かな}しみの{場面|ばめん}の{練習|れんしゅう}で{黙|だま}っていることに{気|き}づいて{教|おし}えてくれた{側|がわ}だよ。{動機|どうき}がある{証拠|しょうこ}は{見|み}つかっていないよ。"
+
+  # ==================== 真相：ウタヨミの告白 ====================
+  - id: truth-utayomi
+    bg: gym
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ウタヨミの知らなかったこと
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: utayomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: utayomi
+        text: "……{私|わたし}が{入|い}れ{替|か}えました。「{悲|かな}しみの{場面|ばめん}」を{担当|たんとう}していて——{本番|ほんばん}でみんなの{前|まえ}で{泣|な}く{演技|えんぎ}をするのが、どうしても{怖|こわ}かった。"
+        expression: worried
+      - type: dialog
+        character: utayomi
+        text: "{笑|わら}いの{面|めん}に{変|か}えれば、{悲|かな}しい{演技|えんぎ}をしなくて{済|す}むと{思|おも}って。{面|めん}の{種類|しゅるい}が{変|か}われば{表情|ひょうじょう}も{変|か}わると——そう{思|おも}っていたんです。"
+        expression: worried
+      - type: dialog
+        character: utayomi
+        text: "でも……{能面|のうめん}は{角度|かくど}で{表情|ひょうじょう}が{変|か}わるって、{知|し}らなかった。{入|い}れ{替|か}える{必要|ひつよう}はなかったんだ——{知|し}っていれば、こんなことしなかったのに。"
+        expression: surprised
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: gym
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "ウタヨミ、{最近|さいきん}ずっと{黙|だま}ってたから……やっぱり{怖|こわ}かったんだよね。{知|し}っていれば{入|い}れ{替|か}えなかった——{情報|じょうほう}が1つ{欠|か}けていただけで、こんなに{変|か}わるんだ。"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: right
+      - type: dialog
+        character: fumika
+        text: "{入|い}れ{替|か}えのパターンから「{笑|わら}いの{面|めん}をウタヨミの{場面|ばめん}に」という{意図|いと}は{見|み}えていた。でも「{能面|のうめん}は{角度|かくど}で{変|か}わる」という{情報|じょうほう}がなければ——{私|わたし}だって{同|おな}じ{間違|まちが}いをしたかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「{全員|ぜんいん}にチャンスがあった——{動機|どうき}があるのは？」って{絞|しぼ}り{込|こ}もうとしていた。{動機|どうき}はあった。でも「{知|し}らなかった」という{理由|りゆう}が{分|わ}かったら、{責|せ}める{気|き}には{全然|ぜんぜん}なれないな。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: gym
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{能面|のうめん}は600{年以上|ねんいじょう}{前|まえ}に{作|つく}られた{日本|にほん}の{芸術|げいじゅつ}。1つの{面|めん}で{喜怒哀楽|きどあいらく}を{表現|ひょうげん}できるのは——「{人間|にんげん}の{気持|きも}ちは1つじゃない」ということを{知|し}っていたから。{悲|かな}しみと{喜|よろこ}びは、{同|おな}じ{顔|かお}の{表|おもて}と{裏|うら}なのかもしれないわ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ウタヨミが「{知|し}らなかった」から{間違|まちが}えた——これは{誰|だれ}にでも{起|お}きること。{大切|たいせつ}なのは、{知|し}らないことを{恥|は}じるんじゃなくて、「{知|し}ろうとすること」よ。{情報|じょうほう}が1つ{変|か}わると、{判断|はんだん}が{変|か}わる。それが「{情報欠落|じょうほうけつらく}」の{教|おし}えよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{情報欠落|じょうほうけつらく}——「{知|し}らなかった{情報|じょうほう}」が{間違|まちが}った{判断|はんだん}を{生|う}む{構造|こうぞう}。ウタヨミは「{能面|のうめん}は{角度|かくど}で{変|か}わる」という{情報|じょうほう}があれば、{入|い}れ{替|か}える{必要|ひつよう}がないと{分|わ}かっていた。"
+      - type: narration
+        text: "テラス（{上向|うえむ}き＝{笑|わら}い）・クモラス（{下向|したむ}き＝{悲|かな}しみ）——1つの{能面|のうめん}が{角度|かくど}だけで{表情|ひょうじょう}を{変|か}える。600{年以上|ねんいじょう}{前|まえ}の{人|ひと}が{作|つく}ったしくみが、{今日|きょう}の{謎|なぞ}を{解|と}く{鍵|かぎ}になった。"
+      - type: effect
+        name: fade-out

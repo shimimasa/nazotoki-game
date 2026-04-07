@@ -1,0 +1,462 @@
+meta:
+  id: design-06
+  title: 制約のぶつかり
+  series: デザイン思考探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のシアター{発表会|はっぴょうかい}が{近|ちか}づいていた。{デザイン思考探偵団|でざいんしこうたんていだん}の4{人|にん}は{舞台|ぶたい}{装飾|そうしょく}プロジェクトに{取|と}り{組|く}んでいた。{制約|せいやく}は4つ——{予算|よさん}2000{円|えん}{以内|いない}・{作業|さぎょう}{時間|じかん}2{時間|じかん}{以内|いない}・{全員|ぜんいん}が{安全|あんぜん}に{使|つか}える{素材|そざい}・{環境|かんきょう}への{配慮|はいりょ}。"
+      - type: narration
+        text: "4{人|にん}は{力|ちから}を{合|あ}わせ、カラフルな{布|ぬの}と{紙|かみ}で{舞台|ぶたい}を{飾|かざ}り{上|あ}げた。{完成|かんせい}した{装飾|そうしょく}は{豪華|ごうか}で、{見|み}た{目|め}はとても{素晴|すば}らしかった。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{待|ま}ってください。この{素材|そざい}——{安全|あんぜん}チェックが{通|とお}っていないものが{使|つか}われています。{舞台|ぶたい}に{立|た}つ{子|こ}たちに{危険|きけん}が{及|およ}ぶかもしれません。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: surprised
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "{制約|せいやく}を{守|まも}ったはずなのに、{安全|あんぜん}チェックが{通|とお}らない。4つの{制約|せいやく}のうち、どの{制約|せいやく}が{無視|むし}されたのか。{誰|だれ}が「みんなのために」という{理由|りゆう}で{優先順位|ゆうせんじゅんい}を{間違|まちが}えたのか——{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 制約のぶつかり
+        subtitle: デザイン思考探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: プロジェクト概要と購入素材リスト
+      - type: narration
+        text: "プロジェクトの{記録|きろく}が{残|のこ}されていた。4つの{制約|せいやく}{一覧|いちらん}と、{先生|せんせい}からの「{安全|あんぜん}チェック{不合格|ふごうかく}」{通知|つうち}——どの{制約|せいやく}が{問題|もんだい}になったのかを{確認|かくにん}する{必要|ひつよう}があった。"
+      - type: evidence
+        id: card-1
+        title: プロジェクト概要（4つの制約一覧）＋先生からの通知
+        content: "【4つの{制約|せいやく}】①{予算|よさん}:2000{円|えん}{以内|いない}　②{作業|さぎょう}{時間|じかん}:2{時間|じかん}{以内|いない}　③{安全|あんぜん}{素材|そざい}:{全員|ぜんいん}が{安全|あんぜん}に{使|つか}えるもの（アレルギー{成分|せいぶん}・{鋭利|えいり}な{部品|ぶひん}・{可燃性|かねんせい}{素材|そざい}は{使用禁止|しようきんし}）　④{環境|かんきょう}:{廃棄物|はいきぶつ}を{最小|さいしょう}{限|げん}に　【{先生|せんせい}からの{通知|つうち}】「{完成|かんせい}した{装飾|そうしょく}に、{安全|あんぜん}チェックが{通|とお}らない{素材|そざい}が{使用|しよう}されています。このまま{舞台|ぶたい}での{使用|しよう}はできません」"
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "4つの{制約|せいやく}を{全部|ぜんぶ}チェックしないといけない。{予算|よさん}・{時間|じかん}・{安全|あんぜん}・{環境|かんきょう}——どれが{守|まも}られて、どれが{守|まも}られなかったのか、{全部|ぜんぶ}{確認|かくにん}しよう。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "{次|つぎ}に、{購入|こうにゅう}した{素材|そざい}のリストと、それぞれが{担当|たんとう}した{作業|さぎょう}の{記録|きろく}が{見|み}つかった。"
+      - type: evidence
+        id: card-2
+        title: 購入素材のリスト（レシート）＋各自の作業記録
+        content: "【{購入|こうにゅう}{素材|そざい}リスト】{合計|ごうけい}1850{円|えん}（{予算|よさん}:{範囲内|はんいない}✅）{作業|さぎょう}{時間|じかん}:1{時間|じかん}45{分|ぷん}（{時間|じかん}:{範囲内|はんいない}✅）{廃棄物|はいきぶつ}:{少量|しょうりょう}のみ（{環境|かんきょう}:{範囲内|はんいない}✅）{使用|しよう}{素材|そざい}:{布|ぬの}・{紙|かみ}・{接着剤|せっちゃくざい}A{型|がた}・{スプレー塗料|すぷれーとりょう}Z{型|がた}　【{作業|さぎょう}{分担|ぶんたん}】ツクル:{素材|そざい}{購入|こうにゅう}・{制作|せいさく}　ハカル:{予算|よさん}と{時間|じかん}の{管理|かんり}　カナエ:{素材|そざい}{選択|せんたく}の{補助|ほじょ}　ミナオス:{チェックリスト|ちぇっくりすと}{管理|かんり}"
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{予算|よさん}も{時間|じかん}も{環境|かんきょう}も{大丈夫|だいじょうぶ}だったのに！　{安全|あんぜん}だけが……？　{スプレー塗料|すぷれーとりょう}Z{型|がた}が{問題|もんだい}なのかな。でも{誰|だれ}がそれを{確認|かくにん}する{担当|たんとう}だったんだろう。"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 優先順位メモと安全チェックリスト
+      - type: narration
+        text: "それぞれが{書|か}いた「4つの{制約|せいやく}の{優先順位|ゆうせんじゅんい}」メモが{見|み}つかった。そしてミナオスが{作|つく}った{全員|ぜんいん}{共通|きょうつう}のチェックリストにも{異変|いへん}があった。"
+      - type: evidence
+        id: card-3
+        title: 各自の制約優先順位メモ＋チェックリスト（安全欄が空白）
+        content: "【{各自|かくじ}の{優先順位|ゆうせんじゅんい}メモ】ツクル:①{安全|あんぜん}◎②{予算|よさん}○③{時間|じかん}○④{環境|かんきょう}○　カナエ:①{安全|あんぜん}◎②{環境|かんきょう}○③{予算|よさん}○④{時間|じかん}○　ミナオス:①{安全|あんぜん}◎②{環境|かんきょう}○③{時間|じかん}○④{予算|よさん}○　ハカル:①{予算|よさん}◎②{時間|じかん}○③{環境|かんきょう}○④{安全|あんぜん}は「{最後|さいご}に{確認|かくにん}する」と{記載|きさい}　【チェックリスト】{予算|よさん}欄:✅　{時間|じかん}欄:✅　{環境|かんきょう}欄:✅　{安全|あんぜん}欄:□（{空白|くうはく}）"
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{安全|あんぜん}チェックリストが{空白|くうはく}！　{他|ほか}の3つは{全部|ぜんぶ}チェックが{入|はい}っているのに、{安全|あんぜん}だけ{誰|だれ}も{確認|かくにん}していない。そして……ハカルのメモだけが「{安全|あんぜん}は{最後|さいご}に{確認|かくにん}」って{書|か}いてある。"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "3{人|にん}のメモには{安全|あんぜん}に◎がついていた。{安全|あんぜん}を{最優先|さいゆうせん}にしていたのに、{安全|あんぜん}チェックが{空白|くうはく}——なぜ？"
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kanae
+        text: "{舞台|ぶたい}に{立|た}つ{子|こ}たちが{安全|あんぜん}な{素材|そざい}かどうか、{私|わたし}は{一番|いちばん}{気|き}にしていたの。でも{安全|あんぜん}チェック{担当|たんとう}はハカルだったはず——「{最後|さいご}に{確認|かくにん}する」って{言|い}っていたから、{任|まか}せていた。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: narration
+        text: "{条件付|じょうけんつ}き{公開|こうかい}——{安全|あんぜん}チェックリストの{詳細|しょうさい}が{確認|かくにん}された。"
+      - type: evidence
+        id: card-4
+        title: 【条件付き公開】安全チェックリスト詳細＋ハカルのメモ
+        content: "【{安全|あんぜん}チェックリスト{詳細|しょうさい}】アレルギー{成分|せいぶん}{確認|かくにん}:□{未確認|みかくにん}　{鋭利|えいり}な{部品|ぶひん}チェック:□{未確認|みかくにん}　{可燃性|かねんせい}{素材|そざい}{確認|かくにん}:□{未確認|みかくにん}　※{スプレー塗料|すぷれーとりょう}Z{型|がた}は{可燃性|かねんせい}あり・{密閉|みっぺい}{空間|くうかん}{使用禁止|しようきんし}　【ハカルのメモ（{裏|うら}ページ）】「{安全|あんぜん}は{最後|さいご}に{確認|かくにん}すればいい。{予算|よさん}と{時間|じかん}を{守|まも}れば{一番|いちばん}いいものができる。{豪華|ごうか}な{方|ほう}がみんな{喜|よろこ}ぶ」"
+      - type: sprite
+        character: hakaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "……{確認|かくにん}するつもりだったんだ。でも{予算|よさん}と{時間|じかん}の{管理|かんり}に{集中|しゅうちゅう}していたら、{安全|あんぜん}チェックを{後|あと}{回|まわ}しにしてしまって——{最後|さいご}まで{確認|かくにん}できなかった。"
+        expression: worried
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{集|あつ}まってきた。{安全|あんぜん}チェックリストは{空白|くうはく}のまま。ハカルのメモには「{安全|あんぜん}は{最後|さいご}に{確認|かくにん}」と{書|か}かれていた。{誰|だれ}が{安全|あんぜん}という{制約|せいやく}を{後回|あとまわ}しにしたのか——"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "こんなに{豪華|ごうか}に{作|つく}れたのに。{予算|よさん}も{時間|じかん}もちゃんと{守|まも}ったのに……{安全|あんぜん}がNGなら{使|つか}えないじゃないか。もし{舞台|ぶたい}で{誰|だれ}かに{何|なに}かあったら？"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "4つの{制約|せいやく}を{全部|ぜんぶ}{確認|かくにん}するチェックリストを{作|つく}ったのに。{予算|よさん}・{時間|じかん}・{環境|かんきょう}は{全|すべ}て✅——でも{安全|あんぜん}だけ□。{全探索|ぜんたんさく}すれば、どこが{欠|か}けているか{一目|ひとめ}で{分|わ}かるのよ。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{見|み}えないリスクって、{目|め}に{見|み}えないからこそ{怖|こわ}い。{予算|よさん}は{数字|すうじ}で{見|み}えるし、{時間|じかん}も{時計|とけい}で{見|み}える。でも{安全|あんぜん}の{問題|もんだい}は{後|あと}から{気|き}づくことが{多|おお}い——だから{最初|さいしょ}に{確認|かくにん}しなきゃいけないのよ。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足とハカルの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハカルに{直接|ちょくせつ}{確認|かくにん}したところ、こう{話|はな}していたわ。「{豪華|ごうか}な{方|ほう}がみんな{喜|よろこ}ぶと{思|おも}った。{予算|よさん}と{時間|じかん}を{守|まも}れば{安全|あんぜん}は{後|あと}で{確認|かくにん}できると{思|おも}っていた」——{善意|ぜんい}から{行動|こうどう}していたの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でもね、{制約|せいやく}には{優先順位|ゆうせんじゅんい}がある。{予算|よさん}や{時間|じかん}はトレードオフで{選|えら}べる——でも「{安全|あんぜん}じゃない」は{選択肢|せんたくし}に{入|はい}らない。{安全|あんぜん}だけは{最初|さいしょ}に{確認|かくにん}すべき{絶対条件|ぜったいじょうけん}なのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足＋制約条件の優先順位の考え方
+        content: "【ハカルの{告白|こくはく}】「{豪華|ごうか}な{方|ほう}がみんな{喜|よろこ}ぶ。{安全|あんぜん}は{後|あと}で{確認|かくにん}すれば{間|ま}に{合|あ}うと{思|おも}った」　【{制約|せいやく}{条件|じょうけん}の{優先順位|ゆうせんじゅんい}】{制約|せいやく}には{重|おも}さがある。{予算|よさん}・{時間|じかん}・{環境|かんきょう}は{状況|じょうきょう}に{応|おう}じてトレードオフできる。しかし{安全|あんぜん}だけは{絶対条件|ぜったいじょうけん}——どんな{状況|じょうきょう}でも{最初|さいしょ}に{確認|かくにん}すべき{制約|せいやく}だ。「{安全|あんぜん}を{後|あと}で{確認|かくにん}すれば{間|ま}に{合|あ}う」という{発想|はっそう}が、{最大|さいだい}の{見落|みおと}としにつながる。"
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "{全探索|ぜんたんさく}で4つの{制約|せいやく}を{全部|ぜんぶ}チェックすれば、{安全|あんぜん}の{空白|くうはく}はすぐに{見|み}えた。「{後|あと}で{確認|かくにん}する」という{判断|はんだん}が、{見落|みおと}としを{生|う}んだのよ。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「みんなを{喜|よろこ}ばせたい」という{善意|ぜんい}→{安全|あんぜん}を{後回|あとまわ}し→{安全|あんぜん}チェック{未完了|みかんりょう}→{危険|きけん}な{素材|そざい}が{舞台|ぶたい}へ。**{豪華|ごうか}さを{追求|ついきゅう}しようとした{行動|こうどう}が、{舞台|ぶたい}に{立|た}つ{全員|ぜんいん}を{危険|きけん}にさらしていた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 安全制約を見落として装飾を作ったのは誰？
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①ハカルのメモだけが「{安全|あんぜん}は{最後|さいご}に{確認|かくにん}」と{書|か}かれていた。②{安全|あんぜん}チェック{担当|たんとう}はハカルだった。③{安全|あんぜん}チェックリストは{空白|くうはく}のまま。④{可燃性|かねんせい}の{スプレー塗料|すぷれーとりょう}が{未確認|みかくにん}で{使用|しよう}されていた。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{安全|あんぜん}チェックリストが{空白|くうはく}のまま{完成|かんせい}した。②ハカルだけが{安全|あんぜん}を「{後回|あとまわ}し」とメモしていた。③{安全|あんぜん}チェック{担当|たんとう}はハカルだった。④{安全|あんぜん}に◎をつけていたのは{他|ほか}の3{人|にん}だけだった。"
+      - type: choice
+        id: q1
+        question: 安全制約を見落として装飾を作ったのは誰？
+        options:
+          - text: ハカル（「豪華さ優先」で安全チェックを後回しにした）
+            value: hakaru
+            correct: true
+            feedback: "{正解|せいかい}！　ハカルはみんなを{喜|よろこ}ばせたかった。その{気持|きも}ちは{本物|ほんもの}。でも{デザイン思考|でざいんしこう}では、{制約|せいやく}に{優先順位|ゆうせんじゅんい}がある——{安全|あんぜん}は{他|ほか}の{全|すべ}ての{制約|せいやく}より{上|うえ}にある。「{時間|じかん}が{足|た}りない」「{予算|よさん}が{足|た}りない」はトレードオフで{選|えら}べるけど、「{安全|あんぜん}じゃない」は{選択肢|せんたくし}に{入|はい}らない。**{デザイン|でざいん}するとき、{最初|さいしょ}に{確認|かくにん}すべき{制約|せいやく}は{何|なに}かを{考|かんが}えよう。**"
+          - text: カナエ（安全素材を最初から重視していた側）
+            value: kanae
+            feedback: "カナエは{安全|あんぜん}{素材|そざい}を{最初|さいしょ}から{重視|じゅうし}していた{側|がわ}だよ。{優先順位|ゆうせんじゅんい}メモでも{安全|あんぜん}に◎をつけていたよ。"
+          - text: ツクル（製作を担当した側）
+            value: tsukuru
+            feedback: "ツクルは{製作|せいさく}を{担当|たんとう}したよ。{安全|あんぜん}チェックの{担当|たんとう}はハカルで、ツクルのメモでも{安全|あんぜん}は◎だったよ。"
+          - text: ミナオス（4つの制約チェックリストを管理していた側）
+            value: minaosu
+            feedback: "ミナオスはチェックリストを{管理|かんり}していた{側|がわ}だよ。{安全|あんぜん}の{空白|くうはく}に{最初|さいしょ}に{気|き}づいたのもミナオスだよ。"
+
+  # ==================== 真相：ハカルの告白 ====================
+  - id: truth-hakaru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ハカルの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hakaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "……{僕|ぼく}です。{安全|あんぜん}チェックを{後回|あとまわ}しにしたのは。"
+        expression: worried
+      - type: dialog
+        character: hakaru
+        text: "{予算|よさん}と{時間|じかん}を{管理|かんり}しながら、「{豪華|ごうか}な{装飾|そうしょく}の{方|ほう}がみんな{喜|よろこ}ぶ」って{思|おも}った。{全|すべ}ての{制約|せいやく}を{同時|どうじ}に{満|み}たすのは{難|むずか}しいと{感|かん}じて——{一番|いちばん}{大事|だいじ}だと{思|おも}った{予算|よさん}と{見|み}た{目|め}を{優先|ゆうせん}した。{安全|あんぜん}は「{後|あと}で{確認|かくにん}すれば{間|ま}に{合|あ}う」って……。"
+        expression: thinking
+      - type: dialog
+        character: hakaru
+        text: "みんなを{喜|よろこ}ばせようとしたのに、みんなを{危険|きけん}にさらしていた。{豪華|ごうか}さより{安全|あんぜん}が{大事|だいじ}だって——{分|わ}かっていたはずなのに。"
+        expression: worried
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "ハカルが{豪華|ごうか}にしたかった{気持|きも}ちは{分|わ}かる。{舞台|ぶたい}をきれいに{飾|かざ}りたかったんだよね。でも……{舞台|ぶたい}に{立|た}つ{子|こ}たちへの{想像力|そうぞうりょく}が{必要|ひつよう}だった。{見|み}えないリスクこそ、{最初|さいしょ}に{想像|そうぞう}しなきゃいけない。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{予算|よさん}と{見|み}た{目|め}はクリアできた。でも{安全|あんぜん}がNGなら{使|つか}えない——{完成|かんせい}した{装飾|そうしょく}を{見|み}たとき{誇|ほこ}らしかったのに、{今|いま}はすごく{悔|くや}しい。{次|つぎ}からは{安全|あんぜん}を{最初|さいしょ}にチェックしよう。"
+        expression: normal
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{善意|ぜんい}で{判断|はんだん}しても、{制約|せいやく}の{優先順位|ゆうせんじゅんい}を{間違|まちが}えたら{問題|もんだい}が{起|お}きる。「{後|あと}で{確認|かくにん}する」じゃなくて「{最初|さいしょ}に{確認|かくにん}する」——それが{全探索|ぜんたんさく}の{考|かんが}え{方|かた}よ。4つの{制約|せいやく}を{全部|ぜんぶ}{最初|さいしょ}にチェックすれば、{漏|も}れは{防|ふせ}げた。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{制約|せいやく}の{大切|たいせつ}なことを{確認|かくにん}しましょう。{デザイン|でざいん}するとき、{制約|せいやく}には{重|おも}さがある——{予算|よさん}・{時間|じかん}・{環境|かんきょう}はトレードオフで{調整|ちょうせい}できる。でも{安全|あんぜん}だけは{絶対条件|ぜったいじょうけん}。「{安全|あんぜん}は{後|あと}で」という{考|かんが}え{方|かた}は、{作|つく}るものを{使|つか}う{人|ひと}への{想像力|そうぞうりょく}が{足|た}りていないのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ハカルの「みんなのために{豪華|ごうか}にしたい」という{気持|きも}ちは{本物|ほんもの}だった。でも{次回|じかい}は4つの{制約|せいやく}を{全部|ぜんぶ}{最初|さいしょ}にチェックして、{安全|あんぜん}が✅になってから{豪華|ごうか}さを{追求|ついきゅう}しよう。それが{本当|ほんとう}の「みんなのため」よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{制約|せいやく}の{優先順位|ゆうせんじゅんい}】{デザイン思考|でざいんしこう}の{制約|せいやく}には{重|おも}さがある。{予算|よさん}・{時間|じかん}・{環境|かんきょう}はトレードオフで{選|えら}べる。でも「{安全|あんぜん}じゃない」という{選択肢|せんたくし}は{存在|そんざい}しない——{安全|あんぜん}は{全|すべ}ての{制約|せいやく}より{上|うえ}にある{絶対条件|ぜったいじょうけん}だ。"
+      - type: narration
+        text: "【{学|まな}び②：{全探索|ぜんたんさく}】すべての{条件|じょうけん}を{網羅的|もうらてき}に{確認|かくにん}する{考|かんが}え{方|かた}。4つの{制約|せいやく}を「{全部|ぜんぶ}{最初|さいしょ}にチェックする」ことで、{見落|みおと}としを{防|ふせ}ぐことができる。「{後|あと}で{確認|かくにん}する」は、{見落|みおと}としを{生|う}む{危険|きけん}な{発想|はっそう}だよ。"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{次|つぎ}のプロジェクトでは——{安全|あんぜん}を{最初|さいしょ}に{確認|かくにん}する。{豪華|ごうか}にしたいという{気持|きも}ちはそのままで、{安全|あんぜん}を{守|まも}りながら{豪華|ごうか}にする{方法|ほうほう}を{全員|ぜんいん}で{考|かんが}える。それが{本当|ほんとう}のデザイン思考だって——{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: happy
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{安全|あんぜん}✅になってから{豪華|ごうか}さを{追求|ついきゅう}しよう！　{安全|あんぜん}な{素材|そざい}で、もっと{素敵|すてき}な{舞台|ぶたい}{装飾|そうしょく}を{全員|ぜんいん}で{作|つく}り{直|なお}そう。"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: choice
+        id: q2
+        question: デザインの制約について、あなたはどう思う？
+        options:
+          - text: 安全は他のどの制約よりも最初に確認すべきだと思う
+            value: safety-first
+            feedback: "そう！{制約|せいやく}には{重|おも}さがある。{安全|あんぜん}は{絶対条件|ぜったいじょうけん}——どんなに{見|み}た{目|め}がよくても、どんなに{予算|よさん}が{安|やす}くても、{安全|あんぜん}でなければ{使|つか}えない。{作|つく}るものを{使|つか}う{人|ひと}への{想像力|そうぞうりょく}が{大切|たいせつ}だよ。"
+          - text: 全ての制約を同じ重さで扱えばいい
+            value: equal-weight
+            feedback: "{制約|せいやく}を{全部|ぜんぶ}{同|おな}じ{重|おも}さで{扱|あつか}う{考|かんが}え{方|かた}もあるけど……{安全|あんぜん}だけは{特別|とくべつ}。トレードオフできない{唯一|ゆいいつ}の{制約|せいやく}だよ。"
+          - text: 見た目が良ければ安全は後で確認してもいい
+            value: looks-first
+            feedback: "それがハカルと{同|おな}じ{考|かんが}え{方|かた}だよ。{見|み}た{目|め}は{後|あと}でよくできるけど、{安全|あんぜん}を{後回|あとまわ}しにした{結果|けっか}、{舞台|ぶたい}に{立|た}つ{子|こ}たちが{危険|きけん}にさらされてしまった。"
+      - type: effect
+        name: fade-out

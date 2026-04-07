@@ -1,0 +1,421 @@
+meta:
+  id: democracy-03
+  title: 運動のアウト
+  series: 選挙探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{児童会長|じどうかいちょう}{選挙|せんきょ}の{前日|ぜんじつ}。{廊下|ろうか}のあちこちで、{候補者|こうほしゃ}たちが{最後|さいご}の{アピール|あぴーる}をしていた。"
+      - type: narration
+        text: "そのとき——{高学年|こうがくねん}の{教室|きょうしつ}の{前|まえ}で、ひと{騒動|そうどう}が{起|お}きていた。"
+      - type: sprite
+        character: nozomi
+        expression: surprised
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "ちょっと{待|ま}って！　ギカイくん、さっき{消|け}しゴムを{配|くば}ってたよね？　それって{選挙|せんきょ}{運動|うんどう}の{違反|いはん}じゃない？"
+        expression: surprised
+      - type: sprite
+        character: gikai
+        expression: normal
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{違反|いはん}じゃないよ。{消|け}しゴムは{勉強|べんきょう}{道具|どうぐ}。{プレゼント|ぷれぜんと}じゃなくて、{日頃|ひごろ}の{感謝|かんしゃ}のお{礼|れい}。ルールには「{物品|ぶっぴん}{配布|はいふ}は{禁止|きんし}」って{書|か}いてあるけど、{文具|ぶんぐ}は{物品|ぶっぴん}に{入|はい}らないでしょ。"
+        expression: normal
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{選挙|せんきょ}{探偵団|たんていだん}のみんな、{助|たす}けてほしいの。{明日|あした}の{選挙|せんきょ}を{前|まえ}に、{候補者|こうほしゃ}が{消|け}しゴムを{配|くば}ったという{報告|ほうこく}があった。{選挙|せんきょ}ルール{違反|いはん}かどうか、{調|しら}べてくれる？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: thinking
+          - character: tami
+            expression: worried
+          - character: nozomi
+            expression: surprised
+      - type: narration
+        text: "{配|くば}った{側|がわ}は「{文具|ぶんぐ}だからルール{違反|いはん}ではない」と{主張|しゅちょう}している。{本当|ほんとう}に{違反|いはん}なのか——{証拠|しょうこ}を{集|あつ}めよう。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 運動のアウト
+        subtitle: 選挙探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 配布の事実とルールを確かめる
+      - type: narration
+        text: "まず{目撃|もくげき}{証言|しょうげん}を{集|あつ}めた。{高学年|こうがくねん}の{複数|ふくすう}の{生徒|せいと}が、ギカイから{手作|てづく}り{消|け}しゴムを{受|う}け{取|と}ったと{話|はな}してくれた。"
+      - type: evidence
+        id: card-1
+        title: 消しゴム配布の目撃証言リスト
+        content: "{目撃者|もくげきしゃ}: {高学年|こうがくねん}（4・5・6{年生|ねんせい}）{複数名|ふくすうめい}。{内容|ないよう}: ギカイが{手作|てづく}り{消|け}しゴムを{手渡|てわた}しした。ギカイの{発言|はつげん}:「{日頃|ひごろ}のお{礼|れい}の{気持|きも}ち。{消|け}しゴムは{勉強|べんきょう}{道具|どうぐ}だから{問題|もんだい}ない」。{重要|じゅうよう}: {配布|はいふ}{対象|たいしょう}は{高学年|こうがくねん}のみ（1・2{年生|ねんせい}には{配|くば}られていない）。"
+      - type: sprite
+        character: hyou
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hyou
+        text: "おかしい。1{年生|ねんせい}と2{年生|ねんせい}には{配|くば}られていない。「{全校|ぜんこう}のみんなに{渡|わた}したかった」って{言|い}ってたのに——なんで{高学年|こうがくねん}だけ？"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: sprite
+        character: tami
+        expression: determined
+        position: right
+      - type: dialog
+        character: tami
+        text: "ちゃんと{調|しら}べてみた。{児童会|じどうかい}{選挙|せんきょ}{規則|きそく}の{第4条|だいよんじょう}に、はっきりと{書|か}いてあったよ。"
+        expression: determined
+      - type: sprite
+        character: tami
+        action: hide
+      - type: narration
+        text: "タミが{管理|かんり}している{選挙|せんきょ}{規則|きそく}を{確認|かくにん}する。{物品|ぶっぴん}{配布|はいふ}に{関|かん}する{条項|じょうこう}は——"
+      - type: evidence
+        id: card-2
+        title: 児童会選挙規則（物品配布禁止条項）
+        content: "{第4条|だいよんじょう}【{物品|ぶっぴん}{配布|はいふ}{禁止|きんし}】: {選挙|せんきょ}{運動|うんどう}{期間|きかん}{中|ちゅう}、{候補者|こうほしゃ}は{有権者|ゆうけんしゃ}に{物品|ぶっぴん}を{配布|はいふ}してはならない。{物品|ぶっぴん}とは{金品|きんぴん}・{食品|しょくひん}・{文具|ぶんぐ}を{含|ふく}むすべての{物|もの}を{指|さ}す。{選挙|せんきょ}{運動|うんどう}{期間|きかん}: {告示|こくじ}の{翌日|よくじつ}から{投票日前日|とうひょうびぜんじつ}まで（{今日|きょう}は{期間|きかん}{内|ない}）。"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 計画性の証拠を追う
+      - type: narration
+        text: "「お{礼|れい}の{気持|きも}ち」だという{主張|しゅちょう}は{本当|ほんとう}か？　{消|け}しゴムの{数|かず}と{準備|じゅんび}{時期|じき}を{調|しら}べた。"
+      - type: evidence
+        id: card-3
+        title: 消しゴムの数と文具店の発注記録
+        content: "{消|け}しゴムの{数|かず}: {高学年|こうがくねん}（4・5・6{年生|ねんせい}）{合計|ごうけい}240{名分|めいぶん}。{文具店|ぶんぐてん}の{発注|はっちゅう}{記録|きろく}: {先週|せんしゅう}（{選挙|せんきょ}{告示|こくじ}{前|まえ}）から{準備|じゅんび}{開始|かいし}。{内訳|うちわけ}: {手作|てづく}り{消|け}しゴム240{個|こ}を{計画的|けいかくてき}に{用意|ようい}。→ {突発的|とっぱつてき}な「お{礼|れい}」ではなく、{事前|じぜん}に{計画|けいかく}された{配布|はいふ}であることが{判明|はんめい}。"
+      - type: sprite
+        character: hyou
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hyou
+        text: "240{名分|めいぶん}……{先週|せんしゅう}から{準備|じゅんび}してた？　{選挙|せんきょ}{告示|こくじ}の{前|まえ}から{計画|けいかく}してたってことじゃないか。これは「{突然|とつぜん}お{礼|れい}したくなった」じゃない。"
+        expression: surprised
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "さらに——{消|け}しゴムを{受|う}け{取|と}ったノゾミから、もっと{重要|じゅうよう}な{話|はなし}が{聞|き}けた。"
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "もらって{嬉|うれ}しかったけど……{渡|わた}される{直前|ちょくぜん}に「{投票|とうひょう}よろしくね」って{言|い}われたんです。もしかして——{投票|とうひょう}してほしいからってこと？"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: narration
+        text: "{受|う}け{取|と}った{生徒|せいと}の{名前|なまえ}と{選挙人|せんきょにん}{名簿|めいぼ}を{照合|しょうごう}した。"
+      - type: evidence
+        id: card-4
+        title: ノゾミの証言と配布リストの一致
+        content: "ノゾミの{証言|しょうげん}:「{消|け}しゴムを{渡|わた}される{直前|ちょくぜん}に『{投票|とうひょう}よろしく』と{言|い}われた」。{配布|はいふ}リストと{選挙人|せんきょにん}{名簿|めいぼ}の{照合|しょうごう}{結果|けっか}: {配布|はいふ}{対象者|たいしょうしゃ}（{高学年|こうがくねん}240{名|めい}）が{選挙人|せんきょにん}{名簿|めいぼ}と{完全|かんぜん}に{一致|いっち}。→ {投票権|とうひょうけん}を{持|も}つ{人物|じんぶつ}だけを{狙|ねら}って{配|くば}っていた。"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{規則|きそく}の{条文|じょうぶん}、{計画的|けいかくてき}な{準備|じゅんび}、{投票|とうひょう}を{求|もと}める{発言|はつげん}、そして{選挙人|せんきょにん}{名簿|めいぼ}との{一致|いっち}——これらが{示|しめ}す{意味|いみ}とは？"
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "{規則|きそく}の{第4条|だいよんじょう}は「{文具|ぶんぐ}を{含|ふく}むすべての{物|もの}」って{書|か}いてある。{消|け}しゴムは{文具|ぶんぐ}だから、ルール{違反|いはん}になるよ。「{文具|ぶんぐ}は{物品|ぶっぴん}じゃない」という{主張|しゅちょう}は{成|な}り{立|た}たない。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: right
+      - type: dialog
+        character: hyou
+        text: "でも——{選挙|せんきょ}の{前|まえ}から{計画|けいかく}して、{投票権|とうひょうけん}を{持|も}つ{人|ひと}だけに{配|くば}って、「{投票|とうひょう}よろしく」と{言|い}って{渡|わた}す……。これが「ただのお{礼|れい}」には{見|み}えない。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ギカイの告白と先生の補足
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: center
+      - type: dialog
+        character: gikai
+        text: "……{分|わ}かった。{本当|ほんとう}のことを{話|はな}す。{認|みと}めたくなかったけど——{高学年|こうがくねん}の{票|ひょう}が{欲|ほ}しかった。{消|け}しゴムを{渡|わた}せば{喜|よろこ}んでもらえると{思|おも}って……{自分|じぶん}のことを{好|す}きになってほしかったんだ。"
+        expression: worried
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ギカイの告白と先生の補足
+        content: "ギカイの{告白|こくはく}:「{高学年|こうがくねん}の{票|ひょう}がほしかった。{消|け}しゴムを{渡|わた}せば{喜|よろこ}んでもらえると{思|おも}った」（{動機|どうき}: {承認欲求|しょうにんよっきゅう}）。{山田先生|やまだせんせい}の{補足|ほそく}:「{選挙|せんきょ}の{公正|こうせい}さは、{金品|きんぴん}や{物|もの}で{票|ひょう}を{集|あつ}めない{仕組|しく}みで{守|まも}られている。{物品|ぶっぴん}{配布|はいふ}を{禁止|きんし}するのは、{本当|ほんとう}の{気持|きも}ちで{選|えら}ぶための{ルール|るーる}だよ」"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: right
+      - type: dialog
+        character: yamada
+        text: "{選挙|せんきょ}で{物|もの}を{配|くば}ることが{禁止|きんし}されているのは、なぜか{分|わ}かる？　{物|もの}をもらったら「{投票|とうひょう}しなきゃ」という{気持|きも}ちになってしまう。それは「{自分|じぶん}の{本当|ほんとう}の{気持|きも}ちで{選|えら}ぶ」ことを{邪魔|じゃま}するから。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{物品|ぶっぴん}→{好意|こうい}→{投票|とうひょう}——この{連鎖|れんさ}こそが、{選挙|せんきょ}{運動|うんどう}のルールが{防|ふせ}ごうとしていたものだった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 選挙運動のルールを破ったのは誰？
+      - type: sprite
+        character: hyou
+        expression: determined
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{規則|きそく}{第4条|だいよんじょう}は{文具|ぶんぐ}も{禁止|きんし}。{先週|せんしゅう}から{計画的|けいかくてき}に{準備|じゅんび}。{投票権|とうひょうけん}のある{人|ひと}だけが{対象|たいしょう}。「{投票|とうひょう}よろしく」の{発言|はつげん}——これだけ{揃|そろ}えば、{答|こた}えは{一|ひと}つだ。"
+        expression: determined
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{規則|きそく}{第4条|だいよんじょう}:「{文具|ぶんぐ}を{含|ふく}む{物品|ぶっぴん}{配布|はいふ}{禁止|きんし}」。②{消|け}しゴム240{個|こ}を{先週|せんしゅう}から{計画的|けいかくてき}に{準備|じゅんび}。③{配布|はいふ}{対象|たいしょう}が{選挙人|せんきょにん}{名簿|めいぼ}と{完全|かんぜん}{一致|いっち}（{高学年|こうがくねん}のみ）。④{渡|わた}す{直前|ちょくぜん}に「{投票|とうひょう}よろしく」と{発言|はつげん}。⑤ギカイの{告白|こくはく}:「{票|ひょう}が{欲|ほ}しかった」。"
+      - type: choice
+        id: q1
+        question: 選挙運動のルールを破ったのは誰？
+        options:
+          - text: ギカイ（消しゴムを計画的に配布した候補者）
+            value: gikai
+            correct: true
+            feedback: "{正解|せいかい}！　{規則|きそく}{第4条|だいよんじょう}は{文具|ぶんぐ}も{含|ふく}む{物品|ぶっぴん}{配布|はいふ}を{禁止|きんし}している。ギカイは{選挙|せんきょ}{前|まえ}から{計画的|けいかくてき}に{準備|じゅんび}し、{投票権|とうひょうけん}のある{高学年|こうがくねん}だけに{配|くば}り、「{投票|とうひょう}よろしく」と{声|こえ}をかけた。**{物|もの}をもらうと「{投票|とうひょう}しなきゃ」という{気持|きも}ちになる——この{連鎖|れんさ}を{断|た}つために、{選挙|せんきょ}のルールは{物品|ぶっぴん}{配布|はいふ}を{禁|きん}じているんだよ。**"
+          - text: ヒョウ（配布の実態を調査した側）
+            value: hyou
+            feedback: "ヒョウは{配布|はいふ}{対象|たいしょう}が{高学年|こうがくねん}だけだと{気|き}づき、{調査|ちょうさ}を{進|すす}めた{側|がわ}だよ。{問題|もんだい}を{発見|はっけん}した{人物|じんぶつ}が{違反者|いはんしゃ}ではないね。"
+          - text: タミ（選挙規則を管理していた側）
+            value: tami
+            feedback: "タミは{選挙|せんきょ}{規則|きそく}の{第4条|だいよんじょう}を{確認|かくにん}して、{違反|いはん}の{根拠|こんきょ}を{示|しめ}してくれた{側|がわ}だよ。ルールを{管理|かんり}する{役割|やくわり}を{果|は}たしていたね。"
+          - text: ノゾミ（消しゴムをもらった側）
+            value: nozomi
+            feedback: "ノゾミは{消|け}しゴムを{受|う}け{取|と}った{側|がわ}。{受|う}け{取|と}ることにルール{違反|いはん}はない。「{投票|とうひょう}よろしく」という{発言|はつげん}を{教|おし}えてくれた{重要|じゅうよう}な{証人|しょうにん}だよ。"
+
+  # ==================== 真相：ギカイの告白 ====================
+  - id: truth-gikai
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ギカイの本音
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: center
+      - type: dialog
+        character: gikai
+        text: "……{本当|ほんとう}はね、{会長|かいちょう}になりたかった。みんなに{好|す}かれたかった。{消|け}しゴムを{渡|わた}したら{喜|よろこ}んでもらえるって——そう{思|おも}ったら{止|と}まれなくなった。"
+        expression: worried
+      - type: dialog
+        character: gikai
+        text: "「{文具|ぶんぐ}は{物品|ぶっぴん}じゃない」って{言|い}い{訳|わけ}も、{自分|じぶん}でも{分|わ}かってた。でも……{認|みと}めたくなかった。"
+        expression: thinking
+      - type: dialog
+        character: gikai
+        text: "ルールを{破|やぶ}ってまで{勝|か}っても、{本当|ほんとう}の{信頼|しんらい}は{得|え}られない——そうだよね。"
+        expression: worried
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: nozomi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "{消|け}しゴム、{嬉|うれ}しかった。でも——もらったことで「{投票|とうひょう}しなきゃかな」って{少|すこ}し{思|おも}っちゃった。それって{自由|じゆう}に{選|えら}べてないってことだよね……"
+        expression: thinking
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: tami
+        expression: normal
+        position: right
+      - type: dialog
+        character: tami
+        text: "{規則|きそく}は「{文具|ぶんぐ}を{含|ふく}む」ってちゃんと{書|か}いてあった。{知|し}らなかったじゃなくて——{知|し}ってて{言|い}い{訳|わけ}を{探|さが}してたのかも。それが{一番|いちばん}{問題|もんだい}だと{思|おも}う。"
+        expression: normal
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: normal
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{選挙|せんきょ}って「{誰|だれ}がいいか」を{自分|じぶん}の{頭|あたま}で{考|かんが}えて{決|き}める{場|ば}だよ。{物|もの}をもらったことで{判断|はんだん}が{変|か}わるなら——それは{本当|ほんとう}の{選挙|せんきょ}じゃない。ルールはその{自由|じゆう}を{守|まも}るためにあるんだ。"
+        expression: normal
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ギカイくんは{悪意|あくい}がなかったかもしれない。でも「{好|す}かれたい」「{認|みと}められたい」という{気持|きも}ちが、{自分|じぶん}に{都合|つごう}のいい{言|い}い{訳|わけ}を{生|う}んでしまった。そしてその{言|い}い{訳|わけ}は、{因果連鎖|いんがれんさ}を{止|と}められなかった。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{物品|ぶっぴん}を{配|くば}る→{受|う}け{取|と}った{人|ひと}が「{投票|とうひょう}しなきゃ」と{感|かん}じる→{自由|じゆう}な{判断|はんだん}が{失|うしな}われる。{選挙|せんきょ}{運動|うんどう}のルールは、この{連鎖|れんさ}を{最初|さいしょ}から{断|た}ち{切|き}るためにあるのよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{選挙|せんきょ}{運動|うんどう}の{物品|ぶっぴん}{配布|はいふ}{禁止|きんし}——{文具|ぶんぐ}も{食品|しょくひん}も{含|ふく}むすべての{物品|ぶっぴん}が{対象|たいしょう}。「{文具|ぶんぐ}は{物品|ぶっぴん}じゃない」という{主張|しゅちょう}はルール{上|じょう}{通|とお}らない。{選挙|せんきょ}の{公正|こうせい}さは{有権者|ゆうけんしゃ}が{自由|じゆう}に{判断|はんだん}できる{環境|かんきょう}を{守|まも}ることで{保|たも}たれる。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{因果連鎖|いんがれんさ}——{物品配布|ぶっぴんはいふ}→{好意発生|こういはっせい}→{投票誘導|とうひょうゆうどう}→{自由意思侵害|じゆういしかがい}。{一見|いっけん}{小|ちい}さな{行動|こうどう}（{消|け}しゴムを{渡|わた}す）が、{連鎖|れんさ}を{通|とお}じて{大|おお}きな{問題|もんだい}（{選挙|せんきょ}の{公正|こうせい}さの{崩壊|ほうかい}）に{繋|つな}がる。ルールはその{連鎖|れんさ}の{入口|いりぐち}を{塞|ふさ}ぐためにある。"
+      - type: effect
+        name: fade-out

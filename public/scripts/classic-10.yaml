@@ -1,0 +1,468 @@
+meta:
+  id: classic-10
+  title: 古典の声
+  series: 古典探偵団
+  volume: 10
+  estimatedMinutes: 22
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{古典|こてん}の{授業|じゅぎょう}が{続|つづ}いてきた{教室|きょうしつ}——{百人一首|ひゃくにんいっしゅ}、{枕草子|まくらのそうし}、{源氏物語|げんじものがたり}、{俳句|はいく}、{能楽|のうがく}。{古典探偵団|こてんたんていだん}はたくさんの{千年前|せんねんまえ}の{声|こえ}に{耳|みみ}を{傾|かたむ}けてきた。"
+      - type: narration
+        text: "そんなある{日|ひ}——{授業|じゅぎょう}ノートの1{ページ|ぺーじ}に、こんな{書|か}き{込|こ}みが{見|み}つかった。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**「{古典|こてん}なんていらない」**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{古典探偵団|こてんたんていだん}のみんなに、{最後|さいご}の{調査|ちょうさ}をお{願|ねが}いしたいわ。{誰|だれ}がこれを{書|か}いたのか。そして——「{千年前|せんねんまえ}の{言葉|ことば}を{学|まな}ぶことに、{本当|ほんとう}に{意味|いみ}はあるのか」。この2つの{問|とい}いに、{向|む}き{合|あ}ってほしいの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: surprised
+          - character: utayomi
+            expression: worried
+          - character: shirabe
+            expression: normal
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「{古典|こてん}なんていらない」——{誰|だれ}がなぜ、そんなことを{書|か}いたのか。{謎|なぞ}は{深|ふか}まるばかりだった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 古典の声
+        subtitle: 古典探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書き込みの発見とシリーズ振り返り
+      - type: narration
+        text: "{授業|じゅぎょう}ノートの{該当|がいとう}ページ——「{古典|こてん}なんていらない」という{書|か}き{込|こ}みの{写真|しゃしん}。クラスのみんなは{ショック|しょっく}を{受|う}けていた。"
+      - type: evidence
+        id: card-1
+        title: 授業ノートの書き込み
+        content: "「{古典|こてん}なんていらない」——{授業|じゅぎょう}ノートに{黒|くろ}いペンで{書|か}かれていた。クラスの{反応|はんのう}：「{誰|だれ}が？」「{ショック|しょっく}だ……」"
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "この{書|か}き{込|こ}み……{筆跡|ひっせき}をよく{見|み}てみないと。{誰|だれ}がなぜ「{いらない|いらない}」なんて{書|か}いたんだろう。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{古典探偵団|こてんたんていだん}が{歩|ある}んできた{道{のり|のり}|みち}——Vol.1から9まで、{千年前|せんねんまえ}の{言葉|ことば}と{向|む}き{合|あ}ってきた{記録|きろく}が{手元|てもと}に{並|なら}んだ。"
+      - type: evidence
+        id: card-2
+        title: 古典探偵団 シリーズ振り返り表
+        content: "Vol.1:{百人一首|ひゃくにんいっしゅ}の{暗号|あんごう}／Vol.2:{枕草子|まくらのそうし}「をかし」の{多義性|たぎせい}／Vol.3:{徒然草|つれづれぐさ}の{解釈|かいしゃく}の{違|ちが}い／Vol.4:{源氏物語|げんじものがたり}・{和歌|わか}の{技法|ぎほう}／Vol.5:{俳句|はいく}・{季語|きご}と{切|き}れ{字|じ}／Vol.6:{昔話|むかしばなし}・{多視点読解|たしてんどっかい}／Vol.7:{能楽|のうがく}・{能面|のうめん}の{表現|ひょうげん}／Vol.8:{和歌|わか}・{掛詞|かけことば}の{力|ちから}／Vol.9:{平家物語|へいけものがたり}・{口承文学|こうしょうぶんがく}"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "Vol.1から9まで……{千年前|せんねんまえ}の{人|ひと}たちの{気持|きも}ちに、{何度|なんど}も{出会|であ}ってきたんだね。それなのに「{いらない|いらない}」って——どんな{気持|きも}ちで{書|か}いたんだろう。"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 筆跡分析と動機の調査
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{書|か}き{込|こ}みの{筆跡|ひっせき}を{調|しら}べた。{ウタヨミ|うたよみ}のノートと{比|くら}べると——{似|に}ている。でも{変|へん}だ。{ウタヨミ|うたよみ}は{誰|だれ}よりも{古典|こてん}が{好|す}きなのに、なぜ「{いらない|いらない}」と{書|か}く？"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: evidence
+        id: card-3
+        title: フミカの筆跡分析＋コトバの調査
+        content: "{筆跡|ひっせき}{分析|ぶんせき}：{書|か}き{込|こ}みは{ウタヨミ|うたよみ}のノートの{字|じ}に{類似|るいじ}。コトバの{調査|ちょうさ}：リュウが{古典|こてん}の{授業|じゅぎょう}で{居眠|いねむ}りして{先生|せんせい}に{注意|ちゅうい}された→クラスで{気|き}まずくなった→{ウタヨミ|うたよみ}とリュウは{仲|なか}がいい"
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "リュウが{注意|ちゅうい}されてから、{ウタヨミ|うたよみ}の{様子|ようす}がおかしかった。{ウタヨミ|うたよみ}とリュウは{仲|なか}がいいから——{ウタヨミ|うたよみ}はリュウをかばおうとしたんじゃないか。でも……それって{方法|ほうほう}が{間違|まちが}ってる。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-4
+        title: シラベの証言＋ウタヨミの行動記録
+        content: "シラベの{証言|しょうげん}：リュウの{言葉|ことば}「{古典|こてん}がつまらない。でも{ウタヨミ|うたよみ}が{楽|たの}しそうに{語|かた}るのを{見|み}てると、ちょっと{気|き}になる」。{ウタヨミ|うたよみ}の{行動|こうどう}{記録|きろく}：{最近|さいきん}リュウと{一緒|いっしょ}にいることが{多|おお}い。リュウのノートに{古典|こてん}のメモを{書|か}いてあげていた。"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "リュウは「{古典|こてん}がつまらない」と{言|い}ってた。でも「{ウタヨミ|うたよみ}が{楽|たの}しそうだから{気|き}になる」とも——「{いらない|いらない}」と「{好|す}き」は、{実|じつ}は{近|ちか}いのかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 中間点：q1投票 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{筆跡|ひっせき}は{ウタヨミ|うたよみ}に{類似|るいじ}。{ウタヨミ|うたよみ}は{古典|こてん}が{好|す}きなのに「{いらない|いらない}」と{書|か}いた{矛盾|むじゅん}。リュウをかばう{動機|どうき}の{伏線|ふくせん}——{証拠|しょうこ}をまとめて{考|かんが}えよう。"
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{筆跡|ひっせき}から{ウタヨミ|うたよみ}が{怪|あや}しい。リュウとの{関係|かんけい}を{見|み}ると、かばうためだった{可能性|かのうせい}もある。でも——{古典|こてん}が{好|す}きな{人|ひと}がなぜ「{いらない|いらない}」と{書|か}く？ そこがまだ{引|ひ}っかかる。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: right
+      - type: dialog
+        character: fumika
+        text: "{筆跡|ひっせき}はウタヨミ。でも——{ウタヨミ|うたよみ}は{誰|だれ}よりも{古典|こてん}が{好|す}きだよ？ なぜ「{いらない|いらない}」と{書|か}く？ この{矛盾|むじゅん}の{答|こた}えを{見|み}つけないと、{本当|ほんとう}のことは{分|わ}からない。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: title_card
+        text: 第1問：推理タイム
+        subtitle: 「古典なんていらない」と書いたのは誰？
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{筆跡|ひっせき}が{ウタヨミ|うたよみ}のノートに{類似|るいじ}。②{ウタヨミ|うたよみ}は{古典|こてん}が{大好|だいす}き。③リュウが{授業|じゅぎょう}で{居眠|いねむ}り→{注意|ちゅうい}→{気|き}まずくなった。④{ウタヨミ|うたよみ}とリュウは{仲|なか}がいい。⑤{ウタヨミ|うたよみ}は{最近|さいきん}リュウのノートに{古典|こてん}のメモを{書|か}いてあげていた。"
+      - type: choice
+        id: q1
+        question: 「古典なんていらない」と書いたのは誰？
+        options:
+          - text: ウタヨミ（古典が好きだが、リュウをかばうために書いた）
+            value: utayomi
+            correct: true
+            feedback: "{正解|せいかい}！　{ウタヨミ|うたよみ}は{古典|こてん}が{好|す}き。でも{リュウ|りゅう}が「{つまらない|つまらない}」と{言|い}って{孤立|こりつ}しかけていたから、かばうために「{いらない|いらない}」と{書|か}いた。**「{古典|こてん}が{好|す}きな{人|ひと}がかばうために"{いらない|いらない}"と{書|か}いた」——このパラドックスの{答|こた}えは、{次|つぎ}の{証拠|しょうこ}で{明|あ}かされる。**"
+          - text: フミカ（筆跡を最初に分析した人）
+            value: fumika
+            feedback: "{フミカ|ふみか}は{筆跡|ひっせき}{分析|ぶんせき}で{犯人|はんにん}を{追|お}った{側|がわ}だよ。{証拠|しょうこ}カード3を{見直|みなお}してみよう。"
+          - text: コトバ（動機を調査した人）
+            value: kotoba
+            feedback: "{コトバ|ことば}はリュウと{ウタヨミ|うたよみ}の{関係|かんけい}を{調査|ちょうさ}した{側|がわ}だよ。{葛藤|かっとう}を{抱|かか}えながらも{調査|ちょうさ}を{続|つづ}けた。"
+          - text: シラベ（リュウの気持ちを読み取った人）
+            value: shirabe
+            feedback: "{シラベ|しらべ}はリュウの{気持|きも}ちと{ウタヨミ|うたよみ}の{葛藤|かっとう}に{共感|きょうかん}した{側|がわ}だよ。「{いらない|いらない}と{好|す}きは{近|ちか}い」に{気|き}づいた{重要|じゅうよう}な{役割|やくわり}。"
+
+  # ==================== 反転：証拠カード5（パラダイムシフト）====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ——パラダイムシフト
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{ウタヨミ|うたよみ}に{直接|ちょくせつ}{聞|き}いたら、こう{言|い}っていたわ。「リュウをかばうために{書|か}いた。リュウだけが"{古典|こてん}{嫌|きら}い"で{浮|う}いているのが{辛|つら}かった」——"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でもね……{ウタヨミ|うたよみ}はこう{続|つづ}けたの。「"{古典|こてん}なんていらない"と{書|か}いたこと{自体|じたい}が、"{古典|こてん}とは{何|なん}か"を{考|かんが}えることだったんですね。{僕|ぼく}は{古典|こてん}が{好|す}きです。そして——リュウにも、{古典|こてん}の{面白|おもしろ}さを{伝|つた}えたい」って。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ（ウタヨミの告白）
+        content: "{ウタヨミ|うたよみ}のことば：「リュウをかばうために{書|か}いた。でも……"{古典|こてん}なんていらない"と{書|か}いたこと{自体|じたい}が、"{古典|こてん}とは{何|なん}か"を{考|かんが}えることだったんですね。{僕|ぼく}は{古典|こてん}が{好|す}きです。リュウにも、{古典|こてん}の{面白|おもしろ}さを{伝|つた}えたい」"
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「{いらない|いらない}」と{問|と}うこと{自体|じたい}が、「{古典|こてん}とは{何|なん}か」を{考|かんが}える{行為|こうい}——つまり{古典|こてん}を{学|まな}んでいることと{同|おな}じ？　そういうことか！"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: fumika
+        expression: surprised
+        position: right
+      - type: dialog
+        character: fumika
+        text: "{古典|こてん}が{好|す}きな{人|ひと}が、かばうために「{いらない|いらない}」と{書|か}いた。しかも——{書|か}いた{瞬間|しゅんかん}に、もう{古典|こてん}と{向|む}き{合|あ}っていた。{矛盾|むじゅん}している{ように|ように}{見|み}えて、{実|じつ}は{繋|つな}がってる。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{古典|こてん}が{嫌|きら}いな{友|とも}だちをかばうために「{いらない|いらない}」と{書|か}いた{古典|こてん}{好|す}き——そして「"{いらない|いらない}"と{問|と}うことが{古典|こてん}を{考|かんが}えること」。{千年前|せんねんまえ}の{言葉|ことば}を{巡|めぐ}る{問|と}いは、いま{私|わたし}たちの{教室|きょうしつ}にも{生|い}きていた。**"
+
+  # ==================== 第2問：価値判断投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 第2問：価値判断
+        subtitle: 千年前の言葉を学ぶ意味はあるか？
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "リュウは「{答|こた}えがない{古典|こてん}が{辛|つら}い」と{言|い}ってた。{ウタヨミ|うたよみ}は{古典|こてん}が{好|す}きで、リュウにも{伝|つた}えたいと{言|い}った。{どちら|どちら}の{気持|きも}ちも{本物|ほんもの}だと{思|おも}う。だとしたら——{学|まな}ぶ{意味|いみ}って、{何|なん}だろう。"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: utayomi
+        text: "……リュウが"{古典|こてん}つまらない"って{言|い}って、みんなに{白|しろ}い{目|め}で{見|み}られてた。リュウだけが{浮|う}かないように、"{いらない|いらない}"って{書|か}いた。でも{本当|ほんとう}は——{古典|こてん}が{好|す}きだ。"
+        expression: worried
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: narration
+        text: "{言葉|ことば}は{千年|せんねん}の{間|あいだ}に{変|か}わる。「をかし」は「{趣|おもむき}がある」から「おかしい」に。「{つれづれ|つれづれ}」は{意味|いみ}が{狭|せま}くなった。しかし——{和歌|わか}に{込|こ}めた{寂|さみ}しさ、{能面|のうめん}の{裏|うら}の{感情|かんじょう}、{平家物語|へいけものがたり}の{語|かた}り{手|て}の{多様|たよう}さ。**{言葉|ことば}は{変|か}わるが、{人|ひと}の{心|こころ}は{変|か}わらない。**"
+      - type: choice
+        id: q2
+        question: 千年前の言葉を学ぶ意味はあるか？
+        options:
+          - text: A：意味がある。言葉は変わるが人の心は変わらない。過去の人と対話できる
+            value: a
+            correct: true
+            feedback: "Vol.1の{百人一首|ひゃくにんいっしゅ}からVol.9の{平家物語|へいけものがたり}まで、{千年前|せんねんまえ}の{人|ひと}たちは{今|いま}の{私|わたし}たちと{同|おな}じように、{寂|さみ}しさ、{怒|いか}り、{面白|おもしろ}さ、{優|やさ}しさを{感|かん}じていた。{言葉|ことば}の{形|かたち}は{変|か}わっても、そこに{込|こ}められた{気持|きも}ちは{変|か}わらない。**{古典|こてん}を{読|よ}むことは「{過去|かこ}の{自分|じぶん}に{出会|であ}うこと」。これからも、{古典|こてん}の{声|こえ}に{耳|みみ}を{傾|かたむ}けよう。**"
+          - text: B：意味はない。現代語で十分だ
+            value: b
+            feedback: "「{いらない|いらない}」と{思|おも}う{気持|きも}ちも{大切|たいせつ}にしていい。でも——「をかし」を{知|し}らなければ{清少納言|せいしょうなごん}の{感動|かんどう}は{伝|つた}わらない。{言葉|ことば}が{変|か}わった{部分|ぶぶん}にこそ、「{知|し}る{楽|たの}しさ」がある。"
+          - text: C：分からない。面白いときもあるが、難しいときもある
+            value: c
+            feedback: "「{分|わ}からない」は{正直|しょうじき}な{答|こた}え。{古典|こてん}は{全部|ぜんぶ}が{面白|おもしろ}いわけじゃない。でも「{面白|おもしろ}いときもある」と{感|かん}じた{瞬間|しゅんかん}を{覚|おぼ}えておいてほしい。それが{古典|こてん}との{対話|たいわ}の{始|はじ}まりだ。"
+          - text: D：意味があるかどうかは自分で決めること
+            value: d
+            feedback: "その{通|とお}り。{古典|こてん}を{学|まな}ぶ{意味|いみ}は、{誰|だれ}かに{教|おし}えてもらうのではなく、{自分|じぶん}で{見|み}つけるもの。Vol.1からVol.10まで、みんなが{自分|じぶん}で{見|み}つけた「{古典|こてん}の{面白|おもしろ}さ」が、{答|こた}えだ。"
+
+  # ==================== 真相：ウタヨミの告白 ====================
+  - id: truth-utayomi
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ウタヨミの葛藤と古典への想い
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: utayomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: utayomi
+        text: "……{私|わたし}が{書|か}きました。リュウが「{古典|こてん}つまらない」って{言|い}って、{先生|せんせい}に{注意|ちゅうい}されてから、クラスで{浮|う}いてしまって。リュウだけが{悪|わる}く{見|み}られてるのが{辛|つら}くて——みんなが「{いらない|いらない}」と{思|おも}えば、リュウだけじゃないってなると{思|おも}って……"
+        expression: worried
+      - type: dialog
+        character: utayomi
+        text: "でも{本当|ほんとう}は、{古典|こてん}が{大好|だいす}きなんです。{百人一首|ひゃくにんいっしゅ}の{暗号|あんごう}（Vol.1）も、「をかし」の{変化|へんか}（Vol.2）も、{能面|のうめん}の{表情|ひょうじょう}（Vol.7）も——{全部|ぜんぶ}{面白|おもしろ}かった。リュウにも、{伝|つた}えたかった。"
+        expression: thinking
+      - type: dialog
+        character: utayomi
+        text: "……{先生|せんせい}に{言|い}われて{気|き}づいたんです。「{いらない|いらない}」と{書|か}いた{瞬間|しゅんかん}、{私|わたし}は「{古典|こてん}とは{何|なん}か」を{考|かんが}えていた。{書|か}いたことで——{古典|こてん}と{向|む}き{合|あ}っていた。"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{筆跡|ひっせき}が{一致|いっち}したとき、「{ウタヨミ|うたよみ}かも」とは{思|おも}った。でも「{古典|こてん}が{好|す}きな{人|ひと}がなぜ？」って——{矛盾|むじゅん}を{解|と}かなければ{本当|ほんとう}の{理由|りゆう}が{分|わ}からないと{思|おも}ったんだ。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "リュウをかばうっていう{動機|どうき}は{分|わ}かった。でも「{方法|ほうほう}が{間違|まちが}ってる」とも{思|おも}う。……でも{責|せ}める{気|き}にはなれない。{誰|だれ}かをかばいたいって{気持|きも}ちは、{本物|ほんもの}だから。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: happy
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "リュウは「{答|こた}えがない{古典|こてん}が{辛|つら}い」と{言|い}ってた。でも「{ウタヨミ|うたよみ}が{楽|たの}しそうだから{気|き}になる」とも。「{いらない|いらない}」と「{好|す}き」は{実|じつ}は{近|ちか}い——{ウタヨミ|うたよみ}の{行動|こうどう}が、それを{証明|しょうめい}してくれた。"
+        expression: happy
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "「{古典|こてん}なんていらない」という{書|か}き{込|こ}みが、「{古典|こてん}とは{何|なん}か」という{問|と}いを{生|う}んだ。そしてみんなが{答|こた}えを{探|さが}した。——これが{古典|こてん}を{学|まな}ぶということよ。{千年前|せんねんまえ}の{人|ひと}も、{同|おな}じことを{問|と}い{続|つづ}けていたんだから。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "Vol.1で{百人一首|ひゃくにんいっしゅ}の{暗号|あんごう}を{解|と}いたとき——{千年前|せんねんまえ}の「{会|あ}いたい」という{気持|きも}ちが{届|とど}いた。Vol.4の{和歌|わか}の{寂|さみ}しさ、Vol.7の{能面|のうめん}の{感情|かんじょう}。{言葉|ことば}は{変|か}わっても、{人|ひと}の{心|こころ}は{変|か}わらない——それが{古典|こてん}の{声|こえ}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: happy
+          - character: kotoba
+            expression: happy
+          - character: utayomi
+            expression: determined
+          - character: shirabe
+            expression: happy
+      - type: narration
+        text: "{複合推理|ふくごうすいり}——{消去法|しょうきょほう}（Vol.1）・{情報整理|じょうほうせいり}（Vol.2）・{因果連鎖|いんがれんさ}（Vol.3）・タイムライン（Vol.4）・{仮説検証|かせつけんしょう}（Vol.5）・{全探索|ぜんたんさく}（Vol.6）・{情報欠落|じょうほうけつらく}（Vol.7）・{認知|にんち}バイアス（Vol.8）・{帰納法|きのうほう}（Vol.9）——{全|すべ}ての{推理|すいり}スキルが{今日|きょう}に{繋|つな}がった。"
+      - type: narration
+        text: "{古典|こてん}を{学|まな}ぶ{意味|いみ}——{千年前|せんねんまえ}の{言葉|ことば}を{通|とお}じて、{変|か}わらない{人間|にんげん}の{感情|かんじょう}や{思考|しこう}に{出会|であ}う{体験|たいけん}。それは{今|いま}も、{古典探偵団|こてんたんていだん}の{教室|きょうしつ}に{生|い}きていた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

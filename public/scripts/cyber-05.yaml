@@ -1,0 +1,458 @@
+meta:
+  id: cyber-05
+  title: 消えない写真
+  series: ネット探偵団
+  volume: 5
+  estimatedMinutes: 22
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学級|がっきゅう}のお{楽|たの}しみ{会|かい}で{撮|と}った{集合|しゅうごう}{写真|しゃしん}——ネットが「みんないい{顔|かお}してる！」とコメントを{付|つ}けて{学級|がっきゅう}SNSに{投稿|とうこう}した。"
+      - type: sprite
+        character: netto
+        expression: happy
+        position: center
+      - type: dialog
+        character: netto
+        text: "みんないい{顔|かお}してるから、{絶対|ぜったい}{見|み}てほしくて！　{投稿|とうこう}したら{意外|いがい}とすぐ「いいね」がついた。{嬉|うれ}しかったな。"
+        expression: happy
+      - type: sprite
+        character: netto
+        action: hide
+      - type: narration
+        text: "{翌日|よくじつ}、ネットは{写真|しゃしん}を{削除|さくじょ}した。ところが1{週間|しゅうかん}{後|ご}——"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: pasu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: pasu
+        text: "ネット！　{別|べつ}のグループのSNSに、あの{集合|しゅうごう}{写真|しゃしん}が{転載|てんさい}されてる！　{消|け}したはずじゃなかったの？"
+        expression: surprised
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: netto
+        expression: worried
+        position: left
+      - type: dialog
+        character: netto
+        text: "え……？　{消|け}したのに……{削除|さくじょ}ボタン{押|お}したはずなのに！"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かがスクリーンショットを{撮|と}って{拡散|かくさん}したのかもしれない。でも……{本当|ほんとう}に{原因|げんいん}はそれだけかしら？　{拡散|かくさん}した「{犯人|はんにん}」を{突|つ}き{止|と}めてくれる？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: netto
+            expression: worried
+          - character: pasu
+            expression: thinking
+          - character: rogu
+            expression: thinking
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{考|かんが}え{込|こ}んだ。「{消|け}したのに{消|き}えていない」——その{理由|りゆう}を{探|さが}す{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えない写真
+        subtitle: ネット探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 「消したのに残っている」事実を確かめる
+      - type: narration
+        text: "{学級|がっきゅう}SNSの{投稿|とうこう}{記録|きろく}——{投稿|とうこう}{時刻|じこく}は{月曜日|げつようび}15:00、{削除|さくじょ}{時刻|じこく}は20:00。{削除|さくじょ}から1{週間|しゅうかん}{後|ご}、{別|べつ}のグループのSNSに{同|おな}じ{写真|しゃしん}が{転載|てんさい}されているスクリーンショットが{発見|はっけん}された。"
+      - type: evidence
+        id: card-1
+        title: 学級SNSの投稿記録
+        content: "{投稿|とうこう}{時刻|じこく}: {月曜日|げつようび}15:00　{削除|さくじょ}{時刻|じこく}: 20:00/{別|べつ}グループSNSに{転載|てんさい}されている{同|おな}じ{写真|しゃしん}のスクリーンショット{発見|はっけん}。{転載|てんさい}{元|もと}は{匿名|とくめい}ユーザー。「{消|け}したはずの{写真|しゃしん}が{別|べつ}の{場所|ばしょ}に{残|のこ}っている」"
+      - type: sprite
+        character: netto
+        expression: worried
+        position: left
+      - type: dialog
+        character: netto
+        text: "{学級|がっきゅう}SNSは{絶対|ぜったい}{消|け}したんだ……。{削除|さくじょ}ボタン{押|お}したし、{自分|じぶん}の{画面|がめん}からは{消|き}えてた。なのに{別|べつ}のグループに{出|で}てるってどういうこと？"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: narration
+        text: "デジタルタトゥーの{説明|せつめい}カード——{一度|いちど}{投稿|とうこう}した{情報|じょうほう}は、スクリーンショット・ダウンロード・キャッシュなどの{方法|ほうほう}でコピーされる{可能性|かのうせい}がある。「{消|け}す」ボタンは「{自分|じぶん}の{画面|がめん}から{消|け}す」だけで、{他|ほか}の{人|ひと}の{端末|たんまつ}にすでに{保存|ほぞん}されたものは{取|と}り{戻|もど}せない。"
+      - type: evidence
+        id: card-2
+        title: デジタルタトゥーの説明カード
+        content: "「{一度|いちど}{投稿|とうこう}した{情報|じょうほう}は{完全|かんぜん}には{消|き}えない」/{コピーの{方法|ほうほう}: ①スクリーンショット　②ダウンロード　③キャッシュ/{投稿|とうこう}ボタンを{押|お}す{前|まえ}チェックリスト: 「これは{一生|いっしょう}{残|のこ}っても{大丈夫|だいじょうぶ}？」「{写|うつ}っている{人|ひと}は{全員|ぜんいん}OKしてる？」"
+      - type: sprite
+        character: gado
+        expression: thinking
+        position: right
+      - type: dialog
+        character: gado
+        text: "{投稿|とうこう}する{前|まえ}に「{写|うつ}ってる{人|ひと}{全員|ぜんいん}がOKか」{確認|かくにん}してた？　{集合|しゅうごう}{写真|しゃしん}に{写|うつ}ってる{子|こ}の1{人|り}が「{自分|じぶん}の{写真|しゃしん}が{知|し}らない{場所|ばしょ}に{出|で}てるのは{嫌|いや}だ」って{言|い}ってたよ。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rogu
+        text: "まず{事実|じじつ}を{整理|せいり}しよう。{投稿|とうこう}が15:00で{削除|さくじょ}が20:00——この5{時間|じかん}の{間|あいだ}に{誰|だれ}かがスクリーンショットを{撮|と}った{可能性|かのうせい}がある。{削除|さくじょ}する{前|まえ}に、もう{コピー|こぴー}されていたかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: スクショのタイムスタンプを追う
+      - type: narration
+        text: "スクリーンショットのメタデータを{調|しら}べると——{撮影|さつえい}{時刻|じこく}は17:00。{削除|さくじょ}{時刻|じこく}の20:00より3{時間|じかん}{前|まえ}だ。"
+      - type: evidence
+        id: card-3
+        title: スクリーンショットのメタデータ
+        content: "{撮影|さつえい}{時刻|じこく}: {月曜日|げつようび}17:00/{削除|さくじょ}{時刻|じこく}20:00の3{時間|じかん}{前|まえ}に{撮影|さつえい}されている。/「{削除|さくじょ}する{前|まえ}に、すでにコピーが{保存|ほぞん}されていた」"
+      - type: sprite
+        character: pasu
+        expression: determined
+        position: right
+      - type: dialog
+        character: pasu
+        text: "{見|み}て！　このスクショは{削除|さくじょ}の3{時間|じかん}{前|まえ}に{撮|と}られてる！　ネットが「{消|け}した」{時点|じてん}で、すでに{誰|だれ}かの{端末|たんまつ}に{保存|ほぞん}されてた——{消|け}す{前|まえ}にもう{コピー|こぴー}されてたんだ！"
+        expression: happy
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: narration
+        text: "{拡散|かくさん}{先|さき}グループへの{投稿|とうこう}——{投稿者|とうこうしゃ}{名|めい}は{匿名|とくめい}。しかし{投稿|とうこう}{時刻|じこく}が{学級|がっきゅう}SNSの{投稿|とうこう}{時刻|じこく}15:00とほぼ{同時刻|どうじこく}だった。"
+      - type: evidence
+        id: card-4
+        title: 拡散先グループの投稿者情報
+        content: "{投稿|とうこう}{時刻|じこく}: {月曜日|げつようび}15:00〜15:05　{投稿者|とうこうしゃ}: {匿名|とくめい}/{学級|がっきゅう}SNSに{投稿|とうこう}したほぼ{同時刻|どうじこく}に、{別|べつ}のグループにも{同|おな}じ{写真|しゃしん}が{投稿|とうこう}されている。/「{最初|さいしょ}から{複数|ふくすう}の{場所|ばしょ}に{投稿|とうこう}した？」の{仮説|かせつ}が{浮上|ふじょう}。"
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{学級|がっきゅう}SNSの{投稿|とうこう}は{消|け}してある。でも{別|べつ}のグループへの{投稿|とうこう}と{時刻|じこく}がほぼ{同|おな}じ——もし{他|ほか}にも{投稿|とうこう}した{場所|ばしょ}があるなら、そこは{消|け}してない{可能性|かのうせい}がある。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: pasu
+        text: "{仮説|かせつ}が3つある。①{外部|がいぶ}の{誰|だれ}かが{拡散|かくさん}した。②スクショを{撮|と}った{人|ひと}が{転載|てんさい}した。③ネット{自身|じしん}が{最初|さいしょ}から{複数|ふくすう}の{場所|ばしょ}に{投稿|とうこう}した。どれが{本当|ほんとう}？"
+        expression: thinking
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{削除|さくじょ}の3{時間|じかん}{前|まえ}にスクショが{撮|と}られていた——「{消|け}す{前|まえ}にすでにコピーが{存在|そんざい}していた」のは{確実|かくじつ}だ。そして{別|べつ}グループへの{投稿|とうこう}{時刻|じこく}が{学級|がっきゅう}SNSとほぼ{同時刻|どうじこく}という{謎|なぞ}が{残|のこ}る。"
+      - type: sprite
+        character: gado
+        expression: worried
+        position: right
+      - type: dialog
+        character: gado
+        text: "{写|うつ}ってる{子|こ}の1{人|り}が{悲|かな}しんでるの。「{知|し}らない{場所|ばしょ}に{自分|じぶん}の{写真|しゃしん}が{出|で}てる」って。{誰|だれ}かがスクショを{撮|と}った{理由|りゆう}が{分|わ}からないけど……{投稿|とうこう}する{前|まえ}に{許可|きょか}を{取|と}ることって、すごく{大事|たいせつ}だよね。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: netto
+        expression: worried
+        position: left
+      - type: dialog
+        character: netto
+        text: "……{学級|がっきゅう}SNSだけじゃなくて、もしかして……いや、{消|け}せば{大丈夫|だいじょうぶ}だと{思|おも}ってたから……"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ネットの全投稿履歴
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ネットの{全|ぜん}{投稿|とうこう}{履歴|りれき}を{確認|かくにん}したわ。{月曜日|げつようび}15:00から15:05の5{分間|ふんかん}に——{学級|がっきゅう}SNS、グループA、グループBの3{カ所|かしょ}に{同|おな}じ{写真|しゃしん}を{連続|れんぞく}{投稿|とうこう}していたの。"
+        expression: surprised
+      - type: dialog
+        character: yamada
+        text: "ネットに{聞|き}いたら「いいねがたくさん{もらえる|もらえる}から」と{言|い}っていたわ。{学級|がっきゅう}SNSは{消|け}した。でも{別|べつ}グループの{投稿|とうこう}は……{忘|わす}れていたのね。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ネットの全投稿履歴
+        content: "{月曜日|げつようび}15:00〜15:05に3{カ所|かしょ}に{連続|れんぞく}{投稿|とうこう}:/①{学級|がっきゅう}SNS（15:00）→{削除|さくじょ}済み/②グループA（15:02）→{削除|さくじょ}{未実施|みじっし}/③グループB（15:05）→{削除|さくじょ}{未実施|みじっし}/{先生|せんせい}のメモ:「ネットは"いいねがたくさんほしくて"と{言|い}っていた」"
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "あ……{学級|がっきゅう}SNSは{消|け}したけど……グループAとBの{投稿|とうこう}を{消|け}すのを{忘|わす}れてた。{学級|がっきゅう}SNSだけ{消|け}せば{大丈夫|だいじょうぶ}だと{思|おも}ってて……"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{拡散|かくさん}の{起点|きてん}はネット{自身|じしん}の{複数|ふくすう}{投稿|とうこう}だった。さらに{削除|さくじょ}する3{時間|じかん}{前|まえ}には、すでにスクリーンショットで{写真|しゃしん}が{保存|ほぞん}されていた。「{消|け}す」ボタンは{自分|じぶん}の{画面|がめん}から{消|け}すだけ——{取|と}り{戻|もど}せない{情報|じょうほう}がすでに{存在|そんざい}していた。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 消えない写真の原因を作ったのは誰？
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{学級|がっきゅう}SNSと{別|べつ}グループへの{投稿|とうこう}{時刻|じこく}がほぼ{同時刻|どうじこく}。②ネットの{全|ぜん}{投稿|とうこう}{履歴|りれき}に3{カ所|かしょ}への{連続|れんぞく}{投稿|とうこう}が{残|のこ}っていた。③{削除|さくじょ}は1{カ所|かしょ}のみで{他|ほか}2{カ所|かしょ}は{未削除|みさくじょ}。④スクショは{削除|さくじょ}の3{時間|じかん}{前|まえ}に{保存|ほぞん}済み。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "{仮説|かせつ}①「{外部|がいぶ}の{誰|だれ}かが{拡散|かくさん}」→{別|べつ}グループへの{投稿|とうこう}{時刻|じこく}が{学級|がっきゅう}SNSと{同時刻|どうじこく}で{矛盾|むじゅん}。{仮説|かせつ}②「スクショを{撮|と}った{人|ひと}が{転載|てんさい}」→スクショは{削除|さくじょ}{後|ご}ではなく{前|まえ}に{撮|と}られた{事実|じじつ}。{仮説|かせつ}③「ネット{自身|じしん}が{複数|ふくすう}の{場所|ばしょ}に{投稿|とうこう}」→{投稿|とうこう}{履歴|りれき}で{確認|かくにん}済み。"
+      - type: choice
+        id: q1
+        question: 消えない写真の原因を作ったのは誰？
+        options:
+          - text: ネット（複数グループに投稿し、1カ所だけ消して他を忘れていた）
+            value: netto
+            correct: true
+            feedback: "{正解|せいかい}！　ネットは「いいね」がほしくて3{カ所|かしょ}に{同|おな}じ{写真|しゃしん}を{投稿|とうこう}した。{学級|がっきゅう}SNSだけ{消|け}して{他|ほか}2{カ所|かしょ}を{忘|わす}れた。しかも{削除|さくじょ}する{前|まえ}にはスクショも{保存|ほぞん}されていた。**「{消|け}す」は{自分|じぶん}の{画面|がめん}から{消|け}えるだけ——{一度|いちど}{投稿|とうこう}した{情報|じょうほう}は{取|と}り{戻|もど}せない。これがデジタルタトゥー。**"
+          - text: パス（スクリーンショットのタイムスタンプを分析した人）
+            value: pasu
+            feedback: "{パス|ぱす}はスクショのメタデータを{分析|ぶんせき}して「{削除|さくじょ}の{前|まえ}にコピーされていた」{事実|じじつ}を{突|つ}き{止|と}めた{側|がわ}だよ。"
+          - text: ログ（投稿履歴と削除履歴を比較した人）
+            value: rogu
+            feedback: "{ログ|ろぐ}は{投稿|とうこう}{履歴|りれき}と{削除|さくじょ}{履歴|りれき}を{比較|ひかく}して{仮説|かせつ}を{検証|けんしょう}した{側|がわ}。「{投稿|とうこう}した{場所|ばしょ}を{全部|ぜんぶ}{確認|かくにん}しないと」という{正義感|せいぎかん}が{事件|じけん}を{解決|かいけつ}に{導|みちび}いたよ。"
+          - text: ガード（写真に写っている人の気持ちを代弁した人）
+            value: gado
+            feedback: "{ガード|がーど}は{肖像権|しょうぞうけん}の{視点|してん}から「{写|うつ}ってる{人|ひと}{全員|ぜんいん}の{許可|きょか}は{取|と}った？」と{問|と}いかけて、{大事|たいせつ}な{視点|してん}を{加|くわ}えた{側|がわ}だよ。"
+
+  # ==================== 真相：ネットの告白 ====================
+  - id: truth-netto
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ネットの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: netto
+        expression: worried
+        position: center
+      - type: dialog
+        character: netto
+        text: "……{学級|がっきゅう}SNSだけじゃなくて、グループAとBにも{同|おな}じ{写真|しゃしん}を{送|おく}った。「いいねがたくさんもらえるから」って{思|おも}って。{嬉|うれ}しくて、{色|いろ}んな{人|ひと}に{見|み}てほしかった。"
+        expression: worried
+      - type: dialog
+        character: netto
+        text: "{学級|がっきゅう}SNSは{消|け}した。でも{他|ほか}のグループの{投稿|とうこう}を{消|け}すのを{忘|わす}れてた。「{学級|がっきゅう}SNSを{消|け}せば{大丈夫|だいじょうぶ}」って{思|おも}い{込|こ}んでて……"
+        expression: thinking
+      - type: dialog
+        character: netto
+        text: "スクショが{削除|さくじょ}の3{時間|じかん}{前|まえ}に{撮|と}られてたって{知|し}って、{本当|ほんとう}に{怖|こわ}くなった。{消|け}す{前|まえ}に、もう{誰|だれ}かの{端末|たんまつ}に{残|のこ}ってたんだ。{投稿|とうこう}した{瞬間|しゅんかん}に——{消|け}せなくなってたんだ。"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: pasu
+        expression: normal
+        position: right
+      - type: dialog
+        character: pasu
+        text: "タイムスタンプを{調|しら}べたとき……スクショが{削除|さくじょ}の{前|まえ}に{存在|そんざい}してて、「{消|け}しても{遅|おそ}かった」って{分|わ}かった{瞬間|しゅんかん}は{本当|ほんとう}に{驚|おどろ}いた。{投稿|とうこう}した{瞬間|しゅんかん}に{取|と}り{戻|もど}せなくなる——それがデジタルタトゥーなんだ。"
+        expression: normal
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: normal
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{投稿|とうこう}{履歴|りれき}を{全部|ぜんぶ}{確認|かくにん}して「{複数|ふくすう}{投稿|とうこう}」の{仮説|かせつ}が{証明|しょうめい}されたとき、{全部|ぜんぶ}つながった。{悪意|あくい}はなくても、「{確認|かくにん}が{足|た}りなかった」だけで{被害|ひがい}は{起|お}きる。"
+        expression: normal
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: thinking
+        position: right
+      - type: dialog
+        character: gado
+        text: "{写|うつ}ってる{子|こ}の{許可|きょか}を{取|と}るって、{投稿|とうこう}する{前|まえ}の{一番|いちばん}の{基本|きほん}だと{思|おも}う。「いいね」がほしい{気持|きも}ちは{分|わ}かる。でも{写|うつ}ってる{全員|ぜんいん}が{笑顔|えがお}でいられる{投稿|とうこう}にしたかった。"
+        expression: thinking
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ネットは「いいね」がほしかった——それは{自然|しぜん}な{気持|きも}ちよ。{問題|もんだい}は「{消|け}せる{場所|ばしょ}だけ{消|け}した」という{確認|かくにん}{不足|ぶそく}と、「{投稿|とうこう}した{瞬間|しゅんかん}にコピーが{存在|そんざい}するかもしれない」という{知識|ちしき}がなかったこと。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "デジタルタトゥーの{本質|ほんしつ}——「{削除|さくじょ}ボタンは{自分|じぶん}の{画面|がめん}から{消|け}すだけ」。{一度|いちど}{投稿|とうこう}した{情報|じょうほう}は{完全|かんぜん}には{消|き}えない。{投稿|とうこう}する{前|まえ}に「これは{一生|いっしょう}{残|のこ}っても{大丈夫|だいじょうぶ}か？」を{考|かんが}える{習慣|しゅうかん}を{作|つく}りましょう。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】デジタルタトゥー——{一度|いちど}{投稿|とうこう}した{情報|じょうほう}は{完全|かんぜん}には{消|き}えない。「{削除|さくじょ}」は{自分|じぶん}の{画面|がめん}から{消|け}えるだけ。スクリーンショット・ダウンロード・キャッシュでコピーは{残|のこ}る。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{投稿|とうこう}ボタンを{押|お}す{前|まえ}の3つの{確認|かくにん}——①「これは{一生|いっしょう}{残|のこ}っても{大丈夫|だいじょうぶ}？」②「{写|うつ}っている{人|ひと}{全員|ぜんいん}がOKしてる？」③「{全|ぜん}{投稿|とうこう}{場所|ばしょ}を{管理|かんり}できる？」——この{習慣|しゅうかん}が{自分|じぶん}と{周|まわ}りを{守|まも}る。"
+      - type: effect
+        name: fade-out

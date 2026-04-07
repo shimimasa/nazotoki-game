@@ -1,0 +1,462 @@
+meta:
+  id: energy-03
+  title: 太陽のひみつ
+  series: エネルギー探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{屋上|おくじょう}に{設置|せっち}された{太陽光|たいようこう}パネル——{理科|りか}の{授業|じゅぎょう}で4つの{班|はん}がそれぞれ{発電量|はつでんりょう}を{観測|かんそく}し、データを{記録|きろく}してきた。{発表|はっぴょう}は{明日|あした}だ。"
+      - type: narration
+        text: "ところがデータを{持|も}ち{寄|よ}ってみると——「{曇|くも}りの{日|ひ}の{方|ほう}が{晴|は}れの{日|ひ}より{発電量|はつでんりょう}が{多|おお}い」という{不思議|ふしぎ}な{記録|きろく}が{出|で}てきた。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: denta
+        expression: surprised
+        position: center
+      - type: dialog
+        character: denta
+        text: "ちょっと{待|ま}って！　{晴|は}れより{曇|くも}りの{方|ほう}が{発電量|はつでんりょう}が{多|おお}い？　このデータ、{本当|ほんとう}に{正|ただ}しいの？"
+        expression: surprised
+      - type: sprite
+        character: denta
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: thinking
+          - character: hikaru
+            expression: worried
+          - character: netsumi
+            expression: thinking
+          - character: chikara
+            expression: surprised
+      - type: narration
+        text: "{発表|はっぴょう}{前日|ぜんじつ}の{理科室|りかしつ}——{各班|かくはん}の{観測記録|かんそくきろく}が{並|なら}んでいる。どこかに{矛盾|むじゅん}があるはずだ。{誰|だれ}が、なぜデータを{書|か}き{換|か}えたのか——"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 太陽のひみつ
+        subtitle: エネルギー探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 観測記録と発電量データ
+      - type: narration
+        text: "{山田先生|やまだせんせい}が4つの{班|はん}の{観測記録|かんそくきろく}を{一覧表|いちらんひょう}にまとめた。{日付|ひづけ}・{天気|てんき}・{気温|きおん}・{発電量|はつでんりょう}が{並|なら}んでいる。"
+      - type: evidence
+        id: card-1
+        title: 4班の発電観測記録（日付・天気・気温・発電量）
+        content: "【{観測|かんそく}{期間|きかん}】10{月|がつ}1{日|にち}〜10{月|がつ}7{日|にち}　【A{班|はん}・B{班|はん}・C{班|はん}の{記録|きろく}】おおむね「{晴|は}れ＞{曇|くも}り」の{傾向|けいこう}で{数値|すうち}が{安定|あんてい}している　【ヒカル{班|はん}（D{班|はん}）の{記録|きろく}】10{月|がつ}4{日|にち}（{曇|くも}り・{気温|きおん}28℃）:{発電量|はつでんりょう}3.8kWh——{他班|たはん}の{晴天|せいてん}{最高値|さいこうち}を{上回|うわまわ}る{極端|きょくたん}な{高値|たかね}　【{注目点|ちゅうもくてん}】{同|おな}じ10{月|がつ}4{日|にち}、A〜C{班|はん}の{発電量|はつでんりょう}は1.5〜1.8kWhの{範囲|はんい}に{収|おさ}まっている"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{同|おな}じ{日|ひ}なのに、ヒカル{班|はん}だけ{発電量|はつでんりょう}が2{倍|ばい}{以上|いじょう}……{気温|きおん}も{天気|てんき}も{同|おな}じはずなのに、なぜこんなに{違|ちが}う？"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "デンタが{各班|かくはん}の{気温|きおん}と{発電量|はつでんりょう}の{関係|かんけい}をグラフに{書|か}き{起|お}こした。すると——{高温|こうおん}の{日|ひ}ほど{発電量|はつでんりょう}が{低|ひく}い{傾向|けいこう}が{見|み}えてきた。"
+      - type: evidence
+        id: card-2
+        title: デンタの分析メモ（気温と発電量の関係グラフ）
+        content: "【{分析|ぶんせき}{内容|ないよう}】{気温|きおん}と{発電量|はつでんりょう}の{散布図|さんぷず}——{気温|きおん}が{高|たか}いほど{発電量|はつでんりょう}が{低|ひく}くなる{傾向|けいこう}あり　【{最注目点|さいちゅうもくてん}】10{月|がつ}3{日|にち}（{晴|は}れ・{気温|きおん}35℃）:{発電量|はつでんりょう}1.2kWh（{猛暑|もうしょ}で{効率低下|こうりつていか}）→10{月|がつ}4{日|にち}（{曇|くも}り・{気温|きおん}28℃）のヒカル{班|はん}:3.8kWhは「{拡散光|かくさんこう}+{高温低下|こうおんていか}なし」でも{説明|せつめい}できない{数値|すうち}　【{結論|けつろん}】ヒカル{班|はん}のデータは{同観測期間|どうかんそくきかん}中のどの{条件|じょうけん}とも{合致|がっち}しない"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{気温|きおん}が35℃の{日|ひ}に{発電量|はつでんりょう}が{最低値|さいていち}で、{気温|きおん}28℃の{曇|くも}りの{日|ひ}に{最高値|さいこうち}——{高温|こうおん}だと{効率|こうりつ}が{下|さ}がるのは{本当|ほんとう}だけど、それでもこの{数値|すうち}はおかしい。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 当番記録とヒカルの様子
+      - type: narration
+        text: "ネツミが{観測|かんそく}{当番|とうばん}の{記録表|きろくひょう}を{持|も}ってきた。{誰|だれ}が{何日|なんにち}に{観測|かんそく}{担当|たんとう}だったかが{書|か}かれている。"
+      - type: evidence
+        id: card-3
+        title: ネツミの当番記録（欠測日とヒカルの担当）
+        content: "【{当番表|とうばんひょう}】10{月|がつ}1{日|にち}:デンタ✓　10{月|がつ}2{日|にち}:ネツミ✓　10{月|がつ}3{日|にち}:チカラ✓　10{月|がつ}4{日|にち}:ヒカル→{観測|かんそく}ノートの{欄|らん}が{空白|くうはく}　10{月|がつ}5{日|にち}:デンタ✓　【{注目点|ちゅうもくてん}】10{月|がつ}4{日|にち}はヒカルの{担当|たんとう}日だが、{観測|かんそく}ノートへの{記入|きにゅう}が{存在|そんざい}しない　【{照合|しょうごう}{結果|けっか}】ヒカル{班|はん}の「10{月|がつ}4{日|にち}」{数値|すうち}は{提出書類|ていしゅつしょるい}にのみ{存在|そんざい}し、{観測|かんそく}ノートに{原本|げんぽん}がない"
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{当番表|とうばんひょう}を{見|み}ると、10{月|がつ}4{日|にち}はヒカルの{担当|たんとう}。でも{観測|かんそく}ノートのその{日|ひ}の{欄|らん}が——{空白|くうはく}のままなんだ。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: narration
+        text: "チカラが{静|しず}かに{口|くち}を{開|ひら}いた。{発表|はっぴょう}の{前日|ぜんじつ}、ヒカルの{様子|ようす}が{気|き}になっていたのだと{言|い}う。"
+      - type: evidence
+        id: card-4
+        title: チカラの観察メモ（ヒカルの発言）
+        content: "【{観察者|かんさつしゃ}】チカラ　【{観察|かんさつ}{日時|にちじ}】10{月|がつ}6{日|にち}（{発表|はっぴょう}{前夜|ぜんや}）　【{内容|ないよう}】「ヒカルが{教室|きょうしつ}の{隅|すみ}で{計算用紙|けいさんようし}を{見|み}ながら"大丈夫かな……大丈夫かな"と{繰|く}り{返|かえ}し{言|い}っていた。{声|こえ}をかけたら"数字が足りない"とつぶやいた」　【{補足|ほそく}】ヒカルは{普段|ふだん}から{責任感|せきにんかん}が{強|つよ}く、{班|はん}の{足|あし}を{引|ひ}っ{張|ぱ}りたくないタイプ"
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "{発表|はっぴょう}{前日|ぜんじつ}の{夜|よる}、ヒカルが"数字が足りない"ってつぶやいてた。{私|わたし}は{声|こえ}をかけられなかった……"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "……{当番|とうばん}を{忘|わす}れてたの、{気|き}づいてたよ。でも{発表|はっぴょう}が{翌日|よくじつ}で——「{今更|いまさら}{言|い}えない」って{思|おも}った。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{積|つ}み{重|かさ}なってきた。ヒカルの{担当日|たんとうび}に{観測|かんそく}ノートの{記録|きろく}がない——しかし{提出書類|ていしゅつしょるい}には{数値|すうち}がある。そして{数値|すうち}は{他班|たはん}と{比|くら}べて{極端|きょくたん}に{高|たか}い。"
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{拡散光|かくさんこう}で{発電|はつでん}できるのは{本当|ほんとう}だし、{高温|こうおん}だと{効率|こうりつ}が{下|さ}がるのも{本当|ほんとう}。でも——その{条件|じょうけん}でもこの{数値|すうち}にはならない。{別|べつ}の{日|ひ}のデータが{混|ま}じってるんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{前週|ぜんしゅう}の{晴天|せいてん}の{日|ひ}——10{月|がつ}1{日|にち}の{発電量|はつでんりょう}が3.9kWh。ヒカル{班|はん}の「10{月|がつ}4{日|にち}」の3.8kWhとほぼ{同|おな}じ。{偶然|ぐうぜん}だろうか？"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の検証結果
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デンタとネツミの{指摘|してき}を{受|う}けて、{先生|せんせい}で{全班|ぜんはん}のデータを{照合|しょうごう}してみた。それとね、{太陽光発電|たいようこうはつでん}の{仕組|しく}みについても{説明|せつめい}するね。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "{太陽光|たいようこう}パネルは{曇|くも}りでも{発電|はつでん}できる——{散乱|さんらん}した{光|ひかり}（{拡散光|かくさんこう}）を{使|つか}うからね。{気温|きおん}が{高|たか}くなると{変換効率|へんかんこうりつ}が{下|さ}がる。だから{薄曇|うすぐも}りの{涼|すず}しい{日|ひ}が{猛暑|もうしょ}の{晴|は}れより{発電量|はつでんりょう}が{多|おお}いことはありうるの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 先生の検証結果＋太陽光発電の仕組み解説
+        content: "【{太陽光発電|たいようこうはつでん}の{仕組|しく}み①】{拡散光発電|かくさんこうはつでん}——{曇|くも}りでも{散乱|さんらん}した{光|ひかり}で{発電|はつでん}できる　【{仕組|しく}み②】{高温低下|こうおんていか}——{気温|きおん}が{高|たか}いと{変換効率|へんかんこうりつ}が{落|お}ちる。{猛暑|もうしょ}{晴天日|せいてんび}より{薄曇|うすぐも}り{涼|すず}しい{日|ひ}の{方|ほう}が{発電量|はつでんりょう}が{多|おお}いことはある　【{検証|けんしょう}{結果|けっか}①】10{月|がつ}4{日|にち}のヒカル{班|はん}の{数値|すうち}（3.8kWh/{曇|くも}り/28℃）は「{拡散光|かくさんこう}+{高温低下|こうおんていか}なし」でも{説明|せつめい}できない——{同条件|どうじょうけん}の{他班|たはん}の{最大値|さいだいち}は1.8kWhどまり　【{検証|けんしょう}{結果|けっか}②】ヒカル{班|はん}の「10{月|がつ}4{日|にち}」の3.8kWhは、{前週|ぜんしゅう}10{月|がつ}1{日|にち}（{晴|は}れ/27℃/{高|たか}い{日射|にっしゃ}）のA{班|はん}{記録|きろく}3.9kWhとほぼ{完全|かんぜん}{一致|いっち}　【{結論|けつろん}】{日付|ひづけ}が{差|さ}し{替|か}えられた{可能性|かのうせい}がきわめて{高|たか}い"
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "{曇|くも}りでも{発電|はつでん}できて、{高温|こうおん}だと{効率|こうりつ}が{下|さ}がる——それは{分|わ}かった。でも10{月|がつ}4{日|にち}のヒカル{班|はん}の{数値|すうち}は、その{条件|じょうけん}でも{説明|せつめい}がつかない。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{前週|ぜんしゅう}の{晴天日|せいてんび}とほぼ{一致|いっち}する{数値|すうち}——{日付|ひづけ}を{差|さ}し{替|か}えたデータが{提出|ていしゅつ}されていた。**{観測|かんそく}ノートの{空白|くうはく}と{担当|たんとう}{当番|とうばん}の{記録|きろく}——すべての{証拠|しょうこ}がヒカルを{指|さ}している。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 発電記録を別の日付のデータと差し替えたのは誰？
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①10{月|がつ}4{日|にち}のヒカル{班|はん}の{数値|すうち}が{他班|たはん}と{比|くら}べて{極端|きょくたん}に{高|たか}い。②ヒカルの{担当日|たんとうび}に{観測|かんそく}ノートの{記録|きろく}がない。③{数値|すうち}が{前週|ぜんしゅう}の{晴天|せいてん}データとほぼ{完全|かんぜん}{一致|いっち}する。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "{因果|いんが}の{連鎖|れんさ}——{天気|てんき}→{日射量|にっしゃりょう}→{気温|きおん}→{発電量|はつでんりょう}。この{連鎖|れんさ}に{照|て}らすと、ヒカルの{数値|すうち}は{成立|せいりつ}しない。{日付|ひづけ}を{差|さ}し{替|か}えて{提出|ていしゅつ}したのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 発電記録を別の日付のデータと差し替えたのは誰？
+        options:
+          - text: ヒカル（当番を忘れた1日分を前週の晴天データで埋めた）
+            value: hikaru
+            correct: true
+            feedback: "{正解|せいかい}！　ヒカルは{発表|はっぴょう}が{怖|こわ}くて{焦|あせ}りました。でも{太陽光発電|たいようこうはつでん}の{仕組|しく}みを{知|し}っていれば——「{晴|は}れより{曇|くも}りの{方|ほう}が{発電量|はつでんりょう}が{多|おお}い」は{条件次第|じょうけんしだい}でありえますが、ヒカルのデータはその{条件|じょうけん}にも{当|あ}てはまらない{極端|きょくたん}な{数値|すうち}でした。**{欠測|けっそく}は{正直|しょうじき}に{書|か}くことが{科学|かがく}の{誠実|せいじつ}さ——データの{空白|くうはく}も{大切|たいせつ}な{情報|じょうほう}です。**"
+          - text: デンタ（データの矛盾を発見した人）
+            value: denta
+            feedback: "デンタは{気温|きおん}と{発電量|はつでんりょう}の{関係|かんけい}を{分析|ぶんせき}して{矛盾|むじゅん}を{発見|はっけん}した{側|がわ}だよ。{観測|かんそく}データの{不自然|ふしぜん}さに{最初|さいしょ}に{気|き}づいたのもデンタだよ。"
+          - text: ネツミ（当番記録を確認した人）
+            value: netsumi
+            feedback: "ネツミは{当番記録|とうばんきろく}を{照合|しょうごう}して{欠測日|けっそくび}を{発見|はっけん}した{側|がわ}だよ。{慎重|しんちょう}に{記録|きろく}を{確認|かくにん}して{大切|たいせつ}な{手|て}がかりを{見|み}つけたよ。"
+          - text: チカラ（ヒカルの様子を観察した人）
+            value: chikara
+            feedback: "チカラはヒカルが{発表|はっぴょう}{前日|ぜんじつ}に{不安|ふあん}そうにしていたのを{観察|かんさつ}した{側|がわ}だよ。ヒカルの{気持|きも}ちに{寄|よ}り{添|そ}おうとしていたよ。"
+
+  # ==================== 真相：ヒカルの告白 ====================
+  - id: truth-hikaru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ヒカルの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hikaru
+        text: "……{私|わたし}です。10{月|がつ}4{日|にち}の{観測|かんそく}{当番|とうばん}を{忘|わす}れて、データが{空白|くうはく}になった。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "{発表|はっぴょう}が{翌日|よくじつ}で、「{今更|いまさら}{言|い}えない」って{思|おも}った。{前週|ぜんしゅう}の{晴天|せいてん}の{日|ひ}のデータを{持|も}ってきて、{日付|ひづけ}を{曇|くも}りの{日|ひ}に{書|か}き{換|か}えた。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "でも……{数値|すうち}がおかしいのは{分|わ}かってた。{晴|は}れの{日|ひ}の{数値|すうち}を{曇|くも}りの{日|ひ}に{貼|は}り{付|つ}けたから、{条件|じょうけん}と{全然|ぜんぜん}{合|あ}わない。{発電量|はつでんりょう}の{仕組|しく}みを{知|し}ってたら——{最初|さいしょ}から{無理|むり}だって{分|わ}かったのに。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "{発表|はっぴょう}に{間|ま}に{合|あ}わせたくて、{班|はん}の{迷惑|めいわく}になりたくなくて——ヒカルの{気持|きも}ちは{分|わ}かるよ。でも{欠測|けっそく}を{正直|しょうじき}に{書|か}いても{怒|おこ}られなかったよ、きっと。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: normal
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "{科学|かがく}では{データ|でーた}の{空白|くうはく}も{情報|じょうほう}なんだよ。「{測定|そくてい}できなかった」と{正直|しょうじき}に{書|か}くことが——{誠実|せいじつ}な{記録|きろく}だと{思|おも}う。"
+        expression: normal
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: denta
+        text: "{太陽光発電|たいようこうはつでん}は{本当|ほんとう}は{面白|おもしろ}い{仕組|しく}みなんだ。{曇|くも}りでも{発電|はつでん}できること、{高温|こうおん}で{効率|こうりつ}が{下|さ}がること——ちゃんと{測|はか}れていたら、それを{証明|しょうめい}するデータが{取|と}れたのに。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{太陽光発電|たいようこうはつでん}の{大切|たいせつ}な{仕組|しく}みを{確認|かくにん}しましょう。{太陽光|たいようこう}パネルは{直射日光|ちょくしゃにっこう}だけでなく、{散乱|さんらん}した{光|ひかり}（{拡散光|かくさんこう}）でも{発電|はつでん}できる。だから{曇|くも}りの{日|ひ}でも{発電量|はつでんりょう}はゼロにはならないの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "そして{高温|こうおん}になると{変換効率|へんかんこうりつ}が{落|お}ちる。{猛暑|もうしょ}の{真夏日|まなつび}より{涼|すず}しい{薄曇|うすぐも}りの{日|ひ}の{方|ほう}が{発電量|はつでんりょう}が{多|おお}くなることも{本当|ほんとう}にある。{天気|てんき}→{日射量|にっしゃりょう}→{気温|きおん}→{発電量|はつでんりょう}——この{因果連鎖|いんがれんさ}を{整理|せいり}すると、「ありえない{数値|すうち}」が{見|み}えてくる。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{太陽光発電|たいようこうはつでん}の{仕組|しく}み】{拡散光|かくさんこう}でも{発電|はつでん}できる。{高温|こうおん}では{変換効率|へんかんこうりつ}が{低下|ていか}する。{曇|くも}り・{涼|すず}しい{日|ひ}に{晴|は}れより{発電|はつでん}が{多|おお}くなるケースは{実際|じっさい}にある。"
+      - type: narration
+        text: "【{学|まな}び②：{因果連鎖|いんがれんさ}】{天気|てんき}→{日射量|にっしゃりょう}→{気温|きおん}→{発電量|はつでんりょう}の{連鎖|れんさ}を{図|ず}に{整理|せいり}すると、「ありえない{数値|すうち}」が{判断|はんだん}できる。{思|おも}い{込|こ}みを{外|はず}して{条件|じょうけん}を1つずつ{確認|かくにん}することが{正|ただ}しい{推理|すいり}への{鍵|かぎ}。"
+      - type: narration
+        text: "【{学|まな}び③：{科学|かがく}の{誠実|せいじつ}さ】{欠測|けっそく}は{正直|しょうじき}に「{測定|そくてい}できませんでした」と{書|か}くことが{科学|かがく}の{誠実|せいじつ}さ。データの{空白|くうはく}も{大切|たいせつ}な{情報|じょうほう}——{隠|かく}すことで{矛盾|むじゅん}が{生|う}まれる。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{次|つぎ}は{正直|しょうじき}に{言|い}う。「{当番|とうばん}を{忘|わす}れました、{測定|そくてい}できませんでした」って。{科学|かがく}では{空白|くうはく}を{隠|かく}すより、{正直|しょうじき}に{報告|ほうこく}する{方|ほう}が{価値|かち}がある——それを{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: happy
+        position: right
+      - type: dialog
+        character: denta
+        text: "{太陽光発電|たいようこうはつでん}の{仕組|しく}み、{今日|きょう}こそちゃんと{覚|おぼ}えた！　{因果連鎖|いんがれんさ}で{考|かんが}えると、{矛盾|むじゅん}がすぐ{見|み}えてくる。{次|つぎ}の{観測|かんそく}では{条件|じょうけん}も{一緒|いっしょ}に{記録|きろく}しよう。"
+        expression: happy
+      - type: sprite
+        character: denta
+        action: hide
+      - type: effect
+        name: fade-out
+
+  # ==================== テーマ問い ====================
+  - id: theme-question
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 考えてみよう
+        subtitle: 今日の学びを深める問い
+      - type: narration
+        text: "{推理|すいり}はここで{終|お}わり——でも{考|かんが}えることは{続|つづ}く。"
+      - type: choice
+        id: q2
+        question: ヒカルと同じ立場だったら、あなたはどう行動する？
+        options:
+          - text: 正直に「当番を忘れた」と先生に伝える
+            value: honest
+            feedback: "{正直|しょうじき}に{伝|つた}えることは{勇気|ゆうき}がいるけれど、{科学|かがく}では{誠実|せいじつ}さが{一番|いちばん}{大切|たいせつ}。「{欠測|けっそく}」という{記録|きろく}も、{次|つぎ}の{観測|かんそく}の{改善|かいぜん}に{役|やく}に{立|た}つ{大切|たいせつ}な{情報|じょうほう}だよ。"
+          - text: 「測定できませんでした」と空白のまま提出する
+            value: blank
+            feedback: "{空白|くうはく}を{正直|しょうじき}に{残|のこ}すのも{誠実|せいじつ}な{科学|かがく}の{態度|たいど}。{欠測|けっそく}の{理由|りゆう}も{一言|ひとこと}{添|そ}えると、{記録|きろく}として{もっと}{価値|かち}が{高|たか}まるよ。"
+          - text: 班の誰かに相談してから決める
+            value: consult
+            feedback: "{困|こま}ったときに{相談|そうだん}できるのは{大切|たいせつ}な{力|ちから}。{一人|ひとり}で{抱|かか}え{込|こ}まずに{仲間|なかま}に{話|はな}せば、{正|ただ}しい{解決策|かいけつさく}が{見|み}つかることが{多|おお}い。"

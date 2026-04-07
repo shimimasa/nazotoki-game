@@ -1,0 +1,411 @@
+meta:
+  id: democracy-04
+  title: 代表の裏切り
+  series: 選挙探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の{生徒|せいと}{代表|だいひょう}が{先生|せんせい}に{要望書|ようぼうしょ}を{提出|ていしゅつ}する{日|び}。クラス{全員|ぜんいん}が{話|はな}し{合|あ}い、{意見|いけん}を一つにまとめた。"
+      - type: narration
+        text: "{代表|だいひょう}のタミが{校長室|こうちょうしつ}から{戻|もど}ってきた{後|あと}、クラスの{空気|くうき}が{変|か}わった。「{要望書|ようぼうしょ}の{内容|ないよう}が{違|ちが}う」——ヒョウが{議事録|ぎじろく}を{手|て}に{抗議|こうぎ}した。"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{要望書|ようぼうしょ}の{内容|ないよう}が、クラスで{決|き}めたことと{違|ちが}っているという{訴|うった}えがあったわ。{選挙探偵団|せんきょたんていだん}のみんなに{調|しら}べてほしいの。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{代表|だいひょう}は{クラス|くらす}の{決定|けってい}を{正確|せいかく}に{伝|つた}える{役割|やくわり}がある。でも——{何|なに}かが{起|お}きた。{真相|しんそう}を{明|あき}らかにしてちょうだい。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: determined
+          - character: gikai
+            expression: surprised
+          - character: tami
+            expression: worried
+          - character: nozomi
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{目|め}を{合|あ}わせた。{要望書|ようぼうしょ}の{中身|なかみ}はどう{変|か}わったのか。{代表|だいひょう}のタミが{独断|どくだん}で{何|なに}かを{書|か}き{加|くわ}えた——その{理由|りゆう}とは。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 代表の裏切り
+        subtitle: 選挙探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 要望書の中身を確かめる
+      - type: narration
+        text: "{クラス|くらす}{会議|かいぎ}{議事録|ぎじろく}と{実際|じっさい}に{提出|ていしゅつ}された{要望書|ようぼうしょ}を{並|なら}べると、{一目|ひとめ}で{違|ちが}いが{分|わ}かった。"
+      - type: evidence
+        id: card-1
+        title: クラス会議議事録と実際の要望書
+        content: "【クラス{会議|かいぎ}{議事録|ぎじろく}】{決定内容|けっていないよう}: {給食|きゅうしょく}のおかずを{増量|ぞうりょう}してほしい（1{項目|こうもく}のみ）。{出席者全員|しゅっせきしゃぜんいん}{一致|いっち}で{可決|かけつ}。アレルギーに{関|かん}する{議題|ぎだい}は{一切|いっさい}{出|で}ていない。【{実際|じっさい}の{要望書|ようぼうしょ}】①{給食|きゅうしょく}おかず{増量|ぞうりょう}　②アレルギー{対応|たいおう}の{充実|じゅうじつ}（{追記|ついき}）→{議事録|ぎじろく}にない{内容|ないよう}が1{項目|こうもく}{加|くわ}わっている。"
+      - type: sprite
+        character: hyou
+        expression: determined
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{議事録|ぎじろく}には{給食|きゅうしょく}の{増量|ぞうりょう}だけ。アレルギーのことは{議題|ぎだい}に{出|で}ていない。これは{確実|かくじつ}だ——{会議|かいぎ}{中|ちゅう}、{誰|だれ}もアレルギーの{話|はなし}をしなかった。"
+        expression: determined
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "{委任状|いにんじょう}には、{代表|だいひょう}のできることとできないことが{明記|めいき}されていた。"
+      - type: evidence
+        id: card-2
+        title: 委任状と提出日時記録
+        content: "【{委任状|いにんじょう}】「クラス{会議|かいぎ}で{決定|けってい}した{内容|ないよう}を、{変更|へんこう}せずに{提出|ていしゅつ}すること」{委任範囲|いにんはんい}: {決定内容|けっていないよう}の{正確|せいかく}な{伝達|でんたつ}のみ。{追加|ついか}・{変更|へんこう}は{認|みと}めない。【{提出|ていしゅつ}{日時|にちじ}】{提出前|ていしゅつまえ}にクラスへの{確認|かくにん}なし。タミが{単独|たんどく}で{提出|ていしゅつ}。"
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{委任状|いにんじょう}には「{決定|けってい}した{内容|ないよう}を{変更|へんこう}せずに{提出|ていしゅつ}する」って{書|か}いてある。タミはこの{委任|いにん}{範囲|はんい}を{超|こ}えて{行動|こうどう}したことになる。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: いつ変わったのかを調べる
+      - type: narration
+        text: "ノゾミは{提出|ていしゅつ}{前|まえ}に{要望書|ようぼうしょ}を{見|み}せてもらっていた。その{時点|じてん}での{内容|ないよう}と、{提出後|ていしゅつご}の{内容|ないよう}を{比|くら}べると——"
+      - type: evidence
+        id: card-3
+        title: ノゾミが見た提出前後の要望書比較
+        content: "【{提出|ていしゅつ}{前|まえ}（ノゾミが{確認|かくにん}した{時点|じてん}）】{記載|きさい}{内容|ないよう}: {給食|きゅうしょく}おかず{増量|ぞうりょう}のみ（1{項目|こうもく}）。【{提出後|ていしゅつご}】{記載|きさい}{内容|ないよう}: {給食|きゅうしょく}おかず{増量|ぞうりょう}＋アレルギー{対応|たいおう}の{充実|じゅうじつ}（2{項目|こうもく}）。→アレルギーの{記述|きじゅつ}は{提出|ていしゅつ}{直前|ちょくぜん}にタミが{書|か}き{加|くわ}えた。"
+      - type: sprite
+        character: nozomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "タミに{見|み}せてもらったときは、アレルギーのことなんて{書|か}いてなかった。{提出|ていしゅつ}{前|まえ}にちゃんと{確認|かくにん}したよ。{途中|とちゅう}で{追加|ついか}されてたなんて……"
+        expression: surprised
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: narration
+        text: "タミはアレルギーを{持|も}つ{子|こ}から{個人的|こじんてき}に{相談|そうだん}を{受|う}けていた。その{子|こ}の{名前|なまえ}は{伏|ふ}せられている。"
+      - type: evidence
+        id: card-4
+        title: タミがアレルギーの子から相談を受けていた間接証拠
+        content: "{要望書|ようぼうしょ}{提出|ていしゅつ}の{数日前|すうじつまえ}、タミはあるクラスメイト（{名前|なまえ}{非公開|ひこうかい}）から{個人的|こじんてき}に{相談|そうだん}を{受|う}けていた。{内容|ないよう}:「{給食|きゅうしょく}のアレルギー{対応|たいおう}が{不十分|ふじゅうぶん}で{辛|つら}い。でも{自分|じぶん}では{言|い}いにくい」。タミはこの{相談|そうだん}を{受|う}けた{後|あと}、{誰|だれ}にも{話|はな}さずに{一人|ひとり}で{抱|かか}え{込|こ}んでいた。"
+      - type: sprite
+        character: hyou
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hyou
+        text: "タミが{誰|だれ}かから{個人的|こじんてき}に{相談|そうだん}を{受|う}けていた……{その子|そのこ}が{自分|じぶん}では{言|い}えないって{言|い}ったから、タミが{代|か}わりに{書|か}こうとしたのか。"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{議事録|ぎじろく}には{給食|きゅうしょく}の{増量|ぞうりょう}だけ。{委任状|いにんじょう}には「{変更|へんこう}しない」という{約束|やくそく}。ノゾミが{見|み}た{時点|じてん}と{提出後|ていしゅつご}の{内容|ないよう}が{違|ちが}う。タミが{誰|だれ}かの{相談|そうだん}を{受|う}けていた——これらがつながると？"
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "タミが{追加|ついか}したのは{分|わ}かった。でも……{何|なに}か{理由|りゆう}があったはず。{悪意|あくい}があったようには{見|み}えないんだよね。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: left
+      - type: dialog
+        character: gikai
+        text: "{理由|りゆう}が{何|なん}であれ、{委任状|いにんじょう}の{約束|やくそく}は{破|やぶ}られた。{代表|だいひょう}がクラスの{決定|けってい}を{無断|むだん}で{変|か}えたら、{信頼|しんらい}が{崩|くず}れてしまう——そこが{問題|もんだい}なんだと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タミの告白と先生の補足
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tami
+        expression: worried
+        position: center
+      - type: dialog
+        character: tami
+        text: "……{私|わたし}が{書|か}き{加|くわ}えました。クラスで{決|き}めた{内容|ないよう}じゃないのは{分|わ}かってた。でも——"
+        expression: worried
+      - type: dialog
+        character: tami
+        text: "あの{子|こ}は{給食|きゅうしょく}が{辛|つら}いって{泣|な}いてた。{自分|じぶん}じゃ{言|い}えないって。{代表|だいひょう}の{私|わたし}が{代|か}わりに{書|か}けば、{助|たす}けられると{思|おも}ったんです。"
+        expression: worried
+      - type: sprite
+        character: tami
+        action: hide
+      - type: evidence
+        id: card-5
+        title: タミの告白と先生の補足
+        content: "【タミの{告白|こくはく}】「アレルギーで{給食|きゅうしょく}が{辛|つら}いというクラスメイトが{相談|そうだん}してきた。{自分|じぶん}では{言|い}えないと{泣|な}いていた。{代|か}わりに{書|か}いてあげれば{助|たす}けられると{思|おも}った」。【{先生|せんせい}の{補足|ほそく}】{代表者|だいひょうしゃ}は{委任|いにん}された{意見|いけん}を{正確|せいかく}に{伝|つた}える{役割|やくわり}がある。{追加|ついか}したい{意見|いけん}があるなら、クラスに{持|も}ち{帰|かえ}って{再議論|さいぎろん}するのが{正|ただ}しいプロセス。{良|よ}い{動機|どうき}でも、{手続|てつづ}きを{飛|と}ばすことは{代表制|だいひょうせい}への{信頼|しんらい}を{損|そこ}なう。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タミさんの{気持|きも}ちは{分|わ}かる。{困|こま}っている{子|こ}を{助|たす}けたかったのね。でも{代表者|だいひょうしゃ}には、{委任|いにん}された{範囲|はんい}で{動|うご}く{義務|ぎむ}があるの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{正|ただ}しいやり{方|かた}はこう——その{子|こ}の{相談|そうだん}をクラスに{持|も}ち{帰|かえ}り、みんなで{議題|ぎだい}にすること。クラス{全員|ぜんいん}で{話|はな}し{合|あ}って{決|き}めた{意見|いけん}なら、{堂々|どうどう}と{要望書|ようぼうしょ}に{書|か}けたはずよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{良|よ}い{動機|どうき}があっても、プロセスを{無視|むし}した{独断|どくだん}は{代表制|だいひょうせい}の{信頼|しんらい}を{壊|こわ}す——それが{代表|だいひょう}の{仕組|しく}みの{本質|ほんしつ}だった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 要望書の内容を独断で変更したのは誰？
+      - type: sprite
+        character: gikai
+        expression: determined
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{議事録|ぎじろく}にない{内容|ないよう}が{要望書|ようぼうしょ}に{追記|ついき}された。{委任状|いにんじょう}は{変更|へんこう}を{禁|きん}じていた。ノゾミが{見|み}た{時点|じてん}と{提出後|ていしゅつご}で{内容|ないよう}が{違|ちが}う——{真相|しんそう}は{一|ひと}つだ。"
+        expression: determined
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{議事録|ぎじろく}には{給食|きゅうしょく}{増量|ぞうりょう}のみ——アレルギーは{議題|ぎだい}に{出|で}ていない。②{委任状|いにんじょう}:「{変更|へんこう}せずに{提出|ていしゅつ}」と{明記|めいき}。③ノゾミが{見|み}た{時点|じてん}では1{項目|こうもく}のみ——{提出後|ていしゅつご}は2{項目|こうもく}。④タミがアレルギーの{子|こ}から{個人的|こじんてき}に{相談|そうだん}を{受|う}けていた。⑤タミが「{代|か}わりに{書|か}けば{助|たす}けられると{思|おも}った」と{告白|こくはく}。"
+      - type: choice
+        id: q1
+        question: 要望書の内容を独断で変更したのは誰？
+        options:
+          - text: タミ（アレルギーの子を助けようと独断で追記した）
+            value: tami
+            correct: true
+            feedback: "{正解|せいかい}！　タミはアレルギーで{困|こま}っているクラスメイトを{助|たす}けたくて、{独断|どくだん}で{要望書|ようぼうしょ}に{追記|ついき}した。{動機|どうき}は{善意|ぜんい}だったけど、{代表|だいひょう}は{委任|いにん}された{意見|いけん}だけを{伝|つた}える{役割|やくわり}がある。**{追加|ついか}したいなら、クラスに{持|も}ち{帰|かえ}って{再議論|さいぎろん}するのが{正|ただ}しいプロセスだよ。**"
+          - text: ヒョウ（議事録で変更を指摘した側）
+            value: hyou
+            feedback: "ヒョウは{議事録|ぎじろく}を{持|も}っていて、{要望書|ようぼうしょ}との{違|ちが}いをいち{早|はや}く{指摘|してき}した{側|がわ}。{問題|もんだい}を{発見|はっけん}した{大切|たいせつ}な{役割|やくわり}だよ。"
+          - text: ギカイ（委任状を管理してルール確認した側）
+            value: gikai
+            feedback: "ギカイは{委任状|いにんじょう}を{管理|かんり}して、「{変更|へんこう}してはいけない」という{ルール|るーる}を{確認|かくにん}してくれた{側|がわ}。{代表制|だいひょうせい}の{仕組|しく}みを{守|まも}ろうとしていたよ。"
+          - text: ノゾミ（提出前後の比較で矛盾を発見した側）
+            value: nozomi
+            feedback: "ノゾミは{提出|ていしゅつ}{前|まえ}に{要望書|ようぼうしょ}を{確認|かくにん}していて、{提出後|ていしゅつご}の{変化|へんか}を{発見|はっけん}した{側|がわ}。この{比較|ひかく}があったから{真相|しんそう}に{辿|たど}り{着|つ}けたよ。"
+
+  # ==================== 真相：タミの告白 ====================
+  - id: truth-tami
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: タミの想い
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tami
+        expression: worried
+        position: center
+      - type: dialog
+        character: tami
+        text: "……{本当|ほんとう}のことを{話|はな}します。あの{子|こ}は{給食|きゅうしょく}のアレルギー{対応|たいおう}がなくて、{毎日|まいにち}{辛|つら}かったって{泣|な}きながら{話|はな}してくれたんです。"
+        expression: worried
+      - type: dialog
+        character: tami
+        text: "「{自分|じぶん}では{言|い}えない」って。だから{私|わたし}が{代|か}わりに{書|か}いてあげれば、{要望書|ようぼうしょ}に{入|い}れてあげれば——{助|たす}けられると{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: tami
+        text: "でも……{代表|だいひょう}として{選|えら}ばれた{私|わたし}がやることじゃなかった。クラス{全員|ぜんいん}で{決|き}めたことを、{一人|ひとり}で{変|か}えてよかったわけがない。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+
+  # ==================== 真相：他のキャラの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: nozomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "タミの{気持|きも}ちは{分|わ}かる。{困|こま}ってる{子|こ}を{見|み}て{放|ほ}っておけなかったんだよね。でも——{代表|だいひょう}だからこそ、{一人|ひとり}で{抱|かか}えちゃいけなかった。"
+        expression: thinking
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: normal
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{議事録|ぎじろく}を{見|み}たとき、{裏切|うらぎ}られたと{思|おも}ったけど……タミが{誰|だれ}かを{守|まも}ろうとしていたと{分|わ}かって、{気持|きも}ちが{変|か}わった。でも{正|ただ}しいやり{方|かた}があったよね。"
+        expression: normal
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: normal
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{もし|もし}タミがクラス{会議|かいぎ}に「アレルギーで{困|こま}っている{子|こ}がいる」って{持|も}ち{帰|かえ}ってたら——みんなで{話|はな}し{合|あ}って、{正式|せいしき}に{要望|ようぼう}に{加|くわ}えられたかもしれない。プロセスがすべてなんだ。"
+        expression: normal
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タミさんは{悪|わる}いことをしようとしたわけじゃない。でも{代表制|だいひょうせい}には、{守|まも}らなければならない{約束|やくそく}がある。それは「{委任|いにん}された{範囲|はんい}で{動|うご}く」こと——それが{信頼|しんらい}の{土台|どだい}なの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{困|こま}っている{人|ひと}を{見|み}つけたら、{一人|ひとり}で{解決|かいけつ}しようとしないこと。クラスに{持|も}ち{帰|かえ}ってみんなの{問題|もんだい}にする——それが{代表者|だいひょうしゃ}の{本当|ほんとう}の{仕事|しごと}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{代表制|だいひょうせい}の{仕組|しく}み——{代表者|だいひょうしゃ}は{委任|いにん}された{意見|いけん}を{正確|せいかく}に{伝|つた}える{役割|やくわり}がある。{良|よ}い{動機|どうき}があっても、{独断|どくだん}で{内容|ないよう}を{変|か}えることは{信頼|しんらい}を{損|そこ}なう。{追加|ついか}したいことがあれば、クラスに{持|も}ち{帰|かえ}って{再議論|さいぎろん}するのが{正|ただ}しいプロセス。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】タイムライン——①クラス{会議|かいぎ}（{決定|けってい}: {給食|きゅうしょく}{増量|ぞうりょう}のみ）→②タミがアレルギーの{相談|そうだん}を{受|う}ける→③{提出|ていしゅつ}{直前|ちょくぜん}に{独断|どくだん}で{追記|ついき}→④{提出|ていしゅつ}→⑤ヒョウが{議事録|ぎじろく}と{照合|しょうごう}して{発覚|はっかく}。{正|ただ}しいルートは②の{後|あと}、クラスに{持|も}ち{帰|かえ}ることだった。"
+      - type: effect
+        name: fade-out

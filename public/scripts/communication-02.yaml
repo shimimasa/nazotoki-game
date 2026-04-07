@@ -1,0 +1,420 @@
+meta:
+  id: communication-02
+  title: 沈黙のうそ
+  series: コミュニケーション探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学芸会|がくげいかい}の{役割|やくわり}{分担|ぶんたん}の{日|ひ}——クラスのみんなが{楽|たの}しそうに{話|はな}し{合|あ}っているなか、キクは「どの{役|やく}でもいい」と{言|い}った。"
+      - type: narration
+        text: "{役割|やくわり}はすんなり{決|き}まった。でも、{帰|かえ}り{道|みち}でキクの{様子|ようす}がおかしかった。"
+      - type: se
+        sound: whisper
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsutae
+        text: "ねえ……キク、ずっと{黙|だま}ってるし、{顔|かお}が{暗|くら}い。「{大丈夫|だいじょうぶ}？」って{聞|き}いたら「{大丈夫|だいじょうぶ}」って{言|い}ってたけど——{全然|ぜんぜん}{大丈夫|だいじょうぶ}そうじゃないよ。あれって、{うそをついてる|うそをついてる}んじゃないの？"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "キクは「{大丈夫|だいじょうぶ}」って{言|い}ってた。でも……{声|こえ}のトーンが{全然|ぜんぜん}{違|ちが}ってた。{目|め}も{合|あ}わせてくれなかったし。あれは{本当|ほんとう}に{大丈夫|だいじょうぶ}じゃない{声|こえ}だった。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: kiku
+            expression: worried
+          - character: manabu
+            expression: thinking
+          - character: tsutae
+            expression: worried
+          - character: kotoba
+            expression: thinking
+      - type: narration
+        text: "「{大丈夫|だいじょうぶ}」という{言葉|ことば}と、{暗|くら}い{表情|ひょうじょう}・{低|ひく}い{声|こえ}——{言葉|ことば}と{非言語情報|ひげんごじょうほう}のずれの{真相|しんそう}を、コミュニケーション{探偵団|たんていだん}が{追|お}う。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 沈黙のうそ
+        subtitle: コミュニケーション探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 役割分担の記録と帰り道の目撃情報
+      - type: narration
+        text: "{学芸会|がくげいかい}の{役割|やくわり}{分担|ぶんたん}の{場面|ばめん}——{司会|しかい}・{主役|しゅやく}・{脇役|わきやく}・{道具係|どうぐがかり}の4{役|やく}を、4{人|にん}で{分|わ}けることになった。"
+      - type: evidence
+        id: card-1
+        title: 役割分担の記録とキクの発言
+        content: "【{役割|やくわり}{分担|ぶんたん}{記録|きろく}】{主役|しゅやく}: マナブ、{司会|しかい}: コトバ、{脇役|わきやく}: ツタエ、{道具係|どうぐがかり}: キク。【キクの{発言|はつげん}】「どの{役|やく}でもいい」（{分担|ぶんたん}{前|まえ}）→{分担|ぶんたん}{後|ご}からキクの{様子|ようす}が{変|か}わった。【{目撃情報|もくげきじょうほう}】{帰|かえ}り{道|みち}でキクが{元気|げんき}なさそうにしていた（ツタエ{証言|しょうげん}）。"
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsutae
+        text: "{分担|ぶんたん}が{決|き}まったあと、キクは{急|きゅう}に{口数|くちかず}が{減|へ}ったんだ。{帰|かえ}り{道|みち}も、ずっと{俯|うつむ}いてて。「{大丈夫|だいじょうぶ}？」って{聞|き}いたら「うん、{大丈夫|だいじょうぶ}」って。でも、{絶対|ぜったい}に{大丈夫|だいじょうぶ}そうじゃなかった。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: narration
+        text: "キクは{合計|ごうけい}4{回|かい}「{大丈夫|だいじょうぶ}」と{言|い}った。そのたびに、{声|こえ}のトーンや{目線|めせん}が{記録|きろく}されていた。"
+      - type: evidence
+        id: card-2
+        title: キクの「大丈夫」発言4回の記録
+        content: "①1{回目|かいめ}「{大丈夫|だいじょうぶ}」：{声|こえ}のトーン【{低|ひく}い】/{目線|めせん}【{目|め}をそらした】②2{回目|かいめ}「{大丈夫|だいじょうぶ}」：{声|こえ}のトーン【{低|ひく}い】/{目線|めせん}【{目|め}をそらした】③3{回目|かいめ}「{大丈夫|だいじょうぶ}」：{声|こえ}のトーン【{低|ひく}い】/{目線|めせん}【{目|め}をそらした】④4{回目|かいめ}「{大丈夫|だいじょうぶ}」：{声|こえ}のトーン【{普通|ふつう}】/{目線|めせん}【{合|あ}っていた】（マナブ{記録|きろく}）"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "ぼく、キクが「{大丈夫|だいじょうぶ}」と{言|い}うたびにメモしてたんだ。{言葉|ことば}は4{回|かい}ぜんぶ「{大丈夫|だいじょうぶ}」。でも{声|こえ}のトーンは3{回|かい}が{低|ひく}くて、{目|め}をそらしてた。{言葉|ことば}の{情報|じょうほう}と、{声|こえ}や{目線|めせん}の{情報|じょうほう}が{矛盾|むじゅん}してる。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: hallway
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 密談の記録とツタエの観察メモ
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{放課後|ほうかご}、キクと2{人|にん}になったから{聞|き}いてみたの。「{本当|ほんとう}に{大丈夫|だいじょうぶ}？」って。そうしたら「ちょっと{疲|つか}れてるだけ」って……でも、{声|こえ}が{震|ふる}えてたんだ。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-3
+        title: コトバとキクの密談の記録
+        content: "【{密談|みつだん}{概要|がいよう}】コトバが{放課後|ほうかご}にキクへ「{本当|ほんとう}に{大丈夫|だいじょうぶ}？」と{確認|かくにん}。【キクの{返答|へんとう}】「ちょっと{疲|つか}れてるだけ」。【コトバの{感想|かんそう}】「{言|い}ってることはいつも{通|とお}りなのに、{声|こえ}が{震|ふる}えてた{気|き}がした。{目|め}も{赤|あか}かったかも」（コトバ{記録|きろく}）。"
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "キクは「{大丈夫|だいじょうぶ}」「{疲|つか}れてるだけ」って{言|い}ってた。でも、あの{声|こえ}のトーンは{全然|ぜんぜん}{違|ちが}ってた。{大丈夫|だいじょうぶ}な{人|ひと}の{声|こえ}じゃなかった。{言葉|ことば}だけ{聞|き}いたら{分|わ}からなかったけど、{声|こえ}が{全部|ぜんぶ}{教|おし}えてた。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "あのね、{役割|やくわり}{分担|ぶんたん}のとき、{主役|しゅやく}の{名前|なまえ}が{読|よ}み{上|あ}げられた{瞬間|しゅんかん}——キクの{口元|くちもと}が{少|すこ}し{動|うご}いて、{止|と}まったんだ。{何|なに}か{言|い}いかけて、{止|と}まった{感|かん}じがした。"
+        expression: thinking
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ツタエの観察記録メモ
+        content: "【{観察|かんさつ}{記録|きろく}】{主役|しゅやく}の{名前|なまえ}が{読|よ}み{上|あ}げられたとき、キクの{表情|ひょうじょう}が{少|すこ}し{変|か}わった。{口元|くちもと}が{動|うご}いて{止|と}まった（{何|なに}か{言|い}いかけた？）。{身体|からだ}が{少|すこ}し{緊張|きんちょう}したように{見|み}えた（ツタエ{記録|きろく}）。"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "ここまでの{証拠|しょうこ}を{整理|せいり}してみよう。キクは{合計|ごうけい}4{回|かい}「{大丈夫|だいじょうぶ}」と{言|い}った——でも{声|こえ}は{低|ひく}く、{目|め}をそらし、{密談|みつだん}では{声|こえ}が{震|ふる}えた。{言葉|ことば}の{内容|ないよう}と、{声|こえ}・{表情|ひょうじょう}・{身体|からだ}の{情報|じょうほう}が、{一致|いっち}していない。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{言葉|ことば}の{情報|じょうほう}と{非言語|ひげんご}の{情報|じょうほう}を{表|ひょう}に{整理|せいり}してみると——{言葉|ことば}は4{回|かい}ぜんぶ「{大丈夫|だいじょうぶ}」。でも{声|こえ}のトーンは3/{目線|めせん}は3/{身体|からだ}の{緊張|きんちょう}も{観察|かんさつ}されてる。{言葉|ことば}の{情報|じょうほう}だけで{判断|はんだん}すると、{非言語|ひげんご}の{情報|じょうほう}を{全部|ぜんぶ}{見落|みお}とすことになる。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsutae
+        text: "わたし、「キクは{うそをついた}」って{言|い}い{始|はじ}めたけど……{証拠|しょうこ}を{並|なら}べて{見|み}ると、「{うそをついた|うそをついた}」と「{言|い}えなかった」って、{同|おな}じじゃないのかな。どっちかな。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: キクのノートに書かれたメモ
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "翌{朝|あさ}、キクが{机|つくえ}に{置|お}き{忘|わす}れた{学習|がくしゅう}ノートが{開|ひら}いていた。その{端|はし}に、{鉛筆|えんぴつ}で{小|ちい}さく{書|か}かれた{文字|もじ}があった——"
+      - type: se
+        sound: paper
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「{本当|ほんとう}はやりたい{役|やく}があった。でも{言|い}えなかった」——キクが{自分|じぶん}で{書|か}いたんだ。{言葉|ことば}じゃ「{大丈夫|だいじょうぶ}」「どの{役|やく}でもいい」って{言|い}ってたのに、{心|こころ}の{中|なか}は{全然|ぜんぜん}{違|ちが}ってた。"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-5
+        title: キクのメモ＋非言語コミュニケーションの解説
+        content: "【キクの{学習|がくしゅう}ノートのメモ】「{本当|ほんとう}はやりたい{役|やく}があった。でも{言|い}えなかった」【{非言語|ひげんご}コミュニケーションの{基本|きほん}】{人間|にんげん}のコミュニケーションの{割合|わりあい}: {言葉|ことば}の{内容|ないよう}（7%）・{声|こえ}のトーン（38%）・{表情|ひょうじょう}や{身体|からだ}（55%）——{言葉|ことば}よりも{言葉|ことば}以外{の|の}{情報|じょうほう}のほうが、{実|じつ}は{多|おお}くを{伝|つた}えている。"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{言葉|ことば}は「{大丈夫|だいじょうぶ}」でも、{声|こえ}・{表情|ひょうじょう}・{身体|からだ}が「{大丈夫|だいじょうぶ}じゃない」と{伝|つた}えていた。キクは{うそをついた|うそをついた}のではなく、「{本音|ほんね}が{言|い}えなかった」のだった。**"
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{言葉|ことば}の{情報|じょうほう}だけで{判断|はんだん}すると、{非言語|ひげんご}の{情報|じょうほう}を{半分|はんぶん}以上{見落|みお}とすことになる。キクは「{大丈夫|だいじょうぶ}」って{言|い}ってたけど、{声|こえ}と{表情|ひょうじょう}はずっと「{大丈夫|だいじょうぶ}じゃない」って{伝|つた}えてたんだ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 「大丈夫」と言いながら大丈夫ではなかった人は誰？
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①コトバとマナブ——2{人|にん}とも、キクの「{大丈夫|だいじょうぶ}」という{言葉|ことば}と{声|こえ}や{表情|ひょうじょう}がずれていることを{観察|かんさつ}していた。②ツタエ——{役割|やくわり}{分担|ぶんたん}の{瞬間|しゅんかん}、キクの{口元|くちもと}が{動|うご}いて{止|と}まったことを{確認|かくにん}している。③ノートのメモ——キク{自身|じしん}が「{本当|ほんとう}はやりたい{役|やく}があった。でも{言|い}えなかった」と{書|か}いていた。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: narration
+        text: "{情報整理|じょうほうせいり}——{言語情報|げんごじょうほう}（{言葉|ことば}の{内容|ないよう}）と{非言語情報|ひげんごじょうほう}（{声|こえ}・{表情|ひょうじょう}・{身体|からだ}）を{分類|ぶんるい}・{比較|ひかく}して、{矛盾|むじゅん}している{情報|じょうほう}を{抽出|ちゅうしゅつ}する。4{人|にん}の{中|なか}で、{言葉|ことば}と{非言語|ひげんご}が{矛盾|むじゅん}していたのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 「大丈夫」と言いながら大丈夫ではなかった人は誰？
+        options:
+          - text: コトバ
+            value: kotoba
+            correct: false
+            feedback: "コトバはキクの{矛盾|むじゅん}に{気|き}づいた{側|がわ}だよ。コトバ{自身|じしん}の{言葉|ことば}と{非言語|ひげんご}には{矛盾|むじゅん}は{記録|きろく}されていない。{証拠|しょうこ}を{見直|みなお}してみよう。"
+          - text: キク
+            value: kiku
+            correct: true
+            feedback: "{正解|せいかい}！　キクは{本当|ほんとう}はやりたい{役|やく}があったのに、{恥|は}ずかしくて{言|い}えなかった。「{大丈夫|だいじょうぶ}」という{言葉|ことば}と、{低|ひく}い{声|こえ}・{目|め}をそらす・{声|こえ}が{震|ふる}える——{非言語|ひげんご}が{本音|ほんね}を{伝|つた}えていた。**「{うそをついた}」じゃなく「{言|い}えなかった」が{真実|しんじつ}。コミュニケーションは{言葉|ことば}だけじゃない。{声|こえ}のトーンや{表情|ひょうじょう}も、{大切|たいせつ}なメッセージを{送|おく}っているよ。**"
+          - text: ツタエ
+            value: tsutae
+            correct: false
+            feedback: "ツタエは「{うそ|うそ}をついた」と{言|い}い{始|はじ}めたけど、ツタエ{自身|じしん}の{言葉|ことば}と{非言語|ひげんご}に{矛盾|むじゅん}はなかったよ。{証拠|しょうこ}を{見直|みなお}してみよう。"
+          - text: マナブ
+            value: manabu
+            correct: false
+            feedback: "マナブはデータを{記録|きろく}・{整理|せいり}していた{側|がわ}だよ。マナブが「{大丈夫|だいじょうぶ}」と{言|い}い{続|つづ}けていたという{記録|きろく}はないよ。{証拠|しょうこ}を{見直|みなお}してみよう。"
+
+  # ==================== 真相：キクの告白 ====================
+  - id: truth-kiku
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: キクの本音
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: center
+      - type: dialog
+        character: kiku
+        text: "……{本当|ほんとう}のことを{言|い}う。{主役|しゅやく}の{台詞|せりふ}、やってみたかった。{自分|じぶん}から{言|い}い{出|だ}すのが{恥|は}ずかしくて……「どの{役|やく}でもいい」って{言|い}ってしまったんだ。"
+        expression: worried
+      - type: dialog
+        character: kiku
+        text: "「{大丈夫|だいじょうぶ}」って{言|い}えば{言|い}うほど、{大丈夫|だいじょうぶ}じゃないのが{自分|じぶん}でも{分|わ}かってた。でも、{今更|いまさら}{言|い}えなくて。{恥|は}ずかしくて。ごめん。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tsutae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsutae
+        text: "わたし、「{うそをついた}」って{言|い}ってしまってたけど……「{うそをついた}」と「{言|い}えなかった」って、{違|ちが}うよね。キクは{悪意|あくい}で{うそをついた}わけじゃなかった。{言|い}いたくても{言|い}えなかっただけで。"
+        expression: thinking
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "キクは「{大丈夫|だいじょうぶ}」って{言|い}ってたけど、{声|こえ}のトーンが{全然|ぜんぜん}{違|ちが}ってた。{言葉|ことば}だけを{聞|き}いていたら、わたしも{気|き}づかなかったかもしれない。{声|こえ}や{表情|ひょうじょう}が{伝|つた}えることに{気|き}づいてよかった。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: manabu
+        text: "{言葉|ことば}の{情報|じょうほう}だけで{判断|はんだん}すると、{非言語|ひげんご}の{情報|じょうほう}を{半分|はんぶん}以上{見落|みお}とすことになる——データで{見|み}ると、キクの{言葉|ことば}は4{回|かい}とも「{大丈夫|だいじょうぶ}」。でも{声|こえ}・{目線|めせん}・{身体|からだ}の{情報|じょうほう}は、{全部|ぜんぶ}「{大丈夫|だいじょうぶ}じゃない」を{指|さ}してた。"
+        expression: surprised
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "キクは「{うそ|うそ}をついた」わけじゃないの。「{本音|ほんね}を{言|い}えなかった」だけ。{人間|にんげん}のコミュニケーションは、{言葉|ことば}の{内容|ないよう}（7%）・{声|こえ}のトーン（38%）・{表情|ひょうじょう}や{身体|からだ}（55%）で{伝|つた}わる——{言葉|ことば}よりも{言葉|ことば}{以外|いがい}のほうが、{実|じつ}はずっと{多|おお}くを{伝|つた}えているのよ。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{言葉|ことば}と{声|こえ}・{表情|ひょうじょう}がずれていたら、「{大丈夫|だいじょうぶ}？ {本当|ほんとう}は？」と{聞|き}いてみること。{表情|ひょうじょう}に{出|で}ない{人|ひと}もいるから「{表情|ひょうじょう}が{暗|くら}いから{気持|きも}ちが{分|わ}かる」と{思|おも}い{込|こ}まないように。{確認|かくにん}することが{大切|たいせつ}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{情報整理|じょうほうせいり}——{言語情報|げんごじょうほう}と{非言語情報|ひげんごじょうほう}を{分類|ぶんるい}・{比較|ひかく}して{矛盾|むじゅん}を{抽出|ちゅうしゅつ}する{考|かんが}え{方|かた}。キクの{言葉|ことば}（{大丈夫|だいじょうぶ}×4）と{非言語|ひげんご}（{低|ひく}い{声|こえ}・{目|め}をそらす・{声|こえ}が{震|ふる}える）の{矛盾|むじゅん}が、{真相|しんそう}へのカギだった。"
+      - type: narration
+        text: "{非言語|ひげんご}コミュニケーションの{学び|まなび}——「{大丈夫|だいじょうぶ}」という{言葉|ことば}だけ{聞|き}いていたら{気|き}づけなかった。{声|こえ}のトーン・{表情|ひょうじょう}・{身体|からだ}の{緊張|きんちょう}も、{大切|たいせつ}なメッセージを{送|おく}っている。あなたも「{言葉|ことば}」と「{非言語|ひげんご}」がずれている{場面|ばめん}に{出会|であ}ったとき、どう{声|こえ}をかける？"
+      - type: effect
+        name: fade-out

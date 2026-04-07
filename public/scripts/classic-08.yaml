@@ -1,0 +1,420 @@
+meta:
+  id: classic-08
+  title: 和歌の暗号
+  series: 古典探偵団
+  volume: 8
+  estimatedMinutes: 22
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: hallway
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ある朝、{学校|がっこう}の{廊下|ろうか}の{掲示板|けいじばん}に1{枚|まい}の{紙|かみ}が{貼|は}り{出|だ}されていた。"
+      - type: narration
+        text: "そこには{美|うつく}しい{文字|もじ}で{和歌|わか}がしたためられていた——「{花|はな}の{色|いろ}は{散|ち}りにけりな　{雨|あめ}の{降|ふ}るまに　{春|はる}の{香|かお}りを　いづこに{求|もと}めん」"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{美|うつく}しい{恋|こい}の{歌|うた}——でも{誰|だれ}が{貼|は}ったのか、そしてなぜ？**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{廊下|ろうか}の{掲示板|けいじばん}に{和歌|わか}が{貼|は}り{出|だ}されているの。{一見|いっけん}すると「{花|はな}への{想|おも}い」を{詠|よ}んだ{恋|こい}の{歌|うた}に{見|み}えるけれど……{掛詞|かけことば}を{使|つか}って{読|よ}み{直|なお}すと、もう1つの{意味|いみ}が{浮|う}かび{上|あ}がるらしいのよ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}がなぜ{貼|は}ったのか——{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: surprised
+          - character: utayomi
+            expression: thinking
+          - character: shirabe
+            expression: normal
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{恋|こい}の{歌|うた}のように{見|み}える{和歌|わか}——でも{何|なに}か{別|べつ}の{意味|いみ}が{隠|かく}されているとしたら？"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 和歌の暗号
+        subtitle: 古典探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: hallway
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 掲示板の和歌と掛詞ガイド
+      - type: narration
+        text: "{掲示板|けいじばん}に{貼|は}り{出|だ}された{和歌|わか}の{全文|ぜんぶん}——{花|はな}への{想|おも}いを{詠|よ}んだ{美|うつく}しい{言葉|ことば}が{並|なら}ぶ。{現代語訳|げんだいごやく}①：「{花|はな}の{美|うつく}しさが{散|ち}ってしまった　{雨|あめ}の{降|ふ}るうちに　{春|はる}の{香|かお}りを　どこに{求|もと}めたらよいのだろう」"
+      - type: evidence
+        id: card-1
+        title: 掲示板の和歌
+        content: "「{花|はな}の{色|いろ}は{散|ち}りにけりな　{雨|あめ}の{降|ふ}るまに　{春|はる}の{香|かお}りを　いづこに{求|もと}めん」{現代語訳|げんだいごやく}①（{恋|こい}の{歌|うた}として）：「{花|はな}の{美|うつく}しさが{散|ち}ってしまった。{春|はる}の{香|かお}りをどこに{求|もと}めたらよいのだろう。」"
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{美|うつく}しい{歌|うた}だな……「{花|はな}が{散|ち}る」「{香|かお}りを{求|もと}める」——{恋|こい}の{歌|うた}みたいに{読|よ}める。でも、{誰|だれ}が{掲示板|けいじばん}に{貼|は}ったんだろう。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{次|つぎ}に{配|くば}られたのは「{掛詞|かけことば}・{縁語|えんご}ガイド」——{千年前|せんねんまえ}の{歌人|かじん}たちが{使|つか}った「1つの{言葉|ことば}に2つの{意味|いみ}」の{技|わざ}の{説明|せつめい}だ。"
+      - type: evidence
+        id: card-2
+        title: 掛詞・縁語ガイド
+        content: "【{掛詞|かけことば}とは】1つの{言葉|ことば}に2つの{意味|いみ}がある{技法|ぎほう}。例：「{松|まつ}」＝{木|き}の{松|まつ}／{待|ま}つ（{待|ま}っている）。「{花|はな}」＝{植物|しょくぶつ}の{花|はな}／{鼻|はな}（{嗅|か}ぐ・{給食|きゅうしょく}の{匂|にお}い）。「{散|ち}る」＝{花|はな}が{散|ち}る／{消|き}える（{メニュー|めにゅー}が{消|き}えた）。{現代語訳|げんだいごやく}②（{給食|きゅうしょく}への{抗議|こうぎ}として）：「{給食|きゅうしょく}の{カレー|かれー}の{匂|にお}いが{消|き}えてしまった。どこで{求|もと}めたらよいのだろう。」"
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "ちょっと{待|ま}って……{掛詞|かけことば}で{読|よ}み{直|なお}すと、この{和歌|わか}にもう1つの{意味|いみ}が{出|で}てくる！　「{花|はな}」を「{鼻|はな}（{嗅|か}ぐ）」、「{散|ち}る」を「{消|き}える」と{読|よ}むと……"
+        expression: thinking
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: hallway
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 反応調査と掛詞の解読
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{掲示板|けいじばん}を{見|み}た{人|ひと}たちに{聞|き}いて{回|まわ}ったよ。{低学年|ていがくねん}は「{きれいな|きれいな}{歌|うた}」って{言|い}ってたけど、{高学年|こうがくねん}の{何人|なんにん}かは「{給食|きゅうしょく}の{文句|もんく}じゃない？」って{気|き}づいてた。"
+        expression: worried
+      - type: dialog
+        character: kotoba
+        text: "それと——{掲示板|けいじばん}の{近|ちか}くに{筆|ふで}ペンが1{本|ほん}{落|お}ちてた。{フミカ|ふみか}の{筆箱|ふでばこ}にある{種類|しゅるい}と{同|おな}じやつ。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-3
+        title: コトバの調査メモ
+        content: "{低学年|ていがくねん}の{反応|はんのう}：「{きれいな|きれいな}{歌|うた}」。{高学年|こうがくねん}の{反応|はんのう}：「{給食|きゅうしょく}の{文句|もんく}じゃない？」。{掲示板|けいじばん}{近く|ちかく}に{落|お}ちていた{筆|ふで}ペン：フミカの{筆箱|ふでばこ}にある{種類|しゅるい}と{同|おな}じ。"
+      - type: sprite
+        character: utayomi
+        expression: determined
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "「{花|はな}が{散|ち}る」は{恋|こい}の{歌|うた}では「{美|うつく}しいものが{消|き}える」。でも{掛詞|かけことば}で{読|よ}むと「{メニュー|めにゅー}が{消|き}えた」になる！　「{春|はる}の{香|かお}り」は「{給食|きゅうしょく}の{カレー|かれー}の{匂|にお}い」を{指|さ}してるみたい。この{和歌|わか}……2つの{意味|いみ}が{完全|かんぜん}に{重|かさ}なってる！"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ウタヨミの掛詞分析＋シラベの証言
+        content: "【{掛詞|かけことば}{図解|ずかい}】「{花|はな}」→{花|はな}の{美|うつく}しさ／{鼻|はな}（{給食|きゅうしょく}の{匂|にお}い）。「{散|ち}る」→{花|はな}が{散|ち}る／{メニュー|めにゅー}が{消|き}える。「{香|かお}り」→{花|はな}の{香|かお}り／{カレー|かれー}の{香|かお}り。【{シラベ|しらべ}の{証言|しょうげん}（{追加|ついか}HO）】「フミカが{最近|さいきん}、『{給食|きゅうしょく}のカレーがなくなったの、ずるいよね』って{怒|おこ}ってた」"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "フミカ……{最近|さいきん}ずっと{給食|きゅうしょく}のメニュー{変更|へんこう}のこと{気|き}にしてた。「{みんな|みんな}が{楽|たの}しみにしてたのに」って。でも、{和歌|わか}を{掲示板|けいじばん}に{貼|は}るなんて——"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: hallway
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{筆|ふで}ペンはフミカのもの、{シラベ|しらべ}の{証言|しょうげん}でフミカが{給食|きゅうしょく}のメニュー{変更|へんこう}に{怒|おこ}っていたことも{分|わ}かった。"
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{状況|じょうきょう}{証拠|しょうこ}はフミカを{指|さ}している。{筆|ふで}ペンも{怒|おこ}りも。でも……なぜ{直接|ちょくせつ}{文句|もんく}を{言|い}わずに{和歌|わか}にしたんだろう？　それに、{恋|こい}の{歌|うた}として{書|か}いたのか、{抗議|こうぎ}として{書|か}いたのか——どっちなんだろう。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "{掛詞|かけことば}の{仕組|しく}みが{完璧|かんぺき}すぎる。「{偶然|ぐうぜん}」で2つの{意味|いみ}が{重|かさ}なるとは{思|おも}えない——でも、{わざと|わざと}2つの{意味|いみ}で{書|か}いたとしたら、そこまで{計算|けいさん}したってこと？"
+        expression: thinking
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "フミカに{直接|ちょくせつ}{聞|き}いてみたわ。「{花|はな}の{歌|うた}を{書|か}いたつもりだった。{給食|きゅうしょく}への{抗議|こうぎ}なんて{考|かんが}えていなかった。でも……{確|たし}かに{掛詞|かけことば}で{読|よ}むとそう{読|よ}める。{自分|じぶん}でも{気|き}づかなかった」って{驚|おどろ}いていたの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "フミカは{恋|こい}の{歌|うた}として{書|か}いたつもりだった。{給食|きゅうしょく}のカレーへの{怒|おこ}りが{無意識|むいしき}に{言葉|ことば}を{選|えら}ばせた——{掛詞|かけことば}の{力|ちから}が、{書|か}いた{本人|ほんにん}すら{気|き}づかない{意味|いみ}を{生|う}み{出|だ}したのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "フミカのことば：「{花|はな}の{歌|うた}を{書|か}いたつもりだった。{給食|きゅうしょく}への{抗議|こうぎ}なんて{考|かんが}えていなかった。でも……{確|たし}かに{掛詞|かけことば}で{読|よ}むとそう{読|よ}める。{自分|じぶん}でも{気|き}づかなかった。」先生のコメント：「{掛詞|かけことば}の{力|ちから}——{自分|じぶん}が{意図|いと}しない{意味|いみ}を{言葉|ことば}が{勝手|かって}に{持|も}つことがある。これは{認知|にんち}バイアス（{確証|かくしょう}バイアス：{自分|じぶん}が{意図|いと}した{意味|いみ}だけを{見|み}てしまう）とも{関係|かんけい}があります。」"
+      - type: sprite
+        character: shirabe
+        expression: surprised
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "フミカは{給食|きゅうしょく}のことで{怒|おこ}ってた。その{気持|きも}ちが{無意識|むいしき}に{和歌|わか}に{入|はい}ったんだ。{言葉|ことば}って、{自分|じぶん}の{気持|きも}ちを{映|うつ}す{鏡|かがみ}なんだね——{書|か}いた{本人|ほんにん}すら{気|き}づかないくらいに。"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{意図的|いとてき}な{二重|にじゅう}メッセージではなかった——{掛詞|かけことば}が{自動的|じどうてき}に2つ目の{意味|いみ}を{生|う}み{出|だ}した。**　フミカは{確証|かくしょう}バイアスで「{花|はな}の{歌|うた}」としか{見|み}えていなかったのだ。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 掲示板に和歌を書いて貼ったのは誰？
+      - type: sprite
+        character: utayomi
+        expression: determined
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{筆|ふで}ペンはフミカのもの。シラベの{証言|しょうげん}でフミカが{給食|きゅうしょく}{変更|へんこう}に{怒|おこ}っていたことが{分|わ}かった。{掛詞|かけことば}の{解読|かいどく}で2つの{意味|いみ}が{確認|かくにん}できた。そして——フミカ{本人|ほんにん}が「{花|はな}の{歌|うた}しか{書|か}いていない」と{驚|おどろ}いた。"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{掲示板|けいじばん}{近く|ちかく}の{筆|ふで}ペンはフミカのもの。②シラベの{証言|しょうげん}：フミカが{給食|きゅうしょく}{変更|へんこう}に{怒|おこ}っていた。③{掛詞|かけことば}{分析|ぶんせき}：「{花|はな}・{散|ち}る・{香|かお}り」が{給食|きゅうしょく}の{意味|いみ}にも{読|よ}める。④フミカ{本人|ほんにん}：「{花|はな}の{歌|うた}を{書|か}いたつもりで{掛詞|かけことば}の{意味|いみ}に{気|き}づかなかった」と{驚|おどろ}いていた。"
+      - type: choice
+        id: q1
+        question: 掲示板の和歌を書いて貼ったのは誰？
+        options:
+          - text: フミカ（花の歌を書いたつもりだったが、掛詞で読むと給食への抗議にもなっていた）
+            value: fumika
+            correct: true
+            feedback: "{正解|せいかい}！　フミカは「{花|はな}の{歌|うた}」を{書|か}いたつもりだった。でも{掛詞|かけことば}（かけことば）の{力|ちから}で、{同時|どうじ}に「{給食|きゅうしょく}への{抗議|こうぎ}」にもなっていた。{書|か}いた{本人|ほんにん}すら{気|き}づかなかった——これが{掛詞|かけことば}のすごさ。{千年前|せんねんまえ}の{歌人|かじん}たちは、この「1つの{言葉|ことば}に2つの{意味|いみ}」を{意図的|いとてき}に{使|つか}いこなしていた。**{言葉|ことば}は、{自分|じぶん}が{思|おも}っている{以上|いじょう}に{深|ふか}い。{自分|じぶん}の{言葉|ことば}を「もう1つの{意味|いみ}」で{読|よ}み{直|なお}す{力|ちから}——それが{古典|こてん}を{学|まな}ぶ{力|ちから}だ。**"
+          - text: コトバ（反応調査をした人）
+            value: kotoba
+            feedback: "{コトバ|ことば}は{掲示板|けいじばん}を{見|み}た{人|ひと}たちの{反応|はんのう}を{調査|ちょうさ}して、{証拠|しょうこ}カード3を{集|あつ}めてくれた{側|がわ}だよ。"
+          - text: ウタヨミ（掛詞を分析した人）
+            value: utayomi
+            feedback: "{ウタヨミ|うたよみ}は{掛詞|かけことば}を{解読|かいどく}して2つ目の{意味|いみ}を{明|あき}らかにしてくれた{側|がわ}だよ。"
+          - text: シラベ（フミカの気持ちに気づいた人）
+            value: shirabe
+            feedback: "{シラベ|しらべ}はフミカの{怒|おこ}りに{気|き}づいて{教|おし}えてくれた{側|がわ}だよ。{追加|ついか}HOという{大切|たいせつ}な{情報|じょうほう}を{持|も}っていた。"
+
+  # ==================== 真相：フミカの告白 ====================
+  - id: truth-fumika
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: フミカの驚き
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: fumika
+        expression: worried
+        position: center
+      - type: dialog
+        character: fumika
+        text: "……{私|わたし}が{貼|は}りました。{給食|きゅうしょく}のカレーが{急|きゅう}になくなって、{怒|おこ}ってた。{みんな|みんな}が{楽|たの}しみにしてたのに、おかしいって{思|おも}って——"
+        expression: worried
+      - type: dialog
+        character: fumika
+        text: "でも、{直接|ちょくせつ}{文句|もんく}を{書|か}くのは{嫌|いや}だった。{和歌|わか}が{好|す}きだから、{花|はな}への{想|おも}いを{詠|よ}んだだけで……"
+        expression: thinking
+      - type: dialog
+        character: fumika
+        text: "……え、{掛詞|かけことば}で{読|よ}むと{給食|きゅうしょく}の{抗議|こうぎ}に{読|よ}める？　{知|し}らなかった！　{自分|じぶん}でも{全然|ぜんぜん}{気|き}づいてなかった。{言葉|ことば}って、{自分|じぶん}が{思|おも}っている{以上|いじょう}のことを{語|かた}るんだ……"
+        expression: surprised
+      - type: sprite
+        character: fumika
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "{低学年|ていがくねん}と{高学年|こうがくねん}で{読|よ}み{方|かた}が{違|ちが}う——{同|おな}じ{和歌|わか}なのに、{見|み}えるものが{全然|ぜんぜん}{違|ちが}う。{知識|ちしき}や{経験|けいけん}によって{言葉|ことば}の{見|み}え{方|かた}が{変|か}わる。{フミカ|ふみか}が「{花|はな}の{歌|うた}」としか{見|み}えなかったのも……そういうことなんだ。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "{掛詞|かけことば}の{力|ちから}はすごい。{書|か}いた{本人|ほんにん}すら{気|き}づかない{意味|いみ}を{生|う}み{出|だ}す。{千年前|せんねんまえ}の{歌人|かじん}は{意図的|いとてき}にこれを{使|つか}ってた。フミカは{無意識|むいしき}にやった——でも、{結果|けっか}は{同|おな}じことが{起|お}きた！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: normal
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "フミカは{給食|きゅうしょく}のことで{怒|おこ}ってた。その{気持|きも}ちが{無意識|むいしき}に{和歌|わか}に{入|はい}ったんだ。{言葉|ことば}って、{自分|じぶん}の{気持|きも}ちを{映|うつ}す{鏡|かがみ}——{責|せ}める{気|き}になれない。フミカの{怒|おこ}りも、{言葉|ことば}の{美|うつく}しさも、{両方|りょうほう}{本物|ほんもの}だったから。"
+        expression: normal
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{和歌|わか}の{掛詞|かけことば}は、{千年前|せんねんまえ}の{歌人|かじん}が{使|つか}ったすごい{技法|ぎほう}よ。1つの{言葉|ことば}に2つの{意味|いみ}を{込|こ}める——でも、フミカの{事件|じけん}が{教|おし}えてくれた{大切|たいせつ}なことがある。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{言葉|ことば}は、{書|か}いた{人|ひと}が{思|おも}っている{以上|いじょう}の{意味|いみ}を{持|も}つことがある。フミカは「{花|はな}の{歌|うた}」のつもりだったのに、{無意識|むいしき}の{気持|きも}ちが「{抗議|こうぎ}の{歌|うた}」も{生|う}み{出|だ}した——これが{言葉|ことば}の{深|ふか}さよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{掛詞|かけことば}・{縁語|えんご}——1つの{言葉|ことば}に2つの{意味|いみ}を{込|こ}める{和歌|わか}の{技法|ぎほう}。「{表|おもて}の{意味|いみ}」と「{裏|うら}の{意味|いみ}」を{読|よ}み{分|わ}けることで、{古典|こてん}の{世界|せかい}が{広|ひろ}がる。"
+      - type: narration
+        text: "{認知|にんち}バイアス（{確証|かくしょう}バイアス）——{自分|じぶん}が{意図|いと}した{意味|いみ}だけを{見|み}てしまう{心|こころ}の{癖|くせ}。フミカは「{花|はな}の{歌|うた}」としか{見|み}えなかった。{自分|じぶん}の{言葉|ことば}を「もう1つの{目|め}」で{読|よ}み{直|なお}す——それが{今日|きょう}の{学|まな}びだ。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,465 @@
+meta:
+  id: energy-05
+  title: 熱の足跡
+  series: エネルギー探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{家庭科室|かていかしつ}の{実験台|じっけんだい}に、{保温|ほおん}バッグと{温度計|おんどけい}が{並|なら}んでいる。{今日|きょう}は{給食|きゅうしょく}の{弁当箱|べんとうばこ}を{使|つか}った{保温|ほおん}{実験|じっけん}——4{班|はん}がそれぞれバッグに{入|い}れ、2{時間|じかん}ごの{温度変化|おんどへんか}を{記録|きろく}する{授業|じゅぎょう}だ。"
+      - type: narration
+        text: "ところが{実験結果|じっけんけっか}を{集|あつ}めると——チカラの{班|はん}だけ、{数字|すうじ}がおかしかった。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: netsumi
+        expression: surprised
+        position: center
+      - type: dialog
+        character: netsumi
+        text: "ちょっと{待|ま}って！　チカラの{班|はん}の{記録|きろく}、30{分|ふん}で{室温|しつおん}と{同|おな}じ{温度|おんど}になってる。{保温|ほおん}バッグに{入|い}れたのに、なんで？"
+        expression: surprised
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: thinking
+          - character: hikaru
+            expression: worried
+          - character: netsumi
+            expression: surprised
+          - character: chikara
+            expression: worried
+      - type: narration
+        text: "30{分|ふん}で{室温|しつおん}まで{下|さ}がった——それは{保温|ほおん}バッグが{機能|きのう}していないことを{意味|いみ}する。{断熱材|だんねつざい}で{熱|ねつ}の{移動|いどう}を{遅|おそ}らせるはずなのに、なぜ？　{誰|だれ}が、なぜ{記録|きろく}を{書|か}き{換|か}えたのか——{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 熱の足跡
+        subtitle: エネルギー探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 保温実験の記録
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{配|くば}った{今日|きょう}の{実験|じっけん}の{記録用紙|きろくようし}——4{班|はん}の{開始温度|かいしおんど}・{終了温度|しゅうりょうおんど}・{測定時間|そくていじかん}が{一覧|いちらん}にまとめられていた。"
+      - type: evidence
+        id: card-1
+        title: 4班の保温実験記録
+        content: "【{実験内容|じっけんないよう}】{保温|ほおん}バッグに{弁当箱|べんとうばこ}を{入|い}れ、{温度変化|おんどへんか}を{記録|きろく}する　【A{班|はん}】{開始|かいし}:65℃　{終了温度|しゅうりょうおんど}:41℃　{測定時間|そくていじかん}:2{時間|じかん}　【B{班|はん}】{開始|かいし}:65℃　{終了温度|しゅうりょうおんど}:40℃　{測定時間|そくていじかん}:2{時間|じかん}　【C{班|はん}】{開始|かいし}:65℃　{終了温度|しゅうりょうおんど}:42℃　{測定時間|そくていじかん}:2{時間|じかん}　【チカラ{班|はん}（D{班|はん}）】{開始|かいし}:65℃　{終了温度|しゅうりょうおんど}:22℃（{室温|しつおん}と{同|おな}じ）　{測定時間|そくていじかん}:30{分|ふん}"
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{他|ほか}の3{班|はん}は2{時間|じかん}で40℃{台|だい}を{維持|いじ}してる。でもチカラの{班|はん}は30{分|ふん}で{室温|しつおん}まで{下|さ}がった——{同|おな}じバッグを{使|つか}ってるのに、なんで{こんなに|こんなに}{違|ちが}うの？"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{測定時間|そくていじかん}が{違|ちが}う。{他|ほか}の{班|はん}は2{時間|じかん}で{測定|そくてい}してるのに、チカラの{班|はん}だけ30{分|ふん}。この{数字|すうじ}が{本当|ほんとう}に{正|ただ}しいのかも{確認|かくにん}しないと。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 調査：証拠カード2+3 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 理論値と比較メモ
+      - type: narration
+        text: "デンタが{断熱|だんねつ}の{仕組|しく}みから{温度変化|おんどへんか}の{理論値|りろんち}を{計算|けいさん}した。{断熱材|だんねつざい}あり・なしで、{温度|おんど}の{下|さ}がり{方|かた}はどう{違|ちが}うのか。"
+      - type: evidence
+        id: card-2
+        title: デンタの計算グラフ（断熱あり・なしの温度変化）
+        content: "【{断熱|だんねつ}あり（バッグの{蓋|ふた}が{正|ただ}しく{閉|し}まっている）】30{分|ふん}後:60℃{前後|ぜんご}　2{時間|じかん}後:40～45℃{前後|ぜんご}　【{断熱|だんねつ}なし（バッグが{開|あ}いている・{蓋|ふた}が{機能|きのう}していない）】30{分|ふん}後:{室温|しつおん}（22℃）{近|ちか}く　【{結論|けつろん}】30{分|ふん}で{室温|しつおん}まで{下|さ}がったということは、{断熱|だんねつ}が{全|まっ}く{機能|きのう}していない{状態|じょうたい}——つまりバッグの{蓋|ふた}が{閉|し}まっていなかった{可能性|かのうせい}がある"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "このグラフで{見|み}ると、30{分|ふん}で{室温|しつおん}まで{下|さ}がるには{断熱材|だんねつざい}がゼロの{状態|じょうたい}。{保温|ほおん}バッグを{使|つか}ってたら{絶対|ぜったい}あり{得|え}ない——バッグが{機能|きのう}していなかったってことだ。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "ネツミが{各班|かくはん}の{記録|きろく}を{丁寧|ていねい}に{比較|ひかく}し、メモを{まとめた|まとめた}。"
+      - type: evidence
+        id: card-3
+        title: ネツミの比較メモ（各班の温度記録）
+        content: "【{比較結果|ひかくけっか}】A{班|はん}・B{班|はん}・C{班|はん}は{全員|ぜんいん}、2{時間|じかん}後でも40℃{以上|いじょう}を{維持|いじ}　【{異常値|いじょうち}】チカラ{班|はん}のみ：30{分|ふん}で22℃（{室温|しつおん}）に{達|たっ}している　【{注目点|ちゅうもくてん}】{同|おな}じメーカーの{同|おな}じ{保温|ほおん}バッグを{使用|しよう}。{性能|せいのう}の{差|さ}で{説明|せつめい}できる{差|さ}ではない　【{疑問|ぎもん}】{測定時間|そくていじかん}が30{分|ふん}なのは{本当|ほんとう}？"
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{他|ほか}の3{班|はん}は2{時間|じかん}後もまだ{温|あたた}かい。{同|おな}じバッグを{使|つか}ってるのに、なぜチカラ{班|はん}だけ{室温|しつおん}まで{下|さ}がるの？　{測定時間|そくていじかん}の30{分|ふん}って——{本当|ほんとう}に30{分|ふん}で{測|はか}ったの？"
+        expression: worried
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "…………"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{集|あつ}まってきた。30{分|ふん}で{室温|しつおん}まで{下|さ}がるのは、{断熱|だんねつ}が{全|まっ}く{機能|きのう}していない{状態|じょうたい}——それはデンタの{計算|けいさん}で{明|あき}らかだ。でも、なぜ{保温|ほおん}バッグは{機能|きのう}しなかったのか——"
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{保温|ほおん}バッグがちゃんと{閉|し}まってたら、30{分|ふん}じゃ{こんなに|こんなに}{冷|さ}めないよ。{蓋|ふた}の{留|と}め{具|ぐ}とか——{何|なに}か{見落|みおと}しがあるんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: left
+      - type: dialog
+        character: denta
+        text: "「{測定時間|そくていじかん}:30{分|ふん}」という{記録|きろく}——{もし|もし}{本当|ほんとう}は2{時間|じかん}だったとしたら？　2{時間|じかん}で{室温|しつおん}まで{下|さ}がるのは、{断熱|だんねつ}が{完全|かんぜん}に{機能|きのう}していない{証拠|しょうこ}になる。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 追加HO：証拠カード4 ====================
+  - id: evidence-4
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 追加情報
+        subtitle: 保温バッグの留め具
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "みんな、{先生|せんせい}から{追加|ついか}の{情報|じょうほう}を{渡|わた}します。{実験|じっけん}{後|ご}に{保温|ほおん}バッグを{片付|かたづ}けるとき、{気|き}になったものを{写真|しゃしん}に{撮|と}っておいたの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-4
+        title: 保温バッグの写真（留め具の状態）
+        content: "【{写真|しゃしん}{内容|ないよう}】{保温|ほおん}バッグD（チカラ{班|はん}）の{蓋|ふた}部分——{折|お}り{返|かえ}しの{留|と}め{具|ぐ}が{全|すべ}て{外|はず}れている{状態|じょうたい}　【{正|ただ}しい{閉|し}め{方|かた}（{説明書|せつめいしょ}より）】①{蓋|ふた}を{折|お}り{返|かえ}す　②{両端|りょうはし}の{留|と}め{具|ぐ}（マジックテープ）をしっかり{押|お}しつける　③{全周|ぜんしゅう}が{密着|みっちゃく}しているか{確認|かくにん}する　【{留|と}め{具|ぐ}の{役割|やくわり}】{留|と}め{具|ぐ}がないと{蓋|ふた}がわずかに{浮|う}き、{空気|くうき}の{断熱層|だんねつそう}が{失|うしな}われる。{熱|ねつ}は{空気|くうき}の{層|そう}を{通|とお}り{抜|ぬ}けて{急速|きゅうそく}に{外|そと}へ{逃|に}げる"
+      - type: sprite
+        character: hikaru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{片付|かたづ}けるとき{見|み}たら、このバッグの{留|と}め{具|ぐ}が{全部|ぜんぶ}{外|はず}れてた。こういう{閉|し}め{方|かた}じゃないよね？　{蓋|ふた}が{浮|う}いてたら{断熱|だんねつ}できないよ。"
+        expression: surprised
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "「{保温|ほおん}バッグに{入|い}れた」——その{前提|ぜんてい}が{崩|くず}れた。{蓋|ふた}の{留|と}め{具|ぐ}が{外|はず}れていたなら、バッグに{入|い}れても{断熱|だんねつ}は{機能|きのう}しない。**{熱|ねつ}は{高|たか}い{温度|おんど}から{低|ひく}い{温度|おんど}へ{移動|いどう}する——そこに{壁|かべ}がなければ、{急速|きゅうそく}に{逃|に}げていく。**"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ヒカルの観察メモ
+      - type: narration
+        text: "ヒカルが{実験後|じっけんご}に{見|み}た{保温|ほおん}バッグの{状態|じょうたい}——そして{熱|ねつ}の{移動|いどう}と{断熱材|だんねつざい}の{仕組|しく}みの{解説|かいせつ}がまとめられた{証拠|しょうこ}カードが{配|くば}られた。"
+      - type: evidence
+        id: card-5
+        title: ヒカルの観察メモ＋熱の移動・断熱材の仕組み解説
+        content: "【ヒカルの{観察|かんさつ}】{片付|かたづ}け{時|じ}にD{班|はん}（チカラ{班|はん}）の{保温|ほおん}バッグを{確認|かくにん}→{留|と}め{具|ぐ}（マジックテープ）が{全|すべ}て{外|はず}れた{状態|じょうたい}。{蓋|ふた}が{浮|う}いており{密|みっ}ちゃくなし。　【{熱|ねつ}の{移動|いどう}】{熱|ねつ}は{必|かなら}ず{高温|こうおん}から{低温|ていおん}へ{移動|いどう}する。{断熱材|だんねつざい}（{保温|ほおん}バッグの{素材|そざい}や{空気|くうき}{層|そう}）はその{移動|いどう}を「{遅|おそ}らせる{壁|かべ}」として{機能|きのう}する。　【{断熱|だんねつ}が{機能|きのう}しない{場合|ばあい}】{蓋|ふた}が{閉|し}まっていないと{空気|くうき}が{入|はい}り{換|か}わり、{断熱層|だんねつそう}が{失|うしな}われる。{熱|ねつ}は{急速|きゅうそく}に{外|そと}へ{逃|に}げ、{2時間|にじかん}で{室温|しつおん}まで{下|さ}がることも{起|お}こりうる。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{片付|かたづ}けるとき{確認|かくにん}したら、{留|と}め{具|ぐ}が{全部|ぜんぶ}{外|はず}れてた。{蓋|ふた}がちゃんと{閉|し}まってなかったんだ——{断熱|だんねつ}できてなかったのは{当然|とうぜん}だよ。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "**{保温|ほおん}バッグに{入|い}れた≠{保温|ほおん}できた。**{蓋|ふた}の{留|と}め{具|ぐ}が{外|はず}れていた——その{事実|じじつ}が、{記録|きろく}の「30{分|ふん}」という{数字|すうじ}の{矛盾|むじゅん}と{結|むす}びついた。{実際|じっさい}は2{時間|じかん}で{測定|そくてい}し、{室温|しつおん}まで{下|さ}がったことを{知|し}っていたはず——"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 保温バッグの蓋を正しく閉めず、測定時刻を書き換えたのは誰？
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①チカラ{班|はん}だけ30{分|ふん}で{室温|しつおん}まで{下|さ}がった。②{断熱|だんねつ}なしでも30{分|ふん}でここまで{冷|さ}めるのは{理論|りろん}{通|どお}り。③D{班|はん}のバッグの{留|と}め{具|ぐ}が{全部|ぜんぶ}{外|はず}れていた。④{他|ほか}の3{班|はん}は{同|おな}じバッグで2{時間|じかん}後も40℃{台|だい}を{維持|いじ}。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{測定時間|そくていじかん}が30{分|ふん}という{記録|きろく}——{もし|もし}{本当|ほんとう}は2{時間|じかん}だったなら？　{断熱|だんねつ}が{機能|きのう}していない{状態|じょうたい}で2{時間|じかん}なら{室温|しつおん}まで{下|さ}がる。つまり{記録|きろく}を「2{時間|じかん}→30{分|ふん}」に{書|か}き{換|か}えた{可能性|かのうせい}がある。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{並|なら}べると——{誰|だれ}が{中心|ちゅうしん}にいたか、{見|み}えてくる。{保温|ほおん}バッグの{蓋|ふた}を{正|ただ}しく{閉|し}めず、{測定時刻|そくていじこく}を{書|か}き{換|か}えたのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 保温バッグの蓋を正しく閉めず、測定時刻を書き換えたのは誰？
+        options:
+          - text: チカラ（留め具を知らずに閉め失敗し、2時間を30分と書き換えた）
+            value: chikara
+            correct: true
+            feedback: "{正解|せいかい}！　チカラは{留|と}め{具|ぐ}の{使|つか}い{方|かた}を{知|し}りませんでした。{熱|ねつ}は{高|たか}い{温度|おんど}から{低|ひく}い{温度|おんど}に{移動|いどう}します。{断熱材|だんねつざい}は「{熱|ねつ}の{移動|いどう}を{遅|おそ}らせる{壁|かべ}」——でも{蓋|ふた}が{閉|し}まっていなければその{壁|かべ}はありません。**{知|し}らなかったことは{責|せ}められない。でも{正直|しょうじき}に「{上手|うまく}{閉|し}められなかった」と{言|い}えれば、みんなで{正|ただ}しい{使|つか}い{方|かた}を{学|まな}べました。**"
+          - text: デンタ（断熱の理論値を計算した人）
+            value: denta
+            feedback: "デンタは{断熱|だんねつ}の{理論値|りろんち}を{計算|けいさん}した{側|がわ}です。{記録|きろく}の{矛盾|むじゅん}を{発見|はっけん}するのに{大切|たいせつ}な{役割|やくわり}を{果|は}たしました。"
+          - text: ヒカル（保温バッグの状態を確認した人）
+            value: hikaru
+            feedback: "ヒカルは{保温|ほおん}バッグの{留|と}め{具|ぐ}の{状態|じょうたい}を{確認|かくにん}した{側|がわ}です。{片付|かたづ}け{時|じ}に{重要|じゅうよう}な{証拠|しょうこ}を{見|み}つけました。"
+          - text: ネツミ（各班の記録を比較した人）
+            value: netsumi
+            feedback: "ネツミは{各班|かくはん}の{記録|きろく}を{比較|ひかく}した{側|がわ}です。チカラ{班|はん}の{異常値|いじょうち}に{最初|さいしょ}に{気|き}づいた{観察眼|かんさつがん}が{光|ひか}りました。"
+
+  # ==================== 真相：チカラの告白 ====================
+  - id: truth-chikara
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: チカラの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "……{私|わたし}です。{測定時刻|そくていじこく}を{書|か}き{換|か}えたのは。"
+        expression: worried
+      - type: dialog
+        character: chikara
+        text: "{本当|ほんとう}は2{時間|じかん}で{測|はか}ったの。でも{室温|しつおん}と{同|おな}じ{温度|おんど}になってて……{失敗|しっぱい}したって{分|わ}かった。みんなに{知|し}られたくなかったから、30{分|ふん}って{書|か}いた。"
+        expression: worried
+      - type: dialog
+        character: chikara
+        text: "ちゃんと{閉|し}めたつもりだった。{留|と}め{具|ぐ}っていうの{知|し}らなかった——{蓋|ふた}を{折|お}り{返|かえ}すだけでいいと{思|おも}ってた。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{留|と}め{具|ぐ}の{使|つか}い{方|かた}、{僕|ぼく}も{最初|さいしょ}は{知|し}らなかったよ。{失敗|しっぱい}を{隠|かく}したくなる{気|き}持|もち}ちは{分|わ}かる——でも{正直|しょうじき}に{言|い}ってくれれば、{一緒|いっしょ}に{考|かんが}えられたのに。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: denta
+        expression: normal
+        position: right
+      - type: dialog
+        character: denta
+        text: "{熱|ねつ}の{仕組|しく}みは{分|わ}かったと{思|おも}う。{断熱材|だんねつざい}が{機能|きのう}するには「{壁|かべ}」が{完全|かんぜん}に{閉|し}まってないといけない。{道具|どうぐ}の{正|ただ}しい{使|つか}い{方|かた}を{知|し}ることが、{実験|じっけん}の{第一歩|だいいっぽ}だよ。"
+        expression: normal
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{数字|すうじ}の{矛盾|むじゅん}に{気|き}づいてよかった。「{本当|ほんとう}に30{分|ふん}？」って{疑|うたが}ったから{真相|しんそう}に{辿|たど}り{着|つ}けた。{記録|きろく}を{見|み}るとき、「{本当|ほんとう}にそれで{正|ただ}しいか」を{問|と}い{続|つづ}けることが{大事|たいせつ}だよね。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{熱|ねつ}エネルギーの{大切|たいせつ}な{仕組|しく}みを{確認|かくにん}しましょう。{熱|ねつ}は{必|かなら}ず{高|たか}い{温度|おんど}から{低|ひく}い{温度|おんど}へ{移動|いどう}します。{断熱材|だんねつざい}は「その{移動|いどう}を{遅|おそ}らせる{壁|かべ}」——でも{壁|かべ}に{隙間|すきま}があれば、{熱|ねつ}は{すぐに|すぐに}{逃|に}げていきます。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "チカラは{留|と}め{具|ぐ}の{使|つか}い{方|かた}を{知|し}らなかった。それは{今日|きょう}{学|まな}んだ。{次回|じかい}は「{道具|どうぐ}の{正|ただ}しい{使|つか}い{方|かた}を{確認|かくにん}してから{実験|じっけん}を{始|はじ}める」——それが{科学|かがく}の{基本|きほん}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{熱|ねつ}エネルギーと{断熱|だんねつ}】{熱|ねつ}は{高温|こうおん}から{低温|ていおん}へ{移動|いどう}する。{断熱材|だんねつざい}（{保温|ほおん}バッグの{素材|そざい}・{空気|くうき}{層|そう}）はその{移動|いどう}を{遅|おそ}らせる{壁|かべ}。{蓋|ふた}が{閉|し}まっていなければ{断熱|だんねつ}は{機能|きのう}せず、{熱|ねつ}は{急速|きゅうそく}に{逃|に}げていく。"
+      - type: narration
+        text: "【{学|まな}び②：{仮説検証|かせつけんしょう}】「{もし|もし}{断熱|だんねつ}が{正常|せいじょう}なら、30{分|ふん}では{こんなに|こんなに}{冷|さ}めないはず」——{記録|きろく}の{数字|すうじ}を{仮説|かせつ}で{検証|けんしょう}することで{矛盾|むじゅん}が{見|み}えてくる。{思|おも}い{込|こ}みではなく、{証拠|しょうこ}と{理論|りろん}で{確|たし}かめることが{正|ただ}しい{推理|すいり}の{鍵|かぎ}。"
+      - type: sprite
+        character: chikara
+        expression: determined
+        position: left
+      - type: dialog
+        character: chikara
+        text: "{次|つぎ}は{道具|どうぐ}の{使|つか}い{方|かた}を{先|さき}に{確認|かくにん}する。{留|と}め{具|ぐ}がちゃんと{閉|し}まってるか、{断熱|だんねつ}が{機能|きのう}してるか——1つずつ{確|たし}かめてから{実験|じっけん}を{始|はじ}める。それが{本当|ほんとう}の{実験|じっけん}の{仕方|しかた}だって{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: denta
+        expression: happy
+        position: right
+      - type: dialog
+        character: denta
+        text: "{断熱|だんねつ}の{仕組|しく}み、{今日|きょう}こそちゃんと{分|わ}かった！　{保温|ほおん}バッグって「{入|い}れるだけ」じゃダメなんだ——「{正|ただ}しく{閉|し}める」ことで{初|はじ}めて{断熱層|だんねつそう}が{完成|かんせい}する。{次|つぎ}の{実験|じっけん}では{仮説検証|かせつけんしょう}で{確認|かくにん}しながら{進|すす}めよう。"
+        expression: happy
+      - type: sprite
+        character: denta
+        action: hide
+      - type: effect
+        name: fade-out

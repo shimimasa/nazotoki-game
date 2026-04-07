@@ -1,0 +1,450 @@
+meta:
+  id: design-08
+  title: 取り残されたデザイン
+  series: デザイン思考探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{図工室|ずこうしつ}に{新|あたら}しい「{道具収納棚|どうぐしゅうのうだな}」が{届|とど}いた。{設計|せっけい}を{担当|たんとう}したのは{デザイン思考探偵団|でざいんしこうたんていだん}の4{人|にん}——「{全員|ぜんいん}が{同|おな}じ{棚|たな}を{使|つか}う」ことで「{平等|びょうどう}」を{目指|めざ}した{設計|せっけい}だった。"
+      - type: narration
+        text: "しかし{完成後|かんせいご}——「{取|と}り{出|だ}しにくい」と{訴|うった}えた{子|こ}がいた。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: center
+      - type: dialog
+        character: kanae
+        text: "みんなと{同|おな}じ{棚|たな}を{使|つか}ってほしかった……でも、どうしても{取|と}り{出|だ}しにくいって{子|こ}がいる。{何|なに}がいけなかったんだろう？"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: worried
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "「{全員|ぜんいん}に{同|おな}じものを」という{正義感|せいぎかん}から{生|う}まれた{設計|せっけい}が、なぜ{誰|だれ}かを{取|と}り{残|のこ}したのか——{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 取り残されたデザイン
+        subtitle: デザイン思考探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 棚のプロジェクト概要と設計会議の記録
+      - type: narration
+        text: "{図工室|ずこうしつ}の{棚|たな}プロジェクト——{設計|せっけい}{会議|かいぎ}の{記録|きろく}と、「{取|と}り{出|だ}しにくい」と{訴|うった}えた{子|こ}のコメントが{残|のこ}っていた。"
+      - type: evidence
+        id: card-1
+        title: 道具収納棚プロジェクト概要＋取り出しにくいという訴え
+        content: "【{棚|たな}プロジェクト{概要|がいよう}】{図工室|ずこうしつ}に{道具収納棚|どうぐしゅうのうだな}を{新設|しんせつ}。「{全員|ぜんいん}が{同|おな}じ{棚|たな}を{使|つか}う」{設計|せっけい}で{平等|びょうどう}を{目指|めざ}した。【{訴|うった}えの{内容|ないよう}】「{道具|どうぐ}の{取|と}っ{手|て}の{位置|いち}と{引|ひ}き{出|だ}す{方向|ほうこう}が、{自分|じぶん}には{合|あ}わない。{授業中|じゅぎょうちゅう}ずっと{困|こま}っていた」——{完成後|かんせいご}に{特定|とくてい}の{子|こ}が{伝|つた}えてきた。"
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "「{全員|ぜんいん}が{同|おな}じ{棚|たな}を{使|つか}う」——{平等|びょうどう}に{見|み}えるけど、{同|おな}じ{設計|せっけい}が{全員|ぜんいん}に{使|つか}いやすいとは{限|かぎ}らない。{訴|うった}えた{子|こ}には{何|なん}か{特別|とくべつ}なニーズがあったんだろうか。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{設計|せっけい}{会議|かいぎ}の{議事録|ぎじろく}——{全員|ぜんいん}の{発言|はつげん}{記録|きろく}と、{特定|とくてい}の{提案|ていあん}が{却下|きゃっか}された{記録|きろく}が{残|のこ}っていた。"
+      - type: evidence
+        id: card-2
+        title: 設計会議の議事録＋別設計提案が却下された記録
+        content: "【{設計|せっけい}{会議|かいぎ}{議事録|ぎじろく}】ツクル:「{別設計|べつせっけい}の{案|あん}を{考|かんが}えた。{取|と}っ{手|て}の{向|む}きを{変|か}えられる{仕組|しく}みがいい」→{却下|きゃっか}。ハカル:「{現行|げんこう}{設計|せっけい}で{問題|もんだい}ない」。カナエ:「{使|つか}いにくい{子|こ}がいたら{声|こえ}をかけて{助|たす}ける」。ミナオス:「{一部|いちぶ}の{子|こ}だけ{別|べつ}の{棚|たな}を{使|つか}うのは{不公平|ふこうへい}。{全員|ぜんいん}{同|おな}じにすべき」→{却下理由|きゃっかりゆう}を{記入|きにゅう}したのはミナオスのみ。"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{別設計|べつせっけい}の{案|あん}を{出|だ}したのは{俺|おれ}だよ。「{取|と}っ{手|て}の{向|む}きを{変|か}えられる{仕組|しく}み」があれば{解決|かいけつ}できたはずなのに——{却下|きゃっか}された{後|あと}、{諦|あきら}めてしまった。{押|お}し{切|き}るべきだった。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 困っている子のニーズと却下された提案書
+      - type: narration
+        text: "{訴|うった}えた{子|こ}が「{具体的|ぐたいてき}に{何|なに}が{困|こま}るか」を{詳|くわ}しく{書|か}いた{メモ|めも}と、{現行|げんこう}の{棚|たな}の{設計図|せっけいず}が{見|み}つかった。"
+      - type: evidence
+        id: card-3
+        title: 取り出しにくいと感じた子の詳細説明＋現行設計図
+        content: "【{困|こま}っている{点|てん}の{詳細|しょうさい}】①{取|と}っ{手|て}が{右側|みぎがわ}にしかなく、{右手|みぎて}でしか{自然|しぜん}に{引|ひ}けない。②{引|ひ}き{出|だ}す{方向|ほうこう}が{決|き}まっており、{体|からだ}の{向|む}きを{変|か}えると{使|つか}いにくい。③{毎回|まいかい}{授業|じゅぎょう}で{道具|どうぐ}の{出|だ}し{入|い}れに{時間|じかん}がかかって{困|こま}っている。【{設計図|せっけいず}】{取|と}っ{手|て}は{右側|みぎがわ}のみ・{引|ひ}き{方向|ほうこう}は{右|みぎ}から{左|ひだり}に{固定|こてい}。"
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanae
+        text: "「{毎回|まいかい}{時間|じかん}がかかって{困|こま}っている」——ずっと{我慢|がまん}してたんだ。{設計|せっけい}が{完成|かんせい}してから{言|い}い{出|だ}せなかったんだろうな……「{みんなと{同|おな}じ{棚|たな}を{使|つか}いたい」って{思|おも}ってたのかも。"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: narration
+        text: "{却下|きゃっか}された「{別設計提案書|べつせっけいていあんしょ}」の{詳細|しょうさい}——カード{組|く}み{合|あ}わせで「{困|こま}る{点|てん}のリスト」と「{別設計|べつせっけい}の{機能|きのう}リスト」を{照合|しょうごう}してみると。"
+      - type: evidence
+        id: card-4
+        title: 却下された別設計提案書＋カード組み合わせ照合
+        content: "【{別設計提案書|べつせっけいていあんしょ}の{機能|きのう}リスト】①{取|と}っ{手|て}を{左右|さゆう}どちらにも{付|つ}け{替|か}えられる。②{引|ひ}き{方向|ほうこう}を{前後|ぜんご}にも{変更|へんこう}できる。③{使|つか}う{人|ひと}が{自分|じぶん}で{調整|ちょうせい}できる。【{照合結果|しょうごうけっか}】{困|こま}る{点|てん}①②③と{別設計|べつせっけい}の{機能|きのう}①②③が**{完全一致|かんぜんいっち}**。{却下|きゃっか}された{提案|ていあん}は、{訴|うった}えた{子|こ}が{必要|ひつよう}としていたものと{ぴったり|ぴったり}{重|かさ}なっていた。"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{完全一致|かんぜんいっち}だ。{困|こま}っている{子|こ}が{必要|ひつよう}としていた{機能|きのう}と、{却下|きゃっか}された{提案書|ていあんしょ}の{内容|ないよう}がぴったり{重|かさ}なってる。{却下|きゃっか}した{理由|りゆう}を{書|か}いたのはミナオスだけ——あの{却下|きゃっか}がなければ、{問題|もんだい}は{起|お}きなかった。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{却下理由|きゃっかりゆう}を{書|か}いたのはミナオスだけ。{別設計|べつせっけい}は{困|こま}っている{子|こ}のニーズと{完全|かんぜん}に{一致|いっち}していた。{動機|どうき}は{何|なに}だったのか——"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{俺|おれ}が{別設計|べつせっけい}を{提案|ていあん}したとき、「{特別扱|とくべつあつか}いは{平等|びょうどう}じゃない」ってすごく{強|つよ}く{反対|はんたい}されたんだよ。{平等|びょうどう}にしたいって{気持|きも}ちは{分|わ}かるけど……{結果|けっか}として{困|こま}っている{子|こ}が{出|で}てしまった。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kanae
+        text: "「{言|い}い{出|だ}せなかった」って——「{みんな}と{同|おな}じ{棚|たな}を{使|つか}いたかった」から{我慢|がまん}してたんだと{思|おも}う。{違|ちが}う{棚|たな}を{使|つか}うことで「{自分|じぶん}だけ{違|ちが}う」って{感|かん}じたくなかったのかも。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "{議事録|ぎじろく}・{却下理由|きゃっかりゆう}の{記入者|きにゅうしゃ}・{照合結果|しょうごうけっか}——{全部|ぜんぶ}が1{人|ひと}を{指|さ}している。「{平等|びょうどう}にしたい」という{善意|ぜんい}が、{誰|だれ}かを{取|と}り{残|のこ}す{結果|けっか}を{生|う}んだ。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足と平等・公平の解説
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミナオスに{直接|ちょくせつ}{確認|かくにん}したところ、こう{言|い}っていたわ。「{一部|いちぶ}の{子|こ}だけ{特別|とくべつ}な{棚|たな}を{使|つか}うのは{不公平|ふこうへい}だと{思|おも}った。{全員|ぜんいん}に{同|おな}じものを{与|あた}えることが{公平|こうへい}だと{思|おも}っていた」——{正義感|せいぎかん}から{来|き}た{決断|けつだん}だったの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でもね、「{平等|びょうどう}（Equal）＝{全員|ぜんいん}に{同|おな}じものを{与|あた}える」と「{公平|こうへい}（Equity）＝{全員|ぜんいん}が{同|おな}じレベルで{使|つか}えるようにする」は{違|ちが}う。{同|おな}じものを{与|あた}えるだけでは、{全員|ぜんいん}が{使|つか}えるとは{限|かぎ}らないの。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足＋平等・公平・インクルーシブデザインの解説
+        content: "【ミナオスの{言葉|ことば}】「{特別扱|とくべつあつか}いは{平等|びょうどう}じゃないと{思|おも}っていた。でも、{同|おな}じものが{全員|ぜんいん}に{使|つか}いやすいわけじゃないって{考|かんが}えたことがなかった」　【{平等|びょうどう}と{公平|こうへい}の{違|ちが}い】{平等|びょうどう}（Equal）:{全員|ぜんいん}に{同|おな}じものを{与|あた}える。{公平|こうへい}（Equity）:{全員|ぜんいん}が{同|おな}じように{使|つか}えるよう{調整|ちょうせい}する。【インクルーシブデザイン】{多様|たよう}なニーズに{対応|たいおう}することで、{誰|だれ}も{取|と}り{残|のこ}さない{設計|せっけい}を{目指|めざ}す{考|かんが}え{方|かた}。"
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "……{同|おな}じものを{与|あた}えることが{公平|こうへい}だと{思|おも}ってた。でも{違|ちが}ったんだ。「{全員|ぜんいん}が{同|おな}じように{使|つか}える」ことの{方|ほう}が{大事|たいせつ}だった——{気|き}づかなかった。"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{平等|びょうどう}にしたい」という{正義感|せいぎかん}→{別設計|べつせっけい}の{提案|ていあん}を{却下|きゃっか}→{訴|うった}えた{子|こ}のニーズが{満|み}たされない→{取|と}り{残|のこ}される。**{平等|びょうどう}を{大切|たいせつ}にする{気持|きも}ちが、{逆|ぎゃく}に{誰|だれ}かを{排除|はいじょ}してしまった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: インクルーシブな設計を却下したのは誰？
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{議事録|ぎじろく}の{却下理由|きゃっかりゆう}を{書|か}いたのはミナオスだけ。②{別設計|べつせっけい}の{機能|きのう}と{困|こま}っている{子|こ}のニーズが{完全一致|かんぜんいっち}。③ミナオスは「{全員|ぜんいん}{同|おな}じ＝{公平|こうへい}」という{信念|しんねん}で{却下|きゃっか}した。④「{平等|びょうどう}」と「{公平|こうへい}」を{混同|こんどう}していた。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{却下理由|きゃっかりゆう}を{書|か}いたのはミナオスのみ。②{却下|きゃっか}された{提案|ていあん}と{訴|うった}えた{子|こ}のニーズが{完全一致|かんぜんいっち}。③{却下|きゃっか}の{動機|どうき}は「{特別扱|とくべつあつか}いは{平等|びょうどう}じゃない」という{正義感|せいぎかん}。④「{平等|びょうどう}（Equal）」と「{公平|こうへい}（Equity）」の{混同|こんどう}。"
+      - type: choice
+        id: q1
+        question: インクルーシブな設計の提案を却下して、誰かを取り残したのは誰？
+        options:
+          - text: ミナオス（「平等」への強いこだわりで「公平」を実現する提案を却下した）
+            value: minaosu
+            correct: true
+            feedback: "{正解|せいかい}！　ミナオスの「{公平|こうへい}にしたい」という{気持|きも}ちは{本物|ほんもの}だった。でも「{全員|ぜんいん}に{同|おな}じものを{与|あた}える（Equal）」と「{全員|ぜんいん}が{同|おな}じレベルで{使|つか}える（Equity）」は{違|ちが}う。**インクルーシブデザインは、{多様|たよう}なニーズに{対応|たいおう}することで{誰|だれ}も{取|と}り{残|のこ}さない——{大切|たいせつ}なのは「{同|おな}じものを{与|あた}えること」ではなく「{全員|ぜんいん}が{使|つか}えること」。**"
+          - text: カナエ（取り残された子の声を聞いていた人）
+            value: kanae
+            feedback: "カナエは{取|と}り{残|のこ}された{子|こ}の{声|こえ}を{聞|き}いていた{側|がわ}だよ。{議事録|ぎじろく}の{却下理由|きゃっかりゆう}を{書|か}いたのはカナエではないよ。"
+          - text: ハカル（議事録と提案書を照合した人）
+            value: hakaru
+            feedback: "ハカルは{議事録|ぎじろく}と{提案書|ていあんしょ}のカード{照合|しょうごう}で{問題|もんだい}を{明|あき}らかにした{側|がわ}だよ。"
+          - text: ツクル（別設計を提案して却下された人）
+            value: tsukuru
+            feedback: "ツクルは{別設計|べつせっけい}を{提案|ていあん}した{側|がわ}で、{却下|きゃっか}されて{諦|あきら}めた{立場|たちば}だよ。"
+
+  # ==================== 真相：ミナオスの告白 ====================
+  - id: truth-minaosu
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ミナオスの正義感
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: minaosu
+        expression: worried
+        position: center
+      - type: dialog
+        character: minaosu
+        text: "……{私|わたし}だった。{別設計|べつせっけい}の{提案|ていあん}を「{特別扱|とくべつあつか}いは{平等|びょうどう}じゃない」って{却下|きゃっか}したのは。"
+        expression: worried
+      - type: dialog
+        character: minaosu
+        text: "{一部|いちぶ}の{子|こ}だけ{別|べつ}の{棚|たな}を{使|つか}ったら、その{子|こ}が「{特別|とくべつ}」に{見|み}えてしまうと{思|おも}った。{みんな}と{同|おな}じものを{使|つか}えることが{平等|びょうどう}で、それが{一番|いちばん}{公平|こうへい}だって{信|しん}じてた。"
+        expression: worried
+      - type: dialog
+        character: minaosu
+        text: "でも……「{全員|ぜんいん}に{同|おな}じものを{与|あた}える」ことと「{全員|ぜんいん}が{同|おな}じように{使|つか}える」ことは、{違|ちが}うんだって{今|いま}{分|わ}かった。{私|わたし}の{正義感|せいぎかん}が、{誰|だれ}かを{取|と}り{残|のこ}してた。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{俺|おれ}が{別設計|べつせっけい}を{提案|ていあん}したとき、{もっと|もっと}{押|お}し{続|つづ}けるべきだったかもしれない。{却下|きゃっか}されて{諦|あきら}めたのは……{正直|しょうじき}{後悔|こうかい}してる。あの{案|あん}があれば{解決|かいけつ}できたんだって{今|いま}{分|わ}かってたから。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanae
+        text: "「{言|い}い{出|だ}せなかった」って{話|はな}してくれた——「{みんな}と{同|おな}じ{棚|たな}を{使|つか}いたかった」から{我慢|がまん}してたんだよね。{設計|せっけい}の{問題|もんだい}が「{自分|じぶん}だけが{違|ちが}う」って{感|かん}じさせてしまってた。"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: normal
+        position: left
+      - type: dialog
+        character: hakaru
+        text: "ミナオスの{気持|きも}ちは{理解|りかい}できる。「{平等|びょうどう}」を{大切|たいせつ}にすることは{間違|まちが}ってない。でも{設計|せっけい}の{段階|だんかい}で「{全員|ぜんいん}が{使|つか}えるか」を{確認|かくにん}するプロセスがなかった——そこが{問題|もんだい}だったんだよね。"
+        expression: normal
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "インクルーシブデザインの{大切|たいせつ}な{考|かんが}え{方|かた}を{確認|かくにん}しましょう。「{全員|ぜんいん}に{同|おな}じものを{与|あた}える（{平等|びょうどう}）」と「{全員|ぜんいん}が{同|おな}じように{使|つか}える（{公平|こうへい}）」——この{二|ふた}つは{違|ちが}う。{設計|せっけい}するときは「{誰|だれ}かが{取|と}り{残|のこ}されていないか」を{問|と}い{続|つづ}けることが{大切|たいせつ}なの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ミナオスの「{平等|びょうどう}を{大切|たいせつ}に」という{気持|きも}ちは{本物|ほんもの}だった。でも{次回|じかい}は「{全員|ぜんいん}が{使|つか}えるか」を{問|と}いかけながら{設計|せっけい}してほしいわ。インクルーシブデザインは、{誰|だれ}かを{特別扱|とくべつあつか}いするためではなく、{誰|だれ}も{取|と}り{残|のこ}さないためにあるの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{平等|びょうどう}と{公平|こうへい}の{違|ちが}い】{平等|びょうどう}（Equal）は「{同|おな}じものを{与|あた}える」こと。{公平|こうへい}（Equity）は「{全員|ぜんいん}が{同|おな}じように{使|つか}えるよう{調整|ちょうせい}する」こと。{同|おな}じ{設計|せっけい}が{全員|ぜんいん}に{合|あ}うとは{限|かぎ}らない——だから{多様|たよう}なニーズに{目|め}を{向|む}ける。"
+      - type: narration
+        text: "【{学|まな}び②：{正義感|せいぎかん}の{暴走|ぼうそう}】「{平等|びょうどう}にしたい」という{善意|ぜんい}が「{別設計|べつせっけい}の{却下|きゃっか}」につながり、{誰|だれ}かを{取|と}り{残|のこ}した。{自分|じぶん}の「{正|ただ}しい」という{確信|かくしん}が{判断|はんだん}を{歪|ゆが}めることがある——これが{認知バイアス|にんちばいあす}の{一種|いっしゅ}だよ。"
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{自分|じぶん}の{正義感|せいぎかん}が{誰|だれ}かを{排除|はいじょ}していた——それを{認|みと}めるのは{怖|こわ}かった。でも「{全員|ぜんいん}が{使|つか}えるか」を{問|と}い{続|つづ}けることが、{本当|ほんとう}のインクルーシブデザインだって{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: happy
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{棚|たな}、{作|つく}り{直|なお}そう。{今度|こんど}は{最初|さいしょ}から「{全員|ぜんいん}が{使|つか}えるか」を{確認|かくにん}しながら{設計|せっけい}する。{別設計|べつせっけい}の{案|あん}、{諦|あきら}めない！"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: choice
+        id: q2
+        question: 「平等」と「公平」の違いで大切なことは何だと思う？
+        options:
+          - text: 全員に同じものを与えれば、それで公平になる
+            value: a
+            feedback: "「{同|おな}じものを{与|あた}える」ことは{平等|びょうどう}（Equal）だけど、{使|つか}う{人|ひと}によって{体|からだ}の{使|つか}い{方|かた}や{特性|とくせい}が{違|ちが}う。「{全員|ぜんいん}が{同|おな}じように{使|つか}えるか」を{確認|かくにん}することが{公平|こうへい}（Equity）だよ。"
+          - text: 全員が同じように使えるかを確認することが大切
+            value: b
+            correct: true
+            feedback: "そのとおり！　{公平|こうへい}（Equity）は「{全員|ぜんいん}が{同|おな}じレベルで{使|つか}えるよう{調整|ちょうせい}する」こと。インクルーシブデザインは、{誰|だれ}も{取|と}り{残|のこ}さないために{多様|たよう}なニーズに{目|め}を{向|む}けるデザインの{考|かんが}え{方|かた}だよ。"
+          - text: 一部の人だけ特別な道具を使うのは不公平だから避けるべき
+            value: c
+            feedback: "「{特別扱|とくべつあつか}い」に{見|み}えても、それが{全員|ぜんいん}の{平等|びょうどう}な{参加|さんか}を{支|ささ}えるなら{公平|こうへい}（Equity）の{考|かんが}え{方|かた}に{合|あ}っている。「{違|ちが}う{対応|たいおう}＝{不公平|ふこうへい}」とは{限|かぎ}らないよ。"
+      - type: effect
+        name: fade-out

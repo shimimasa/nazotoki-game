@@ -1,0 +1,436 @@
+meta:
+  id: design-03
+  title: アイデアが消えた
+  series: デザイン思考探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校祭|がっこうさい}の{企画会議|きかくかいぎ}——{デザイン思考探偵団|でざいんしこうたんていだん}の4{人|にん}は{会議室|かいぎしつ}の{壁|かべ}いっぱいに{付箋|ふせん}を{貼|は}り{付|つ}けた。「{移動式本屋|いどうしきほんや}」「{空|そら}とぶ{演劇|えんげき}ステージ」「{暗闇|くらやみ}カフェ」——{奇抜|きばつ}なアイデアが{次々|つぎつぎ}と{生|う}まれ、{合計|ごうけい}47{枚|まい}の{付箋|ふせん}で{壁|かべ}が{埋|う}め{尽|つ}くされた。"
+      - type: narration
+        text: "それが{翌朝|よくあさ}——28{枚|まい}に{減|へ}っていた。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "え……{付箋|ふせん}が{減|へ}ってる！　{移動式本屋|いどうしきほんや}、{絶対|ぜったい}{面白|おもしろ}かったのに——{僕|ぼく}のアイデア、{消|き}えてる！"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: worried
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "47{枚|まい}が28{枚|まい}に。{消|き}えた19{枚|まい}には、いったい{何|なに}が{書|か}かれていたのか——そして{誰|だれ}が{削除|さくじょ}したのか。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: アイデアが消えた
+        subtitle: デザイン思考探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 企画会議記録と翌朝の写真
+      - type: narration
+        text: "{会議室|かいぎしつ}に{残|のこ}されていた{企画会議|きかくかいぎ}の{記録|きろく}——{ブレインストーミング|ぶれいんすとーみんぐ}のルールと{時刻|じこく}、そして{付箋|ふせん}の{枚数|まいすう}が{記録|きろく}されていた。"
+      - type: evidence
+        id: card-1
+        title: 企画会議記録（ルール・時刻・付箋枚数）
+        content: "【{会議|かいぎ}{日時|にちじ}】{火曜日|かようび}{放課後|ほうかご}　{午後|ごご}3{時|じ}〜5{時|じ}　【ブレインストーミングのルール】①{否定|ひてい}{禁止|きんし}（どんなアイデアも{批判|ひはん}しない）②{質|しつ}より{量|りょう}（とにかく{多|おお}く{出|だ}す）③{発散|はっさん}{フェーズ|ふぇーず}での{絞|しぼ}り{込|こ}みは{禁止|きんし}　【{終了時|しゅうりょうじ}の{付箋|ふせん}{枚数|まいすう}】47{枚|まい}（{会議|かいぎ}{終了|しゅうりょう}:{午後|ごご}5{時|じ}に{全員|ぜんいん}{確認|かくにん}）"
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "47{枚|まい}と28{枚|まい}の{差|さ}は19{枚|まい}。{発散|はっさん}{フェーズ|ふぇーず}での{絞|しぼ}り{込|こ}みはルールで{禁止|きんし}されている。つまりこれは{意図的|いとてき}な{削除|さくじょ}だ。{誰|だれ}かが{ルール違反|るーるいはん}をしたってことだよ。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{翌朝|よくあさ}の{写真|しゃしん}と、{前日|ぜんじつ}{夜|よる}の{行動|こうどう}{記録|きろく}——{会議|かいぎ}{終了後|しゅうりょうご}に{会議室|かいぎしつ}に{残|のこ}っていたのは{誰|だれ}か。"
+      - type: evidence
+        id: card-2
+        title: 翌朝の付箋写真＋前夜の行動記録
+        content: "【{翌朝|よくあさ}の{付箋|ふせん}】28{枚|まい}（{撮影|さつえい}:{水曜日|すいようび}{朝|あさ}7{時|じ}30{分|ぷん}）　{残|のこ}っているのは{無難|ぶなん}なアイデアばかり　【{前夜|ぜんや}の{行動|こうどう}{記録|きろく}】ツクル:{午後|ごご}5{時|じ}{退室|たいしつ}　ハカル:{午後|ごご}5{時|じ}10{分|ぷん}{退室|たいしつ}　カナエ:{午後|ごご}6{時|じ}30{分|ぷん}{退室|たいしつ}（{最後|さいご}に{残|のこ}った）　ミナオス:{午後|ごご}5{時|じ}5{分|ぷん}{退室|たいしつ}"
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "カナエだけ{午後|ごご}6{時|じ}30{分|ぷん}まで{残|のこ}ってた！　{他|ほか}の3{人|にん}は{午後|ごご}5{時|じ}〜5{時|じ}10{分|ぷん}には{出|で}てるのに。{会議|かいぎ}{終了後|しゅうりょうご}に1{人|ひと}で{会議室|かいぎしつ}にいた……。"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 削られた付箋の復元と作者分析
+      - type: narration
+        text: "{机|つくえ}の{裏|うら}に{落|お}ちていた{付箋|ふせん}の{破片|はへん}と、{会議|かいぎ}{中|ちゅう}に{撮|と}っていた{写真|しゃしん}から、{削|けず}られた19{枚|まい}の{内容|ないよう}が{復元|ふくげん}できた。さらに{付箋|ふせん}の{手書|てが}き{文字|もじ}の{特徴|とくちょう}が{記録|きろく}されていた。"
+      - type: evidence
+        id: card-3
+        title: 削られた付箋の復元リスト＋手書き文字特徴
+        content: "【{削|けず}られた19{枚|まい}の{内容|ないよう}（{一部|いちぶ}）】「{移動式本屋|いどうしきほんや}」「{空|そら}とぶ{演劇|えんげき}ステージ」「{暗闇|くらやみ}カフェ」「{逆さ|さかさ}{迷路|めいろ}」「{音|おと}の{消|き}える{部屋|へや}」……　【{手書|てが}き{文字|もじ}の{特徴|とくちょう}】{削|けず}られた{付箋|ふせん}の{筆跡|ひっせき}は2〜3{種類|しゅるい}。{奇抜|きばつ}なアイデアが{集中|しゅうちゅう}的に{消|き}されている。"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "「{移動式本屋|いどうしきほんや}」は{僕|ぼく}のアイデアだよ！　「{暗闇|くらやみ}カフェ」は{僕|ぼく}と{ミナオス|みなおす}で{考|かんが}えたやつ。{奇抜|きばつ}なやつが{全部|ぜんぶ}{消|き}されてる——{一体|いったい}{誰|だれ}が！"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: narration
+        text: "{残|のこ}った28{枚|まい}の{付箋|ふせん}の{作者|さくしゃ}と、{削|けず}られた19{枚|まい}の{作者|さくしゃ}を{比較|ひかく}すると——{偏|かたよ}りが{見|み}えてきた。"
+      - type: evidence
+        id: card-4
+        title: 残った付箋の作者分析＋削られた付箋作者の偏り
+        content: "【{残|のこ}った28{枚|まい}の{作者|さくしゃ}】カナエ:11{枚|まい}（{全|すべ}て{残存|ざんそん}）ハカル:9{枚|まい}（{全|すべ}て{残存|ざんそん}）ツクル:5{枚|まい}（{元|もと}の{うち|うち}12{枚|まい}が5{枚|まい}に{減少|げんしょう}）ミナオス:3{枚|まい}（{元|もと}の{うち|うち}10{枚|まい}が3{枚|まい}に{減少|げんしょう}）　【{削|けず}られた19{枚|まい}の{作者|さくしゃ}】ツクル:7{枚|まい}・ミナオス:7{枚|まい}・{不明|ふめい}:5{枚|まい}（{奇抜|きばつ}なアイデアに{集中|しゅうちゅう}）"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{偏|かたよ}りが{明確|めいかく}だ。カナエとハカルのアイデアは1{枚|まい}も{削|けず}られていない。{削|けず}られた19{枚|まい}はツクルとミナオスの{奇抜|きばつ}なアイデアに{集中|しゅうちゅう}している。これは{偶然|ぐうぜん}じゃない——{意図的|いとてき}な{選別|せんべつ}だよ。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{集|あつ}まってきた。{前夜|ぜんや}に{最後|さいご}まで{残|のこ}っていたのは1{人|ひと}。{削|けず}られた{付箋|ふせん}はツクルとミナオスの{奇抜|きばつ}なアイデアに{集中|しゅうちゅう}している。{動機|どうき}は{何|なに}だったのか——"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{奇抜|きばつ}なアイデアが{笑|わら}われた{経験|けいけん}——{去年|きょねん}の{発表|はっぴょう}で、{僕|ぼく}のアイデアがおかしいって{言|い}われた{子|こ}がいたんだよね。あのとき{悲|かな}しかった。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "ブレストのルールでは「{発散|はっさん}{フェーズ|ふぇーず}での{絞|しぼ}り{込|こ}みは{禁止|きんし}」ってはっきり{書|か}いてある。{奇抜|きばつ}なアイデアを{守|まも}ろうとしたにしても、{削除|さくじょ}は{ルール違反|るーるいはん}よ。{善意|ぜんい}でもルールを{破|やぶ}っていい{理由|りゆう}にはならない。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "{行動|こうどう}{記録|きろく}・{付箋|ふせん}{枚数|まいすう}の{偏|かたよ}り・{文字|もじ}{特徴|とくちょう}——{全部|ぜんぶ}が1{人|ひと}を{指|さ}している。{動機|どうき}まで{想像|そうぞう}できる。{誰|だれ}かが{傷|きず}つくのを{防|ふせ}ごうとして……{逆|ぎゃく}に{全員|ぜんいん}のアイデアを{奪|うば}った。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足とカナエの告白
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "カナエに{直接|ちょくせつ}{確認|かくにん}したところ、こう{言|い}っていたわ。「{奇抜|きばつ}なアイデアを{出|だ}した{子|こ}が{笑|わら}われるのが{怖|こわ}かった。{守|まも}ってあげたかった」——{付箋|ふせん}を{削|けず}った{理由|りゆう}は{優|やさ}しさだったの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でもね、ブレインストーミングは「どんなアイデアも{批判|ひはん}しない」という{場|ば}だからこそ、{奇抜|きばつ}なアイデアが{生|う}まれる。その{発散|はっさん}{フェーズ|ふぇーず}を{誰|だれ}かが{勝手|かって}に{終|お}わらせてしまったら——{全員|ぜんいん}のアイデアを{出|だ}す{権利|けんり}が{奪|うば}われてしまうの。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足＋発散思考と収束思考の解説
+        content: "【カナエの{告白|こくはく}】「{奇抜|きばつ}なアイデアを{出|だ}した{子|こ}が{笑|わら}われるのが{怖|こわ}かった。{守|まも}りたかった」　【{発散|はっさん}{思考|しこう}と{収束|しゅうそく}{思考|しこう}の{解説|かいせつ}】ブレインストーミングは「{発散|はっさん}{フェーズ|ふぇーず}」——とにかく{多|おお}く{出|だ}す{段階|だんかい}。{批判|ひはん}も{絞|しぼ}り{込|こ}みも{禁止|きんし}。その{後|あと}の「{収束|しゅうそく}{フェーズ|ふぇーず}」で{全員|ぜんいん}が{見|み}える{状態|じょうたい}でアイデアを{選|えら}ぶ。{発散|はっさん}を{誰|だれ}か1{人|ひと}が{勝手|かって}に{終|お}わらせることは、{仲間|なかま}のアイデアを{奪|うば}うことになる。"
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "ブレストで{奇抜|きばつ}なアイデアを{笑|わら}うこと{自体|じたい}がルール{違反|いはん}——だから{最初|さいしょ}から「{否定|ひてい}{禁止|きんし}」のルールがある。カナエが{守|まも}ろうとした{必要|ひつよう}は、{本来|ほんらい}なかったのよ。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{善意|ぜんい}の{動機|どうき}→{発散|はっさん}{フェーズ|ふぇーず}での{絞|しぼ}り{込|こ}み→{奇抜|きばつ}なアイデアを{出|だ}した{仲間|なかま}の{権利|けんり}を{奪|うば}う→{無難|ぶなん}な{案|あん}だけ{残|のこ}る。**{守|まも}ろうとした{行為|こうい}が、ブレストそのものを{壊|こわ}してしまった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: ブレストの付箋を削ったのは誰？
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{会議|かいぎ}{終了後|しゅうりょうご}に1{人|ひと}で{残|のこ}っていたのはカナエ。②{削|けず}られた{付箋|ふせん}はツクルとミナオスの{奇抜|きばつ}なアイデアに{集中|しゅうちゅう}。③カナエの{付箋|ふせん}は1{枚|まい}も{削|けず}られていない。④{動機|どうき}は「{傷|きず}つく{子|こ}を{守|まも}りたかった」。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{前夜|ぜんや}{最後|さいご}に{会議室|かいぎしつ}に{残|のこ}ったのは1{人|ひと}だけ。②{削|けず}られた{付箋|ふせん}の{作者|さくしゃ}はツクルとミナオスに{偏|かたよ}っている。③{削除|さくじょ}された{付箋|ふせん}は「{奇抜|きばつ}なアイデア」に{集中|しゅうちゅう}している。④{発散|はっさん}{フェーズ|ふぇーず}での{絞|しぼ}り{込|こ}みはルールで{禁止|きんし}されている。"
+      - type: choice
+        id: q1
+        question: ブレストの付箋を削ったのは誰？
+        options:
+          - text: カナエ（奇抜なアイデアを出した子が笑われるのが怖くて付箋を削除した）
+            value: kanae
+            correct: true
+            feedback: "{正解|せいかい}！　カナエは{善意|ぜんい}から{行動|こうどう}したが、{発散|はっさん}{フェーズ|ふぇーず}での{絞|しぼ}り{込|こ}みは{禁止|きんし}されたルール{違反|いはん}。**ブレインストーミングは「どんなアイデアも{批判|ひはん}しない」から{自由|じゆう}なアイデアが{生|う}まれる。その{場|ば}を1{人|ひと}が{勝手|かって}に{変|か}えることは、{仲間|なかま}のアイデアを{出|だ}す{権利|けんり}を{奪|うば}うことになる。**"
+          - text: ハカル（付箋の枚数の矛盾を指摘した人）
+            value: hakaru
+            feedback: "ハカルは47{枚|まい}と28{枚|まい}の{差|さ}に{気|き}づいて{分析|ぶんせき}した{側|がわ}だよ。{行動|こうどう}{記録|きろく}では{午後|ごご}5{時|じ}10{分|ぷん}に{退室|たいしつ}しているよ。"
+          - text: ツクル（アイデアが消された被害者）
+            value: tsukuru
+            feedback: "ツクルは「{移動式本屋|いどうしきほんや}」など7{枚|まい}のアイデアを{削|けず}られた{被害者|ひがいしゃ}だよ。{行動|こうどう}{記録|きろく}では{午後|ごご}5{時|じ}に{退室|たいしつ}しているよ。"
+          - text: ミナオス（ブレストのルールを確認した人）
+            value: minaosu
+            feedback: "ミナオスは{発散|はっさん}{フェーズ|ふぇーず}での{絞|しぼ}り{込|こ}みが{禁止|きんし}であることを{確認|かくにん}した{側|がわ}だよ。7{枚|まい}のアイデアを{削|けず}られた{被害者|ひがいしゃ}でもあるよ。"
+
+  # ==================== 真相：カナエの告白 ====================
+  - id: truth-kanae
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: カナエの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: center
+      - type: dialog
+        character: kanae
+        text: "……{私|わたし}です。{付箋|ふせん}を{削|けず}ったのは。{会議|かいぎ}が{終|お}わった{後|あと}、1{人|ひと}で{残|のこ}って——"
+        expression: worried
+      - type: dialog
+        character: kanae
+        text: "{去年|きょねん}の{発表会|はっぴょうかい}で、{奇抜|きばつ}なアイデアを{出|だ}した{子|こ}がみんなに{笑|わら}われてた。すごく{傷|きず}ついてたのを{覚|おぼ}えてる。だから{今年|ことし}は——{誰|だれ}かが{傷|きず}つくくらいなら、{最初|さいしょ}から{奇抜|きばつ}なアイデアを{消|き}しておいた{方|ほう}がいいって……{守|まも}りたかったんだ。"
+        expression: worried
+      - type: dialog
+        character: kanae
+        text: "でも……{自分|じぶん}が{守|まも}ろうとしたのに、ツクルとミナオスのアイデアを{奪|うば}ってしまった。{優|やさ}しさのつもりだったのに、{一番|いちばん}{傷|きず}つけたのは{私|わたし}だった。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{怒|おこ}ってたよ、{最初|さいしょ}は。でも……カナエが{誰|だれ}かを{守|まも}ろうとしてたってこと、{分|わ}かった。{去年|きょねん}の{発表会|はっぴょうかい}、{僕|ぼく}も{見|み}てたから。あのとき{悔|くや}しかったの、{僕|ぼく}も{覚|おぼ}えてる。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: normal
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "カナエの{気持|きも}ちは{理解|りかい}できる。でも「{発散|はっさん}{フェーズ|ふぇーず}では{批判|ひはん}{禁止|きんし}」というルールは、{最初|さいしょ}からそれを{守|まも}るためにあったんだよね。ルールを{使|つか}わずに1{人|ひと}で{解決|かいけつ}しようとしたのが{問題|もんだい}だった。"
+        expression: normal
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{善意|ぜんい}でもルールを{破|やぶ}ったら、みんなが{損|そん}をする。もし{笑|わら}いそうな{子|こ}がいたら、「それはルール{違反|いはん}だよ」って{声|こえ}を{上|あ}げる{方法|ほうほう}もあったはず。{守|まも}り{方|かた}は{削除|さくじょ}だけじゃなかった。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ブレインストーミングの{大切|たいせつ}なルールを{確認|かくにん}しましょう。「{否定|ひてい}{禁止|きんし}」「{質|しつ}より{量|りょう}」——この{二|ふた}つは、{誰|だれ}もが{安心|あんしん}してアイデアを{出|だ}せる{場|ば}を{作|つく}るため。{発散|はっさん}{フェーズ|ふぇーず}は{全員|ぜんいん}で{守|まも}るもの。1{人|ひと}が{勝手|かって}に{終|お}わらせていい{段階|だんかい}ではないの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "カナエの{気持|きも}ちは{本当|ほんとう}に{優|やさ}しかった。でも{次回|じかい}は「{笑|わら}いそうな{子|こ}がいたら{止|と}める」「ルールを{声|こえ}に{出|だ}して{確認|かくにん}する」——そういう{守|まも}り{方|かた}を{選|えら}んでほしいわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：ブレインストーミングのルール】{発散|はっさん}{フェーズ|ふぇーず}は「{質|しつ}より{量|りょう}」「{否定|ひてい}{禁止|きんし}」が{鉄則|てっそく}。どんなに{奇抜|きばつ}でも、{発散|はっさん}の{段階|だんかい}では{全|すべ}てのアイデアに{同|おな}じ{価値|かち}がある。{収束|しゅうそく}（{絞|しぼ}り{込|こ}み）は{全員|ぜんいん}が{揃|そろ}ってから{行|おこな}う。"
+      - type: narration
+        text: "【{学|まな}び②：{因果連鎖|いんがれんさ}】{善意|ぜんい}の{行動|こうどう}→{発散|はっさん}{フェーズ|ふぇーず}の{終了|しゅうりょう}→{仲間|なかま}のアイデアを{出|だ}す{権利|けんり}を{奪|うば}う→{無難|ぶなん}な{案|あん}だけ{残|のこ}る。{良|よ}かれと{思|おも}った{行動|こうどう}が{連鎖|れんさ}して{予期|よき}せぬ{結果|けっか}を{生|う}む——これが「{因果連鎖|いんがれんさ}」だよ。"
+      - type: sprite
+        character: kanae
+        expression: determined
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{誰|だれ}かを{守|まも}りたいときは、{削除|さくじょ}じゃなくてルールを{使|つか}う。もし{次|つぎ}に{笑|わら}いそうな{子|こ}がいたら、{声|こえ}に{出|だ}して「{否定|ひてい}{禁止|きんし}だよ」って{言|い}う。それが{本当|ほんとう}の{守|まも}り{方|かた}だって——{学|まな}んだ。"
+        expression: determined
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: happy
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{移動式本屋|いどうしきほんや}、{絶対|ぜったい}{諦|あきら}めない！　{次|つぎ}の{会議|かいぎ}でもう1{回|かい}ちゃんとブレストしよう。{今度|こんど}は{全員|ぜんいん}でルールを{守|まも}りながら。"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: effect
+        name: fade-out

@@ -1,0 +1,443 @@
+meta:
+  id: cyber-07
+  title: まねされた声
+  series: ネット探偵団
+  volume: 7
+  estimatedMinutes: 20
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "放課後、ネット{探偵団|たんていだん}のもとに{友|とも}だちのタケシがかけてきた。"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "タケシが「{昨日|きのう}、パスから{電話|でんわ}があった。"明日の{集合|しゅうごう}{場所|ばしょ}が{変|か}わった、{駅前|えきまえ}の{公園|こうえん}に{来|き}て"って」って{言|い}うんだ。でもパスはそんな{電話|でんわ}かけてないよね？"
+        expression: worried
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: right
+      - type: dialog
+        character: pasu
+        text: "ぼくはかけてない！　{絶対|ぜったい}にかけてない。でも……タケシが{聴|き}かせてくれた{音声|おんせい}はぼくの{声|こえ}にそっくりだった。どういうことなんだ……"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ネット{探偵団|たんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。パスの{声|こえ}そっくりの{偽|にせ}の{電話|でんわ}——いったい{誰|だれ}が、どうやってかけたのか{真相|しんそう}を{解|と}き{明|あか}かしてください。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: netto
+            expression: thinking
+          - character: pasu
+            expression: worried
+          - character: rogu
+            expression: thinking
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "「{声|こえ}はパスなのに、パスがかけていない」——4{人|にん}はこの{矛盾|むじゅん}に{首|くび}をかしげた。{事件|じけん}の{核心|かくしん}は、まだ{誰|だれ}も{知|し}らない{情報|じょうほう}の{中|なか}に{隠|かく}れていた。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: まねされた声
+        subtitle: ネット探偵団 Vol.7
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: タケシの証言と矛盾を調べる
+      - type: narration
+        text: "タケシの{証言|しょうげん}——「パスの{声|こえ}だった。"明日の{集合|しゅうごう}{場所|ばしょ}が{変|か}わった"って。でも{電話番号|でんわばんごう}は{知|し}らない{番号|ばんごう}だった」。"
+      - type: evidence
+        id: card-1
+        title: タケシの証言と電話番号の記録
+        content: "タケシの{証言|しょうげん}:「パスの{声|こえ}で{電話|でんわ}があった。"明日の{集合|しゅうごう}{場所|ばしょ}が{変|か}わった、{駅前|えきまえ}の{公園|こうえん}に{来|き}て"って{言|い}われた」。{電話番号|でんわばんごう}の{記録|きろく}:かかってきた{番号|ばんごう}はパスの{番号|ばんごう}ではない{未知|みち}の{番号|ばんごう}。{矛盾|むじゅん}:「{声|こえ}はパスだが、{番号|ばんごう}が{違|ちが}う」"
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "{電話番号|でんわばんごう}がパスのじゃない！　{声|こえ}は{本物|ほんもの}にしか{聞|き}こえないけど、{番号|ばんごう}が{違|ちが}う。何かがおかしい——この{矛盾|むじゅん}が{事件|じけん}のカギだ。"
+        expression: determined
+      - type: sprite
+        character: netto
+        action: hide
+      - type: narration
+        text: "「{声|こえ}が{本物|ほんもの}でも{本人|ほんにん}とは{限|かぎ}らない」——その{答|こた}えになる{技術|ぎじゅつ}が{存在|そんざい}する。{次|つぎ}の{情報|じょうほう}カードを{読|よ}もう。"
+      - type: evidence
+        id: card-2
+        title: AI音声合成の説明カード
+        content: "AI{音声|おんせい}{合成|ごうせい}とは:わずかな{音声|おんせい}サンプルから{声|こえ}をコピーできる{技術|ぎじゅつ}。{見|み}わけ{方|かた}のヒント:①「えーと」「あのー」などの{自然|しぜん}な{間|ま}がない　②{息継|いきつ}ぎが{不自然|ふしぜん}に{均一|きんいつ}　③{文章|ぶんしょう}{読|よ}み{上|あ}げのようなパターンがある。{大切|たいせつ}なこと:{声|こえ}だけで{本人|ほんにん}か{判断|はんだん}せず、{別|べつ}の{手段|しゅだん}でも{確認|かくにん}しよう。"
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: rogu
+        text: "AI{音声|おんせい}{合成|ごうせい}……{声|こえ}が{作|つく}れるなら、「{番号|ばんごう}が{違|ちが}う」という{事実|じじつ}とつながる。{受|う}け{取|と}った{音声|おんせい}を{技術|ぎじゅつ}的に{分析|ぶんせき}すれば、{合成|ごうせい}かどうか{分|わ}かるはず——"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 音声を技術的に分析する
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{音声|おんせい}ファイルを{分析|ぶんせき}したら……{自然|しぜん}な{会話|かいわ}にある「えーと」「あのー」が{全|まった}くない。{息継|いきつ}ぎも{機械|きかい}みたいに{均一|きんいつ}で——{文章|ぶんしょう}{読|よ}み{上|あ}げのパターンがある！"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: evidence
+        id: card-3
+        title: 音声の技術分析結果（条件付き公開）
+        content: "{音声|おんせい}ファイルの{分析|ぶんせき}{結果|けっか}:①「えーと」「あのー」などの{自然|しぜん}な{間|ま}が{全|まった}くない　②{息継|いきつ}ぎが{不自然|ふしぜん}に{均一|きんいつ}　③{文章|ぶんしょう}{読|よ}み{上|あ}げのパターンがある。{結論|けつろん}:この{音声|おんせい}は{人間|にんげん}が{自然|しぜん}に{話|はな}した{声|こえ}ではなく、AIが{合成|ごうせい}した{声|こえ}の{可能性|かのうせい}が{高|たか}い。"
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "これは{人間|にんげん}の{声|こえ}じゃない。AIが{合成|ごうせい}した{声|こえ}だ——{証拠|しょうこ}がそう{言|い}っている！"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "AI{音声|おんせい}{合成|ごうせい}であることは{分|わ}かった。では——{誰|だれ}がパスの{声|こえ}でAI{音声|おんせい}を{作|つく}ったのか？　{次|つぎ}の{証拠|しょうこ}を{調|しら}べよう。"
+      - type: evidence
+        id: card-4
+        title: パスの通話記録とタブレット情報
+        content: "パスの{通話|つうわ}{記録|きろく}:{問題|もんだい}の{時刻|じこく}に{発信|はっしん}{記録|きろく}なし。パスのタブレット:{音声|おんせい}{合成|ごうせい}アプリが{インストール|いんすとーる}されている。{矛盾|むじゅん}:「パスは{電話|でんわ}していない（{発信|はっしん}{記録|きろく}なし）。でもAI{音声|おんせい}のツールを{持|も}っている」"
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: right
+      - type: dialog
+        character: pasu
+        text: "{発信|はっしん}{記録|きろく}はない……{本当|ほんとう}にかけてない。でも{音声|おんせい}{合成|ごうせい}アプリは……{確|たし}かにインストールしてある。それは……ちょっと{理由|りゆう}があって……"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "{音声|おんせい}{合成|ごうせい}アプリを{持|も}っていて、{発信|はっしん}{記録|きろく}はない——でもAIなら{通常|つうじょう}の{電話|でんわ}と{違|ちが}う{方法|ほうほう}で{送|おく}れるかもしれない。パスが{何|なに}か{隠|かく}している{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。タケシに{届|とど}いた{声|こえ}はAI{合成|ごうせい}——パスの{声|こえ}に{似|に}せたAI音声だった。しかしパスには{音声|おんせい}{合成|ごうせい}アプリがある。{隠|かく}されている「{理由|りゆう}」とは何なのか。"
+      - type: sprite
+        character: gado
+        expression: worried
+        position: right
+      - type: dialog
+        character: gado
+        text: "タケシは{本当|ほんとう}に{集合|しゅうごう}{場所|ばしょ}が{変|か}わったと{信|しん}じて、{別|べつ}の{場所|ばしょ}に{行|い}こうとしてたんだよ。{声|こえ}が{本物|ほんもの}だったから{信|しん}じちゃったんだ——もし{嘘|うそ}の{指示|しじ}だったら{危|あぶ}ないよね……"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: center
+      - type: dialog
+        character: pasu
+        text: "ぼくは……ぼくは{何|なに}も{悪|わる}いことしてないはずで……{友|とも}だちを{助|たす}けたくて……でも{結果|けっか}がこうなるとは{思|おも}ってなかった。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: パスのタブレットに残された記録
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "パスのタブレットの{音声|おんせい}{合成|ごうせい}アプリの{使用|しよう}{履歴|りれき}を{確認|かくにん}したわ。自分の{声|こえ}を{学習|がくしゅう}させ、テスト{送信|そうしん}した{記録|きろく}が{残|のこ}っていた。パスに{聞|き}いたら——"
+        expression: surprised
+      - type: dialog
+        character: yamada
+        text: "「タケシが{待|ま}ち{合|あ}わせ{場所|ばしょ}を{間違|まちが}えて{迷子|まいご}になりかけたことがあった。{確実|かくじつ}に{伝|つた}えられる{方法|ほうほう}を{作|つく}りたかった。AIで{音声|おんせい}メッセージを{自動|じどう}{送信|そうしん}するシステムを"便利なツール"として{作|つく}った。でもテスト{送信|そうしん}が{本物|ほんもの}の{電話|でんわ}として{届|とど}いてしまった」と{言|い}っていたの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: パスのタブレットの音声合成アプリ使用履歴
+        content: "{音声|おんせい}{合成|ごうせい}アプリの{使用|しよう}{履歴|りれき}:自分の{声|こえ}を{学習|がくしゅう}させた{記録|きろく}あり。テスト{送信|そうしん}の{記録|きろく}あり——{送信先|そうしんさき}:タケシ。{先生|せんせい}のメモ:「パスは"タケシが{迷子|まいご}にならないように{自動|じどう}で{連絡|れんらく}するシステムを{作|つく}りたかった"と{言|い}った。{善意|ぜんい}のテスト{送信|そうしん}が{本物|ほんもの}の{電話|でんわ}として{届|とど}いてしまった」"
+      - type: sprite
+        character: pasu
+        expression: surprised
+        position: center
+      - type: dialog
+        character: pasu
+        text: "……ぼくが{作|つく}ったAIの{声|こえ}だ。テスト{送信|そうしん}が……タケシに{届|とど}いてしまってたんだ。「{便利|べんり}なツール」のつもりだったのに——"
+        expression: surprised
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{本人|ほんにん}の{声|こえ}＝{本人|ほんにん}が{話|はな}している」——その{前提|ぜんてい}が{崩|くず}れた。AI{音声|おんせい}{合成|ごうせい}という{技術|ぎじゅつ}が{存在|そんざい}する{時代|じだい}に、{声|こえ}だけで{判断|はんだん}する{危険|きけん}をパス{自身|じしん}が{証明|しょうめい}してしまった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: パスの声で偽の電話をかけたのは誰？
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①タケシに「パスの{声|こえ}」の{電話|でんわ}が{届|とど}いた（{番号|ばんごう}は{違|ちが}う）。②{音声|おんせい}はAI{合成|ごうせい}の{痕跡|こんせき}あり。③パスは{問題|もんだい}の{時刻|じこく}に{電話|でんわ}していない。④パスのタブレットに{音声|おんせい}{合成|ごうせい}アプリあり。⑤テスト{送信|そうしん}の{記録|きろく}がタケシ{宛|あて}に{残|のこ}っていた。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "5つの{証拠|しょうこ}をつなごう。①タケシへの{偽|にせ}{電話|でんわ}（パスの{声|こえ}だが{番号|ばんごう}が{違|ちが}う）。②{音声|おんせい}はAI{合成|ごうせい}の{特徴|とくちょう}を{持|も}つ。③パスに{音声|おんせい}{合成|ごうせい}アプリあり——タケシ{宛|あて}テスト{送信|そうしん}の{記録|きろく}。④「タケシが{迷子|まいご}にならないように」という{動機|どうき}。⑤「{善意|ぜんい}のテストが{届|とど}いてしまった」という{告白|こくはく}。"
+      - type: choice
+        id: q1
+        question: パスの声で偽の電話をかけたのは誰？
+        options:
+          - text: パス自身（AI音声合成でテスト送信したものがタケシに届いた）
+            value: pasu
+            correct: true
+            feedback: "{正解|せいかい}！　パスは「タケシが{迷子|まいご}にならないように」という{善意|ぜんい}でAI{音声|おんせい}システムを{作|つく}った。しかしテスト{送信|そうしん}が{本物|ほんもの}の{電話|でんわ}として{届|とど}き、タケシが{信|しん}じてしまった。**「{声|こえ}が{本物|ほんもの}でも{本人|ほんにん}とは{限|かぎ}らない」{時代|じだい}——{大事|たいせつ}な{連絡|れんらく}を{受|う}けたら、{別|べつ}の{方法|ほうほう}で{本人|ほんにん}に{確認|かくにん}しよう。**"
+          - text: ネット（タケシへの聞き取りをした人）
+            value: netto
+            feedback: "{ネット|ねっと}は「{電話番号|でんわばんごう}が{違|ちが}う」という{矛盾|むじゅん}に{最初|さいしょ}に{気|き}づいた{側|がわ}。{偽|にせ}{電話|でんわ}を{作|つく}った{人|ひと}ではないよ。"
+          - text: ログ（音声を技術的に分析した人）
+            value: rogu
+            feedback: "{ログ|ろぐ}は{音声|おんせい}がAI{合成|ごうせい}であることを{見抜|みぬ}いた{側|がわ}。「これは{人間|にんげん}の{声|こえ}じゃない」と{結論|けつろん}した{探偵|たんてい}だよ。"
+          - text: ガード（タケシの気持ちとリスクを考えた人）
+            value: gado
+            feedback: "{ガード|がーど}はタケシが{信|しん}じてしまった{危険|きけん}を{考|かんが}えた{側|がわ}。「{声|こえ}が{本物|ほんもの}だったら{信|しん}じるよ」という{共感|きょうかん}の{視点|してん}を{提供|ていきょう}してくれたよ。"
+
+  # ==================== 真相：パスの告白 ====================
+  - id: truth-pasu
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: パスの正義感と後悔
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: center
+      - type: dialog
+        character: pasu
+        text: "……{正直|しょうじき}に{話|はな}します。タケシが{以前|いぜん}、{待|ま}ち{合|あ}わせ{場所|ばしょ}を{間違|まちが}えて{迷子|まいご}になりかけたことがあった。{次|つぎ}は{確実|かくじつ}に{伝|つた}えたい——そう{思|おも}った。"
+        expression: worried
+      - type: dialog
+        character: pasu
+        text: "{音声|おんせい}{合成|ごうせい}アプリで{自分|じぶん}の{声|こえ}を{学習|がくしゅう}させて、{集合|しゅうごう}{場所|ばしょ}を{自動|じどう}で{知|し}らせるシステムを{作|つく}った。「{便利|べんり}なツール」のつもりだった。テスト{送信|そうしん}が……タケシに{本物|ほんもの}の{電話|でんわ}として{届|とど}くとは{思|おも}ってなかった。"
+        expression: thinking
+      - type: dialog
+        character: pasu
+        text: "タケシが{迷子|まいご}にならないように——その{気持|きも}ちは{本物|ほんもの}だった。でも……やり{方|かた}が{間違|まちが}ってた。{誰|だれ}かを{混乱|こんらん}させるつもりじゃなかったのに、{結果|けっか}として{偽|にせ}{音声|おんせい}で{騙|だま}すことになってしまった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "{声|こえ}だけじゃ{分|わ}からないよな……タケシが{信|しん}じちゃうのは{当然|とうぜん}だよ。{電話番号|でんわばんごう}が{違|ちが}うって{気|き}づいたのは{後|あと}から{見返|みかえ}したからで、{最初|さいしょ}はぼくも{分|わ}からなかったと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: normal
+        position: right
+      - type: dialog
+        character: rogu
+        text: "{音声|おんせい}の「えーと」「あのー」がないことに{気|き}づいたとき——「{機械|きかい}みたいに{均一|きんいつ}すぎる」って{感|かん}じた。{人間|にんげん}が{話|はな}すときは{不完全|ふかんぜん}なはずで、{完璧|かんぺき}すぎる{声|こえ}は{不自然|ふしぜん}。その{視点|してん}が{重要|じゅうよう}だった。"
+        expression: normal
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: normal
+        position: left
+      - type: dialog
+        character: gado
+        text: "{声|こえ}が{本物|ほんもの}だったら{信|しん}じるよ、{誰|だれ}だって。タケシが{公園|こうえん}に{行|い}こうとしてたのは{当然|とうぜん}の{反応|はんのう}だと{思|おも}う。でも——{次|つぎ}は{声|こえ}だけで{大事|たいせつ}なことを{判断|はんだん}しないで、{別|べつ}の{方法|ほうほう}でも{確認|かくにん}しよう。"
+        expression: normal
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "パスは{悪意|あくい}があったわけじゃない。「{友|とも}だちを{助|たす}けたい」という{気持|きも}ちは{本物|ほんもの}だった。でも{技術|ぎじゅつ}の{使|つか}い{方|かた}を{間違|まちが}えると、{善意|ぜんい}でも{誰|だれ}かを{傷|きず}つけてしまう。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "そして——これが{今日|きょう}の{一番|いちばん}の{学|まな}び。「{声|こえ}が{本物|ほんもの}でも{本人|ほんにん}とは{限|かぎ}らない」。AI{音声|おんせい}{合成|ごうせい}の{時代|じだい}、{大事|たいせつ}な{連絡|れんらく}を{受|う}けたら——{電話|でんわ}やメッセージで{本人|ほんにん}に{直接|ちょくせつ}{確認|かくにん}する{習慣|しゅうかん}が{身|み}を{守|まも}るわ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】AI{音声|おんせい}{合成|ごうせい}のリスク——{声|こえ}が{本物|ほんもの}そっくりでも{本人|ほんにん}とは{限|かぎ}らない。{音声|おんせい}だけで{判断|はんだん}せず、{別|べつ}の{手段|しゅだん}でも{確認|かくにん}しよう。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{情報|じょうほう}{欠落|けつらく}の{推理|すいり}——「かけていないのに{声|こえ}がある」{矛盾|むじゅん}を{解|と}く{カギ|かぎ}は「まだ{知|し}らない{情報|じょうほう}（AI{合成|ごうせい}の{可能性|かのうせい}）」の{存在|そんざい}に{気|き}づくこと。{証拠|しょうこ}と{証拠|しょうこ}の「{隙間|すきま}」を{埋|う}める{視点|してん}が{真相|しんそう}への{道|みち}。"
+      - type: effect
+        name: fade-out

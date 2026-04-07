@@ -1,0 +1,441 @@
+meta:
+  id: communication-05
+  title: デジタルのズレ
+  series: コミュニケーション探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "グループ{作業|さぎょう}の{後|あと}、チャットに{一件|いっけん}のメッセージが{届|とど}いた。"
+      - type: narration
+        text: "{送|おく}り{主|ぬし}はツタエ——「やっとできた」"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**たった3{文字|もじ}。{絵文字|えもじ}なし。{句読点|くとうてん}なし。{感嘆符|かんたんふ}なし。**"
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "……ツタエ、{怒|おこ}ってる？　なんか{返事|へんじ}{短|みじか}くて{冷|つめ}たい{感|かん}じがする。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "「やっとできた」って{言葉|ことば}{自体|じたい}は{怒|おこ}ってない……でも{何|なに}かが{足|た}りない{感|かん}じがする。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: surprised
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "え、なんで？　{普通|ふつう}に{送|おく}っただけなのに……{怒|おこ}ってないよ！"
+        expression: surprised
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: narration
+        text: "テキストメッセージが{感情|かんじょう}を{伝|つた}える{仕組|しく}みと、{対面|たいめん}コミュニケーションとの{構造的|こうぞうてき}な{違|ちが}いを{仮説検証|かせつけんしょう}で{解明|かいめい}する——コミュニケーション{探偵団|たんていだん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: デジタルのズレ
+        subtitle: コミュニケーション探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 問題のメッセージとテキストの情報量
+      - type: narration
+        text: "【{問題|もんだい}のメッセージ】{送信者|そうしんしゃ}: ツタエ / {内容|ないよう}: 「やっとできた」/ {特徴|とくちょう}: {句読点|くとうてん}なし・{絵文字|えもじ}なし・3{文字|もじ}・{感嘆符|かんたんふ}なし"
+      - type: evidence
+        id: card-1
+        title: 問題のメッセージ記録
+        content: "【グループチャット{記録|きろく}】ツタエ:「やっとできた」（{句読点|くとうてん}なし・{絵文字|えもじ}なし・3{文字|もじ}・{感嘆符|かんたんふ}なし）【メンバーの{反応|はんのう}】キク:「{怒|おこ}ってる？」　コトバ:「{冷|つめ}たい{感|かん}じがする」　マナブ:「なぜ{誤解|ごかい}が{起|お}きたか{考|かんが}えてみよう」"
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「やっとできた」という{言葉|ことば}{自体|じたい}は{怒|おこ}っていない。でも{何|なに}かが{足|た}りない{感|かん}じがする。{句読点|くとうてん}も{絵文字|えもじ}もない——この{空白|くうはく}が「{冷|つめ}たさ」に{見|み}える。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "{対面|たいめん}コミュニケーションでは{言語|げんご}7%・{声|こえ}38%・{非言語|ひげんご}55%の{情報|じょうほう}が{使|つか}える。テキストメッセージでは{言語|げんご}のみ（＋{絵文字|えもじ}）で{感情|かんじょう}を{伝|つた}えるしかない。"
+      - type: evidence
+        id: card-2
+        title: テキストと対面の情報量比較
+        content: "【{対面|たいめん}コミュニケーション】{言語|げんご}7%＋{声|こえ}38%＋{非言語|ひげんご}（{表情|ひょうじょう}・{身振|みぶ}り）55%【テキストメッセージ】{言語|げんご}＋{絵文字|えもじ}のみ→{絵文字|えもじ}・{句読点|くとうてん}・{文|ぶん}の{長|なが}さ・{返信速度|へんしんそくど}が「{非言語|ひげんご}{情報|じょうほう}の{代替|だいたい}」として{機能|きのう}する"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{対面|たいめん}なら{表情|ひょうじょう}や{声色|こわいろ}で{感情|かんじょう}が{伝|つた}わる。でもテキストだと{言葉|ことば}だけ——{絵文字|えもじ}を{省|はぶ}くと「{感情|かんじょう}ゼロ」か「{怒|おこ}り」として{読|よ}まれやすい。なぜツタエは{省|はぶ}いたのか、{仮説|かせつ}を{立|た}てて{検証|けんしょう}しよう。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: library
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 仮説の整理と検証
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: left
+      - type: dialog
+        character: manabu
+        text: "{誤解|ごかい}が{起|お}きた{理由|りゆう}の{仮説|かせつ}を3つ{整理|せいり}した。{仮説|かせつ}①：ツタエが{怒|おこ}っている。{仮説|かせつ}②：{省|はぶ}き{方|かた}が{非言語|ひげんご}の{代替|だいたい}を{欠|か}いた。{仮説|かせつ}③：{受|う}け{取|と}り{側|がわ}のバイアス——{証拠|しょうこ}で{検証|けんしょう}すると②が{有力|ゆうりょく}だ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: evidence
+        id: card-3
+        title: マナブの仮説3案整理表
+        content: "【{仮説|かせつ}①】ツタエが{怒|おこ}っている→{検証|けんしょう}: ツタエ{本人|ほんにん}は「{普通|ふつう}に{送|おく}った」と{主張|しゅちょう}。{裏付|うらづ}け{不足|ふそく}【{仮説|かせつ}②】{省|はぶ}き{方|かた}が{非言語|ひげんご}の{代替|だいたい}を{欠|か}いた→{検証|けんしょう}: {絵文字|えもじ}・{句読点|くとうてん}・{文|ぶん}の{長|なが}さが{全部|ぜんぶ}なし。Card 2の{理論|りろん}と{一致|いっち}【{仮説|かせつ}③】{受|う}け{取|と}り{側|がわ}のバイアス→{検証|けんしょう}: {追加|ついか}HOでツタエの{普段|ふだん}のスタイルと{比較|ひかく}が{必要|ひつよう}"
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: right
+      - type: dialog
+        character: kiku
+        text: "ツタエの{普段|ふだん}のメッセージって、いつも{絵文字|えもじ}{多|おお}めで{長文|ちょうぶん}なんだよ。「やっとできた！🎉」みたいな{感|かん}じで。{今回|こんかい}のは{全然|ぜんぜん}{違|ちが}う……"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "{普通|ふつう}に{送|おく}っただけだって……{何|なに}でみんなそんなに{言|い}うの。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{仮説|かせつ}①（ツタエが{怒|おこ}っている）は{根拠|こんきょ}が{薄|うす}い。{仮説|かせつ}②（{非言語|ひげんご}の{代替|だいたい}{不足|ふそく}）はCard 2の{理論|りろん}と{一致|いっち}する。しかし「なぜ{今回|こんかい}だけ{省|はぶ}いたか」がまだ{分|わ}からない。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{仮説|かせつ}②が{有力|ゆうりょく}だとしても——「なぜ{今回|こんかい}だけ{省|はぶ}いたか」が{分|わ}からないと{完全|かんぜん}じゃない。ツタエの{普段|ふだん}のメッセージと{比較|ひかく}できれば……"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{普段|ふだん}のツタエのメッセージを{見|み}れば、{今回|こんかい}が{特別|とくべつ}かどうか{分|わ}かるはずだ。{追加|ついか}の{証拠|しょうこ}が{欲|ほ}しい。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 反転：証拠カード4+5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 追加証拠
+        subtitle: ツタエの普段のメッセージとの比較
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kiku
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kiku
+        text: "ツタエの{過去|かこ}1{週間|しゅうかん}のメッセージを{見|み}たら——「{終|お}わった！🎉」「{頑張|がんば}ったね！！」「{一緒|いっしょ}に{頑張|がんば}ろう😊」……{全部|ぜんぶ}{絵文字|えもじ}あって{長|なが}い。{今回|こんかい}だけが「やっとできた」の3{文字|もじ}だけ。{絶対|ぜったい}に{何|なに}かある。"
+        expression: surprised
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ツタエの過去1週間のメッセージ比較
+        content: "【{普段|ふだん}のツタエのメッセージ（5{件|けん}のサンプル）】①「{終|お}わった！🎉　{頑張|がんば}ったね」②「{明日|あした}も{一緒|いっしょ}に{頑張|がんば}ろう😊」③「{分|わ}かった！　{任|まか}せて！！」④「できた〜！　やっと{終|お}わった😭」⑤「ありがとう！　{助|たす}かった🙏」【{今回|こんかい}】「やっとできた」（{絵文字|えもじ}・{感嘆符|かんたんふ}・{長|なが}さ——{全部|ぜんぶ}なし）"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{今回|こんかい}だけが{特別|とくべつ}に「{省|はぶ}かれた」——{仮説|かせつ}①（{怒|おこ}り）は{否定|ひてい}された。{仮説|かせつ}②が{確定|かくてい}に{近|ちか}づいたが、まだ「なぜ」が{残|のこ}っている。**"
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ツタエのメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "……{正直|しょうじき}に{言|い}う。{私|わたし}、みんなより{作業|さぎょう}が{遅|おそ}くて……{恥|はず}ずかしかった。"
+        expression: worried
+      - type: dialog
+        character: tsutae
+        text: "「やっとできた」ってそのまま{送|おく}ったら、{絵文字|えもじ}とか{付|つ}けたら{余計|よけい}{目立|めだ}つかなって……{短|みじか}く{送|おく}れば{目立|めだ}たないかなって{思|おも}ったんだ。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ツタエのメモ＋「省くことの怖さ」
+        content: "【ツタエのメモ】「みんなに{遅|おく}れた。{恥|はず}ずかしかった。{短|みじか}く{送|おく}れば{目立|めだ}たないかなと{思|おも}った」【{省|はぶ}くことの{怖|こわ}さ】テキストで{感情|かんじょう}を{省略|しょうりゃく}すると「{冷|つめ}たさ」か「{怒|おこ}り」として{読|よ}まれる。{対面|たいめん}の「{無表情|むひょうじょう}」より{伝|つた}わりにくい——{感情|かんじょう}は{意図的|いとてき}に{付|つ}け{加|くわ}えないと{届|とど}かない。"
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{前提|ぜんてい}が{崩|くず}れた。「{普通|ふつう}に{送|おく}った」ではなく、「{照|て}れ{隠|かく}しで{省|はぶ}いた」——{仮説|かせつ}②が{確定|かくてい}した。{自己防衛|じこぼうえい}の{動機|どうき}も{明確|めいかく}になった。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: グループチャットで誤解を生んだメッセージを送ったのは誰？
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: left
+      - type: dialog
+        character: manabu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①コトバとキクは「{冷|つめ}たい」「{怒|おこ}ってる？」と{感|かん}じた{側|がわ}。②{絵文字|えもじ}・{句読点|くとうてん}・{文|ぶん}の{長|なが}さが{全部|ぜんぶ}ない——{非言語|ひげんご}の{代替|だいたい}がゼロ。③ツタエの{普段|ふだん}のスタイルは{絵文字|えもじ}{多め|おおめ}・{長文|ちょうぶん}。④ツタエ{自身|じしん}が「{恥|はず}ずかしくて{省|はぶ}いた」と{認|みと}めた。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: choice
+        id: q1
+        question: グループチャットで誤解を生んだメッセージを送ったのは誰？
+        options:
+          - text: コトバ（「冷たい」と感じた側）
+            value: kotoba
+            correct: false
+            feedback: "コトバは「やっとできた」を{受|う}け{取|と}って「{冷|つめ}たい」と{感|かん}じた{側|がわ}だよ。{誤解|ごかい}を{生|う}んだメッセージを{送|おく}ったわけじゃない。{証拠|しょうこ}カード1を{見直|みなお}してみよう。"
+          - text: キク（「怒ってる？」と確認した側）
+            value: kiku
+            correct: false
+            feedback: "キクは「{怒|おこ}ってる？」と{確認|かくにん}した{側|がわ}で、むしろ{問題|もんだい}に{気|き}づいて{行動|こうどう}したよ。{誤解|ごかい}を{生|う}んだメッセージの{送信者|そうしんしゃ}ではない。"
+          - text: ツタエ（「やっとできた」を絵文字なしで送った）
+            value: tsutae
+            correct: true
+            feedback: "{正解|せいかい}！　ツタエは{恥|はず}ずかしさから{絵文字|えもじ}・{感嘆符|かんたんふ}・{文|ぶん}の{長|なが}さを{省|はぶ}いた。テキストメッセージでは「{省|はぶ}く」ことが、{対面|たいめん}の「{無表情|むひょうじょう}」より{伝|つた}わりにくい。**{感情|かんじょう}は{自動|じどう}では{伝|つた}わらない——テキストでは{意図的|いとてき}に{付|つ}け{加|くわ}えないと{届|とど}かない。「{普通|ふつう}に{送|おく}った」は、{実|じつ}は「{感情|かんじょう}ゼロで{送|おく}った」だったんだ。**"
+          - text: マナブ（仮説を整理した側）
+            value: manabu
+            correct: false
+            feedback: "マナブは「なぜ{誤解|ごかい}が{起|お}きたか」の{仮説|かせつ}を{整理|せいり}して{検証|けんしょう}した{側|がわ}だよ。{誤解|ごかい}を{生|う}んだメッセージの{送信者|そうしんしゃ}ではない。"
+
+  # ==================== 真相：ツタエの告白 ====================
+  - id: truth-tsutae
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 照れ隠しと感情ゼロのメッセージ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "……{正直|しょうじき}に{話|はな}す。みんなより{作業|さぎょう}が{遅|おそ}くて、{本当|ほんとう}に{恥|はず}ずかしかった。"
+        expression: worried
+      - type: dialog
+        character: tsutae
+        text: "{普通|ふつう}に「やっとできた！🎉」って{送|おく}ったら、{余計|よけい}{目立|めだ}つかなって……{短|みじか}く{送|おく}れば{目立|めだ}たないと{思|おも}って、{絵文字|えもじ}も{感嘆符|かんたんふ}も{全部|ぜんぶ}{省|はぶ}いた。"
+        expression: thinking
+      - type: dialog
+        character: tsutae
+        text: "「{省|はぶ}いただけ」で{怒|おこ}ってるって{思|おも}われるなんて……{知|し}らなかった。テキストって、{省|はぶ}くと{冷|つめ}たく{見|み}えるんだ。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「やっとできた」という{言葉|ことば}{自体|じたい}は{怒|おこ}ってない。でも{何|なに}かが{足|た}りないって{感|かん}じた——それが{正|ただ}しかったんだ。{言葉|ことば}の{意味|いみ}だけじゃなくて、{絵文字|えもじ}や{長|なが}さにも{情報|じょうほう}があったんだね。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: surprised
+        position: right
+      - type: dialog
+        character: kiku
+        text: "いつもは「やっとできた！🎉」って{送|おく}るツタエが、{今回|こんかい}は「やっとできた」だけ——{普段|ふだん}と{違|ちが}うって{気|き}づいてたけど、こういう{理由|りゆう}だったのか。{恥|はず}ずかしかったんだね、ツタエ。"
+        expression: surprised
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: manabu
+        text: "{仮説|かせつ}①（{怒|おこ}り）は{違|ちが}った。{仮説|かせつ}②（{非言語|ひげんご}の{代替|だいたい}{不足|ふそく}）が{正解|せいかい}で、その{原因|げんいん}は{自己防衛|じこぼうえい}のバイアスだった——{複数|ふくすう}の{仮説|かせつ}が{組|く}み{合|あ}わさっていたんだ。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "テキストメッセージでは、{絵文字|えもじ}・{句読点|くとうてん}・{文|ぶん}の{長|なが}さ・{返信速度|へんしんそくど}が「{非言語|ひげんご}{情報|じょうほう}の{代替|だいたい}」として{機能|きのう}するの。これらを{省|はぶ}くと「{感情|かんじょう}ゼロ」または「{怒|おこ}り」として{読|よ}まれやすい。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "ツタエは{悪意|あくい}がなかった——でも「{省|はぶ}いても{通|つう}じる」という{思|おも}い{込|こ}みが{問題|もんだい}だった。{恥|はず}ずかしい{気持|きも}ちは{誰|だれ}にでもある。でも{感情|かんじょう}は{自動|じどう}では{伝|つた}わらない——テキストでは{意図的|いとてき}に{付|つ}け{加|くわ}えないと{届|とど}かないのよ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{仮説検証|かせつけんしょう}——{仮説|かせつ}を{立|た}て→{証拠|しょうこ}で{検証|けんしょう}→{仮説|かせつ}を{修正|しゅうせい}のサイクルを{回|まわ}す{考|かんが}え{方|かた}。{仮説|かせつ}①（{怒|おこ}り）→Card 4で{否定|ひてい}。{仮説|かせつ}②（{非言語|ひげんご}{不足|ふそく}）→Card 2で{理論|りろん}{確認|かくにん}。Card 5で**{動機|どうき}も{確定|かくてい}**。"
+      - type: narration
+        text: "SNSと{対面|たいめん}の{違|ちが}い——テキストメッセージでは{感情|かんじょう}{情報|じょうほう}が{大幅|おおはば}に{削|けず}られ、{誤解|ごかい}が{生|しょう}じやすい。{絵文字|えもじ}・{句読点|くとうてん}・{文|ぶん}の{長|なが}さが「{非言語|ひげんご}の{代替|だいたい}」として{機能|きのう}する{仕組|しく}みを{知|し}って、{意識的|いしきてき}に{使|つか}おう。あなたは{今日|きょう}、{誰|だれ}かに{感情|かんじょう}が{伝|つた}わらないメッセージを{送|おく}ったことはない？　{明日|あした}のチャットで{試|ため}してみよう。"
+      - type: effect
+        name: fade-out

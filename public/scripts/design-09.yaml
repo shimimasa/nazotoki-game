@@ -1,0 +1,471 @@
+meta:
+  id: design-09
+  title: データのパラドックス
+  series: デザイン思考探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}で5つのデザイン{思考|しこう}プロジェクトが{実施|じっし}され、「{成功度|せいこうど}レポート」が{発表|はっぴょう}された。1{位|い}に{選|えら}ばれたのは——ツクルたちのグループ。"
+      - type: se
+        sound: chime
+      - type: sprite
+        character: tsukuru
+        expression: happy
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "{満足度|まんぞくど}4.2{点|てん}！　{絶対|ぜったい}いいプロジェクトにするって{約束|やくそく}してたから……{本当|ほんとう}によかった。みんな、{喜|よろこ}んでくれてる！"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: se
+        sound: murmur
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: hakaru
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "ちょっと{待|ま}って。このレポート——{他|ほか}の4つのプロジェクトのデータと{比|くら}べると……{何|なに}かがおかしい。"
+        expression: surprised
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "1{位|い}の{根拠|こんきょ}となったデータが、{帰納法|きのうほう}で{比較|ひかく}すると{矛盾|むじゅん}している——「{成功|せいこう}した」はずのデータが、「{成功|せいこう}していない」{可能性|かのうせい}を{示|しめ}している。{謎|なぞ}を{解|と}かなければならない。"
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: データのパラドックス
+        subtitle: デザイン思考探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 成功度レポートと評価データ一覧
+      - type: narration
+        text: "{発表|はっぴょう}された「{成功度|せいこうど}レポート」と、5つのプロジェクトの{評価|ひょうか}データが{手元|てもと}に{揃|そろ}った。まず{全体|ぜんたい}を{把握|はあく}しよう。"
+      - type: evidence
+        id: card-1
+        title: 成功度レポート要約（ツクルのプロジェクトが1位の根拠）
+        content: "【{発表結果|はっぴょうけっか}】ツクルグループが1{位|い}。{根拠|こんきょ}: {満足度|まんぞくど}アンケート{平均|へいきん}4.2/5.0　【{他|ほか}のプロジェクト{順位|じゅんい}】2{位|い}: Bグループ({満足度|まんぞくど}3.9) / 3{位|い}: Cグループ({満足度|まんぞくど}3.7) / 4{位|い}: Dグループ({満足度|まんぞくど}3.5) / 5{位|い}: Eグループ({満足度|まんぞくど}3.2)　【{注記|ちゅうき}】{評価|ひょうか}{指標|しひょう}: {満足度|まんぞくど}アンケート{平均点|へいきんてん}（アンケート{回答者|かいとうしゃ}のみ）"
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "「アンケート{回答者|かいとうしゃ}のみ」……って、{回答|かいとう}しなかった{子|こ}もいるってこと？　{正確|せいかく}なデータを{使|つか}わないと、{次|つぎ}のプロジェクトが{改善|かいぜん}されない。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: narration
+        text: "5つのプロジェクトの{詳細|しょうさい}{評価|ひょうか}データを{並|なら}べてみると——{帰納法|きのうほう}で{比較|ひかく}できる{表|ひょう}が{完成|かんせい}した。"
+      - type: evidence
+        id: card-2
+        title: 5プロジェクト評価データ一覧表
+        content: "【{評価|ひょうか}データ{比較|ひかく}{表|ひょう}】　ツクルG: {満足度|まんぞくど}4.2 / {使用率|しようりつ}【{空白|くうはく}】/ {改善件数|かいぜんけんすう}3{件|けん}　BG: {満足度|まんぞくど}3.9 / {使用率|しようりつ}72% / {改善件数|かいぜんけんすう}7{件|けん}　CG: {満足度|まんぞくど}3.7 / {使用率|しようりつ}68% / {改善件数|かいぜんけんすう}5{件|けん}　DG: {満足度|まんぞくど}3.5 / {使用率|しようりつ}55% / {改善件数|かいぜんけんすう}4{件|けん}　EG: {満足度|まんぞくど}3.2 / {使用率|しようりつ}41% / {改善件数|かいぜんけんすう}2{件|けん}　【{注目|ちゅうもく}】ツクルGの「{使用率|しようりつ}」{欄|らん}だけが{空白|くうはく}"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{見|み}て——ツクルのグループだけ{使用率|しようりつ}の{欄|らん}が{空白|くうはく}だ！　{他|ほか}の4グループは{全員|ぜんいん}{記入|きにゅう}されてる。この{空白|くうはく}には{理由|りゆう}があるはずだ。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 評価指標の事前定義書と追加HO
+      - type: narration
+        text: "デザイン{思考|しこう}の{テスト|てすと}{フェーズ|ふぇーず}には{大切|たいせつ}なルールがある——{プロジェクト|ぷろじぇくと}{開始前|かいしまえ}に「{成功|せいこう}の{基準|きじゅん}」を{定義|ていぎ}しなければならない。5グループの{事前定義書|じぜんていぎしょ}を{確認|かくにん}した。"
+      - type: evidence
+        id: card-3
+        title: 各プロジェクトの評価指標事前定義書（5枚）
+        content: "【BグループからEグループ】{開始前|かいしまえ}に{記入|きにゅう}された{定義書|ていぎしょ}がそれぞれ1{枚|まい}ずつ{存在|そんざい}。{成功|せいこう}の{基準|きじゅん}・{測定方法|そくていほうほう}・{担当者|たんとうしゃ}が{明記|めいき}されている。　【ツクルグループ】{定義書|ていぎしょ}が{存在|そんざい}しない。{プロジェクト|ぷろじぇくと}の{全期間|ぜんきかん}を{通|とお}じて、{事前|じぜん}に{評価|ひょうか}{指標|しひょう}を{決|き}めた{記録|きろく}がない。"
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{テスト|てすと}{フェーズ|ふぇーず}のルールでは「{プロジェクト|ぷろじぇくと}{開始前|かいしまえ}に{評価|ひょうか}{指標|しひょう}を{定義|ていぎ}する」と{明記|めいき}されてる。ツクルのグループには{定義|ていぎ}{記録|きろく}がない——{後|あと}から{都合|つごう}のいい{数値|すうち}を{選|えら}んだ{可能性|かのうせい}があるわ。"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "さらに、{追加|ついか}の{手がかり|てがかり}として{アンケート|あんけーと}の{配布|はいふ}・{回収|かいしゅう}{記録|きろく}が{開示|かいじ}された。"
+      - type: evidence
+        id: card-4
+        title: 【追加HO】アンケート配布数・回収数と未回答者の理由
+        content: "【アンケート{配布|はいふ}{数|すう}】40{枚|まい}　【{回収|かいしゅう}{数|すう}】18{枚|まい}（{回収率|かいしゅうりつ}45%）　【{未回答者|みかいとうしゃ}】22{人|にん}（{全体|ぜんたい}の55%）　【{未回答者|みかいとうしゃ}22{人|にん}の{理由|りゆう}{集計|しゅうけい}】「{プロジェクト|ぷろじぇくと}を{知|し}らなかった」14{人|にん}・「{使|つか}わなかった」6{人|にん}・「{回答|かいとう}する{機会|きかい}がなかった」2{人|にん}　【{満足度|まんぞくど}4.2の{実態|じったい}】{回答|かいとう}した18{人|にん}のうちの{平均|へいきん}。{使|つか}わなかった22{人|にん}はそもそも{計算|けいさん}に{入|い}っていない。"
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanae
+        text: "22{人|にん}が{使|つか}わなかった——「{知|し}らなかった」が14{人|にん}も。{正確|せいかく}なデータを{見|み}たとき、{本当|ほんとう}に1{位|い}と{言|い}えるのかな。"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{使用率|しようりつ}で{計算|けいさん}すると——{使|つか}った{子|こ}は18{人|にん}/40{人|にん}で45%。{他|ほか}のグループの{使用率|しようりつ}と{比|くら}べると、ツクルのグループは3{位|い}になる。「{満足度|まんぞくど}が{高|たか}い」と「{使|つか}われた」は{全然|ぜんぜん}{別|べつ}のことだ。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{使用率|しようりつ}の{空白|くうはく}・{事前定義書|じぜんていぎしょ}の{欠落|けつらく}・22{人|にん}の{未回答者|みかいとうしゃ}——どれもツクルのプロジェクトを{指|さ}している。{動機|どうき}は{何|なに}だったのか。"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "{満足度|まんぞくど}は……{本当|ほんとう}に{高|たか}かった。{回答|かいとう}してくれた{子|こ}はみんな{喜|よろこ}んでくれてたんだ。{回収率|かいしゅうりつ}が{低|ひく}いのは{気|き}になってたけど、{満足度|まんぞくど}が{高|たか}いから{大丈夫|だいじょうぶ}だと{思|おも}ってた。"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "{後|あと}から「{都合|つごう}のいい{数値|すうち}」を{選|えら}ぶことを「チェリーピッキング」って{言|い}うの。{悪意|あくい}がなくてもおきやすい{判断|はんだん}{ミス|みす}——でも{他|ほか}のプロジェクトへの{不公平|ふこうへい}につながる。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hakaru
+        text: "{事前定義書|じぜんていぎしょ}の{欠落|けつらく}・{使用率|しようりつ}の{空白|くうはく}・{未回答者|みかいとうしゃ}22{人|にん}——{帰納法|きのうほう}で5{件|けん}のデータを{並|なら}べると、{異常値|いじょうち}は1つのグループだけに{集中|しゅうちゅう}している。{誰|だれ}が{中心|ちゅうしん}にいたのかは{明|あき}らかだ。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足とデータリテラシーの解説
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ツクルから{直接|ちょくせつ}{話|はなし}を{聞|き}きました。「{絶対|ぜったい}にいいプロジェクトにする」と{仲間|なかま}に{約束|やくそく}していたそうです。{回答率|かいとうりつ}が{低|ひく}いのは{気|き}になっていたけれど、{満足度|まんぞくど}が{高|たか}いから{大丈夫|だいじょうぶ}だと{思|おも}っていた——と。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{悪意|あくい}はなかった。でも「{何|なに}を{測|はか}るか」を{最初|さいしょ}に{決|き}めなければ、{後|あと}から{都合|つごう}のいい{数値|すうち}を{選|えら}べてしまう。それがデータの{怖|こわ}いところです。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足＋評価指標事前定義の重要性
+        content: "【ツクルの{告白|こくはく}】「{絶対|ぜったい}いいプロジェクトにするって{約束|やくそく}してた。{回収率|かいしゅうりつ}が{低|ひく}いのは{気|き}になってたけど、{満足度|まんぞくど}が{高|たか}いから{大丈夫|だいじょうぶ}と{思|おも}った」　【デザイン{思考|しこう}{テスト|てすと}{フェーズ|ふぇーず}の{大切|たいせつ}なルール】{成功|せいこう}の{基準|きじゅん}は「{プロジェクト|ぷろじぇくと}{開始前|かいしまえ}」に{全員|ぜんいん}で{決|き}める。{後|あと}から{指標|しひょう}を{選|えら}ぶことは「チェリーピッキング」——{意図|いと}せず{正確|せいかく}な{評価|ひょうか}を{歪|ゆが}める。　【{帰納法|きのうほう}による{比較|ひかく}】{使用率|しようりつ}を{指標|しひょう}にすると: ツクルG(45%)は5グループ{中|ちゅう}3{位|い}。「{何|なに}を{測|はか}るか」がデータの{意味|いみ}を{決|き}める。"
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "{事前定義書|じぜんていぎしょ}がない——これは{ルール違反|るーるいはん}の{証拠|しょうこ}。{悪意|あくい}があったかどうかより、「{正確|せいかく}な{評価|ひょうか}のための{仕組|しく}み」を{守|まも}らなかったことが{問題|もんだい}なの。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{約束|やくそく}を{守|まも}りたい→{都合|つごう}のいい{指標|しひょう}を{後|あと}から{選|えら}ぶ→{事前定義|じぜんていぎ}ルールが{守|まも}られない→22{人|にん}の{未使用|みしよう}データが{消|き}える→1{位|い}の{数値|すうち}が{根底|こんてい}から{意味|いみ}を{失|うしな}う。**「{何|なに}を{測|はか}るか」を{最初|さいしょ}に{決|き}めない{限|かぎ}り、データは{都合|つごう}よく{使|つか}えてしまう。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 評価指標を後から都合よく選んで1位の根拠にしたのは誰？
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①ツクルのグループだけ{使用率|しようりつ}の{欄|らん}が{空白|くうはく}。②{他|ほか}の4グループには{事前定義書|じぜんていぎしょ}があるが、ツクルグループには{存在|そんざい}しない。③{アンケート|あんけーと}{回収率|かいしゅうりつ}45%——{使|つか}わなかった22{人|にん}が{計算|けいさん}から{消|き}えていた。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{使用率|しようりつ}が{空白|くうはく}なのは1グループだけ。②{評価|ひょうか}{指標|しひょう}の{事前定義|じぜんていぎ}{記録|きろく}がない。③{未回答者|みかいとうしゃ}22{人|にん}のデータが{含|ふく}まれていない{数値|すうち}で1{位|い}を{主張|しゅちょう}した。④{仲間|なかま}への「{絶対|ぜったい}いいプロジェクトにする」という{誓|ちか}い。"
+      - type: choice
+        id: q1
+        question: 評価指標を後から都合よく選んで、1位の根拠にしたのは誰？
+        options:
+          - text: ツクル（評価指標を事前定義せず、テスト後に「都合の良い数値」を選んだ）
+            value: tsukuru
+            correct: true
+            feedback: "{正解|せいかい}！　ツクルの{満足度|まんぞくど}の{数値|すうち}は{嘘|うそ}じゃない。でも、{使|つか}わなかった22{人|にん}が{計算|けいさん}から{消|き}えていた。**デザイン{思考|しこう}の{テスト|てすと}{フェーズ|ふぇーず}には{大切|たいせつ}なルールがある——{成功|せいこう}の{基準|きじゅん}を{最初|さいしょ}に{決|き}めること。{後|あと}から{都合|つごう}のいい{数値|すうち}を{選|えら}ぶことを「チェリーピッキング」という。データはたくさん{集|あつ}めても、{何|なに}を{指標|しひょう}にするかを{最初|さいしょ}に{決|き}めないと、{誰|だれ}でも{好|す}きな{結論|けつろん}を{出|だ}せてしまう。**"
+          - text: カナエ（使わなかった子への聞き込みをした人）
+            value: kanae
+            feedback: "カナエは{使|つか}わなかった{子|こ}たちへの{聞|き}き{込|こ}みをして{証言|しょうげん}を{集|あつ}めた{側|がわ}だよ。{問題|もんだい}を{明|あき}らかにするために{動|うご}いていたよ。"
+          - text: ハカル（5つのデータを帰納法で比較した人）
+            value: hakaru
+            feedback: "ハカルは5{件|けん}のプロジェクトデータを{帰納法|きのうほう}で{比較|ひかく}し、{使用率|しようりつ}の{空白|くうはく}と{異常値|いじょうち}を{発見|はっけん}した{側|がわ}だよ。"
+          - text: ミナオス（評価指標の事前定義ルールを確認した人）
+            value: minaosu
+            feedback: "ミナオスは{評価|ひょうか}{指標|しひょう}の{事前定義|じぜんていぎ}ルールと{記録|きろく}の{欠落|けつらく}を{確認|かくにん}した{側|がわ}だよ。"
+
+  # ==================== 真相：ツクルの告白 ====================
+  - id: truth-tsukuru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ツクルの誓いとデータの落とし穴
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "……{僕|ぼく}です。{評価|ひょうか}{指標|しひょう}を{後|あと}から{選|えら}んだのは。{仲間|なかま}に「{絶対|ぜったい}いいプロジェクトにする」って{約束|やくそく}してたから——"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "{満足度|まんぞくど}は{本当|ほんとう}に{高|たか}かった。{回答|かいとう}してくれた{子|こ}たちはみんな{喜|よろこ}んでくれてた。{回収率|かいしゅうりつ}が{低|ひく}いのは{気|き}になってたけど……{満足度|まんぞくど}が{高|たか}いなら{大丈夫|だいじょうぶ}って{思|おも}いたかった。"
+        expression: worried
+      - type: dialog
+        character: tsukuru
+        text: "でも……{使|つか}わなかった22{人|にん}を{計算|けいさん}に{入|い}れてなかった。「{成功|せいこう}した」と{言|い}っていいのか、{分|わ}からなくなってきた。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "1{位|い}と{言|い}われて{喜|よろこ}んでた{子|こ}たちのことはうれしかった。でも{使|つか}わなかった22{人|にん}の「{知|し}らなかった」という{声|こえ}を{聞|き}いたとき——そっちの{方|ほう}が{大事|だいじ}なデータだって{気|き}がした。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: normal
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "ツクルの{気持|きも}ちは{理解|りかい}できる。{約束|やくそく}を{守|まも}りたかった——それは{本物|ほんもの}の{気持|きも}ちだ。でも{問題|もんだい}は{方法|ほうほう}。{指標|しひょう}を{最初|さいしょ}に{決|き}めておけば、こんな{誤解|ごかい}は{起|お}きなかった。"
+        expression: normal
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{善意|ぜんい}でも「{都合|つごう}のいい{数値|すうち}を{後|あと}から{選|えら}ぶ」と、{他|ほか}のプロジェクトが{不公平|ふこうへい}になる。{事前定義|じぜんていぎ}のルールは、{みんな|みんな}が{同|おな}じ{基準|きじゅん}で{評価|ひょうか}されるための{仕組|しく}みだったの。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== テーマの問い ====================
+  - id: theme-question
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 考えてみよう
+        subtitle: データと評価について
+      - type: narration
+        text: "{真相|しんそう}が{明|あき}らかになった。もう{一|ひと}つ、{大切|たいせつ}な{問|と}いを{一緒|いっしょ}に{考|かんが}えよう。"
+      - type: choice
+        id: q2
+        question: ツクルの「満足度4.2」は正確なデータだった？
+        options:
+          - text: 正確だった（回答した子の満足度は本当に高かった）
+            value: partly-correct
+            correct: true
+            feedback: "{正解|せいかい}！　{回答|かいとう}した18{人|にん}の{満足度|まんぞくど}は{本当|ほんとう}に4.2だった。でも「{何|なに}を{測|はか}るか」によって{結論|けつろん}が{変|か}わる。「{使|つか}った{子|こ}の{満足度|まんぞくど}」と「{全員|ぜんいん}に{届|とど}いたか」は{別|べつ}の{問|と}いだよ。データは{正確|せいかく}でも、{指標|しひょう}の{選|えら}び{方|かた}で{意味|いみ}が{変|か}わる——これが「{何|なに}を{測|はか}るか」の{大切|たいせつ}さだよ。"
+          - text: 不正確だった（嘘の数値を使っていた）
+            value: wrong
+            feedback: "{数値|すうち}そのものは{嘘|うそ}じゃないよ。{回答|かいとう}した18{人|にん}の{平均|へいきん}は{本当|ほんとう}に4.2だった。{問題|もんだい}は「{何|なに}を{測|はか}るか」を{最初|さいしょ}に{決|き}めなかったこと——{指標|しひょう}の{選|えら}び{方|かた}にある。"
+          - text: 分からない（データの見方による）
+            value: depends
+            feedback: "いい{考|かんが}え{方|かた}だよ！　{実|じつ}は「{何|なに}を{測|はか}るか」によって{判断|はんだん}が{変|か}わるのがデータの{特性|とくせい}。だから{最初|さいしょ}に{指標|しひょう}を{決|き}めることが{大切|たいせつ}なんだ。"
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デザイン{思考|しこう}の{テスト|てすと}{フェーズ|ふぇーず}の{大切|たいせつ}なルールを{確認|かくにん}しましょう。「{成功|せいこう}の{基準|きじゅん}は{開始前|かいしまえ}に{決|き}める」——これは、{後|あと}から{都合|つごう}のいい{数値|すうち}を{選|えら}べないようにするための{仕組|しく}みです。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ツクルの{気持|きも}ちは{本当|ほんとう}だった。{約束|やくそく}を{守|まも}りたかった——それは{大切|たいせつ}な{心|こころ}。でも{次回|じかい}は「{事前|じぜん}に{指標|しひょう}を{決|き}める」「{使用率|しようりつ}も{含|ふく}めて{測|はか}る」——そういう{設計|せっけい}を{選|えら}んでほしいわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{帰納法|きのうほう}】{複数|ふくすう}のデータを{比較|ひかく}して、{共通|きょうつう}{パターン|ぱたーん}と{異常値|いじょうち}を{発見|はっけん}するスキル。5{件|けん}のプロジェクトを{並|なら}べて{見|み}ると、1{件|けん}だけの{欠落|けつらく}が{見|み}えてくる。"
+      - type: narration
+        text: "【{学|まな}び②：{評価|ひょうか}{指標|しひょう}の{事前定義|じぜんていぎ}】「{何|なに}を{測|はか}るか」を{最初|さいしょ}に{決|き}めないと、データは{都合|つごう}よく{使|つか}えてしまう。これを「チェリーピッキング」という。{正確|せいかく}な{評価|ひょうか}のためには、{全員|ぜんいん}が{同|おな}じ{基準|きじゅん}で{測|はか}ることが{必要|ひつよう}だ。"
+      - type: sprite
+        character: tsukuru
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{次|つぎ}のプロジェクトでは、{最初|さいしょ}に「{成功|せいこう}の{基準|きじゅん}」をみんなで{決|き}める。{使用率|しようりつ}も{満足度|まんぞくど}も、{両方|りょうほう}{測|はか}る。{約束|やくそく}を{守|まも}るためにこそ、{正確|せいかく}なデータが{必要|ひつよう}だって——{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: happy
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{帰納法|きのうほう}で5{件|けん}を{比|くら}べたから{見|み}えた。データは1{件|けん}だけ{見|み}ていると{気|き}づけないことが{多|おお}い——{複数|ふくすう}を{並|なら}べて{比|くら}べることが{推理|すいり}の{基本|きほん}だ。"
+        expression: happy
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: effect
+        name: fade-out

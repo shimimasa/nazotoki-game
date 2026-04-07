@@ -1,0 +1,483 @@
+meta:
+  id: energy-10
+  title: 未来への選択
+  series: エネルギー探偵団
+  volume: 10
+  estimatedMinutes: 25
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}のエネルギー{委員会|いいんかい}が「30{年後|ねんご}の{学校|がっこう}エネルギー{計画書|けいかくしょ}」を{発表|はっぴょう}した。Vol.1の{電気回路|でんきかいろ}から、Vol.9のエネルギーミックスまで——{積|つ}み{重|かさ}ねてきた{知識|ちしき}が、いま{一枚|いちまい}の{計画書|けいかくしょ}に{結実|けつじつ}しているはずだった。"
+      - type: narration
+        text: "ところが{発表|はっぴょう}の{直後|ちょくご}、ヒカルが{計画書|けいかくしょ}の{草稿版|そうこうばん}と{発表版|はっぴょうばん}を{見比|みくら}べ——{息|いき}をのんだ。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: hikaru
+        expression: surprised
+        position: center
+      - type: dialog
+        character: hikaru
+        text: "ちょっと{待|ま}って！　{再生可能|さいせいかのう}エネルギー100%の{草稿|そうこう}が——{化石燃料|かせきねんりょう}{混合案|こんごうあん}に{変|か}わってる。{誰|だれ}が{書|か}き{換|か}えたの？"
+        expression: surprised
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: worried
+          - character: hikaru
+            expression: thinking
+          - character: netsumi
+            expression: worried
+          - character: chikara
+            expression: surprised
+      - type: narration
+        text: "{委員会|いいんかい}の{計画書|けいかくしょ}が{書|か}き{換|か}えられていた。{再生可能|さいせいかのう}エネルギー{中心|ちゅうしん}の{案|あん}が、{低|てい}コストな{化石燃料|かせきねんりょう}{中心|ちゅうしん}の{案|あん}に{変|か}えられている。{誰|だれ}が、なぜ——4{人|にん}の{推理|すいり}が{始|はじ}まる。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 未来への選択
+        subtitle: エネルギー探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 2つの計画書と書き換え箇所
+      - type: narration
+        text: "ヒカルが{草稿版|そうこうばん}と{発表版|はっぴょうばん}を{並|なら}べて{配|くば}った。{変更|へんこう}{箇所|かしょ}の{一覧|いちらん}が{目|め}に{飛|と}び{込|こ}んでくる。"
+      - type: evidence
+        id: card-1
+        title: 計画書2バージョン比較（草稿版 vs 発表版）
+        content: "【{草稿版|そうこうばん}：{再生可能|さいせいかのう}エネルギー100%{案|あん}】{太陽光|たいようこう}パネル60%・{風力|ふうりょく}20%・{地熱|ちねつ}20%。CO₂{排出|はいしゅつ}ゼロを{目標|もくひょう}。{初期|しょき}{費用|ひよう}は{高|たか}いが{長期|ちょうき}コストは{低|てい}い。　【{発表版|はっぴょうばん}：{化石燃料|かせきねんりょう}{混合案|こんごうあん}】{太陽光|たいようこう}30%・{天然|てんねん}ガス50%・その{他|た}20%。{電気代|でんきだい}を{現状|げんじょう}{維持|いじ}。CO₂{排出|はいしゅつ}は{現状|げんじょう}の70%。　【{変更|へんこう}{箇所|かしょ}の{傾向|けいこう}】{再生可能|さいせいかのう}エネルギーの{割合|わりあい}が{全|すべ}て{引|ひ}き{下|さ}げられ、{化石燃料|かせきねんりょう}の{割合|わりあい}が{引|ひ}き{上|あ}げられている"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{草稿|そうこう}から{発表版|はっぴょうばん}への{変更|へんこう}は{偶然|ぐうぜん}じゃない。{再生可能|さいせいかのう}エネルギーが{全部|ぜんぶ}{下|さ}げられてる——{意図的|いとてき}に{書|か}き{換|か}えた{人|ひと}がいる。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "では{誰|だれ}が{書|か}き{換|か}えられる{立場|たちば}にあったのか。ヒカルが{会議室|かいぎしつ}の{使用記録|しようきろく}を{調|しら}べていた——"
+      - type: evidence
+        id: card-2
+        title: ヒカルの調査記録（タイムライン＋会議室使用ログ）
+        content: "【{会議室|かいぎしつ}{使用|しよう}タイムライン】{草稿|そうこう}{完成日|かんせいび}の{翌日|よくじつ}{夜間|やかんに}（18:00〜20:00）に{会議室|かいぎしつ}が{使用|しよう}されている。{入室|にゅうしつ}カードの{記録|きろく}：デンタの{生徒証|せいとしょう}が{使用|しよう}された。　【{鍵|かぎ}の{管理|かんり}{記録|きろく}】{当日|とうじつ}のカギを{返却|へんきゃく}したのはデンタ。{他|ほか}のメンバーの{入室|にゅうしつ}ログはなし。　【デンタの{残業|ざんぎょう}{記録|きろく}】{当該|とうがい}{時間帯|じかんたい}に{委員会|いいんかい}{資料|しりょう}の{印刷|いんさつ}ログあり。"
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{当日|とうじつ}の{夜|よる}、{会議室|かいぎしつ}を{使|つか}ったのはデンタだけ——タイムライン{的|てき}にも、{鍵|かぎ}の{記録|きろく}でも{一致|いっち}している。{他|ほか}のメンバーが{入|はい}った{記録|きろく}はない。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: LCAデータと動機の深化
+      - type: narration
+        text: "ネツミが{持|も}っているLCA（ライフサイクルアセスメント）データが{配|くば}られた。{数値|すうち}が{並|なら}ぶ{表|ひょう}——それは「どちらの{案|あん}が{正|ただ}しいか」に{簡単|かんたん}に{答|こた}えられない{理由|りゆう}を{示|しめ}していた。"
+      - type: evidence
+        id: card-3
+        title: ネツミのLCAデータ（各発電方法の多変数比較表）
+        content: "【{発電|はつでん}{方法|ほうほう}ごとの{比較|ひかく}表】{太陽光|たいようこう}パネル：{製造|せいぞう}CO₂（{高|たか}）・{運用|うんよう}CO₂（ゼロ）・{寿命|じゅみょう}25〜30{年|ねん}・{廃棄|はいき}{費用|ひよう}（{中|ちゅう}）・{初期|しょき}{費用|ひよう}（{高|たか}）・{電気代|でんきだい}{長期|ちょうき}（{低|てい}）。{天然|てんねん}ガス：{製造|せいぞう}CO₂（{低|てい}）・{運用|うんよう}CO₂（{高|たか}）・{廃棄|はいき}（{低|てい}）・{初期|しょき}{費用|ひよう}（{低|てい}）・{電気代|でんきだい}{長期|ちょうき}（{変動|へんどう}{大|おお}）。　【{結論|けつろん}】{再生可能|さいせいかのう}エネルギーは{長期|ちょうき}でCO₂を{削減|さくげん}するが、{初期|しょき}{費用|ひよう}と{製造|せいぞう}{段階|だんかい}のCO₂が{課題|かだい}。{天然|てんねん}ガスは{初期|しょき}{費用|ひよう}が{低|てい}いが{長期|ちょうき}CO₂は{高|たか}い。「どちらが{正解|せいかい}」は{一概|いちがい}に{言|い}えない。"
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "LCAで{見|み}ると、{太陽光|たいようこう}パネルは{製造|せいぞう}{段階|だんかい}でもCO₂が{出|で}る。{長期|ちょうき}では{削減|さくげん}になるけど、{初期|しょき}コストは{高|たか}い——{単純|たんじゅん}に「{再生可能|さいせいかのう}が{正解|せいかい}」とは{言|い}い{切|き}れないデータがある。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: narration
+        text: "チカラが{静|しず}かに{口|くち}を{開|ひら}いた。デンタについて、{他|ほか}の{誰|だれ}も{知|し}らない{事情|じじょう}を——"
+      - type: evidence
+        id: card-4
+        title: チカラの個人情報とデンタが見た電気代試算資料
+        content: "【チカラだけが{知|し}る{個人|こじん}{情報|じょうほう}】デンタの{家|いえ}は{電気代|でんきだい}の{節約|せつやく}を{一生懸命|いっしょうけんめい}{頑張|がんば}っている。{毎月|まいつき}の{電気代|でんきだい}が{家族|かぞく}の{話題|わだい}に{上|のぼ}ることが{多|おお}く、「{電気代|でんきだい}が{上|あ}がったら{困|こま}る」という{言葉|ことば}を{聞|き}いたことがある。　【デンタが{見|み}た{電気代|でんきだい}{試算|しさん}{資料|しりょう}】{再生可能|さいせいかのう}エネルギー100%{案|あん}では、{移行|いこう}{期間|きかん}に{電気代|でんきだい}が{現在|げんざい}の1.5{倍|ばい}になる{試算|しさん}がある。デンタはこの{資料|しりょう}を{委員会|いいんかい}{外|そと}で{入手|にゅうしゅ}していた。"
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "デンタの{家|いえ}は{電気代|でんきだい}の{節約|せつやく}を{頑張|がんば}っているって{聞|き}いた。だから——{電気代|でんきだい}が1.5{倍|ばい}になるって{試算|しさん}を{見|み}たとき、{余計|よけい}に{気|き}になったんだと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: denta
+        expression: worried
+        position: left
+      - type: dialog
+        character: denta
+        text: "……{電気代|でんきだい}が{払|はら}えない{家庭|かてい}が{増|ふ}えたら{誰|だれ}が{助|たす}けるの。その{心配|しんぱい}は{間違|まちが}ってた？"
+        expression: worried
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 第1推理・投票（犯人特定） ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 第1推理タイム
+        subtitle: 計画書を書き換えたのは誰？
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{草稿|そうこう}から{発表版|はっぴょうばん}への{変更|へんこう}は{意図的|いとてき}——{再生可能|さいせいかのう}エネルギーが{全部|ぜんぶ}{下|さ}げられた。②{書|か}き{換|か}えられた{夜|よる}の{会議室|かいぎしつ}ログはデンタのみ。③デンタが{電気代|でんきだい}1.5{倍|ばい}の{試算|しさん}を{見|み}ていた。④チカラの{情報|じょうほう}からデンタの{個人的|こじんてき}な{事情|じじょう}も{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた——{誰|だれ}が{計画書|けいかくしょ}の{書|か}き{換|か}えの{中心|ちゅうしん}にいたか、{見|み}えてくる。{書|か}き{換|か}えたのは{誰|だれ}？"
+      - type: choice
+        id: q1
+        question: 計画書を書き換えたのは誰？
+        options:
+          - text: デンタ（電気代が高くなることを心配して、再生可能エネルギー案を変えた）
+            value: denta
+            correct: true
+            feedback: "{正解|せいかい}！　デンタの{心配|しんぱい}は{本物|ほんもの}です。{電気代|でんきだい}が{払|はら}えない{家庭|かてい}が{増|ふ}えることへの{配慮|はいりょ}——その{心|こころ}は{真剣|しんけん}でした。**でも、{本当|ほんとう}の{問|とい}いはまだ{終|お}わっていない。次の{問|とい}いへ{進|すす}もう。**"
+          - text: ヒカル（書き換え箇所のタイムラインを調べた人）
+            value: hikaru
+            correct: false
+            feedback: "ヒカルは{計画書|けいかくしょ}の2バージョンを{見比|みくら}べて{書|か}き{換|か}えを{発見|はっけん}した{側|がわ}だよ。{会議室|かいぎしつ}の{使用|しよう}ログを{調|しら}べ、{問題|もんだい}を{明|あき}らかにした{行動|こうどう}型のキャラクター。"
+          - text: ネツミ（LCAデータを分析した人）
+            value: netsumi
+            correct: false
+            feedback: "ネツミはLCA（ライフサイクルアセスメント）のデータを{分析|ぶんせき}した{側|がわ}だよ。{慎重|しんちょう}に{証拠|しょうこ}を{観察|かんさつ}し、「どちらが{正解|せいかい}か{一概|いちがい}に{言|い}えない」ことを{示|しめ}した。"
+          - text: チカラ（デンタの事情を知っていた人）
+            value: chikara
+            correct: false
+            feedback: "チカラはデンタの{個人的|こじんてき}な{事情|じじょう}を{知|し}っていた{側|がわ}だよ。{会議室|かいぎしつ}の{入室|にゅうしつ}ログにチカラの{記録|きろく}はなく、{書|か}き{換|か}えに{関|かか}わっていない。"
+
+  # ==================== 反転：証拠カード5（パラダイムシフト） ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足と「エネルギー選択の本当の難しさ」
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デンタが{書|か}き{換|か}えたことは{分|わ}かった。でも{新|あたら}しい{証拠|しょうこ}があります——デンタが{先生|せんせい}に{話|はな}してくれたことと、{先生|せんせい}からの{補足|ほそく}です。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 先生の補足「エネルギー選択に唯一の正解はない」＋Vol.1-9知識の連鎖図
+        content: "【デンタの{告白|こくはく}（{先生|せんせい}への{相談|そうだん}）】「{電気代|でんきだい}が1.5{倍|ばい}になると{試算|しさん}を{見|み}た。{困|こま}る{家庭|かてい}が{出|で}ると{思|おも}った。でも{委員会|いいんかい}で{言|い}えなかった——{賛成|さんせい}してもらえないと{思|おも}って。{一人|ひとり}で{変|か}えてしまった。ウソをついていた」と{話|はな}した。　【{先生|せんせい}の{補足|ほそく}】コスト・CO₂・{公平性|こうへいせい}は{全|すべ}て{大切|たいせつ}で、どれを{優先|ゆうせん}するかはトレードオフ。{唯一|ゆいいつ}の{正解|せいかい}はない——だから{委員会|いいんかい}が{存在|そんざい}する。みんなで{議論|ぎろん}して{選|えら}ぶために。　【Vol.1〜9の{振|ふ}り{返|かえ}り】Vol.1:{回路|かいろ}の{仕組|しく}み→Vol.3:{太陽光|たいようこう}{発電|はつでん}の{特性|とくせい}→Vol.4:{風力|ふうりょく}{発電|はつでん}→Vol.7:{節電|せつでん}の{考|かんが}え{方|かた}→Vol.9:エネルギーミックス・LCA——{全|すべ}ての{知識|ちしき}が「{未来|みらい}のエネルギーをどう{選|えら}ぶか」という{今日|きょう}の{問|とい}いにつながっている。"
+      - type: se
+        sound: reveal
+      - type: sprite
+        character: denta
+        expression: worried
+        position: center
+      - type: dialog
+        character: denta
+        text: "……{全部|ぜんぶ}{話|はな}す。{電気代|でんきだい}が{払|はら}えない{家庭|かてい}が{増|ふ}えるかもしれないって——{本当|ほんとう}に{心配|しんぱい}してた。でも{一人|ひとり}で{変|か}えてしまった。{委員会|いいんかい}で「{電気代|でんきだい}の{心配|しんぱい}がある」って{言|い}えばよかったのに。"
+        expression: worried
+      - type: dialog
+        character: denta
+        text: "{嘘|うそ}をついて、{委員会|いいんかい}の{議論|ぎろん}を{消|け}してしまった——それが{一番|いちばん}の{問題|もんだい}だった。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デンタの{心配|しんぱい}は{本物|ほんもの}だった。{電気代|でんきだい}の{公平性|こうへいせい}という{問|とい}いは{本当|ほんとう}に{大切|たいせつ}——でも{気|き}づいてほしいことがある。{再生可能|さいせいかのう}エネルギーにするかどうか、それは「{唯一|ゆいいつ}の{正解|せいかい}」がある{問題|もんだい}ではないの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "**{良心|りょうしん}からの{行動|こうどう}——でもその{行動|こうどう}が、「エネルギー{選択|せんたく}をみんなで{議論|ぎろん}する」という{委員会|いいんかい}の{意味|いみ}そのものを{消|け}してしまった。{誰|だれ}か{一人|ひとり}が{決|き}めるのではなく、コスト・CO₂・{公平性|こうへいせい}を{全員|ぜんいん}で{議論|ぎろん}して{選|えら}ぶこと——それが{問|とい}いの{核心|かくしん}だ。**"
+
+  # ==================== 真相：デンタの告白 ====================
+  - id: truth
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: かばう罪悪感
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: denta
+        expression: worried
+        position: center
+      - type: dialog
+        character: denta
+        text: "……{改|あらた}めて、ちゃんと{話|はな}す。{委員会|いいんかい}の{資料|しりょう}を{整理|せいり}していたとき——{電気代|でんきだい}が{現在|げんざい}の1.5{倍|ばい}になるって{試算|しさん}を{見|み}た。"
+        expression: worried
+      - type: dialog
+        character: denta
+        text: "{困|こま}る{家庭|かてい}が{増|ふ}えるって{思|おも}って、{怖|こわ}くなった。{委員会|いいんかい}で「{電気代|でんきだい}の{心配|しんぱい}がある」って{言|い}ったら、{賛成|さんせい}してもらえないかもしれないと——だから{一人|ひとり}で{変|か}えてしまった。"
+        expression: worried
+      - type: dialog
+        character: denta
+        text: "でも……{委員会|いいんかい}で{言|い}えば{良|よ}かった。「この{心配|しんぱい}を{一緒|いっしょ}に{考|かんが}えてほしい」って——{一人|ひとり}で{変|か}えたことで、みんなの{議論|ぎろん}の{場|ば}を{奪|うば}ってしまった。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{怒|おこ}ってた、{最初|さいしょ}は。でも——デンタの{心配|しんぱい}は{本当|ほんとう}のことだよね。{電気代|でんきだい}の{問題|もんだい}は{本物|ほんもの}だ。{書|か}き{換|か}えた{方法|ほうほう}は{問題|もんだい}だけど、{問題|もんだい}{意識|いしき}は{正|ただ}しかった。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "LCAデータを{見|み}ると、{再生可能|さいせいかのう}か{化石燃料|かせきねんりょう}かは{本当|ほんとう}に{複雑|ふくざつ}な{問題|もんだい}。デンタの{心配|しんぱい}を{委員会|いいんかい}に{出|だ}していたら、もっと{豊|ゆた}かな{議論|ぎろん}ができたはず。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "デンタが「{困|こま}る{人|ひと}を{出|だ}したくない」って{思|おも}ってたの——{知|し}ってたから、{余計|よけい}につらい。でも{一人|ひとり}で{変|か}えると、ほかの{人|ひと}の{意見|いけん}が{消|き}えてしまう。{議論|ぎろん}は{複数|ふくすう}の{声|こえ}を{聞|き}くためにある。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デンタの{行動|こうどう}は{認|みと}められない。でも「{困|こま}る{人|ひと}を{出|だ}したくなかった」{気持|きも}ちは{本物|ほんもの}だった——その{善意|ぜんい}を{認|みと}めた{上|うえ}で、「{委員会|いいんかい}で{声|こえ}に{出|だ}せた{方|ほう}がよかった」と{伝|つた}えたい。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ==================== 第2推理・投票（価値判断） ====================
+  - id: deduction-2
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 第2推理タイム
+        subtitle: デンタが計画書を書き換えたことをどう思う？
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "デンタの{心配|しんぱい}は{本物|ほんもの}だった。でも{一人|ひとり}で{変|か}えてしまったことで、みんなの{声|こえ}が{消|き}えた——これは{正解|せいかい}と{不正解|ふせいかい}だけの{問|とい}いじゃない。{答|こた}えの{深|ふか}さを{自分|じぶん}で{考|かんが}えてほしい。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "{今日|きょう}{学|まな}んだ{全部|ぜんぶ}を{使|つか}って——{自分|じぶん}の{考|かんが}えを{選|えら}ぼう。"
+      - type: choice
+        id: q2
+        question: デンタが計画書を書き換えたことはどう思う？
+        options:
+          - text: 悪い。嘘をついてはいけない
+            value: option-a
+            correct: false
+            feedback: "{正|ただ}しい。でも「どうすれば{良|よ}かったか」も{考|かんが}えよう——{委員会|いいんかい}で「{電気代|でんきだい}の{心配|しんぱい}がある」と{発言|はつげん}することが{正|ただ}しい{方法|ほうほう}でした。{嘘|うそ}をつかずに{問題|もんだい}{意識|いしき}を{出|だ}すことが、{議論|ぎろん}の{始|はじ}まりになった。"
+          - text: 仕方ない。電気代の問題は本物だから
+            value: option-b
+            correct: false
+            feedback: "デンタの{心配|しんぱい}は{本物|ほんもの}。でも{一人|ひとり}で{決|き}めると、ほかの{人|ひと}の{意見|いけん}が{消|き}えてしまう。{議論|ぎろん}は{複数|ふくすう}の{声|こえ}を{聞|き}くためにある——{電気代|でんきだい}の{心配|しんぱい}も、CO₂の{問題|もんだい}も、{両方|りょうほう}を{委員会|いいんかい}で{話|はな}し{合|あ}えた。"
+          - text: どちらも正しい。一つの選択に正解はない
+            value: option-c
+            correct: false
+            feedback: "{素晴|すば}らしい{視点|してん}。コスト・{環境|かんきょう}・{公平性|こうへいせい}は{全部|ぜんぶ}{大切|たいせつ}で、どれを{優先|ゆうせん}するかはみんなで{決|き}めること——{唯一|ゆいいつ}の{正解|せいかい}はない。でも{一人|ひとり}で{決|き}めてしまったことで、「みんなで{決|き}める」という{大切|たいせつ}なプロセスが{失|うしな}われた。もう{一歩|いっぽ}{深|ふか}く{考|かんが}えられる。"
+          - text: 問題のある方法。でも問題意識は正しい。だから議論するべきだった
+            value: option-d
+            correct: true
+            feedback: "これが{最|もっと}も{深|ふか}い{答|こた}え。デンタの{問|とい}いかけ（{電気代|でんきだい}の{公平性|こうへいせい}）は{本物|ほんもの}の{問題|もんだい}。それを{委員会|いいんかい}でぶつけることが、{民主主義|みんしゅしゅぎ}的なエネルギー{選択|せんたく}の{第一歩|だいいっぽ}です。**エネルギー{選択|せんたく}に{唯一|ゆいいつ}の{正解|せいかい}はない——コスト・CO₂・{公平性|こうへいせい}の{全部|ぜんぶ}を、みんなで{議論|ぎろん}して{選|えら}ぶものです。**"
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "エネルギー探偵団が{今|いま}まで{追|お}いかけてきた{問|とい}い——エネルギーとは{何|なん}だろう。Vol.1の{電気回路|でんきかいろ}から、Vol.9のエネルギーミックスまで——{全|すべ}ての{知識|ちしき}が「{未来|みらい}のエネルギーをどう{選|えら}ぶか」という{今日|きょう}の{問|とい}いにつながっていた。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "デンタが{経験|けいけん}した{罪悪感|ざいあくかん}——「{困|こま}る{人|ひと}を{出|だ}したくなかった」という{善意|ぜんい}の{裏|うら}に、「{委員会|いいんかい}で{言|い}えない」という{孤独|こどく}な{判断|はんだん}があった。{目標|もくひょう}が「みんなで{決|き}める」ではなく「{自分|じぶん}で{決|き}める」になった{瞬間|しゅんかん}——{議論|ぎろん}が{向|む}かう{先|さき}が{変|か}わってしまった。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: thinking
+          - character: hikaru
+            expression: determined
+          - character: netsumi
+            expression: happy
+          - character: chikara
+            expression: determined
+      - type: narration
+        text: "**{学|まな}び①　LCA（ライフサイクルアセスメント）で{考|かんが}える。**　{太陽光|たいようこう}パネルは{製造|せいぞう}{段階|だんかい}でCO₂が{出|で}るが{長期|ちょうき}で{削減|さくげん}になる。{化石燃料|かせきねんりょう}は{初期|しょき}{費用|ひよう}が{低|てい}いが{長期|ちょうき}CO₂は{高|たか}い。{製造|せいぞう}から{廃棄|はいき}まで{全体|ぜんたい}で{評価|ひょうか}することが{大切|たいせつ}。"
+      - type: narration
+        text: "**{学|まな}び②　エネルギー{選択|せんたく}のトレードオフ。**　コスト・CO₂・{公平性|こうへいせい}はどれも{大切|たいせつ}で、どれを{優先|ゆうせん}するかには「{唯一|ゆいいつ}の{正解|せいかい}」はない。だから{委員会|いいんかい}が{存在|そんざい}する——みんなで{議論|ぎろん}して{選|えら}ぶために。"
+      - type: narration
+        text: "**{学|まな}び③　{複合|ふくごう}{推理|すいり}＋メタ{認知|にんち}。**　Vol.1〜9で{学|まな}んだ{消去法|しょうきょほう}・{情報整理|じょうほうせいり}・{因果連鎖|いんがれんさ}・タイムライン・{仮説検証|かせつけんしょう}・{全探索|ぜんたんさく}・{情報欠落|じょうほうけつらく}・{認知|にんち}バイアス・{帰納法|きのうほう}——{全|すべ}てのスキルが{今日|きょう}の{一|ひと}つの{問|とい}いに{集|あつ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: sprite
+        character: denta
+        expression: determined
+        position: left
+      - type: dialog
+        character: denta
+        text: "「{電気代|でんきだい}が{払|はら}えない{家庭|かてい}が{増|ふ}えたら」——その{心配|しんぱい}は{間違|まちが}っていなかった。でも{一人|ひとり}で{変|か}えるのではなく、{委員会|いいんかい}で{言葉|ことば}にすれば{良|よ}かった。それが{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: happy
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "Vol.1の{電気回路|でんきかいろ}から、Vol.10の{未来|みらい}のエネルギーまで——{全部|ぜんぶ}のエネルギーは{変換|へんかん}でつながっている。そのエネルギーをどう{作|つく}り、どう{使|つか}うかを{選|えら}ぶのは、{未来|みらい}の{僕|ぼく}たちだ。"
+        expression: happy
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: narration
+        text: "**エネルギー探偵団——{全|ぜん}10{巻|かん}、これにて{完結|かんけつ}。**　Vol.1の{電気回路|でんきかいろ}から{始|はじ}まった{旅|たび}が——{今日|きょう}、「{未来|みらい}のエネルギーをみんなで{選|えら}ぶ」という{最|もっと}も{大切|たいせつ}な{問|とい}いに{辿|たど}り{着|つ}いた。その{問|とい}いは、あなたの{中|なか}に{続|つづ}いていく。"
+      - type: effect
+        name: fade-out

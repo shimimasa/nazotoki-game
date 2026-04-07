@@ -1,0 +1,456 @@
+meta:
+  id: classic-09
+  title: 平家物語の証言
+  series: 古典探偵団
+  volume: 9
+  estimatedMinutes: 22
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "国語の{授業|じゅぎょう}で、「{祇園精舎|ぎおんしょうじゃ}の{鐘|かね}の{声|こえ}」——{平家物語|へいけものがたり}の{冒頭|ぼうとう}を{朗読|ろうどく}する{発表会|はっぴょうかい}が{行|おこな}われた。"
+      - type: narration
+        text: "3{人|にん}の{生徒|せいと}がそれぞれ{朗読|ろうどく}したが、{語|かた}り{方|かた}はバラバラだった。1{人|にん}は「{力強|ちからづよ}く」、1{人|にん}は「{悲|かな}しげに」、1{人|にん}は「{静|しず}かに」。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{発表|はっぴょう}の{翌日|よくじつ}——「{統一版|とういつばん}」と{書|か}かれた{台本|だいほん}が{教室|きょうしつ}に{置|お}かれていた。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{朗読|ろうどく}の{発表会|はっぴょうかい}の{後|あと}、{誰|だれ}かが3{人|にん}の{語|かた}り{方|かた}を1つに{揃|そろ}えた「{統一版|とういつばん}」の{台本|だいほん}を{作|つく}っていたの。{元|もと}の{語|かた}りの{多様性|たようせい}が{消|き}えてしまうって{問題|もんだい}になっているわ。{誰|だれ}がなぜ{統一版|とういつばん}を{作|つく}ったのか——{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: worried
+          - character: utayomi
+            expression: surprised
+          - character: shirabe
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{目|め}を{見合|みあ}わせた。「{統一版|とういつばん}＝{正|ただ}しい{読|よ}み{方|かた}」——{本当|ほんとう}にそうなのか？ {謎|なぞ}は{深|ふか}まるばかりだった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 平家物語の証言
+        subtitle: 古典探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 統一版の台本と平家物語ガイド
+      - type: narration
+        text: "{統一版|とういつばん}の{台本|だいほん}が{見|み}つかった。3{人|にん}の{朗読|ろうどく}メモ——A＝{力強|ちからづよ}い、B＝{悲|かな}しげ、C＝{静|しず}か——それぞれの{語|かた}り{方|かた}が{記録|きろく}されている。"
+      - type: evidence
+        id: card-1
+        title: 統一版の台本＋3人の朗読メモ
+        content: "{語|かた}り{手|て}A＝{力強|ちからづよ}い・{速|はや}い・「{おごれる{者|もの}」を{強調|きょうちょう}}」　{語|かた}り{手|て}B＝{悲|かな}しげ・ゆっくり・「{久|ひさ}しからず」を{強調|きょうちょう}　{語|かた}り{手|て}C＝{静|しず}か・ふつう・「{鐘|かね}の{声|こえ}」を{強調|きょうちょう}　{統一版|とういつばん}＝ゆっくり・「{久|ひさ}しからず」を{強調|きょうちょう}（B{寄|よ}り）　[{原文|げんぶん}：「{祇園精舎|ぎおんしょうじゃ}の{鐘|かね}の{声|こえ}、{諸行無常|しょぎょうむじょう}の{響|ひびき}きあり」＝「{祇園精舎|ぎおんしょうじゃ}のお{寺|てら}の{鐘|かね}の{音|おと}は、"すべてのものは{変|か}わっていく"と{響|ひび}いている」]"
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{統一版|とういつばん}のメモを3{人|にん}の{語|かた}りと{見比|みくら}べてみると……ゆっくりした{速|はや}さ、「{久|ひさ}しからず」を{強調|きょうちょう}——これ、{語|かた}り{手|て}Bとすごく{似|に}てる。"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "続いて「{平家物語|へいけものがたり}かんたんガイド」が{配|くば}られた。{琵琶法師|びわほうし}の{説明|せつめい}と「{口承文学|こうしょうぶんがく}」のしくみが{書|か}かれている。"
+      - type: evidence
+        id: card-2
+        title: 平家物語かんたんガイド
+        content: "{平家物語|へいけものがたり}は{琵琶法師|びわほうし}が{語|かた}り{伝|つた}えた「{口承文学|こうしょうぶんがく}」。{口承文学|こうしょうぶんがく}＝{語|かた}り{手|て}が{伝|つた}える{文学|ぶんがく}で、{語|かた}る{人|ひと}によって{変|か}わるのが{当|あ}たり{前|まえ}。{覚一本|かくいちぼん}・{延慶本|えんぎょうぼん}など{複数|ふくすう}の{版|ばん}が{存在|そんざい}する。「{正|ただ}しい1つの{版|ばん}」はそもそも{存在|そんざい}しない。[{比較表|ひかくひょう}：{語|かた}り{手|て}A＝{戦|たたか}いの{物語|ものがたり}、B＝{滅|ほろ}びの{悲|かな}しさ、C＝{自然|しぜん}の{摂理|せつり}、{統一版|とういつばん}＝{悲|かな}しさ{中心|ちゅうしん}（B{最寄|もよ}り）]"
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "{口承文学|こうしょうぶんがく}って、{語|かた}る{人|ひと}によって{変|か}わるのが{当|あ}たり{前|まえ}なんだ！　そもそも「{正|ただ}しい1つの{版|ばん}」なんて{存在|そんざい}しないってこと？"
+        expression: thinking
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 調査：証拠カード3+4（全員データ比較タイム） ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 全員データ比較タイム
+      - type: narration
+        text: "**全員データ比較タイム。**　3{人|にん}の{語|かた}りと{統一版|とういつばん}を{比較表|ひかくひょう}に{並|なら}べて{分析|ぶんせき}する。{共通|きょうつう}パターンと{違|ちが}いパターンを{見|み}つけることが{推理|すいり}の{鍵|かぎ}だ。"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "{語|かた}り{手|て}Aは「{戦|たたか}い」の{迫力|はくりょく}、Bは「{無常|むじょう}」の{悲|かな}しみ、Cは「{自然|しぜん}」の{静|しず}けさを{表現|ひょうげん}してた。3{人|にん}とも{本気|ほんき}で{語|かた}ったんだよ。どれも{平家物語|へいけものがたり}の{本物|ほんもの}の{側面|そくめん}だって{思|おも}う。"
+        expression: normal
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: evidence
+        id: card-3
+        title: 全員データ比較タイムの結果整理シート
+        content: "[{比較|ひかく}]{声|こえ}の{大|おお}きさ：A＝大、B＝中、C＝小、{統一版|とういつばん}＝中（B{寄|よ}り）　{速|はや}さ：A＝{速|はや}い、B＝ゆっくり、C＝ふつう、{統一版|とういつばん}＝ゆっくり（B{寄|よ}り）　{強調|きょうちょう}する{言葉|ことば}：A＝「おごれる{者|もの}」、B＝「{久|ひさ}しからず」、C＝「{鐘|かね}の{声|こえ}」、{統一版|とういつばん}＝「{久|ひさ}しからず」（B{寄|よ}り）　{全体|ぜんたい}の{印象|いんしょう}：A＝{戦|たたか}い、B＝{滅|ほろ}びの{悲|かな}しさ、C＝{自然|しぜん}、{統一版|とういつばん}＝{悲|かな}しさ{中心|ちゅうしん}（B{最寄|もよ}り）　→{帰納|きのう}：{統一版|とういつばん}は{語|かた}り{手|て}Bの{語|かた}りに{最|もっと}も{近|ちか}い"
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: right
+      - type: dialog
+        character: fumika
+        text: "{統一版|とういつばん}を3{人|にん}と{比|くら}べた。これ、ほとんどBさんの{語|かた}り{方|かた}だ。「{統一|とういつ}」じゃなくて「1{人|ひと}の{語|かた}りを{選|えら}んだ」だけだよ。Bの{語|かた}りを{聞|き}いた{人|ひと}が{作|つく}ったんじゃないかな。"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "もう1{枚|まい}の{証拠|しょうこ}——コトバの{放課後|ほうかご}スケジュールとウタヨミの{調査|ちょうさ}が{出|で}てきた。"
+      - type: evidence
+        id: card-4
+        title: コトバの放課後スケジュール＋ウタヨミの調査
+        content: "[{放課後|ほうかご}スケジュール比較|ひかく}]{フミカ|ふみか}＝{塾|じゅく}で{不在|ふざい}、{ウタヨミ|うたよみ}＝{図書館|としょかん}で{調査|ちょうさ}（{時間|じかん}{記録|きろく}あり）、{シラベ|しらべ}＝{委員会|いいんかい}で{不在|ふざい}、コトバ＝{音楽室|おんがくしつ}で3{人|にん}の{音声|おんせい}データを{聞|き}き{直|なお}す{時間|じかん}があった（{唯一|ゆいいつ}のアクセス{可能|かのう}{者|しゃ}）　[{ウタヨミ|うたよみ}の{調査|ちょうさ}]{平家物語|へいけものがたり}には{覚一本|かくいちぼん}・{延慶本|えんぎょうぼん}など{複数|ふくすう}の{版|ばん}が{存在|そんざい}。もともと「{統一版|とういつばん}」は{存在|そんざい}しない"
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "{平家物語|へいけものがたり}は{琵琶法師|びわほうし}が{語|かた}り{伝|つた}えた。{語|かた}る{人|ひと}が{変|か}われば{物語|ものがたり}も{変|か}わる。もともと「{統一版|とういつばん}」なんてないんだ——そして{放課後|ほうかご}に{音声|おんせい}データに{アクセス|あくせす}できたのは……コトバだけ！"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{統一版|とういつばん}は{語|かた}り{手|て}Bの{語|かた}りに{最|もっと}も{近|ちか}い。{放課後|ほうかご}に{音声|おんせい}データを{聞|き}き{直|なお}せたのはコトバだけ。"
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "……{発表会|はっぴょうかい}の{後|あと}、3{人|にん}の{語|かた}り{方|かた}がバラバラで{困|こま}ってた。まとめ{係|かかり}として「{揃|そろ}えなきゃ」って{思|おも}って——"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "コトバは{発表会|はっぴょうかい}をまとめる{係|かかり}だった。{責任感|せきにんかん}から{動|うご}いたのかな……でも、3{人|にん}とも{本気|ほんき}で{語|かた}った。その{本気|ほんき}を1つに{まとめ|まとめ}たら、{消|き}えてしまうものがあるよ。"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: music-room
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "コトバに{直接|ちょくせつ}{聞|き}いたら、こう{言|い}っていたわ。「まとめ{係|かかり}の{責任|せきにん}で{統一|とういつ}しなきゃと{思|おも}った。Bさんの{語|かた}りに{感動|かんどう}して、つい{偏|かたよ}ってしまった」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "でも——「Aさんの"戦い"もCさんの"{静|しず}けさ"も{平家物語|へいけものがたり}の{一部|いちぶ}なんですよね。{多様|たよう}であること{自体|じたい}が{大事|たいせつ}だったんですね」と{気|き}づいたって{言|い}っていたわ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "コトバのことば：「まとめ{係|かかり}の{責任|せきにん}で{統一|とういつ}しなきゃと{思|おも}った。Bさんの{語|かた}りに{感動|かんどう}して、つい{偏|かたよ}ってしまった。でも——Aさんの"戦い"もCさんの"{静|しず}けさ"も{平家物語|へいけものがたり}の{一部|いちぶ}なんですよね。{多様|たよう}であること{自体|じたい}が{大事|たいせつ}だったんですね」"
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "やっぱり！　{統一版|とういつばん}＝{正解|せいかい}って{思|おも}っていたけど、{口承文学|こうしょうぶんがく}の{本質|ほんしつ}は「{多様|たよう}であること」だったんだ。{統一版|とういつばん}を{作|つく}ることで、{元|もと}の{豊|ゆた}かさが{消|き}えてしまっていた！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{統一版|とういつばん}＝{正|ただ}しい{読|よ}み{方|かた}」という{前提|ぜんてい}が{崩|くず}れた。**　{平家物語|へいけものがたり}には{最初|さいしょ}から「{正|ただ}しい1つの{版|ばん}」は{存在|そんざい}しなかった——{多様|たよう}であることこそが{口承文学|こうしょうぶんがく}の{本来|ほんらい}の{姿|すがた}だったのだ。"
+
+  # ==================== 推理・投票（1回目） ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム（1回目）
+        subtitle: 統一版を作ったのは誰？
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{証拠|しょうこ}をまとめると——{統一版|とういつばん}の{文体|ぶんたい}は{語|かた}り{手|て}Bに{最|もっと}も{近|ちか}い。{放課後|ほうかご}に{音声|おんせい}データに{アクセス|あくせす}できたのはコトバだけ。{山田先生|やまだせんせい}のメモでコトバ{本人|ほんにん}が{確認|かくにん}——"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{統一版|とういつばん}は{語|かた}り{手|て}Bの{語|かた}りに{最|もっと}も{近|ちか}い。②{放課後|ほうかご}に{音声|おんせい}データを{聞|き}き{直|なお}せたのはコトバだけ。③{山田先生|やまだせんせい}のメモでコトバが「{責任感|せきにんかん}で{統一|とういつ}した」と{確認|かくにん}。"
+      - type: choice
+        id: q1
+        question: 統一版を作ったのは誰？
+        options:
+          - text: コトバ（まとめ係の責任感で統一版を作ったが、語り手Bに偏ってしまった）
+            value: kotoba
+            correct: true
+            feedback: "{正解|せいかい}！　コトバは「{発表会|はっぴょうかい}をまとめる{係|かかり}」として、3{人|にん}の{語|かた}りがバラバラなのを「{自分|じぶん}の{責任|せきにん}で{統一|とういつ}しなければ」と{思|おも}った。Bさんの{語|かた}りに{感動|かんどう}し、{無意識|むいしき}にBベースで{統一版|とういつばん}を{作|つく}った。でも{結果|けっか}として{語|かた}り{手|て}AとCの{語|かた}りは{消|き}えてしまった。**{責任感|せきにんかん}は{素晴|すばら}しい。でも「{多様|たよう}であること{自体|じたい}が{大事|たいせつ}だった」——それが{平家物語|へいけものがたり}800{年|ねん}の{知恵|ちえ}だ。**"
+          - text: フミカ（統一版と3人の語りを比較分析した人）
+            value: fumika
+            feedback: "{フミカ|ふみか}は{統一版|とういつばん}と3{人|にん}の{語|かた}りを{精密|せいみつ}に{比較|ひかく}して「{語|かた}り{手|て}Bベース」と{分析|ぶんせき}した{側|がわ}だよ。{放課後|ほうかご}は{塾|じゅく}で{不在|ふざい}だった。"
+          - text: ウタヨミ（平家物語の成り立ちを調査した人）
+            value: utayomi
+            feedback: "{ウタヨミ|うたよみ}は{平家物語|へいけものがたり}の{成|な}り{立|た}ちを{調査|ちょうさ}し、「{口承文学|こうしょうぶんがく}には{統一版|とういつばん}がない」と{発見|はっけん}した{側|がわ}だよ。{放課後|ほうかご}は{図書館|としょかん}で{記録|きろく}つきのアリバイがある。"
+          - text: シラベ（各語り手の感情を分析した人）
+            value: shirabe
+            feedback: "{シラベ|しらべ}は3{人|にん}の{語|かた}り{手|て}それぞれの{感情|かんじょう}と{聴衆|ちょうしゅう}の{反応|はんのう}を{分析|ぶんせき}した{側|がわ}だよ。{放課後|ほうかご}は{委員会|いいんかい}で{不在|ふざい}だった。"
+
+  # ==================== 真相：コトバの告白 ====================
+  - id: truth-kotoba
+    bg: music-room
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: コトバの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "……{私|わたし}が{統一版|とういつばん}を{作|つく}りました。{発表会|はっぴょうかい}で3{人|にん}の{語|かた}り{方|かた}がバラバラだったから、まとめ{係|かかり}として「{揃|そろ}えなきゃ」って{思|おも}って——"
+        expression: worried
+      - type: dialog
+        character: kotoba
+        text: "Bさんの{語|かた}りが{一番|いちばん}{好|す}きだったから、Bベースにしちゃったのかも。「{正|ただ}しい{読|よ}み{方|かた}」って{思|おも}ってたけど……AさんとCさんの{語|かた}りも、{本物|ほんもの}の{平家物語|へいけものがたり}だったんだよね。"
+        expression: thinking
+      - type: dialog
+        character: kotoba
+        text: "{多様|たよう}であること{自体|じたい}が{大事|たいせつ}だったって——{気|き}づかなかった。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{統一版|とういつばん}がBの{語|かた}りに{近|ちか}いと{気|き}づいたとき、Bの{語|かた}りを{聞|き}いた{人|ひと}が{作|つく}ったと{思|おも}った。コトバが{悪意|あくい}じゃなく「{責任感|せきにんかん}」から{動|うご}いたとは{思|おも}ってなかった——でも「{揃|そろ}える＝{消|き}す」になってたんだよね。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "{平家物語|へいけものがたり}は{琵琶法師|びわほうし}が{語|かた}り{伝|つた}えて800{年|ねん}{生|い}き{続|つづ}けた。{語|かた}る{人|ひと}が{変|か}わるたびに{物語|ものがたり}も{変|か}わった。その{多様性|たようせい}こそが{平家物語|へいけものがたり}を{豊|ゆた}かにしてきたんだ！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: normal
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "Aは「{戦|たたか}い」を、Bは「{悲|かな}しみ」を、Cは「{静|しず}けさ」を{語|かた}った。3{人|にん}とも{本気|ほんき}だった。1つにまとめたら、その{本気|ほんき}が{消|き}える——コトバは{悪|わる}くない。でも、{多様性|たようせい}を{守|まも}ることが{大事|たいせつ}だったんだね。"
+        expression: normal
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 議論：2回目投票（価値観） ====================
+  - id: discussion
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 推理タイム（2回目）
+        subtitle: 古典の語り方は統一すべき？ 多様なままがいい？
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ここからはちょっと{違|ちが}う{問|と}いを{考|かんが}えてみましょう。「{古典|こてん}の{語|かた}り{方|かた}は{統一|とういつ}すべきか、{多様|たよう}なままがいいか？」——{正解|せいかい}はないの。みんなはどう{思|おも}う？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: choice
+        id: q2
+        question: 古典の語り方は統一すべき？ 多様なままがいい？
+        options:
+          - text: A：統一すべき（分かりやすくなるし、伝えやすくなる）
+            value: unify
+            correct: false
+            feedback: "「{分|わ}かりやすさ」は{大切|たいせつ}な{価値|かち}。でも「{分|わ}かりやすくする」ために{何|なに}かを{削|けず}っていないか{考|かんが}えてみよう。{平家物語|へいけものがたり}が800{年|ねん}{生|い}き{続|つづ}けた{理由|りゆう}は、{多様|たよう}な{語|かた}り{手|て}が{時代|じだい}ごとに{自分|じぶん}の{言葉|ことば}で{語|かた}ったからかもしれない。"
+          - text: B：多様なままがいい（語り手の個性が古典の豊かさを作っている）
+            value: diverse
+            correct: false
+            feedback: "{多様|たよう}な{語|かた}りが{存在|そんざい}することで、{平家物語|へいけものがたり}は800{年|ねん}{間|かん}{生|い}き{続|つづ}けた。「{正|ただ}しい1つ」にまとめたら、その{豊|ゆた}かさは{消|き}える——{口承文学|こうしょうぶんがく}の{本質|ほんしつ}はここにあるのかもしれないね。"
+          - text: C：場面によって使い分ければいい（発表会では統一、研究では多様に）
+            value: both
+            correct: false
+            feedback: "{場面|ばめん}ごとに{判断|はんだん}するのは{賢|かしこ}い{考|かんが}え{方|かた}。「どんな{場面|ばめん}で{統一|とういつ}が{必要|ひつよう}か」を{考|かんが}えること{自体|じたい}が{大事|たいせつ}——みんながコトバと{同|おな}じ{立場|たちば}だったとき、どう{行動|こうどう}するか{想像|そうぞう}してみよう。"
+          - text: D：分からない（どちらにも理由がある）
+            value: unsure
+            correct: false
+            feedback: "「{分|わ}からない」と{言|い}えるのは{大事|たいせつ}。{両方|りょうほう}の{良|よ}さが{見|み}えている{証拠|しょうこ}だよ。{平家物語|へいけものがたり}でも{琵琶法師|びわほうし}たちは{正解|せいかい}を{決|き}めずに{語|かた}り{続|つづ}けた——「{分|わ}からない」を{持|も}ち{続|つづ}けることも{知恵|ちえ}の{一|ひと}つだ。"
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{平家物語|へいけものがたり}は{琵琶法師|びわほうし}が{各地|かくち}で{語|かた}り{伝|つた}えた。{語|かた}る{人|ひと}が{変|か}わるたびに、「{戦|たたか}い」にも「{悲|かな}しみ」にも「{静|しず}けさ」にも{変|か}わった。その{多様性|たようせい}が800{年|ねん}{間|かん}、{平家物語|へいけものがたり}を{生|い}き{続|つづ}けさせてきたのよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "コトバの{責任感|せきにんかん}は{素晴|すばら}しかった。でも「{揃|そろ}える」ことで「{多様性|たようせい}を{消|き}す」になってしまった——これは{古典|こてん}だけじゃなく、みんなの{毎日|まいにち}にも{当|あ}てはまることね。「{みんな{違|ちが}う」ことの{豊|ゆた}かさを、{大切|たいせつ}にしてほしいわ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{帰納法|きのうほう}——{複数|ふくすう}の{個別|こべつ}データから{共通|きょうつう}パターンを{見|み}つけ、{結論|けつろん}を{導|みちび}く{考|かんが}え{方|かた}。3{人|にん}の{語|かた}りを{並|なら}べて「どの{語|かた}りに{近|ちか}いか」を{比較|ひかく}し、{統一版|とういつばん}の{作|つく}り{手|て}を{特定|とくてい}した。"
+      - type: narration
+        text: "{口承文学|こうしょうぶんがく}の{多様性|たようせい}——{平家物語|へいけものがたり}は「{正|ただ}しい1つの{版|ばん}」を{持|も}たない。{語|かた}り{手|て}によって{変|か}わることが{本来|ほんらい}の{姿|すがた}であり、その{多様性|たようせい}こそが{古典|こてん}を{豊|ゆた}かにしてきた。"
+      - type: effect
+        name: fade-out

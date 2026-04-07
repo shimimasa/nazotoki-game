@@ -1,0 +1,407 @@
+meta:
+  id: democracy-01
+  title: 消えた一票
+  series: 選挙探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{児童会|じどうかい}の{役員|やくいん}{投票|とうひょう}{日|び}。クラス{全員|ぜんいん}が{投票用紙|とうひょうようし}を{受|う}け{取|と}り、{静|しず}かに{記入|きにゅう}した。"
+      - type: narration
+        text: "{投票箱|とうひょうばこ}が{開|あ}けられ、{用紙|ようし}が{数|かぞ}えられる。{投票者|とうひょうしゃ}は30{名|めい}——しかし{箱|はこ}の{中|なか}の{用紙|ようし}は31{枚|まい}あった。"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへんなことが{起|お}きたわ。{投票者|とうひょうしゃ}は30{人|にん}なのに、{箱|はこ}の{中|なか}に31{枚|まい}の{用紙|ようし}がある。1{枚|まい}{余分|よぶん}に{入|はい}っているの。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{選挙|せんきょ}の{公正|こうせい}さが{疑|うたが}われてしまう。{選挙探偵団|せんきょたんていだん}に{真相|しんそう}を{調|しら}べてほしいの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: thinking
+          - character: gikai
+            expression: surprised
+          - character: tami
+            expression: worried
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{投票|とうひょう}{箱|はこ}の{中|なか}に{余分|よぶん}な1{枚|まい}——{誰|だれ}が、なぜ{入|い}れたのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 消えた一票
+        subtitle: 選挙探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 票数のなぞを解く
+      - type: narration
+        text: "{投票|とうひょう}{集計|しゅうけい}{記録|きろく}——{投票者|とうひょうしゃ}30{名|めい}に{対|たい}し、{箱|はこ}の{中|なか}の{用紙|ようし}は31{枚|まい}。ノゾミが「{誰|だれ}が{誰|だれ}に{投票|とうひょう}したか{見|み}えちゃった」と{発言|はつげん}していた。"
+      - type: evidence
+        id: card-1
+        title: 投票集計記録
+        content: "{投票者数|とうひょうしゃすう}: 30{名|めい}。{回収|かいしゅう}{用紙|ようし}{枚数|まいすう}: 31{枚|まい}。{差異|さい}: 1{枚|まい}{超過|ちょうか}。ノゾミの{発言|はつげん}メモ:「{誰|だれ}が{誰|だれ}に{投票|とうひょう}したか{見|み}えちゃった」（{投票|とうひょう}{終了後|しゅうりょうご}に{他|ほか}の{子|こ}に{話|はな}していた）"
+      - type: sprite
+        character: gikai
+        expression: surprised
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{配|くば}った{用紙|ようし}は{絶対|ぜったい}に30{枚|まい}だよ。{配布|はいふ}{記録|きろく}を{確認|かくにん}した——1{人|り}に1{枚|まい}{ずつ|ずつ}。{箱|はこ}の{中|なか}が31{枚|まい}なら、{誰|だれ}かが{余分|よぶん}に1{枚|まい}{入|い}れたことになる。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "{投票用紙|とうひょうようし}{配布|はいふ}{記録|きろく}——30{枚|まい}{配布|はいふ}。{教室|きょうしつ}{出入|でい}り{記録|きろく}——{投票|とうひょう}{中|ちゅう}、{誰|だれ}も{教室|きょうしつ}を{出|で}ていない。"
+      - type: evidence
+        id: card-2
+        title: 投票用紙配布記録・教室出入り記録
+        content: "{投票用紙|とうひょうようし}{配布|はいふ}: 30{枚|まい}（{全員|ぜんいん}に1{枚|まい}{ずつ|ずつ}）。{教室|きょうしつ}{出入|でい}り{記録|きろく}: {投票|とうひょう}{時間|じかん}{中|ちゅう}に{教室|きょうしつ}から{出|で}た{人物|じんぶつ}はゼロ。→{外部|がいぶ}から{票|ひょう}が{持|も}ち{込|こ}まれた{可能性|かのうせい}はない。{余分|よぶん}な1{枚|まい}は{教室|きょうしつ}の{中|なか}から{生|う}まれた。"
+      - type: sprite
+        character: hyou
+        expression: determined
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{投票|とうひょう}の{間|あいだ}、{教室|きょうしつ}から{出|で}た{人|ひと}はいない。{外部|がいぶ}の{人|ひと}が{票|ひょう}を{入|い}れたわけじゃない。つまり——この{クラス|くらす}の{誰|だれ}かが1{枚|まい}{多|おお}く{入|い}れたんだ。"
+        expression: determined
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: ノゾミの行動を追う
+      - type: narration
+        text: "タミの{観察|かんさつ}メモ——ノゾミが{投票|とうひょう}を{終|お}えた{後|あと}も{何|なに}かを{探|さが}している{様子|ようす}だった。{落|お}ち{着|つ}きがなく、{周|まわ}りをきょろきょろしていた。"
+      - type: evidence
+        id: card-3
+        title: タミの観察メモ
+        content: "ノゾミは{投票|とうひょう}を{終|お}えた{後|あと}、{席|せき}に{戻|もど}ってからも{落|お}ち{着|つ}きがなかった。{何|なに}かを{探|さが}しているように{見|み}えた。{周|まわ}りをきょろきょろしていて、{予備|よび}の{投票用紙|とうひょうようし}が{置|お}いてあった{机|つくえ}の{方向|ほうこう}に{視線|しせん}が{向|む}いていた。{予備|よび}の{投票用紙|とうひょうようし}が1{枚|まい}{なくなっている|なくなっている}。"
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "ノゾミさん、{投票|とうひょう}を{終|お}えた{後|あと}も{何|なに}かを{探|さが}してたよ。{落|お}ち{着|つ}きがなかった。{予備|よび}の{用紙|ようし}が{置|お}いてある{方向|ほうこう}を{気|き}にしてた{感じ|かんじ}がした。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: narration
+        text: "{隣|となり}の{席|せき}の{子|こ}の{証言|しょうげん}——ノゾミが{紙|かみ}を{見|み}せた{気|き}がしたけど、{実際|じっさい}には{見|み}ていなかった。"
+      - type: evidence
+        id: card-4
+        title: 隣の席の子の証言
+        content: "「ノゾミさんが{紙|かみ}を{見|み}せた{気|き}がしたけど、{実際|じっさい}には{見|み}ていない。{気|き}になってこっちを{向|む}いたとき、ノゾミさんはもう{投票用紙|とうひょうようし}を{箱|はこ}に{入|い}れた{後|あと}だった」{重要|じゅうよう}:「{見|み}た」のではなく「{見|み}えた{気|き}がした」という{状況|じょうきょう}だった。"
+      - type: sprite
+        character: hyou
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hyou
+        text: "{隣|となり}の{子|こ}は「{見|み}えた{気|き}がした」というだけで、{実際|じっさい}には{見|み}ていない。ノゾミさんが{見|み}られたと{思|おも}い{込|こ}んだのかも……"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{外部|がいぶ}からの{票|ひょう}の{持|も}ち{込|こ}みはない。{予備|よび}の{投票用紙|とうひょうようし}が1{枚|まい}{消|き}えている。ノゾミが{投票後|とうひょうご}も{落|お}ち{着|つ}きなかった——これらがつながる{理由|りゆう}とは？"
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{配|くば}った{用紙|ようし}は30{枚|まい}で、{予備|よび}が1{枚|まい}{消|き}えている。{誰|だれ}かが{予備|よび}の{用紙|ようし}を{使|つか}って{箱|はこ}に{入|い}れた——でも、なぜ？"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: tami
+        expression: worried
+        position: left
+      - type: dialog
+        character: tami
+        text: "ノゾミさんが{落|お}ち{着|つ}きなかったのは——{投票|とうひょう}した{後|あと}に{何|なに}か{不安|ふあん}なことがあったから？　{見|み}られたと{思|おも}い{込|こ}んで{焦|あせ}ってたのかな……"
+        expression: worried
+      - type: sprite
+        character: tami
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足と秘密投票の原則
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{秘密|ひみつ}{投票|とうひょう}というのはね——{誰|だれ}が{誰|だれ}に{投票|とうひょう}したか、{他人|たにん}が{知|し}る{権利|けんり}を{持|も}たないという{原則|げんそく}のこと。たとえ{隣|となり}の{人|ひと}が{見|み}てしまっても、{投票|とうひょう}は{有効|ゆうこう}なの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "やり{直|なお}しは{認|みと}められない。それは「{自分|じぶん}の{意思|いし}を{変|か}えさせない」ための{仕組|しく}みだから。そして——ノゾミさんが{告白|こくはく}してくれたわ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足とノゾミの告白
+        content: "{秘密|ひみつ}{投票|とうひょう}の{原則|げんそく}: {誰|だれ}が{誰|だれ}に{投票|とうひょう}したか、{他人|たにん}が{知|し}る{権利|けんり}はない。たとえ{見|み}られても{投票|とうひょう}は{有効|ゆうこう}。やり{直|なお}しは{認|みと}められない。ノゾミの{告白|こくはく}:「{隣|となり}の{人|ひと}に{見|み}られたと{思|おも}って{不安|ふあん}になり、{予備|よび}の{用紙|ようし}でもう1{枚|まい}{投票|とうひょう}してしまいました」"
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: left
+      - type: dialog
+        character: nozomi
+        text: "{見|み}られちゃったから……{無効|むこう}になると{思|おも}って、やり{直|なお}しが{必要|ひつよう}かと{思|おも}って。{予備|よび}の{用紙|ようし}でもう1{枚|まい}{入|い}れてしまいました。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{秘密|ひみつ}{投票|とうひょう}のルール——たとえ{見|み}られても{投票|とうひょう}は{有効|ゆうこう}。やり{直|なお}しは{認|みと}められない。それは「{自分|じぶん}の{意思|いし}を{変|か}えさせない」ための{仕組|しく}みだった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 票が1票増えた原因を作ったのは誰？
+      - type: sprite
+        character: gikai
+        expression: determined
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{外部|がいぶ}からの{持|も}ち{込|こ}みはない。{予備|よび}の{用紙|ようし}が1{枚|まい}{消|き}えた。{投票後|とうひょうご}に{落|お}ち{着|つ}きなかった{人物|じんぶつ}がいる——そして{告白|こくはく}まで{出|で}た。"
+        expression: determined
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{投票者|とうひょうしゃ}30{名|めい}に{対|たい}し{箱|はこ}の{中|なか}は31{枚|まい}。②{教室|きょうしつ}を{出|で}た{人物|じんぶつ}はゼロ——{外部|がいぶ}からではない。③{予備|よび}の{投票用紙|とうひょうようし}が1{枚|まい}{消|き}えている。④タミがノゾミの{不安|ふあん}そうな{様子|ようす}を{目撃|もくげき}。⑤{隣|となり}の{子|こ}は「{実際|じっさい}には{見|み}ていない」と{証言|しょうげん}。⑥ノゾミが「{見|み}られたと{思|おも}い{予備|よび}でもう1{枚|まい}{入|い}れた」と{告白|こくはく}。"
+      - type: choice
+        id: q1
+        question: 票が1票増えた原因を作ったのは誰？
+        options:
+          - text: ノゾミ（見られたと思い込んでもう一枚投票した）
+            value: nozomi
+            correct: true
+            feedback: "{正解|せいかい}！　ノゾミは{隣|となり}の{人|ひと}に{見|み}られたと{思|おも}い{込|こ}み、{不安|ふあん}になって{予備|よび}の{用紙|ようし}でもう1{枚|まい}{投票|とうひょう}してしまった。でも{秘密|ひみつ}{投票|とうひょう}の{大切|たいせつ}なルール——**たとえ{見|み}られても{投票|とうひょう}は{有効|ゆうこう}。やり{直|なお}しは{認|みと}められない。それは「{自分|じぶん}の{意思|いし}を{変|か}えさせない」ための{仕組|しく}みだよ。**"
+          - text: ヒョウ（教室の出入りを調べた側）
+            value: hyou
+            feedback: "{ヒョウ|ひょう}は{教室|きょうしつ}の{出入|でい}り{記録|きろく}を{調|しら}べた{側|がわ}。「{外部|がいぶ}からではない」という{重要|じゅうよう}な{事実|じじつ}を{明|あき}らかにしてくれたよ。"
+          - text: ギカイ（配布記録を照合していた側）
+            value: gikai
+            feedback: "{ギカイ|ぎかい}は{配布|はいふ}{記録|きろく}を{照合|しょうごう}して「30{枚|まい}{配布|はいふ}・31{枚|まい}{回収|かいしゅう}」という{核心|かくしん}を{突|つ}き{止|と}めた{側|がわ}だよ。"
+          - text: タミ（ノゾミの様子を観察していた側）
+            value: tami
+            feedback: "タミはノゾミの{行動|こうどう}を{観察|かんさつ}して、{事件|じけん}{解決|かいけつ}の{手|て}がかりを{提供|ていきょう}してくれた{側|がわ}。{大切|たいせつ}な{証人|しょうにん}だよ。"
+
+  # ==================== 真相：ノゾミの告白 ====================
+  - id: truth-nozomi
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ノゾミの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomi
+        text: "……{私|わたし}が{余分|よぶん}に{入|い}れてしまいました。{投票|とうひょう}を{終|お}えたとき、{隣|となり}の{子|こ}がこっちを{向|む}いた{瞬間|しゅんかん}があって——{自分|じぶん}の{票|ひょう}が{見|み}られたと{思|おも}ったんです。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "{見|み}られたら{無効|むこう}になる、やり{直|なお}しが{必要|ひつよう}だと{思|おも}って……{焦|あせ}って{予備|よび}の{用紙|ようし}でもう1{枚|まい}{書|か}いて{入|い}れてしまいました。"
+        expression: thinking
+      - type: dialog
+        character: nozomi
+        text: "{本当|ほんとう}は{見|み}られていなかったんですよね。{秘密|ひみつ}{投票|とうひょう}のルールを{知|し}っていれば……こんなことには。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "{不安|ふあん}になった{気持|きも}ちは{分|わ}かる。{投票|とうひょう}って{緊張|きんちょう}するし——でも「{見|み}られたら{無効|むこう}」は{間違|まちが}いだったんだね。{知|し}らないと{同|おな}じことが{起|お}きるかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: normal
+        position: right
+      - type: dialog
+        character: hyou
+        text: "{外部|がいぶ}からではないと{分|わ}かったとき、{クラス|くらす}の{誰|だれ}かが……って{思|おも}ったけど。{悪意|あくい}がなかったのは{分|わ}かった。{ルール|るーる}を{知|し}らないことが{問題|もんだい}だったんだ。"
+        expression: normal
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: normal
+        position: left
+      - type: dialog
+        character: gikai
+        text: "{記録|きろく}には「31{枚|まい}」という{事実|じじつ}だけが{残|のこ}った。でも{数|すう}の{裏|うら}には{理由|りゆう}がある——ノゾミさんの{誤解|ごかい}と{不安|ふあん}。{ルール|るーる}を{正|ただ}しく{伝|つた}えることが{大事|たいじ}だね。"
+        expression: normal
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾミさんは{悪意|あくい}があったわけじゃない。{秘密|ひみつ}{投票|とうひょう}のルールを{知|し}らなかったから{誤解|ごかい}してしまっただけ。{大切|たいせつ}なのは、{正|ただ}しい{知識|ちしき}を{持|も}つこと——「{見|み}られたら{無効|むこう}」という{思|おも}い{込|こ}みが{問題|もんだい}の{原因|げんいん}だったの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{秘密|ひみつ}{投票|とうひょう}は、{自分|じぶん}の{意思|いし}を{自由|じゆう}に{表|あらわ}せるための{仕組|しく}み。{誰|だれ}かに{見|み}られることをおそれずに{投票|とうひょう}できる——それが{民主主義|みんしゅしゅぎ}の{基本|きほん}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{秘密|ひみつ}{投票|とうひょう}の{原則|げんそく}——{誰|だれ}が{誰|だれ}に{投票|とうひょう}したか、{他人|たにん}が{知|し}る{権利|けんり}はない。たとえ{見|み}られても{投票|とうひょう}は{有効|ゆうこう}。やり{直|なお}しは{認|みと}められない。それは「{自分|じぶん}の{意思|いし}を{変|か}えさせない」ための{仕組|しく}み。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{消去法|しょうきょほう}——{外部|がいぶ}からではない（{教室|きょうしつ}{出入|でい}り{記録|きろく}）、{配布|はいふ}は30{枚|まい}（{配布|はいふ}{記録|きろく}）、{予備|よび}が{消|き}えた（{観察|かんさつ}メモ）——これらを{組|く}み{合|あ}わせると{真相|しんそう}に{届|とど}く。"
+      - type: effect
+        name: fade-out

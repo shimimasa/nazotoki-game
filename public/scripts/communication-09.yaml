@@ -1,0 +1,448 @@
+meta:
+  id: communication-09
+  title: 欠けていたピース
+  series: コミュニケーション探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{同|おな}じ{週|しゅう}に3{件|けん}の「すれ{違|ちが}い」が{立|た}て{続|つづ}けに{起|お}きた。"
+      - type: narration
+        text: "①グループ{分|わ}けの{連絡|れんらく}が{伝|つた}わらなかった。②{先生|せんせい}への{提出物|ていしゅつぶつ}の{締切|しめきり}を{誰|だれ}も{知|し}らなかった。③{放課後|ほうかご}の{集合場所|しゅうごうばしょ}で{誰|だれ}も{会|あ}えなかった。"
+      - type: se
+        sound: whisper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**3{件|けん}は{無関係|むかんけい}に{見|み}えるが——{比|くら}べてみると、{全|すべ}てに{同|おな}じ「{欠|か}けているもの」がある。**"
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "3{件|けん}をテーブルに{並|なら}べたら、{似|に}てる{部分|ぶぶん}が{見|み}える{気|き}がする……{全部|ぜんぶ}「{何|なに}の{話|はなし}か{分|わ}からない{情報|じょうほう}」から{始|はじ}まってるんじゃないかな。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "バラバラに{見|み}えるけど……{帰納法|きのうほう}で{比|くら}べると、{何|なに}か{見|み}えてくるはずだ。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: kiku
+            expression: worried
+          - character: kotoba
+            expression: thinking
+          - character: tsutae
+            expression: worried
+          - character: manabu
+            expression: thinking
+      - type: narration
+        text: "{帰納法|きのうほう}で3{件|けん}を{分析|ぶんせき}し、{共通|きょうつう}の{構造的|こうぞうてき}{問題|もんだい}を{特定|とくてい}せよ——コミュニケーション{探偵団|たんていだん}の{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 欠けていたピース
+        subtitle: コミュニケーション探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 3件のすれ違いと「コンテキスト」の正体
+      - type: narration
+        text: "3{件|けん}のすれ{違|ちが}い——①「グループを{作|つく}って」→{何|なに}のグループ？　②「{金曜|きんよう}{出|だ}して」→{何|なに}を？ どこに？　③「{図書館|としょかん}で{待|ま}って」→{何時|なんじ}？ なぜ？"
+      - type: evidence
+        id: card-1
+        title: 3件のすれ違い概要
+        content: "①グループ{分|わ}け:{連絡|れんらく}を{受|う}けた{子|こ}の{反応|はんのう}「"{グループ}"って{何|なに}のグループ？」。②{提出物|ていしゅつぶつ}{締切|しめきり}:{連絡|れんらく}を{受|う}けた{子|こ}の{反応|はんのう}「{締切|しめきり}って{何|なに}の{締切|しめきり}？」。③{集合場所|しゅうごうばしょ}:{連絡|れんらく}を{受|う}けた{子|こ}の{反応|はんのう}「{集合場所|しゅうごうばしょ}って{言|い}われても……」。3{件|けん}{全|すべ}ての{発信者|はっしんしゃ}はツタエ。"
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{困|こま}った{側|がわ}は{全員|ぜんいん}「{何|なに}の{話|はなし}か{分|わ}からなかった」って{言|い}ってる。{情報|じょうほう}は{受|う}け{取|と}ったのに、{動|うご}けなかったって。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: narration
+        text: "{情報|じょうほう}には「{本文|ほんぶん}」と「コンテキスト（その{情報|じょうほう}が{意味|いみ}をなすための{前提|ぜんてい}・{背景|はいけい}・{条件|じょうけん}）」がある。コンテキストを{省|はぶ}くと、{受|う}け{取|と}る{側|がわ}は{正|ただ}しく{解釈|かいしゃく}できない。"
+      - type: evidence
+        id: card-2
+        title: 「コンテキスト」とは何か
+        content: "【{情報|じょうほう}の{構造|こうぞう}】{情報|じょうほう}＝{本文|ほんぶん}＋コンテキスト（{前提|ぜんてい}/{背景|はいけい}/{条件|じょうけん}）。【コンテキストが{欠|か}けると{何|なに}が{起|お}きるか】{受|う}け{取|と}った{人|ひと}は「{何|なに}の{話|はなし}？」となり、{正|ただ}しく{行動|こうどう}できない。{例|れい}:「{金曜|きんよう}{出|だ}して」→コンテキスト({何|なに}を？ どこに？)が{欠|か}けると、{誰|だれ}も{動|うご}けない。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{帰納法|きのうほう}とは、バラバラな{事実|じじつ}から{共通|きょうつう}パターンを{見|み}つけること。この3{件|けん}を{比|くら}べると……{全|すべ}てに「コンテキストの{欠落|けつらく}」という{同|おな}じ{空白|くうはく}がある{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: hallway
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 被害者の声と比較分析フレーム
+      - type: sprite
+        character: kiku
+        expression: determined
+        position: left
+      - type: dialog
+        character: kiku
+        text: "3{人|にん}の{被害者|ひがいしゃ}の{証言|しょうげん}を{集|あつ}めたよ。「"{グループ}"って{何|なに}のグループ？」「{締切|しめきり}って{何|なに}の{締切|しめきり}？」「{集合場所|しゅうごうばしょ}って{言|い}われても……」——{全員|ぜんいん}が{同|おな}じことを{言|い}ってる。"
+        expression: determined
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: evidence
+        id: card-3
+        title: 被害者3人の証言 + 比較分析フレーム
+        content: "【{証言|しょうげん}①】「'{グループ}'って{何|なに}のグループ？ {何班|なにはん}に{分|わ}かれるの？」【{証言|しょうげん}②】「{締切|しめきり}って{何|なに}の{締切|しめきり}？ {何|なに}を{出|だ}すの？」【{証言|しょうげん}③】「{集合場所|しゅうごうばしょ}って{言|い}われても、{何時|なんじ}？ {何|なん}のため？」【{比較分析|ひかくぶんせき}フレーム】{事例|じれい}×{発信者|はっしんしゃ}×{欠落情報|けつらくじょうほう}×{受信者|じゅしんしゃ}の{反応|はんのう}——3{件|けん}{全|すべ}てのパターンが{一致|いっち}している。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "このフレームで{並|なら}べると——{発信者|はっしんしゃ}が{全|すべ}て{同|おな}じ1{人|ひと}で、{欠落|けつらく}している{情報|じょうほう}が{全|すべ}て「{前提条件|ぜんていじょうけん}」だ。{受信者|じゅしんしゃ}の{反応|はんのう}も「{何|なに}の{話|はなし}？」で{一致|いっち}している。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "3{件|けん}を{比|くら}べると、{全部|ぜんぶ}「{何|なに}の{話|はなし}か{分|わ}からない{情報|じょうほう}」から{始|はじ}まってる。{最初|さいしょ}に{説明|せつめい}が{足|た}りなかったんだ。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。3{件|けん}{全|すべ}ての{発信者|はっしんしゃ}はツタエ。{受|う}け{取|と}った{側|がわ}は{全員|ぜんいん}「{何|なに}の{話|はなし}か{分|わ}からなかった」と{言|い}っている。しかし——ツタエは「{全部|ぜんぶ}ちゃんと{伝|つた}えた」と{言|い}っている。"
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "{伝|つた}えたのに、なぜ？ でも……{確|たし}かに{急|いそ}いでた。{説明|せつめい}を{省|はぶ}いた{気|き}がする……"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{前提|ぜんてい}が{分|わ}からないと、{情報|じょうほう}があっても{動|うご}けないんだね。{全員|ぜんいん}が「もう{少|すこ}し{説明|せつめい}してほしかった」と{言|い}ってた。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 反転：証拠カード4（追加HO） ====================
+  - id: evidence-4
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 追加情報
+        subtitle: ツタエのタイムラインと手帳
+      - type: effect
+        name: fade-in
+      - type: narration
+        text: "3{件|けん}目の{詳細|しょうさい}{調査|ちょうさ}が{申請|しんせい}された——ツタエが3{件|けん}のメッセージを{送|おく}った{前後|ぜんご}のタイムラインが{追加|ついか}された。"
+      - type: evidence
+        id: card-4
+        title: ツタエのタイムライン＋手帳記録
+        content: "【タイムライン】3{件|けん}{全|すべ}てが「{複数|ふくすう}の{締切|しめきり}が{重|かさ}なった{日|ひ}」に{送|おく}られていた。①グループ{分|わ}け{連絡|れんらく}:{朝|あさ}7:58。②{提出物|ていしゅつぶつ}{締切|しめきり}:{昼休|ひるやす}み12:03。③{集合場所|しゅうごうばしょ}:{放課後|ほうかご}15:42。【{手帳|てちょう}】その{日|ひ}の{予定|よてい}が3つの{タスク}で{埋|う}め{尽|つ}くされている——「{運動会|うんどうかい}{準備|じゅんび}」「{読書感想文|どくしょかんそうぶん}{提出|ていしゅつ}」「{委員会|いいんかい}{会議|かいぎ}」。"
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "{締切|しめきり}が{重|かさ}なっていて……{最低限|さいていげん}の{言葉|ことば}だけ{送|おく}ってた。{受|う}け{取|と}る{人|ひと}がどう{読|よ}むか、{考|かんが}える{余裕|よゆう}がなかった。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{焦|あせ}りが「{省略|しょうりゃく}」という{行動|こうどう}パターンを{生|う}んでいた——{締切|しめきり}やプレッシャーに{追|お}われるうちに、「{伝|つた}えなければならない{前提情報|ぜんていじょうほう}（コンテキスト）」を{省|はぶ}いて{要点|ようてん}だけ{送|おく}るようになっていたのだ。**"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 3件のメッセージ全文比較
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "3{件|けん}のメッセージ{全文|ぜんぶん}を{並|なら}べて{比|くら}べてみる。「グループを{作|つく}って」「{金曜|きんよう}{出|だ}して」「{図書館|としょかん}で{待|ま}って」——{全部|ぜんぶ}{本文|ほんぶん}だけ。コンテキストが{丸|まる}ごと{欠|か}けてる。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 3件のメッセージ全文 + コンテキスト欠落箇所
+        content: "①「グループを{作|つく}って」→【{欠落|けつらく}】{何|なに}のグループ？ {何班|なにはん}？ {誰|だれ}と？②「{金曜|きんよう}{出|だ}して」→【{欠落|けつらく}】{何|なに}を？ どこに？ {何時|なんじ}まで？③「{図書館|としょかん}で{待|ま}って」→【{欠落|けつらく}】{何時|なんじ}？ {何|なん}のため？ どのくらい？【{共通|きょうつう}パターン】3{件|けん}{全|すべ}て——{本文|ほんぶん}はあるが、{前提|ぜんてい}({背景|はいけい}/{条件|じょうけん}/{理由|りゆう})が{完全|かんぜん}に{省|はぶ}かれている。"
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{帰納法|きのうほう}の{答|こた}えが{出|で}た。3{件|けん}を{比|くら}べると——{全|すべ}てに「コンテキストの{欠落|けつらく}」という{同|おな}じ{空白|くうはく}がある。これが{共通|きょうつう}の{構造的|こうぞうてき}{問題|もんだい}だ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 3件のすれ違いを起こした共通の原因を作ったのは誰？
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。3{件|けん}{全|すべ}ての{発信者|はっしんしゃ}は1{人|ひと}。3{件|けん}{全|すべ}てで「コンテキスト」が{欠落|けつらく}している。3{件|けん}{全|すべ}てが{同|おな}じ{日|ひ}——{締切|しめきり}が{重|かさ}なって{焦|あせ}っていた{日|ひ}に{送|おく}られた。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①コトバは3{件|けん}を{記録|きろく}・{整理|せいり}した{側|がわ}。②キクは{被害者|ひがいしゃ}の{証言|しょうげん}を{集|あつ}めた{側|がわ}。③ツタエは3{件|けん}{全|すべ}ての「{発信者|はっしんしゃ}」で、コンテキストを{省|はぶ}いていた。④マナブは{帰納的|きのうてき}{比較分析|ひかくぶんせき}を{進|すす}めた{側|がわ}。"
+      - type: choice
+        id: q1
+        question: 3件のすれ違いを起こした共通の原因を作ったのは誰？
+        options:
+          - text: コトバ（3件を記録・整理した）
+            value: kotoba
+            correct: false
+            feedback: "コトバは3{件|けん}のすれ{違|ちが}いを{記録|きろく}・{整理|せいり}した{側|がわ}。{発信者|はっしんしゃ}ではないよ。3{件|けん}の{共通|きょうつう}{発信者|はっしんしゃ}が{誰|だれ}かを{証拠|しょうこ}カード1で{確認|かくにん}してみよう。"
+          - text: キク（被害者の証言を集めた）
+            value: kiku
+            correct: false
+            feedback: "キクは{困|こま}った{子|こ}たちの{声|こえ}を{集|あつ}めた{側|がわ}。3{件|けん}の{発信者|はっしんしゃ}ではないよ。カード1・3で{誰|だれ}がメッセージを{送|おく}っていたか{確認|かくにん}してみよう。"
+          - text: ツタエ（3件全てのコンテキストを省いた発信者）
+            value: tsutae
+            correct: true
+            feedback: "{正解|せいかい}！　ツタエは{締切|しめきり}の{焦|あせ}りから、{情報|じょうほう}の{本文|ほんぶん}だけ{送|おく}ってコンテキストを{省|はぶ}いていた。**{帰納法|きのうほう}で{分|わ}かったのは、3{件|けん}がバラバラな{問題|もんだい}ではなく、{同|おな}じ「コンテキストの{欠落|けつらく}」という{構造的|こうぞうてき}{習慣|しゅうかん}から{来|き}ていたということ。{伝|つた}えると{伝|つた}わるは{違|ちが}う——「{受|う}け{取|と}る{側|がわ}は{何|なに}を{知|し}っていて{何|なに}を{知|し}らないか」を{考|かんが}えるのが、コンテキストを{伝|つた}えるということ。**"
+          - text: マナブ（帰納的比較分析をリードした）
+            value: manabu
+            correct: false
+            feedback: "マナブは{帰納的|きのうてき}{比較分析|ひかくぶんせき}を{進|すす}めた{側|がわ}。{問題|もんだい}の{原因|げんいん}を{作|つく}った{発信者|はっしんしゃ}ではないよ。3{件|けん}の{共通|きょうつう}{発信者|はっしんしゃ}が{誰|だれ}かを{証拠|しょうこ}カード1・5で{確認|かくにん}してみよう。"
+
+  # ==================== 真相：ツタエの告白 ====================
+  - id: truth-tsutae
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: コンテキストの欠落
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tsutae
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsutae
+        text: "……{私|わたし}が3{件|けん}{全|すべ}ての{発信者|はっしんしゃ}でした。{締切|しめきり}が{重|かさ}なっていて、{最低限|さいていげん}の{言葉|ことば}だけ{送|おく}ってた。"
+        expression: worried
+      - type: dialog
+        character: tsutae
+        text: "{受|う}け{取|と}る{人|ひと}がどう{読|よ}むか、{考|かんが}える{余裕|よゆう}がなかった。「グループを{作|つく}って」「{金曜|きんよう}{出|だ}して」「{図書館|としょかん}で{待|ま}って」——{確|たし}かに{伝|つた}えたけど、{何|なに}の{話|はなし}か{分|わ}かるように{伝|つた}えてなかった。"
+        expression: thinking
+      - type: dialog
+        character: tsutae
+        text: "「{伝|つた}える」と「{伝|つた}わる」は{違|ちが}うんだ……{受|う}け{取|と}る{側|がわ}が「{何|なに}を{知|し}っていて{何|なに}を{知|し}らないか」を{考|かんが}える{余裕|よゆう}が、あのときなかった。"
+        expression: worried
+      - type: sprite
+        character: tsutae
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{全員|ぜんいん}が「もう{少|すこ}し{説明|せつめい}してほしかった」と{言|い}ってた。{前提|ぜんてい}が{分|わ}からないと、{情報|じょうほう}があっても{動|うご}けないんだね。でも——{分|わ}からなければ「{聞|き}く」という{選択肢|せんたくし}も、{受|う}け{取|と}る{側|がわ}にあったかも。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{帰納法|きのうほう}で{分|わ}かったのは——3{件|けん}はバラバラな{問題|もんだい}ではなく、{同|おな}じ1つの{原因|げんいん}から{生|う}まれていたということ。「コンテキストの{欠落|けつらく}」という{構造的|こうぞうてき}{習慣|しゅうかん}が、3{件|けん}の{共通|きょうつう}パターンだった。"
+        expression: surprised
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "ツタエが{悪意|あくい}じゃなかったのは{分|わ}かる。{焦|あせ}りが「{省略|しょうりゃく}」を{生|う}んだ。でも、だからこそ{学|まな}びがある——{焦|あせ}ると{人|ひと}は「{受|う}け{取|と}る{側|がわ}の{視点|してん}」を{忘|わす}れる。コンテキストを{省|はぶ}くのは、そういうときなんだ。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "3{件|けん}のすれ{違|ちが}いの{共通|きょうつう}パターンが{見|み}えてきたね。コンテキストを{省|はぶ}くと、{受|う}け{取|と}る{側|がわ}は「{何|なに}の{話|はなし}？」となる——これが{情報|じょうほう}が{伝|つた}わらない{本当|ほんとう}の{仕組|しく}みよ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ツタエは{悪意|あくい}がなかった。でも「{焦|あせ}ると{省略|しょうりゃく}しがちになる」という{習慣|しゅうかん}が{問題|もんだい}だった。{大切|たいせつ}なのは——{情報|じょうほう}を{伝|つた}えるとき、「{相手|あいて}は{何|なに}を{知|し}っていて{何|なに}を{知|し}らないか」を{考|かんが}えること。それがコンテキストを{伝|つた}えるということよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{帰納法|きのうほう}——バラバラな{具体的|ぐたいてき}{事例|じれい}から{共通|きょうつう}するパターン・{原因|げんいん}を{抽象化|ちゅうしょうか}して{発見|はっけん}するスキル。3{件|けん}の{事例|じれい}→{共通|きょうつう}パターン「コンテキストの{欠落|けつらく}」→1{人|ひと}の{構造的|こうぞうてき}{習慣|しゅうかん}が{原因|げんいん}と{判明|はんめい}。"
+      - type: narration
+        text: "コンテキストの{重要性|じゅうようせい}——{情報|じょうほう}を{発信|はっしん}するとき、{受|う}け{取|と}る{側|がわ}が「{何|なに}の{話|はなし}か」を{理解|りかい}するために{必要|ひつよう}な{前提情報|ぜんていじょうほう}を{一緒|いっしょ}に{伝|つた}えること。あなたも「{相手|あいて}が{知|し}っている{前提|ぜんてい}と{知|し}らない{前提|ぜんてい}」を{考|かんが}えて{伝|つた}えたことがあるかな——{今日|きょう}の{自分|じぶん}に{置|お}き{換|か}えて{考|かんが}えてみよう。"
+      - type: effect
+        name: fade-out

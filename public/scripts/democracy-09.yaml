@@ -1,0 +1,417 @@
+meta:
+  id: democracy-09
+  title: データの魔法
+  series: 選挙探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{模擬|もぎ}{選挙|せんきょ}は{3|さん}{回|かい}{行|おこな}われた。クラス{代表|だいひょう}を{決|き}める{投票|とうひょう}——{毎回|まいかい}{同|おな}じ{形式|けいしき}のはずなのに、{不思議|ふしぎ}なことに{気|き}づいた{人|ひと}がいた。"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: center
+      - type: dialog
+        character: gikai
+        text: "{3|さん}{回|かい}のデータを{並|なら}べてみたら……{投票|とうひょう}{率|りつ}が{低|ひく}い{回|かい}ほど、ノゾミさんを{支持|しじ}する{候補|こうほ}の{得票|とくひょう}{率|りつ}が{高|たか}くなってる。{3|さん}{回|かい}{連続|れんぞく}で。"
+        expression: surprised
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: worried
+          - character: tami
+            expression: normal
+          - character: nozomi
+            expression: thinking
+      - type: narration
+        text: "{3|さん}{回|かい}{連続|れんぞく}は{偶然|ぐうぜん}じゃない——{選挙探偵団|せんきょたんていだん}は{データ|でーた}の{裏|うら}に{隠|かく}された{真実|しんじつ}を{追|お}うことにした。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: データの魔法
+        subtitle: 選挙探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: データのパターンを読む
+      - type: narration
+        text: "ギカイが{3|さん}{回|かい}分の{選挙|せんきょ}{結果|けっか}を{一覧|いちらん}にまとめてきた。{数字|すうじ}を{並|なら}べると、{確|たし}かに{不思議|ふしぎ}な{傾向|けいこう}が{見|み}えてくる。"
+      - type: evidence
+        id: card-1
+        title: 3回の選挙結果比較表
+        content: "【{第|だい}1{回|かい}】{投票|とうひょう}{率|りつ}:68%　ノゾミ{候補|こうほ}{得票|とくひょう}{率|りつ}:38%。【{第|だい}2{回|かい}】{投票|とうひょう}{率|りつ}:54%　ノゾミ{候補|こうほ}{得票|とくひょう}{率|りつ}:44%。【{第|だい}3{回|かい}】{投票|とうひょう}{率|りつ}:41%　ノゾミ{候補|こうほ}{得票|とくひょう}{率|りつ}:51%。→{投票|とうひょう}{率|りつ}が{下|さ}がるほどノゾミ{候補|こうほ}の{得票|とくひょう}{率|りつ}が{上|あ}がる{傾向|けいこう}が{3|さん}{回|かい}{連続|れんぞく}で{確認|かくにん}される。"
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{投票|とうひょう}{率|りつ}68%のときはノゾミさん38%、41%のときは51%——{投票|とうひょう}{率|りつ}が{下|さ}がるたびにノゾミさんの{得票|とくひょう}{率|りつ}が{上|あ}がってる。{3|さん}{回|かい}{連続|れんぞく}は{偶然|ぐうぜん}じゃない。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "ヒョウが{投票|とうひょう}{呼|よ}びかけの{担当|たんとう}{割|わ}り{当|あ}て{表|ひょう}と、{時間帯|じかんたい}{別|べつ}の{投票|とうひょう}{数|すう}を{持|も}ってきた。"
+      - type: evidence
+        id: card-2
+        title: 時間帯別投票数（3回分）と担当割り当て表
+        content: "【{時間帯|じかんたい}{別|べつ}{投票|とうひょう}{数|すう}】3{時間目|じかんめ}の{高|こう}{学年|がくねん}{投票|とうひょう}{数|すう}:第1{回|かい}=24{票|ひょう}・第2{回|かい}=14{票|ひょう}・第3{回|かい}=9{票|ひょう}。{他|ほか}の{時間帯|じかんたい}は{回|かい}ごとの{変化|へんか}が{小|ちい}さい。【{担当|たんとう}{割|わ}り{当|あ}て{表|ひょう}】3{時間目|じかんめ}{担当|たんとう}:ヒョウ（{全|ぜん}3{回|かい}）。ヒョウの{担当|たんとう}{エリア|えりあ}:{高|こう}{学年|がくねん}{廊下|ろうか}（5{年生|ねんせい}・6{年生|ねんせい}）。"
+      - type: sprite
+        character: hyou
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hyou
+        text: "3{時間目|じかんめ}の{担当|たんとう}は{僕|ぼく}だった。でも……{高|こう}{学年|がくねん}の{教室|きょうしつ}には——"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 行動の記録と帰納法
+      - type: narration
+        text: "タミが{観察|かんさつ}{記録|きろく}を{持|も}ってきた。{3|さん}{回|かい}の{選挙|せんきょ}の{日|ひ}、{廊下|ろうか}での{動|うご}きを{細|こま}かく{書|か}き{留|と}めていたのだ。"
+      - type: evidence
+        id: card-3
+        title: タミの観察記録と帰納的比較表
+        content: "【タミの{観察|かんさつ}{記録|きろく}】第1{回|かい}3{時間目|じかんめ}:{低|てい}{学年|がくねん}{廊下|ろうか}でヒョウを{確認|かくにん}、{高|こう}{学年|がくねん}{廊下|ろうか}では{未確認|みかくにん}。第2{回|かい}3{時間目|じかんめ}:{同様|どうよう}、{高|こう}{学年|がくねん}{廊下|ろうか}にヒョウの{姿|すがた}なし。第3{回|かい}3{時間目|じかんめ}:{同様|どうよう}、{高|こう}{学年|がくねん}{廊下|ろうか}にヒョウの{姿|すがた}なし。【{帰納的|きのうてき}{比較|ひかく}{表|ひょう}】3{回|かい}とも「3{時間目|じかんめ}・{高|こう}{学年|がくねん}エリア・ヒョウ{不在|ふざい}」が{一致|いっち}。"
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tami
+        text: "{3|さん}{回|かい}とも、3{時間目|じかんめ}にヒョウさんが6{年生|ねんせい}の{廊下|ろうか}に1{回|かい}も{来|き}なかったの。{偶然|ぐうぜん}なら{1|いち}{回|かい}くらいは{来|き}てるはず——{3|さん}{回|かい}{連続|れんぞく}となると……"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: narration
+        text: "ノゾミが、ヒョウから{事前|じぜん}に「{任|まか}せて」と{言|い}われていたことを{話|はな}してくれた。{呼|よ}びかけ{担当|たんとう}{地図|ちず}と{低|てい}{投票|とうひょう}{率|りつ}{時間帯|じかんたい}{地図|ちず}を{重|かさ}ねると——{完全|かんぜん}に{一致|いっち}した。"
+      - type: evidence
+        id: card-4
+        title: 呼びかけ担当地図と低投票率時間帯地図の一致
+        content: "【{呼|よ}びかけ{担当|たんとう}{地図|ちず}】ヒョウの{担当|たんとう}:{高|こう}{学年|がくねん}エリア{全体|ぜんたい}（3{時間目|じかんめ}）。【{低|てい}{投票|とうひょう}{率|りつ}{時間帯|じかんたい}{地図|ちず}】{全|ぜん}3{回|かい}で{低下|ていか}が{集中|しゅうちゅう}する{場所|ばしょ}:{高|こう}{学年|がくねん}エリア・3{時間目|じかんめ}。【{重|かさ}ね{合|あ}わせ】2つの{地図|ちず}が{完全|かんぜん}に{一致|いっち}。→{呼|よ}びかけが{行|おこな}われなかったエリアと、{投票|とうひょう}{率|りつ}が{下|さ}がったエリアが{同一|どういつ}。"
+      - type: sprite
+        character: nozomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "ヒョウさんが「{任|まか}せて、{絶対|ぜったい}{勝|か}たせてあげる」って{言|い}ってたの。{まさか|まさか}こういうことだとは——{思|おも}ってなかった。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{投票|とうひょう}{率|りつ}の{低下|ていか}は3{時間目|じかんめ}の{高|こう}{学年|がくねん}エリアに{集中|しゅうちゅう}し、{担当|たんとう}のヒョウは3{回|かい}とも{高|こう}{学年|がくねん}{廊下|ろうか}を{回|まわ}らなかった——{帰納法|きのうほう}でパターンが{確定|かくてい}しつつある。"
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{帰納法|きのうほう}っていうのは、{個別|こべつ}の{事例|じれい}から{共通|きょうつう}のパターンを{見|み}つける{推理|すいり}の{方法|ほうほう}だ。{3|さん}{回|かい}{連続|れんぞく}で{同|おな}じことが{起|お}きているなら——{偶然|ぐうぜん}じゃなく、{意図|いと}的な{行動|こうどう}があるはず。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: left
+      - type: dialog
+        character: hyou
+        text: "……ノゾミに「{絶対|ぜったい}{勝|か}たせてあげる」って{言|い}った。{友達|ともだち}だから。でも、{選挙|せんきょ}の{呼|よ}びかけは——{全員|ぜんいん}に{公平|こうへい}にやらないといけないものだったんだ。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ヒョウの告白と先生の言葉
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: center
+      - type: dialog
+        character: hyou
+        text: "……{本当|ほんとう}のことを{話|はな}します。{低|てい}{学年|がくねん}には{積極的|せっきょくてき}に{呼|よ}びかけた。{低|てい}{学年|がくねん}の{子|こ}はノゾミを{支持|しじ}してる{子|こ}が{多|おお}いから。"
+        expression: worried
+      - type: dialog
+        character: hyou
+        text: "{高|こう}{学年|がくねん}の{教室|きょうしつ}には{行|い}かなかった。{高|こう}{学年|がくねん}の{子|こ}は{他|ほか}の{候補|こうほ}を{支持|しじ}してる{子|こ}が{多|おお}いから——ノゾミに{勝|か}ってほしかった。{不正|ふせい}とは{考|かんが}えていなかった。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ヒョウの告白と先生の言葉
+        content: "【ヒョウの{告白|こくはく}】「ノゾミに{勝|か}ってほしかった。{低|てい}{学年|がくねん}には{積極的|せっきょくてき}に{呼|よ}びかけ、{高|こう}{学年|がくねん}には{行|い}かなかった。{不正|ふせい}とは{考|かんが}えていなかった」。【{先生|せんせい}の{言葉|ことば}】「{投票|とうひょう}{呼|よ}びかけも{選挙|せんきょ}の{一部|いちぶ}です。{公平|こうへい}に{全員|ぜんいん}に{実施|じっし}することが{基本|きほん}——{特定|とくてい}の{支持者|しじしゃ}だけに{呼|よ}びかけることは、{意図|いと}的でなくても{選挙|せんきょ}の{公正|こうせい}{性|せい}を{損|そこ}なう{行為|こうい}です」。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒョウさんの{気持|きも}ちは{分|わ}かる。{友達|ともだち}を{応援|おうえん}したかっただけ。でも——{投票|とうひょう}{呼|よ}びかけは{選挙|せんきょ}の{一部|いちぶ}なの。{全員|ぜんいん}に{公平|こうへい}に{行|おこな}わないと、{選挙|せんきょ}の{結果|けっか}そのものが{歪|ゆが}んでしまう。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{不正|ふせい}とは、{悪意|あくい}があるかどうかじゃない。{手続|てつづ}きが{公平|こうへい}かどうかで{決|き}まる——{民主主義|みんしゅしゅぎ}の{基本|きほん}は「{誰|だれ}もが{平等|びょうどう}に{参加|さんか}できること」よ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{3|さん}{回|かい}のデータが{示|しめ}す{一致|いっち}したパターン——{偶然|ぐうぜん}ではなく、{意図|いと}的な{行動|こうどう}の{積|つ}み{重|かさ}ね。{友情|ゆうじょう}からの{行動|こうどう}でも、{選挙|せんきょ}の{公正|こうせい}{性|せい}を{損|そこ}なうことに{変|か}わりはない。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: データのパターンから真相を解き明かせ
+      - type: sprite
+        character: gikai
+        expression: determined
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{3|さん}{回|かい}{連続|れんぞく}のデータ{一致|いっち}、{担当|たんとう}{地図|ちず}と{低|てい}{投票|とうひょう}{率|りつ}{地図|ちず}の{完全|かんぜん}{一致|いっち}、タミさんの{観察|かんさつ}{記録|きろく}——{帰納法|きのうほう}で{答|こた}えは{一|ひと}つに{絞|しぼ}られた。"
+        expression: determined
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{3|さん}{回|かい}とも{投票|とうひょう}{率|りつ}{低下|ていか}が{高|こう}{学年|がくねん}エリア・3{時間目|じかんめ}に{集中|しゅうちゅう}。②{担当|たんとう}{割|わ}り{当|あ}て{表|ひょう}:3{時間目|じかんめ}{高|こう}{学年|がくねん}エリアはヒョウが{担当|たんとう}。③タミの{観察|かんさつ}{記録|きろく}:{3|さん}{回|かい}とも{高|こう}{学年|がくねん}{廊下|ろうか}でヒョウの{姿|すがた}なし。④{担当|たんとう}{地図|ちず}と{低|てい}{投票|とうひょう}{率|りつ}{地図|ちず}が{完全|かんぜん}{一致|いっち}。⑤ヒョウ{自身|じしん}が「{低|てい}{学年|がくねん}にだけ{積極的|せっきょくてき}に{呼|よ}びかけた」と{告白|こくはく}。"
+      - type: choice
+        id: q1
+        question: 投票率が特定の時間帯だけ低かった原因は？
+        options:
+          - text: 投票呼びかけが行われなかった
+            value: no-callout
+            correct: true
+            feedback: "{正解|せいかい}！　{高|こう}{学年|がくねん}エリアで{呼|よ}びかけが{行|おこな}われなかったため、{投票|とうひょう}{率|りつ}が{低下|ていか}した。{呼|よ}びかけは{投票|とうひょう}{率|りつ}に{直接|ちょくせつ}{影響|えいきょう}する——これが{3|さん}{回|かい}{連続|れんぞく}で{同|おな}じパターンを{生|う}み{出|だ}した{原因|げんいん}。"
+          - text: 高学年は選挙に興味がない
+            value: disinterest
+            feedback: "{高|こう}{学年|がくねん}が{無関心|むかんしん}なわけではない。第1{回|かい}では{投票|とうひょう}{率|りつ}が{比較的|ひかくてき}{高|たか}かった——{回|かい}を{重|かさ}ねるごとに{下|さ}がっているのは、{外部|がいぶ}からの{働|はたら}きかけの{変化|へんか}が{原因|げんいん}と{考|かんが}えられる。"
+          - text: 集計ミス
+            value: tally-error
+            feedback: "{3|さん}{回|かい}{連続|れんぞく}で{同|おな}じ{時間帯|じかんたい}・{同|おな}じエリアだけ{低|ひく}いのは、{集計|しゅうけい}ミスで{説明|せつめい}するには{無理|むり}がある。{データ|でーた}の{一貫|いっかん}したパターンは、{別|べつ}の{原因|げんいん}を{指|さ}し{示|しめ}している。"
+      - type: choice
+        id: q2
+        question: 投票呼びかけを意図的にサボったのは誰？
+        options:
+          - text: ヒョウ（呼びかけ担当として低学年のみに積極的に呼びかけた）
+            value: hyou
+            correct: true
+            feedback: "{正解|せいかい}！　ヒョウはノゾミへの{友情|ゆうじょう}から、{支持者|しじしゃ}の{多|おお}い{低|てい}{学年|がくねん}には{積極的|せっきょくてき}に{呼|よ}びかけ、{他|ほか}{候補|こうほ}{支持者|しじしゃ}の{多|おお}い{高|こう}{学年|がくねん}には{行|い}かなかった。{友情|ゆうじょう}からの{行動|こうどう}でも、{選挙|せんきょ}の{公正|こうせい}{性|せい}を{損|そこ}なう——これが**「{手続|てつづ}きの{公平|こうへい}{性|せい}」**の{問題|もんだい}。{民主主義|みんしゅしゅぎ}では、{結果|けっか}だけでなく{過程|かてい}も{公正|こうせい}でなければならない！"
+          - text: ギカイ（データ管理・パターン発見者）
+            value: gikai
+            feedback: "ギカイは{3|さん}{回|かい}の{選挙|せんきょ}{データ|でーた}を{分析|ぶんせき}してパターンを{発見|はっけん}した{側|がわ}。{問題|もんだい}を{明|あき}らかにする{重要|じゅうよう}な{役割|やくわり}を{果|は}たしてくれたよ。"
+          - text: タミ（行動観察者）
+            value: tami
+            feedback: "タミは{3|さん}{回|かい}の{廊下|ろうか}での{行動|こうどう}を{記録|きろく}した{観察|かんさつ}担当。ヒョウが{高|こう}{学年|がくねん}{廊下|ろうか}に{来|こ}なかったことを{3|さん}{回|かい}{連続|れんぞく}で{確認|かくにん}してくれた{大切|たいせつ}な{証人|しょうにん}だよ。"
+          - text: ノゾミ（利益を得たが行動を知らなかった）
+            value: nozomi
+            feedback: "ノゾミはヒョウから「{任|まか}せて」と{言|い}われたが、{具体的|ぐたいてき}な{行動|こうどう}は{知|し}らなかった。{利益|りえき}を{得|え}た{側|がわ}でも、{知|し}らなければ{責任|せきにん}はない——{重要|じゅうよう}な{区別|くべつ}だよ。"
+
+  # ==================== 真相：ヒョウの告白 ====================
+  - id: truth-hyou
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ヒョウの気持ちと友情の代償
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: center
+      - type: dialog
+        character: hyou
+        text: "……ノゾミが「{絶対|ぜったい}{勝|か}ちたい」って{言|い}ってた。{本当|ほんとう}に{真剣|しんけん}な{顔|かお}で。{友達|ともだち}だから、{力|ちから}になってあげたかった。"
+        expression: worried
+      - type: dialog
+        character: hyou
+        text: "{低|てい}{学年|がくねん}の{子|こ}はノゾミを{応援|おうえん}してる{子|こ}が{多|おお}い——そっちにたくさん{呼|よ}びかければ、{投票率|とうひょうりつ}が{上|あ}がってノゾミが{有利|ゆうり}になる。{高|こう}{学年|がくねん}には{行|い}かなければ……そう{考|かんが}えた。"
+        expression: thinking
+      - type: dialog
+        character: hyou
+        text: "{不正|ふせい}とは{思|おも}わなかった。「{呼|よ}びかけ{方|ほう}を{工夫|くふう}しただけ」って。でも——{選挙|せんきょ}って、そういうものじゃなかったんだ。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 真相：他キャラ反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: nozomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "……{知|し}らなかった。「{任|まか}せて」って{言|い}ってたから——{まさか|まさか}そういうことだとは。ヒョウさんが{友達|ともだち}だから{助|たす}けてくれようとしたのは{分|わ}かる。でも、それで{勝|か}っても、{本当|ほんとう}に{勝|か}ったことになるのかな。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "{観察|かんさつ}してて{気|き}になってた。3{回|かい}とも{同|おな}じ{場所|ばしょ}にヒョウさんがいなかった——{偶然|ぐうぜん}じゃないって{感|かん}じてた。{友情|ゆうじょう}からだとしても、{選挙|せんきょ}は{全員|ぜんいん}に{公平|こうへい}に{行|おこな}わなきゃいけないよ。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: normal
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{データ|でーた}って{正直|しょうじき}だな。{意図|いと}を{隠|かく}しても、{数字|すうじ}を{並|なら}べたら{見|み}えてくる。{帰納法|きのうほう}——{個別|こべつ}の{事例|じれい}から{共通|きょうつう}のパターンを{見|み}つける{方法|ほうほう}——が{今日|きょう}は{効|き}いた。"
+        expression: normal
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ヒョウさんの{気持|きも}ちは{理解|りかい}できる。{友達|ともだち}を{応援|おうえん}したいという{気持|きも}ちは{悪|わる}くない——でも、{投票|とうひょう}{呼|よ}びかけは{全員|ぜんいん}に{公平|こうへい}に{行|おこな}うのが{義務|ぎむ}。{特定|とくてい}の{人|ひと}だけ{有利|ゆうり}になるようにすることは、{結果|けっか}を{操作|そうさ}することと{同|おな}じよ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{民主主義|みんしゅしゅぎ}の{選挙|せんきょ}が{大切|たいせつ}なのは、{全員|ぜんいん}が{平等|びょうどう}に{参加|さんか}できるから。{手続|てつづ}きの{公平|こうへい}{性|せい}——これが{民主主義|みんしゅしゅぎ}の{根|ね}っこにある{考|かんが}え{方|かた}よ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{複数|ふくすう}データの{分析|ぶんせき}——{1|いち}{回|かい}だけの{結果|けっか}では{判断|はんだん}できないことも、{複数|ふくすう}{回|かい}のデータを{比較|ひかく}することで{パターン|ぱたーん}が{見|み}えてくる。{投票|とうひょう}{率|りつ}と{得票|とくひょう}{率|りつ}の{関係|かんけい}、{時間帯|じかんたい}と{場所|ばしょ}の{一致|いっち}——{データ|でーた}は{事実|じじつ}を{正直|しょうじき}に{示|しめ}す。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{帰納法|きのうほう}——{個別|こべつ}の{事例|じれい}（{第|だい}1{回|かい}・{第|だい}2{回|かい}・{第|だい}3{回|かい}）から{共通|きょうつう}のパターンを{見|み}つけ、{一般|いっぱん}的な{結論|けつろん}を{導|みちび}く{推理|すいり}の{方法|ほうほう}。「{3|さん}{回|かい}{連続|れんぞく}で{同|おな}じ」は{偶然|ぐうぜん}ではない——{帰納的|きのうてき}に{考|かんが}えることで{真実|しんじつ}が{見|み}えてくる。{選挙|せんきょ}でも、{科学|かがく}でも、{日常生活|にちじょうせいかつ}でも、データは{正直|しょうじき}に{語|かた}る。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,450 @@
+meta:
+  id: cyber-03
+  title: なりすましの友
+  series: ネット探偵団
+  volume: 3
+  estimatedMinutes: 20
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "オンラインゲームのチャットに、1つのメッセージが{届|とど}いた。"
+      - type: se
+        sound: phone
+      - type: narration
+        text: "「{久|ひさ}しぶり！　パス{元気|げんき}？　{転校|てんこう}してからずっと{連絡|れんらく}したかった」——{送|おく}り{主|ぬし}の{名前|なまえ}は「リク」だった。"
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: pasu
+        expression: surprised
+        position: center
+      - type: dialog
+        character: pasu
+        text: "リク……！　{本当|ほんとう}に{久|ひさ}しぶりだ。{転校|てんこう}してから{全然|ぜんぜん}{連絡|れんらく}{取|と}れなくて——ずっと{会|あ}いたかった。"
+        expression: happy
+      - type: dialog
+        character: pasu
+        text: "「{今度|こんど}{一緒|いっしょ}にゲームしよう」「アイテムを{送|おく}るからIDとパスワード{教|おし}えて」……{懐|なつ}かしくて、{返信|へんしん}を{続|つづ}けていたんだ。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ところが——ログがチャットを{見|み}て「リクの{書|か}き{方|かた}がおかしい」と{指摘|してき}したの。パスがリクにしか{分|わ}からない{質問|しつもん}を{投|な}げかけると、{相手|あいて}は{答|こた}えられなかった。なりすましだったのよ。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "ネット{探偵団|たんていだん}——{誰|だれ}が「リク」のふりをしてパスに{近|ちか}づいたのか、{調査|ちょうさ}をお{願|ねが}いできる？"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: netto
+            expression: thinking
+          - character: pasu
+            expression: worried
+          - character: rogu
+            expression: determined
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「リク」は{本物|ほんもの}なのか、{偽者|にせもの}なのか——{疑惑|ぎわく}の{糸|いと}をたぐり{寄|よ}せる{時間|じかん}だ。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: なりすましの友
+        subtitle: ネット探偵団 Vol.3
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: なりすましの正体を調べる
+      - type: narration
+        text: "チャットログの{抜粋|ばっすい}——「リク」を{名乗|なの}る{人物|じんぶつ}とパスのやり{取|と}りが{記録|きろく}されている。アイテム{交換|こうかん}の{提案|ていあん}もあった。"
+      - type: narration
+        text: "パスは「{久|ひさ}しぶり！　{元気|げんき}だよ」「{一緒|いっしょ}にやろうよ！」と{返信|へんしん}を{続|つづ}けていた。{懐|なつ}かしさがあふれている。"
+      - type: evidence
+        id: card-1
+        title: チャットログの抜粋
+        content: "「リク」→パス「{久|ひさ}しぶり！　パス{元気|げんき}？　{転校|てんこう}してからずっと{連絡|れんらく}したかった」→「{今度|こんど}{一緒|いっしょ}にゲームしよう😊」→「アイテムを{送|おく}るからIDとパスワード{教|おし}えて😉」。{特徴|とくちょう}: {絵文字|えもじ}を{多用|たよう}、{返信|へんしん}{速度|そくど}が{非常|ひじょう}に{速|はや}い。"
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "このチャット……なんか{変|へん}だ。{絵文字|えもじ}を{多用|たよう}してるけど——{本物|ほんもの}のリクって{絵文字|えもじ}{使|つか}う{人|ひと}だったっけ？"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: narration
+        text: "なりすましの{手口|てぐち}——①SNSから{個人|こじん}{情報|じょうほう}を{集|あつ}める　②{知人|ちじん}を{装|よそお}って{接近|せっきん}する　③{信用|しんよう}させてからID・パスワードを{聞|き}く。この3{段階|だんかい}が{典型的|てんけいてき}なパターン。"
+      - type: evidence
+        id: card-2
+        title: なりすましの手口説明カード
+        content: "①SNSや{公開|こうかい}{情報|じょうほう}から{相手|あいて}の{知人|ちじん}の{名前|なまえ}を{集|あつ}める。②{知人|ちじん}を{装|よそお}って「{久|ひさ}しぶり！」と{接近|せっきん}する。③{会話|かいわ}を{重|かさ}ねて{信用|しんよう}させ、IDやパスワードなどの{重要|じゅうよう}{情報|じょうほう}を{聞|き}き{出|だ}す。{被害|ひがい}を{防|ふせ}ぐには「{本人|ほんにん}しか{知|し}らない{情報|じょうほう}で{確認|かくにん}」が{有効|ゆうこう}。"
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: right
+      - type: dialog
+        character: rogu
+        text: "この{手口|てぐち}を{知|し}っていれば{防|ふせ}げた。でも——{実際|じっさい}にやられると{気|き}づきにくい。{特|とく}に{相手|あいて}が{知人|ちじん}のふりをしてくると、{確認|かくにん}をためらう{気持|きも}ちが{生|う}まれる。"
+        expression: thinking
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: パスの心理とリクのパターンを比べる
+      - type: sprite
+        character: gado
+        expression: thinking
+        position: left
+      - type: dialog
+        character: gado
+        text: "ネットと{情報|じょうほう}を{交換|こうかん}してみたんだけど——パスって{最近|さいきん}、リクの{話|はなし}をよく{聞|き}かせてくれてたよね。{転校|てんこう}してから{寂|さみ}しそうで……"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: right
+      - type: dialog
+        character: netto
+        text: "そうそう。「リクと{一緒|いっしょ}にゲームしたかった」って{何度|なんど}も{言|い}ってたもん。{最近|さいきん}はゲームを1{人|り}でやることが{多|おお}くなってたし。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: evidence
+        id: card-3
+        title: カード交換結果（ネット・ガードの共有情報）
+        content: "ネット:{転校|てんこう}{後|ご}、パスは「リクと{一緒|いっしょ}にゲームしたい」と{何度|なんど}も{言|い}っていた。{最近|さいきん}は{話題|わだい}にすることが{多|おお}かった。ガード:{最近|さいきん}のパスは{オンライン}ゲームで1{人|り}で{遊|あそ}ぶことが{多|おお}く、{寂|さみ}しそうに{見|み}えた。→{結論|けつろん}: パスにとってリクは{大切|たいせつ}な{存在|そんざい}で、「リクであってほしい」{気持|きも}ちが{強|つよ}かった。"
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: center
+      - type: dialog
+        character: rogu
+        text: "チャットを{詳|くわ}しく{分析|ぶんせき}したよ。{本物|ほんもの}のリクの{過去|かこ}の{書|か}き{方|かた}と{比|くら}べると——{決定的|けっていてき}な{違|ちが}いがある。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ログの分析結果：チャットパターン比較表
+        content: "【{本物|ほんもの}のリク】{口癖|くちぐせ}: 「{了解|りょうかい}」。{絵文字|えもじ}: ほぼ{使|つか}わない。{応答|おうとう}{速度|そくど}: {考|かんが}えてから{返信|へんしん}（{遅|おそ}め）。【{今回|こんかい}の「リク」】{口癖|くちぐせ}: 「おけ」。{絵文字|えもじ}: {多用|たよう}（😊😉など）。{応答|おうとう}{速度|そくど}: {即座|そくざ}に{返信|へんしん}（{速|はや}すぎる）。→「リクは"了解"って{言|い}う。この{人|ひと}は"おけ"って{言|い}ってる。{細|こま}かいけど{大事|だいじ}な{違|ちが}い」"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。「リク」の{書|か}き{方|かた}はリクの{本物|ほんもの}のパターンと{違|ちが}う——これは{別人|べつじん}だ。では、{問題|もんだい}は{何|なに}か？"
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: right
+      - type: dialog
+        character: rogu
+        text: "チャットの{文体|ぶんたい}が{全然|ぜんぜん}{違|ちが}う。リクは{絵文字|えもじ}を{使|つか}わないし、「{了解|りょうかい}」って{言|い}う。この「リク」は{偽者|にせもの}だよ。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: left
+      - type: dialog
+        character: pasu
+        text: "……{分|わ}かってた。{正直|しょうじき}に{言|い}うと、{最初|さいしょ}から{何|なに}か{変|へん}だと{思|おも}ってた。でも……"
+        expression: worried
+      - type: dialog
+        character: pasu
+        text: "もし{確認|かくにん}したら「{違|ちが}う」って{分|わ}かっちゃう。{確認|かくにん}するのが……{怖|こわ}かったんだ。"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: worried
+        position: right
+      - type: dialog
+        character: gado
+        text: "パスが{寂|さみ}しかったのは{分|わ}かる。でも——だからこそ{確認|かくにん}することが{大事|だいじ}だったんじゃないかな。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: パスの告白——先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: surprised
+        position: center
+      - type: dialog
+        character: yamada
+        text: "パスに{直接|ちょくせつ}{聞|き}いてみたの。「{本当|ほんとう}はリクじゃないかもと{思|おも}ってた？」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「……{本当|ほんとう}はリクじゃないって{分|わ}かってた。でも{確|たし}かめたら{違|ちが}うって{分|わ}かっちゃうから……{寂|さみ}しくて、{確認|かくにん}できなかった」——そう{言|い}っていたわ。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 先生のメモ：パスの告白と本人確認の方法
+        content: "【パスの{言葉|ことば}】「{本当|ほんとう}はリクじゃないかもと{思|おも}ってた。でも{確|たし}かめたら{違|ちが}うって{分|わ}かっちゃうから……{寂|さみ}しくて」。【{本人|ほんにん}{確認|かくにん}の{質問|しつもん}リスト】「{最後|さいご}に{一緒|いっしょ}にやった{給食|きゅうしょく}の{残|のこ}りじゃんけん、{何回|なんかい}{勝|か}った？」など、{本人|ほんにん}しか{知|し}らない{情報|じょうほう}で{確認|かくにん}することが{大切|たいせつ}。→{答|こた}えられなければ{偽者|にせもの}。"
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "{薄薄|うすうす}{気|き}づいてたのに……{確認|かくにん}できなかった。{寂|さみ}しさが「{確認|かくにん}したくない」に{変|か}わったんだね。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{確認|かくにん}したら{違|ちが}うと{分|わ}かるのが{怖|こわ}い」——その{気持|きも}ちが、なりすましを{成功|せいこう}させた。{信|しん}じたい{気持|きも}ちは{自然|しぜん}だが、{確認|かくにん}しないことで{被害|ひがい}が{広|ひろ}がった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: なりすましを見抜けなかった本当の原因は？
+      - type: sprite
+        character: rogu
+        expression: determined
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①チャットの{文体|ぶんたい}がリクと{違|ちが}う。②パスは{薄薄|うすうす}{気|き}づいていた。③でも{確認|かくにん}しなかった。その{理由|りゆう}は——{寂|さみ}しさ。"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①チャットの「リク」は{絵文字|えもじ}{多用|たよう}・「おけ」という{口癖|くちぐせ}で、{本物|ほんもの}のリクのパターンと{一致|いっち}しない。②パスはリクの{転校|てんこう}{後|ご}、{寂|さみ}しさからリクの{話|はなし}をよく{口|くち}にしていた。③パスは「{薄薄|うすうす}{気|き}づいていたが、{確認|かくにん}したら{違|ちが}うと{分|わ}かるのが{怖|こわ}かった」と{告白|こくはく}した。④ログに{促|うなが}されてようやく{本人|ほんにん}{確認|かくにん}の{質問|しつもん}をした。"
+      - type: choice
+        id: q1
+        question: なりすましを見抜けなかった本当の原因を作ったのは誰？
+        options:
+          - text: パス（「リクであってほしくて、確認を避けていた」）
+            value: pasu
+            correct: true
+            feedback: "{正解|せいかい}！　なりすました{外部|がいぶ}の{人物|じんぶつ}は{悪|わる}い。でも「{見抜|みぬ}けなかった{原因|げんいん}」はパスの{中|なか}にあった。{寂|さみ}しくて、リクだと{信|しん}じたかった。だから{確認|かくにん}しなかった。**オンラインで{知|し}り{合|あ}いを{名乗|なの}る{人|ひと}がいたら、{本人|ほんにん}しか{知|し}らない{質問|しつもん}で{確認|かくにん}しよう。{確認|かくにん}は{疑|うたが}うことじゃない。お{互|たが}いを{守|まも}ることだよ。**"
+          - text: ネット（チャットの不自然さに気づいた人）
+            value: netto
+            feedback: "{ネット|ねっと}はチャットの{不自然|ふしぜん}さに{気|き}づいた{側|がわ}。{事件|じけん}を{解決|かいけつ}に{導|みちび}いてくれた{探偵|たんてい}だよ。"
+          - text: ログ（チャットパターンの矛盾を分析した人）
+            value: rogu
+            feedback: "{ログ|ろぐ}はリクの{本物|ほんもの}のパターンと{比|くら}べて{矛盾|むじゅん}を{見|み}つけた{側|がわ}。「ログは{嘘|うそ}をつかない」という{正義感|せいぎかん}が{事件|じけん}を{解決|かいけつ}させたよ。"
+          - text: ガード（パスの寂しさを知っていた人）
+            value: gado
+            feedback: "{ガード|がーど}はパスの{心理|しんり}に{寄|よ}り{添|そ}い、{動機|どうき}の{手|て}がかりを{共有|きょうゆう}してくれた{側|がわ}。{感情|かんじょう}の{大切|たいせつ}さを{教|おし}えてくれたよ。"
+
+  # ==================== 真相：パスの告白 ====================
+  - id: truth-pasu
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: パスの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: pasu
+        expression: worried
+        position: center
+      - type: dialog
+        character: pasu
+        text: "……{本当|ほんとう}のことを{話|はな}す。リクが{転校|てんこう}してから、{一緒|いっしょ}にゲームする{相手|あいて}がいなくなって……すごく{寂|さみ}しかった。"
+        expression: worried
+      - type: dialog
+        character: pasu
+        text: "ある{日|ひ}、「{転校|てんこう}した{友|とも}だちいない？　{僕|ぼく}も{似|に}た{経験|けいけん}ある」って{見知|みし}らぬプレイヤーが{話|はな}しかけてきた。{絶対|ぜったい}リクじゃないと{思|おも}ってたんだけど——「もしかしたら」って{思|おも}いたくて。"
+        expression: thinking
+      - type: dialog
+        character: pasu
+        text: "{本当|ほんとう}はリクじゃないって{分|わ}かってた。{絵文字|えもじ}の{使|つか}い{方|かた}も、「おけ」って{口癖|くちぐせ}も——{全部|ぜんぶ}{変|へん}だと{気|き}づいてた。でも……{確認|かくにん}したら{違|ちが}うって{分|わ}かっちゃうから。それが{怖|こわ}かった。"
+        expression: worried
+      - type: dialog
+        character: pasu
+        text: "「リクじゃないって{分|わ}かってた。でもリクだったらいいなって……そう{思|おも}いながら、{返信|へんしん}を{続|つづ}けてた」"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "{信|しん}じたい{気持|きも}ちは……{分|わ}かる。{大切|たいせつ}な{友|とも}だちがいなくなったんだから。でも{絵文字|えもじ}の{使|つか}い{方|かた}ひとつで{気|き}づけた。チェックする{習慣|しゅうかん}があればよかった。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: normal
+        position: right
+      - type: dialog
+        character: rogu
+        text: "「リクは"了解"って{言|い}う。この{人|ひと}は"おけ"って{言|い}ってる」——{細|こま}かいけど{大事|だいじ}な{違|ちが}い。{言葉|ことば}の{癖|くせ}は{人|ひと}によって{違|ちが}う。そこを{見|み}ると{本人|ほんにん}かどうか{分|わ}かる。"
+        expression: normal
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: sprite
+        character: gado
+        expression: normal
+        position: left
+      - type: dialog
+        character: gado
+        text: "パスが{寂|さみ}しかったのは{分|わ}かる。でも——だからこそ{確認|かくにん}することが{自分|じぶん}を{守|まも}ることに{繋|つな}がるんだって、{今日|きょう}{分|わ}かったよ。{確認|かくにん}は{疑|うたが}うことじゃない。{大切|たいせつ}にしてるから{確認|かくにん}するんだよね。"
+        expression: normal
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "なりすました{相手|あいて}が{悪|わる}い——それは{間違|まちが}いない。でもパスが「{確認|かくにん}したくなかった」{気持|きも}ちも、{責|せ}めることはできないわ。{信|しん}じたい{気持|きも}ちは{自然|しぜん}な{感情|かんじょう}だもの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "だからこそ——「{本人|ほんにん}しか{知|し}らない{情報|じょうほう}で{確認|かくにん}する」という{方法|ほうほう}を{知|し}っておくことが{大切|たいせつ}なの。{確認|かくにん}は{疑|うたが}うことじゃない。お{互|たが}いを{守|まも}るための{大切|たいせつ}な{行動|こうどう}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】なりすましの{見破|みやぶ}り{方|かた}——{本人|ほんにん}しか{知|し}らない{情報|じょうほう}で{確認|かくにん}する。「{最後|さいご}に{一緒|いっしょ}にやった{給食|きゅうしょく}の{残|のこ}りじゃんけん、{何回|なんかい}{勝|か}った？」{答|こた}えられなければ{偽者|にせもの}だ。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{因果|いんが}{連鎖|れんさ}——{寂|さみ}しさ→{確認|かくにん}しなかった→{被害|ひがい}が{拡大|かくだい}。「{信|しん}じたい{気持|きも}ち」を{利用|りよう}するのがなりすましの{手口|てぐち}。{感情|かんじょう}に{気|き}づいたとき、もう1{歩|ほ}{立|た}ち{止|と}まって{確認|かくにん}しよう。"
+      - type: effect
+        name: fade-out

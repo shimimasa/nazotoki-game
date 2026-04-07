@@ -1,0 +1,485 @@
+meta:
+  id: design-10
+  title: 未来の設計図
+  series: デザイン思考探偵団
+  volume: 10
+  estimatedMinutes: 25
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{地域|ちいき}の「{子|こ}どもが{安心|あんしん}して{帰|かえ}れる{道|みち}プロジェクト」が{市|し}の{賞|しょう}を{受賞|じゅしょう}した——{デザイン思考探偵団|でざいんしこうたんていだん}の4{人|にん}が{学校|がっこう}を{代表|だいひょう}してまとめた{設計書|せっけいしょ}が、{地域|ちいき}{住民|じゅうみん}から{高|たか}く{評価|ひょうか}されたのだ。"
+      - type: narration
+        text: "しかし{翌日|よくじつ}、{学校|がっこう}に1{通|つう}の{文書|ぶんしょ}が{届|とど}いた。"
+      - type: se
+        sound: phone
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "「{実際|じっさい}の{子|こ}どもたちの{声|こえ}が{入|はい}っていない」って……{指摘|してき}が{来|き}た？　{私|わたし}たちは{子|こ}どものための{設計書|せっけいしょ}を{作|つく}ったのに——"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: worried
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "さらに{設計書|せっけいしょ}のデータが{書|か}き{換|か}えられた{疑惑|ぎわく}まで{浮上|ふじょう}した。{誰|だれ}が、なぜ——デザイン思考探偵団{最後|さいご}の{謎|なぞ}が{始|はじ}まる。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 未来の設計図
+        subtitle: デザイン思考探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: プロジェクト概要と地域からの指摘
+      - type: narration
+        text: "{受賞|じゅしょう}した{設計書|せっけいしょ}の{概要|がいよう}と、{地域|ちいき}{住民|じゅうみん}からの{指摘|してき}{文書|ぶんしょ}が{配|くば}られた。"
+      - type: evidence
+        id: card-1
+        title: プロジェクト概要と地域住民の指摘文書
+        content: "【{プロジェクト|ぷろじぇくと}{概要|がいよう}】「{子|こ}どもが{安心|あんしん}して{帰|かえ}れる{道|みち}プロジェクト」——{危険箇所|きけんかしょ}マップの{作成|さくせい}・{街灯|がいとう}{増設|ぞうせつ}の{提案|ていあん}・{交通安全|こうつうあんぜん}{啓発|けいはつ}{看板|かんばん}のデザイン。{市|し}の{小学生|しょうがくせい}{社会参加|しゃかいさんか}{賞|しょう}を{受賞|じゅしょう}。　【{地域|ちいき}{住民|じゅうみん}からの{指摘|してき}】「{設計書|せっけいしょ}に『20{件以上|けんいじょう}のインタビューを{実施|じっし}』と{書|か}かれているが、{実際|じっさい}に{子|こ}どもや{保護者|ほごしゃ}から{聞|き}き{取|と}りをした{記録|きろく}が{見当|みあ}たらない。{子|こ}どもの{声|こえ}なき{設計書|せっけいしょ}では{意味|いみ}がない」"
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "「20{件以上|けんいじょう}のインタビュー」——でも{実際|じっさい}の{記録|きろく}が{見当|みあ}たらないって{指摘|してき}されてる。{設計書|せっけいしょ}の{数字|すうじ}と{実態|じったい}が{一致|いっち}していないのか、それとも{数字|すうじ}が{書|か}き{換|か}えられたのか。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "{設計書|せっけいしょ}の{担当|たんとう}{分担|ぶんたん}を{確認|かくにん}した。{誰|だれ}が{共感|きょうかん}フェーズのインタビューを{担当|たんとう}していたのか——"
+      - type: evidence
+        id: card-2
+        title: 設計書の担当分担記録とインタビュー件数の主張
+        content: "【{担当|たんとう}{分担|ぶんたん}】ハカル（{プロジェクト|ぷろじぇくと}リーダー・{共感|きょうかん}{フェーズ|ふぇーず}{担当|たんとう}）・ツクル（プロトタイプ・{設計書|せっけいしょ}{実装|じっそう}{担当|たんとう}）・カナエ（{問題|もんだい}{定義|ていぎ}・アイデア{担当|たんとう}）・ミナオス（テスト・{検証|けんしょう}{担当|たんとう}）　【{設計書|せっけいしょ}の{主張|しゅちょう}】「{共感|きょうかん}{フェーズ|ふぇーず}: {子|こ}ども・{保護者|ほごしゃ}・{地域|ちいき}{住民|じゅうみん}への{聞|き}き{取|と}り20{件以上|けんいじょう}{実施|じっし}。{多様|たよう}なユーザーの{声|こえ}を{収集|しゅうしゅう}した」"
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanae
+        text: "インタビューの{担当|たんとう}はハカルだった——{共感|きょうかん}フェーズは{デザイン思考|でざいんしこう}の{最初|さいしょ}のステップなのに。{本当|ほんとう}に20{件|けん}できていたの？"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 実際のインタビュー記録と5段階プロセスの欠陥
+      - type: narration
+        text: "データの{中身|なかみ}を{詳|くわ}しく{調|しら}べると——{設計書|せっけいしょ}の{主張|しゅちょう}と{実際|じっさい}の{記録|きろく}に、{決定的|けっていてき}な{差異|さい}があることが{分|わ}かった。"
+      - type: evidence
+        id: card-3
+        title: 実際のインタビュー記録とデザイン思考5段階チェックリスト
+        content: "【{実際|じっさい}のインタビュー{記録|きろく}（{全件|ぜんけん}）】{実施|じっし}: {火曜日|かようび}〜{木曜日|もくようび}の3{日間|にちかん}。{対象|たいしょう}: {同|おな}じクラスの{友達|ともだち}8{人|にん}のみ。{合計|ごうけい}: 8{件|けん}。　【デザイン思考5{段階|だんかい}チェックリストの{欠陥|けっかん}】①{共感|きょうかん}: インタビュー{対象|たいしょう}が{限定的|げんていてき}（{保護者|ほごしゃ}・{地域|ちいき}{住民|じゅうみん}へのヒアリングなし）②{問題|もんだい}{定義|ていぎ}: ユーザー{属性|ぞくせい}が{偏|かたよ}ったまま{問題|もんだい}を{定義|ていぎ}③アイデア: {限|かぎ}られた{声|こえ}をもとにした{提案|ていあん}④プロトタイプ: {実際|じっさい}に{道|みち}を{歩|ある}くユーザーへのフィードバックテストなし⑤テスト: {多様|たよう}なユーザー（{高齢者|こうれいしゃ}・{車椅子|くるまいす}{使用者|しようしゃ}等）での{検証|けんしょう}なし"
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "8{件|けん}——{設計書|せっけいしょ}には「20{件以上|けんいじょう}」と{書|か}いてある。しかも5{段階|だんかい}の{全部|ぜんぶ}に{問題|もんだい}の{痕跡|こんせき}がある。Vol.1から{今日|きょう}まで{出|で}てきた{失敗|しっぱい}パターンが、このプロジェクトに{全部|ぜんぶ}{集約|しゅうやく}されてる。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "では{数字|すうじ}は{誰|だれ}が{書|か}き{換|か}えたのか。{設計書|せっけいしょ}の{修正|しゅうせい}{履歴|りれき}と、ハカルの{個人|こじん}メモが{発見|はっけん}された——"
+      - type: evidence
+        id: card-4
+        title: ハカルの個人メモと設計書の修正履歴
+        content: "【ハカルの{個人|こじん}メモ】「インタビューが{足|た}りない。でも{時間|じかん}がない。{賞|しょう}の{締|し}め{切|き}りが{先|さき}だ。みんながこれだけ{頑張|がんば}ってきたのに、{私|わたし}のせいで{全部|ぜんぶ}{台無|だいな}しにはできない」　【{設計書|せっけいしょ}{修正|しゅうせい}{履歴|りれき}】{日時|にちじ}: {締|し}め{切|き}り3{日前|にちまえ}の{夜|よる}　{修正者|しゅうせいしゃ}: ハカル（{編集|へんしゅう}{権限|けんげん}ログより）　{変更|へんこう}{内容|ないよう}: 「{共感|きょうかん}フェーズインタビュー{件数|けんすう}: 8{件|けん}」→「20{件以上|けんいじょう}」に{書|か}き{換|か}え"
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "ハカルのメモ——「みんなが{頑張|がんば}ってきたのに、{私|わたし}のせいで{全部|ぜんぶ}{台無|だいな}しにはできない」。{修正|しゅうせい}{履歴|りれき}にもハカルの{名前|なまえ}がある。でも……どんな{気持|きも}ちでこれを{書|か}き{換|か}えたんだろう。"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "……{言|い}わないといけない。でも、まだ{全部|ぜんぶ}{話|はな}せない。"
+        expression: worried
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 第1推理・投票（犯人特定） ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 第1推理タイム
+        subtitle: 設計書のデータを書き換えたのは誰？
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{設計書|せっけいしょ}には「20{件以上|けんいじょう}」と{書|か}いてあるが、{実際|じっさい}のインタビュー{記録|きろく}は8{件|けん}。{修正|しゅうせい}{履歴|りれき}にはハカルの{名前|なまえ}がある。{個人|こじん}メモにも「{時間|じかん}がない、{賞|しょう}の{締|し}め{切|き}りが{先|さき}」という{言葉|ことば}がある。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}の{整理|せいり}: ①{実際|じっさい}のインタビューは8{件|けん}（{設計書|せっけいしょ}の{主張|しゅちょう}: 20{件以上|けんいじょう}）。②{修正|しゅうせい}{履歴|りれき}にハカルの{編集|へんしゅう}ログあり。③ハカルの{個人|こじん}メモに「{時間|じかん}がない・{賞|しょう}の{締|し}め{切|き}りが{先|さき}」の{記述|きじゅつ}あり。④インタビュー{担当|たんとう}はハカル（{共感|きょうかん}フェーズ{担当|たんとう}）。"
+      - type: choice
+        id: q1
+        question: 設計書のインタビュー件数を書き換えたのは誰？
+        options:
+          - text: ツクル（設計書の実装担当）
+            value: tsukuru
+            correct: false
+            feedback: "ツクルは{設計書|せっけいしょ}の{実装|じっそう}とプロトタイプを{担当|たんとう}していた。{共感|きょうかん}フェーズのインタビュー{件数|けんすう}を{管理|かんり}する{立場|たちば}にはなかったよ。{修正|しゅうせい}{履歴|りれき}も{確認|かくにん}してみよう。"
+          - text: ハカル（プロジェクトリーダー・共感フェーズ担当）
+            value: hakaru
+            correct: true
+            feedback: "{正解|せいかい}！　{修正|しゅうせい}{履歴|りれき}にハカルの{名前|なまえ}があり、{個人|こじん}メモには「{賞|しょう}の{締|し}め{切|き}りが{先|さき}」という{記述|きじゅつ}がある。インタビュー{担当|たんとう}として{件数|けんすう}の{少|すく}なさを{知|し}っていた——でも、**{本当|ほんとう}の{問|とい}いはまだ{終|お}わっていない。なぜハカルは{書|か}き{換|か}えたのか、その{先|さき}へ{進|すす}もう。**"
+          - text: カナエ（問題定義・アイデア担当）
+            value: kanae
+            correct: false
+            feedback: "カナエは{問題|もんだい}{定義|ていぎ}とアイデア{段階|だんかい}を{担当|たんとう}していた。{共感|きょうかん}フェーズのインタビュー{件数|けんすう}の{編集|へんしゅう}{権限|けんげん}は{持|も}っていなかったよ。"
+          - text: ミナオス（テスト・検証担当）
+            value: minaosu
+            correct: false
+            feedback: "ミナオスはテストフェーズを{担当|たんとう}していた。{設計書|せっけいしょ}の{修正|しゅうせい}{履歴|りれき}にミナオスの{名前|なまえ}はないよ。"
+
+  # ==================== 反転：証拠カード5（パラダイムシフト） ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ハカルの告白と「誰のためのデザインか」
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハカルが{書|か}き{換|か}えたことは{分|わ}かった。でも{新|あたら}しい{証拠|しょうこ}があります——ハカルが{先生|せんせい}に{話|はな}してくれたことと、{先生|せんせい}からの{補足|ほそく}です。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ハカルの告白と「誰のためのデザイン思考か」の統合解説
+        content: "【ハカルの{告白|こくはく}（{先生|せんせい}への{相談|そうだん}）】「みんなが{一生懸命|いっしょうけんめい}やってきた。{自分|じぶん}のミスで{全部|ぜんぶ}が{台無|だいな}しになるのが{怖|こわ}かった。でも、そのせいで{本当|ほんとう}に{大切|たいせつ}なことを{見失|みうしな}った」と{泣|な}きながら{話|はな}した。　【{先生|せんせい}の{補足|ほそく}】デザイン思考の{全|ぜん}5{段階|だんかい}に「{誰|だれ}のため？」という{問|とい}いが{貫|つらぬ}かれているか——このプロジェクトは「{子|こ}どもたちのため」を{謳|うた}いながら、{実際|じっさい}には「{受賞|じゅしょう}するため」にデザインが{向|む}かっていた。【Vol.1〜9の{振|ふ}り{返|かえ}り】Vol.1:{共感|きょうかん}スキップ→Vol.2:{問題|もんだい}{定義|ていぎ}の{甘|あま}さ→Vol.3:{発散|はっさん}{段階|だんかい}での{絞|しぼ}り{込|こ}み→Vol.4:{失敗|しっぱい}を{隠|かく}す→Vol.5:{多様|たよう}なユーザーの{見落|みお}とし——{全|すべ}ての{失敗|しっぱい}がこのプロジェクトに{集約|しゅうやく}されていた。"
+      - type: se
+        sound: reveal
+      - type: sprite
+        character: hakaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "……{全部|ぜんぶ}{話|はな}す。{共感|きょうかん}フェーズのインタビュー、{本当|ほんとう}は8{件|けん}しかできていなかった。{気|き}づいていたのに——{賞|しょう}の{締|し}め{切|き}りが{迫|せま}っていて、みんなが{頑張|がんば}ってきた{姿|すがた}を{見|み}て、{正直|しょうじき}に{言|い}えなくなった。"
+        expression: worried
+      - type: dialog
+        character: hakaru
+        text: "データを{変|か}えたのは、みんなを{守|まも}りたかったから。でもそれが、このプロジェクトが{誰|だれ}のためか、という{問|とい}いを{消|け}してしまった。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハカルの{気持|きも}ちは{本当|ほんとう}のことだった。でも{気|き}づいてほしいことがある——このプロジェクトはどこかで「{受賞|じゅしょう}すること」が{目標|もくひょう}になっていたのではないか。デザイン思考の{心臓部|しんぞうぶ}は「{誰|だれ}のため？」という{問|とい}いを、5{段階|だんかい}{全部|ぜんぶ}に{貫|つらぬ}くこと。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "**{仲間|なかま}を{守|まも}ろうとした{善意|ぜんい}——でもその{善意|ぜんい}が、このプロジェクトが「{誰|だれ}のためか」という{問|とい}いを{見えなく|みえなく}した。これは{個人|こじん}の{問題|もんだい}だけではない。プロジェクト{全体|ぜんたい}の{構造|こうぞう}に{関|かか}わる{問|とい}いだ。**"
+
+  # ==================== 第2推理・投票（価値判断） ====================
+  - id: deduction-2
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 第2推理タイム
+        subtitle: このプロジェクトが本当の意味でうまくいかなかった原因は？
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "このプロジェクトを{使|つか}う{子|こ}どもたちの{声|こえ}、{本当|ほんとう}に{十分|じゅうぶん}に{聞|き}いたのか——もし{足|た}りなかったなら、{今|いま}からでも{聞|き}きに{行|い}くべきだと{思|おも}う。{本当|ほんとう}のユーザーの{声|こえ}を{聞|き}くことが、このプロジェクトを{本物|ほんもの}にする。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: narration
+        text: "これは{正解|せいかい}と{不正解|ふせいかい}だけの{問|とい}いではない——{答|こた}えの{深|ふか}さを{自分|じぶん}で{考|かんが}えてほしい。"
+      - type: choice
+        id: q2
+        question: このプロジェクトが「本当の意味で」うまくいかなかった原因は何？
+        options:
+          - text: データを書き換えたハカルが悪い
+            value: option-a
+            correct: false
+            feedback: "ハカルの{行動|こうどう}は{確|たし}かに{問題|もんだい}だった。でも、それだけが{原因|げんいん}？　データを{書|か}き{換|か}えなければ、このプロジェクトは{成功|せいこう}していた？　インタビューが8{件|けん}のままでも「{受賞|じゅしょう}」という{目標|もくひょう}は{残|のこ}っていたはず——{問|とい}いをもう少し{深|ふか}く{掘|ほ}り{下|さ}げてみよう。"
+          - text: 共感フェーズでインタビューが足りなかった
+            value: option-b
+            correct: false
+            feedback: "{共感|きょうかん}フェーズの{問題|もんだい}は{確|たし}かにある。でも、なぜインタビューが{足|た}りなかったのか——「{賞|しょう}の{締|し}め{切|き}りが{先|さき}」になっていたのはなぜ？　{最初|さいしょ}から「{誰|だれ}のためのプロジェクトか」が{明確|めいかく}だったら、{締|し}め{切|き}りより{声|こえ}を{優先|ゆうせん}できたかもしれない。"
+          - text: デザイン思考の5段階を省略した箇所があった
+            value: option-c
+            correct: false
+            feedback: "5{段階|だんかい}の{欠陥|けっかん}は{証拠|しょうこ}に{示|しめ}されている。でも、なぜ{省略|しょうりゃく}が{起|お}きたのか——「{誰|だれ}のためのデザインか」という{問|とい}いが{最初|さいしょ}から{曖昧|あいまい}なまま、{外部|がいぶ}{評価|ひょうか}（{受賞|じゅしょう}）のために{進|すす}んでしまったから、{省略|しょうりゃく}が{起|お}きたのではないか？"
+          - text: 全部が原因。「誰のためのデザインか」が曖昧なまま、外部評価（受賞）のために進んでしまった
+            value: option-d
+            correct: true
+            feedback: "これが{本質的|ほんしつてき}な{答|こた}え。デザイン思考の{全|ぜん}5{段階|だんかい}に「{誰|だれ}のため？」という{問|とい}いを{貫|つらぬ}くことが{必要|ひつよう}だった。{共感|きょうかん}フェーズでユーザーの{声|こえ}を{聞|き}くのも、{問題|もんだい}を{正確|せいかく}に{定義|ていぎ}するのも、プロトタイプの{失敗|しっぱい}から{学|まな}ぶのも、テストを{正直|しょうじき}に{評価|ひょうか}するのも——{全部|ぜんぶ}、ユーザーのためにある。**Vol.1から{今日|きょう}まで、ずっと{同|おな}じことを{問|と}い{続|つづ}けていた。それが、デザイン思考の{心臓部|しんぞうぶ}。**"
+
+  # ==================== 真相：ハカルの告白 ====================
+  - id: truth
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 仲間を守りたかった罪悪感
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hakaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "……{改|あらた}めて、ちゃんと{話|はな}す。インタビューは8{件|けん}しかできていなかった。{気|き}づいていたんだ、{共感|きょうかん}フェーズが{不十分|ふじゅうぶん}だって。"
+        expression: worried
+      - type: dialog
+        character: hakaru
+        text: "でも{賞|しょう}の{締|し}め{切|き}りが3{日|にち}しかなくて。みんなが{毎日|まいにち}{学校|がっこう}の{後|あと}まで{残|のこ}って{頑張|がんば}っているのを{見|み}て——「{私|わたし}のせいで{全部|ぜんぶ}{台無|だいな}し」にしたくなかった。"
+        expression: worried
+      - type: dialog
+        character: hakaru
+        text: "でも……データを{変|か}えた{瞬間|しゅんかん}から、{正直|しょうじき}に{言|い}えなくなった。そしてこのプロジェクトが{本当|ほんとう}に「{誰|だれ}のため」だったのかを、{私|わたし}{自身|じしん}が{見失|みうしな}ってしまった。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{ショック|しょっく}だった……でも、ハカルが「みんなを{守|まも}りたかった」{気持|きも}ちは{分|わ}かる。{私|わたし}たちも{賞|しょう}をとることに{夢中|むちゅう}になっていた。{気|き}づけなかった{私|わたし}たちにも{責任|せきにん}がある。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanae
+        text: "{子|こ}どもたちの{声|こえ}を{聞|き}かないまま、「{子|こ}どものための{道|みち}」を{作|つく}ってしまった。{悲|かな}しい。でも——{今|いま}からでも{本当|ほんとう}のインタビューに{行|い}けば、このプロジェクトを{本物|ほんもの}にできる。"
+        expression: determined
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: center
+      - type: dialog
+        character: minaosu
+        text: "Vol.1から{今日|きょう}まで——{全部|ぜんぶ}の{失敗|しっぱい}が「{誰|だれ}のためのデザインか」を{忘|わす}れた{瞬間|しゅんかん}に{起|お}きていた。このプロジェクトは、その{全部|ぜんぶ}を{含|ふく}んでいた。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハカルの{行動|こうどう}は{認|みと}められない。でも「みんなを{守|まも}りたかった」{気持|きも}ちは{本物|ほんもの}だった——その{善意|ぜんい}を{認|みと}めた{上|うえ}で、「{正直|しょうじき}に{言|い}えた{方|ほう}がよかった」と{伝|つた}えたい。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "デザイン思考は「{失敗|しっぱい}はイテレーションの{始|はじ}まり」という{考|かんが}え{方|かた}をする。8{件|けん}しかできなかったと{正直|しょうじき}に{言|い}えば、「{次|つぎ}はどうする？」という{議論|ぎろん}ができた。{嘘|うそ}がついた{瞬間|しゅんかん}に、イテレーションの{道|みち}が{閉|し}まった。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "……{正直|しょうじき}に{言|い}えばよかった。「インタビューが8{件|けん}しかできていない。どうすればいい？」って。みんなで{考|かんが}えれば、{締|し}め{切|き}りまでの3{日間|にちかん}でできることがあったかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: determined
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "イテレーション——{失敗|しっぱい}を{認|みと}めて、もう{一度|いちど}{作|つく}り{直|なお}す{勇気|ゆうき}が{必要|ひつよう}だ。{今|いま}からでも{正|ただ}しい{設計図|せっけいず}を{作|つく}れる。{子|こ}どもたちのリアルな{声|こえ}を{聞|き}きに{行|い}こう。"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デザイン思考探偵団が{今|いま}まで{追|お}いかけてきた{問|とい}い——デザイン思考とは{何|なん}だろう。{共感|きょうかん}・{問題|もんだい}{定義|ていぎ}・アイデア・プロトタイプ・テスト——5つの{段階|だんかい}{全部|ぜんぶ}に「{誰|だれ}のため？」という{問|とい}いが{貫|つらぬ}かれているとき、{初|はじ}めてデザインが{本物|ほんもの}になる。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ハカルが{経験|けいけん}した{罪悪感|ざいあくかん}——「みんなを{守|まも}りたかった」という{善意|ぜんい}の{裏|うら}に、「{受賞|じゅしょう}したい」という{外部|がいぶ}{評価|ひょうか}へのフォーカスがあった。{目標|もくひょう}が「{誰|だれ}のためか」ではなく「{何|なに}のため（{受賞|じゅしょう}）」になった{瞬間|しゅんかん}——デザインが{向|む}かう{先|さき}が{変|か}わってしまった。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: determined
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: happy
+          - character: minaosu
+            expression: determined
+      - type: narration
+        text: "**{学|まな}び①　デザイン思考の{全|ぜん}5{段階|だんかい}に「{誰|だれ}のため？」という{問|とい}いを{貫|つらぬ}く。**　{共感|きょうかん}フェーズでユーザーの{声|こえ}を{聞|き}くことが、{全|すべ}ての{始|はじ}まり。{受賞|じゅしょう}・{評価|ひょうか}・{締|し}め{切|き}りが{優先|ゆうせん}された{瞬間|しゅんかん}、デザインは「{誰|だれ}のため」を{失|うしな}う。"
+      - type: narration
+        text: "**{学|まな}び②　{複合|ふくごう}{推理|すいり}＋メタ認知——{複数|ふくすう}の{証拠|しょうこ}を{同時|どうじ}に{扱|あつか}い、プロジェクト{全体|ぜんたい}の{構造的|こうぞうてき}{問題|もんだい}を{把握|はあく}する。**　{一|ひと}つの{証拠|しょうこ}だけでは{見|み}えないことも、{重|かさ}ね{合|あ}わせると{見|み}えてくる。そして「{自分|じぶん}はどう{推理|すいり}したか」を{振|ふ}り{返|かえ}ることが、{次|つぎ}の{思考|しこう}を{育|そだ}てる。"
+      - type: narration
+        text: "**デザイン思考探偵団——{全|ぜん}10{巻|かん}、これにて{完結|かんけつ}。**　デザイン思考とは{何|なん}か。「{誰|だれ}のためのデザインか」——その{問|とい}いは、あなたの{中|なか}に{続|つづ}いていく。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

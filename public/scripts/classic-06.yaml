@@ -1,0 +1,416 @@
+meta:
+  id: classic-06
+  title: 昔話のねじれ
+  series: 古典探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: gym
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学芸会|がくげいかい}の{本番|ほんばん}まで、あと1{日|にち}——{体育館|たいいくかん}では「{桃太郎|ももたろう}」の{劇|げき}の{最後|さいご}の{通|とお}し{練習|れんしゅう}が{行|おこな}われるはずだった。"
+      - type: narration
+        text: "ところが{朝|あさ}、{台本|だいほん}を{確認|かくにん}したクラスのみんながざわめいた。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{台本|だいほん}が{書|か}き{換|か}えられていた——{鬼|おに}の{側|がわ}のセリフが{赤字|あかじ}で{追加|ついか}されている。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "大変（たいへん）よ。{台本|だいほん}が{誰|だれ}かに{書|か}き{換|か}えられていたの。「{鬼|おに}にも{家族|かぞく}がいた」「{宝物|たからもの}は{鬼|おに}が{先|さき}に{持|も}っていたもの」——{桃太郎|ももたろう}の{正義|せいぎ}を{問|と}いかける{内容|ないよう}に{変|か}わっている。{本番前日|ほんばんぜんじつ}に、いったい{誰|だれ}が……"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。「{誰|だれ}が、なぜ{台本|だいほん}を{書|か}き{換|か}えたのか」——{証拠|しょうこ}を{集|あつ}めて{真相|しんそう}を{解|と}き{明|あ}かしてください。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: surprised
+          - character: utayomi
+            expression: thinking
+          - character: shirabe
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{台本|だいほん}を{書|か}き{換|か}えたのは{誰|だれ}か、そしてなぜ{鬼|おに}の{声|こえ}を{加|くわ}えたのか——{謎|なぞ}が{静|しず}かに{広|ひろ}がっていった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 昔話のねじれ
+        subtitle: 古典探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 書き換えられた台本と桃太郎カード
+      - type: narration
+        text: "{台本|だいほん}の{原本|げんぽん}と{比較|ひかく}すると、{鬼|おに}の{側|がわ}に{新|あたら}しいセリフが{赤字|あかじ}で2{行|ぎょう}{書|か}き{加|くわ}えられていた。"
+      - type: evidence
+        id: card-1
+        title: 書き換えられた台本（原本との比較）
+        content: "【{追加|ついか}セリフ・{赤字|あかじ}】{鬼|おに}の{母親|ははおや}:「わたしにも{子|こ}どもがいるのです」　{鬼|おに}{長|ちょう}:「この{宝|たから}は{先祖代々|せんぞだいだい}のもの——{奪|うば}われる{理由|りゆう}がない」　{原本|げんぽん}にはなかった{鬼|おに}{側|がわ}の{気持|きも}ちが{書|か}き{加|くわ}えられている。"
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{書|か}き{足|た}されたのはここ。{鬼|おに}の{母親|ははおや}のセリフ——「{子|こ}どもたちが{待|ま}っているのです」。……これ、ちょっと{泣|な}きそうになる。"
+        expression: worried
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "「{桃太郎|ももたろう}」には、{実|じつ}は{複数|ふくすう}の{読|よ}み{方|かた}がある。{一般的|いっぱんてき}な「{正義|せいぎ}のヒーロー」{版|はん}と、{鬼|おに}にも{事情|じじょう}がある{版|はん}——2つを{並|なら}べて{見|み}てみると。"
+      - type: evidence
+        id: card-2
+        title: 桃太郎あらすじカード（2バージョン）
+        content: "【Aバージョン・{一般的|いっぱんてき}】{桃太郎|ももたろう}が{鬼|おに}ヶ{島|しま}へ{乗|の}り{込|こ}み、{鬼|おに}を{退治|たいじ}して{宝物|たからもの}を{取|と}り{戻|もど}す。{正義|せいぎ}のヒーローが{悪|わる}を{倒|たお}す「{勧善懲悪|かんぜんちょうあく}」の{物語|ものがたり}。　【Bバージョン・{古|ふる}い{版|はん}】{鬼|おに}が{宝|たから}を{返|かえ}す{約束|やくそく}で{和解|わかい}する{話|はなし}も{存在|そんざい}する。「{悪|わる}い{鬼|おに}」と「{良|よ}い{桃太郎|ももたろう}」で{単純|たんじゅん}に{分|わ}けられないバージョンも。"
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "{実|じつ}は「{桃太郎|ももたろう}」には{古|ふる}い{版|はん}がいくつもあって、{鬼|おに}が{宝物|たからもの}を{返|かえ}す{約束|やくそく}で{和解|わかい}する{話|はなし}もあるんだ。「{鬼|おに}は{悪|わる}もの」って{決|き}まってるわけじゃないんだよ！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: アリバイ調査と筆跡比較
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{放課後|ほうかご}のスケジュールを{全員|ぜんいん}に{確認|かくにん}した。フミカは{図書委員|としょいいん}の{仕事|しごと}、ぼくは{体育館|たいいくかん}で{劇|げき}の{準備|じゅんび}、ウタヨミは{図書室|としょしつ}で{調|しら}べ{物|もの}——{台本|だいほん}があるロッカーに{近|ちか}づけたのは……"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-3
+        title: カード交換後・アリバイ統合メモ
+        content: "【{放課後|ほうかご}のスケジュール{全探索|ぜんたんさく}】フミカ＝{図書委員|としょいいん}の{仕事|しごと}（{図書室|としょしつ}）　コトバ＝{体育館|たいいくかん}で{道具|どうぐ}{運|はこ}び　ウタヨミ＝{図書室|としょしつ}で{桃太郎|ももたろう}{原典|げんてん}{調査|ちょうさ}　シラベ＝「{教室|きょうしつ}で{宿題|しゅくだい}してた」→{台本|だいほん}のあるロッカーに1{人|り}でアクセス{可能|かのう}"
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{全員|ぜんいん}のスケジュールを{確認|かくにん}した。{放課後|ほうかご}に{教室|きょうしつ}にいたのは——シラベだけだ。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{追加|ついか}セリフの{字|じ}がシラベのノートに{似|に}ている——{筆跡|ひっせき}を{比較|ひかく}すると{同|おな}じ{人|ひと}が{書|か}いた{可能性|かのうせい}が{高|たか}い。でも……{書|か}き{加|くわ}えた{内容|ないよう}は、すごく{考|かんが}えさせられる。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: evidence
+        id: card-4
+        title: 筆跡比較＋桃太郎原典調査
+        content: "【フミカ{調査|ちょうさ}】{追加|ついか}セリフの{筆跡|ひっせき}＝シラベのノートと{一致|いっち}する{特徴|とくちょう}あり（{字|じ}の{形|かたち}・{筆圧|ひつあつ}）　【ウタヨミ{調査|ちょうさ}】「{桃太郎|ももたろう}」の{原典|げんてん}に{鬼|おに}の{側|がわ}の{気持|きも}ちを{描|えが}いた{版|はん}が{存在|そんざい}する——シラベの{発想|はっそう}は{根拠|こんきょ}のないものではなかった"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{放課後|ほうかご}にロッカーに{近|ちか}づけたのはシラベだけ。{追加|ついか}セリフの{筆跡|ひっせき}もシラベのノートに{似|に}ている。でも——{書|か}き{加|くわ}えられた{内容|ないよう}は「{鬼|おに}にも{家族|かぞく}がいた」という{深|ふか}い{問|と}いかけだった。"
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "シラベが{怪|あや}しいとは{思|おも}う。でも……{台本|だいほん}の{内容|ないよう}は{面白|おもしろ}い。「{鬼|おに}の{母親|ははおや}に{子|こ}どもがいる」って、{読|よ}んだとき{少|すこ}しドキッとした。なぜわざわざ{書|か}いたんだろう？"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: worried
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "……{鬼|おに}って、{本当|ほんとう}に{悪|わる}ものなのかな。{国語|こくご}の{授業|じゅぎょう}で「{桃太郎|ももたろう}」を{読|よ}んだとき、ずっと{気|き}になってたんだ。{鬼|おに}は{何|なに}も{悪|わる}いことをしてないのに、{退治|たいじ}される——それって{おかしくない|おかしくない}？"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "シラベに{直接|ちょくせつ}{話|はな}を{聞|き}きました。こう{言|い}っていたわ——「{鬼|おに}が{一方的|いっぽうてき}にやられるのが{かわいそう|かわいそう}だった。{鬼|おに}にも{気持|きも}ちがあるのに、{物語|ものがたり}の{中|なか}で{声|こえ}を{出|だ}せないのは{不公平|ふこうへい}だと{思|おも}った。だから{鬼|おに}のセリフを{書|か}いた」"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{勝手|かって}に{台本|だいほん}を{変|か}えた」こと{自体|じたい}は{問題|もんだい}よ。でも——シラベは「{鬼|おに}の{立場|たちば}を{守|まも}りたかった」という{共感|きょうかん}から{行動|こうどう}したの。**「{台本|だいほん}を{壊|こわ}した{犯人|はんにん}」ではなく「{鬼|おに}の{声|こえ}を{代弁|だいべん}した{子|こ}」として{見|み}ると——{見|み}え{方|かた}が{変|か}わるでしょう。**"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ（シラベの言葉）
+        content: "シラベのことば：「{鬼|おに}が{一方的|いっぽうてき}にやられるのが{かわいそう|かわいそう}だった。{鬼|おに}にも{気持|きも}ちがあるのに、{物語|ものがたり}の{中|なか}で{声|こえ}を{出|だ}せないのは{不公平|ふこうへい}だと{思|おも}った。だから{鬼|おに}のセリフを{書|か}いた。——{鬼|おに}だって{帰|かえ}りたい{家|いえ}がある。{桃太郎|ももたろう}が『{正義|せいぎ}』って{決|き}めつけるのは、おかしくない？」"
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "「{桃太郎|ももたろう}」の{原典|げんてん}にも{鬼|おに}の{視点|してん}がある{版|はん}があった——シラベが{書|か}いた{内容|ないよう}は、{古|ふる}い{昔話|むかしばなし}の{系譜|けいふ}とつながってる！ {昔話|むかしばなし}には1つの「{正解|せいかい}」がないんだ。"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{放課後|ほうかご}に{教室|きょうしつ}に1{人|り}でいた→ロッカーにアクセスできた→{筆跡|ひっせき}が{一致|いっち}→シラベが{書|か}き{換|か}えた。そして{動機|どうき}は「{守|まも}る」——{鬼|おに}の{気持|きも}ちを{物語|ものがたり}の{中|なか}に{残|のこ}したかった。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 学芸会の台本を書き換えたのは誰？
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{証拠|しょうこ}をまとめると——{放課後|ほうかご}に{教室|きょうしつ}にいたのはシラベだけ。{筆跡|ひっせき}もシラベのノートと{一致|いっち}。そして{書|か}き{加|くわ}えた{内容|ないよう}は「{鬼|おに}にも{家族|かぞく}がいた」——{単|たん}なる{いたずら|いたずら}じゃない、{誰|だれ}かが{真剣|しんけん}に{鬼|おに}の{気持|きも}ちを{想像|そうぞう}して{書|か}いた{文|ぶん}だ。"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{放課後|ほうかご}、{教室|きょうしつ}にいたのはシラベのみ（アリバイ{全探索|ぜんたんさく}）。②{追加|ついか}セリフの{筆跡|ひっせき}がシラベのノートと{一致|いっち}。③{台本|だいほん}のある{クラスのロッカー|くらすのろっかー}に1{人|り}でアクセス{可能|かのう}だったのはシラベ。④{書|か}き{加|くわ}えた{内容|ないよう}は{原典|げんてん}にも{存在|そんざい}する「{鬼|おに}の{視点|してん}」。⑤{山田先生|やまだせんせい}のメモでシラベ{本人|ほんにん}が{動機|どうき}を{語|かた}った。"
+      - type: choice
+        id: q1
+        question: 学芸会の台本を書き換えたのは誰？
+        options:
+          - text: シラベ（鬼の気持ちを守りたくて鬼のセリフを書き加えた）
+            value: shirabe
+            correct: true
+            feedback: "{正解|せいかい}！　{全員|ぜんいん}のアリバイを{全探索|ぜんたんさく}すると、{放課後|ほうかご}に{教室|きょうしつ}にいたのはシラベだけ。{筆跡|ひっせき}も{一致|いっち}し、シラベ{本人|ほんにん}が{動機|どうき}を{語|かた}った。**{台本|だいほん}を{勝手|かって}に{変|か}えたのは{問題|もんだい}だけど、シラベの「{鬼|おに}の{立場|たちば}から{読|よ}む」{力|ちから}はすごい。{昔話|むかしばなし}は{千年以上|せんねんいじょう}{語|かた}り{継|つ}がれる{中|なか}で{何度|なんど}も{書|か}き{換|か}えられてきた。『{正義|せいぎ}』と『{悪|わる}』は{見|み}る{側|がわ}によって{変|か}わる——そう{気|き}づけたら、それは{古典|こてん}を「{深|ふか}く{読|よ}む{力|ちから}」だ。**"
+          - text: フミカ（台本の改変部分を最初に発見した人）
+            value: fumika
+            feedback: "{フミカ|ふみか}は{台本|だいほん}の{原文|げんぶん}と{改変|かいへん}{部分|ぶぶん}を{比較分析|ひかくぶんせき}して{筆跡|ひっせき}を{調|しら}べた{側|がわ}だよ。{放課後|ほうかご}は{図書委員|としょいいん}の{仕事|しごと}をしていたよ。"
+          - text: コトバ（全員のアリバイを調べた人）
+            value: kotoba
+            feedback: "{コトバ|ことば}は{全員|ぜんいん}の{放課後|ほうかご}のスケジュールを{聞|き}き{回|まわ}って{真相|しんそう}に{迫|せま}った{側|がわ}だよ。{放課後|ほうかご}は{体育館|たいいくかん}で{劇|げき}の{道具|どうぐ}を{運|はこ}んでいたよ。"
+          - text: ウタヨミ（桃太郎の原典を調べた人）
+            value: utayomi
+            feedback: "{ウタヨミ|うたよみ}は「{桃太郎|ももたろう}」の{原典|げんてん}に{複数|ふくすう}バージョンがあることを{発見|はっけん}して{推理|すいり}を{深|ふか}めてくれた{側|がわ}だよ。{放課後|ほうかご}は{図書室|としょしつ}で{調|しら}べ{物|もの}をしていたよ。"
+
+  # ==================== 真相：シラベの告白 ====================
+  - id: truth-shirabe
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: シラベの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: shirabe
+        expression: worried
+        position: center
+      - type: dialog
+        character: shirabe
+        text: "……{私|わたし}が{書|か}き{換|か}えました。{国語|こくご}の{授業|じゅぎょう}で「{桃太郎|ももたろう}」を{読|よ}んだとき、{鬼|おに}は{何|なに}も{悪|わる}いことをしていないのに{退治|たいじ}されて……なんで{誰|だれ}も{鬼|おに}の{気持|きも}ちを{考|かんが}えないのかって、{ずっと|ずっと}{思|おも}ってた。"
+        expression: worried
+      - type: dialog
+        character: shirabe
+        text: "{劇|げき}の{台本|だいほん}を{読|よ}んでも、{鬼|おに}は{ただ|ただ}やられるだけ。{鬼|おに}にも{家族|かぞく}がいる、{帰|かえ}りたい{場所|ばしょ}がある——それを{誰|だれ}かに{伝|つた}えたかった。だから……{書|か}いた。"
+        expression: thinking
+      - type: dialog
+        character: shirabe
+        text: "{勝手|かって}に{変|か}えたのはよくなかった。でも——{鬼|おに}だって{帰|かえ}りたい{家|いえ}がある。{桃太郎|ももたろう}が「{正義|せいぎ}」って{決|き}めつけるのは、{本当|ほんとう}に{正|ただ}しいのかな。"
+        expression: determined
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{筆跡|ひっせき}が{一致|いっち}したとき、シラベかもって{思|おも}った。でも{悪意|あくい}じゃないとは{思|おも}ってなかった——「{鬼|おに}の{母親|ははおや}に{子|こ}どもがいる」って{読|よ}んだとき、{少|すこ}しドキッとしたのは{本当|ほんとう}のことだし。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "{桃太郎|ももたろう}の{原典|げんてん}にも{和解|わかい}する{版|はん}があるって{知|し}ったとき、{昔話|むかしばなし}には1つの「{正解|せいかい}」がないんだって{気|き}づいた。シラベは{知|し}らないうちに、{古|ふる}い{物語|ものがたり}の{系譜|けいふ}をたどってたんだ。"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「シラベが{怪|あや}しい……でも{台本|だいほん}の{内容|ないよう}は{面白|おもしろ}い」って{ずっと|ずっと}{引|ひ}っかかってた。{理由|りゆう}が{分|わ}かったら、{責|せ}める{気|き}になれないな。{鬼|おに}の{気持|きも}ちを{守|まも}りたかったんだもん。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{昔話|むかしばなし}は{千年以上|せんねんいじょう}{語|かた}り{継|つ}がれてきた。{語|かた}り{継|つ}がれる{中|なか}で、{何度|なんど}も{書|か}き{換|か}えられて、{何度|なんど}も{違|ちが}う{読|よ}み{方|かた}で{読|よ}まれてきた。「{正義|せいぎ}と{悪|わる}」は{見|み}る{側|がわ}によって{変|か}わる——シラベはそのことに{直感|ちょっかん}で{気|き}づいていたのね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{台本|だいほん}を{勝手|かって}に{変|か}えたのは{問題|もんだい}よ。でも「{反対側|はんたいがわ}から{読|よ}む」という{着眼点|ちゃくがんてん}は、{古典|こてん}を{学|まな}ぶ{上|うえ}でとても{大切|たいせつ}な{力|ちから}。{次|つぎ}からは、{先|さき}に{話|はな}してね——みんなで{一緒|いっしょ}に{新|あたら}しい{台本|だいほん}を{作|つく}ることもできるから。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{全探索|ぜんたんさく}——{全員|ぜんいん}の{放課後|ほうかご}のスケジュールを{網羅的|もうらてき}に{確認|かくにん}し、「その{時間|じかん}に{教室|きょうしつ}にいた{可能性|かのうせい}がある{人|ひと}」を1{人|り}に{絞|しぼ}り{込|こ}む{考|かんが}え{方|かた}。フミカ＝{図書委員|としょいいん}、コトバ＝{体育館|たいいくかん}、ウタヨミ＝{図書室|としょしつ}、シラベ＝{教室|きょうしつ}——{条件|じょうけん}に{合|あ}う{人|ひと}はシラベだけ。"
+      - type: narration
+        text: "{多視点読解|たしてんどっかい}——「{勧善懲悪|かんぜんちょうあく}」の{物語|ものがたり}を「{悪者|わるもの}」の{側|がわ}から{読|よ}み{直|なお}すと、{新|あたら}しいことが{見|み}えてくる。{桃太郎|ももたろう}の{原典|げんてん}にも{鬼|おに}の{視点|してん}があった——**{昔話|むかしばなし}を「{深|ふか}く{読|よ}む{力|ちから}」は、{千年前|せんねんまえ}の{物語|ものがたり}を{今日|きょう}の{問|と}いと{結|むす}びつける。**"
+      - type: effect
+        name: fade-out

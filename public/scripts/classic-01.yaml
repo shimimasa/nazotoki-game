@@ -1,0 +1,392 @@
+meta:
+  id: classic-01
+  title: 百人一首の暗号
+  series: 古典探偵団
+  volume: 1
+  estimatedMinutes: 20
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "もうすぐクラスの{百人一首|ひゃくにんいっしゅ}{大会|たいかい}——{放課後|ほうかご}、{練習用|れんしゅうよう}の{札|ふだ}を{数|かぞ}えると3{枚|まい}{足|た}りない。"
+      - type: narration
+        text: "その{代|か}わりに、{札入|ふだい}れの{中|なか}に{百人一首|ひゃくにんいっしゅ}の{歌|うた}の{一部|いちぶ}が{書|か}かれた{紙|かみ}が3{枚|まい}。"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**{上|かみ}の{句|く}だけが{書|か}かれた{紙|かみ}——まるで{暗号|あんごう}のよう。**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{百人一首|ひゃくにんいっしゅ}の{上|かみ}の{句|く}と{下|しも}の{句|く}をつなぎ合わせると、{隠|かく}し{場所|ばしょ}を{示|しめ}す{暗号|あんごう}になっているらしいの。「{誰|だれ}が{札|ふだ}を{隠|かく}して、なぜ{暗号|あんごう}を{残|のこ}したのか」——{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: surprised
+          - character: utayomi
+            expression: thinking
+          - character: shirabe
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{目|め}を{見合|みあ}わせた。{誰|だれ}が{隠|かく}したのか、なぜ{暗号|あんごう}を{残|のこ}したのか——{謎|なぞ}は{深|ふか}まるばかりだった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 百人一首の暗号
+        subtitle: 古典探偵団 Vol.1
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 札入れの写真と暗号の紙
+      - type: narration
+        text: "{札入|ふだい}れの{写真|しゃしん}——{全部|ぜんぶ}で100{枚|まい}あるはずの{札|ふだ}が97{枚|まい}しかない。3{枚|まい}{足|た}りない。"
+      - type: narration
+        text: "{代|か}わりに{入|はい}っていた{暗号|あんごう}の{紙|かみ}3{枚|まい}——それぞれに{上|かみ}の{句|く}が1つずつ{書|か}かれている。"
+      - type: evidence
+        id: card-1
+        title: 暗号の紙（3枚）
+        content: "①「{秋|あき}の{田|た}の……」②「{春過|はるす}ぎて……」③「{田子|たご}の{浦|うら}に……」（{現代語訳|げんだいごやく}つき）"
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "この{上|かみ}の{句|く}は……「{秋|あき}の{田|た}の」——{下|しも}の{句|く}は「わが{衣手|ころもで}は{露|つゆ}にぬれつつ」。つなげると——{場所|ばしょ}を{示|しめ}す{言葉|ことば}が{見|み}えてくる！"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{百人一首|ひゃくにんいっしゅ}かんたんガイド——{上|かみ}の{句|く}と{下|しも}の{句|く}のしくみ、{暗号|あんごう}に{使|つか}われた3{首|しゅ}の{全文|ぜんぶん}と{現代語訳|げんだいごやく}。{古語|こご}が{読|よ}めなくても{大丈夫|だいじょうぶ}。"
+      - type: evidence
+        id: card-2
+        title: 百人一首かんたんガイド
+        content: "①{秋|あき}の{田|た}の……→{露|つゆ}にぬれつつ（「あなたに{会|あ}いたい」）②{春過|はるす}ぎて……→{天|あま}の{香具山|かぐやま}（「{変化|へんか}に{気|き}づいてほしい」）③{田子|たご}の{浦|うら}に……→{白妙|しろたえ}の{雪|ゆき}（「{純粋|じゅんすい}な{気持|きも}ち」）"
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 聞き込みメモと筆跡比較
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{放課後|ほうかご}に{準備室|じゅんびしつ}に{入|はい}ったのは、{シラベ|しらべ}と{フミカ|ふみか}の2{人|にん}だけだった。{フミカ|ふみか}は「{札|ふだ}を{数|かぞ}えただけ」と{言|い}っている。{シラベ|しらべ}が{怪|あや}しい……でも、なぜ{暗号|あんごう}を{残|のこ}したんだろう？"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-3
+        title: コトバの聞き込みメモ
+        content: "{放課後|ほうかご}に{準備室|じゅんびしつ}に{入|はい}ったのは{シラベ|しらべ}と{フミカ|ふみか}の2{人|にん}だけ。{フミカ|ふみか}は「{札|ふだ}を{数|かぞ}えただけ」と{証言|しょうげん}。"
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "{暗号|あんごう}に{使|つか}われた3{首|しゅ}は、{全部|ぜんぶ}「{恋|こい}の{歌|うた}」「{会|あ}いたい{気持|きも}ち」がテーマなんだ！　{隠|かく}した{人|ひと}は……{見|み}つけてほしかったんじゃないかな。"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: evidence
+        id: card-4
+        title: 筆跡比較＋ウタヨミの分析
+        content: "{フミカ|ふみか}が{比較|ひかく}：{暗号|あんごう}の{紙|かみ}の{字|じ}は{シラベ|しらべ}のノートに{似|に}ている。{ウタヨミ|うたよみ}が{分析|ぶんせき}：3{首|しゅ}は{全|すべ}て「{会|あ}いたい・{見|み}つけてほしい」という{気持|きも}ちの{歌|うた}。"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{準備室|じゅんびしつ}に{入|はい}ったのは2{人|にん}だけ——{シラベ|しらべ}と{フミカ|ふみか}。{フミカ|ふみか}は{札|ふだ}を{数|かぞ}えただけ。{暗号|あんごう}の{筆跡|ひっせき}は{シラベ|しらべ}のノートに{似|に}ている。"
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "{準備室|じゅんびしつ}に{入|はい}ったのは2{人|にん}だけ。{フミカ|ふみか}は{数|かぞ}えただけ。ということは——{シラベ|しらべ}が{札|ふだ}を{隠|かく}した{可能性|かのうせい}が{高|たか}い。でも……なぜ{暗号|あんごう}を{残|のこ}した？"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: worried
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "……{百人一首|ひゃくにんいっしゅ}{大会|たいかい}、{苦手|にがて}だから。{負|ま}けたら{恥|は}ずかしいし……{大会|たいかい}がなくなればいいって{思|おも}って……"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "シラベに{直接|ちょくせつ}{聞|き}いたら、こう{言|い}っていたわ。「{大会|たいかい}で{負|ま}けるのが{怖|こわ}くて{隠|かく}した。でも{暗号|あんごう}を{残|のこ}したのは、{本当|ほんとう}は{見|み}つけてほしかったから」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{百人一首|ひゃくにんいっしゅ}の{歌|うた}が{好|す}きだからこそ、{暗号|あんごう}に{使|つか}ったのね。「{隠|かく}したい」のに「{見|み}つけてほしい」——{矛盾|むじゅん}した{気持|きも}ちが、{千年前|せんねんまえ}の{恋|こい}の{歌|うた}に{重|かさ}なったのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "シラベのことば：「{大会|たいかい}で{負|ま}けるのが{怖|こわ}くて{隠|かく}した。でも{暗号|あんごう}を{残|のこ}したのは、{本当|ほんとう}は{見|み}つけてほしかったから。{百人一首|ひゃくにんいっしゅ}の{歌|うた}が{好|す}きだからこそ、{暗号|あんごう}にした」"
+      - type: sprite
+        character: utayomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "やっぱり！　この3{首|しゅ}は{全部|ぜんぶ}「{会|あ}いたい・{見|み}つけてほしい」という{気持|きも}ちの{歌|うた}だった。{隠|かく}した{人|ひと}は{見|み}つけてほしかったんだ——{歌|うた}の{意味|いみ}が{動機|どうき}と{重|かさ}なってる！"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{大会|たいかい}が{怖|こわ}い→{札|ふだ}を{隠|かく}す→でも{見|み}つけてほしい→{恋|こい}の{歌|うた}で{暗号|あんごう}を{残|のこ}す。**　「{好|す}きなのに{怖|こわ}い」という{矛盾|むじゅん}した{気持|きも}ちが、この{事件|じけん}の{核心|かくしん}だった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 札を隠して暗号を残したのは誰？
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{証拠|しょうこ}をまとめると——{準備室|じゅんびしつ}に{入|はい}れたのは2{人|にん}だけ。{フミカ|ふみか}は{数|かぞ}えただけで{触|さわ}っていない。{筆跡|ひっせき}は{シラベ|しらべ}のノートと{一致|いっち}。{暗号|あんごう}の{歌|うた}は「{見|み}つけてほしい」という{気持|きも}ち——"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{準備室|じゅんびしつ}に{入|はい}ったのは{シラベ|しらべ}と{フミカ|ふみか}の2{人|にん}だけ。②{フミカ|ふみか}は{札|ふだ}を{数|かぞ}えただけで{隠|かく}していない。③{暗号|あんごう}の{筆跡|ひっせき}が{シラベ|しらべ}のノートに{似|に}ている。④3{首|しゅ}は{全|すべ}て「{見|み}つけてほしい」という{恋|こい}の{歌|うた}。⑤{山田先生|やまだせんせい}のメモでシラベ{本人|ほんにん}が{確認|かくにん}。"
+      - type: choice
+        id: q1
+        question: 百人一首の札を隠して暗号を残したのは誰？
+        options:
+          - text: シラベ（大会で負けるのが怖くて隠したが、本当は見つけてほしかった）
+            value: shirabe
+            correct: true
+            feedback: "{正解|せいかい}！　{シラベ|しらべ}は「{大会|たいかい}で{負|ま}けるのが{怖|こわ}い」という{気持|きも}ちから{札|ふだ}を{隠|かく}した。でも「{百人一首|ひゃくにんいっしゅ}の{歌|うた}が{好|す}き」という{気持|きも}ちもあったから、{恋|こい}の{歌|うた}で{暗号|あんごう}を{残|のこ}した——「{見|み}つけてほしかった」から。**「{隠|かく}したい」のに「{見|み}つけてほしい」という{矛盾|むじゅん}した{気持|きも}ちは、{千年前|せんねんまえ}の{人|ひと}も{歌|うた}にしていたんだ。**"
+          - text: フミカ（暗号を最初に読み解いた人）
+            value: fumika
+            feedback: "{フミカ|ふみか}は{暗号|あんごう}の{紙|かみ}を{精読|せいどく}して{解|と}いてくれた{側|がわ}。{準備室|じゅんびしつ}では{札|ふだ}を{数|かぞ}えただけで、{隠|かく}した{事実|じじつ}はないよ。"
+          - text: コトバ（準備室に入っていない人）
+            value: kotoba
+            feedback: "{コトバ|ことば}は{聞|き}き{込|こ}みで{真相|しんそう}に{迫|せま}ってくれた{側|がわ}。{放課後|ほうかご}に{準備室|じゅんびしつ}には{入|はい}っていないよ。"
+          - text: ウタヨミ（歌の意味を分析した人）
+            value: utayomi
+            feedback: "{ウタヨミ|うたよみ}は{歌|うた}の{意味|いみ}から「{見|み}つけてほしい」という{メッセージ|めっせーじ}に{気|き}づいてくれた{側|がわ}。{準備室|じゅんびしつ}には{入|はい}っていないよ。"
+
+  # ==================== 真相：シラベの告白 ====================
+  - id: truth-shirabe
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: シラベの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: shirabe
+        expression: worried
+        position: center
+      - type: dialog
+        character: shirabe
+        text: "……{私|わたし}が{隠|かく}しました。{百人一首|ひゃくにんいっしゅ}{大会|たいかい}、{怖|こわ}かったんです。{負|ま}けたら{みんな|みんな}に{笑|わら}われると{思|おも}って。{札|ふだ}を{減|へ}らせば{大会|たいかい}が{中止|ちゅうし}になるかもって——"
+        expression: worried
+      - type: dialog
+        character: shirabe
+        text: "でも……{本当|ほんとう}は{百人一首|ひゃくにんいっしゅ}の{歌|うた}が{好|す}きなんです。だから{暗号|あんごう}に{使|つか}いたかった。{見|み}つけてもらえたら、もしかして——って。"
+        expression: thinking
+      - type: dialog
+        character: shirabe
+        text: "……{本当|ほんとう}は{百人一首|ひゃくにんいっしゅ}の{歌|うた}が{好|す}き。でも{大会|たいかい}で{負|ま}けたら{みんな|みんな}に{笑|わら}われると{思|おも}って——ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{筆跡|ひっせき}がノートと{似|に}ていたとき、{シラベ|しらべ}かもって{思|おも}った。でも{悪意|あくい}じゃないとは{思|おも}ってなかった——{暗号|あんごう}に{恋|こい}の{歌|うた}を{使|つか}ったのは、{見|み}つけてほしかったからなんだね。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "3{首|しゅ}が{全部|ぜんぶ}「{会|あ}いたい・{見|み}つけてほしい」の{歌|うた}だったのは、{偶然|ぐうぜん}じゃなかった。{シラベ|しらべ}は{歌|うた}の{意味|いみ}をちゃんと{分|わ}かって{使|つか}ったんだ。"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: normal
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "「{シラベ|しらべ}が{怪|あや}しい……でもなぜ{暗号|あんごう}を？」って{ずっと|ずっと}{引|ひ}っかかってた。{理由|りゆう}が{分|わ}かったら、{責|せ}める{気|き}になれないな。{好|す}きなのに{怖|こわ}いって、{誰|だれ}にでもある{気持|きも}ちだから。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{百人一首|ひゃくにんいっしゅ}の{歌|うた}には、{千年前|せんねんまえ}の{人|ひと}の{気持|きも}ちが{込|こ}められているの。{好|す}きな{人|ひと}に{会|あ}いたいのに{会|あ}えない{寂|さみ}しさ、{変化|へんか}に{気|き}づいてほしい{驚|おどろ}き——{シラベ|しらべ}はその{気持|きも}ちと{自分|じぶん}の「{見|み}つけてほしい」という{気持|きも}ちを{重|かさ}ねたのね。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "「{好|す}きなのに{怖|こわ}い」という{気持|きも}ちは、{誰|だれ}にでもある。{大切|たいせつ}なのは、その{気持|きも}ちを{言葉|ことば}にすること。{百人一首|ひゃくにんいっしゅ}の{歌|うた}は、{千年前|せんねんまえ}の{人|ひと}が{言葉|ことば}にした{気持|きも}ちの{宝箱|たからばこ}よ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{消去法|しょうきょほう}——{条件|じょうけん}に{合|あ}わない{人|ひと}を{除外|じょがい}して1{人|り}に{絞|しぼ}る{考|かんが}え{方|かた}。{準備室|じゅんびしつ}に{入|はい}れたのは2{人|にん}→{フミカ|ふみか}は{数|かぞ}えただけ→{シラベ|しらべ}が{残|のこ}る。"
+      - type: narration
+        text: "{上|かみ}の{句|く}と{下|しも}の{句|く}のマッチング——{暗号|あんごう}を{解|と}くことで{百人一首|ひゃくにんいっしゅ}の{歌|うた}の{仕組|しく}みを{体験|たいけん}した。{千年前|せんねんまえ}の{言葉|ことば}が、{今日|きょう}の{謎|なぞ}を{解|と}く{鍵|かぎ}になった。"
+      - type: effect
+        name: fade-out

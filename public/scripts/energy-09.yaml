@@ -1,0 +1,449 @@
+meta:
+  id: energy-09
+  title: エネルギーミックスの謎
+  series: エネルギー探偵団
+  volume: 9
+  estimatedMinutes: 20
+
+characters:
+  denta:
+    name: デンタ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hikaru:
+    name: ヒカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  netsumi:
+    name: ネツミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  chikara:
+    name: チカラ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の「{省|しょう}エネ{優秀|ゆうしゅう}クラス」を{選|えら}ぶコンテストの{日|ひ}——{理科室|りかしつ}の{電力|でんりょく}モニターに、4つのクラスの{消費|しょうひ}データが{映|うつ}し{出|だ}されていた。"
+      - type: narration
+        text: "ヒカルのクラスが{提出|ていしゅつ}したデータを{見|み}た{先生|せんせい}は、{眉|まゆ}をひそめた。そして——"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "このデータ……{本当|ほんとう}にあなたたちのクラスのもの？　{数値|すうち}のパターンが、{他|ほか}のクラスと{違|ちが}いすぎる。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: denta
+            expression: surprised
+          - character: hikaru
+            expression: worried
+          - character: netsumi
+            expression: thinking
+          - character: chikara
+            expression: surprised
+      - type: narration
+        text: "「このデータ、うちのクラスじゃない！」——{告発|こくはつ}の{声|こえ}が{上|あ}がった。{電力|でんりょく}データのすり{替|か}え。{誰|だれ}が、なぜ{動|うご}いたのか。4人の{探偵団|たんていだん}は{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: エネルギーミックスの謎
+        subtitle: エネルギー探偵団 Vol.9
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 提出データと比較表
+      - type: narration
+        text: "{山田先生|やまだせんせい}が{配|くば}った{証拠|しょうこ}カード——{提出|ていしゅつ}されたエネルギーミックスのデータと、デンタが{用意|ようい}した{全|ぜん}クラスの{比較表|ひかくひょう}が{手|て}に{渡|わた}された。"
+      - type: evidence
+        id: card-1
+        title: 提出データ（エネルギーミックス比率・月別消費量・CO₂排出量）
+        content: "【{提出|ていしゅつ}データ】{太陽光|たいようこう}:{比率|ひりつ}35%　{風力|ふうりょく}:15%　{火力|かりょく}:30%　{原子力|げんしりょく}:20%　【{月別|つきべつ}{消費量|しょうひりょう}】4{月|がつ}:320kWh　5{月|がつ}:315kWh　6{月|がつ}:328kWh　【CO₂{排出量|はいしゅつりょう}】{月|つき}{平均|へいきん}142kg　【{注意点|ちゅういてん}】{太陽光|たいようこう}{比率|ひりつ}がクラス{平均|へいきん}より2{割|わり}{高|たか}い"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{太陽光|たいようこう}{比率|ひりつ}が35%——うちのクラスはいつも25%くらいだよ。このパターン、{隣|となり}のクラスと{一致|いっち}する。{数値|すうち}が{違|ちが}いすぎる。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "デンタが{全|ぜん}クラスの{比較表|ひかくひょう}を{広|ひろ}げた。CO₂{排出|はいしゅつ}{係数|けいすう}・コスト・{安定性|あんていせい}——{多|おお}くの{変数|へんすう}が{並|なら}んでいる。"
+      - type: evidence
+        id: card-2
+        title: デンタの比較表（全クラスのエネルギーミックス比率・CO₂係数比較）
+        content: "【{全|ぜん}クラス{比較|ひかく}】ヒカルクラス:{太陽光|たいようこう}25%・CO₂{係数|けいすう}0.48　{隣|となり}クラス:{太陽光|たいようこう}35%・CO₂{係数|けいすう}0.42　{提出|ていしゅつ}データ:{太陽光|たいようこう}35%・CO₂{係数|けいすう}0.42　【{結論|けつろん}】{提出|ていしゅつ}データのエネルギーミックス{比率|ひりつ}とCO₂{係数|けいすう}は、ヒカルクラスではなく{隣|となり}クラスの{数値|すうち}と{完全|かんぜん}に{一致|いっち}する"
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "CO₂{係数|けいすう}0.42、{太陽光|たいようこう}35%——このパターン、{隣|となり}のクラスのデータとぴったり{一致|いっち}する。うちのクラスの{数値|すうち}とは{全然|ぜんぜん}{違|ちが}う。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 時間帯パターンとヒカルの様子
+      - type: narration
+        text: "ネツミが{丁寧|ていねい}に{作|つく}った{時間帯|じかんたい}{別|べつ}の{消費|しょうひ}パターン{分析|ぶんせき}が{配|くば}られた。チカラは{静|しず}かにヒカルを{観察|かんさつ}していた。"
+      - type: evidence
+        id: card-3
+        title: ネツミの時間帯別パターン分析（クラス固有の消費特徴）
+        content: "【ヒカルクラスの{固有|こゆう}パターン】{木曜日|もくようび}2〜3{時間目|じかんめ}:{消費|しょうひ}が{必|かなら}ず{低下|ていか}（{体育|たいいく}で{理科室|りかしつ}を{使|つか}わないため）　{月曜|げつよう}1{時間目|じかんめ}:{消費|しょうひ}{高|たか}（エアコン{起動|きどう}パターン）　【{提出|ていしゅつ}データの{木曜日|もくようび}2〜3{時間目|じかんめ}】{低下|ていか}なし——ヒカルクラスの{体育|たいいく}{時間帯|じかんたい}{特徴|とくちょう}が{含|ふく}まれていない"
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "うちのクラスは{木曜|もくよう}の2〜3{時間目|じかんめ}、{体育|たいいく}があるから{理科室|りかしつ}を{使|つか}わない。{消費|しょうひ}が{必|かなら}ず{下|さ}がる——でもこのデータにはそれがない。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: evidence
+        id: card-4
+        title: チカラの観察メモ（ヒカルの様子）
+        content: "【チカラの{観察|かんさつ}】「ヒカルが『このままでは{恥|はず}かしい』と{言|い}っていた」　「コンテスト{前日|ぜんじつ}、ヒカルが{遅|おそ}くまで{理科室|りかしつ}のパソコンを{使|つか}っていた」　「{隣|となり}のクラスの{省|しょう}エネ{成績|せいせき}がうちより{良|よ}いことを、ヒカルはとても{気|き}にしていた」"
+      - type: sprite
+        character: chikara
+        expression: worried
+        position: center
+      - type: dialog
+        character: chikara
+        text: "ヒカルが『このままでは{恥|はず}かしい』って——{前日|ぜんじつ}に{遅|おそ}くまでパソコンを{使|つか}ってたの、{気|き}になってたんだ。"
+        expression: worried
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: right
+      - type: dialog
+        character: hikaru
+        text: "……{何|なん}でもない。{関係|かんけい}ない。"
+        expression: worried
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{提出|ていしゅつ}データのエネルギーミックス{比率|ひりつ}は{隣|となり}クラスと{一致|いっち}し、ヒカルクラスの{固有|こゆう}パターン（{体育|たいいく}{時間帯|じかんたい}の{消費|しょうひ}{低下|ていか}）が{含|ふく}まれていない——"
+      - type: sprite
+        character: denta
+        expression: thinking
+        position: right
+      - type: dialog
+        character: denta
+        text: "{帰納法|きのうほう}で{考|かんが}えると——{複数|ふくすう}のデータポイントが{全部|ぜんぶ}{隣|となり}クラスの{特徴|とくちょう}と{一致|いっち}する。{偶然|ぐうぜん}じゃない。このデータはうちのクラスのものじゃない。"
+        expression: thinking
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: worried
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{木曜|もくよう}の{消費|しょうひ}パターンは{決定的|けっていてき}だよ。うちのクラスだけにある{固有|こゆう}の{癖|くせ}——それがないということは、このデータはうちのものじゃないってことを{意味|いみ}する。"
+        expression: worried
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: center
+      - type: dialog
+        character: chikara
+        text: "ヒカルは{本当|ほんとう}に「{認|みと}められたかった」だけなんだと{思|おも}う。でも……{偽|いつわ}りのデータで{分析|ぶんせき}しても、{本当|ほんとう}に{電気|でんき}を{減|へ}らせないよ。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+
+  # ==================== 反転：証拠カード5（追加HO） ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 電力会社からの正式記録
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{電力|でんりょく}{会社|かいしゃ}に{問|と}い{合|あ}わせて、{各|かく}クラスの{実際|じっさい}の{電力|でんりょく}{消費量|しょうひりょう}を{確認|かくにん}しました。{正式|せいしき}{記録|きろく}を{見|み}てください。"
+        expression: determined
+      - type: dialog
+        character: yamada
+        text: "ヒカルのクラスの{実際|じっさい}の{消費量|しょうひりょう}は、{提出|ていしゅつ}データより30%{多|おお}い——{提出|ていしゅつ}データと{実際|じっさい}のデータが{一致|いっち}しません。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 電力会社の正式記録＋エネルギーミックスの解説
+        content: "【{正式|せいしき}{記録|きろく}】ヒカルクラスの{実際|じっさい}{消費量|しょうひりょう}:{月|つき}{平均|へいきん}415kWh　{提出|ていしゅつ}データの{消費量|しょうひりょう}:{月|つき}{平均|へいきん}320kWh　→{差|さ}:約30%（{提出|ていしゅつ}データは{実際|じっさい}より{大幅|おおはば}に{少|すく}ない）　【エネルギーミックスの{解説|かいせつ}】{電力|でんりょく}は{太陽光|たいようこう}・{風力|ふうりょく}・{水力|すいりょく}・{火力|かりょく}・{原子力|げんしりょく}の{組|く}み{合|あ}わせで{供給|きょうきゅう}される。それぞれにコスト・CO₂・{安定性|あんていせい}のトレードオフがある。{正|ただ}しいデータで{分析|ぶんせき}することが{本当|ほんとう}の{省|しょう}エネへの{第一歩|だいいっぽ}"
+      - type: sprite
+        character: netsumi
+        expression: determined
+        position: right
+      - type: dialog
+        character: netsumi
+        text: "{提出|ていしゅつ}データはうちのクラスの{実際|じっさい}の{消費量|しょうひりょう}より30%も{少|すく}ない——これで{確定|かくてい}した。{提出|ていしゅつ}データは{別|べつ}のクラスのものだ。"
+        expression: determined
+      - type: sprite
+        character: netsumi
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{提出|ていしゅつ}データは{実際|じっさい}のヒカルクラスのものではなかった。**エネルギーミックス{比率|ひりつ}・CO₂{係数|けいすう}・{時間帯|じかんたい}パターン・{実際|じっさい}{消費量|しょうひりょう}——4つの{証拠|しょうこ}が{全|すべ}て{同|おな}じ{方向|ほうこう}を{指|さ}していた。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 別のクラスのデータを提出したのは誰？
+      - type: sprite
+        character: denta
+        expression: determined
+        position: right
+      - type: dialog
+        character: denta
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①エネルギーミックス{比率|ひりつ}が{隣|となり}クラスと{一致|いっち}。②{木曜|もくよう}の{体育|たいいく}{時間帯|じかんたい}パターンが{欠如|けつじょ}。③{実際|じっさい}{消費量|しょうひりょう}と30%の{差|さ}。④ヒカルが{前日|ぜんじつ}に{遅|おそ}くまでパソコンを{使|つか}っていた。"
+        expression: determined
+      - type: sprite
+        character: denta
+        action: hide
+      - type: narration
+        text: "{帰納法|きのうほう}——{複数|ふくすう}の{証拠|しょうこ}の{傾向|けいこう}から「このデータはどのクラスのものか」を{推定|すいてい}する。{証拠|しょうこ}を{並|なら}べると——{誰|だれ}がデータをすり{替|か}えたか、{見|み}えてくる。"
+      - type: choice
+        id: q1
+        question: 別のクラスの省エネデータを、自分のクラスのものとして提出したのは誰？
+        options:
+          - text: ヒカル（承認欲求から、成績が良いクラスのデータを差し替えた）
+            value: hikaru
+            correct: true
+            feedback: "{正解|せいかい}！　ヒカルは{認|みと}められたかった。でも{省|しょう}エネを{本当|ほんとう}に{改善|かいぜん}するには、{正|ただ}しいデータから「どこで・なぜ{電気|でんき}を{多|おお}く{使|つか}っているか」を{分析|ぶんせき}することが{必要|ひつよう}です。**{電力|でんりょく}は{太陽光|たいようこう}・{火力|かりょく}・{原子力|げんしりょく}など{複数|ふくすう}の{方法|ほうほう}を{組|く}み{合|あ}わせて{作|つく}られます（エネルギーミックス）——それぞれの{特徴|とくちょう}を{知|し}り、データを{正直|しょうじき}に{見|み}ることが、{本当|ほんとう}の{省|しょう}エネへの{第一歩|だいいっぽ}です。**"
+          - text: デンタ（エネルギーミックス比率を分析した人）
+            value: denta
+            feedback: "デンタはエネルギーミックス{比率|ひりつ}を{分析|ぶんせき}した{側|がわ}だよ。{比較表|ひかくひょう}で{矛盾|むじゅん}を{発見|はっけん}したのはデンタだよ。"
+          - text: ネツミ（時間帯別パターンを分析した人）
+            value: netsumi
+            feedback: "ネツミは{時間帯|じかんたい}{別|べつ}パターンを{分析|ぶんせき}した{側|がわ}だよ。{体育|たいいく}{時間帯|じかんたい}の{欠如|けつじょ}を{発見|はっけん}した{慎重|しんちょう}な{観察者|かんさつしゃ}だよ。"
+          - text: チカラ（ヒカルの様子を観察した人）
+            value: chikara
+            feedback: "チカラはヒカルの{様子|ようす}を{観察|かんさつ}した{側|がわ}だよ。{感情|かんじょう}の{動|うご}きを{読|よ}み{取|と}ることで{捜査|そうさ}に{貢献|こうけん}したよ。"
+
+  # ==================== 真相：ヒカルの告白 ====================
+  - id: truth-hikaru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ヒカルの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hikaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hikaru
+        text: "……{私|わたし}です。{隣|となり}のクラスの{電力|でんりょく}データを{取|と}り{寄|よ}せて、{自分|じぶん}たちのクラスのものとして{提出|ていしゅつ}したのは。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "うちのクラスは{成績|せいせき}が{悪|わる}くて、どう{考|かんが}えても{勝|か}てる{気|き}がしなかった。{隣|となり}のクラスはいつも{省|しょう}エネが{上手|うま}くて……{認|みと}めてもらいたかった。クラス{代表|だいひょう}に{選|えら}ばれたかった。"
+        expression: worried
+      - type: dialog
+        character: hikaru
+        text: "でも……{偽|いつわ}ったデータを{分析|ぶんせき}しても、{意味|いみ}ないんだ。{本当|ほんとう}にどこで{電気|でんき}を{使|つか}っているかが{分|わ}からないと、{改善|かいぜん}できない——やっと{分|わ}かった。"
+        expression: thinking
+      - type: sprite
+        character: hikaru
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "ヒカルは{認|みと}められたかっただけ——その{気持|きも}ちは{分|わ}かる。でも{偽|いつわ}ったデータを{基|もと}に「{改善|かいぜん}」しても、{本当|ほんとう}に{電気|でんき}を{減|へ}らせないよ。"
+        expression: thinking
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: denta
+        expression: normal
+        position: right
+      - type: dialog
+        character: denta
+        text: "エネルギーミックスのデータは、{太陽光|たいようこう}・{風力|ふうりょく}・{火力|かりょく}・{原子力|げんしりょく}——それぞれにコストとCO₂と{安定性|あんていせい}のトレードオフがある。{正|ただ}しいデータから{分析|ぶんせき}することで、{初|はじ}めて{本当|ほんとう}の{省|しょう}エネが{見|み}えてくる。"
+        expression: normal
+      - type: sprite
+        character: denta
+        action: hide
+      - type: sprite
+        character: netsumi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netsumi
+        text: "{帰納法|きのうほう}——{複数|ふくすう}のデータの{傾向|けいこう}から「このデータはどのクラスのものか」を{推定|すいてい}する{方法|ほうほう}。{木曜|もくよう}の{消費|しょうひ}パターンが{欠|か}けていることが、{決定的|けっていてき}な{手|て}がかりだった。"
+        expression: thinking
+      - type: sprite
+        character: netsumi
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "エネルギーミックスの{大切|たいせつ}な{仕組|しく}みを{確認|かくにん}しましょう。{電力|でんりょく}は{太陽光|たいようこう}・{風力|ふうりょく}・{水力|すいりょく}・{火力|かりょく}・{原子力|げんしりょく}を{組|く}み{合|あ}わせて{供給|きょうきゅう}されます——これがエネルギーミックスです。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "それぞれに{特徴|とくちょう}があります。{太陽光|たいようこう}はCO₂が{少|すく}ないけど{天気|てんき}に{左右|さゆう}される。{火力|かりょく}は{安定|あんてい}しているけどCO₂が{多|おお}い。どれか1つが「{正解|せいかい}」じゃなく、トレードオフを{理解|りかい}することが{大切|たいせつ}です。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "ヒカルは{認|みと}められたかった。その{気持|きも}ちは{本当|ほんとう}に{分|わ}かります。でも{次回|じかい}は——{正|ただ}しいデータで{挑|いど}んでみてね。{本当|ほんとう}の{改善|かいぜん}策は、{正直|しょうじき}なデータからしか{生|う}まれません。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：エネルギーミックス】{電力|でんりょく}は{太陽光|たいようこう}・{風力|ふうりょく}・{水力|すいりょく}・{火力|かりょく}・{原子力|げんしりょく}の{組|く}み{合|あ}わせで{供給|きょうきゅう}される。それぞれにコスト・CO₂・{安定性|あんていせい}のトレードオフがあり、どれか1つが「{正解|せいかい}」ではない。"
+      - type: narration
+        text: "【{学|まな}び②：{帰納法|きのうほう}】{複数|ふくすう}のデータの{傾向|けいこう}を{比|くら}べて「このデータの{持|も}ち{主|ぬし}の{特徴|とくちょう}」を{推定|すいてい}する{方法|ほうほう}。{木曜|もくよう}の{消費|しょうひ}パターン・エネルギーミックス{比率|ひりつ}・CO₂{係数|けいすう}——{複数|ふくすう}の{証拠|しょうこ}が{同|おな}じ{方向|ほうこう}を{指|さ}すとき、{確信|かくしん}になる。"
+      - type: sprite
+        character: hikaru
+        expression: determined
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "{次|つぎ}は{正直|しょうじき}なデータで{挑戦|ちょうせん}する。{本当|ほんとう}にどこで{電気|でんき}を{使|つか}っているかを{分析|ぶんせき}して——{本物|ほんもの}の{省|しょう}エネに{取|と}り{組|く}む。{偽|いつわ}ったデータじゃ、{自分|じぶん}たちのことが{見|み}えてこない。"
+        expression: determined
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: chikara
+        expression: happy
+        position: right
+      - type: dialog
+        character: chikara
+        text: "エネルギーミックス——{難|むずか}しそうに{聞|き}こえるけど、{要|よう}するに「{複数|ふくすう}の{発電|はつでん}{方法|ほうほう}の{良|よ}いとこ{取|ど}り」なんだね。{正|ただ}しいデータを{見|み}れば、どの{発電|はつでん}を{増|ふ}やすといいか{分|わ}かってくる。"
+        expression: happy
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: effect
+        name: fade-out

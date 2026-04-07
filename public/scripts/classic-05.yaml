@@ -1,0 +1,405 @@
+meta:
+  id: classic-05
+  title: 俳句の暗号
+  series: 古典探偵団
+  volume: 5
+  estimatedMinutes: 20
+
+characters:
+  fumika:
+    name: フミカ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  utayomi:
+    name: ウタヨミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  shirabe:
+    name: シラベ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "秋の{遠足|えんそく}が{近|ちか}づいたある日——クラスの{遠足|えんそく}のしおりに、{奇妙|きみょう}な{俳句|はいく}が3つ{印刷|いんさつ}されていた。"
+      - type: narration
+        text: "秋の{遠足|えんそく}なのに「{蛙|かわず}{飛|と}びこむ{古池|ふるいけ}や」——これは{春|はる}の{季語|きご}ではないか？"
+      - type: se
+        sound: paper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "**しおりの{俳句|はいく}の{季語|きご}が{季節|きせつ}と{合|あ}っていない。{印刷|いんさつ}ミス？　それとも——**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "しおりの{俳句|はいく}を{見|み}たら、3つとも{季語|きご}が{季節|きせつ}とずれているの。{最初|さいしょ}は{印刷|いんさつ}ミスかと{思|おも}ったんだけど——よく{見|み}ると、{入|い}れ{替|か}わった{季語|きご}だけを{並|なら}べると{暗号|あんごう}メッセージになるようなのよ。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "「{誰|だれ}が{俳句|はいく}の{季語|きご}を{入|い}れ{替|か}えて、なぜ{暗号|あんごう}を{仕込|しこ}んだのか」——{古典探偵団|こてんたんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: fumika
+            expression: thinking
+          - character: kotoba
+            expression: surprised
+          - character: utayomi
+            expression: thinking
+          - character: shirabe
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{印刷|いんさつ}ミス？　いたずら？　それとも{本当|ほんとう}に{暗号|あんごう}？——{調査|ちょうさ}が{始|はじ}まった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 俳句の暗号
+        subtitle: 古典探偵団 Vol.5
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: しおりの俳句と季語ガイド
+      - type: narration
+        text: "{遠足|えんそく}のしおりに{印刷|いんさつ}されていた{俳句|はいく}3つ——それぞれの{季語|きご}が{季節|きせつ}と{合|あ}っていない。"
+      - type: evidence
+        id: card-1
+        title: 遠足のしおり（俳句3つ）
+        content: "①「{蛙|かわず}{飛|と}びこむ{古池|ふるいけ}や」（秋の{遠足|えんそく}なのに{春|はる}の{季語|きご}「{蛙|かわず}」）②「{雪|ゆき}つもる{木|き}の{葉|は}{静|しず}かに」（{夏|なつ}の{季語|きご}「{蝉|せみ}」があるはずの{位置|いち}に{冬|ふゆ}の{季語|きご}「{雪|ゆき}」）③「{桜|さくら}{散|ち}る{空|そら}の{青|あお}さよ」（{秋|あき}の{季語|きご}「{紅葉|もみじ}」があるはずの{位置|いち}に{春|はる}の{季語|きご}「{桜|さくら}」）（{現代語訳|げんだいごやく}つき）"
+      - type: sprite
+        character: utayomi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: utayomi
+        text: "「{蛙|かわず}」は{春|はる}の{季語|きご}だよ。秋の{遠足|えんそく}のしおりに{入|はい}るのはおかしい。3つの{俳句|はいく}、{全部|ぜんぶ}{季語|きご}がずれてる！"
+        expression: surprised
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: narration
+        text: "{季語|きご}ガイド——{春夏秋冬|しゅんかしゅうとう}の{代表的|だいひょうてき}な{季語|きご}と、{切|き}れ{字|じ}「や」「かな」「けり」の{役割|やくわり}をわかりやすく{解説|かいせつ}。"
+      - type: evidence
+        id: card-2
+        title: 季語ガイド
+        content: "{春|はる}：{蛙|かわず}・{桜|さくら}　{夏|なつ}：{蝉|せみ}・{入道雲|にゅうどうぐも}　{秋|あき}：{紅葉|もみじ}・{月|つき}　{冬|ふゆ}：{雪|ゆき}・{枯野|かれの}。{切|き}れ{字|じ}「や」「かな」「けり」は{俳句|はいく}のリズムを{区切|くぎ}る{言葉|ことば}。17{音|おと}の{中|なか}に{季節|きせつ}の{空気|くうき}を{閉|と}じ{込|こ}める{工夫|くふう}。"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: right
+      - type: dialog
+        character: shirabe
+        text: "そういえば……{コトバ|ことば}が{最近|さいきん}「{俳句|はいく}って{面白|おもしろ}い」って{言|い}ってた。{関係|かんけい}あるのかな？"
+        expression: worried
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 比較メモと暗号解読
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{原稿|げんこう}と{印刷|いんさつ}{版|ばん}を{比|くら}べたら、3つの{季語|きご}が{全部|ぜんぶ}{入|い}れ{替|か}わってた。{原稿|げんこう}には「{紅葉|もみじ}」って{書|か}いてある。{印刷|いんさつ}されたのは「{蛙|かわず}」。{印刷|いんさつ}の{前|まえ}に{誰|だれ}かが{書|か}き{換|か}えたんだ！"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: evidence
+        id: card-3
+        title: フミカの比較メモ＋印刷室の使用記録
+        content: "{原稿|げんこう}の{季語|きご}①{紅葉|もみじ}→{印刷|いんさつ}版「{蛙|かわず}」②{月|つき}→{印刷|いんさつ}版「{雪|ゆき}」③{枯野|かれの}→{印刷|いんさつ}版「{桜|さくら}」。{印刷|いんさつ}室の{使用|しよう}{記録|きろく}：{放課後|ほうかご}に{入|はい}ったのは{コトバ|ことば}と{フミカ|ふみか}の2{人|にん}だけ。{フミカ|ふみか}は{用紙|ようし}{補充|ほじゅう}だけで{原稿|げんこう}には{触|ふ}れていない。"
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "{入|い}れ{替|か}わった{季語|きご}の{頭文字|かしらもじ}を{並|なら}べると——「え・ん・そ・く・た・の・し・み」！　{暗号|あんごう}メッセージだ！"
+        expression: determined
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ウタヨミの分析＋季語入れ替えパターン表
+        content: "{入|い}れ{替|か}えた{季語|きご}の{頭文字|かしらもじ}：「{蛙|かわず}（え）」「{雪|ゆき}（ゆ）→{ん|ん}」「{桜|さくら}（さ）」…{並|なら}べると「えんそくたのしみ」という{暗号|あんごう}メッセージになる。{意図的|いとてき}な{入|い}れ{替|か}えと{確定|かくてい}。{印刷|いんさつ}室に{入|はい}れたのは{コトバ|ことば}と{フミカ|ふみか}の2{人|にん}。{フミカ|ふみか}は{原稿|げんこう}に{触|ふ}れていない。"
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{印刷|いんさつ}室に{入|はい}ったのは2{人|にん}——{コトバ|ことば}と{フミカ|ふみか}。{フミカ|ふみか}は{用紙|ようし}{補充|ほじゅう}だけで{原稿|げんこう}に{触|ふ}れていない。{暗号|あんごう}は{意図的|いとてき}に{仕込|しこ}まれていた。"
+      - type: sprite
+        character: fumika
+        expression: worried
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{印刷|いんさつ}室に{入|はい}れたのは{コトバ|ことば}と{私|わたし}だけ。{私|わたし}は{原稿|げんこう}に{触|ふ}れていない。ということは——{コトバ|ことば}が{季語|きご}を{入|い}れ{替|か}えた？　でもなぜ{暗号|あんごう}なんかを……"
+        expression: worried
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoba
+        text: "……{俳句|はいく}の{季語|きご}って{面白|おもしろ}くない？　{入|い}れ{替|か}えたら{暗号|あんごう}になるかもって{思|おも}っただけで……{迷惑|めいわく}をかけるつもりは……"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生のメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{コトバ|ことば}に{直接|ちょくせつ}{聞|き}いたら、こう{言|い}っていたわ。「{俳句|はいく}の{季語|きご}が{面白|おもしろ}くて、{入|い}れ{替|か}えたら{暗号|あんごう}になると{思|おも}いついた。みんなを{驚|おどろ}かせたかった。しおりを{困|こま}らせるつもりはなかった」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{悪意|あくい}はなかった——{俳句|はいく}の{季語|きご}の{仕組|しく}みを{理解|りかい}していたからこそ、{暗号|あんごう}が{作|つく}れた。「{面白|おもしろ}い」という{純粋|じゅんすい}な{好奇心|こうきしん}が、{結果|けっか}として{クラス|くらす}を{混乱|こんらん}させてしまったのね。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生のメモ
+        content: "{コトバ|ことば}のことば：「{俳句|はいく}の{季語|きご}が{面白|おもしろ}くて、{入|い}れ{替|か}えたら{暗号|あんごう}になると{思|おも}いついた。みんなを{驚|おどろ}かせたかった。しおりを{困|こま}らせるつもりはなかった。{季語|きご}の{仕組|しく}みで{遊|あそ}びたかっただけ」"
+      - type: sprite
+        character: shirabe
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "{コトバ|ことば}は{悪気|わるき}はなかった……{好奇心|こうきしん}は{分|わ}かる。でも「{面白|おもしろ}い」と「{迷惑|めいわく}」は{紙一重|かみひとえ}だよね。みんなの{しおり|しおり}を{勝手|かって}に{変|か}えていい{理由|りゆう}には{ならない|ならない}から。"
+        expression: thinking
+      - type: sprite
+        character: shirabe
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{好奇心|こうきしん}で{季語|きご}を{入|い}れ{替|か}える→{暗号|あんごう}メッセージ「えんそくたのしみ」を{仕込|しこ}む→{でも|でも}{クラス|くらす}が{困惑|こんわく}。**　「{面白|おもしろ}い」と「{迷惑|めいわく}」の{境界線|きょうかいせん}に{気|き}づかなかった{好奇心|こうきしん}の{暴走|ぼうそう}——これが{事件|じけん}の{核心|かくしん}だった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 俳句の季語を入れ替えたのは誰？
+      - type: sprite
+        character: fumika
+        expression: determined
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{証拠|しょうこ}をまとめると——{印刷|いんさつ}室に{入|はい}れたのは2{人|にん}だけ。{私|わたし}は{用紙|ようし}{補充|ほじゅう}だけで{原稿|げんこう}に{触|ふ}れていない。{暗号|あんごう}は{意図的|いとてき}に{仕込|しこ}まれていた。{最近|さいきん}「{俳句|はいく}って{面白|おもしろ}い」と{言|い}っていた{人物|じんぶつ}は——"
+        expression: determined
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{印刷|いんさつ}室に{入|はい}ったのは{コトバ|ことば}と{フミカ|ふみか}の2{人|にん}だけ。②{フミカ|ふみか}は{用紙|ようし}{補充|ほじゅう}だけで{原稿|げんこう}に{触|ふ}れていない。③{季語|きご}は{意図的|いとてき}に{入|い}れ{替|か}えられ、{暗号|あんごう}メッセージが{仕込|しこ}まれていた。④{シラベ|しらべ}の{証言|しょうげん}：{コトバ|ことば}が{最近|さいきん}「{俳句|はいく}って{面白|おもしろ}い」と{言|い}っていた。⑤{山田先生|やまだせんせい}のメモで{コトバ|ことば}{本人|ほんにん}が{確認|かくにん}。"
+      - type: choice
+        id: q1
+        question: 遠足のしおりの俳句の季語を入れ替えたのは誰？
+        options:
+          - text: コトバ（好奇心で季語を入れ替えて暗号を作った）
+            value: kotoba
+            correct: true
+            feedback: "{正解|せいかい}！　{コトバ|ことば}は{俳句|はいく}の{季語|きご}の{仕組|しく}みを{理解|りかい}して、{入|い}れ{替|か}えると{暗号|あんごう}になることに{気|き}づいた。{好奇心|こうきしん}は{素晴|すばら}しい。でも、みんなが{使|つか}う{しおり|しおり}を{勝手|かって}に{変|か}えるのは{問題|もんだい}だ。**{俳句|はいく}の{季語|きご}はたった2〜3{文字|もじ}で{季節|きせつ}を{伝|つた}える「しるし」。{松尾芭蕉|まつおばしょう}はこの「しるし」を{使|つか}って、17{音|おと}の{中|なか}に{季節|きせつ}の{空気|くうき}や{気持|きも}ちを{閉|と}じ{込|こ}めた。{季語|きご}の{力|ちから}、すごいと{思|おも}わない？**"
+          - text: フミカ（原稿と印刷版を比較した人）
+            value: fumika
+            feedback: "{フミカ|ふみか}は{原稿|げんこう}と{印刷|いんさつ}{版|ばん}の{違|ちが}いを{発見|はっけん}した{側|がわ}だよ。{用紙|ようし}{補充|ほじゅう}だけで{原稿|げんこう}には{触|ふ}れていないよ。"
+          - text: ウタヨミ（季語の仕組みを分析した人）
+            value: utayomi
+            feedback: "{ウタヨミ|うたよみ}は{季語|きご}の{仕組|しく}みを{分析|ぶんせき}して{暗号|あんごう}を{解読|かいどく}した{側|がわ}だよ。{印刷|いんさつ}室には{入|はい}っていないよ。"
+          - text: シラベ（コトバの気持ちを代弁した人）
+            value: shirabe
+            feedback: "{シラベ|しらべ}は{コトバ|ことば}の{気持|きも}ちと{クラス|くらす}の{気持|きも}ちの{両方|りょうほう}を{考|かんが}えた{側|がわ}だよ。{印刷|いんさつ}室には{入|はい}っていないよ。"
+
+  # ==================== 真相：コトバの告白 ====================
+  - id: truth-kotoba
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: コトバの好奇心
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "……{俳句|はいく}の{季語|きご}を{勉強|べんきょう}してたら、「{入|い}れ{替|か}えたら{暗号|あんごう}になるかも！」って{思|おも}いついたんだ。{季語|きご}の{頭文字|かしらもじ}を{並|なら}べたら「えんそくたのしみ」になるって{気|き}づいて——"
+        expression: worried
+      - type: dialog
+        character: kotoba
+        text: "{みんな|みんな}を{驚|おどろ}かせたかっただけで、{困|こま}らせるつもりはなかった。でも……{しおり|しおり}を{勝手|かって}に{変|か}えたのは、{良|よ}くなかった。{ごめんなさい|ごめんなさい}。"
+        expression: thinking
+      - type: dialog
+        character: kotoba
+        text: "{季語|きご}の{仕組|しく}みって{本当|ほんとう}に{面白|おもしろ}くて——{松尾芭蕉|まつおばしょう}が17{音|おと}に{季節|きせつ}を{閉|と}じ{込|こ}めた{工夫|くふう}、{すごい|すごい}と{思|おも}った。だから{使|つか}ってみたかったんだ。"
+        expression: normal
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: fumika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: fumika
+        text: "{印刷|いんさつ}室に{入|はい}った2{人|にん}のうち、{私|わたし}は{原稿|げんこう}に{触|ふ}れていない——そう{気|き}づいたとき、{コトバ|ことば}かもって{思|おも}った。でも、{悪意|あくい}じゃなくて{好奇心|こうきしん}だったとは{思|おも}ってなかった。"
+        expression: thinking
+      - type: sprite
+        character: fumika
+        action: hide
+      - type: sprite
+        character: utayomi
+        expression: happy
+        position: right
+      - type: dialog
+        character: utayomi
+        text: "{暗号|あんごう}メッセージが「えんそくたのしみ」だったとき、{なんか|なんか}{可愛|かわい}いなって{思|おも}った。{コトバ|ことば}は{季語|きご}の{仕組|しく}みをちゃんと{理解|りかい}して{使|つか}ったんだ。{方法|ほうほう}は{問題|もんだい}だったけどね。"
+        expression: happy
+      - type: sprite
+        character: utayomi
+        action: hide
+      - type: sprite
+        character: shirabe
+        expression: normal
+        position: left
+      - type: dialog
+        character: shirabe
+        text: "「{面白|おもしろ}い」と「{迷惑|めいわく}」は{紙一重|かみひとえ}——{コトバ|ことば}の{気持|きも}ちは{分|わ}かる。{でも|でも}{クラス|くらす}みんなの{しおり|しおり}を{勝手|かって}に{変|か}えるのは、{相手|あいて}のことを{考|かんが}えなかったということ。{次|つぎ}から{気|き}をつけてほしい。"
+        expression: normal
+      - type: sprite
+        character: shirabe
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{俳句|はいく}の{季語|きご}は、たった2〜3{文字|もじ}で{季節|きせつ}を{伝|つた}える「しるし」なの。{松尾芭蕉|まつおばしょう}は「{古池|ふるいけ}や{蛙|かわず}{飛|と}びこむ{水|みず}の{音|おと}」——この17{音|おと}に{春|はる}の{静|しず}けさと{蛙|かわず}が{池|いけ}に{飛|と}びこんだ{瞬間|しゅんかん}の{全部|ぜんぶ}を{閉|と}じ{込|こ}めた。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "{コトバ|ことば}が{季語|きご}の{仕組|しく}みに{興味|きょうみ}を{持|も}ったこと自体は{素晴|すばら}しい。{大切|たいせつ}なのは、「{面白|おもしろ}い」と{思|おも}ったとき、{相手|あいて}や{周|まわ}りへの{影響|えいきょう}も{一緒|いっしょ}に{考|かんが}えること——それが{本当|ほんとう}の「{知|ち}を{使|つか}う」ということよ。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{仮説|かせつ}{検証|けんしょう}——「{印刷|いんさつ}ミス？　いたずら？　{暗号|あんごう}？」と3つの{仮説|かせつ}を{立|た}て、{証拠|しょうこ}で1つずつ{確かめる|たしかめる}{考|かんが}え{方|かた}。{Card 3|かーど3}で「{印刷|いんさつ}ミス」を{排除|はいじょ}。{Card 4|かーど4}で「{暗号|あんごう}」を{確定|かくてい}。"
+      - type: narration
+        text: "{季語|きご}は{俳句|はいく}の「しるし」——17{音|おと}に{季節|きせつ}の{空気|くうき}を{閉|と}じ{込|こ}める{工夫|くふう}。{好奇心|こうきしん}は{大切|たいせつ}。でも「{面白|おもしろ}い」と{思|おも}ったとき、{相手|あいて}への{影響|えいきょう}も{一緒|いっしょ}に{考|かんが}えることが{大切|たいせつ}。"
+      - type: effect
+        name: fade-out

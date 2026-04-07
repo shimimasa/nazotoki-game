@@ -1,0 +1,415 @@
+meta:
+  id: democracy-08
+  title: 制度のトリック
+  series: 選挙探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{模擬|もぎ}{選挙|せんきょ}が{終|お}わった。クラスの{代表|だいひょう}を{決|き}める{投票|とうひょう}で、{小選挙区制|しょうせんきょくせい}を{体験|たいけん}した{翌日|よくじつ}のこと。"
+      - type: narration
+        text: "タミが{手|て}を{挙|あ}げ、{提案|ていあん}した。「{比例代表制|ひれいだいひょうせい}に{変|か}えた{方|ほう}が{公平|こうへい}じゃないですか？」"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タミさんが{提案|ていあん}してくれた。でも、なぜ{今|いま}この{提案|ていあん}が{出|で}てきたのか——{選挙探偵団|せんきょたんていだん}に{調|しら}べてほしいことがあるの。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{昨日|きのう}の{模擬|もぎ}{選挙|せんきょ}の{結果|けっか}と、タミさんの{提案書|ていあんしょ}の{関係|かんけい}を{見|み}ていって。"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: thinking
+          - character: gikai
+            expression: surprised
+          - character: tami
+            expression: normal
+          - character: nozomi
+            expression: thinking
+      - type: narration
+        text: "「{公平|こうへい}のため」という{言葉|ことば}の{裏|うら}に、{何|なに}かが{隠|かく}れている——4{人|にん}は{感|かん}じ{取|と}った。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 制度のトリック
+        subtitle: 選挙探偵団 Vol.8
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 提案の裏を読む
+      - type: narration
+        text: "タミの{提案書|ていあんしょ}と、{昨日|きのう}の{模擬|もぎ}{選挙|せんきょ}の{結果表|けっかひょう}——ヒョウが{選挙|せんきょ}{管理|かんり}{委員|いいん}として{記録|きろく}を{持|も}っていた。"
+      - type: evidence
+        id: card-1
+        title: タミの変更提案書と小選挙区結果
+        content: "【タミの{変更|へんこう}{提案書|ていあんしょ}】「{比例代表制|ひれいだいひょうせい}は{得票率|とくひょうりつ}に{応|おう}じて{代表|だいひょう}を{選|えら}ぶ{制度|せいど}。より{多|おお}くの{意見|いけん}が{反映|はんえい}されて{公平|こうへい}です」。【{小選挙区制|しょうせんきょくせい}{結果|けっか}】1{位|い}:ヒョウ（14{票|ひょう}）→{当選|とうせん}。2{位|い}:ノゾミ（11{票|ひょう}）→{当選|とうせん}{ライン|らいん}。3{位|い}:タミ（10{票|ひょう}）→{僅差|きんさ}の{落選|らくせん}。"
+      - type: sprite
+        character: hyou
+        expression: determined
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{小選挙区制|しょうせんきょくせい}では、タミさんは{僅差|きんさ}の3{位|い}で{落選|らくせん}だった。ノゾミさんとは{たった|たった}1{票|ひょう}の{差|さ}——"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "ギカイが{制度|せいど}{説明|せつめい}{資料|しりょう}を{持|も}ってきた。{二|ふた}つの{制度|せいど}の{違|ちが}いが{図|ず}で{説明|せつめい}されている。"
+      - type: evidence
+        id: card-2
+        title: 制度説明資料と比例代表での計算結果
+        content: "【{小選挙区制|しょうせんきょくせい}】{勝者|しょうしゃ}{総取|そうど}り——1{位|い}のみ{当選|とうせん}。{死票|しひょう}が{多|おお}い。【{比例代表制|ひれいだいひょうせい}】{得票率|とくひょうりつ}で{議席|ぎせき}を{分|わ}ける——より{多|おお}くの{意見|いけん}が{反映|はんえい}される。【{比例代表|ひれいだいひょう}での{計算|けいさん}（{定数|ていすう}3{人|にん}の{場合|ばあい}）】ヒョウ14{票|ひょう}・ノゾミ11{票|ひょう}・タミ10{票|ひょう}——タミも{当選|とうせん}{ライン|らいん}内。"
+      - type: sprite
+        character: gikai
+        expression: surprised
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{小選挙区制|しょうせんきょくせい}は「{勝者|しょうしゃ}{総取|そうど}り」——1{位|い}だけが{当選|とうせん}で、{他|ほか}の{票|ひょう}は{死票|しひょう}になる。{比例代表制|ひれいだいひょうせい}は{得票率|とくひょうりつ}で{議席|ぎせき}を{分|わ}けるから、{得票|とくひょう}した{人|ひと}が{当選|とうせん}しやすい——"
+        expression: thinking
+      - type: dialog
+        character: gikai
+        text: "でも……{比例代表|ひれいだいひょう}に{変|か}えたら、タミさんが3{位|い}から{当選|とうせん}{ライン|らいん}に{入|はい}るんじゃ？"
+        expression: surprised
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 動機を掘り下げる
+      - type: narration
+        text: "{両方|りょうほう}の{制度|せいど}で、{全候補|ぜんこうほ}の{当落|とうらく}を{比較|ひかく}した{表|ひょう}がある。タミだけが{有利|ゆうり}になるわけではない——{制度|せいど}の{変更|へんこう}は{複雑|ふくざつ}な{影響|えいきょう}がある。"
+      - type: evidence
+        id: card-3
+        title: 両制度での全候補当落比較
+        content: "【{小選挙区制|しょうせんきょくせい}（{定数|ていすう}2）】ヒョウ○・ノゾミ○・タミ×・ギカイ×。【{比例代表制|ひれいだいひょうせい}（{定数|ていすう}3）】ヒョウ○・ノゾミ○・タミ○・ギカイ×。{注意|ちゅうい}: {定数|ていすう}{設定|せってい}や{計算方式|けいさんほうしき}によって{結果|けっか}は{変|か}わる。タミが{有利|ゆうり}になるケースは{確|たし}かにあるが、{制度|せいど}を{変|か}えれば{全員|ぜんいん}の{当落|とうらく}が{変|か}わる——{自分|じぶん}だけが{有利|ゆうり}になるわけではない。"
+      - type: sprite
+        character: hyou
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{制度|せいど}を{変|か}えたら{複雑|ふくざつ}な{変化|へんか}がある。タミさんだけが{有利|ゆうり}になるわけじゃない——でも、タミさんが{落選|らくせん}から{当選|とうせん}に{変|か}わる{計算|けいさん}は{確|たし}かだ。"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "ノゾミが{重要|じゅうよう}なことを{話|はな}してくれた。タミから{事前|じぜん}に{計算|けいさん}を{見|み}せられていたという。"
+      - type: evidence
+        id: card-4
+        title: ノゾミの証言とタミのメモ
+        content: "【ノゾミの{証言|しょうげん}】「タミさんが{昨日|きのう}の{結果|けっか}を{見|み}て、『{比例代表|ひれいだいひょう}なら{私|わたし}が3{位|い}から2{位|い}になる{計算|けいさん}』って{言|い}ってた。{計算|けいさん}メモまで{見|み}せてもらった」。【タミのメモ（{発見|はっけん}）】{小選挙区|しょうせんきょく}: タミ10{票|ひょう}→{落選|らくせん}。{比例代表|ひれいだいひょう}（{定数|ていすう}3）: タミ10{票|ひょう}→{当選|とうせん}。→{提案|ていあん}{前日|ぜんじつ}に{計算済|けいさんずみ}。"
+      - type: sprite
+        character: nozomi
+        expression: surprised
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "タミさんが{昨日|きのう}の{結果|けっか}を{見|み}て——「{比例代表|ひれいだいひょう}なら{私|わたし}が{当選|とうせん}{ライン|らいん}に{入|はい}る」って{計算|けいさん}してたの。メモ{帳|ちょう}にびっしり{書|か}いてあったよ。{提案書|ていあんしょ}を{出|だ}す{前|まえ}の{日|ひ}に。"
+        expression: surprised
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。タミは{小選挙区制|しょうせんきょくせい}で{僅差|きんさ}の{落選|らくせん}、{比例代表|ひれいだいひょう}なら{当選|とうせん}{ライン|らいん}——そして{提案|ていあん}{前日|ぜんじつ}に{計算|けいさん}まで{済|す}ませていた。「{公平|こうへい}のため」という{提案|ていあん}の{裏|うら}に{何|なに}が{隠|かく}れているのか。"
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{比例代表制|ひれいだいひょうせい}を{勧|すす}める{提案|ていあん}の{内容|ないよう}は——{確|たし}かに{理|り}にかなってる{面|めん}もある。{死票|しひょう}を{減|へ}らして{多様|たよう}な{意見|いけん}を{反映|はんえい}する{制度|せいど}だから。でも……"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{提案|ていあん}の{内容|ないよう}が{正|ただ}しくても、「{自分|じぶん}が{当選|とうせん}したいから{公平|こうへい}と{言|い}っている」としたら——それは{本当|ほんとう}に「{公平|こうへい}のため」だと{言|い}えるのかな……"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: タミの告白と先生の言葉
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tami
+        expression: worried
+        position: center
+      - type: dialog
+        character: tami
+        text: "……{本当|ほんとう}のことを{話|はな}します。{比例代表制|ひれいだいひょうせい}の{方|ほう}が{公平|こうへい}だと{思|おも}うのは{本当|ほんとう}。でも——{自分|じぶん}が{当選|とうせん}{ライン|らいん}に{入|はい}るって{分|わ}かったから{提案|ていあん}したのも、{本当|ほんとう}のこと。"
+        expression: worried
+      - type: dialog
+        character: tami
+        text: "{計算|けいさん}したのに、{計算|けいさん}のことは{言|い}わなかった。「{自分|じぶん}に{有利|ゆうり}だから{提案|ていあん}した」って{言|い}えなくて——{公平|こうへい}って{言葉|ことば}を{使|つか}った。"
+        expression: worried
+      - type: sprite
+        character: tami
+        action: hide
+      - type: evidence
+        id: card-5
+        title: タミの告白と先生の説明
+        content: "【タミの{告白|こくはく}】「{公平|こうへい}だと{思|おも}う。でも{自分|じぶん}に{有利|ゆうり}になるから{提案|ていあん}したのも{事実|じじつ}。{計算|けいさん}のことを{話|はな}さなかった」。【{先生|せんせい}の{言葉|ことば}】「これを『{自己|じこ}{奉仕|ほうし}{バイアス|ばいあす}』と{言|い}います。{自分|じぶん}に{都合|つごう}のいい{理由|りゆう}を、{公正|こうせい}な{理由|りゆう}のように{感|かん}じてしまうこと。{提案|ていあん}の{内容|ないよう}と{動機|どうき}は{分|わ}けて{評価|ひょうか}しなさい」。"
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タミさんの{提案|ていあん}には{正|ただ}しい{面|めん}もある。{比例代表制|ひれいだいひょうせい}が{死票|しひょう}を{減|へ}らすのは{事実|じじつ}よ。でも——{自分|じぶん}に{有利|ゆうり}だと{知|し}りながら「{公平|こうへい}のため」と{言|い}ったとき、{動機|どうき}を{隠|かく}していた。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "これが「{自己|じこ}{奉仕|ほうし}{バイアス|ばいあす}」——{自分|じぶん}の{利益|りえき}に{合|あ}う{選択|せんたく}を、「{正|ただ}しいから{選|えら}んだ」と{思|おも}い{込|こ}んでしまうこと。{提案|ていあん}の{内容|ないよう}と{動機|どうき}は{分|わ}けて{評価|ひょうか}することが{大切|たいせつ}よ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{公平|こうへい}のため」という{言葉|ことば}——{内容|ないよう}は{正|ただ}しくても、「{自分|じぶん}に{有利|ゆうり}だから」という{動機|どうき}が{隠|かく}されていた。{提案|ていあん}を{評価|ひょうか}するとき、{内容|ないよう}と{動機|どうき}の{両方|りょうほう}を{見|み}なければならない。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 自分の利益を「公平のため」と言い換えて提案したのは誰？
+      - type: sprite
+        character: gikai
+        expression: determined
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{提案|ていあん}{前日|ぜんじつ}に{計算済|けいさんずみ}のメモ。ノゾミへの{計算|けいさん}の{告白|こくはく}。{提案書|ていあんしょ}には{計算|けいさん}のことを{書|か}かなかった——これらを{組|く}み{合|あ}わせると、{答|こた}えは{一|ひと}つだ。"
+        expression: determined
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①タミが{小選挙区制|しょうせんきょくせい}で{僅差|きんさ}3{位|い}{落選|らくせん}——{比例代表|ひれいだいひょう}なら{当選|とうせん}{ライン|らいん}。②{提案|ていあん}{前日|ぜんじつ}に{計算済|けいさんずみ}のメモ。③ノゾミが「{比例代表|ひれいだいひょう}なら{私|わたし}が{当選|とうせん}{ライン|らいん}に{入|はい}る」という{計算|けいさん}を{見|み}せられた。④{提案書|ていあんしょ}には「{公平|こうへい}」とだけ{書|か}き、{自分|じぶん}の{計算|けいさん}には{触|ふ}れなかった。⑤タミ{自身|じしん}が「{自分|じぶん}に{有利|ゆうり}だから{提案|ていあん}した」と{告白|こくはく}。"
+      - type: choice
+        id: q1
+        question: 自分の利益を「公平のため」と言い換えて提案したのは誰？
+        options:
+          - text: タミ（自分が当選ラインに入ると知って「公平のため」と提案した）
+            value: tami
+            correct: true
+            feedback: "{正解|せいかい}！　タミは{比例代表制|ひれいだいひょうせい}が{自分|じぶん}に{有利|ゆうり}だと{計算|けいさん}していた——{提案|ていあん}の{内容|ないよう}には{正|ただ}しい{面|めん}もあるけど、{動機|どうき}を「{公平|こうへい}のため」と{言|い}い{換|か}えて{隠|かく}していた。これが**「{自己|じこ}{奉仕|ほうし}{バイアス|ばいあす}」**——{自分|じぶん}の{利益|りえき}と{一致|いっち}する{意見|いけん}を、{正|ただ}しいと{感|かん}じやすいこと。{提案|ていあん}を{評価|ひょうか}するとき、{内容|ないよう}と{動機|どうき}を{分|わ}けて{考|かんが}えること！"
+          - text: ヒョウ（選挙管理委員でデータを管理する側）
+            value: hyou
+            feedback: "ヒョウは{選挙|せんきょ}{管理|かんり}{委員|いいん}として{結果|けっか}を{記録|きろく}した{側|がわ}。「{タミが|たみが}{小選挙区|しょうせんきょく}で{落選|らくせん}、{比例代表|ひれいだいひょう}なら{当選|とうせん}{ライン|らいん}」という{重要|じゅうよう}な{事実|じじつ}を{明|あき}らかにしてくれたよ。"
+          - text: ギカイ（制度説明の中立的情報提供者）
+            value: gikai
+            feedback: "ギカイは{二|ふた}つの{制度|せいど}の{仕組|しく}みを{中立的|ちゅうりつてき}に{説明|せつめい}した{側|がわ}。{小選挙区制|しょうせんきょくせい}と{比例代表制|ひれいだいひょうせい}の{違|ちが}いを{分|わ}かりやすく{伝|つた}えてくれたよ。"
+          - text: ノゾミ（タミから計算を見せられた証言者）
+            value: nozomi
+            feedback: "ノゾミはタミから{計算|けいさん}を{見|み}せられた{証言者|しょうげんしゃ}。タミが「{比例代表|ひれいだいひょう}なら{自分|じぶん}が{当選|とうせん}{ライン|らいん}に{入|はい}る」と{言|い}っていたことを{教|おし}えてくれた{大切|たいせつ}な{証人|しょうにん}だよ。"
+
+  # ==================== 真相：タミの告白 ====================
+  - id: truth-tami
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: タミの気持ちと動機
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: tami
+        expression: worried
+        position: center
+      - type: dialog
+        character: tami
+        text: "……{正直|しょうじき}に{話|はな}します。{昨日|きのう}の{結果|けっか}を{見|み}て、すごく{悔|くや}しかった。ノゾミさんと{たった|たった}1{票|ひょう}の{差|さ}で。"
+        expression: worried
+      - type: dialog
+        character: tami
+        text: "{比例代表制|ひれいだいひょうせい}のことを{調|しら}べたら、{自分|じぶん}が{当選|とうせん}{ライン|らいん}に{入|はい}る{計算|けいさん}になった。その{瞬間|しゅんかん}——「{この制度|このせいど}の{方|ほう}が{公平|こうへい}だ」って{強|つよ}く{感|かん}じた。"
+        expression: thinking
+      - type: dialog
+        character: tami
+        text: "{公平|こうへい}だと{本当|ほんとう}に{思|おも}ってた。でも——{自分|じぶん}に{有利|ゆうり}だから{思|おも}ったのか、{本当|ほんとう}に{公平|こうへい}だから{思|おも}ったのか、{自分|じぶん}でも{分|わ}からなくなってた。{計算|けいさん}のことは{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: tami
+        action: hide
+
+  # ==================== 真相：他キャラ反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: nozomi
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "タミさんが{計算|けいさん}を{見|み}せてくれたとき——すごく{真剣|しんけん}な{顔|かお}だった。{本当|ほんとう}に{公平|こうへい}だと{思|おも}ってたんだと{思|おも}う。でも、{自分|じぶん}に{有利|ゆうり}だって{分|わ}かってたことを{話|はな}さなかったのは——{正直|しょうじき}じゃなかったよね。"
+        expression: thinking
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: normal
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{提案|ていあん}の{内容|ないよう}は{悪|わる}くない。{比例代表制|ひれいだいひょうせい}には{ちゃんとした|ちゃんとした}{理由|りゆう}がある。でも「{自分|じぶん}に{有利|ゆうり}だから{公平|こうへい}と{感|かん}じた」かもしれない——{内容|ないよう}と{動機|どうき}は{別|べつ}に{考|かんが}えないといけないんだ。"
+        expression: normal
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: normal
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{制度|せいど}の{説明|せつめい}は{中立|ちゅうりつ}にできる。でも「{なぜ|なぜ}{提案|ていあん}するのか」の{動機|どうき}は——{自分|じぶん}でも{気|き}づきにくい。タミさんが{正直|しょうじき}に{話|はな}してくれたのは、{大事|たいじ}なことだと{思|おも}う。"
+        expression: normal
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "タミさんの{提案|ていあん}には{本当|ほんとう}に{正|ただ}しい{面|めん}もある——{比例代表制|ひれいだいひょうせい}が{死票|しひょう}を{減|へ}らすのは{事実|じじつ}よ。でも「{自分|じぶん}に{有利|ゆうり}だ」という{情報|じょうほう}を{隠|かく}して「{公平|こうへい}のため」と{言|い}ったことが{問題|もんだい}。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{自分|じぶん}の{利益|りえき}に{合|あ}う{理由|りゆう}を「{正|ただ}しい{理由|りゆう}」と{感|かん}じてしまうことは、{誰|だれ}にでも{起|お}きる。それが「{自己|じこ}{奉仕|ほうし}{バイアス|ばいあす}」。{大事|たいじ}なのは、{提案|ていあん}する{人|ひと}の{動機|どうき}も{一緒|いっしょ}に{確認|かくにん}すること——「{誰|だれ}にとって{有利|ゆうり}か」を{聞|き}くことよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{選挙|せんきょ}{制度|せいど}の{比較|ひかく}——{小選挙区制|しょうせんきょくせい}は「{勝者|しょうしゃ}{総取|そうど}り」で{強|つよ}い{代表|だいひょう}が{生|う}まれやすい。{比例代表制|ひれいだいひょうせい}は{得票率|とくひょうりつ}で{議席|ぎせき}を{分|わ}けるから{多様|たよう}な{意見|いけん}が{反映|はんえい}されやすい。{どちらも|どちらも}{一長一短|いちちょういったん}があり、「{絶対|ぜったい}に{正|ただ}しい{制度|せいど}」はない。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{認知|にんち}{バイアス|ばいあす}（{自己|じこ}{奉仕|ほうし}{バイアス|ばいあす}）——{自分|じぶん}の{利益|りえき}に{合|あ}う{意見|いけん}を「{正|ただ}しい」と{感|かん}じやすい{心|こころ}の{傾向|けいこう}。{提案|ていあん}を{評価|ひょうか}するときは、「{内容|ないよう}は{正|ただ}しいか」と「{動機|どうき}は{正直|しょうじき}か」を{分|わ}けて{考|かんが}えること。「{誰|だれ}が{有利|ゆうり}になるか」を{必|かなら}ず{確認|かくにん}しよう。"
+      - type: effect
+        name: fade-out

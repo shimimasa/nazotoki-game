@@ -1,0 +1,434 @@
+meta:
+  id: design-04
+  title: こわれたプロトタイプ
+  series: デザイン思考探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{発表会|はっぴょうかい}の{前日|ぜんじつ}——{デザイン思考探偵団|でざいんしこうたんていだん}の4{人|にん}が{力|ちから}を{合|あ}わせて{作|つく}った「{休|やす}み{時間|じかん}の{新|あたら}しい{遊|あそ}び{道具|どうぐ}」のプロトタイプが、{製作室|せいさくしつ}の{棚|たな}で{壊|こわ}れているのが{見|み}つかった。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: center
+      - type: dialog
+        character: minaosu
+        text: "ど、どうして！　{誰|だれ}かに{壊|こわ}された——{発表会|はっぴょうかい}は{明日|あした}なのに！"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: worried
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "「{誰|だれ}かに{壊|こわ}された」——ミナオスはそう{主張|しゅちょう}する。でも{本当|ほんとう}に{壊|こわ}されたのか、それともプロトタイプ{自体|じたい}に{欠陥|けっかん}があったのか。{探偵団|たんていだん}が{調査|ちょうさ}を{始|はじ}めると、「{壊|こわ}した」と「{失敗|しっぱい}から{学|まな}ぶ」の{境界線|きょうかいせん}が{揺|ゆ}らぎ{始|はじ}める。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: こわれたプロトタイプ
+        subtitle: デザイン思考探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: プロジェクト記録と昨日のタイムライン
+      - type: narration
+        text: "{製作室|せいさくしつ}に{残|のこ}されていた{プロジェクト|ぷろじぇくと}{記録|きろく}——{設計|せっけい}→{製作|せいさく}→テスト→{発表|はっぴょう}の{工程|こうてい}と、{壊|こわ}れたプロトタイプの{写真|しゃしん}が{残|のこ}されていた。"
+      - type: evidence
+        id: card-1
+        title: プロジェクト記録＋壊れたプロトタイプの写真
+        content: "【{工程|こうてい}】①{設計|せっけい}（ツクル{担当|たんとう}）→②{製作|せいさく}（{全員|ぜんいん}）→③テスト（ミナオス{担当|たんとう}）→④{発表|はっぴょう}（{明日|あした}）　【{壊|こわ}れたプロトタイプの{写真|しゃしん}】{中央部分|ちゅうおうぶぶん}の{接合部位|せつごうぶい}が{折|お}れている。{折|お}れた{箇所|かしょ}には{力|ちから}が{加|くわ}わった{跡|あと}が{見|み}える。"
+      - type: sprite
+        character: tsukuru
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{僕|ぼく}が{設計|せっけい}したプロトタイプ……{強度|きょうど}が{足|た}りなかったのかな。それとも{誰|だれ}かが{無理|むり}な{力|ちから}を{加|くわ}えた？"
+        expression: worried
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: narration
+        text: "{昨日|きのう}の{放課後|ほうかご}のタイムライン——{各自|かくじ}の{行動|こうどう}{記録|きろく}と、ミナオスの「テスト{記録帳|きろくちょう}」が{残|のこ}されていた。"
+      - type: evidence
+        id: card-2
+        title: 昨日の放課後タイムライン＋テスト記録帳
+        content: "【{昨日|きのう}の{放課後|ほうかご}タイムライン】ツクル:{午後|ごご}3{時|じ}30{分|ふん}{入室|にゅうしつ}・{午後|ごご}4{時|じ}{退室|たいしつ}　ハカル:{午後|ごご}3{時|じ}35{分|ふん}{入室|にゅうしつ}・{午後|ごご}4{時|じ}10{分|ふん}{退室|たいしつ}　カナエ:{午後|ごご}3{時|じ}40{分|ふん}{入室|にゅうしつ}・{午後|ごご}4{時|じ}15{分|ふん}{退室|たいしつ}　ミナオス:{午後|ごご}3{時|じ}50{分|ふん}{入室|にゅうしつ}・{午後|ごご}5{時|じ}30{分|ふん}{退室|たいしつ}（{最後|さいご}に{退室|たいしつ}）　【テスト{記録帳|きろくちょう}】テスト{担当|たんとう}:ミナオス　{記録|きろく}{ページ}：**{空白|くうはく}**"
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanae
+        text: "ミナオス、{昨日|きのう}から{様子|ようす}がおかしいと{思|おも}ってたの。{他|ほか}の3{人|にん}が{帰|かえ}った{後|あと}も1{人|ひとり}で{製作室|せいさくしつ}に{残|のこ}ってて……{何|なに}か{抱|かか}え{込|こ}んでる？"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 製作室の使用記録と壊れ方の詳細
+      - type: narration
+        text: "{製作室|せいさくしつ}の{入室|にゅうしつ}{記録|きろく}と、「{誰|だれ}かに{壊|こわ}された」というミナオスの{主張|しゅちょう}の{詳細|しょうさい}が{集|あつ}まった。"
+      - type: evidence
+        id: card-3
+        title: 製作室の使用記録＋ミナオスの主張の詳細
+        content: "【{製作室|せいさくしつ}の{入室|にゅうしつ}{記録|きろく}（{昨日|きのう}{午後|ごご}3{時|じ}〜6{時|じ}）】{午後|ごご}3{時|じ}30{分|ふん}〜5{時|じ}30{分|ふん}:ツクル・ハカル・カナエ・ミナオスが{順|じゅん}に{入室|にゅうしつ}・{退室|たいしつ}　{午後|ごご}5{時|じ}30{分|ふん}〜6{時|じ}:{誰|だれ}も{入室|にゅうしつ}していない　【ミナオスの{主張|しゅちょう}】「{自分|じぶん}が{退室|たいしつ}した{後|あと}に{誰|だれ}かが{入|はい}って{壊|こわ}した{はず|はず}。{自分|じぶん}は{壊|こわ}していない」"
+      - type: sprite
+        character: hakaru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{記録|きろく}を{見|み}ると、ミナオスが{最後|さいご}に{退室|たいしつ}した{午後|ごご}5{時|じ}30{分|ふん}から{午後|ごご}6{時|じ}まで、{誰|だれ}も{入室|にゅうしつ}していない。「{誰|だれ}かが{後|あと}から{壊|こわ}しに{来|き}た」という{主張|しゅちょう}は……{記録|きろく}と{矛盾|むじゅん}している。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{壊|こわ}れた{箇所|かしょ}の{詳細|しょうさい}{写真|しゃしん}——さらに、{材料|ざいりょう}{仕様書|しようしょ}との{照合|しょうごう}が{条件付|じょうけんつ}き{公開|こうかい}となっている。"
+      - type: evidence
+        id: card-4
+        title: 壊れた箇所の詳細写真【条件付き公開：材料説明後】
+        content: "【{壊|こわ}れた{箇所|かしょ}の{詳細|しょうさい}】{中央|ちゅうおう}{接合部|せつごうぶ}が{内側|うちがわ}に{折|お}れている。{折|お}れ{方|かた}の{角度|かくど}は{下方向|したほうこう}への{力|ちから}——{使用中|しようちゅう}に{自然|しぜん}に{加|くわ}わる{方向|ほうこう}と{一致|いっち}。　【{材料|ざいりょう}{仕様書|しようしょ}との{照合|しょうごう}】この{材料|ざいりょう}は{繰|く}り{返|かえ}し{使用|しよう}すると{接合部|せつごうぶ}に{疲労|ひろう}が{蓄積|ちくせき}する{特性|とくせい}がある。「{誰|だれ}かが{故意|こい}に{壊|こわ}した」ではなく「{実際|じっさい}に{使用|しよう}したことで{生|しょう}じた{疲労破壊|ひろうはかい}」と{判断|はんだん}できる。"
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{疲労破壊|ひろうはかい}……つまり{繰|く}り{返|かえ}し{使|つか}えば{当然|とうぜん}{壊|こわ}れる{構造|こうぞう}だったってこと？　{強度|きょうど}の{設計|せっけい}が{甘|あま}かったのは……{僕|ぼく}の{責任|せきにん}でもある。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{集|あつ}まってきた。ミナオスは「{退室後|たいしつご}に{誰|だれ}かが{壊|こわ}した」と{主張|しゅちょう}するが、{入室|にゅうしつ}{記録|きろく}はそれを{否定|ひてい}している。さらに{壊|こわ}れ{方|かた}は{故意|こい}ではなく{使用|しよう}による{疲労破壊|ひろうはかい}——そしてテスト{記録帳|きろくちょう}は{空白|くうはく}のまま。"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "テスト{担当|たんとう}はミナオスだったはず。なのにテスト{記録帳|きろくちょう}が{空白|くうはく}——テストをしたなら{何|なに}か{書|か}いているはず。テストを{記録|きろく}しなかったのか、それともテスト{自体|じたい}を……"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: worried
+        position: left
+      - type: dialog
+        character: kanae
+        text: "ミナオスはずっと{責任感|せきにんかん}が{強|つよ}い{子|こ}だった。{発表会|はっぴょうかい}のことを{一番|いちばん}{真剣|しんけん}に{考|かんが}えてた。もし{何|なに}か{困|こま}ったことがあったなら……{言|い}えなかっただけかもしれない。"
+        expression: worried
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: center
+      - type: dialog
+        character: minaosu
+        text: "……"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足とイテレーションの解説
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ミナオスに{直接|ちょくせつ}{話|はな}しかけたところ、{涙|なみだ}ながらにこう{言|い}っていたわ。「テスト{中|ちゅう}に{使|つか}ってみたら{壊|こわ}れてしまった。みんなに{迷惑|めいわく}をかけたくなくて……{言|い}えなかった」"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "テスト{担当|たんとう}として{使|つか}ってみたら{壊|こわ}れた——それは{失敗|しっぱい}じゃないの。それが**テストの{目的|もくてき}**なの。{壊|こわ}れた{理由|りゆう}を{分析|ぶんせき}して{次|つぎ}のプロトタイプを{改善|かいぜん}すること——これを「イテレーション」というのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足＋プロトタイプとイテレーションの解説
+        content: "【ミナオスの{告白|こくはく}】「テストで{使|つか}ってみたら{壊|こわ}れてしまった。みんなに{迷惑|めいわく}をかけたくなくて『{誰|だれ}かに{壊|こわ}された』と{言|い}ってしまった」　【プロトタイプとイテレーションの{解説|かいせつ}】プロトタイプは「{完成品|かんせいひん}」ではなく「テストして{改善|かいぜん}するための{道具|どうぐ}」。{壊|こわ}れることが**データ**になり、{次|つぎ}のバージョンへの{改善策|かいぜんさく}が{生|う}まれる。これを「イテレーション（{反復|はんぷく}{改善|かいぜん}）」という。{失敗|しっぱい}は{終|お}わりではなく、スタートライン。"
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "プロトタイプが{壊|こわ}れて{分|わ}かった——{設計|せっけい}した{僕|ぼく}の{強度|きょうど}{計算|けいさん}が{甘|あま}かった。でも{壊|こわ}れなかったら{気|き}づけなかった。{次|つぎ}のバージョンで{直|なお}せばいい！"
+        expression: determined
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**テスト{担当|たんとう}が{使用|しよう}→{疲労破壊|ひろうはかい}で{壊|こわ}れる→「{迷惑|めいわく}をかけた」と{思|おも}い{報告|ほうこく}できず→「{誰|だれ}かに{壊|こわ}された」と{嘘|うそ}をつく。**{責任感|せきにんかん}という{美徳|びとく}が、イテレーションの{チャンス|ちゃんす}を{隠|かく}してしまった。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: プロトタイプを壊したのは誰？
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{壊|こわ}れ{方|かた}は{疲労破壊|ひろうはかい}——{故意|こい}ではなく{使用|しよう}による{破壊|はかい}。②{入室|にゅうしつ}{記録|きろく}では{最後|さいご}まで{残|のこ}ったのはミナオスだけ。③テスト{記録帳|きろくちょう}は{空白|くうはく}——テスト{担当|たんとう}なのに{記録|きろく}がない。④「{退室後|たいしつご}に{誰|だれ}かが{壊|こわ}した」という{主張|しゅちょう}は{入室|にゅうしつ}{記録|きろく}と{矛盾|むじゅん}する。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{壊|こわ}れ{方|かた}は{疲労破壊|ひろうはかい}で、{故意|こい}の{破壊|はかい}ではない。②{記録|きろく}では{最後|さいご}まで{残|のこ}っていたのはテスト{担当|たんとう}の1{人|にん}。③テスト{記録帳|きろくちょう}が{空白|くうはく}なのに、テストは{行|おこな}われた{形跡|けいせき}がある。④「{誰|だれ}かが{後|あと}から{壊|こわ}した」という{主張|しゅちょう}と{入室|にゅうしつ}{記録|きろく}が{矛盾|むじゅん}する。"
+      - type: choice
+        id: q1
+        question: プロトタイプを壊したのは誰？
+        options:
+          - text: ミナオス（テスト中に壊れたのを「誰かに壊された」と言った）
+            value: minaosu
+            correct: true
+            feedback: "{正解|せいかい}！　ミナオスは{責任感|せきにんかん}が{強|つよ}かったから、{本当|ほんとう}のことを{言|い}えなかった。でも、プロトタイプが{壊|こわ}れるのは{悪|わる}いことじゃない——それがテストの{目的|もくてき}。デザイン{思考|しこう}では、{壊|こわ}れた{理由|りゆう}を{分析|ぶんせき}して{次|つぎ}のプロトタイプを{改善|かいぜん}することを「イテレーション」という。**{失敗|しっぱい}は{終|お}わりじゃなく、スタートライン。**"
+          - text: カナエ（ミナオスの様子を心配していた人）
+            value: kanae
+            feedback: "カナエはミナオスの{様子|ようす}の{変化|へんか}に{気|き}づいて{心配|しんぱい}していた{側|がわ}だよ。{入室|にゅうしつ}{記録|きろく}では{午後|ごご}4{時|じ}15{分|ふん}に{退室|たいしつ}していて、{壊|こわ}れた{時刻|じこく}には{製作室|せいさくしつ}にいなかったよ。"
+          - text: ハカル（壊れ方のデータを分析した人）
+            value: hakaru
+            feedback: "ハカルは{壊|こわ}れ{方|かた}のパターンを{分析|ぶんせき}した{側|がわ}だよ。{入室|にゅうしつ}{記録|きろく}では{午後|ごご}4{時|じ}10{分|ふん}に{退室|たいしつ}していて、テスト{担当|たんとう}でもなかったよ。"
+          - text: ツクル（プロトタイプを設計した人）
+            value: tsukuru
+            feedback: "ツクルはプロトタイプを{設計|せっけい}した{側|がわ}。{強度|きょうど}の{見積|みつも}りが{甘|あま}かったことは{認|みと}めているけれど、テスト{中|ちゅう}に{使|つか}って{壊|こわ}したのはテスト{担当|たんとう}だよ。{入室|にゅうしつ}{記録|きろく}では{午後|ごご}4{時|じ}に{退室|たいしつ}していたよ。"
+
+  # ==================== 真相：ミナオスの告白 ====================
+  - id: truth-minaosu
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ミナオスの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: minaosu
+        expression: worried
+        position: center
+      - type: dialog
+        character: minaosu
+        text: "……{私|わたし}です。テスト{中|ちゅう}に{使|つか}っていたら{壊|こわ}れてしまった。{発表会|はっぴょうかい}は{明日|あした}で、みんながこんなに{頑張|がんば}ったのに——「テストで{壊|こわ}した」なんて{言|い}ったら、みんなに{迷惑|めいわく}をかけると{思|おも}って……"
+        expression: worried
+      - type: dialog
+        character: minaosu
+        text: "{誰|だれ}かのせいにしたら、みんなが{怒|おこ}る{場所|ばしょ}ができて、{発表会|はっぴょうかい}まで{時間|じかん}が{稼|かせ}げると{思|おも}った。でも{本当|ほんとう}は……テスト{記録帳|きろくちょう}に「{壊|こわ}れた」って{書|か}けなかった。{書|か}いたら{自分|じぶん}がテストで{壊|こわ}したって{分|わ}かるから。"
+        expression: thinking
+      - type: dialog
+        character: minaosu
+        text: "ごめんなさい。みんなの{努力|どりょく}を{守|まも}ろうとして……かえって{嘘|うそ}をついてしまった。"
+        expression: worried
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== 真相：他のキャラ反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "{最初|さいしょ}は{驚|おどろ}いたよ。でも……{設計|せっけい}した{僕|ぼく}の{強度|きょうど}が{足|た}りなかったのも{本当|ほんとう}のこと。{疲労破壊|ひろうはかい}が{起|お}きるのは{材料|ざいりょう}の{問題|もんだい}だったんだ。{壊|こわ}れたのはミナオスのせいだけじゃない——{設計|せっけい}の{問題|もんだい}でもあった。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: normal
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "テスト{担当|たんとう}の{役割|やくわり}は「テストして{改善点|かいぜんてん}を{報告|ほうこく}する」こと。{壊|こわ}れたデータを{隠|かく}すことで、{改善|かいぜん}のチャンスが{失|うしな}われた——{責任感|せきにんかん}が{強|つよ}いからこそ、{正直|しょうじき}に{言|い}えなかったんだね。"
+        expression: normal
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "ミナオスが{一番|いちばん}{発表会|はっぴょうかい}のことを{心配|しんぱい}してたの、{知|し}ってた。{壊|こわ}れたことをみんなに{言|い}えたら、{一緒|いっしょ}に{改善|かいぜん}できたのに……{次|つぎ}は{一人|ひとり}で{抱|かか}え{込|こ}まないで。プロトタイプが{壊|こわ}れても、それは{失敗|しっぱい}じゃない。{一緒|いっしょ}に{改善|かいぜん}できるから。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "デザイン{思考|しこう}の{大切|たいせつ}な{考|かんが}え{方|かた}を{確認|かくにん}しましょう。プロトタイプは「{完成品|かんせいひん}」ではなく「テストして{改善|かいぜん}するための{道具|どうぐ}」。{壊|こわ}れることは{失敗|しっぱい}ではなく、**データ**なの。その{データ|でーた}を{使|つか}って{次|つぎ}のバージョンを{良|よ}くしていく——これが「イテレーション」よ。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ミナオスが{感|かん}じた「{迷惑|めいわく}をかけた」という{気持|きも}ちは{理解|りかい}できる。でも{次回|じかい}は「{壊|こわ}れたデータを{正直|しょうじき}に{報告|ほうこく}する」——それが{本当|ほんとう}の{意味|いみ}で{仲間|なかま}を{助|たす}けることになるの。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：プロトタイプとイテレーション】プロトタイプは「{完成品|かんせいひん}」ではなく「テストして{改善|かいぜん}するための{道具|どうぐ}」。{壊|こわ}れることがデータになり、{反復|はんぷく}{改善|かいぜん}（イテレーション）につながる。{失敗|しっぱい}は{終|お}わりではなく、スタートライン。"
+      - type: narration
+        text: "【{学|まな}び②：タイムライン{推理|すいり}】「{何|なに}が、いつ、どの{順番|じゅんばん}で{起|お}きたか」を{整理|せいり}することで{矛盾|むじゅん}が{見|み}えてくる。テスト{記録帳|きろくちょう}の{空白|くうはく}・{入室|にゅうしつ}{記録|きろく}・{壊|こわ}れ{方|かた}——タイムラインに{並|なら}べると{真相|しんそう}が{浮|う}かび{上|あ}がった。"
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{壊|こわ}れたことがデータだった。それを{隠|かく}すことで、{改善|かいぜん}のチャンスを{失|うしな}ってしまった。{次|つぎ}は{正直|しょうじき}に{言|い}う——「{壊|こわ}れた。こういう{原因|げんいん}だったと{思|おも}う」って。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: happy
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "{壊|こわ}れて{分|わ}かった{強度|きょうど}の{問題|もんだい}——{次|つぎ}のバージョンで{接合部|せつごうぶ}を{補強|ほきょう}しよう！　プロトタイプが{壊|こわ}れたことで、{絶対|ぜったい}{良|よ}いものになる。"
+        expression: happy
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: effect
+        name: fade-out

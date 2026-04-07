@@ -1,0 +1,429 @@
+meta:
+  id: cyber-06
+  title: ただのWi-Fi
+  series: ネット探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  netto:
+    name: ネット
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  pasu:
+    name: パス
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rogu:
+    name: ログ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  gado:
+    name: ガード
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: schoolyard
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{社会科見学|しゃかいかけんがく}で{商店街|しょうてんがい}を{訪|おとず}れた5{年|ねん}2{組|くみ}。{自由行動|じゆうこうどう}の{時間|じかん}、ガードは{スマートフォン|すまーとふぉん}の{画面|がめん}に{目|め}を{止|と}めた。"
+      - type: narration
+        text: "「Free Wi-Fi」——{接続|せつぞく}しますか？　{通信量|つうしんりょう}を{節約|せつやく}できる。お{店|みせ}の{公式|こうしき}Wi-Fiだと{思|おも}った。ガードはためらわず{ボタン|ぼたん}を{押|お}した。"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "その{夜|よる}。ガードの{学習|がくしゅう}アカウントに、{見|み}{知|し}らぬ{通知|つうち}が{届|とど}いた。**「{不審|ふしん}なログインを{検出|けんしゅつ}しました——{商店街|しょうてんがい}エリア、16:30」**"
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "たいへんなことが{分|わ}かったわ。ガードのアカウントに、{昨日|きのう}の16:30に{誰|だれ}かが{不正|ふせい}ログインしていたの。でも——ガードはその{時間|じかん}、もう{家|いえ}にいたはずなのよ。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{誰|だれ}かがガードの{通信|つうしん}を{傍受|ぼうじゅ}して、{パスワード|ぱすわーど}を{盗|ぬす}んだ{可能性|かのうせい}がある。ネット{探偵団|たんていだん}に{調査|ちょうさ}をお{願|ねが}いしたいわ。{一体|いったい}、どうして{パスワード|ぱすわーど}が{漏|も}れたのか——{真相|しんそう}を{解明|かいめい}してください。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: netto
+            expression: thinking
+          - character: pasu
+            expression: thinking
+          - character: rogu
+            expression: worried
+          - character: gado
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。ガードの{パスワード|ぱすわーど}が{盗|ぬす}まれた——でも、いつ？　どうやって？　{謎|なぞ}は{深|ふか}まるばかりだった。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: ただのWi-Fi
+        subtitle: ネット探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 不審ログインの矛盾を追う
+      - type: narration
+        text: "ガードのアカウントに{残|のこ}ったログイン{記録|きろく}——{不審|ふしん}ログインの{時刻|じこく}は16:30。{場所|ばしょ}は{商店街|しょうてんがい}エリアのIPアドレスからだった。"
+      - type: narration
+        text: "しかしガードの{家族|かぞく}の{証言|しょうげん}: 「{娘|むすめ}は16:00には{帰|かえ}ってきていた。ずっと{家|いえ}にいた」。{不審|ふしん}ログインの{時刻|じこく}にガードは{家|いえ}にいた——この{矛盾|むじゅん}が{事件|じけん}の{出発点|しゅっぱつてん}だ。"
+      - type: evidence
+        id: card-1
+        title: 不審ログイン記録＋家族の証言
+        content: "{不審|ふしん}ログイン: 16:30、IPアドレス: {商店街|しょうてんがい}エリア。{家族|かぞく}の{証言|しょうげん}: 「{娘|むすめ}は16:00には{帰宅|きたく}。ずっと{家|いえ}にいた」。→16:30にガードは{家|いえ}にいたのに、{商店街|しょうてんがい}から{不正|ふせい}ログインがあった——「{盗|ぬす}まれた{時刻|じこく}」と「{使|つか}われた{時刻|じこく}」は{別|べつ}かもしれない。"
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{待|ま}って。16:30に{商店街|しょうてんがい}からログインがあった——でもガードはその{時間|じかん}に{家|いえ}にいた。これ、{矛盾|むじゅん}してる。{パスワード|ぱすわーど}が{盗|ぬす}まれた{時刻|じこく}と、{使|つか}われた{時刻|じこく}は{違|ちが}うんじゃない？"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: narration
+        text: "{公衆|こうしゅう}Wi-Fiには2{種類|しゅるい}ある——{暗号化|あんごうか}ありと{暗号化|あんごうか}なし。{暗号化|あんごうか}なしのWi-Fiでは、{通信内容|つうしんないよう}が{第三者|だいさんしゃ}に{丸見|まるみ}えになることがある。これを「{中間者攻撃|ちゅうかんしゃこうげき}」という。"
+      - type: evidence
+        id: card-2
+        title: 公衆Wi-Fiの仕組みと危険リスト
+        content: "{暗号化|あんごうか}あり（{公式|こうしき}Wi-Fi）: {通信|つうしん}が{守|まも}られる。{暗号化|あんごうか}なし（{偽物|にせもの}Wi-Fi）: {通信内容|つうしんないよう}が{見|み}られる{可能性|かのうせい}あり。{中間者攻撃|ちゅうかんしゃこうげき}: {偽|にせ}Wi-Fiを{設置|せっち}して{通信|つうしん}を{傍受|ぼうじゅ}する{手口|てぐち}。「{公衆|こうしゅう}Wi-Fiでやってはいけないこと」: パスワードや{個人情報|こじんじょうほう}を{入力|にゅうりょく}しない。"
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: pasu
+        text: "{中間者攻撃|ちゅうかんしゃこうげき}か……{偽|にせ}Wi-Fiに{接続|せつぞく}した{状態|じょうたい}で{パスワード|ぱすわーど}を{入力|にゅうりょく}すると、{通信|つうしん}が{丸見|まるみ}えになる。もし{誰|だれ}かが{偽|にせ}Wi-Fiを{商店街|しょうてんがい}に{設置|せっち}していたとしたら——"
+        expression: worried
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: schoolyard
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 2つのWi-Fiの謎
+      - type: sprite
+        character: netto
+        expression: surprised
+        position: left
+      - type: dialog
+        character: netto
+        text: "{社会科見学|しゃかいかけんがく}の{写真|しゃしん}を{見直|みなお}したら——{商店街|しょうてんがい}の{壁|かべ}に「Free Wi-Fi」の{看板|かんばん}が2つ{映|うつ}ってる！　{名前|なまえ}が{似|に}てるけど、よく{見|み}ると{違|ちが}う。「Shotengai-WiFi」と「Shotengai-Free-WiFi」——2つある！"
+        expression: determined
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: determined
+        position: right
+      - type: dialog
+        character: pasu
+        text: "ネットからカードを{交換|こうかん}して{分|わ}かった！　{商店街|しょうてんがい}の{公式|こうしき}Wi-Fiは「Shotengai-WiFi」だけ。「Shotengai-Free-WiFi」は{公式|こうしき}じゃない。{名前|なまえ}に「Free」が{入|はい}ってる{方|ほう}が{偽物|にせもの}だ。"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: evidence
+        id: card-3
+        title: 商店街のWi-Fiネットワーク一覧
+        content: "{社会科見学|しゃかいかけんがく}の{写真|しゃしん}より: {商店街|しょうてんがい}に2つのWi-Fiネットワーク。①Shotengai-WiFi（{商店街|しょうてんがい}{公式|こうしき}、{暗号化|あんごうか}あり）。②Shotengai-Free-WiFi（{公式|こうしき}ではない、{設置者|せっちしゃ}{不明|ふめい}）。→「{名前|なまえ}が{似|に}ているが{別|べつ}のネットワーク」。どちらに{接続|せつぞく}したかが{鍵|かぎ}。"
+      - type: sprite
+        character: rogu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rogu
+        text: "2つあったのか……じゃあガードは{どっち|どっち}に{接続|せつぞく}したんだろう。{タブレット|たぶれっと}の{接続履歴|せつぞくりれき}があれば{調|しら}べられるはず。{記録|きろく}は{嘘|うそ}をつかない——"
+        expression: worried
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ガードのタブレットのWi-Fi接続履歴
+        content: "{社会科見学|しゃかいかけんがく}{当日|とうじつ}、14:00に「Shotengai-Free-WiFi」に{接続|せつぞく}。14:05に{学習|がくしゅう}アカウントへの{ログイン操作|ろぐいんそうさ}を{確認|かくにん}。→{偽|にせ}Wi-Fiに{接続|せつぞく}した{状態|じょうたい}で{パスワード|ぱすわーど}を{入力|にゅうりょく}した{記録|きろく}がある。"
+      - type: sprite
+        character: netto
+        expression: worried
+        position: left
+      - type: dialog
+        character: netto
+        text: "「Shotengai-Free-WiFi」——{公式|こうしき}じゃない{方|ほう}に{繋|つな}いでた……！　しかも{接続|せつぞく}してすぐにログインしてる。……{正直|しょうじき}、ぼくも{無料|むりょう}Wi-Fiが{見|み}つかったら{繋|つな}いだかもしれない。"
+        expression: worried
+      - type: sprite
+        character: netto
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{商店街|しょうてんがい}には{公式|こうしき}Wi-Fiと{非公式|ひこうしき}Wi-Fiの2つがあった。ガードは14:00に{非公式|ひこうしき}の「Shotengai-Free-WiFi」に{接続|せつぞく}し、{直後|ちょくご}にログインした。"
+      - type: sprite
+        character: gado
+        expression: worried
+        position: left
+      - type: dialog
+        character: gado
+        text: "……「Free」って{書|か}いてあったから、お{店|みせ}が{無料|むりょう}でサービスしてくれてると{思|おも}ったんです。{名前|なまえ}が{似|に}てても{違|ちが}うネットワークがあるなんて、{考|かんが}えもしなかった……"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: pasu
+        text: "でも、{偽|にせ}Wi-Fiに{接続|せつぞく}しただけでは{パスワード|ぱすわーど}は{盗|ぬす}まれない。その{状態|じょうたい}で{パスワード|ぱすわーど}を{入力|にゅうりょく}したから——{通信|つうしん}が{丸見|まるみ}えになった。14:05のログイン{操作|そうさ}が{決定的|けっていてき}だ。"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 偽Wi-Fiの正体が判明
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{商店街|しょうてんがい}に{確認|かくにん}したら——「Shotengai-Free-WiFi」は{商店街|しょうてんがい}の{公式|こうしき}Wi-Fiではないと{分|わ}かったわ。{誰|だれ}かが{設置|せっち}した{偽|にせ}のアクセスポイントだったの。"
+        expression: surprised
+      - type: dialog
+        character: yamada
+        text: "ガードに{話|はなし}を{聞|き}いたら「{無料|むりょう}だから{得|とく}したと{思|おも}った。お{店|みせ}のWi-Fiだから{安全|あんぜん}だと{信|しん}じていた」って。{無料|むりょう}＝{安全|あんぜん}という{思|おも}い{込|こ}みが、{通信|つうしん}を{丸見|まるみ}えにしてしまったのよ。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の調査結果：偽Wi-Fiの正体
+        content: "「Shotengai-Free-WiFi」は{商店街|しょうてんがい}の{公式|こうしき}Wi-Fiではなかった。{誰|だれ}かが{設置|せっち}した{偽|にせ}のアクセスポイント（{中間者攻撃|ちゅうかんしゃこうげき}）。ガードのコメント「{無料|むりょう}だから{得|とく}したと{思|おも}った。お{店|みせ}のWi-Fiだと{信|しん}じていた」。→{偽|にせ}Wi-Fiに{接続|せつぞく}し、その{状態|じょうたい}で{パスワード|ぱすわーど}を{入力|にゅうりょく}したため、{通信|つうしん}が{傍受|ぼうじゅ}されてパスワードが{盗|ぬす}まれた。"
+      - type: sprite
+        character: rogu
+        expression: surprised
+        position: left
+      - type: dialog
+        character: rogu
+        text: "つながった。{盗|ぬす}まれた{時刻|じこく}は14:00——{偽|にせ}Wi-Fiで{ログイン|ろぐいん}した{時|とき}。{使|つか}われた{時刻|じこく}は16:30。「{盗|ぬす}んだ人間|にんげん}」が2{時間半|じかんはん}{後|ご}に{商店街|しょうてんがい}から{不正|ふせい}ログインしたんだ！"
+        expression: determined
+      - type: sprite
+        character: rogu
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{無料|むりょう}Wi-Fiは、{名前|なまえ}だけでは{安全|あんぜん}か{判断|はんだん}できない。「Free」という{文字|もじ}が{罠|わな}だった——{無料|むりょう}＝{安全|あんぜん}という{思|おも}い{込|こ}みが{最大|さいだい}の{落|お}とし{穴|あな}だ。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: パスワード漏洩の原因を作ったのは誰？
+      - type: sprite
+        character: pasu
+        expression: determined
+        position: right
+      - type: dialog
+        character: pasu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{商店街|しょうてんがい}に2つのWi-Fiがあった。②ガードが{接続|せつぞく}したのは{公式|こうしき}ではない「Shotengai-Free-WiFi」。③その{直後|ちょくご}にパスワードを{入力|にゅうりょく}した。④{偽|にせ}Wi-Fiは{中間者攻撃|ちゅうかんしゃこうげき}で{通信|つうしん}を{傍受|ぼうじゅ}できる。⑤16:30に{商店街|しょうてんがい}から{不正|ふせい}ログインがあった——"
+        expression: determined
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①{商店街|しょうてんがい}に{公式|こうしき}「Shotengai-WiFi」と{偽|にせ}「Shotengai-Free-WiFi」の2つがあった。②14:00にガードが{偽|にせ}Wi-Fiに{接続|せつぞく}。③14:05に{パスワード|ぱすわーど}を{入力|にゅうりょく}→{通信|つうしん}が{傍受|ぼうじゅ}される。④16:30に{商店街|しょうてんがい}IPから{不正|ふせい}ログイン。⑤ガードは16:00に{帰宅|きたく}済{み|み}——「{盗|ぬす}まれた{時刻|じこく}」14:00と「{使|つか}われた{時刻|じこく}」16:30のズレが{証拠|しょうこ}だ。"
+      - type: choice
+        id: q1
+        question: パスワードが盗まれる原因を作ったのは誰？
+        options:
+          - text: ガード（偽のWi-Fiに接続してパスワードを入力してしまった）
+            value: gado
+            correct: true
+            feedback: "{正解|せいかい}！　ガードは「Free」という{文字|もじ}を{見|み}て、お{店|みせ}の{公式|こうしき}Wi-Fiだと{信|しん}じた。でも{公式|こうしき}「Shotengai-WiFi」と{偽物|にせもの}「Shotengai-Free-WiFi」は{別|べつ}のネットワーク。{偽|にせ}Wi-Fiに{接続|せつぞく}した{状態|じょうたい}で{パスワード|ぱすわーど}を{入力|にゅうりょく}すると、{通信|つうしん}が{丸見|まるみ}えになる。**{公衆|こうしゅう}Wi-Fiでは{大事|だいじ}な{情報|じょうほう}を{入力|にゅうりょく}しない。{接続|せつぞく}するなら{公式|こうしき}のWi-Fi{名|めい}をお{店|みせ}に{確認|かくにん}しよう。**"
+          - text: ネット（2つのWi-Fiの存在を最初に発見した人）
+            value: netto
+            feedback: "{ネット|ねっと}は{写真|しゃしん}から「Wi-Fiが2つある」と{発見|はっけん}した{側|がわ}。{偽|にせ}Wi-Fiの{存在|そんざい}を{明|あき}らかにした{重要|じゅうよう}な{役割|やくわり}だよ。"
+          - text: パス（中間者攻撃の仕組みを解説した人）
+            value: pasu
+            feedback: "{パス|ぱす}は{中間者攻撃|ちゅうかんしゃこうげき}の{仕組|しく}みを{分析|ぶんせき}して「なぜ{パスワード|ぱすわーど}が{盗|ぬす}まれたか」を{説明|せつめい}した{側|がわ}。{技術的|ぎじゅつてき}な{謎|なぞ}を{解|と}く{鍵|かぎ}になったよ。"
+          - text: ログ（ログイン時刻の矛盾を解明した人）
+            value: rogu
+            feedback: "{ログ|ろぐ}は「{盗|ぬす}まれた{時刻|じこく}」と「{使|つか}われた{時刻|じこく}」のズレを{発見|はっけん}した{側|がわ}。「{時刻|じこく}が{違|ちが}う」に{気|き}づかなければ、{謎|なぞ}は{解|と}けなかった。"
+
+  # ==================== 真相：ガードの告白 ====================
+  - id: truth-gado
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ガードの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: gado
+        expression: worried
+        position: center
+      - type: dialog
+        character: gado
+        text: "……{本当|ほんとう}のことを{話|はな}します。{商店街|しょうてんがい}で「Free Wi-Fi」が{見|み}つかって、{嬉|うれ}しかったんです。{通信量|つうしんりょう}を{節約|せつやく}できる、お{店|みせ}がサービスしてくれてるんだって。"
+        expression: worried
+      - type: dialog
+        character: gado
+        text: "「Free」って{書|か}いてあるから{安全|あんぜん}だと{思|おも}ってた。{名前|なまえ}が{似|に}てても{違|ちが}うネットワークがあるなんて、{考|かんが}えもしなかった……{確認|かくにん}すればよかった。"
+        expression: thinking
+      - type: dialog
+        character: gado
+        text: "タダだから{得|とく}したと{思|おも}った。でも——それが{罠|わな}だったんだ。{無料|むりょう}＝{安全|あんぜん}じゃないって、{今|いま}は{分|わ}かる。ごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: gado
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: netto
+        expression: thinking
+        position: left
+      - type: dialog
+        character: netto
+        text: "{正直|しょうじき}、ぼくも{同|おな}じことをしたかもしれない。「Free Wi-Fi」が{見|み}つかったら、つい{繋|つな}いじゃう。「{商店街|しょうてんがい}」という{名前|なまえ}が{入|はい}ってたら{公式|こうしき}だと{思|おも}う。でも「{似|に}てる」と「{同|おな}じ」は{違|ちが}う——{一文字|ひともじ}の{差|さ}が{大問題|だいもんだい}だ。"
+        expression: thinking
+      - type: sprite
+        character: netto
+        action: hide
+      - type: sprite
+        character: pasu
+        expression: normal
+        position: right
+      - type: dialog
+        character: pasu
+        text: "{公衆|こうしゅう}Wi-Fiで{一番|いちばん}{危険|きけん}なのは「パスワードを{入力|にゅうりょく}する{瞬間|しゅんかん}」。{接続|せつぞく}するだけなら{情報|じょうほう}は{流出|りゅうしゅつ}しない——でも{認証|にんしょう}{画面|がめん}が{出|で}たら、そこで{止|と}まる{判断力|はんだんりょく}が{必要|ひつよう}だ。"
+        expression: normal
+      - type: sprite
+        character: pasu
+        action: hide
+      - type: sprite
+        character: rogu
+        expression: normal
+        position: left
+      - type: dialog
+        character: rogu
+        text: "{記録|きろく}の{時刻|じこく}がすべてを{語|かた}っていた。14:00の{接続|せつぞく}、14:05の{ログイン|ろぐいん}、16:30の{不正利用|ふせいりよう}——{事実|じじつ}をつなぐと{真相|しんそう}に{届|とど}く。「{無料|むりょう}Wi-Fiが{悪|わる}い」じゃなくて、「{確認|かくにん}しなかった」ことが{問題|もんだい}だったんだよね。"
+        expression: normal
+      - type: sprite
+        character: rogu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ガードは{悪|わる}いことをしようとしたわけじゃない。「{無料|むりょう}＝{安全|あんぜん}」という{思|おも}い{込|こ}みが{罠|わな}だったの。でも——この{経験|けいけん}を{次|つぎ}に{活|い}かせれば、もっと{大事|だいじ}なことを{守|まも}れる。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{公衆|こうしゅう}Wi-Fiを{使|つか}う{前|まえ}のルールを{覚|おぼ}えて。①Wi-Fiの{名前|なまえ}をお{店|みせ}に{確認|かくにん}する。②{確認|かくにん}できない{場合|ばあい}はパスワードを{入力|にゅうりょく}しない。③するならVPN（{暗号化|あんごうか}{通信|つうしん}）を{使|つか}う。この3つが{自分|じぶん}を{守|まも}る{習慣|しゅうかん}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{公衆|こうしゅう}Wi-Fiの3つのルール——①{接続|せつぞく}{前|まえ}にWi-Fi{名|めい}を{公式|こうしき}で{確認|かくにん}。②{公衆|こうしゅう}Wi-Fiではパスワード・{個人情報|こじんじょうほう}を{入力|にゅうりょく}しない。③{必要|ひつよう}ならVPNを{使|つか}う。「{無料|むりょう}＝{安全|あんぜん}」は{思|おも}い{込|こ}みだ。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{全探索|ぜんたんさく}——{接続可能|せつぞくかのう}なWi-Fiを{全部|ぜんぶ}リストアップして、{公式|こうしき}と{非公式|ひこうしき}を{区別|くべつ}する{考|かんが}え{方|かた}。「{似|に}てる{名前|なまえ}」も{別物|べつもの}——{見落|みお}としをなくすために、{選択肢|せんたくし}を{全部|ぜんぶ}{洗|あら}い{出|だ}す{習慣|しゅうかん}が{身|み}を{守|まも}る。"
+      - type: effect
+        name: fade-out

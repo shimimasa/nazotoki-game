@@ -1,0 +1,466 @@
+meta:
+  id: communication-08
+  title: 文化の壁
+  series: コミュニケーション探偵団
+  volume: 8
+  estimatedMinutes: 20
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{海外|かいがい}から{転入|てんにゅう}してきたリャン{君|くん}の{行動|こうどう}が、クラスで「マナーが{悪|わる}い」と{問題|もんだい}になった。"
+      - type: narration
+        text: "コトバは「{正|ただ}しいマナーを{教|おし}えるべき」と{考|かんが}え、リャン{君|くん}に{直接|ちょくせつ}{指摘|してき}した。"
+      - type: se
+        sound: whisper
+      - type: bgm
+        track: tension-quiet
+      - type: narration
+        text: "しかしリャン{君|くん}は{傷|きず}つき、「{自分|じぶん}の{国|くに}では{礼儀正|れいぎただ}しい{行動|こうどう}なのに」と{言|い}っている。"
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "わたしはクラスのルールを{守|まも}ってほしかっただけ。マナーが{悪|わる}いから{注意|ちゅうい}した……それの{何|なに}がいけないの？"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "でも、リャン{君|くん}がすごく{傷|きず}ついてた。「{自分|じぶん}の{国|くに}では{当然|とうぜん}のことをしただけ」って……"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: narration
+        text: "**{問題|もんだい}になった{行動|こうどう}とは{何|なに}か。そしてコトバが「{当|あ}たり{前|まえ}」だと{思|おも}っていたルールは、{本当|ほんとう}に{全員|ぜんいん}に{当|あ}てはまるのか——コミュニケーション{探偵団|たんていだん}の{調査|ちょうさ}が{始|はじ}まった。**"
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 文化の壁
+        subtitle: コミュニケーション探偵団 Vol.8
+      - type: effect
+        name: fade-in
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事件の概要と認知バイアス
+      - type: narration
+        text: "{事件|じけん}の{概要|がいよう}——リャン{君|くん}が{教室|きょうしつ}でとったある{行動|こうどう}を、コトバが「マナー{違反|いはん}だよ」と{直接|ちょくせつ}{指摘|してき}した。"
+      - type: evidence
+        id: card-1
+        title: 事件の概要
+        content: "【{事件|じけん}の{流|なが}れ】リャン{君|くん}が{教室|きょうしつ}でとったある{行動|こうどう}を、コトバが「マナー{違反|いはん}だよ」と{直接|ちょくせつ}{指摘|してき}した。リャン{君|くん}は{傷|きず}つき、「{自分|じぶん}の{国|くに}では{礼儀正|れいぎただ}しい{行動|こうどう}なのに」と{言|い}った。【コトバの{主張|しゅちょう}】「クラスのルールを{守|まも}ってもらいたかった。{悪意|あくい}はなかった」"
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: left
+      - type: dialog
+        character: kotoba
+        text: "クラスには{決|き}まったルールがある。みんながそのルールを{守|まも}って{生活|せいかつ}しているんだから、{新|あたら}しく{来|き}た{人|ひと}にも{知|し}っておいてほしかった。それだけよ。"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "では「{認知|にんち}バイアス」とは{何|なに}か——{自分|じぶん}の{常識|じょうしき}を「{全員|ぜんいん}の{常識|じょうしき}」だと{無意識|むいしき}に{思|おも}い{込|こ}む{現象|げんしょう}のことだ。"
+      - type: evidence
+        id: card-2
+        title: 認知バイアスとは
+        content: "【{認知|にんち}バイアス】「{自分|じぶん}の{常識|じょうしき}＝{全員|ぜんいん}の{常識|じょうしき}」と{無意識|むいしき}に{思|おも}い{込|こ}む{現象|げんしょう}。【{異文化|いぶんか}コミュニケーションで{起|お}きやすい{誤解|ごかい}の{例|れい}】①あいさつの{仕方|しかた}（{頭|あたま}を{下|さ}げる・しない）②{沈黙|ちんもく}の{意味|いみ}（{失礼|しつれい}・{丁寧|ていねい}）③{食事|しょくじ}の{作法|さほう}（{音|おと}を{立|た}てる・{立|た}てない）"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "「{当|あ}たり{前|まえ}のルール」には、{必|かなら}ず「どの{文化|ぶんか}・どの{文脈|ぶんみゃく}で？」という{条件|じょうけん}がついている。その{条件|じょうけん}が{見|み}えていないと、{誤解|ごかい}が{生|う}まれる。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: hallway
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: リャン君の証言
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "リャン{君|くん}に{直接|ちょくせつ}{話|はなし}を{聞|き}いたんだ。「{自分|じぶん}の{国|くに}では{当然|とうぜん}のことをしただけ」って、すごく{悲|かな}しそうだった。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: evidence
+        id: card-3
+        title: リャン君の証言（キク・マナブ配布）
+        content: "【リャン{君|くん}の{言葉|ことば}】「"マナーが{悪|わる}い"という{言葉|ことば}は、{自分|じぶん}の{文化|ぶんか}を{否定|ひてい}されたように{感|かん}じた。{確認|かくにん}してもらえれば{説明|せつめい}できたのに」【リャン{君|くん}の{感情状態|かんじょうじょうたい}】{傷|きず}ついていて、クラスで{話|はな}しかけることを{怖|こわ}がっている。"
+      - type: sprite
+        character: kiku
+        expression: determined
+        position: left
+      - type: dialog
+        character: kiku
+        text: "リャン{君|くん}は{悪意|あくい}ある{行動|こうどう}をしたわけじゃない。「マナーが{悪|わる}い」という{言葉|ことば}が{一番|いちばん}{傷|きず}ついたって{言|い}ってた。"
+        expression: determined
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "そんなに{傷|きず}ついてたなんて……でも、クラスのルールを{知|し}らなかったのは{事実|じじつ}でしょ？ わたしは{間違|まちが}ったことを{言|い}ったつもりはなかった。"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 調査：証拠カード4（条件付き公開） ====================
+  - id: evidence-3
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ3
+        subtitle: ツタエの目撃証言（条件付き公開）
+      - type: sprite
+        character: tsutae
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "あの{場面|ばめん}、わたしも{見|み}てたんだ。リャン{君|くん}が{何|なに}をしたかって……？ ちゃんと{説明|せつめい}するね。"
+        expression: normal
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: narration
+        text: "ツタエが{問題|もんだい}の{行動|こうどう}の{具体的|ぐたいてき}な{状況|じょうきょう}を{説明|せつめい}した——これにより、{条件付|じょうけんつ}き{公開|こうかい}カードが{全員|ぜんいん}に{配布|はいふ}される。"
+      - type: evidence
+        id: card-4
+        title: 問題の行動の内容（条件付き公開）
+        content: "【リャン{君|くん}がした{行動|こうどう}】{先生|せんせい}への{返事|へんじ}のとき、{両手|りょうて}を{重|かさ}ねて{胸|むね}の{前|まえ}に{当|あ}て、ゆっくりと{頭|あたま}を{下|さ}げた。【{日本|にほん}の{教室|きょうしつ}での{受|う}け{取|と}られ{方|かた}】「{変|へん}なポーズ」「{授業|じゅぎょう}を{止|と}める{行動|こうどう}」と{受|う}け{取|と}られた。【リャン{君|くん}の{出身国|しゅっしんこく}での{意味|いみ}】{相手|あいて}に{最大限|さいだいげん}の{敬意|けいい}を{示|しめ}す{特別|とくべつ}に{丁寧|ていねい}な{作法|さほう}。"
+      - type: sprite
+        character: tsutae
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "あの{行動|こうどう}、リャン{君|くん}の{国|くに}では{普通|ふつう}どころか{特別|とくべつ}に{丁寧|ていねい}な{行動|こうどう}らしいよ。{先生|せんせい}への{最大限|さいだいげん}の{敬意|けいい}を{表|あらわ}す{作法|さほう}なんだって。"
+        expression: surprised
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: surprised
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "え……そんな{意味|いみ}があったの？ わたしは{知|し}らなかった……"
+        expression: surprised
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。リャン{君|くん}の{行動|こうどう}は、{彼|かれ}の{文化|ぶんか}では「{最大限|さいだいげん}の{敬意|けいい}」を{示|しめ}す{礼儀正|れいぎただ}しい{作法|さほう}だった。それをコトバは「マナー{違反|いはん}」と{断定|だんてい}し、{確認|かくにん}せずに{指摘|してき}した。"
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "「{当|あ}たり{前|まえ}のルール」には{文化的|ぶんかてき}{前提|ぜんてい}という{条件|じょうけん}がある。コトバの{判断|はんだん}には「どの{文化|ぶんか}で{正|ただ}しいか」という{条件|じょうけん}が{抜|ぬ}けていた。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "コトバには{悪意|あくい}がなかった。でも「{確認|かくにん}してもらえれば{説明|せつめい}できたのに」というリャン{君|くん}の{言葉|ことば}が{重|おも}くて……"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: マナブのリサーチメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{調|しら}べてきた。「{同|おな}じ{行動|こうどう}が"失礼"と"礼儀正{しい|ただ}い"に{分|わ}かれる{文化的|ぶんかてき}な{例|れい}」が{世界中|せかいじゅう}にある。そしてコトバについて、{決定的|けっていてき}な{事実|じじつ}も{分|わ}かった。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: evidence
+        id: card-5
+        title: マナブのリサーチメモ
+        content: "【{同|おな}じ{行動|こうどう}が{分|わ}かれる{文化的|ぶんかてき}な{例|れい}3{件|けん}】①{食事|しょくじ}のときに{音|おと}を{立|た}てる：{日本|にほん}の{麺類|めんるい}はOK、{他|ほか}の{場面|ばめん}では{失礼|しつれい} ②{直接|ちょくせつ}「ノー」と{言|い}う：{直接|ちょくせつ}さを{美徳|びとく}とする{文化|ぶんか}vs.{遠回|とおまわ}しに{断|ことわ}る{文化|ぶんか} ③{時間|じかん}に{厳格|げんかく}：「5{分|ふん}{遅|おく}れ」の{意味|いみ}が{国|くに}によって{全|まった}く{違|ちが}う。【コトバについての{事実|じじつ}】リャン{君|くん}に{指摘|してき}する{前|まえ}に、「その{行動|こうどう}はどういう{意味|いみ}でやってるの？」とは{聞|き}かなかった。"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**「{正|ただ}しいマナーを{教|おし}えた」はずのコトバの{行動|こうどう}——その「{正|ただ}しさ」は、{日本|にほん}の{教室|きょうしつ}という{文化|ぶんか}的{文脈|ぶんみゃく}の{中|なか}でだけ{成|な}り{立|た}つものだった。**"
+      - type: sprite
+        character: kotoba
+        expression: thinking
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "「{正|ただ}しいことを{教|おし}えた」という{自信|じしん}が、{確認|かくにん}しない{行動|こうどう}につながっていたんだ……"
+        expression: thinking
+      - type: dialog
+        character: kotoba
+        text: "まず「どんな{意味|いみ}でやってるの？」と{聞|き}けばよかった。それだけで、{全|すべ}てが{変|か}わってたかもしれない。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: リャン君が傷ついた原因を作ったのは誰？
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①コトバがリャン{君|くん}に「マナー{違反|いはん}」と{直接|ちょくせつ}{指摘|してき}した。②リャン{君|くん}の{行動|こうどう}は{出身国|しゅっしんこく}では「{最大限|さいだいげん}の{敬意|けいい}」を{示|しめ}す{礼儀|れいぎ}だった。③コトバは{指摘|してき}する{前|まえ}に「どういう{意味|いみ}？」と{確認|かくにん}しなかった。④「{正|ただ}しいマナー」には{文化|ぶんか}的{前提|ぜんてい}が{存在|そんざい}する。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: choice
+        id: q1
+        question: リャン君が傷ついた原因を作ったのは誰？
+        options:
+          - text: コトバ（前提確認なしに"マナー違反"と指摘した）
+            value: kotoba
+            correct: true
+            feedback: "{正解|せいかい}！　コトバには「クラスのルールを{守|まも}らせたい」という{正直|しょうじき}な{正義感|せいぎかん}があった。でも「あなたのマナーは{間違|まちが}っている」という{指摘|してき}は、{文化的|ぶんかてき}{前提|ぜんてい}を{確認|かくにん}してから{言|い}わないと、{相手|あいて}の{文化|ぶんか}そのものを{否定|ひてい}することになる。**{認知|にんち}バイアスとは、{自分|じぶん}の「{当|あ}たり{前|まえ}」を{全員|ぜんいん}の「{当|あ}たり{前|まえ}」だと{思|おも}い{込|こ}むこと——コトバはリャン{君|くん}に「どういう{意味|いみ}でやっているの？」と{聞|き}くだけで、{全|すべ}てが{変|か}わった。**"
+          - text: キク（リャン君の気持ちを知っていたのに伝えなかった）
+            value: kiku
+            correct: false
+            feedback: "キクはリャン{君|くん}の{気持|きも}ちを{聞|き}いた{側|がわ}。{事件|じけん}の{後|あと}に{状況|じょうきょう}を{知|し}ったキクは、むしろ{問題|もんだい}を{解決|かいけつ}しようとしている。{原因|げんいん}を{作|つく}った{人物|じんぶつ}は、{指摘|してき}を{行|おこな}った{側|がわ}の{行動|こうどう}にある。もう{一度|いちど}{証拠|しょうこ}を{確認|かくにん}しよう。"
+          - text: ツタエ（目撃していたのに止めなかった）
+            value: tsutae
+            correct: false
+            feedback: "ツタエは{状況|じょうきょう}を{目撃|もくげき}した{側|がわ}。{止|と}めなかったことは{反省点|はんせいてん}かもしれないが、{直接|ちょくせつ}「{傷|きず}ついた{原因|げんいん}を{作|つく}った」{人物|じんぶつ}ではない。ツタエは{条件付|じょうけんつ}き{公開|こうかい}の{鍵|かぎ}を{持|も}っていた{重要|じゅうよう}な{証人|しょうにん}だ。"
+          - text: マナブ（文化の違いを知っていたのに事前に説明しなかった）
+            value: manabu
+            correct: false
+            feedback: "マナブは{事件|じけん}の{後|あと}に{文化的|ぶんかてき}{背景|はいけい}を{調|しら}べた{側|がわ}。{事前|じぜん}に{知|し}っていたわけではないよ。{問題|もんだい}の{核心|かくしん}は「{指摘|してき}する{前|まえ}に{確認|かくにん}したかどうか」にある。{証拠|しょうこ}カード5を{見直|みなお}してみよう。"
+
+  # ==================== 真相：コトバの気づき ====================
+  - id: truth-kotoba
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 正義感の暴走
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "……{私|わたし}が「マナー{違反|いはん}だよ」と{言|い}ったとき、{確認|かくにん}なんてしなかった。「{当|あ}たり{前|まえ}でしょ」って{思|おも}ってた。"
+        expression: worried
+      - type: dialog
+        character: kotoba
+        text: "でも、わたしの「{当|あ}たり{前|まえ}」は{日本|にほん}の{教室|きょうしつ}の「{当|あ}たり{前|まえ}」だったんだ。リャン{君|くん}には{別|べつ}の「{当|あ}たり{前|まえ}」があって……それを{考|かんが}えもしなかった。"
+        expression: thinking
+      - type: dialog
+        character: kotoba
+        text: "「{正|ただ}しいことを{教|おし}えた」という{自信|じしん}が、{確認|かくにん}しない{行動|こうどう}につながっていた。まず「どんな{意味|いみ}？」と{聞|き}けばよかった。"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "コトバが{悪意|あくい}を{持|も}っていなかったのは{分|わ}かる。「クラスのみんなにルールを{守|まも}ってほしい」という{気持|きも}ちは{本物|ほんもの}だったんだよ。"
+        expression: thinking
+      - type: dialog
+        character: kiku
+        text: "だからこそ、{確認|かくにん}という{一歩|いっぽ}がどれだけ{大事|だいじ}かって{感|かん}じる。「どういう{意味|いみ}でやってるの？」——その{一言|ひとこと}だけで{全|すべ}てが{変|か}わってた。"
+        expression: normal
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "リャン{君|くん}の{行動|こうどう}、{見|み}てたときは「{変|へん}なの」って{思|おも}ってた。でも{意味|いみ}を{知|し}ったら——{最大限|さいだいげん}の{敬意|けいい}を{示|しめ}す{礼儀|れいぎ}なんだって。{知|し}らないと「{変|へん}」で、{知|し}ると「{丁寧|ていねい}」になる。"
+        expression: surprised
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{認知|にんち}バイアスとは、{自分|じぶん}の{常識|じょうしき}を{自動的|じどうてき}に「{全員|ぜんいん}の{常識|じょうしき}」として{使|つか}ってしまうこと。コトバは{意識|いしき}していなかったけど、それが{起|お}きていた。"
+        expression: determined
+      - type: dialog
+        character: manabu
+        text: "「{正|ただ}しさ」には{条件|じょうけん}がある——「どの{文化|ぶんか}・どの{文脈|ぶんみゃく}で{正|ただ}しいか」という{条件|じょうけん}が。その{条件|じょうけん}を{確認|かくにん}してから{判断|はんだん}することが、{本当|ほんとう}の{意味|いみ}でのコミュニケーションの{第一歩|だいいっぽ}だ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "コトバには「クラスのルールを{守|まも}ってほしい」という{正直|しょうじき}な{気持|きも}ちがあった。でも「マナーが{悪|わる}い」という{指摘|してき}は、{文化的|ぶんかてき}{前提|ぜんてい}を{確認|かくにん}してから{言|い}わないと、{相手|あいて}の{文化|ぶんか}そのものを{否定|ひてい}することになるの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "これが{異文化|いぶんか}コミュニケーションの{難|むずか}しさ——{悪意|あくい}がなくても{誤解|ごかい}は{生|う}まれる。だから「どういう{意味|いみ}？」「{自分|じぶん}の{国|くに}ではどうなの？」と{聞|き}く{習慣|しゅうかん}が{大切|たいせつ}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "{認知|にんち}バイアス——{自分|じぶん}の「{当|あ}たり{前|まえ}」を「{全員|ぜんいん}の{当|あ}たり{前|まえ}」だと{思|おも}い{込|こ}む{仕組|しく}み。コトバは{無意識|むいしき}にこれを{使|つか}って{判断|はんだん}してしまった。"
+      - type: narration
+        text: "{前提|ぜんてい}を{疑|うたが}うこと——「{正|ただ}しさ」は「どの{文化|ぶんか}・どの{文脈|ぶんみゃく}で」という{条件|じょうけん}とセットだ。{判断|はんだん}する{前|まえ}に「この{人|ひと}はどういう{意味|いみ}でやっているんだろう？」と{問|と}いかけることが、{異文化|いぶんか}コミュニケーションの{入|い}り{口|ぐち}。あなたの「{当|あ}たり{前|まえ}」は、{誰|だれ}かにとっての「{知|し}らない{世界|せかい}」かもしれない——{日常|にちじょう}の「{当|あ}たり{前|まえ}」を1つ{選|えら}んで、{疑|うたが}ってみよう。"
+      - type: effect
+        name: fade-out

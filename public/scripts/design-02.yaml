@@ -1,0 +1,425 @@
+meta:
+  id: design-02
+  title: まちがった問題
+  series: デザイン思考探偵団
+  volume: 2
+  estimatedMinutes: 20
+
+characters:
+  tsukuru:
+    name: ツクル
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hakaru:
+    name: ハカル
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kanae:
+    name: カナエ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  minaosu:
+    name: ミナオス
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: school
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{学校|がっこう}の{廊下|ろうか}{事故|じこ}を{減|へ}らすための{プロジェクト|ぷろじぇくと}が{動|うご}き{始|はじ}めた。{デザイン思考探偵団|でざいんしこうたんていだん}は「{走|はし}るな」というポスターを{廊下|ろうか}3か{所|しょ}に{貼|は}り、{事故|じこ}が{減|へ}るのを{待|ま}った。"
+      - type: narration
+        text: "ところが——{ポスター|ぽすたー}を{貼|は}った{翌月|よくつき}、{事故件数|じこけんすう}はむしろ{増|ふ}えていた。"
+      - type: se
+        sound: murmur
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{ポスター|ぽすたー}を{貼|は}ったのに、{廊下|ろうか}{事故|じこ}が{増|ふ}えているわ。{先月|せんげつ}より3{件|けん}も{多|おお}い——{一体|いったい}{何|なに}が{起|お}きているの？"
+        expression: worried
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: tsukuru
+            expression: worried
+          - character: hakaru
+            expression: thinking
+          - character: kanae
+            expression: worried
+          - character: minaosu
+            expression: thinking
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。{頑張|がんば}って{作|つく}ったポスターが{役|やく}に{立|た}っていない——いや、{状況|じょうきょう}を{悪化|あっか}させている。{謎|なぞ}を{解|と}かなければならない。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: まちがった問題
+        subtitle: デザイン思考探偵団 Vol.2
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 事故報告書と調査記録
+      - type: narration
+        text: "{養護教諭|ようごきょうゆ}の{記録|きろく}と、ポスター{設置|せっち}{前後|ぜんご}の{事故件数|じこけんすう}を{比較|ひかく}してみる。{数字|すうじ}が{物語|ものがた}る{事実|じじつ}に{目|め}を{向|む}けよう。"
+      - type: evidence
+        id: card-1
+        title: 廊下事故報告書（月別件数）＋ポスター前後比較
+        content: "【{月別|つきべつ}{事故件数|じこけんすう}】ポスター{設置前|せっちまえ}：{月|つき}4{件|けん}　{設置後|せっちご}：{月|つき}7{件|けん}（+3{件|けん}）　【ポスター{設置場所|せっちばしょ}】{北|きた}{廊下|ろうか}{直線部分|ちょくせんぶぶん}3か{所|しょ}　【{直近|ちょっきん}の{事故|じこ}3{件|けん}の{場所|ばしょ}】{図書室前|としょしつまえ}の{曲|ま}がり{角|かど}（3{件|けん}{全|すべ}て）"
+      - type: sprite
+        character: minaosu
+        expression: surprised
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "ポスターを{貼|は}った{場所|ばしょ}と、{事故|じこ}が{起|お}きた{場所|ばしょ}——{全然|ぜんぜん}{違|ちが}う！　ポスターは{直線|ちょくせん}{廊下|ろうか}に{貼|は}ったのに、{事故|じこ}は{全部|ぜんぶ}{図書室前|としょしつまえ}の{曲|ま}がり{角|かど}で{起|お}きてる。"
+        expression: surprised
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "{次|つぎ}は、{調査|ちょうさ}{担当|たんとう}のハカルが{集|あつ}めたデータを{見|み}てみよう。ハカルは{何|なに}を{調|しら}べていたのか。"
+      - type: evidence
+        id: card-2
+        title: ハカルの調査記録（走っている子の目撃件数）＋ポスター設置場所の地図
+        content: "【ハカルの{調査|ちょうさ}{記録|きろく}】{調査|ちょうさ}{内容|ないよう}：{廊下|ろうか}を{走|はし}っている{子|こ}の{目撃件数|もくげきけんすう}　{北|きた}{廊下|ろうか}{直線部分|ちょくせんぶぶん}：1{日|にち}{平均|へいきん}12{件|けん}　{図書室前|としょしつまえ}{曲|ま}がり{角|かど}：1{日|にち}{平均|へいきん}2{件|けん}　【{調査|ちょうさ}{結論|けつろん}】「{走|はし}っている{子|こ}が{多|おお}い{直線|ちょくせん}{廊下|ろうか}にポスターを{設置|せっち}した」　【{地図|ちず}】ポスター：{直線|ちょくせん}{廊下|ろうか}3か{所|しょ}　{事故|じこ}：{図書室前|としょしつまえ}{曲|ま}がり{角|かど}"
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "ハカルのデータ、{走|はし}っている{子|こ}の{数|かず}は{正確|せいかく}だと{思|おも}う。でも……{走|はし}っている{場所|ばしょ}と{事故|じこ}が{起|お}きた{場所|ばしょ}が{全然|ぜんぜん}{違|ちが}う。{調|しら}べた{内容|ないよう}が{合|あ}ってない{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: school
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 養護教諭の記録と場所の比較
+      - type: narration
+        text: "{養護教諭|ようごきょうゆ}の{詳|くわ}しい{記録|きろく}を{見|み}てみよう。{事故|じこ}に{遭|あ}った{子|こ}たちは、{何|なに}をしていたのか。"
+      - type: evidence
+        id: card-3
+        title: 養護教諭の記録（全3件が図書室前の曲がり角）
+        content: "【{事故|じこ}{詳細|しょうさい}】{件数|けんすう}：3{件|けん}{全|すべ}て{図書室前|としょしつまえ}の{曲|ま}がり{角|かど}　{事故|じこ}①：{廊下|ろうか}を{普通|ふつう}に{歩|ある}いていた{子|こ}が{角|かど}を{曲|ま}がった{瞬間|しゅんかん}に{衝突|しょうとつ}　{事故|じこ}②：{図書室|としょしつ}から{出|で}てきた{子|こ}と{廊下|ろうか}を{歩|ある}いてきた{子|こ}が{衝突|しょうとつ}　{事故|じこ}③：{角|かど}を{曲|ま}がる{際|さい}に{相手|あいて}が{見|み}えなかった　【{共通点|きょうつうてん}】3{件|けん}{全|すべ}て「{走|はし}っていなかった」"
+      - type: sprite
+        character: kanae
+        expression: determined
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{ぶつかった}{子|こ}たちに{話|はな}を{聞|き}いたの。{全員|ぜんいん}「{気|き}づかなかった」って{言|い}ってた。{走|はし}っていたわけじゃなくて、{角|かど}を{曲|ま}がったら{相手|あいて}がいた——{見通|みとお}しが{悪|わる}いことが{問題|もんだい}だったのよ。"
+        expression: determined
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: narration
+        text: "ポスターの{設置場所|せっちばしょ}と{事故|じこ}{発生場所|はっせいばしょ}を{地図|ちず}で{並|なら}べて{見|み}てみよう。"
+      - type: evidence
+        id: card-4
+        title: ポスター場所（直線3か所）vs 事故場所（曲がり角）の地図比較
+        content: "【{設置場所|せっちばしょ}】ポスターA：{北|きた}{廊下|ろうか}{入口付近|にゅうぐちふきん}　ポスターB：{北|きた}{廊下|ろうか}{中央|ちゅうおう}　ポスターC：{北|きた}{廊下|ろうか}{突|つ}き{当|あ}たり　【{事故|じこ}{発生場所|はっせいばしょ}】{全|すべ}て{図書室前|としょしつまえ}の{曲|ま}がり{角|かど}（ポスター{設置場所|せっちばしょ}から{約|やく}20m{離|はな}れた{場所|ばしょ}）　【{見通|みとお}し{距離|きょり}】{直線|ちょくせん}{廊下|ろうか}：{約|やく}30m　{曲|ま}がり{角|かど}：0m（{角|かど}から{先|さき}が{全|まった}く{見|み}えない）"
+      - type: sprite
+        character: minaosu
+        expression: worried
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "{設置後|せっちご}の{事故|じこ}{記録|きろく}を{全部|ぜんぶ}{調|しら}べた。ポスターを{貼|は}った{場所|ばしょ}では{事故|じこ}が0{件|けん}。{起|お}きた3{件|けん}は{全部|ぜんぶ}{曲|ま}がり{角|かど}——{数字|すうじ}が{合|あ}わない。{調|しら}べた{場所|ばしょ}と{対策|たいさく}した{場所|ばしょ}が{間違|まちが}ってた。"
+        expression: worried
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: school
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。ポスターは{直線|ちょくせん}{廊下|ろうか}に{貼|は}ったが、{事故|じこ}は{全|すべ}て{曲|ま}がり{角|かど}で{起|お}きている。ここで{整理|せいり}してみよう。"
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{被害|ひがい}に{遭|あ}った{子|こ}たちは「{走|はし}っていなかった」と{言|い}ってた。{問題|もんだい}は「{走|はし}ること」じゃなくて、「{角|かど}を{曲|ま}がるとき{相手|あいて}が{見|み}えないこと」——{構造|こうぞう}の{問題|もんだい}だったのよ。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: thinking
+        position: center
+      - type: dialog
+        character: tsukuru
+        text: "ポスターのデザインは{頑張|がんば}った。でも……{そもそも}{貼|は}る{場所|ばしょ}が{間違|まちが}ってたのかな。{走|はし}っている{子|こ}が{多|おお}い{場所|ばしょ}を{調|しら}べて、そこに{貼|は}ったのに。"
+        expression: thinking
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: hakaru
+        expression: worried
+        position: right
+      - type: dialog
+        character: hakaru
+        text: "……{ぼく}が{調|しら}べたのは「{走|はし}っている{子|こ}の{数|かず}」だった。でも{事故|じこ}の{原因|げんいん}が「{走|はし}ること」じゃなかったなら——{ぼく}は{最初|さいしょ}から{間違|まちが}ったことを{調|しら}べていたことになる。"
+        expression: worried
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: school
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 山田先生の補足と5 Whysの解説
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ハカルに{直接|ちょくせつ}{確認|かくにん}したところ、こう{言|い}っていたわ。「{走|はし}っている{子|こ}を{調|しら}べたから、{走|はし}っている{場所|ばしょ}にポスターを{貼|は}った。{曲|ま}がり{角|かど}は{調|しら}べていなかった」って。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{デザイン思考|でざいんしこう}では、{解決策|かいけつさく}を{考|かんが}える{前|まえ}に「{本当|ほんとう}の{問題|もんだい}は{何|なに}か」を{定義|ていぎ}する{段階|だんかい}があるの。これを「{問題定義|もんだいていぎ}フェーズ」と{言|い}うわ。{表面|ひょうめん}に{見|み}えている{現象|げんしょう}と、{本当|ほんとう}の{原因|げんいん}は{違|ちが}うことが{多|おお}いのよ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-5
+        title: 山田先生の補足（ハカルの発言）＋5 Whysの解説
+        content: "【ハカルの{発言|はつげん}】「{走|はし}っている{子|こ}を{調|しら}べたから、{走|はし}っている{場所|ばしょ}にポスターを{貼|は}った。{曲|ま}がり{角|かど}は{調|しら}べていなかった」　【5 Whysとは】「なぜ？」を5{回|かい}{繰|く}り{返|かえ}して{本当|ほんとう}の{原因|げんいん}を{掘|ほ}り{下|さ}げる{方法|ほうほう}。Q：{事故|じこ}が{起|お}きた→なぜ？→{見通|みとお}しが{悪|わる}い→なぜ？→{角|かど}の{構造|こうぞう}{問題|もんだい}→{本当|ほんとう}の{課題|かだい}は「{曲|ま}がり{角|かど}の{安全対策|あんぜんたいさく}」だった。{表面|ひょうめん}の{原因|げんいん}（{走|はし}ること）だけを{見|み}ると、{間違|まちが}った{場所|ばしょ}に{対策|たいさく}を{打|う}ってしまう。"
+      - type: sprite
+        character: tsukuru
+        expression: surprised
+        position: left
+      - type: dialog
+        character: tsukuru
+        text: "ポスターのデザインは{問題|もんだい}なかった。{場所|ばしょ}の{選|えら}び{方|かた}に{疑問|ぎもん}はあったけど——{調査|ちょうさ}の{結果|けっか}を{信|しん}じてしまった。"
+        expression: surprised
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{事故|じこ}{原因|げんいん}を「{走|はし}ること」と{定義|ていぎ}→「{走|はし}っている{場所|ばしょ}」を{調査|ちょうさ}→{直線|ちょくせん}{廊下|ろうか}にポスター→{実際|じっさい}の{事故|じこ}は{曲|ま}がり{角|かど}で{発生|はっせい}→{事故|じこ}{増加|ぞうか}。**{問題定義|もんだいていぎ}が{間違|まちが}っていたら、どれだけ{正確|せいかく}なデータを{集|あつ}めても{解決策|かいけつさく}がズレてしまう。"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: school
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 間違った問題定義をしたのは誰？
+      - type: sprite
+        character: minaosu
+        expression: determined
+        position: right
+      - type: dialog
+        character: minaosu
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{事故|じこ}3{件|けん}は{全|すべ}て{図書室前|としょしつまえ}の{曲|ま}がり{角|かど}。{被害者|ひがいしゃ}は{全員|ぜんいん}「{走|はし}っていなかった」。{調査|ちょうさ}は「{走|はし}っている{子|こ}」を{対象|たいしょう}にしていた。ポスターは{直線|ちょくせん}{廊下|ろうか}——{調|しら}べた{場所|ばしょ}が{最初|さいしょ}から{間違|まちが}ってた。"
+        expression: determined
+      - type: sprite
+        character: minaosu
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①{事故|じこ}3{件|けん}{全|すべ}てが{図書室前|としょしつまえ}{曲|ま}がり{角|かど}。②{ぶつかった}{子|こ}は{全員|ぜんいん}「{走|はし}っていなかった」。③{調査|ちょうさ}は「{走|はし}っている{子|こ}の{目撃件数|もくげきけんすう}」のみ。④{曲|ま}がり{角|かど}は{調査|ちょうさ}{対象|たいしょう}に{含|ふく}まれていなかった。⑤ハカルの{発言|はつげん}「{曲|ま}がり{角|かど}は{調|しら}べていなかった」。"
+      - type: choice
+        id: q1
+        question: 間違った問題定義をしたのは誰？
+        options:
+          - text: ハカル（走っている子のデータを集めたが、事故場所の曲がり角を調べなかった）
+            value: hakaru
+            correct: true
+            feedback: "{正解|せいかい}！　ハカルは「{事故|じこ}の{原因|げんいん}＝{走|はし}ること」と{思|おも}い{込|こ}み、{走|はし}っている{子|こ}のデータだけを{集|あつ}めた。「なぜ{事故|じこ}が{起|お}きているのか」を{深|ふか}く{掘|ほ}り{下|さ}げなかったため、{本当|ほんとう}の{問題|もんだい}（{曲|ま}がり{角|かど}の{見通|みとお}しの{悪|わる}さ）を{見落|みお}としてしまった。**{問題定義|もんだいていぎ}フェーズが{表面的|ひょうめんてき}だと、どんなに{正確|せいかく}なデータでも{解決策|かいけつさく}がズレてしまう。**"
+          - text: カナエ（被害者に話を聞いた人）
+            value: kanae
+            feedback: "カナエは{事故|じこ}に{遭|あ}った{子|こ}たちに{直接|ちょくせつ}{話|はな}を{聞|き}いて「{走|はし}っていなかった」という{重要|じゅうよう}な{声|こえ}を{集|あつ}めてくれた{共感|きょうかん}{実践|じっせん}{側|がわ}だよ。{問題定義|もんだいていぎ}を{担当|たんとう}していたのはカナエじゃないよ。"
+          - text: ツクル（ポスターデザイン担当）
+            value: tsukuru
+            feedback: "ツクルはポスターのデザインを{担当|たんとう}していた{側|がわ}で、{問題定義|もんだいていぎ}はハカルの{調査|ちょうさ}に{任|まか}せていたよ。{場所|ばしょ}の{選|えら}び{方|かた}に{疑問|ぎもん}は{感|かん}じていたけど、{調査|ちょうさ}の{結果|けっか}を{信|しん}じる{立場|たちば}だったんだ。"
+          - text: ミナオス（効果測定をした人）
+            value: minaosu
+            feedback: "ミナオスは{設置後|せっちご}の{事故|じこ}{記録|きろく}を{確認|かくにん}して「{数字|すうじ}が{合|あ}わない」と{指摘|してき}してくれた{効果測定|こうかそくてい}{側|がわ}だよ。{問題定義|もんだいていぎ}の{段階|だんかい}を{担当|たんとう}していたのはミナオスじゃないよ。"
+
+  # ==================== 真相：ハカルの告白 ====================
+  - id: truth-hakaru
+    bg: school
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ハカルの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: hakaru
+        expression: worried
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "……そうです。{ぼく}が{間違|まちが}えました。「{廊下|ろうか}{事故|じこ}＝{走|はし}っている{子|こ}が{原因|げんいん}」だと{思|おも}い{込|こ}んで、{走|はし}っている{子|こ}の{数|かず}ばかり{数|かぞ}えていました。"
+        expression: worried
+      - type: dialog
+        character: hakaru
+        text: "{曲|ま}がり{角|かど}を{調|しら}べようとも{思|おも}いませんでした。データを{集|あつ}めることに{夢中|むちゅう}になって——「{何|なに}のためにデータを{集|あつ}めているのか」を{忘|わす}れていた。"
+        expression: worried
+      - type: dialog
+        character: hakaru
+        text: "{問題|もんだい}を{正|ただ}しく{定義|ていぎ}しないと、どんなに{頑張|がんば}ってデータを{集|あつ}めても、{間違|まちが}った{場所|ばしょ}に{対策|たいさく}を{打|う}つことになる——{ぼく}はそれを{実際|じっさい}にやってしまった。"
+        expression: thinking
+      - type: sprite
+        character: hakaru
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: school
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kanae
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kanae
+        text: "{ぶつかった}{子|こ}たちに{話|はな}を{聞|き}いたとき、「{走|はし}っていたわけじゃない」って{全員|ぜんいん}{言|い}ってた。{最初|さいしょ}からその{声|こえ}を{調査|ちょうさ}に{活|い}かせていたら、{問題定義|もんだいていぎ}が{変|か}わっていたと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: kanae
+        action: hide
+      - type: sprite
+        character: tsukuru
+        expression: normal
+        position: right
+      - type: dialog
+        character: tsukuru
+        text: "ポスターを{作|つく}るとき、{場所|ばしょ}の{選|えら}び{方|かた}が{気|き}になってた。でも{調査|ちょうさ}の{結果|けっか}を{見|み}て「{直線|ちょくせん}{廊下|ろうか}でいい」と{思|おも}ってしまった。{設計前|せっけいまえ}に「{本当|ほんとう}に{問題|もんだい}はここにあるのか」と{確認|かくにん}すべきだったな。"
+        expression: normal
+      - type: sprite
+        character: tsukuru
+        action: hide
+      - type: sprite
+        character: minaosu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: minaosu
+        text: "{効果|こうか}を{測|はか}ってみたら{数字|すうじ}が{合|あ}わなかった。でもそのときは「なぜ{合|あ}わないのか」まで{調|しら}べなかった。{問題定義|もんだいていぎ}まで{遡|さかのぼ}って{確認|かくにん}する——それが{大事|だいじ}だったんだね。"
+        expression: thinking
+      - type: sprite
+        character: minaosu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: school
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{デザイン思考|でざいんしこう}の2つ{目|め}のステップは「{問題定義|もんだいていぎ}」——{表面|ひょうめん}に{見|み}えている{現象|げんしょう}ではなく、{本当|ほんとう}の{原因|げんいん}を{明確|めいかく}にする{段階|だんかい}よ。「5 Whys」のように「なぜ？」を{繰|く}り{返|かえ}すことで、{本質|ほんしつ}が{見|み}えてくるの。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ハカルのデータ{収集|しゅうしゅう}{能力|のうりょく}は{本物|ほんもの}よ。{次回|じかい}は「{何|なに}を{調|しら}べるか」を{決|き}める{前|まえ}に「{本当|ほんとう}の{問題|もんだい}はどこにあるのか」を{全員|ぜんいん}で{考|かんが}える——それだけで、{解決策|かいけつさく}が{大|おお}きく{変|か}わるはず。"
+        expression: normal
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{学|まな}び①：{問題定義|もんだいていぎ}フェーズ】{デザイン思考|でざいんしこう}では「{表面|ひょうめん}の{現象|げんしょう}（{走|はし}ること）」と「{本当|ほんとう}の{原因|げんいん}（{曲|ま}がり{角|かど}の{構造|こうぞう}）」を{区別|くべつ}することが{重要|じゅうよう}。5 Whysで「なぜ？」を{繰|く}り{返|かえ}すことで{本質的|ほんしつてき}な{課題|かだい}が{見|み}えてくる。"
+      - type: narration
+        text: "【{学|まな}び②：{情報整理|じょうほうせいり}】データを{集|あつ}めることと、{正|ただ}しい{問題|もんだい}について{調|しら}べることは{別|べつ}のこと。「{何|なに}を{調|しら}べるか」を{最初|さいしょ}に{明確|めいかく}にしないと、{正確|せいかく}なデータが{集|あつ}まっても{解決|かいけつ}に{繋|つな}がらない。{事故場所|じこばしょ}のデータが{最初|さいしょ}から{必要|ひつよう}だった。"
+      - type: sprite
+        character: hakaru
+        expression: determined
+        position: center
+      - type: dialog
+        character: hakaru
+        text: "{次|つぎ}は{絶対|ぜったい}に「なぜ{事故|じこ}が{起|お}きているのか」を{全員|ぜんいん}で{考|かんが}えてから{調査|ちょうさ}を{始|はじ}める。{曲|ま}がり{角|かど}の{構造|こうぞう}をどう{改善|かいぜん}するか——{本当|ほんとう}の{問題|もんだい}に{向|む}き{合|あ}う{調査|ちょうさ}をしよう。"
+        expression: determined
+      - type: sprite
+        character: hakaru
+        action: hide
+      - type: effect
+        name: fade-out

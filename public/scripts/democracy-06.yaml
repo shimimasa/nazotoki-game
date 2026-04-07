@@ -1,0 +1,411 @@
+meta:
+  id: democracy-06
+  title: みんなの答え
+  series: 選挙探偵団
+  volume: 6
+  estimatedMinutes: 20
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{掃除|そうじ}{当番|とうばん}を{決|き}める{話|はな}し{合|あ}いが{終|お}わり、ノゾミが{前|まえ}に{立|た}って{発表|はっぴょう}した。「みんなで{話|はな}し{合|あ}って{合意|ごうい}しました。{来月|らいげつ}から{この|この}{当番表|とうばんひょう}でいきます」"
+      - type: narration
+        text: "しかし{翌日|よくじつ}から、{不満|ふまん}の{声|こえ}が{続出|ぞくしゅつ}した。「{私|わたし}の{意見|いけん}は{無視|むし}された」「{反対|はんたい}したのに{決|き}まってた」——{本当|ほんとう}に{合意|ごうい}があったのか？"
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: yamada
+        expression: worried
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾミさんが{話|はな}し{合|あ}いの{結果|けっか}を「みんなの{合意|ごうい}」と{発表|はっぴょう}したけど、{反対|はんたい}した{子|こ}が{何人|なんにん}もいるの。{選挙探偵団|せんきょたんていだん}のみんなに、{何|なに}が{起|お}きたか{調|しら}べてほしいわ。"
+        expression: worried
+      - type: dialog
+        character: yamada
+        text: "{合意|ごうい}と{多数決|たすうけつ}——{何|なに}が{違|ちが}うのか。{話|はな}し{合|あ}いで{何|なに}があったのか、{証拠|しょうこ}をもとに{真相|しんそう}を{解|と}き{明|あ}かしてほしいの。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: worried
+          - character: gikai
+            expression: thinking
+          - character: tami
+            expression: surprised
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "4{人|にん}は{顔|かお}を{見合|みあ}わせた。「みんなの{合意|ごうい}」のはずが——{一体|いったい}、{話|はな}し{合|あ}いで{何|なに}が{起|お}きたのか。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: みんなの答え
+        subtitle: 選挙探偵団 Vol.6
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 発表と記録を確かめる
+      - type: narration
+        text: "ノゾミの{発表|はっぴょう}{内容|ないよう}と、{話|はな}し{合|あ}いの{記録|きろく}を{確認|かくにん}する。{本当|ほんとう}に{合意|ごうい}があったのかどうか——{記録|きろく}が{語|かた}るはずだ。"
+      - type: evidence
+        id: card-1
+        title: 掃除当番の発表内容
+        content: "【ノゾミの{発表|はっぴょう}】「{今日|きょう}の{話|はな}し{合|あ}いで、みんなで{決|き}めました。{来月|らいげつ}から{以下|いか}の{当番表|とうばんひょう}でいきます」。ノゾミの{発言|はつげん}メモ（{話|はな}し{合|あ}い{終了|しゅうりょう}{後|ご}）:「みんなで{話|はな}し{合|あ}って{合意|ごうい}しました」。→{発表|はっぴょう}では「{合意|ごうい}」という{言葉|ことば}を{使|つか}っている。しかし{複数|ふくすう}のクラスメイトから「{反対|はんたい}した」「{意見|いけん}を{無視|むし}された」と{抗議|こうぎ}が{続出|ぞくしゅつ}。"
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{話|はな}し{合|あ}いの{最後|さいご}に「それは{嫌|いや}だ」って{言|い}った。でもそこで{話|はな}し{合|あ}いが{終|お}わった。{自分|じぶん}の{意見|いけん}、{聞|き}いてもらえなかったと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "{話|はな}し{合|あ}いの{最中|さなか}に{発言|はつげん}を{記録|きろく}していたギカイのノートを{確認|かくにん}する。{後半|こうはん}10{分|ぷん}——{記録|きろく}に{空白|くうはく}がある。"
+      - type: evidence
+        id: card-2
+        title: ギカイの発言記録（後半10分の空白）
+        content: "【ギカイの{発言|はつげん}{記録|きろく}（{前半|ぜんはん}30{分|ぷん}）】{各自|かくじ}の{意見|いけん}{発表|はっぴょう}・{質疑|しつぎ}{応答|おうとう}——{丁寧|ていねい}に{記録|きろく}されている。【{後半|こうはん}10{分|ぷん}の{記録|きろく}】ほぼ{空白|くうはく}。「{時間|じかん}{切|き}れ」とだけ{走|はし}り{書|が}きあり。{発言|はつげん}の{詳細|しょうさい}なし。{結論|けつろん}に{至|いた}る{過程|かてい}が{記録|きろく}されていない。→{話|はな}し{合|あ}いの{後半|こうはん}10{分|ぷん}に{何|なに}が{起|お}きたか、{記録|きろく}から{追|お}えない。"
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{前半|ぜんはん}はちゃんと{記録|きろく}できた。でも{後半|こうはん}10{分|ぷん}は——{急|きゅう}に{慌|あわ}ただしくなって、{記録|きろく}が{追|お}いつかなかった。あの10{分|ぷん}に{何|なに}があったのかが{鍵|かぎ}だと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: 証言と私的メモを調べる
+      - type: narration
+        text: "{話|はな}し{合|あ}いの{途中|とちゅう}で{保健室|ほけんしつ}に{行|い}ったタミの{証言|しょうげん}と、ヒョウが{体験|たいけん}したことを{照|て}らし{合|あ}わせる。"
+      - type: evidence
+        id: card-3
+        title: ヒョウの証言・タミの証言
+        content: "【ヒョウの{証言|しょうげん}】「{残|のこ}り10{分|ぷん}くらいで、{意見|いけん}がまだ{分|わ}かれていた。{自分|じぶん}は{反対|はんたい}した。でも{突然|とつぜん}ノゾミが『{多|おお}い{方|ほう}でいきます』と{言|い}って{終|お}わった。{納得|なっとく}できなかった」。【タミの{証言|しょうげん}】「{途中|とちゅう}で{気分|きぶん}が{悪|わる}くなって{保健室|ほけんしつ}に{行|い}った。{戻|もど}ったときにはもう{発表|はっぴょう}が{終|お}わっていた。{自分|じぶん}は{最後|さいご}の{決|き}め{方|かた}を{知|し}らない」。"
+      - type: sprite
+        character: tami
+        expression: worried
+        position: left
+      - type: dialog
+        character: tami
+        text: "{戻|もど}ったとき、もう{当番表|とうばんひょう}が{黒板|こくばん}に{貼|は}ってあった。{自分|じぶん}は{最後|さいご}に{何|なに}が{起|お}きたか、{何|なに}も{知|し}らないまま{決|き}まっていたの。"
+        expression: worried
+      - type: sprite
+        character: tami
+        action: hide
+      - type: narration
+        text: "ノゾミの{机|つくえ}の{中|なか}から{見|み}つかった{私的|したてき}メモと、{辞書|じしょ}で{引|ひ}いた「{合意|ごうい}」の{意味|いみ}を{照合|しょうごう}する。"
+      - type: evidence
+        id: card-4
+        title: ノゾミの私的メモ・合意の辞書定義
+        content: "【ノゾミの{私的|したてき}メモ（{話|はな}し{合|あ}い{当日|とうじつ}）】「{意見|いけん}が{分|わ}かれて{時間|じかん}{切|き}れ。{多|おお}かった{方|ほう}に{決定|けってい}。{合意|ごうい}って{言|い}い{方|かた}がよかったかな」。【{合意|ごうい}の{辞書|じしょ}{定義|ていぎ}】{合意|ごうい}: たがいに{意見|いけん}や{主張|しゅちょう}が{一致|いっち}して{納得|なっとく}すること。→{多数決|たすうけつ}は{多|おお}い{方|ほう}に{従|したが}う{決|き}め{方|かた}。{合意|ごうい}は{全員|ぜんいん}が{納得|なっとく}する{結論|けつろん}を{探|さが}すこと。この2つは{目的|もくてき}が{違|ちが}う。"
+      - type: sprite
+        character: hyou
+        expression: surprised
+        position: right
+      - type: dialog
+        character: hyou
+        text: "「{意見|いけん}が{分|わ}かれて{時間|じかん}{切|き}れ、{多|おお}かった{方|ほう}に{決定|けってい}」——これは{多数決|たすうけつ}だ。{合意|ごうい}じゃない。ノゾミさん{自身|じしん}のメモに「{言|い}い{方|かた}がよかったかな」って{書|か}いてある。"
+        expression: surprised
+      - type: sprite
+        character: hyou
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。{話|はな}し{合|あ}いの{後半|こうはん}10{分|ぷん}で{何|なに}かが{起|お}きた。{反対|はんたい}した{意見|いけん}が{残|のこ}ったまま{多数決|たすうけつ}で{終|お}わり、「{合意|ごうい}」と{発表|はっぴょう}された——{違|ちが}いはどこから{来|き}たのか？"
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{記録|きろく}の{空白|くうはく}と、ヒョウの「{反対|はんたい}したのに{終|お}わった」という{証言|しょうげん}。タミは{途中|とちゅう}で{離席|りせき}していた。{後半|こうはん}10{分|ぷん}で{何|なに}かがあった——{多数決|たすうけつ}を{合意|ごうい}と{呼|よ}んだのは{間違|まちが}いだ。"
+        expression: worried
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "{合意|ごうい}って「みんなが{納得|なっとく}する」こと。{多数決|たすうけつ}は「{多|おお}い{方|ほう}に{決|き}める」こと——{全然|ぜんぜん}{違|ちが}う。ノゾミさんは{知|し}らなかったのかな、それとも{知|し}っていて{言|い}い{換|か}えたのかな。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: ノゾミの告白と先生の言葉
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomi
+        text: "……{正直|しょうじき}に{話|はな}します。{時間|じかん}がなくなって——{意見|いけん}がまとまらなかった。{残|のこ}り5{分|ぷん}で、{多|おお}かった{方|ほう}で{決|き}めました。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "「{合意|ごうい}」って{言|い}い{方|かた}が{良|よ}くなかった……{多数決|たすうけつ}なのに「{合意|ごうい}」って{報告|ほうこく}した。{失敗|しっぱい}したって{思|おも}って、{恥|は}ずかしくて——{正直|しょうじき}に{言|い}えなかった。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ノゾミの告白と先生の言葉
+        content: "【ノゾミの{告白|こくはく}】「{意見|いけん}がまとまらず{時間|じかん}{切|き}れ。{多数決|たすうけつ}で{決定|けってい}した。『{合意|ごうい}』という{言|い}い{方|かた}が{間違|まちが}いだったが、{失敗|しっぱい}が{恥|は}ずかしくて{言|い}い{換|か}えてしまった」。【{先生|せんせい}の{言葉|ことば}】{合意|ごうい}{形成|けいせい}では、{少数意見|しょうすういけん}が{納得|なっとく}できる{解|かい}を{探|さが}す。{多数決|たすうけつ}とは{目的|もくてき}が{違|ちが}う。{意見|いけん}がまとまらないとき、{司会|しかい}は「{時間|じかん}が{足|た}りない」と{正直|しょうじき}に{報告|ほうこく}することが{大切|たいせつ}。"
+      - type: sprite
+        character: yamada
+        expression: determined
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{合意|ごうい}{形成|けいせい}というのはね——{全員|ぜんいん}が{納得|なっとく}できる{答|こた}えを{一緒|いっしょ}に{探|さが}すプロセスのことよ。{多数決|たすうけつ}は{多|おお}い{方|ほう}に{従|したが}う——{少数|しょうすう}の{意見|いけん}が{置|お}き{去|ざ}りになる{可能性|かのうせい}がある。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{意見|いけん}がまとまらないのは、{司会|しかい}が{下手|へた}だったわけじゃない。{難|むずか}しい{話|はな}し{合|あ}いはよくあること——でも「{合意|ごうい}できなかった」と{正直|しょうじく}に{報告|ほうこく}することが、{次|つぎ}への{一歩|いっぽ}よ。"
+        expression: determined
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**{合意|ごうい}と{多数決|たすうけつ}は{違|ちが}う。{意見|いけん}がまとまらなかったのに「{合意|ごうい}」と{報告|ほうこく}することは——{話|はな}し{合|あ}いのプロセスを{歪|ゆが}めてしまう。**"
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: 話し合いの結果を「みんなの合意」と偽って発表したのは誰？
+      - type: sprite
+        character: gikai
+        expression: determined
+        position: right
+      - type: dialog
+        character: gikai
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。{話|はな}し{合|あ}い{後半|こうはん}10{分|ぷん}の{記録|きろく}が{空白|くうはく}。ヒョウは{反対|はんたい}したのに{突然|とつぜん}{終|お}わった。タミは{戻|もど}ったら{決|き}まっていた。ノゾミのメモに「{多|おお}かった{方|ほう}に{決定|けってい}」とある。{真相|しんそう}は{一|ひと}つだ。"
+        expression: determined
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整|ととの}えよう。①ノゾミが「みんなで{合意|ごうい}した」と{発表|はっぴょう}——しかし{複数|ふくすう}から{抗議|こうぎ}。②{後半|こうはん}10{分|ぷん}の{発言|はつげん}{記録|きろく}が{ほぼ|ほぼ}{空白|くうはく}。③ヒョウ「{反対|はんたい}したのに{突然|とつぜん}{終|お}わった」。④タミ「{戻|もど}ったら{発表|はっぴょう}が{終|お}わっていた」。⑤ノゾミの{私的|したてき}メモ「{意見|いけん}が{分|わ}かれて{時間|じかん}{切|き}れ、{多|おお}かった{方|ほう}に{決定|けってい}」。⑥ノゾミ「{失敗|しっぱい}が{恥|は}ずかしくて{合意|ごうい}と{言|い}い{換|か}えた」と{告白|こくはく}。"
+      - type: choice
+        id: q1
+        question: 話し合いの結果を「みんなの合意」と偽って発表したのは誰？
+        options:
+          - text: ノゾミ（合意の意味を知らず、失敗の恥で言い換えた）
+            value: nozomi
+            correct: true
+            feedback: "{正解|せいかい}！　ノゾミは{多数決|たすうけつ}で{決|き}めた{結果|けっか}を「{合意|ごうい}」と{報告|ほうこく}した。{合意|ごうい}の{意味|いみ}を{正確|せいかく}に{知|し}らなかったこと、{失敗|しっぱい}が{恥|は}ずかしくて{言|い}い{換|か}えてしまったことが{原因|げんいん}。**{合意|ごうい}{形成|けいせい}では{少数意見|しょうすういけん}が{納得|なっとく}できる{解|かい}を{探|さが}す。{多数決|たすうけつ}とは{目的|もくてき}が{違|ちが}う。**"
+          - text: ヒョウ（反対意見を言った側）
+            value: hyou
+            feedback: "ヒョウは{話|はな}し{合|あ}いで{反対|はんたい}{意見|いけん}を{言|い}った{側|がわ}。「{最後|さいご}に{反対|はんたい}したのに{話|はな}し{合|あ}いが{終|お}わった」と{証言|しょうげん}してくれた{重要|じゅうよう}な{証人|しょうにん}だよ。"
+          - text: ギカイ（記録を取っていた側）
+            value: gikai
+            feedback: "ギカイは{話|はな}し{合|あ}いの{発言|はつげん}を{記録|きろく}していた{側|がわ}。「{後半|こうはん}10{分|ぷん}の{記録|きろく}が{空白|くうはく}」という{重要|じゅうよう}な{証拠|しょうこ}を{提供|ていきょう}してくれたよ。"
+          - text: タミ（途中退席で参加できなかった側）
+            value: tami
+            feedback: "タミは{途中|とちゅう}で{気分|きぶん}が{悪|わる}くなって{保健室|ほけんしつ}に{行|い}った{側|がわ}。{最後|さいご}の{決|き}め{方|かた}に{関|かか}わっていないし、「{戻|もど}ったら{終|お}わっていた」と{証言|しょうげん}してくれた{大切|たいせつ}な{証人|しょうにん}だよ。"
+
+  # ==================== 真相：ノゾミの告白 ====================
+  - id: truth-nozomi
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: ノゾミの気持ち
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomi
+        text: "……{本当|ほんとう}のことを{話|はな}します。{話|はな}し{合|あ}いがうまく{進|すす}まなくて、{時間|じかん}がなくなってしまったんです。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "{残|のこ}り5{分|ぷん}で、{意見|いけん}がまだ{分|わ}かれてた。{どうしよう|どうしよう}って{焦|あせ}って——「{多|おお}い{方|ほう}で{決|き}めよう」って{言|い}っちゃった。"
+        expression: worried
+      - type: dialog
+        character: nozomi
+        text: "{発表|はっぴょう}するとき、「{多数決|たすうけつ}で{決|き}めました」って{正直|しょうじき}に{言|い}えばよかった。でも{司会|しかい}として{失敗|しっぱい}したのが{恥|は}ずかしくて——「{合意|ごうい}」って{言|い}い{換|か}えてしまいました。{本当|ほんとう}にごめんなさい。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+
+  # ==================== 真相：他のキャラの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: hyou
+        expression: normal
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{意見|いけん}を{無視|むし}されたわけじゃなかったんだね。{時間|じかん}が{足|た}りなかっただけで——でも「{合意|ごうい}」って{言|い}い{方|かた}が{問題|もんだい}だった。{正直|しょうじき}に「{時間|じかん}{切|き}れで{多数決|たすうけつ}にした」って{言|い}ってほしかった。"
+        expression: normal
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tami
+        text: "{司会|しかい}って{大変|たいへん}なんだね。{みんなの|みんなの}{意見|いけん}をまとめて、{時間|じかん}も{守|まも}って——{うまくいかない|うまくいかない}ことも{あるよね|あるよね}。{失敗|しっぱい}したとき、{正直|しょうじく}に{言|い}える{雰囲気|ふんいき}が{大事|たいじ}だと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: normal
+        position: left
+      - type: dialog
+        character: gikai
+        text: "{記録|きろく}には{書|か}けなかったけど——{後半|こうはん}10{分|ぷん}に{何|なに}が{起|お}きたか、{今度|こんど}は{記録|きろく}できる{仕組|しく}みを{作|つく}りたい。{正確|せいかく}な{記録|きろく}があれば、「{合意|ごうい}か{多数決|たすうけつ}か」も{後|あと}で{確認|かくにん}できる。"
+        expression: normal
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ノゾミさんに{悪意|あくい}があったわけじゃない。{合意|ごうい}と{多数決|たすうけつ}の{違|ちが}いを{正確|せいかく}に{知|し}らなかったから——そして{失敗|しっぱい}が{恥|は}ずかしくて{言|い}い{換|か}えてしまった。{大切|たいせつ}なのは、{言葉|ことば}の{意味|いみ}を{正確|せいかく}に{使|つか}うこと。"
+        expression: thinking
+      - type: dialog
+        character: yamada
+        text: "{合意|ごうい}{形成|けいせい}では、{少数|しょうすう}の{意見|いけん}も{大切|たいせつ}にする——{全員|ぜんいん}が「{納得|なっとく}できる」{解|かい}を{探|さが}すのが{目的|もくてき}よ。{多数決|たすうけつ}は{多|おお}い{方|ほう}に{従|したが}うだけ——{目的|もくてき}が{全然|ぜんぜん}{違|ちが}うの。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び①】{合意|ごうい}{形成|けいせい}のプロセス——{合意|ごうい}は「{全員|ぜんいん}が{納得|なっとく}できる{答|こた}えを{一緒|いっしょ}に{探|さが}す」こと。{多数決|たすうけつ}は「{多|おお}い{意見|いけん}に{従|したが}う」こと。{目的|もくてき}が{違|ちが}う——{少数|しょうすう}の{意見|いけん}が{置|お}き{去|ざ}りにならないよう、{話|はな}し{合|あ}いを{続|つづ}けることが{合意|ごうい}{形成|けいせい}の{大切|たいせつ}さ。"
+      - type: narration
+        text: "【{今日|きょう}の{学|まな}び②】{全探索|ぜんたんさく}——{犯人|はんにん}を{決|き}める{前|まえ}に、4{人|にん}{全員|ぜんいん}の{可能性|かのうせい}を{一|ひと}つ{ずつ|ずつ}{確認|かくにん}する。①ヒョウ——{反対|はんたい}{意見|いけん}を{言|い}った{側|がわ}。②ギカイ——{記録|きろく}を{取|と}っていた{側|がわ}。③タミ——{途中|とちゅう}{退席|たいせき}で{知|し}らなかった{側|がわ}。④ノゾミ——{多数決|たすうけつ}を「{合意|ごうい}」と{言|い}い{換|か}えた{側|がわ}。{全員|ぜんいん}を{調|しら}べることで、{正確|せいかく}な{真相|しんそう}に{届|とど}く。"
+      - type: effect
+        name: fade-out

@@ -1,0 +1,490 @@
+meta:
+  id: democracy-10
+  title: 未来の一票
+  series: 選挙探偵団
+  volume: 10
+  estimatedMinutes: 25
+
+characters:
+  hyou:
+    name: ヒョウ
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  gikai:
+    name: ギカイ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  tami:
+    name: タミ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  nozomi:
+    name: ノゾミ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{全校|ぜんこう}{討論会|とうろんかい}の{準備|じゅんび}は{順調|じゅんちょう}に{進|すす}んでいた——「{小学生|しょうがくせい}にも{選挙権|せんきょけん}を？」という{大|おお}きなテーマに、{賛成|さんせい}{意見|いけん}も{反対|はんたい}{意見|いけん}も、{続々|ぞくぞく}と{集|あつ}まっていた。"
+      - type: sprite
+        character: hyou
+        expression: worried
+        position: center
+      - type: dialog
+        character: hyou
+        text: "……{変|へん}だ。{提出|ていしゅつ}{記録|きろく}には{賛成|さんせい}{意見|いけん}の{資料|しりょう}が{全部|ぜんぶ}で{8|はち}{件|けん}あるのに、{保管棚|ほかんだな}に{実物|じつぶつ}が{5|ご}{件|けん}しかない。{3|さん}{件|けん}が{消|き}えてる。"
+        expression: worried
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: se
+        sound: phone
+      - type: bgm
+        track: tension-quiet
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: determined
+          - character: tami
+            expression: surprised
+          - character: nozomi
+            expression: worried
+      - type: narration
+        text: "{提出|ていしゅつ}{記録|きろく}には{確|たし}かに{存在|そんざい}する{資料|しりょう}が、{現物|げんぶつ}としては{消|き}えていた。{誰|だれ}かが{意図的|いとてき}に{隠|かく}した——{選挙探偵団|せんきょたんていだん}は{真相|しんそう}を{追|お}うことにした。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 未来の一票
+        subtitle: 選挙探偵団 Vol.10
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 提出記録と保管場所の調査
+      - type: narration
+        text: "ヒョウが{提出|ていしゅつ}{記録|きろく}と{実際|じっさい}に{届|とど}いた{資料|しりょう}を{照|て}らし{合|あ}わせた。{差|さ}は{明確|めいかく}だった。"
+      - type: evidence
+        id: card-1
+        title: 資料提出記録と現物の差分
+        content: "【{提出|ていしゅつ}{記録|きろく}（{全|ぜん}{8|はち}{件|けん}）】{賛成|さんせい}{意見|いけん}: {8|はち}{件|けん}、{反対|はんたい}{意見|いけん}: {7|なな}{件|けん}、{計|けい}{15|じゅうご}{件|けん}の{資料|しりょう}が{提出|ていしゅつ}された{記録|きろく}あり。【{保管棚|ほかんだな}の{現物|げんぶつ}】{反対|はんたい}{意見|いけん}: {7|なな}{件|けん}（{全件|ぜんけん}{揃|そろ}い）、{賛成|さんせい}{意見|いけん}: {5|ご}{件|けん}。{消|き}えた{3|さん}{件|けん}の{提出者|ていしゅつしゃ}: ノゾミ・{田中|たなか}さん・{木村|きむら}さん（いずれも{賛成|さんせい}{意見|いけん}）。"
+      - type: sprite
+        character: hyou
+        expression: determined
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{反対|はんたい}{意見|いけん}は{全件|ぜんけん}{揃|そろ}っている。{消|き}えたのは{賛成|さんせい}{意見|いけん}だけで、しかも{3|さん}{件|けん}{全部|ぜんぶ}。{偶然|ぐうぜん}じゃない。"
+        expression: determined
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "では{誰|だれ}が{保管棚|ほかんだな}に{近|ちか}づけたのか。{資料|しりょう}の{保管場所|ほかんばしょ}と{鍵|かぎ}の{管理|かんり}を{調|しら}べた。"
+      - type: evidence
+        id: card-2
+        title: 保管場所アクセス記録と鍵管理記録
+        content: "【{保管棚|ほかんだな}アクセス{記録|きろく}（{昨日|きのう}の{放課後|ほうかご}）】{記録|きろく}あり: ギカイ（{進行|しんこう}{役|やく}・{保管|ほかん}{担当|たんとう}）、タミ（{記録|きろく}{係|がかり}、{別|べつ}の{用件|ようけん}で{立|た}ち{寄|よ}り）。【{鍵|かぎ}{管理|かんり}{記録|きろく}】{保管棚|ほかんだな}の{鍵|かぎ}はギカイが{管理|かんり}している。{複製|ふくせい}は{存在|そんざい}しない。タミには{鍵|かぎ}の{権限|けんげん}なし。"
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tami
+        text: "{私|わたし}が{昨日|きのう}{保管棚|ほかんだな}の{近く|ちかく}にいたのは{本当|ほんとう}。でも{鍵|かぎ}は{持|も}ってない。{別室|べっしつ}で{議事録|ぎじろく}の{整理|せいり}をしてた。ギカイが{保管担当|ほかんたんとう}で、{鍵|かぎ}は{彼|かれ}にしかない。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+
+  # ==================== 調査：証拠カード3 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: タミの行動記録と消えた資料の内容
+      - type: sprite
+        character: hyou
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hyou
+        text: "タミが{別|べつ}の{場所|ばしょ}で{作業|さぎょう}していたなら、{棚|たな}の{鍵|かぎ}を{持|も}たないタミには{不可能|ふかのう}だ。では{消|き}えた{資料|しりょう}はどんな{内容|ないよう}だったんだろう——"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: evidence
+        id: card-3
+        title: タミの行動記録と消えた資料の内容
+        content: "【タミの{行動|こうどう}{記録|きろく}】{昨日|きのう}{放課後|ほうかご}{15|じゅうご}{時|じ}{30|さんじゅう}{分|ぷん}〜{16|じゅうろく}{時|じ}{00|れい}{分|ぷん}: {図書室|としょしつ}で{議事録|ぎじろく}{整理|せいり}（{図書委員|としょいいん}の{林|はやし}さんが{証言|しょうげん}）。{保管棚|ほかんだな}へのアクセスは{15|じゅうご}{分|ぷん}のみ（{別|べつ}の{資料|しりょう}を{受|う}け{取|と}るため）。【{消|き}えた{資料|しりょう}の{内容|ないよう}】ノゾミの{資料|しりょう}「{16|じゅうろく}{歳|さい}から{選挙権|せんきょけん}を」（{他国|たこく}{事例|じれい}{付|つ}き）。{田中|たなか}さんの{資料|しりょう}「{子|こ}どもの{方|ほう}が{政治|せいじ}に{興味|きょうみ}を{持|も}ちやすい」。{木村|きむら}さんの{資料|しりょう}「{若|わか}い{世代|せだい}が{増|ふ}えると{未来志向|みらいしこう}の{政策|せいさく}が{増|ふ}える」。{3|さん}{件|けん}とも{賛成|さんせい}{論拠|ろんきょ}として{強力|きょうりょく}な{内容|ないよう}。"
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: center
+      - type: dialog
+        character: nozomi
+        text: "{私|わたし}が{書|か}いた{意見|いけん}が{消|き}えてた。{悔|くや}しかった。でも……ギカイさんが{何|なに}かを{抱|かか}えてるような{気|き}がして。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: tami
+        expression: determined
+        position: right
+      - type: dialog
+        character: tami
+        text: "{私|わたし}の{行動|こうどう}は{全部|ぜんぶ}{説明|せつめい}できる。{鍵|かぎ}も{持|も}っていない。{棚|たな}を{開|あ}けられるのはギカイさんだけ。"
+        expression: determined
+      - type: sprite
+        character: tami
+        action: hide
+
+  # ==================== 推理・第1投票（犯人特定） ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 第1推理タイム
+        subtitle: 賛成意見の資料を隠したのは誰？
+      - type: sprite
+        character: hyou
+        expression: determined
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{証拠|しょうこ}を{整理|せいり}する。{提出|ていしゅつ}{記録|きろく}には{全件|ぜんけん}{存在|そんざい}するが{賛成|さんせい}{3|さん}{件|けん}だけ{消|き}えた。{保管棚|ほかんだな}の{鍵|かぎ}はギカイが{管理|かんり}。タミは{図書室|としょしつ}でのアリバイあり。ノゾミは{提出|ていしゅつ}した{被害者|ひがいしゃ}側。"
+        expression: determined
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}の{整理|せいり}: ①{鍵|かぎ}を{持|も}つのはギカイだけ（タミには{権限|けんげん}なし）。②タミは{図書室|としょしつ}でのアリバイ{確認|かくにん}済み。③ノゾミは{資料|しりょう}を{提出|ていしゅつ}した{被害者|ひがいしゃ}側。④ヒョウは{差分|さぶん}を{発見|はっけん}した{側|がわ}。⑤{賛成|さんせい}{意見|いけん}のみを{狙|ねら}い{打|う}ちにした{選択|せんたく}性。"
+      - type: choice
+        id: q1
+        question: 賛成意見の資料を隠したのは誰？
+        options:
+          - text: ヒョウ（差分を発見した準備担当）
+            value: hyou
+            correct: false
+            feedback: "ヒョウは{提出|ていしゅつ}{記録|きろく}と{現物|げんぶつ}の{差|さ}に{気|き}づいた{側|がわ}だよ。{問題|もんだい}を{明|あき}らかにしようとしていた——{隠|かく}した{人|ひと}は{問題|もんだい}を{見|み}つけられた{側|がわ}のはずだ。"
+          - text: タミ（保管棚に近づいた記録係）
+            value: tami
+            correct: false
+            feedback: "タミは{保管棚|ほかんだな}の{近く|ちかく}にいたけれど、{鍵|かぎ}は{持|も}っていない。{図書室|としょしつ}での{作業|さぎょう}は{証人|しょうにん}が{確認|かくにん}している。アリバイも{権限|けんげん}もない。"
+          - text: ノゾミ（資料を提出した人）
+            value: nozomi
+            correct: false
+            feedback: "ノゾミは{資料|しりょう}が{消|き}えて{悔|くや}しんでいた{被害者|ひがいしゃ}側だよ。{自分|じぶん}の{意見|いけん}を{自分|じぶん}で{隠|かく}す{理由|りゆう}はない。"
+          - text: ギカイ（進行役・保管担当）
+            value: gikai
+            correct: true
+            feedback: "{正解|せいかい}！　{鍵|かぎ}を{管理|かんり}しているのはギカイだけで、{保管棚|ほかんだな}を{開|あ}けられる{唯一|ゆいいつ}の{人物|じんぶつ}だ。{賛成|さんせい}{意見|いけん}だけを{狙|ねら}い{打|う}ちにした{選択|せんたく}性——でもその{理由|りゆう}が、これから{明|あき}らかになる。**{犯人|はんにん}より{動機|どうき}の{方|ほう}が{大切|たいせつ}かもしれない。**"
+
+  # ==================== 反転：証拠カード4+5（パラダイムシフト） ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: 絶望と、民主主義の本当の意味
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ギカイが{保管担当|ほかんたんとう}で{鍵|かぎ}を{持|も}っていた——それは{分|わ}かった。でも{新|あたら}しい{証拠|しょうこ}があります。ギカイが{以前|いぜん}{書|か}いた{提案書|ていあんしょ}と、その{後|ご}の{記録|きろく}が{見|み}つかった。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: evidence
+        id: card-4
+        title: ギカイの過去の提案書（棚上げにされた経緯）
+        content: "【{過去|かこ}の{提案書|ていあんしょ}（{半年前|はんとしまえ}）】テーマ:「{校内|こうない}{環境|かんきょう}の{改善|かいぜん}について」{提案|ていあん}{内容|ないよう}: {水道|すいどう}の{修繕|しゅうぜん}・{図書室|としょしつ}の{延長|えんちょう}{開放|かいほう}・{廊下|ろうか}{照明|しょうめい}の{交換|こうかん}（{12|じゅうに}ページの{調査|ちょうさ}{付|つ}き）。【{学校側|がっこうがわ}の{対応|たいおう}】「{検討|けんとう}します」と{回答|かいとう}し、その{後|ご}{半年間|はんとしかん}{進展|しんてん}なし。{再|ふたた}び{聞|き}いても「{来年度|らいねんど}に{持|も}ち{越|こ}し」の{一言|ひとこと}。"
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: center
+      - type: dialog
+        character: gikai
+        text: "……あの{提案書|ていあんしょ}、{3|さん}ヶ月かけて{調|しら}べたんだ。{本気|ほんき}で{変|か}えたいと{思|おも}ってた。でも{半年|はんとし}{経|た}っても{何|なに}も{動|うご}かなかった。"
+        expression: worried
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: evidence
+        id: card-5
+        title: ギカイの日記と先生のことば
+        content: "【ギカイの{日記|にっき}】「{投票権|とうひょうけん}があっても{変|か}わらない。{大人|おとな}は{聞|き}かない。{賛成|さんせい}{意見|いけん}が{増|ふ}えたところで、どうせ{却下|きゃっか}される。だから{隠|かく}した——でも{本当|ほんとう}は……{聞|き}いてほしかった。ちゃんと{向|む}き{合|あ}ってほしかった」【{先生|せんせい}の{補足|ほそく}】{選挙権|せんきょけん}がなくても{声|こえ}を{届|とど}ける{方法|ほうほう}はある——{子|こ}ども{議会|ぎかい}・パブリックコメント・{署名活動|しょめいかつどう}・{直接|ちょくせつ}{面談|めんだん}・{学級会議|がっきゅうかいぎ}での{提案|ていあん}。{民主主義|みんしゅしゅぎ}は{投票|とうひょう}だけではない——{声|こえ}を{上|あ}げること{自体|じたい}が{民主主義|みんしゅしゅぎ}への{参加|さんか}だ。"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**ギカイは{諦|あきら}めから{資料|しりょう}を{隠|かく}した。でも{日記|にっき}の{最後|さいご}に{書|か}いてあった——「{本当|ほんとう}は{聞|き}いてほしかった」。{絶望|ぜつぼう}の{奥|おく}に、まだ{希望|きぼう}が{残|のこ}っていた。**"
+      - type: sprite
+        character: gikai
+        expression: surprised
+        position: center
+      - type: dialog
+        character: gikai
+        text: "……{日記|にっき}まで{見|み}られた。{提案書|ていあんしょ}を{出|だ}したとき、{先生|せんせい}たちは「{検討|けんとう}します」って{言|い}ったきり{半年|はんとし}{何|なに}も{変|か}わらなかった。だから{思|おも}った——{声|こえ}を{上|あ}げても{無駄|むだ}なんだって。"
+        expression: surprised
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: thinking
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ギカイの{経験|けいけん}は{本物|ほんもの}の{絶望|ぜつぼう}だったと{思|おも}う。{大人|おとな}に{聞|き}いてもらえなかった{悔|くや}しさ——それは{本当|ほんとう}のことだった。でも{選挙権|せんきょけん}なくても{声|こえ}を{届|とど}ける{方法|ほうほう}はある。{民主主義|みんしゅしゅぎ}の{本質|ほんしつ}は{投票日|とうひょうび}だけにあるんじゃない。"
+        expression: thinking
+      - type: sprite
+        character: yamada
+        action: hide
+
+  # ==================== 第2推理・投票（価値判断） ====================
+  - id: deduction-2
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: title_card
+        text: 第2推理タイム
+        subtitle: 子どもが今すぐ民主主義に参加できる方法は？
+      - type: sprite
+        character: hyou
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hyou
+        text: "ギカイが{絶望|ぜつぼう}した{気持|きも}ちは{分|わ}かる。でも{先生|せんせい}が{言|い}ったように、{選挙権|せんきょけん}がなくても{参加|さんか}できる{方法|ほうほう}がある——どれが{一番|いちばん}{自分|じぶん}にできそう？"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: narration
+        text: "4つの{選択肢|せんたくし}がある。これは{正解|せいかい}と{不正解|ふせいかい}ではない——{全部|ぜんぶ}{有効|ゆうこう}な{方法|ほうほう}だ。あなたにとって{一番|いちばん}{リアル|りある}な{参加|さんか}の{形|かたち}を{選|えら}んでほしい。"
+      - type: choice
+        id: q2
+        question: 子どもが今すぐ民主主義に参加できる方法は？
+        options:
+          - text: 子ども議会に参加する
+            value: option-a
+            correct: true
+            feedback: "{子|こ}ども{議会|ぎかい}は{実際|じっさい}に{政治|せいじ}へ{繋|つな}がる{公式|こうしき}な{場|ば}。{自分|じぶん}の{意見|いけん}が{記録|きろく}され、{大人|おとな}に{届|とど}く。{選挙権|せんきょけん}がなくても{声|こえ}を「{制度|せいど}の{中|なか}」に{届|とど}けられる{方法|ほうほう}の{一つ|ひとつ}だ。**{民主主義|みんしゅしゅぎ}への{参加|さんか}は{選挙権|せんきょけん}を{待|ま}たなくてもできる。**"
+          - text: 署名活動や直接提案をする
+            value: option-b
+            correct: true
+            feedback: "{署名|しょめい}や{直接|ちょくせつ}{提案|ていあん}は「{多|おお}くの{声|こえ}」を{可視化|かしか}する{方法|ほうほう}。ギカイが{一人|ひとり}で{提案書|ていあんしょ}を{出|だ}したように——でも{複数|ふくすう}の{声|こえ}になれば{重|おも}みが{増|ま}す。**「{声|こえ}の{数|かず}」を{増|ふ}やすことも{民主主義|みんしゅしゅぎ}だ。**"
+          - text: パブリックコメントを送る
+            value: option-c
+            correct: true
+            feedback: "パブリックコメントは{行政|ぎょうせい}が{公式|こうしき}に{市民|しみん}の{意見|いけん}を{収集|しゅうしゅう}する{仕組|しく}みで、{子|こ}どもも{送|おく}ることができる。「{正式|せいしき}な{窓口|まどぐち}に{声|こえ}を{届|とど}ける」という{経験|けいけん}は、{大人|おとな}になったときの{土台|どだい}になる。**{民主主義|みんしゅしゅぎ}の{仕組|しく}みを{使|つか}うこと{自体|じたい}が{参加|さんか}だ。**"
+          - text: まずは身近な学級会で声を上げる
+            value: option-d
+            correct: true
+            feedback: "{学級会|がっきゅうかい}は{一番|いちばん}{身近|みぢか}な「{小|ちい}さな{民主主義|みんしゅしゅぎ}」だ。{今日|きょう}{学級会|がっきゅうかい}で{声|こえ}を{上|あ}げられる{人|ひと}が、{10|じゅう}{年後|ねんご}の{選挙|せんきょ}で{投票|とうひょう}できる{市民|しみん}になる。{小|ちい}さな{一歩|いっぽ}が{積|つ}み{重|かさ}なって{民主主義|みんしゅしゅぎ}になる。**{身近|みぢか}な{場所|ばしょ}から{始|はじ}めることが、{一番|いちばん}{リアル|りある}な{参加|さんか}かもしれない。**"
+
+  # ==================== 真相：ギカイの告白 ====================
+  - id: truth-gikai
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 絶望の裏に残っていたもの
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: gikai
+        expression: worried
+        position: center
+      - type: dialog
+        character: gikai
+        text: "……{僕|ぼく}が{隠|かく}した。{賛成|さんせい}{意見|いけん}だけ、{3|さん}{件|けん}。{進行|しんこう}{役|やく}として{鍵|かぎ}を{持|も}ってたから、できてしまった。"
+        expression: worried
+      - type: dialog
+        character: gikai
+        text: "{半年前|はんとしまえ}、{3|さん}ヶ月かけて{提案書|ていあんしょ}を{作|つく}った。でも{半年|はんとし}{経|た}っても「{来年度|らいねんど}に{持|も}ち{越|こ}し」の{一言|ひとこと}で{終|お}わった。あのとき{思|おも}った——{声|こえ}を{上|あ}げても{無駄|むだ}だって。"
+        expression: worried
+      - type: dialog
+        character: gikai
+        text: "だから{今度|こんど}の{討論会|とうろんかい}も、{賛成|さんせい}{意見|いけん}が{増|ふ}えても{意味|いみ}ないって{思|おも}って……{隠|かく}した。でも{日記|にっき}に{書|か}いた{通|とお}り——{本当|ほんとう}は、{聞|き}いてほしかった。"
+        expression: worried
+      - type: sprite
+        character: gikai
+        action: hide
+      - type: sprite
+        character: nozomi
+        expression: worried
+        position: right
+      - type: dialog
+        character: nozomi
+        text: "{私|わたし}の{書|か}いた{意見|いけん}が{消|き}えてた{時|とき}、{悔|くや}しかった。でも……ギカイさんの{話|はなし}を{聞|き}いたら{悲|かな}しくなった。そんなに{傷|きず}ついてたんだって。"
+        expression: worried
+      - type: sprite
+        character: nozomi
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: thinking
+        position: center
+      - type: dialog
+        character: gikai
+        text: "ノゾミさんの{資料|しりょう}を{隠|かく}したのは{間違|まちが}いだった。みんなの{意見|いけん}を{奪|うば}う{権利|けんり}は{僕|ぼく}にない。……ごめんなさい。"
+        expression: thinking
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: tami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tami
+        text: "ギカイさんの{提案書|ていあんしょ}の{話|はなし}は{知|し}らなかった。{半年間|はんとしかん}{放置|ほうち}されたら……{諦|あきら}めたくなる{気持|きも}ちは{分|わ}かる。でも{資料|しりょう}を{隠|かく}すのは{違|ちが}う{方向|ほうこう}だったね。"
+        expression: thinking
+      - type: sprite
+        character: tami
+        action: hide
+      - type: sprite
+        character: hyou
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hyou
+        text: "{諦|あきら}めた{気持|きも}ちは{分|わ}かる。でも{諦|あきら}める{前|まえ}に——{子|こ}ども{議会|ぎかい}や{署名|しょめい}という{方法|ほうほう}を、{知|し}ってたら{違|ちが}ったかな。"
+        expression: thinking
+      - type: sprite
+        character: hyou
+        action: hide
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "ギカイが{諦|あきら}めた{理由|りゆう}は{本物|ほんもの}の{絶望|ぜつぼう}から{来|き}ていた。でも{絶望|ぜつぼう}の{奥|おく}に「{聞|き}いてほしかった」という{声|こえ}が{残|のこ}っていた——それが{民主主義|みんしゅしゅぎ}への{諦|あきら}めではなく、{信頼|しんらい}したいという{気持|きも}ちの{表|あらわ}れだと{思|おも}う。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "{選挙権|せんきょけん}を{持|も}つ{前|まえ}から、{声|こえ}を{届|とど}けることはできる。{方法|ほうほう}を{知|し}ることが{最初|さいしょ}の{一歩|いっぽ}だ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite
+        character: gikai
+        expression: determined
+        position: center
+      - type: dialog
+        character: gikai
+        text: "……{子|こ}ども{議会|ぎかい}とパブリックコメント、{先生|せんせい}から{教|おそ}えてもらった。{諦|あきら}める{前|まえ}に{試|ため}せることが、まだあった。"
+        expression: determined
+      - type: sprite
+        character: gikai
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: happy
+        position: center
+      - type: dialog
+        character: yamada
+        text: "{選挙探偵団|せんきょたんていだん}が{今|いま}まで{追|お}いかけてきた{問|とい}い——{民主主義|みんしゅしゅぎ}とは{何|なん}だろう。{投票|とうひょう}は{民主主義|みんしゅしゅぎ}の{大切|たいせつ}な{部分|ぶぶん}だけど、それだけじゃない。"
+        expression: happy
+      - type: dialog
+        character: yamada
+        text: "ギカイが{経験|けいけん}した{絶望|ぜつぼう}は——「{声|こえ}を{上|あ}げたのに{聞|き}いてもらえなかった」こと。でも{日記|にっき}に{残|のこ}っていたのは「{本当|ほんとう}は{聞|き}いてほしかった」という{声|こえ}。{諦|あきら}めることと、{信|しん}じることの{間|あいだ}で——それが{民主主義|みんしゅしゅぎ}の{本質的|ほんしつてき}な{問|とい}いだ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: sprite_group
+        characters:
+          - character: hyou
+            expression: determined
+          - character: tami
+            expression: happy
+          - character: nozomi
+            expression: happy
+          - character: gikai
+            expression: determined
+      - type: narration
+        text: "**{学|まな}び①　{民主主義|みんしゅしゅぎ}への{参加|さんか}は{選挙権|せんきょけん}を{待|ま}たなくてもできる。**　{子|こ}ども{議会|ぎかい}・パブリックコメント・{署名活動|しょめいかつどう}・{直接|ちょくせつ}{提案|ていあん}・{学級会|がっきゅうかい}——{声|こえ}を{上|あ}げること{自体|じたい}が{民主主義|みんしゅしゅぎ}への{参加|さんか}だ。"
+      - type: narration
+        text: "**{学|まな}び②　{複合|ふくごう}{推理|すいり}——{鍵|かぎ}{管理|かんり}{記録|きろく}・アクセス{記録|きろく}・アリバイ{証言|しょうげん}・{提出|ていしゅつ}{記録|きろく}の{差分|さぶん}という{複数|ふくすう}の{証拠|しょうこ}を{組|く}み{合|あ}わせて{真相|しんそう}に{迫|せま}るパターン。**　{一つ|ひとつ}の{証拠|しょうこ}だけでは{分|わ}からないことも、{重|かさ}ね{合|あ}わせると{見|み}えてくる。"
+      - type: narration
+        text: "**{選挙探偵団|せんきょたんていだん}——{全|ぜん}{10|じゅう}{巻|かん}、これにて{完結|かんけつ}。**　{選挙|せんきょ}とは{何|なん}か。{民主主義|みんしゅしゅぎ}とは{何|なん}か。そして{子|こ}どもが{今日|きょう}から{参加|さんか}できることとは——その{問|とい}いは、あなたの{中|なか}に{続|つづ}いていく。"
+      - type: sprite_group
+        characters: []
+      - type: effect
+        name: fade-out

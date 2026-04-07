@@ -1,0 +1,460 @@
+meta:
+  id: communication-04
+  title: アサーションのなぞ
+  series: コミュニケーション探偵団
+  volume: 4
+  estimatedMinutes: 20
+
+characters:
+  kiku:
+    name: キク
+    color: "#E74C3C"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  manabu:
+    name: マナブ
+    color: "#3498DB"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kotoba:
+    name: コトバ
+    color: "#9B59B6"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  tsutae:
+    name: ツタエ
+    color: "#E67E22"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  yamada:
+    name: 山田先生
+    color: "#2E7D32"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  # ==================== プロローグ ====================
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "{グループ|ぐるーぷ}{活動|かつどう}の{時間|じかん}。クラスは4つのグループに{分|わ}かれて、{来月|らいげつ}の{学校|がっこう}{祭|まつり}の{出し物|だしもの}を{決|き}めていた。"
+      - type: narration
+        text: "コトバのグループでは、{一部|いちぶ}のメンバーが{周|まわ}りの{意見|いけん}を{聞|き}かずに「もうこれで{決定|けってい}」と{進|すす}めようとしていた——そのとき、コトバが{声|こえ}を{上|あ}げた。"
+      - type: se
+        sound: whisper
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: kotoba
+        expression: determined
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "「それは{違|ちが}うと{思|おも}う。みんなの{意見|いけん}をまだ{聞|き}いていない」"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "その{発言|はつげん}のあと、クラスが{静|しず}まり{返|かえ}った。{翌日|よくじつ}、「コトバに{傷|きず}ついた」という{声|こえ}がGMの{耳|みみ}に{届|とど}いた。"
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "コトバの{言|い}い{方|かた}は{攻撃的|こうげきてき}だった——{少|すく}なくとも、{傷|きず}ついた{子|こ}はそう{感|かん}じた。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "……{正直|しょうじき}に{意見|いけん}を{言|い}っただけだよ。なんで{傷|きず}つけたことになるの？"
+        expression: worried
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: narration
+        text: "**コトバの{言|い}い{方|かた}は{本当|ほんとう}に「{問題|もんだい}があった」のか——それとも、{受|う}け{取|と}り{方|かた}に{違|ちが}いがあったのか。**"
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: アサーションのなぞ
+        subtitle: コミュニケーション探偵団 Vol.4
+
+  # ==================== 調査：証拠カード1+2 ====================
+  - id: evidence-1
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ1
+        subtitle: 発言の記録とアサーションの定義
+      - type: narration
+        text: "コトバの{発言|はつげん}——「それは{違|ちが}うと{思|おも}う。みんなの{意見|いけん}をまだ{聞|き}いていない」"
+      - type: narration
+        text: "{傷|きず}ついた{子|こ}のコメント——「コトバの{言|い}い{方|かた}はきつかった。{頭|あたま}ごなしに{否定|ひてい}されたみたいだった」"
+      - type: evidence
+        id: card-1
+        title: コトバの発言記録＋傷ついた子のコメント
+        content: "【コトバの{発言|はつげん}】「それは{違|ちが}うと{思|おも}う。みんなの{意見|いけん}をまだ{聞|き}いていない」【{傷|きず}ついた{子|こ}のコメント】「コトバの{言|い}い{方|かた}はきつかった。{頭|あたま}ごなしに{否定|ひてい}されたみたいで、{攻撃的|こうげきてき}だと{感|かん}じた」"
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{傷|きず}ついた{気持|きも}ちは{本物|ほんもの}だよ。コトバが「{違|ちが}う」って{言|い}ったとき、{否定|ひてい}されたって{感|かん}じたんだと{思|おも}う。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "ちょっと{待|ま}って——「{攻撃的|こうげきてき}」って{言|い}葉、{正確|せいかく}に{使|つか}ってるのかな？　アサーションには3タイプあるって{調|しら}べたんだ。"
+        expression: thinking
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: evidence
+        id: card-2
+        title: アサーションの3タイプ定義表
+        content: "①{非主張的|ひしゅちょうてき}（じぶんを{犠牲|ぎせい}にして{相手|あいて}に{従|したが}う）例:「……まあ、いいです」②{攻撃的|こうげきてき}（じぶんの{主張|しゅちょう}を{押|お}し{通|とお}す）例:「それはダメだ！{絶対|ぜったい}こっちにしろ」③アサーティブ（じぶんの{意見|いけん}を{言|い}いつつ{相手|あいて}を{尊重|そんちょう}する）例:「それは{違|ちが}うと{思|おも}う。みんなの{意見|いけん}を{聞|き}いてから{決|き}めたい」【コトバの{発言全文|はつげんぜんぶん}】「それは{違|ちが}うと{思|おも}う。みんなの{意見|いけん}をまだ{聞|き}いていない」"
+      - type: sprite
+        character: tsutae
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "コトバの{発言|はつげん}を3タイプに{当|あ}てはめると……「じぶんの{意見|いけん}を{言|い}いつつ、みんなの{意見|いけん}を{聞|き}こうとしている」——③アサーティブに{近|ちか}い{気|き}がする。"
+        expression: thinking
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kiku
+        text: "でも{受|う}け{取|と}った{子|こ}は②{攻撃的|こうげきてき}と{感|かん}じた——{伝|つた}え{方|かた}と{受|う}け{取|と}り{方|かた}が{違|ちが}う{場合|ばあい}があるの？"
+        expression: surprised
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 調査：証拠カード3+4 ====================
+  - id: evidence-2
+    bg: classroom
+    bgm: investigation
+    steps:
+      - type: title_card
+        text: ステップ2
+        subtitle: タイムラインと傷ついた側の背景
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{発言|はつげん}だけ{切|き}り{取|と}ると{攻撃的|こうげきてき}に{見|み}える{場合|ばあい}があるけど、{前後|ぜんご}の{文脈|ぶんみゃく}を{入|い}れると{意図|いと}が{変|か}わることがある。タイムラインを{整理|せいり}したよ。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: evidence
+        id: card-3
+        title: グループ作業タイムライン（発言の5分前〜5分後）
+        content: "【{発言|はつげん}5{分前|ふんまえ}】グループの{一部|いちぶ}が「{出し物|だしもの}はこれで{決定|けってい}」と{言|い}い{始|はじ}める。他のメンバーはまだ{意見|いけん}を{言|い}っていない。【{発言|はつげん}直前|ちょくぜん}】コトバはノートに「このままでは{全員|ぜんいん}の{意見|いけん}が{反映|はんえい}されない」とメモする。【コトバの{発言|はつげん}】「それは{違|ちが}うと{思|おも}う。みんなの{意見|いけん}をまだ{聞|き}いていない」【{発言|はつげん}5{分後|ふんご}】{傷|きず}ついた{子|こ}が{沈黙|ちんもく}。クラスがざわつく。"
+      - type: sprite
+        character: manabu
+        expression: determined
+        position: right
+      - type: dialog
+        character: manabu
+        text: "{発言|はつげん}の5{分前|ふんまえ}——{一部|いちぶ}のメンバーが{全員|ぜんいん}の{意見|いけん}を{確認|かくにん}せずに「{決定|けってい}」と{進|すす}めようとしていた。コトバの{発言|はつげん}はその{流|なが}れを{止|と}めようとしたものだ。"
+        expression: determined
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: sprite
+        character: kiku
+        expression: worried
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{傷|きず}ついた{子|こ}の{立場|たちば}からも{聞|き}いてほしい。その{子|こ}は——コトバの{発言|はつげん}の{直前|ちょくぜん}に、{自分|じぶん}の{提案|ていあん}を{別|べつ}の{人|ひと}に{否定|ひてい}されていたんだ。"
+        expression: worried
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: evidence
+        id: card-4
+        title: キクの観察記録（傷ついた側の背景）
+        content: "キクが{観察|かんさつ}した{内容|ないよう}:コトバが「{違|ちが}う」と{言|い}う{直前|ちょくぜん}、{傷|きず}ついた{子|こ}は{自分|じぶん}の{提案|ていあん}を{別|べつ}のメンバーにすでに{否定|ひてい}されていた。{気持|きも}ちが{沈|しず}んでいる{状態|じょうたい}に、コトバの「{違|ちが}う」という{言葉|ことば}が{重|かさ}なった。→{傷|きず}ついた{子|こ}にとっては「また{否定|ひてい}された」と{感|かん}じてしまった。"
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{傷|きず}ついた{気持|きも}ちは{本物|ほんもの}——でも、コトバが{攻撃|こうげき}しようとしていたわけでもない{可能性|かのうせい}がある。{受|う}け{取|と}り{方|かた}の{背景|はいけい}に、その{子|こ}の{状況|じょうきょう}があったんだ。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 中間点 ====================
+  - id: midpoint
+    bg: classroom
+    bgm: thinking-time
+    steps:
+      - type: narration
+        text: "{証拠|しょうこ}が{揃|そろ}ってきた。コトバの{発言|はつげん}は「③アサーティブ」に{近|ちか}い{表現|ひょうげん}だった。でも{受|う}け{取|と}った{子|こ}は「②{攻撃的|こうげきてき}」と{感|かん}じた。その{子|こ}にはすでに{気持|きも}ちが{沈|しず}んでいた{背景|はいけい}があった。"
+      - type: sprite
+        character: tsutae
+        expression: thinking
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "{伝|つた}え{方|かた}が③アサーティブでも、{受|う}け{取|と}り{方|かた}が②{攻撃的|こうげきてき}になる——これはどっちが{悪|わる}いの？"
+        expression: thinking
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: manabu
+        text: "タイムラインで{見|み}ると——コトバの{発言|はつげん}の{前|まえ}に、{全員|ぜんいん}の{意見|いけん}を{無視|むし}した「{決定|けってい}」があった。コトバが{声|こえ}を{上|あ}げなかったら、{発言|はつげん}できなかった{子|こ}がいたかもしれない。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+      - type: narration
+        text: "でも、まだ{決定的|けっていてき}な{証拠|しょうこ}が{残|のこ}っている——コトバが「なぜ」あの{瞬間|しゅんかん}に{声|こえ}を{上|あ}げたのか。その{動機|どうき}はまだ{見|み}えていない。"
+
+  # ==================== 反転：証拠カード5 ====================
+  - id: evidence-5
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 決定的証拠
+        subtitle: コトバのノートメモ
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "……{正直|しょうじき}に{話|はな}します。あのとき、グループの{一部|いちぶ}が{全員|ぜんいん}の{意見|いけん}を{確認|かくにん}せずに「{決定|けってい}」と{進|すす}もうとしていた。このままでは{声|こえ}を{出|だ}せていない{子|こ}がいると{思|おも}って——"
+        expression: worried
+      - type: dialog
+        character: kotoba
+        text: "「{違|ちが}う」って{言|い}ったのは、{否定|ひてい}したかったんじゃなくて……{全員|ぜんいん}の{意見|いけん}を{守|まも}りたかったから。でも{傷|きず}つけてしまったのは{事実|じじつ}で、それは……{言|い}い{方|かた}をもっと{考|かんが}えられたと{思|おも}う。"
+        expression: thinking
+      - type: sprite
+        character: kotoba
+        action: hide
+      - type: evidence
+        id: card-5
+        title: コトバのノートメモ＋発言直前の記録
+        content: "【コトバのノートメモ】「このままでは{全員|ぜんいん}の{意見|いけん}が{反映|はんえい}されない。{誰|だれ}かが{言|い}わないといけない」【{発言|はつげん}{直前|ちょくぜん}の{状況|じょうきょう}】グループの{一部|いちぶ}が{全員|ぜんいん}に{確認|かくにん}せず「もうこれで{決定|けってい}」と{進|すす}もうとしていた。{意見|いけん}を{言|い}えていない{メンバー|めんばー}が{複数|ふくすう}いた。【コトバの{動機|どうき}】{グループ|ぐるーぷ}を{守|まも}るための{発言|はつげん}——{全員|ぜんいん}が{参加|さんか}できる{場|ば}を{作|つく}ろうとした。"
+      - type: se
+        sound: reveal
+      - type: narration
+        text: "**コトバの{動機|どうき}は「{守|まも}る」だった——{全員|ぜんいん}の{意見|いけん}が{反映|はんえい}されない{場|ば}を{守|まも}るために{声|こえ}を{上|あ}げた。アサーティブな{意図|いと}は{本物|ほんもの}だった。でも——「{正|ただ}しい{伝|つた}え{方|かた}」をしても、{受|う}け{取|と}り{方|かた}のフレームが{違|ちが}えば{傷|きず}つく{場合|ばあい}がある。**"
+      - type: sprite
+        character: kiku
+        expression: surprised
+        position: left
+      - type: dialog
+        character: kiku
+        text: "……コトバが{守|まも}ろうとしていたの、{少|すこ}し{分|わ}かる{気|き}もする。{傷|きず}ついた{子|こ}の{気持|きも}ちも{本物|ほんもの}——どっちも{正|ただ}しくて、どっちも{間違|まちが}えていない。"
+        expression: surprised
+      - type: sprite
+        character: kiku
+        action: hide
+
+  # ==================== 推理・投票 ====================
+  - id: deduction
+    bg: classroom
+    bgm: confrontation
+    steps:
+      - type: title_card
+        text: 推理タイム
+        subtitle: グループに問題を起こした伝え方をしたのは誰？
+      - type: sprite
+        character: tsutae
+        expression: determined
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "{証拠|しょうこ}を{整理|せいり}すると——コトバの{発言|はつげん}は③アサーティブに{近|ちか}かった。でも{受|う}け{取|と}った{子|こ}には②{攻撃的|こうげきてき}と{届|とど}いた。Card 5でコトバの{動機|どうき}が{確定|かくてい}した。"
+        expression: determined
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: narration
+        text: "{証拠|しょうこ}を{整理|せいり}しよう。①コトバの{発言|はつげん}は「{全員|ぜんいん}の{意見|いけん}を{聞|き}こう」という③アサーティブな{意図|いと}があった。②{傷|きず}ついた{子|こ}は{発言|はつげん}{直前|ちょくぜん}にすでに{気持|きも}ちが{沈|しず}んでいた。③コトバの{動機|どうき}は{グループ|ぐるーぷ}を{守|まも}ること——{悪意|あくい}はなかった。④「{正|ただ}しい{伝|つた}え{方|かた}」でも{受|う}け{取|と}り{方|かた}のフレームで{傷|きず}つく{場合|ばあい}がある。"
+      - type: choice
+        id: q1
+        question: グループに問題を起こした伝え方をしたのは誰？
+        options:
+          - text: コトバ（「それは違う」と言った）
+            value: kotoba
+            correct: true
+            feedback: "{正解|せいかい}（{第1層|だいいちそう}）！　コトバの{発言|はつげん}が{傷|きず}ついた{子|こ}を{出|だ}した——それは{事実|じじつ}。でもCard 5を{見|み}ると、{動機|どうき}は{グループ|ぐるーぷ}を{守|まも}ることだった。③アサーティブの{意図|いと}があっても、{受|う}け{取|と}り{方|かた}が②{攻撃的|こうげきてき}になる{場合|ばあい}がある。**「{正|ただ}しい{伝|つた}え{方|かた}」は{一方的|いっぽうてき}に{成立|せいりつ}しない——{相手|あいて}との{対話|たいわ}の{中|なか}でしか{確|たし}かめられない。**"
+          - text: キク（感情の代弁者）
+            value: kiku
+            correct: false
+            feedback: "キクは{傷|きず}ついた{気持|きも}ちを{代弁|だいべん}する{役|やく}として{動|うご}いていたよ。{問題|もんだい}を{起|お}こした{発言|はつげん}をした{側|がわ}ではないね。"
+          - text: ツタエ（分析役）
+            value: tsutae
+            correct: false
+            feedback: "ツタエはアサーションの3タイプを{調|しら}べて{分類|ぶんるい}を{提案|ていあん}していた。{事件|じけん}の{発端|ほったん}にはなっていないよ。"
+          - text: マナブ（タイムライン役）
+            value: manabu
+            correct: false
+            feedback: "マナブは{発言|はつげん}の{前後|ぜんご}の{文脈|ぶんみゃく}を{時系列|じけいれつ}で{整理|せいり}していた。{問題|もんだい}の{発端|ほったん}はマナブではないよ。"
+
+  # ==================== 真相：コトバの告白 ====================
+  - id: truth-kotoba
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: effect
+        name: fade-out
+      - type: title_card
+        text: 真相
+        subtitle: 守ろうとした発言、傷ついた受け取り方
+      - type: effect
+        name: fade-in
+      - type: sprite
+        character: kotoba
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoba
+        text: "……あのとき{本当|ほんとう}に{思|おも}ったことを{話|はな}します。グループの{一部|いちぶ}が、{全員|ぜんいん}の{意見|いけん}を{聞|き}かずに{決|き}めようとしていた。{声|こえ}を{出|だ}せていない{人|ひと}がいるのに、{このまま|このまま}じゃダメだって——"
+        expression: worried
+      - type: dialog
+        character: kotoba
+        text: "「{違|ちが}う」と{言|い}ったのは、{グループ|ぐるーぷ}のみんなを{守|まも}りたかったから。{攻撃|こうげき}したかったわけじゃない。でも……{傷|きず}つけてしまったのは{本当|ほんとう}のことで。{言|い}い{方|かた}をもっと{考|かんが}えるべきだったかもしれない。"
+        expression: thinking
+      - type: dialog
+        character: kotoba
+        text: "「みんなの{意見|いけん}が{無視|むし}されそうだったから{言|い}った。でも——{相手|あいて}がどんな{気持|きも}ちでいるかを{確認|かくにん}してから、もっと{丁寧|ていねい}に{伝|つた}えることができた。」"
+        expression: determined
+      - type: sprite
+        character: kotoba
+        action: hide
+
+  # ==================== 真相：他のメンバーの反応 ====================
+  - id: truth-others
+    bg: classroom
+    bgm: emotional
+    steps:
+      - type: sprite
+        character: kiku
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kiku
+        text: "{傷|きず}ついた{気持|きも}ちは{本物|ほんもの}だった——それは{変|か}わらない。でも{今|いま}はコトバが{守|まも}ろうとしていたのが{分|わ}かる。{伝|つた}え{方|かた}と{受|う}け{取|と}り{方|かた}が{違|ちが}うことがある、それを{知|し}れてよかった。"
+        expression: thinking
+      - type: sprite
+        character: kiku
+        action: hide
+      - type: sprite
+        character: tsutae
+        expression: surprised
+        position: right
+      - type: dialog
+        character: tsutae
+        text: "コトバの{発言|はつげん}は③アサーティブだった——{意図|いと}は{正|ただ}しかった。でも{受|う}け{取|と}り{方|かた}は②{攻撃的|こうげきてき}だった。「{正|ただ}しい{伝|つた}え{方|かた}」をしても{傷|きず}つく{場合|ばあい}がある、っていうことなんだ。"
+        expression: surprised
+      - type: sprite
+        character: tsutae
+        action: hide
+      - type: sprite
+        character: manabu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: manabu
+        text: "タイムラインで{見|み}ると、コトバの{発言|はつげん}には{理由|りゆう}があった。{発言|はつげん}だけ{切|き}り{取|と}ると{問題|もんだい}に{見|み}えるけど、{前後|ぜんご}の{文脈|ぶんみゃく}を{入|い}れると{意図|いと}が{変|か}わる——これがタイムライン{推理|すいり}のポイントだ。"
+        expression: thinking
+      - type: sprite
+        character: manabu
+        action: hide
+
+  # ==================== エピローグ ====================
+  - id: epilogue
+    bg: classroom
+    bgm: resolution
+    steps:
+      - type: sprite
+        character: yamada
+        expression: normal
+        position: center
+      - type: dialog
+        character: yamada
+        text: "コトバの{発言|はつげん}には③アサーティブの{意図|いと}があった。でも{傷|きず}ついた{子|こ}にとっては②{攻撃的|こうげきてき}と{届|とど}いた。これは{どっちが|どっちが}{正|ただ}しくて、どっちが{間違|まちが}えているというわけじゃないの。"
+        expression: normal
+      - type: dialog
+        character: yamada
+        text: "アサーションは「これを{言|い}えば{完璧|かんぺき}」という{正解|せいかい}じゃない。{自分|じぶん}の{意図|いと}が{相手|あいて}に{届|とど}いているかどうかは、{相手|あいて}との{対話|たいわ}の{中|なか}でしか{確|たし}かめられない。だから{大切|たいせつ}なのは——{伝|つた}えた{後|あと}に「{伝|つた}わった？」と{確認|かくにん}する{習慣|しゅうかん}よ。"
+        expression: happy
+      - type: sprite
+        character: yamada
+        action: hide
+      - type: narration
+        text: "タイムライン——{発言|はつげん}・{行動|こうどう}を{時系列|じけいれつ}で{並|なら}べ、{前後|ぜんご}の{文脈|ぶんみゃく}から{意図|いと}を{読|よ}む{考|かんが}え{方|かた}。{発言|はつげん}だけ{切|き}り{取|と}ると{見|み}えない「なぜ{言|い}ったか」が、{流れ|ながれ}を{追|お}うと{見|み}えてくる。"
+      - type: narration
+        text: "アサーションの{学び|まなび}——{伝|つた}え{方|かた}が③アサーティブでも、{受|う}け{取|と}り{方|かた}が②{攻撃的|こうげきてき}になる{場合|ばあい}がある。「{正|ただ}しい{伝|つた}え{方|かた}」は{一方的|いっぽうてき}に{成立|せいりつ}しない——{伝|つた}えた{後|あと}に{確認|かくにん}する{対話|たいわ}がセットで{必要|ひつよう}。アサーションは{正解|せいかい}ではなく、{対話|たいわ}のスタート{地点|ちてん}。"
+      - type: effect
+        name: fade-out
