@@ -1,0 +1,376 @@
+meta:
+  id: geology-08
+  title: "かくれた水"
+  series: "地学ミステリー"
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  chisou:
+    name: "チソウ"
+    color: "#8D6E63"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  ishikawa:
+    name: "イシカワ"
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  magumu:
+    name: "マグム"
+    color: "#E74C3C"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sunako:
+    name: "スナコ"
+    color: "#C49A6C"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "地学ミステリー Vol.8"
+        subtitle: "かくれた水"
+      - type: narration
+        text: "温泉学習の発表で、"
+      - type: narration
+        text: "「この温泉の水は地下500mから来ている」"
+      - type: narration
+        text: "と書かれた資料が話題になった。"
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: normal
+          - id: ishikawa
+            expression: normal
+          - id: magumu
+            expression: normal
+          - id: sunako
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: chisou
+        expression: normal
+        position: left
+      - type: dialog
+        character: chisou
+        text: "あなたは人の思いをくみ取る役。 今回もスナコの気持ちはわかるが、そのままでは危ないと思っている。"
+      - type: dialog
+        character: chisou
+        text: "地域の温泉を守りたい気持ちは大切"
+        expression: thinking
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        expression: normal
+        position: right
+      - type: dialog
+        character: ishikawa
+        text: "あなたは資料の数値を見比べるのが得意。 今回も数字のずれにいち早く気づいた。"
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        expression: normal
+        position: left
+      - type: dialog
+        character: magumu
+        text: "あなたは地下水のしくみを説明する担当。 深さだけで地下水を語れない理由を知っている。"
+      - type: dialog
+        character: magumu
+        text: "地下水は、水を通しやすい地層のすきまにたまる"
+        expression: thinking
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        expression: normal
+        position: right
+      - type: dialog
+        character: sunako
+        text: "あなたは地域の温泉が大好きで、この発表を成功させたいと思っている。 でも、自分が数字を書きかえたことをまだ言えていない。"
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠1"
+        subtitle: "発表資料"
+      - type: narration
+        text: "「この温泉の水は地下500mから来ています」と書かれている"
+      - type: narration
+        text: "深い場所から来る特別な水、という説明がついている"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "印象を強くするための数字になっている。"
+  - id: evidence-2
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠2"
+        subtitle: "元の調査メモ"
+      - type: narration
+        text: "「主な帯水層は地下80m〜120m」"
+      - type: narration
+        text: "温泉水はこの帯水層を中心に集まり、流れているとある"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "一次資料の数字は500mではない。"
+  - id: evidence-3
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠3"
+        subtitle: "地層断面図"
+      - type: narration
+        text: "上から、水がしみこみやすい層、不透水層、さらに別の層が重なる"
+      - type: narration
+        text: "地下水は主に80m〜120m付近の帯水層にたまる"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "深さより、どの地層が水を通すかが重要。"
+  - id: evidence-4
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠4"
+        subtitle: "地下水の説明カード"
+      - type: narration
+        text: "地下水の量や持続性は、降水のしみこみ、地層の広がり、流れ方で決まる"
+      - type: narration
+        text: "深いこと自体は「なくならない証拠」にはならない"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「深い=安心」という発想が誤りだとわかる。"
+  - id: evidence-5
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠5"
+        subtitle: "スナコの追加情報"
+      - type: narration
+        text: "スナコは地域の人の不安を減らしたくて数字を500mに変えた"
+      - type: narration
+        text: "深い水だと言えば、簡単には減らないように見えると思った"
+      - type: narration
+        text: "元データが80m〜120mだとは知っていた"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "犯人はスナコ。 温泉を守りたい気持ちから、数字を大きく見せてしまった。"
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: thinking
+          - id: ishikawa
+            expression: thinking
+          - id: magumu
+            expression: thinking
+          - id: sunako
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "チソウ"
+            value: chisou
+            correct: false
+            feedback: "チソウは手がかりを持っているが、決め手は足りない。"
+          - text: "イシカワ"
+            value: ishikawa
+            correct: false
+            feedback: "イシカワは手がかりを持っているが、決め手は足りない。"
+          - text: "マグム"
+            value: magumu
+            correct: false
+            feedback: "マグムは手がかりを持っているが、決め手は足りない。"
+          - text: "スナコ"
+            value: sunako
+            correct: true
+            feedback: "スナコの行動が、証拠といちばん一致している。"
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "スナコ"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "スナコは、元の調査メモに"
+      - type: dialog
+        character: sensei
+        text: "「主な帯水層は地下80m〜120m」と書かれていたのに、"
+      - type: dialog
+        character: sensei
+        text: "発表資料では「地下500m」と書きかえた。"
+      - type: dialog
+        character: sensei
+        text: "温泉を特別で、なくなりにくいものに見せたかったからである。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sunako
+        expression: worried
+        position: center
+      - type: dialog
+        character: sunako
+        text: "地域の温泉を大事に思っていた"
+      - type: dialog
+        character: sunako
+        text: "「浅い」と聞くと価値が低く見えるのではと不安だった"
+        expression: thinking
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: narration
+        text: "Card 1 で発表資料の数字が500mだとわかる"
+      - type: narration
+        text: "Card 2 で元の調査メモは80m〜120mだとわかる"
+      - type: narration
+        text: "Card 3 で主な帯水層がその深さにあることを確認する"
+      - type: narration
+        text: "Card 4 で深さだけでは地下水の価値や持続性は決まらないと整理する"
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: happy
+          - id: ishikawa
+            expression: happy
+          - id: magumu
+            expression: happy
+          - id: sunako
+            expression: happy
+      - type: narration
+        text: "地学ミステリーの学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide

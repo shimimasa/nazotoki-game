@@ -136,10 +136,22 @@ export function App() {
     setHasSavedProgress(false)
   }, [])
 
+  // 次のシナリオへ（同シリーズの次Vol）
+  const handleNextScenario = useCallback(() => {
+    if (!scriptId) return
+    const match = scriptId.match(/^(.+)-(\d+)$/)
+    if (!match) return
+    const slug = match[1]
+    const nextVol = String(Number(match[2]) + 1).padStart(2, '0')
+    const nextId = `${slug}-${nextVol}`
+    handleSelectScenario(nextId)
+  }, [scriptId, handleSelectScenario])
+
   if (loading) {
     return (
       <div class="loading-screen">
-        <div class="loading-text">読み込み中...</div>
+        <div class="loading-notebook" />
+        <div class="loading-text">じけんファイルを読み込み中…</div>
       </div>
     )
   }
@@ -186,6 +198,7 @@ export function App() {
           totalJudged={state.totalJudged}
           onRestart={handleRestart}
           onBackToSelect={handleBackToSelect}
+          onNextScenario={handleNextScenario}
         />
       )
   }

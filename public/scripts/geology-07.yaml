@@ -1,0 +1,376 @@
+meta:
+  id: geology-07
+  title: "うごく大地"
+  series: "地学ミステリー"
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  chisou:
+    name: "チソウ"
+    color: "#8D6E63"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  ishikawa:
+    name: "イシカワ"
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  magumu:
+    name: "マグム"
+    color: "#E74C3C"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sunako:
+    name: "スナコ"
+    color: "#C49A6C"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "地学ミステリー Vol.7"
+        subtitle: "うごく大地"
+      - type: narration
+        text: "地学コンテストの防災ポスターに、"
+      - type: narration
+        text: "「この町はプレート境界から遠いので大きな地震は起きない」"
+      - type: narration
+        text: "と書かれていた。"
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: normal
+          - id: ishikawa
+            expression: normal
+          - id: magumu
+            expression: normal
+          - id: sunako
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: chisou
+        expression: normal
+        position: left
+      - type: dialog
+        character: chisou
+        text: "あなたはみんなの気持ちを考えるのが得意。 今回も「不安にさせたくない」という思い自体は理解できる。"
+      - type: dialog
+        character: chisou
+        text: "こわがっている人に、いきなり危険ばかり伝えるのはつらい"
+        expression: thinking
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        expression: normal
+        position: right
+      - type: dialog
+        character: ishikawa
+        text: "あなたは文章の言い切り方に敏感だ。 今回もポスターの断言表現が気になっている。"
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        expression: normal
+        position: left
+      - type: dialog
+        character: magumu
+        text: "あなたはポスター作成の中心だった。 でも、まだみんなに言っていないことがある。"
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        expression: normal
+        position: right
+      - type: dialog
+        character: sunako
+        text: "あなたは地図や図の見比べが得意だ。 今回も2種類の地図のちがいから違和感をもった。"
+      - type: dialog
+        character: sunako
+        text: "プレート境界だけの地図では、この地域の近くに大きな線は見えない"
+        expression: thinking
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠1"
+        subtitle: "問題のポスター"
+      - type: narration
+        text: "「この町はプレート境界から遠いので、大きな地震は起きない」と書かれている"
+      - type: narration
+        text: "根拠として小さな地図が添えられている"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "断言が強すぎる。何を根拠にしているのかが争点になる。"
+  - id: evidence-2
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠2"
+        subtitle: "使用した地図"
+      - type: narration
+        text: "ポスターに使われたのは、日本のプレート境界だけを示した地図"
+      - type: narration
+        text: "地域の細かな断層情報は入っていない"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ポスターは「プレート境界」の情報だけで作られていた。"
+  - id: evidence-3
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠3"
+        subtitle: "プレートテクトニクスの基本"
+      - type: narration
+        text: "プレートどうしの境界では地震や火山活動が多い"
+      - type: narration
+        text: "しかし、地震はプレート境界だけで起こるわけではない"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "Card 2 の地図は一部としては正しいが、それだけで結論は出せない。"
+  - id: evidence-4
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠4"
+        subtitle: "地域ハザードマップ"
+      - type: narration
+        text: "地域の地下には活断層が示されている"
+      - type: narration
+        text: "プレート境界から遠くても、活断層で地震が起こる可能性がある"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ポスターから抜けていた重要情報は「活断層」だった。"
+  - id: evidence-5
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠5"
+        subtitle: "マグムの追加情報"
+      - type: narration
+        text: "マグムは活断層入りの地図も見ていた"
+      - type: narration
+        text: "でも、友だちの家族を安心させたくて、あえてポスターには入れなかった"
+      - type: narration
+        text: "「起きない」と言い切れば、少しでも落ち着くと思った"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "犯人はマグム。 問題は知識不足ではなく、情報を落として安心を優先したことにある。"
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: thinking
+          - id: ishikawa
+            expression: thinking
+          - id: magumu
+            expression: thinking
+          - id: sunako
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "チソウ"
+            value: chisou
+            correct: false
+            feedback: "チソウは手がかりを持っているが、決め手は足りない。"
+          - text: "イシカワ"
+            value: ishikawa
+            correct: false
+            feedback: "イシカワは手がかりを持っているが、決め手は足りない。"
+          - text: "マグム"
+            value: magumu
+            correct: true
+            feedback: "マグムの行動が、証拠といちばん一致している。"
+          - text: "スナコ"
+            value: sunako
+            correct: false
+            feedback: "スナコは手がかりを持っているが、決め手は足りない。"
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "マグム"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "マグムは、防災ポスターを作るときに"
+      - type: dialog
+        character: sensei
+        text: "プレート境界だけを示した地図を使い、"
+      - type: dialog
+        character: sensei
+        text: "地域の活断層情報をあえて外した。"
+      - type: dialog
+        character: sensei
+        text: "その結果、"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: magumu
+        expression: worried
+        position: center
+      - type: dialog
+        character: magumu
+        text: "地震をこわがる友だちの家族を安心させたかった"
+      - type: dialog
+        character: magumu
+        text: "こわい情報を減らせばよい説明になると思ってしまった"
+        expression: thinking
+      - type: sprite
+        character: magumu
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: narration
+        text: "Card 1 でポスターの断言が強すぎるとわかる"
+      - type: narration
+        text: "Card 2 で根拠がプレート境界の地図だけだとわかる"
+      - type: narration
+        text: "Card 3 で「プレート境界=地震の全てではない」と整理する"
+      - type: narration
+        text: "Card 4 で地域の活断層が抜けていたとわかる"
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: happy
+          - id: ishikawa
+            expression: happy
+          - id: magumu
+            expression: happy
+          - id: sunako
+            expression: happy
+      - type: narration
+        text: "地学ミステリーの学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide

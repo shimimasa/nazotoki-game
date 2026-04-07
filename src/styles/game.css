@@ -72,7 +72,7 @@ body {
 .select-series-name, .select-vol-title,
 .choice-question, .choice-option,
 .result-rank-label, .result-rank-badge, .result-rank-title,
-.result-restart, .result-back, .result-copy,
+.result-restart, .result-back, .result-copy, .result-next,
 .title-card-text, .title-card-subtitle,
 .backlog-title, .play-guide-text {
   font-family: var(--ds-font-heading);
@@ -737,15 +737,58 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: var(--ds-base-warm-white);
 }
 
+.loading-notebook {
+  width: 64px;
+  height: 80px;
+  border: 3px solid var(--ds-accent-gold);
+  border-radius: 4px 12px 12px 4px;
+  position: relative;
+  margin-bottom: 20px;
+  background: var(--ds-base-parchment);
+}
+
+.loading-notebook::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  width: 36px;
+  height: 3px;
+  background: var(--ds-text-muted);
+  border-radius: 2px;
+  box-shadow:
+    0 12px 0 var(--ds-text-muted),
+    0 24px 0 var(--ds-text-muted),
+    0 36px 0 var(--ds-text-muted);
+  animation: loading-lines 1.2s ease-in-out infinite;
+}
+
+.loading-notebook::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 12px;
+  width: 4px;
+  height: 56px;
+  background: var(--ds-accent-gold);
+  border-radius: 2px;
+}
+
+@keyframes loading-lines {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
 .loading-text {
   color: var(--ds-text-muted);
   font-family: var(--ds-font-heading);
-  font-size: 18px;
+  font-size: 16px;
   animation: blink 1.5s ease-in-out infinite;
 }
 
@@ -1011,6 +1054,25 @@ body {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.result-next {
+  padding: 14px 32px;
+  background: var(--ds-accent-navy);
+  color: #fff;
+  border: none;
+  border-radius: var(--ds-radius-lg);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--ds-shadow-sm);
+}
+
+.result-next:hover {
+  background: #253A6B;
+  transform: translateY(-2px);
+  box-shadow: var(--ds-shadow-md);
 }
 
 .result-back {
@@ -1306,5 +1368,5 @@ body {
   .result-option { font-size: 13px; }
   .result-feedback { font-size: 12px; }
   .result-buttons { flex-direction: column; align-items: center; }
-  .result-restart, .result-back, .result-copy { width: 80%; text-align: center; }
+  .result-restart, .result-back, .result-copy, .result-next { width: 80%; text-align: center; }
 }

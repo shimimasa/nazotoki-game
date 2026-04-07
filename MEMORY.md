@@ -13,23 +13,37 @@
 ## プロジェクト
 - [ゲームデザイン原則spec作成](project_game_design_spec.md) — Phase 2完了。spec作成済み。Phase 3（機能実装）が次ステップ
 
-## 現在の状態（最終更新: 2026-04-03）
+## 現在の状態（最終更新: 2026-04-07 夕方）
 
 ### ★ 即再開用: 次やること
 
-> **シナリオ631本（overview済み）+ゲーム284本。新30シリーズのoverview300本完成！**
+> **Codex Phase 2 進行中。experiment/farm/geology の6ファイル生成完了。ゲームYAML変換中。**
 >
-> **★ 今日やったこと（4/3）:**
-> - **30シリーズ×10本＝300シナリオのブループリント+overview.mdを新規作成**
->   - #30-39: space/rights/data/emotion/philosophy/security/body/cyber/classic/experiment
->   - #40-49: weather/energy/archaeology/ocean/farm/language/democracy/architecture/medical/design
->   - #50-59: botany/chemistry/physics/insect/geology/logic/tradition/peace/invention/communication
+> **★ 次やること:**
+> 1. Codex Phase 2 の残り11シリーズ（insect〜weather）の6ファイル生成 + ゲームYAML変換を継続
+> 2. 完了済み3シリーズ（experiment/farm/geology）のゲームYAML変換完了を確認
+> 3. catalog.json 再同期（/sync-game-catalog）
+> 4. ゲームデザイン原則spec Phase 3
 >
-> **★ 次やること（優先順）:**
-> 1. **Codex指示書を300本対応に更新** → #30-59 の300シナリオ分（1,800ファイル）
-> 2. **Codexに指示書を渡す（人間タスク）**
-> 3. **ゲームデザイン原則spec Phase 3 short_term**: GM-01, FE-02, FE-03
-> 4. **SE音源ファイルの取得（人間タスク）**: correct.mp3, wrong.mp3, decision.mp3
+> **ゲームスクリプト状況:**
+> - catalog.json: 435エントリ（game repo push済み 6b45746）
+> - 完了済み13シリーズ: archaeology〜energy（110本新規変換）
+> - Codex進行中: experiment/farm/geology（6ファイル生成完了→ゲームYAML変換中）
+> - Codex待ち: insect〜weather（11シリーズ、各10本）
+>
+> **Codex指示書:** `docs/templates/codex-scenario-generation-phase-2.md`
+> - Phase 2: 14シリーズの6ファイル生成
+> - Phase 3（統合予定）: 6ファイル生成後のゲームYAML変換をCodexに委譲
+>
+> **変換方式（Codex委譲決定）:**
+> - 今後のゲームYAML変換はCodexで実行（Opus節約）
+> - Claude Codeはcatalog同期・品質スポットチェックに集中
+> - Vol.10は二重構造（q1犯人特定 → evidence-5パラダイムシフト → q2価値判断）
+>
+> **Git状況:**
+> - ai-shimizu: progress.md更新済み・未コミット
+> - nazotoki-game (game/): push済み（6b45746）
+> - スプライト不可シリーズ（literature, popculture, time-travel）はゲーム化対象外
 >
 > **新20シリーズ（overview.md作成済み、6ファイル未生成 → Codex待ち）:**
 > | # | シリーズ | スラッグ | 教科 | overview | 6ファイル |
@@ -96,8 +110,49 @@
 > - 平和探偵団: ナギ→boy-a, ヒビキ→boy-b, ミワ→girl-b, コトハ→girl-c, 山田先生→teacher-f
 > - 発明探偵団: ソウゾウ→boy-a, カイゼン→boy-b, ハッキン→girl-b, アイデア→girl-c, 山田先生→teacher-f
 > - コミュニケーション探偵団: キク→boy-a, マナブ→boy-b, コトバ→girl-b, ツタエ→girl-c, 山田先生→teacher-f
+> - 経済探偵団: ケイタ→boy-a, アキト→boy-b, イチカ→girl-b, トクミ→girl-c, 山田先生→teacher-f
+> - 法探偵団: ノリト→boy-a, サバキ→boy-b, リツカ→girl-b, マモリ→girl-c, 山田先生→teacher-f
+> - 心理探偵団: ココロ→boy-a, ニシキ→boy-b, サトリ→girl-b, マドカ→girl-c, 山田先生→teacher-f
+> - ロボット探偵団: キカイ→boy-a, ギア→boy-b, センリ→girl-b, ネジコ→girl-c, 山田先生→teacher-f
+> - AI探偵団: ガクト→boy-a, マナブ→boy-b, チエリ→girl-b, ヨリコ→girl-c, 山田先生→teacher-f
+> - 微生物探偵団: キンタ→boy-a, コウボ→boy-b, バイカ→girl-b, スミレ→girl-c, 山田先生→teacher-f
+> - 映像探偵団: エイゾウ→boy-a, カット→boy-b, レンズ→girl-b, オトネ→girl-c, 山田先生→teacher-f
+> - 起業探偵団: ハジメ→boy-a, カイト→boy-b, ネリカ→girl-b, ツムギ→girl-c, 山田先生→teacher-f
+> - 図書館探偵団: サクイン→boy-a, ヨミト→boy-b, ツイカ→girl-b, シラベ→girl-c, 山田先生→teacher-f
+> - 動物行動探偵団: ナツキ→boy-a, イキモノ→boy-b, ムレカ→girl-b, ツバサ→girl-c, 山田先生→teacher-f
+> - 統計探偵団: ヒョウタ→boy-a, サンプル→boy-b, チュウカ→girl-b, カクリツ→girl-c, 山田先生→teacher-f
+> - 地図作り探偵団: ホウイ→boy-a, アルキ→boy-b, シルシ→girl-b, トワコ→girl-c, 山田先生→teacher-f
+> - 音探偵団: オトヤ→boy-a, ヒビキ→boy-b, コダマ→girl-b, シズネ→girl-c, 山田先生→teacher-f
+> - 色探偵団: ニジオ→boy-a, ヒカル→boy-b, イロハ→girl-b, アヤメ→girl-c, 山田先生→teacher-f
+> - 時間探偵団: トキオ→boy-a, セコム→boy-b, ヒヅキ→girl-b, コヨミ→girl-c, 山田先生→teacher-f
+> - 記憶探偵団: キオク→boy-a, オボエ→boy-b, ワスレ→girl-b, ノウカ→girl-c, 山田先生→teacher-f
+> - 数学パズル探偵団: ヒラメ→boy-a, パズル→boy-b, スジコ→girl-b, ナゾミ→girl-c, 山田先生→teacher-f
+> - 書道探偵団: スミレン→boy-a, フデオ→boy-b, カナデ→girl-b, モジカ→girl-c, 山田先生→teacher-f
+> - ダンス探偵団: ステップ→boy-a, リズム→boy-b, マイカ→girl-b, オドリ→girl-c, 山田先生→teacher-f
+> - 写真探偵団: フレーム→boy-a, シャッタ→boy-b, ピント→girl-b, ノコシ→girl-c, 山田先生→teacher-f
+> - 演劇探偵団: エンゲキ→boy-a, ブタイ→boy-b, セリフ→girl-b, カーテン→girl-c, 山田先生→teacher-f
+> - 料理科学探偵団: アジオ→boy-a, ニコミ→boy-b, レシピ→girl-b, モリツケ→girl-c, 山田先生→teacher-f
+> - 手話探偵団: ユビオ→boy-a, ツタエ→boy-b, テマリ→girl-b, カオリ→girl-c, 山田先生→teacher-f
+> - ボードゲーム探偵団: ルール→boy-a, サイコロ→boy-b, コマリ→girl-b, カードナ→girl-c, 山田先生→teacher-f
+> - 水探偵団: ミズキ→boy-a, ナガレ→boy-b, シズク→girl-b, ウミカ→girl-c, 山田先生→teacher-f
+> - 電気探偵団: デンタロウ→boy-a, スパーク→boy-b, アンペア→girl-b, ボルト→girl-c, 山田先生→teacher-f
+> - 鉱物探偵団: イシマル→boy-a, コウセキ→boy-b, キララ→girl-b, クリスタ→girl-c, 山田先生→teacher-f
+> - 繊維探偵団: イトオ→boy-a, ヌノキ→boy-b, ソメコ→girl-b, オリカ→girl-c, 山田先生→teacher-f
+> - 印刷探偵団: ハンガ→boy-a, カミオ→boy-b, モジエ→girl-b, インキ→girl-c, 山田先生→teacher-f
+> - 宇宙工学探偵団: ロケット→boy-a, キドウ→boy-b, ウチュカ→girl-b, ホシミ→girl-c, 山田先生→teacher-f
+> - 栄養探偵団: エイヨウ→boy-a, タベル→boy-b, カロリ→girl-b, バランス→girl-c, 山田先生→teacher-f
+> - 睡眠探偵団: ネムリ→boy-a, スイミン→boy-b, ユメカ→girl-b, マクラ→girl-c, 山田先生→teacher-f
+> - 数学史探偵団: スウシ→boy-a, ハッケン→boy-b, テイリ→girl-b, レキシ→girl-c, 山田先生→teacher-f
+> - 土木探偵団: ドボク→boy-a, ハシカケ→boy-b, スイドウ→girl-b, トンネル→girl-c, 山田先生→teacher-f
+> - 香り探偵団: カオリ→boy-a, ニオイ→boy-b, アロマ→girl-b, フレグラ→girl-c, 山田先生→teacher-f
+> - 博物館探偵団: テンジ→boy-a, シュウゾウ→boy-b, ガクゲイ→girl-b, ホゾン→girl-c, 山田先生→teacher-f
+> - 方言探偵団: ナマリ→boy-a, ベンゴ→boy-b, イントネ→girl-b, コトノハ→girl-c, 山田先生→teacher-f
+> - 測量探偵団: ハカリ→boy-a, メジャー→boy-b, スンポウ→girl-b, セイド→girl-c, 山田先生→teacher-f
+> - リーダーシップ探偵団: リーダ→boy-a, マトメ→boy-b, ササエ→girl-b, ツナグ→girl-c, 山田先生→teacher-f
+> - プレゼン探偵団: スライド→boy-a, ハッピョウ→boy-b, ロンリ→girl-b, キキテ→girl-c, 山田先生→teacher-f
+> - 未来探偵団: ソウゾウ→boy-a, ヨソク→boy-b, ミライ→girl-b, ネガイ→girl-c, 山田先生→teacher-f
 
-### シリーズ総合計: 631本（完成331本 + overview only 300本）
+### シリーズ総合計: 1041本（完成331本 + overview only 300本 + blueprint only 410本）
 
 | # | シリーズ | スラッグ | 教科 | シナリオ | ゲーム化 |
 |---|---|---|---|---|---|
@@ -160,9 +215,51 @@
 | 57 | 平和探偵団 | peace | 平和学 | 10(※) | 0 |
 | 58 | 発明探偵団 | invention | イノベーション | 10(※) | 0 |
 | 59 | コミュニケーション探偵団 | communication | コミュニケーション | 10(※) | 0 |
-| | **合計** | | | **631** | **284** |
+| 60 | 経済探偵団 | economics | 経済学 | 0(※※) | 0 |
+| 61 | 法探偵団 | law | 法教育 | 0(※※) | 0 |
+| 62 | 心理探偵団 | psychology | 心理学 | 0(※※) | 0 |
+| 63 | ロボット探偵団 | robot | ロボティクス | 0(※※) | 0 |
+| 64 | AI探偵団 | ai | AI・データサイエンス | 0(※※) | 0 |
+| 65 | 微生物探偵団 | microbe | 微生物学 | 0(※※) | 0 |
+| 66 | 映像探偵団 | cinema | 映像・映画 | 0(※※) | 0 |
+| 67 | 起業探偵団 | startup | アントレプレナーシップ | 0(※※) | 0 |
+| 68 | 図書館探偵団 | library | 情報リテラシー | 0(※※) | 0 |
+| 69 | 動物行動探偵団 | animal | 動物行動学 | 0(※※) | 0 |
+| 70 | 統計探偵団 | statistics | 統計学 | 0(※※) | 0 |
+| 71 | 地図作り探偵団 | cartography | 地図学 | 0(※※) | 0 |
+| 72 | 音探偵団 | sound | 音響科学 | 0(※※) | 0 |
+| 73 | 色探偵団 | color | 色彩科学 | 0(※※) | 0 |
+| 74 | 時間探偵団 | time-science | 時間学 | 0(※※) | 0 |
+| 75 | 記憶探偵団 | memory-sci | 記憶・学習法 | 0(※※) | 0 |
+| 76 | 数学パズル探偵団 | puzzle | 数学パズル | 0(※※) | 0 |
+| 77 | 書道探偵団 | calligraphy | 書写 | 0(※※) | 0 |
+| 78 | ダンス探偵団 | dance | 表現運動 | 0(※※) | 0 |
+| 79 | 写真探偵団 | photo | 写真 | 0(※※) | 0 |
+| 80 | 演劇探偵団 | theater | 演劇 | 0(※※) | 0 |
+| 81 | 料理科学探偵団 | cooking | 料理の科学 | 0(※※) | 0 |
+| 82 | 手話探偵団 | sign-language | 手話 | 0(※※) | 0 |
+| 83 | ボードゲーム探偵団 | boardgame | ゲーム理論 | 0(※※) | 0 |
+| 84 | 水探偵団 | water | 水の科学 | 0(※※) | 0 |
+| 85 | 電気探偵団 | electricity | 電気・回路 | 0(※※) | 0 |
+| 86 | 鉱物探偵団 | mineral | 鉱物・結晶 | 0(※※) | 0 |
+| 87 | 繊維探偵団 | textile | 繊維・衣服 | 0(※※) | 0 |
+| 88 | 印刷探偵団 | printing | 印刷技術 | 0(※※) | 0 |
+| 89 | 宇宙工学探偵団 | aerospace | ロケット・宇宙開発 | 0(※※) | 0 |
+| 90 | 栄養探偵団 | nutrition | 栄養学 | 0(※※) | 0 |
+| 91 | 睡眠探偵団 | sleep | 睡眠科学 | 0(※※) | 0 |
+| 92 | 数学史探偵団 | math-history | 数学の歴史 | 0(※※) | 0 |
+| 93 | 土木探偵団 | civil | インフラ・土木工学 | 0(※※) | 0 |
+| 94 | 香り探偵団 | scent | 嗅覚・香りの科学 | 0(※※) | 0 |
+| 95 | 博物館探偵団 | museum | 博物学・展示 | 0(※※) | 0 |
+| 96 | 方言探偵団 | dialect | 方言・社会言語学 | 0(※※) | 0 |
+| 97 | 測量探偵団 | surveying | 測量・計測 | 0(※※) | 0 |
+| 98 | リーダーシップ探偵団 | leadership | リーダーシップ | 0(※※) | 0 |
+| 99 | プレゼン探偵団 | presentation | プレゼンテーション | 0(※※) | 0 |
+| 100 | 未来探偵団 | future | 未来学 | 0(※※) | 0 |
+| | **合計** | | | **1041** | **284** |
 
 (※) overview.mdのみ。残り6ファイルはCodex生成待ち
+(※※) blueprint作成済み。overview + 6ファイルは未生成
 
 ### ゲーム化未完了リスト
 

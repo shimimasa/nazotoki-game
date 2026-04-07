@@ -1,5 +1,29 @@
 # 進捗ログ
 
+## 2026-04-07 12:39
+- Update catalog.json: 325 → 435 entries (110 new game scripts)
+
+## 2026-04-07 12:19
+- Add 60 game scripts: classic/communication/cyber/democracy/design/energy (6 series x 10)
+
+## 2026-04-05 17:17
+- Fix build: move series-registry.json into src/
+
+## 2026-04-05 17:15
+- Fix build: include series-registry.json in tsconfig
+
+## 2026-04-05 17:09
+- Add 50 game scripts (5 series) + series-registry.json
+
+## 2026-04-04 20:23
+- Add rights(10) + data(10) + emotion(10) = 30 game scripts
+
+## 2026-04-04 20:00
+- Add space-02~10 game scripts: 宇宙探偵団 Vol.2-10 (9 scenarios)
+
+## 2026-04-04 19:46
+- Add space-01 game script: 宇宙探偵団 Vol.1「盗まれた星」
+
 ## 2026-03-29 11:56
 - Add conversion notes for art, global, sports series (previously missing)
 

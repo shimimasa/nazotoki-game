@@ -1,0 +1,382 @@
+meta:
+  id: geology-09
+  title: "データの食い違い"
+  series: "地学ミステリー"
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  chisou:
+    name: "チソウ"
+    color: "#8D6E63"
+    sprites:
+      normal: boy-c-normal.webp
+      happy: boy-c-happy.webp
+      thinking: boy-c-thinking.webp
+      worried: boy-c-worried.webp
+      surprised: boy-c-surprised.webp
+      determined: boy-c-determined.webp
+  ishikawa:
+    name: "イシカワ"
+    color: "#4A90D9"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  magumu:
+    name: "マグム"
+    color: "#E74C3C"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  sunako:
+    name: "スナコ"
+    color: "#C49A6C"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#4169E1"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "地学ミステリー Vol.9"
+        subtitle: "データの食い違い"
+      - type: narration
+        text: "4人で行った地層観察の記録をまとめたところ、"
+      - type: narration
+        text: "提出された最終図にだけ、3か所の不自然なずれが見つかった。"
+      - type: narration
+        text: "しかもそのずれは、たまたまの書き間違いというより、"
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: normal
+          - id: ishikawa
+            expression: normal
+          - id: magumu
+            expression: normal
+          - id: sunako
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: chisou
+        expression: normal
+        position: left
+      - type: dialog
+        character: chisou
+        text: "あなたは話し合いが感情的になりすぎないようにする役。"
+      - type: dialog
+        character: chisou
+        text: "まとめ役のマグムがすぐ疑われるのは自然だが、それだけで決めたくない"
+        expression: thinking
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        expression: normal
+        position: right
+      - type: dialog
+        character: ishikawa
+        text: "あなたは本来、記録を整えるのが得意だ。 でも今回は、その「整える」が行きすぎてしまった。"
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        expression: normal
+        position: left
+      - type: dialog
+        character: magumu
+        text: "あなたは最終図のとりまとめ役。 そのせいで最初に疑われやすい立場にある。"
+      - type: dialog
+        character: magumu
+        text: "自分は各自の記録を集めて図に並べた"
+        expression: thinking
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        expression: normal
+        position: right
+      - type: dialog
+        character: sunako
+        text: "あなたは観察結果の比較が得意。 今回も、ズレ方に共通パターンがあることに気づいた。"
+      - type: dialog
+        character: sunako
+        text: "3か所のズレは全部、数字が「なめらかになる方向」に動いている"
+        expression: thinking
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠1"
+        subtitle: "提出された最終図"
+      - type: narration
+        text: "3か所の地層の厚さデータが、元記録と合わない"
+      - type: narration
+        text: "どれも「ばらつきが小さく見える」方向に修正されている"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "単発ミスではなく、見た目を整える意図が疑われる。"
+  - id: evidence-2
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠2"
+        subtitle: "マグムの説明"
+      - type: narration
+        text: "マグムは「補完した」と言ったが、足したのはラベルだけ"
+      - type: narration
+        text: "数値そのものは変更していないと主張している"
+      - type: narration
+        text: "締切前に少し席を外していた"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "まとめ役ではあるが、改ざんしたとはまだ言えない。"
+  - id: evidence-3
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠3"
+        subtitle: "4人の観察比較表"
+      - type: narration
+        text: "4人の元記録を並べると、問題の3か所だけ最終図とずれている"
+      - type: narration
+        text: "しかもその3か所はすべて、平均に近い数字へ寄せられている"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "ズレの共通パターンが見える。"
+  - id: evidence-4
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠4"
+        subtitle: "誤差の目安表"
+      - type: narration
+        text: "現地観察では小さな誤差はありえる"
+      - type: narration
+        text: "ただし今回の3か所は、許容誤差を超えている"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "「自然なばらつき」では説明できない。"
+  - id: evidence-5
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: title_card
+        text: "証拠5"
+        subtitle: "編集ログ"
+      - type: narration
+        text: "締切前15分に、イシカワのアカウントで最終図が開かれている"
+      - type: narration
+        text: "その時間に、問題の3か所の数値が変更されていた"
+      - type: narration
+        text: "変更前の数値は元の観察記録と一致していた"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "犯人はイシカワ。 締切直前に、見た目を整えるため数値を変えたことが確定する。"
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: thinking
+          - id: ishikawa
+            expression: thinking
+          - id: magumu
+            expression: thinking
+          - id: sunako
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "チソウ"
+            value: chisou
+            correct: false
+            feedback: "チソウは手がかりを持っているが、決め手は足りない。"
+          - text: "イシカワ"
+            value: ishikawa
+            correct: true
+            feedback: "イシカワの行動が、証拠といちばん一致している。"
+          - text: "マグム"
+            value: magumu
+            correct: false
+            feedback: "マグムは手がかりを持っているが、決め手は足りない。"
+          - text: "スナコ"
+            value: sunako
+            correct: false
+            feedback: "スナコは手がかりを持っているが、決め手は足りない。"
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "イシカワ"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "イシカワは締切前に、"
+      - type: dialog
+        character: sensei
+        text: "最終図の3か所の数値を元データから書きかえた。"
+      - type: dialog
+        character: sensei
+        text: "理由は、ばらつきのある観察結果をそのまま出すと"
+      - type: dialog
+        character: sensei
+        text: "完成度が低く見えると思ったからである。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: ishikawa
+        expression: worried
+        position: center
+      - type: dialog
+        character: ishikawa
+        text: "締切に間に合わせたかった"
+      - type: dialog
+        character: ishikawa
+        text: "雑に見える提出物にしたくなかった"
+        expression: thinking
+      - type: sprite
+        character: ishikawa
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: narration
+        text: "Card 1 で最終図の3か所に共通したズレがあるとわかる"
+      - type: narration
+        text: "Card 2 でマグムの作業範囲を整理し、疑いを一度保留にする"
+      - type: narration
+        text: "Card 3 で3か所のズレがすべて平均寄りだとわかる"
+      - type: narration
+        text: "Card 4 で誤差の範囲を超えており、偶然ではないと判断する"
+      - type: sprite_group
+        characters:
+          - id: chisou
+            expression: happy
+          - id: ishikawa
+            expression: happy
+          - id: magumu
+            expression: happy
+          - id: sunako
+            expression: happy
+      - type: narration
+        text: "地学ミステリーの学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: chisou
+        action: hide
+      - type: sprite
+        character: ishikawa
+        action: hide
+      - type: sprite
+        character: magumu
+        action: hide
+      - type: sprite
+        character: sunako
+        action: hide

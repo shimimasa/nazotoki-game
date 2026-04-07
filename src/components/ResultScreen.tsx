@@ -21,6 +21,7 @@ interface Props {
   totalJudged: number
   onRestart: () => void
   onBackToSelect: () => void
+  onNextScenario: () => void
 }
 
 // 全choiceステップを抽出
@@ -43,7 +44,7 @@ const RANK_COLORS: Record<DetectiveRank, string> = {
   C: '#5C4033',  // ブラウン
 }
 
-export function ResultScreen({ script, choices, correctCount, totalJudged, onRestart, onBackToSelect }: Props) {
+export function ResultScreen({ script, choices, correctCount, totalJudged, onRestart, onBackToSelect, onNextScenario }: Props) {
   const allChoices = getAllChoices(script)
   const answeredCount = Object.keys(choices).length
   const [copied, setCopied] = useState(false)
@@ -191,6 +192,9 @@ export function ResultScreen({ script, choices, correctCount, totalJudged, onRes
         </div>
 
         <div class="result-buttons">
+          <button class="result-next" onClick={onNextScenario}>
+            つぎのシナリオへ ▶
+          </button>
           <button class="result-copy" onClick={handleCopy}>
             {copied ? 'コピーしました！' : 'けっかをコピー'}
           </button>

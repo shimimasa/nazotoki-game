@@ -1,0 +1,277 @@
+meta:
+  id: experiment-09
+  title: "うその法則"
+  series: "実験ミステリー"
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  jikken:
+    name: "ジッケン"
+    color: "#4169E1"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kansatsu:
+    name: "カンサツ"
+    color: "#FF6B9D"
+    sprites:
+      normal: girl-a-normal.webp
+      happy: girl-a-happy.webp
+      thinking: girl-a-thinking.webp
+      worried: girl-a-worried.webp
+      surprised: girl-a-surprised.webp
+      determined: girl-a-determined.webp
+  kasetsu:
+    name: "カセツ"
+    color: "#E67E22"
+    sprites:
+      normal: boy-d-normal.webp
+      happy: boy-d-happy.webp
+      thinking: boy-d-thinking.webp
+      worried: boy-d-worried.webp
+      surprised: boy-d-surprised.webp
+      determined: boy-d-determined.webp
+  kenshou:
+    name: "ケンショウ"
+    color: "#9C27B0"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: title_card
+        text: "実験ミステリー Vol.9"
+        subtitle: "うその法則"
+      - type: sprite_group
+        characters:
+          - id: jikken
+            expression: normal
+          - id: kansatsu
+            expression: normal
+          - id: kasetsu
+            expression: normal
+          - id: kenshou
+            expression: normal
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "これから証拠を集めて、何が起きたのかを確かめましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: jikken
+        action: hide
+      - type: sprite
+        character: kansatsu
+        action: hide
+      - type: sprite
+        character: kasetsu
+        action: hide
+      - type: sprite
+        character: kenshou
+        action: hide
+  - id: suspects
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: sprite
+        character: jikken
+        expression: normal
+        position: left
+      - type: dialog
+        character: jikken
+        text: "月曜に水やりすると火曜に花が咲く、という結果が3回続いた"
+      - type: dialog
+        character: jikken
+        text: "月曜に水やりすると火曜に花が咲く、という結果が3回続いた"
+        expression: thinking
+      - type: sprite
+        character: jikken
+        action: hide
+      - type: sprite
+        character: kansatsu
+        expression: normal
+        position: right
+      - type: dialog
+        character: kansatsu
+        text: "3回の成功データを見直したら、月曜だっただけでなく、3回とも晴れだった"
+      - type: dialog
+        character: kansatsu
+        text: "3回の成功データを見直したら、月曜だっただけでなく、3回とも晴れだった"
+        expression: thinking
+      - type: sprite
+        character: kansatsu
+        action: hide
+      - type: sprite
+        character: kasetsu
+        expression: normal
+        position: left
+      - type: dialog
+        character: kasetsu
+        text: "ジッケンはコンテストに出したくて、かなり急いでいた"
+      - type: dialog
+        character: kasetsu
+        text: "ジッケンはコンテストに出したくて、かなり急いでいた"
+        expression: thinking
+      - type: sprite
+        character: kasetsu
+        action: hide
+      - type: sprite
+        character: kenshou
+        expression: normal
+        position: right
+      - type: dialog
+        character: kenshou
+        text: "過去10回分のデータを集めて比べた"
+      - type: dialog
+        character: kenshou
+        text: "過去10回分のデータを集めて比べた"
+        expression: thinking
+      - type: sprite
+        character: kenshou
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ここまでの証拠をもとに、今回の原因を作った人物を選びましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - id: jikken
+            expression: thinking
+          - id: kansatsu
+            expression: thinking
+          - id: kasetsu
+            expression: thinking
+          - id: kenshou
+            expression: thinking
+      - type: choice
+        id: culprit
+        question: "今回の原因を作ったのはだれ?"
+        options:
+          - text: "ジッケン"
+            value: jikken
+            correct: false
+            feedback: "ジッケンは手がかりを持っているが、決め手は足りない。"
+          - text: "カンサツ"
+            value: kansatsu
+            correct: false
+            feedback: "カンサツは手がかりを持っているが、決め手は足りない。"
+          - text: "カセツ"
+            value: kasetsu
+            correct: false
+            feedback: "カセツは手がかりを持っているが、決め手は足りない。"
+          - text: "ケンショウ"
+            value: kenshou
+            correct: true
+            feedback: "ケンショウの行動が、証拠といちばん一致している。"
+      - type: sprite
+        character: jikken
+        action: hide
+      - type: sprite
+        character: kansatsu
+        action: hide
+      - type: sprite
+        character: kasetsu
+        action: hide
+      - type: sprite
+        character: kenshou
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: title_card
+        text: "真相"
+        subtitle: "ケンショウ"
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kenshou
+        expression: worried
+        position: center
+      - type: dialog
+        character: kenshou
+        text: "わたしの行動が原因だった。"
+      - type: sprite
+        character: kenshou
+        action: hide
+  - id: epilogue
+    bg: classroom
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "最後に、この事件から学べることを整理しましょう。"
+      - type: sprite_group
+        characters:
+          - id: jikken
+            expression: happy
+          - id: kansatsu
+            expression: happy
+          - id: kasetsu
+            expression: happy
+          - id: kenshou
+            expression: happy
+      - type: narration
+        text: "実験ミステリーの学びを、次の事件でも使ってみよう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: jikken
+        action: hide
+      - type: sprite
+        character: kansatsu
+        action: hide
+      - type: sprite
+        character: kasetsu
+        action: hide
+      - type: sprite
+        character: kenshou
+        action: hide
