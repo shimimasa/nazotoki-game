@@ -1,0 +1,370 @@
+meta:
+  id: medical-09
+  title: "健康データの謎"
+  series: "医療探偵団"
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  naoru:
+    name: "ナオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mibuki:
+    name: "ミブキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  iyashi:
+    name: "イヤシ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  genki:
+    name: "ゲンキ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "保健室の健康診断記録が書き換えられた可能性がある。"
+      - type: narration
+        text: "山田先生が発見したのは、「前回の記録」と「今回の記録」の間に「医学的にあり得ない変化」が起きているデータだ。"
+      - type: narration
+        text: "しかし記録は全員分ある。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: naoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: naoru
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: determined }
+          - { id: mibuki, expression: thinking }
+          - { id: iyashi, expression: thinking }
+          - { id: genki, expression: worried }
+      - type: narration
+        text: "「医療探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "医療探偵団"
+        subtitle: "Vol.9 健康データの謎"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "全員の健康診断記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、一見正常に見える数値のリストためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "健康指標の正常範囲と変化率の基準表"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、帰納的比較の基準ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "健康診断の記録担当者リスト"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、ナオルの担当指標を特定できるためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "「体重だけ変化が大きい」という異常を発見した山田先生のメモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、注目すべき指標を絞るためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "ナオルとの1対1確認記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、前提破壊。帰納的推理の完結ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: naoru
+        expression: worried
+        position: left
+      - type: dialog
+        character: naoru
+        text: "Card 5後、「1kgだけ変えた。でもそれが矛盾を作り出した。正直に言えばよかった」と告白する場面"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mibuki
+        text: "追加HOの正常範囲表と照合し、「この数値はルールの外」と特定する場面"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: iyashi
+        text: "前回と今回の体重差を計算し、「1ヶ月で5kgの増加はあり得ない」と発見する場面"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: genki
+        text: "健康データは自分のものだけじゃない。将来の自分の健康を守るための記録」と締める場面"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「健康診断の記録を変えた行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: normal }
+          - { id: mibuki, expression: normal }
+          - { id: iyashi, expression: normal }
+          - { id: genki, expression: worried }
+      - type: choice
+        id: q1
+        text: "健康診断の記録を変えた行動をしたのは誰？"
+        options:
+          - label: "ナオル"
+            value: naoru
+            correct: true
+            feedback: "ナオルの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "ミブキ"
+            value: mibuki
+            correct: false
+            feedback: "ミブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イヤシ"
+            value: iyashi
+            correct: false
+            feedback: "イヤシは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ゲンキ"
+            value: genki
+            correct: false
+            feedback: "ゲンキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "動機は、#12 約束を守る — ナオルは「秘密を守る」という約束のために、クラスメートの「体重を少なく書いてほしい」という頼みを断り切れず、測定値を変えて記録した。「たった1kgの違いだから大丈夫」と思っていたが、その変更が「1ヶ月で5kgの体重増加」という医学的にあり得ない前後変化を生む矛盾を作り出した。"
+      - type: dialog
+        character: sensei
+        text: "医学的根拠は、健康診断の各指標の正常範囲と変化率——"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: naoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: naoru
+        text: "Card 5後、「1kgだけ変えた。でもそれが矛盾を作り出した。正直に言えばよかった」と告白する場面"
+      - type: sprite
+        character: naoru
+        expression: determined
+      - type: dialog
+        character: naoru
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: naoru
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 健康診断の各指標（身長・体重・BMI・体温・視力）の意味と正常範囲を理解し、「あり得る変化」と「あり得ない変化」を数値から判断できるようにする\n・**サブ**: 帰納法スキル — 複数のデータを比較して「この全員に共通するパターン」を見つける"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: happy }
+          - { id: mibuki, expression: happy }
+          - { id: iyashi, expression: happy }
+          - { id: genki, expression: happy }
+      - type: narration
+        text: "医療探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

@@ -1,0 +1,370 @@
+meta:
+  id: medical-05
+  title: "消化のわな"
+  series: "医療探偵団"
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  naoru:
+    name: "ナオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mibuki:
+    name: "ミブキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  iyashi:
+    name: "イヤシ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  genki:
+    name: "ゲンキ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "マラソン大会の当日、4人は同じ弁当を食べたのに「お腹が痛くなった」「全然平気だった」に分かれた。"
+      - type: narration
+        text: "しかも「お腹が痛くなった」という言葉の意味が人によって全然違う——「食べた直後に痛い」「2時間後に痛い」「走った後に痛い」。"
+      - type: narration
+        text: "「同じもの食べたのになぜ差が出る？"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: mibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: mibuki
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: determined }
+          - { id: mibuki, expression: thinking }
+          - { id: iyashi, expression: thinking }
+          - { id: genki, expression: worried }
+      - type: narration
+        text: "「医療探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "医療探偵団"
+        subtitle: "Vol.5 消化のわな"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "4人の弁当メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、食材の差はほぼなし。量と時刻に差があるためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "4人の「お腹が痛い」の詳細証言"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、「お腹が痛い」の多義性を確認ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "消化のしくみ図"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、追加HOとして後で渡す（Card 5への伏線）ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "マラソン大会のタイムスケジュール"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、食後から走るまでの時間を計算できるためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "ミブキの当日朝の行動記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、前提破壊。「弁当の問題ではなく食べ方とタイミング」ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: naoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: naoru
+        text: "自分は食後30分休んでから走った。それが違いかも」と経験から提案する場面"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: worried
+        position: right
+      - type: dialog
+        character: mibuki
+        text: "Card 5後、「マラソンが不安で食べすぎた。牛乳も直前に飲んだ」と認める場面"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: iyashi
+        text: "4人の症状の発生時刻と内容を表に整理し、「時刻が全部違う」と発見する場面"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: genki
+        text: "追加HOの消化段階図を見て「体がサインを出してたんだ」とまとめる場面"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「食べ方・タイミングが腹痛の原因になった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: normal }
+          - { id: mibuki, expression: normal }
+          - { id: iyashi, expression: normal }
+          - { id: genki, expression: worried }
+      - type: choice
+        id: q1
+        text: "食べ方・タイミングが腹痛の原因になった行動をしたのは誰？"
+        options:
+          - label: "ナオル"
+            value: naoru
+            correct: false
+            feedback: "ナオルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミブキ"
+            value: mibuki
+            correct: true
+            feedback: "ミブキの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "イヤシ"
+            value: iyashi
+            correct: false
+            feedback: "イヤシは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ゲンキ"
+            value: genki
+            correct: false
+            feedback: "ゲンキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "動機は、#4 自分を守りたかった — ミブキはマラソン大会への不安から「体力をつけなければ」と考え、大量に食べすぎた上に、走る直前に牛乳を飲んだ。「食前に乳糖を摂取すると腸が刺激される」という仕組みを知らなかったため、走っている途中に腹痛になった。「弁当が悪かった」と言ったことで疑惑が生まれた。"
+      - type: dialog
+        character: sensei
+        text: "医学的根拠は、消化の段階——口（咀嚼・唾液アミラーゼ）→食道→胃（胃酸・胃液、約1〜4時間）→小腸（膵液・胆汁・消化酵素、約1〜4時間）→大腸（水分吸収）。運動中は消化器への血流が筋肉に回るため、食後すぐの激しい運動は消化不良・腹痛の原因になる。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: worried
+        position: center
+      - type: dialog
+        character: mibuki
+        text: "Card 5後、「マラソンが不安で食べすぎた。牛乳も直前に飲んだ」と認める場面"
+      - type: sprite
+        character: mibuki
+        expression: determined
+      - type: dialog
+        character: mibuki
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: mibuki
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 消化の仕組み（口から大腸まで）と各器官の役割を理解し、「食後すぐの激しい運動がなぜ体に負担か」を説明できる\n・**サブ**: 仮説検証スキル — 「この症状はこの段階の問題」という仮説を立て、証拠で検証する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: happy }
+          - { id: mibuki, expression: happy }
+          - { id: iyashi, expression: happy }
+          - { id: genki, expression: happy }
+      - type: narration
+        text: "医療探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

@@ -1,0 +1,370 @@
+meta:
+  id: medical-10
+  title: "広がる謎の病"
+  series: "医療探偵団"
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  naoru:
+    name: "ナオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mibuki:
+    name: "ミブキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  iyashi:
+    name: "イヤシ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  genki:
+    name: "ゲンキ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5年2組で3週間前から体調不良の子が増え続けている。"
+      - type: narration
+        text: "「感染予防を頑張っているのに広まり続ける」と山田先生も困惑している。"
+      - type: narration
+        text: "保健委員のイヤシが作成した感染経路マップでは「原因がわからない」となっているが、実は重要な情報が記録されていなかった。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: iyashi
+        expression: worried
+        position: center
+      - type: dialog
+        character: iyashi
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: determined }
+          - { id: mibuki, expression: thinking }
+          - { id: iyashi, expression: thinking }
+          - { id: genki, expression: worried }
+      - type: narration
+        text: "「医療探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "医療探偵団"
+        subtitle: "Vol.10 広がる謎の病"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: naoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: naoru
+        text: "自分の行動を告白し、「でも設備が整っていれば広まり方が違ったかも」と第2層への橋渡し"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mibuki
+        text: "環境データを見て「この数値はおかしい。こんな状態で\"気をつけろ\"は無理だ」と構造的問題を指摘する場面"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: worried
+        position: left
+      - type: dialog
+        character: iyashi
+        text: "Card 5後、「換気が足りないことを知ってた。でもそれを言ったら保健委員として失格だと思った。間違えた」と告白する場面"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: genki
+        text: "気をつけよう\"の言葉の裏に、環境を整える責任がある」と第2層の結論に感情的説得力を与える場面"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: normal }
+          - { id: mibuki, expression: normal }
+          - { id: iyashi, expression: normal }
+          - { id: genki, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ナオル"
+            value: naoru
+            correct: false
+            feedback: "ナオルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミブキ"
+            value: mibuki
+            correct: false
+            feedback: "ミブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イヤシ"
+            value: iyashi
+            correct: true
+            feedback: "イヤシの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "ゲンキ"
+            value: genki
+            correct: false
+            feedback: "ゲンキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、イヤシ（癒）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#20 かばう罪悪感 — イヤシは保健委員として感染経路マップを作成したが、「換気が不足していた」「手洗い場が足りない」という学校環境の問題を発見していた。しかし「先生に報告したら自分が批判される」という恐れと、「換気記録が不十分だった」という事実が保健委員の自分の責任に見えたため、換気記録を「問題なし」と改ざんした。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: worried
+        position: center
+      - type: dialog
+        character: iyashi
+        text: "Card 5後、「換気が足りないことを知ってた。でもそれを言ったら保健委員として失格だと思った。間違えた」と告白する場面"
+      - type: sprite
+        character: iyashi
+        expression: determined
+      - type: dialog
+        character: iyashi
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: iyashi
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・内容\n・換気記録を改ざんした犯人を特定した後、体調不良拡大の根本原因（環境要因: 換気不足・手洗い場不足）に気づき、「公衆衛生は個人の努力だけでなく環境整備も必要」を理解する\n・Vol.1-10の医学知識を振り返り、「手洗い・感染経路・免疫・薬・健康データ」が全てつながっていることに気づく"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: happy }
+          - { id: mibuki, expression: happy }
+          - { id: iyashi, expression: happy }
+          - { id: genki, expression: happy }
+      - type: narration
+        text: "医療探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

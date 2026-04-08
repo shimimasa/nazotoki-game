@@ -1,0 +1,370 @@
+meta:
+  id: medical-06
+  title: "感染経路マップ"
+  series: "医療探偵団"
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  naoru:
+    name: "ナオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mibuki:
+    name: "ミブキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  iyashi:
+    name: "イヤシ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  genki:
+    name: "ゲンキ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5年2組で「謎の感染症」が広まった。"
+      - type: narration
+        text: "クラスの半分が体調不良になったが、「どこからうつったのかわからない」と山田先生も首をかしげている。"
+      - type: narration
+        text: "「空気感染したに違いない」とクラスで噂になっているが、感染者の行動マップを見ると……空気感染では説明できない不思議なパターンがある。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: naoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: naoru
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: determined }
+          - { id: mibuki, expression: thinking }
+          - { id: iyashi, expression: thinking }
+          - { id: genki, expression: worried }
+      - type: narration
+        text: "「医療探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "医療探偵団"
+        subtitle: "Vol.6 感染経路マップ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "感染者リスト"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、感染の分布パターンを確認できるためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "感染経路の4種類と特徴"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、推理の基準となる医学知識カードためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "理科の授業記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、道具の流通経路の基礎情報ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "各自の行動記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、感染者だけが共有した物・場所を絞るためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "ナオルの手の荒れの記録と道具配布担当の証明"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、前提破壊。接触感染経路の完全解明ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: naoru
+        expression: worried
+        position: left
+      - type: dialog
+        character: naoru
+        text: "Card 5後、「道具を全部触った。ちょっと手が荒れてたけど大丈夫だと思った」と告白する場面"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mibuki
+        text: "条件付き公開で感染者の座席配置を確認し、「物理的なルートがある」と指摘する場面"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: iyashi
+        text: "感染者マップを整理し、「全員が同じ物を触ったグループだけ感染している」と発見する場面"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: genki
+        text: "手が荒れてるとき、触るものを気をつければよかった」とやさしく学びをまとめる場面"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「感染を広げた接触の起点となった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: normal }
+          - { id: mibuki, expression: normal }
+          - { id: iyashi, expression: normal }
+          - { id: genki, expression: worried }
+      - type: choice
+        id: q1
+        text: "感染を広げた接触の起点となった行動をしたのは誰？"
+        options:
+          - label: "ナオル"
+            value: naoru
+            correct: true
+            feedback: "ナオルの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "ミブキ"
+            value: mibuki
+            correct: false
+            feedback: "ミブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イヤシ"
+            value: iyashi
+            correct: false
+            feedback: "イヤシは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ゲンキ"
+            value: genki
+            correct: false
+            feedback: "ゲンキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "動機は、#8 みんなのために — ナオルは「理科のグループ実験で使う道具を全員のために準備しよう」と思い、実験道具（スポイト・試験管立て等）を一人で扱い、全班に配った。その際、ナオル自身が感染の初期症状（手に分泌物）があったが「ちょっとした手の荒れ」と思って気にしなかった。実験道具を介した接触感染が全班に広がった。"
+      - type: dialog
+        character: sensei
+        text: "医学的根拠は、- 接触感染: 感染者の分泌物→手・物の表面→別の人の手→粘膜。予防: 手洗い・消毒・物の共有避ける"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: naoru
+        expression: worried
+        position: center
+      - type: dialog
+        character: naoru
+        text: "Card 5後、「道具を全部触った。ちょっと手が荒れてたけど大丈夫だと思った」と告白する場面"
+      - type: sprite
+        character: naoru
+        expression: determined
+      - type: dialog
+        character: naoru
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: naoru
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 感染経路の4種類（接触・飛沫・空気・経口）の違いと、それぞれの予防法を理解する。「感染のパターン」から感染経路を逆算できるようになる\n・**サブ**: 全探索スキル — 全ての感染経路の可能性を網羅的に検討し、条件に合うものを特定する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: happy }
+          - { id: mibuki, expression: happy }
+          - { id: iyashi, expression: happy }
+          - { id: genki, expression: happy }
+      - type: narration
+        text: "医療探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

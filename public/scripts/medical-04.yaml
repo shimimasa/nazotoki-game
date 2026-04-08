@@ -1,0 +1,373 @@
+meta:
+  id: medical-04
+  title: "ほねのひみつ"
+  series: "医療探偵団"
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  naoru:
+    name: "ナオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mibuki:
+    name: "ミブキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  iyashi:
+    name: "イヤシ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  genki:
+    name: "ゲンキ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "体育の授業中、クラスメートのリョウくんが転んで「痛い！"
+      - type: narration
+        text: "動かせない！"
+      - type: narration
+        text: "」と言った。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: genki
+        expression: worried
+        position: center
+      - type: dialog
+        character: genki
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: genki
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: determined }
+          - { id: mibuki, expression: thinking }
+          - { id: iyashi, expression: thinking }
+          - { id: genki, expression: worried }
+      - type: narration
+        text: "「医療探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "医療探偵団"
+        subtitle: "Vol.4 ほねのひみつ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "リョウくんの症状の記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、医学的に骨折に近い症状が記録されているためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "転倒の目撃証言4本"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、証言の食い違いの全体像ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "骨折と打撲・筋肉痛の症状比較表"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、推理の基準となる医学知識カードためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "体育授業の進行記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、タイムラインの基礎情報ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "ゲンキとの1対1確認"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、視点転換。目的動機の直接証拠ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: naoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: naoru
+        text: "骨折の症状リスト（Card 3）を確認し、「これ全部当てはまってる」と指摘する場面"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mibuki
+        text: "条件付き公開で1対1ゲンキに「直接何を見たか」を問う場面"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: iyashi
+        text: "タイムラインを整理し、「この順序だとゲンキが最初に判断していたはず」と発見する場面"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        expression: worried
+        position: right
+      - type: dialog
+        character: genki
+        text: "Card 5後、「症状を見て\"骨折かも\"と思った。でも言えなかった」と告白する場面"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「保健室への連絡を遅らせる判断をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: normal }
+          - { id: mibuki, expression: normal }
+          - { id: iyashi, expression: normal }
+          - { id: genki, expression: worried }
+      - type: choice
+        id: q1
+        text: "保健室への連絡を遅らせる判断をしたのは誰？"
+        options:
+          - label: "ナオル"
+            value: naoru
+            correct: false
+            feedback: "ナオルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミブキ"
+            value: mibuki
+            correct: false
+            feedback: "ミブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イヤシ"
+            value: iyashi
+            correct: false
+            feedback: "イヤシは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ゲンキ"
+            value: genki
+            correct: true
+            feedback: "ゲンキの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人行動は、ゲンキ（元気）が誤った判断を下した行動"
+      - type: dialog
+        character: sensei
+        text: "動機は、#16 責任を背負いすぎた — ゲンキは体育係として「大げさにして体育の授業を台無しにしたくない」という責任感から、「たぶん筋肉を打っただけ」とリョウくんに言い聞かせ、保健室に連れて行くことを遅らせた。「もし骨折だったら自分のせいで悪化させてしまう」という恐れを「大丈夫」という言葉で抑え込んだ。"
+      - type: dialog
+        character: sensei
+        text: "医学的根拠は、骨折の主な症状——激しい痛み（特に押したとき）・腫れ・変形・その部位を動かせない。筋肉痛・打撲の症状——鈍い痛み・押すと痛むが動かせる・数時間後から痛みが増す。リョウくんの「動かせない」「触ると激しく痛む」は骨折の典型的な症状。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: genki
+        expression: worried
+        position: center
+      - type: dialog
+        character: genki
+        text: "Card 5後、「症状を見て\"骨折かも\"と思った。でも言えなかった」と告白する場面"
+      - type: sprite
+        character: genki
+        expression: determined
+      - type: dialog
+        character: genki
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 骨の役割（体を支える・臓器を守る・カルシウムの貯蔵）と骨折の症状を理解し、「骨折かもしれない」時の正しい対処（動かさない・すぐに大人に知らせる）を学ぶ\n・**サブ**: タイムライン再構成スキル — 「いつ・誰が・何を見た/言ったか」を時系列で並べて証言の矛盾を発見する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: happy }
+          - { id: mibuki, expression: happy }
+          - { id: iyashi, expression: happy }
+          - { id: genki, expression: happy }
+      - type: narration
+        text: "医療探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
