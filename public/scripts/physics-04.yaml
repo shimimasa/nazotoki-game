@@ -1,0 +1,373 @@
+meta:
+  id: physics-04
+  title: "滑った証拠"
+  series: "物理探偵団"
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  chikara:
+    name: "チカラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hikaru:
+    name: "ヒカル"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  omori:
+    name: "オモリ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "体育館の準備作業中、重ねて置いた段ボール箱が滑って転倒した。"
+      - type: narration
+        text: "ヒカルは「体育館の床が滑りやすくて危険だった。"
+      - type: narration
+        text: "床の管理を怠った当番が悪い」と主張し、当番のチカラに責任をなすりつけた。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: omori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: determined }
+          - { id: nami, expression: thinking }
+          - { id: hikaru, expression: thinking }
+          - { id: omori, expression: worried }
+      - type: narration
+        text: "「物理探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "物理探偵団"
+        subtitle: "Vol.4 滑った証拠"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "4か所測った。どこも基準内の摩擦係数だった。床は滑りやすくなっていない"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nami
+        text: "6段積みで重心が高い。底面がプラスチックで摩擦が小さい——転倒の条件が全部そろってる"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "床に跡があったから……でも、最初に積んだのは私だった。認めたくなかった"
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: right
+      - type: dialog
+        character: omori
+        text: "ヒカル、あのとき急いでた。早く積まないと怒られるって。だから高く積んだんじゃない？"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「荷物が転倒した本当の原因を作り、責任転嫁したのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: hikaru, expression: normal }
+          - { id: omori, expression: worried }
+      - type: choice
+        id: q1
+        text: "荷物が転倒した本当の原因を作り、責任転嫁したのは誰？"
+        options:
+          - label: "チカラ"
+            value: chikara
+            correct: false
+            feedback: "チカラは床の摩擦係数を正確に測定した側。管理は正常だった"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミは重心と積み方を分析した側"
+          - label: "ヒカル"
+            value: hikaru
+            correct: false
+            feedback: "ヒカルは急いで荷物を積んだ。プラスチック底面は木や床材より摩擦が小さく滑りやすい。さらに6段積みで重心が高くなっていた。床の摩擦係数は正常だった——問題は荷物の置き方だった。摩擦力は床だけでなく、接触面の素材も大きく影響する。正義感から誰かのせいにしたくなることはあるけど、事実を先に調べることが大切だよ"
+          - label: "オモリ"
+            value: omori
+            correct: true
+            feedback: "オモリは事故前後の状況を目撃した側"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ヒカルは荷物が転倒したとき、床に滑った跡があることを見て「床が滑りやすかった」と判断した。"
+      - type: dialog
+        character: sensei
+        text: "しかし実際は、ヒカル自身が段ボールを不安定に高く積み上げ、しかも底面がつるつるしたプラスチック製の板の上に置いていた。"
+      - type: dialog
+        character: sensei
+        text: "床のワックスの量は正常で、摩擦係数も基準内だった。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "ヒカル、あのとき急いでた。早く積まないと怒られるって。だから高く積んだんじゃない？"
+      - type: sprite
+        character: omori
+        expression: determined
+      - type: dialog
+        character: omori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・摩擦力: 摩擦力は接触面の素材・表面の状態・荷重によって変わる。「滑りやすい」の原因は床だけとは限らないことを理解する\n・タイムライン: 事故前後の出来事を時系列で整理し、原因と結果の順序を特定する推理スキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: hikaru, expression: happy }
+          - { id: omori, expression: happy }
+      - type: narration
+        text: "物理探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

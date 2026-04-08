@@ -1,0 +1,373 @@
+meta:
+  id: physics-03
+  title: "鏡のトリック"
+  series: "物理探偵団"
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  chikara:
+    name: "チカラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hikaru:
+    name: "ヒカル"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  omori:
+    name: "オモリ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の展示会でナミが作った「鏡を使った迷路装置」が展示された翌日、隣に展示されていたオモリの「万華鏡」に、ナミの装置のデザインが映り込んでいることが発覚した。"
+      - type: narration
+        text: "「ナミがオモリのアイデアを参考にしてデザインを決めた」という疑いが浮上した。"
+      - type: narration
+        text: "しかし光の反射の法則を理解すると、鏡に映る像は左右が逆——ナミのデザインがオモリの鏡に映っているのであって、アイデアを盗んだ証拠にはならない。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: omori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: determined }
+          - { id: nami, expression: thinking }
+          - { id: hikaru, expression: thinking }
+          - { id: omori, expression: worried }
+      - type: narration
+        text: "「物理探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "物理探偵団"
+        subtitle: "Vol.3 鏡のトリック"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "鏡の角度を変えると映る位置が変わった。今の配置だと確かにオモリの万華鏡に当たる"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nami
+        text: "目立つものを作りたかっただけ。隣に何が来るか確認しなかった……"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "見て。万華鏡に映ってるナミの装置、左右が逆になってる。コピーじゃないよ"
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: right
+      - type: dialog
+        character: omori
+        text: "私は盗まれたと思ったけど……光の仕組みを知ったら、ナミのせいにできないかも"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「映り込みが発生した原因を作ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: hikaru, expression: normal }
+          - { id: omori, expression: worried }
+      - type: choice
+        id: q1
+        text: "映り込みが発生した原因を作ったのは誰？"
+        options:
+          - label: "チカラ"
+            value: chikara
+            correct: false
+            feedback: "チカラは光の経路を実験で再現した側"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミが目立ちたいあまり、隣に何が置かれるかを確認せずに設置した。鏡の反射で映り込みが起きた。でも映り込みは\"アイデアのコピー\"とは全く違う——鏡に映る像は虚像であり、左右が反転する。コピーなら左右は同じはず。光の反射の仕組みを知っていれば、誤解は避けられた"
+          - label: "ヒカル"
+            value: hikaru
+            correct: false
+            feedback: "ヒカルは像が左右反転していることを発見した側"
+          - label: "オモリ"
+            value: omori
+            correct: true
+            feedback: "オモリは万華鏡を作った側で、映り込みを最初に気づいた側"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナミは展示会で「光の反射を使ったカッコいい装置を作ろう」と考え、複数の鏡を組み合わせた迷路装置を作った。"
+      - type: dialog
+        character: sensei
+        text: "承認欲求から目立つデザインにこだわり、隣に置かれる展示物のことを考えずに作業した。"
+      - type: dialog
+        character: sensei
+        text: "結果、ナミの装置の光が隣のオモリの万華鏡に映り込んだ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "私は盗まれたと思ったけど……光の仕組みを知ったら、ナミのせいにできないかも"
+      - type: sprite
+        character: omori
+        expression: determined
+      - type: dialog
+        character: omori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・光の反射: 光は鏡で「入射角＝反射角」の法則で反射し、映る像は左右が逆になる虚像であることを理解する\n・因果連鎖: 光源→反射→像の形成という連鎖を追って、現象の原因を特定する推理スキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: hikaru, expression: happy }
+          - { id: omori, expression: happy }
+      - type: narration
+        text: "物理探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

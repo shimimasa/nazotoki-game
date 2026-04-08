@@ -1,0 +1,373 @@
+meta:
+  id: physics-02
+  title: "音の旅"
+  series: "物理探偵団"
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  chikara:
+    name: "チカラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hikaru:
+    name: "ヒカル"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  omori:
+    name: "オモリ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "学校の夏祭り発表に向けた合奏練習。"
+      - type: narration
+        text: "ステージの端で合図の太鼓を打つ役のチカラが、バンドの演奏と全くタイミングが合わなかった。"
+      - type: narration
+        text: "「チカラが遅れた！"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: omori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: determined }
+          - { id: nami, expression: thinking }
+          - { id: hikaru, expression: thinking }
+          - { id: omori, expression: worried }
+      - type: narration
+        text: "「物理探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "物理探偵団"
+        subtitle: "Vol.2 音の旅"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "ズレてるって気づいてた。でも自分がおかしいんだと思って……音のことは知らなかった"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nami
+        text: "20mを音速で割ると0.059秒。計測したズレとほぼ同じ——これが証拠だ"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "3人はみんなバンド側にいた。チカラの場所からはバンドの音がどう聞こえたか、聞いていない"
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: right
+      - type: dialog
+        character: omori
+        text: "チカラ、本当は何か言いたいことがあるんじゃない？"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「タイミングがずれた本当の原因を隠して\"自分のミス\"と言っていたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: hikaru, expression: normal }
+          - { id: omori, expression: worried }
+      - type: choice
+        id: q1
+        text: "タイミングがずれた本当の原因を隠して\"自分のミス\"と言っていたのは誰？"
+        options:
+          - label: "チカラ"
+            value: chikara
+            correct: false
+            feedback: "チカラは\"ズレている\"と感じていた。でも\"自分の耳がおかしい\"と思い込んで本当のことを言えなかった。実は音には速さがある——空気の中を約340m/sで進む。20m離れた場所には0.06秒後に届く。チカラの耳は正確だった。次回は、端から合図する代わりに、バンドの演奏の音を聞きながらタイミングを合わせればいいんだ"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミは計算でズレの原因を証明した側"
+          - label: "ヒカル"
+            value: hikaru
+            correct: false
+            feedback: "ヒカルは証言と位置関係を照合した側"
+          - label: "オモリ"
+            value: omori
+            correct: true
+            feedback: "オモリはチカラの気持ちに気づいていた側"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "チカラは練習のとき、太鼓の音が合わないことに気づいていた。"
+      - type: dialog
+        character: sensei
+        text: "しかし「自分の感覚がずれているのかも」と思い込み、音の伝達時間という知識がないまま「自分が遅れた」と言ってしまった。"
+      - type: dialog
+        character: sensei
+        text: "さらに恥ずかしさから正確な状況を隠し、「次はうまくやる」とごまかしていた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "チカラ、本当は何か言いたいことがあるんじゃない？"
+      - type: sprite
+        character: omori
+        expression: determined
+      - type: dialog
+        character: omori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・音の伝わり方: 音は空気の振動として伝わり、距離が離れると届く時間がわずかに遅れることを理解する（音速約340m/s）\n・情報整理: 複数の証言と計測データを時系列で並べ、矛盾を解消する推理スキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: hikaru, expression: happy }
+          - { id: omori, expression: happy }
+      - type: narration
+        text: "物理探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
