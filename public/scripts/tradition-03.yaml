@@ -1,0 +1,370 @@
+meta:
+  id: tradition-03
+  title: "茶道のまちがい"
+  series: "伝統文化探偵団"
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: "ツムギ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kanade:
+    name: "カナデ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: "イブキ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kotono:
+    name: "コトノ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "茶道体験の授業のために準備された茶道具が、一部「正しくない配置」になっていた。"
+      - type: narration
+        text: "茶碗の向き・茶筅の位置・柄杓の置き方——どれが間違っていて、誰がそう並べたのか。"
+      - type: narration
+        text: "茶道の「一期一会（その場の出会いを大切にする心）」の精神と各道具の役割を理解しないと、何が「まちがい」かが判断できない。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: center
+      - type: dialog
+        character: kanade
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: determined }
+          - { id: kanade, expression: thinking }
+          - { id: ibuki, expression: thinking }
+          - { id: kotono, expression: worried }
+      - type: narration
+        text: "「伝統文化探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "伝統文化探偵団"
+        subtitle: "Vol.3 茶道のまちがい"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "炉は冬・風炉は夏」の区別を調べ出し、カード組み合わせの鍵情報を提供する場面"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: right
+      - type: dialog
+        character: kanade
+        text: "③反転で「風炉の配置」の存在を知り、「炉と風炉が違うとは知らなかった」と認める瞬間"
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "配置の細部を観察し「茶碗の向きが逆では？」と最初の矛盾を指摘する場面"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotono
+        text: "真相後、「一期一会って、今ここの季節に合わせることも含まれているんだね」と気づきを言語化する場面"
+      - type: sprite
+        character: kotono
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「炉の参考書を使って道具を並べ直したのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: normal }
+          - { id: kanade, expression: normal }
+          - { id: ibuki, expression: normal }
+          - { id: kotono, expression: worried }
+      - type: choice
+        id: q1
+        text: "炉の参考書を使って道具を並べ直したのは誰？"
+        options:
+          - label: "ツムギ"
+            value: tsumugi
+            correct: false
+            feedback: "ツムギは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "カナデ"
+            value: kanade
+            correct: true
+            feedback: "カナデの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "イブキ"
+            value: ibuki
+            correct: false
+            feedback: "イブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "コトノ"
+            value: kotono
+            correct: false
+            feedback: "コトノは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、カナデ（奏）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#7 守る — カナデは茶道体験の準備を手伝おうと、参考書の写真を見ながら道具を並べ直した。しかし参考書の写真は「炉の季節（冬）」の配置で、今の授業は「風炉の季節（夏）」。炉と風炉では道具の配置が左右・前後で異なる。カナデは「ちゃんと調べた」と思い込んでいたが、季節による配置の違いを見落とした。参考書を「正しいものとして信頼しすぎた」ことによる誤り。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: worried
+        position: center
+      - type: dialog
+        character: kanade
+        text: "③反転で「風炉の配置」の存在を知り、「炉と風炉が違うとは知らなかった」と認める瞬間"
+      - type: sprite
+        character: kanade
+        expression: determined
+      - type: dialog
+        character: kanade
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kanade
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 茶道の基本的な道具（茶碗・茶筅・柄杓・茶入・棗）の役割と、炉・風炉で配置が変わる理由を理解する\n・**サブ**: 因果連鎖スキル——「なぜその配置か」の理由の連鎖をたどって間違いを発見する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: happy }
+          - { id: kanade, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: kotono, expression: happy }
+      - type: narration
+        text: "伝統文化探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
