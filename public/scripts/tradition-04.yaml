@@ -1,0 +1,370 @@
+meta:
+  id: tradition-04
+  title: "祭りの忘れ物"
+  series: "伝統文化探偵団"
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: "ツムギ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kanade:
+    name: "カナデ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: "イブキ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kotono:
+    name: "コトノ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "地域の夏祭りの準備中、神輿に飾るはずの「鳳凰の飾り」が見当たらない。"
+      - type: narration
+        text: "飾りは地域の各組（町内会の班）が代々担当して作ってきたもの。"
+      - type: narration
+        text: "「誰かが持ち出した？"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kotono
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotono
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kotono
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: determined }
+          - { id: kanade, expression: thinking }
+          - { id: ibuki, expression: thinking }
+          - { id: kotono, expression: worried }
+      - type: narration
+        text: "「伝統文化探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "伝統文化探偵団"
+        subtitle: "Vol.4 祭りの忘れ物"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: tsumugi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "担当組記録と作業日程表を照合し、「コトノ家の組だけ作業が遅れていた」を特定する場面"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kanade
+        text: "タイムラインを組み立て直し、「飾りが消えた時刻には神輿担当が全員帰宅していた」と気づく場面"
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "留め具の状態から「急いで外した」「でも傷つけていない→慣れた人」を観察する場面"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotono
+        text: "Card 5後、「家の飾りをちゃんと祭りに間に合わせたかった。でも誰にも言わなかった」と認める瞬間"
+      - type: sprite
+        character: kotono
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「鳳凰の飾りを神輿から外して持ち帰ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: normal }
+          - { id: kanade, expression: normal }
+          - { id: ibuki, expression: normal }
+          - { id: kotono, expression: worried }
+      - type: choice
+        id: q1
+        text: "鳳凰の飾りを神輿から外して持ち帰ったのは誰？"
+        options:
+          - label: "ツムギ"
+            value: tsumugi
+            correct: false
+            feedback: "ツムギは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "カナデ"
+            value: kanade
+            correct: false
+            feedback: "カナデは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イブキ"
+            value: ibuki
+            correct: false
+            feedback: "イブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "コトノ"
+            value: kotono
+            correct: true
+            feedback: "コトノの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、コトノ（言乃）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#16 責任を背負いすぎた — コトノの家は代々「鳳凰の飾り」を担当する組の一員だった。今年は担当の高齢のおじいさんが体調を崩し、作業が遅れていた。コトノは「自分が責任を持って修理してから神輿に付けよう」と思い、飾りを一人で取り外して家に持ち帰った。しかしそれを誰にも伝えていなかったため「消えた」と大騒ぎになった。飾りを「守りたかった」善意が、コミュニティへの連絡なしの単独行動という問題を生んだ。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotono
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotono
+        text: "Card 5後、「家の飾りをちゃんと祭りに間に合わせたかった。でも誰にも言わなかった」と認める瞬間"
+      - type: sprite
+        character: kotono
+        expression: determined
+      - type: dialog
+        character: kotono
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kotono
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 祭りが地域の「共同作業」であること、役割分担と報告・連絡・相談（ほうれんそう）の大切さを理解する\n・**サブ**: タイムライン再構成スキル——神輿の準備の時系列を組み立て直し、飾りが「いつなくなったか」を特定する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: happy }
+          - { id: kanade, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: kotono, expression: happy }
+      - type: narration
+        text: "伝統文化探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

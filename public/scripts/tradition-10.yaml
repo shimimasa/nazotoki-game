@@ -1,0 +1,370 @@
+meta:
+  id: tradition-10
+  title: "受け継ぐということ"
+  series: "伝統文化探偵団"
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  tsumugi:
+    name: "ツムギ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kanade:
+    name: "カナデ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  ibuki:
+    name: "イブキ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kotono:
+    name: "コトノ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "地域の伝統工芸の職人・山崎さんが学校に来て、手作りの「見本作品」を展示してくれた。"
+      - type: narration
+        text: "陶芸の小皿5枚——どれも長年受け継がれてきた技法で作られた本物だ。"
+      - type: narration
+        text: "ところが翌朝、展示されていた小皿の1枚が「新しい素材（高分子樹脂の絵の具）で塗り直された」痕跡があった。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsumugi
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: determined }
+          - { id: kanade, expression: thinking }
+          - { id: ibuki, expression: thinking }
+          - { id: kotono, expression: worried }
+      - type: narration
+        text: "「伝統文化探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "伝統文化探偵団"
+        subtitle: "Vol.10 受け継ぐということ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "展示作品の写真記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、前日と当日の小皿の写真比較。1枚だけ色合いが微妙に違うためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "美術室の使用記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、前夜21時以降の「美術室道具の使用ログ」。高分子樹脂絵の具が1本使われた記録ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "展示会場の見取り図"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、前夜の見回り担当表。ツムギが最後に展示会場の「鍵締め担当」だったことを示すためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "山崎さんの工房記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、山崎さんの「使用素材一覧」メモ。元々の小皿に使われた釉薬の成分と、新たに塗られた素材の違いが分かるためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "ツムギのメモと日本伝統工芸の素材変遷一覧"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、ツムギの手帳「割れていた。申し訳なくて修理した。でも本物の素材がなかった」+ 日本の陶芸・染物・漆工芸の素材が時代ごとに改良されてきた歴史年表ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: left
+      - type: dialog
+        character: tsumugi
+        text: "Card 5後、「割れていたのを見つけて、山崎さんに申し訳なくて。新しい素材しかなかったけど、できるだけ本物に近い色を出そうとした」と告白する"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kanade
+        text: "でも伝統の作品を勝手に変えていいの？」という問いを出し、第2層の議論に火を点ける"
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        expression: thinking
+        position: left
+      - type: dialog
+        character: ibuki
+        text: "実は昔の陶器も、時代ごとに素材が変わってきた。変わること自体は伝統の一部かもしれない」という帰納的発見をする"
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kotono
+        text: "ツムギは壊したかったんじゃなくて、大切にしたかった。それが伝わったら、山崎さんも分かってくれるんじゃないかな」と着地点を示す"
+      - type: sprite
+        character: kotono
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: normal }
+          - { id: kanade, expression: normal }
+          - { id: ibuki, expression: normal }
+          - { id: kotono, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ツムギ"
+            value: tsumugi
+            correct: true
+            feedback: "ツムギの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "カナデ"
+            value: kanade
+            correct: false
+            feedback: "カナデは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イブキ"
+            value: ibuki
+            correct: false
+            feedback: "イブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "コトノ"
+            value: kotono
+            correct: false
+            feedback: "コトノは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、ツムギ"
+      - type: dialog
+        character: sensei
+        text: "動機は、#20 かばう罪悪感 — ツムギは展示前夜、小皿の1枚が割れているのを発見した。「山崎さんの見本作品を壊してしまった」という恐怖から、近くにあった美術室の高分子樹脂絵の具で割れた箇所を補修し、さらに元の色に近いよう塗り直した。ツムギは「古い伝統工芸の素材が手に入らないので、新しい素材で似た色を再現した」が、それが「改ざん」に見えた。かばおうとした動機——誰かが割ったと思われることを恐れ、痕跡を消そうとした。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: tsumugi
+        expression: worried
+        position: center
+      - type: dialog
+        character: tsumugi
+        text: "Card 5後、「割れていたのを見つけて、山崎さんに申し訳なくて。新しい素材しかなかったけど、できるだけ本物に近い色を出そうとした」と告白する"
+      - type: sprite
+        character: tsumugi
+        expression: determined
+      - type: dialog
+        character: tsumugi
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: tsumugi
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・内容\n・見本作品を変えた犯人を特定した後、「伝統工芸の素材は歴史の中で何度も変わってきた」事実と向き合い、「守ること」と「変えること」の両方が継承の形であることを理解する\n・Vol.1-9で学んだ伝統文化の知識（正月・和紙・茶道・祭り・着物・和食・伝統芸能・建築・地域文化）が全てつながっていることに気づく"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tsumugi, expression: happy }
+          - { id: kanade, expression: happy }
+          - { id: ibuki, expression: happy }
+          - { id: kotono, expression: happy }
+      - type: narration
+        text: "伝統文化探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: tsumugi
+        action: hide
+      - type: sprite
+        character: kanade
+        action: hide
+      - type: sprite
+        character: ibuki
+        action: hide
+      - type: sprite
+        character: kotono
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
