@@ -1,0 +1,373 @@
+meta:
+  id: physics-07
+  title: "レンズのまぼろし"
+  series: "物理探偵団"
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  chikara:
+    name: "チカラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hikaru:
+    name: "ヒカル"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  omori:
+    name: "オモリ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の展示会でナミが制作した「凸レンズを使った実像装置」に、「怖いまぼろしを見せる危険な装置だ」という苦情が学校に届いた。"
+      - type: narration
+        text: "「スクリーンに逆さの像が映る」という現象が「まぼろしを見せている」と誤解されたのだ。"
+      - type: narration
+        text: "しかしナミの本当の意図は、焦点距離の先に実像が逆さに映るという現象（カメラや目のしくみと同じ）を体験させることだった。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: omori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: determined }
+          - { id: nami, expression: thinking }
+          - { id: hikaru, expression: thinking }
+          - { id: omori, expression: worried }
+      - type: narration
+        text: "「物理探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "物理探偵団"
+        subtitle: "Vol.7 レンズのまぼろし"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "焦点の先にスクリーンを置くと逆さの像が映った。まぼろしじゃない——本物の像だ"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nami
+        text: "友だちが怖がってた。だから\"なぜ逆さになるか\"の説明をカットした。でも……"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "説明文と原稿を比べると、\"光の屈折による原理\"の部分が全部消えてる"
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: right
+      - type: dialog
+        character: omori
+        text: "知らなかったら怖いよね。でも理由が分かったら——すごいと思う"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「\"まぼろし\"という誤解が広がった原因を作ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: hikaru, expression: normal }
+          - { id: omori, expression: worried }
+      - type: choice
+        id: q1
+        text: "\"まぼろし\"という誤解が広がった原因を作ったのは誰？"
+        options:
+          - label: "チカラ"
+            value: chikara
+            correct: false
+            feedback: "チカラは装置を実際に動かして実像を確認した側"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミは友だちが怖がるのを見て、\"なぜ逆さになるか\"の説明をカットした。でも説明が足りないと、科学現象が\"まぼろし\"に見える。凸レンズが作る逆さの像は\"実像\"——光の屈折という物理法則によって作られた本物の像。カメラも、あなたの目も、同じ仕組みで像を作っている。正しい説明こそが怖さを取り除く"
+          - label: "ヒカル"
+            value: hikaru
+            correct: false
+            feedback: "ヒカルは説明文と原稿を比べて省略箇所を発見した側"
+          - label: "オモリ"
+            value: omori
+            correct: true
+            feedback: "オモリは苦情を送った側の気持ちを代弁した側"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ナミは凸レンズが焦点距離の先に実像（上下左右逆の像）を結ぶという現象を展示した。"
+      - type: dialog
+        character: sensei
+        text: "「光の屈折で像ができる科学的な現象」として説明するつもりだったが、「光が集まって逆さの像が映る→まぼろし？"
+      - type: dialog
+        character: sensei
+        text: "」と怖がる友だちを見て、装置の説明から「なぜ逆さになるか」の部分を省略した。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "知らなかったら怖いよね。でも理由が分かったら——すごいと思う"
+      - type: sprite
+        character: omori
+        expression: determined
+      - type: dialog
+        character: omori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・光の屈折とレンズ: 凸レンズは光を曲げて集め、焦点距離の先に上下左右逆の実像を作る。これはカメラや目の仕組みと同じ原理\n・情報欠落: 証拠や説明の中に「省かれた情報」があることに気づき、欠けた情報が何かを特定する推理スキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: hikaru, expression: happy }
+          - { id: omori, expression: happy }
+      - type: narration
+        text: "物理探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

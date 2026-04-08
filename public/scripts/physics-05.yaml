@@ -1,0 +1,373 @@
+meta:
+  id: physics-05
+  title: "沈む理由"
+  series: "物理探偵団"
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  chikara:
+    name: "チカラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  hikaru:
+    name: "ヒカル"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  omori:
+    name: "オモリ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の実験で「鉄のボルトは水に沈む、木の板は浮く」という基本実験をしていた。"
+      - type: narration
+        text: "しかしチカラが実験セットを準備した後、「沈むはずのボルトが浮いている！"
+      - type: narration
+        text: "誰かが細工した！"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: omori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: determined }
+          - { id: nami, expression: thinking }
+          - { id: hikaru, expression: thinking }
+          - { id: omori, expression: worried }
+      - type: narration
+        text: "「物理探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "物理探偵団"
+        subtitle: "Vol.5 沈む理由"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: chikara
+        expression: thinking
+        position: left
+      - type: dialog
+        character: chikara
+        text: "砂を入れたら重くなるか試したかっただけ……浮力が変わるとは思ってなかった"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: right
+      - type: dialog
+        character: nami
+        text: "水の密度が1.15。通常の水は1.0——これは砂か何かが混ざっている値だ"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: hikaru
+        text: "水の底を見て。砂みたいな細かいものが沈んでる。水自体が変わってる"
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: right
+      - type: dialog
+        character: omori
+        text: "チカラ、水槽の前で砂袋持ってたよね。あのとき何してたの？"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「浮力実験に問題を起こした行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: hikaru, expression: normal }
+          - { id: omori, expression: worried }
+      - type: choice
+        id: q1
+        text: "浮力実験に問題を起こした行動をしたのは誰？"
+        options:
+          - label: "チカラ"
+            value: chikara
+            correct: false
+            feedback: "チカラは\"砂を入れると水が重くなるか\"という疑問から砂を加えた。結果、水の密度が上がって浮力が増し、ボルトが浮いた。浮力は液体の密度に比例する——密度が高いほど浮きやすくなる。チカラの疑問は科学的に正しかった。次は仮説を立てて、まず先生に相談してから実験しよう"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミは水の密度を測定して証明した側"
+          - label: "ヒカル"
+            value: hikaru
+            correct: false
+            feedback: "ヒカルは砂の沈殿を観察して発見した側"
+          - label: "オモリ"
+            value: omori
+            correct: true
+            feedback: "オモリはチカラの実験前の行動を目撃した側"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "チカラは実験準備中、「水に砂を入れたら水が重くなるかな？"
+      - type: dialog
+        character: sensei
+        text: "」と好奇心から少量の砂を水槽に加えた。"
+      - type: dialog
+        character: sensei
+        text: "結果、砂を含んだ水の密度が上がり、ボルトに働く浮力が通常より大きくなって、本来沈むはずのボルトが浮いた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: omori
+        expression: worried
+        position: center
+      - type: dialog
+        character: omori
+        text: "チカラ、水槽の前で砂袋持ってたよね。あのとき何してたの？"
+      - type: sprite
+        character: omori
+        expression: determined
+      - type: dialog
+        character: omori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: omori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・浮力と密度: 浮力は液体の密度に比例する。密度が高い液体ほど浮力が大きくなり、普段は沈む物体が浮くことを理解する\n・仮説検証: 複数の仮説（ボルト・水・容器）を順番に立て、実験で確認する科学的思考のプロセスを体験する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: chikara, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: hikaru, expression: happy }
+          - { id: omori, expression: happy }
+      - type: narration
+        text: "物理探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: chikara
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: hikaru
+        action: hide
+      - type: sprite
+        character: omori
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
