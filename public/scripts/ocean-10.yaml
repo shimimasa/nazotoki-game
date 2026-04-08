@@ -1,0 +1,370 @@
+meta:
+  id: ocean-10
+  title: "海の沈黙"
+  series: "海洋探偵団"
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  shioru:
+    name: "シオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  minato:
+    name: "ミナト"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kai:
+    name: "カイ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "海洋研究の学習発表会で提出された「海と気候」のレポートの数値が書き換えられていた。"
+      - type: narration
+        text: "「海面上昇は50年で5cm」と書いてあるが、元データでは「50年で20cm以上」が正しい。"
+      - type: narration
+        text: "犯人はナミ——「友だちがこのデータを見て絶望すると思って」数値を小さく変えた。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: nami
+        expression: worried
+        position: center
+      - type: dialog
+        character: nami
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: determined }
+          - { id: minato, expression: thinking }
+          - { id: nami, expression: thinking }
+          - { id: kai, expression: worried }
+      - type: narration
+        text: "「海洋探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "海洋探偵団"
+        subtitle: "Vol.10 海の沈黙"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: shioru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shioru
+        text: "この研究論文のデータ、20cmを超えてる。レポートの5cmとは一致しない。誰かが変えた"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minato
+        text: "海は地球の体温計。海が変われば、嵐も雨も変わる。その変化を知らないと、準備も対策もできない"
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        expression: worried
+        position: left
+      - type: dialog
+        character: nami
+        text: "Card 5後「カイに絶望してほしくなかった。でも数値を変えることで海が変わるわけじゃない。知ってもらわないといけなかった"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kai
+        text: "私がそう言ったから、ナミはデータを変えた。ごめん。でも——正確に知らないと、何もできないよね"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: normal }
+          - { id: minato, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: kai, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "シオル"
+            value: shioru
+            correct: false
+            feedback: "シオルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミナト"
+            value: minato
+            correct: false
+            feedback: "ミナトは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ナミ"
+            value: nami
+            correct: true
+            feedback: "ナミは大切な友人カイが絶望しないように、データを書き換えました。その気持ちは本物の優しさです。でも数値を変えても、海の現実は変わりません。海は地球の気候調節装置——CO2を吸収し、熱を蓄え、循環で気温を調整しています。その変化を正確に知ることが、\"どう行動するか\"を考える出発点になります。正確なデータは怖くない——それは行動への地図です"
+          - label: "カイ"
+            value: kai
+            correct: false
+            feedback: "カイは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、ナミ"
+      - type: dialog
+        character: sensei
+        text: "動機は、#20 かばう罪悪感 — ナミは、海面上昇・海水温上昇・酸性化の正確なデータを見た友人（カイ）が「未来がないみたい」とつぶやいているのを聞いた。ナミは「私がこのデータを提出したら、カイを絶望させる」と感じ、数値を小さく書き換えることでカイをかばおうとした。しかしデータを隠すことは問題解決にならない。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: nami
+        expression: worried
+        position: center
+      - type: dialog
+        character: nami
+        text: "Card 5後「カイに絶望してほしくなかった。でも数値を変えることで海が変わるわけじゃない。知ってもらわないといけなかった"
+      - type: sprite
+        character: nami
+        expression: determined
+      - type: dialog
+        character: nami
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: nami
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・海洋と気候の関係（CO2吸収・熱蓄積・深層循環・海面上昇の連鎖）を理解し、海の変化が地球規模で連動することを説明できる\n・複合推理+メタ認知スキル — 第1層（犯人特定）と第2層（なぜ正確なデータが必要か）を接続し、「知ることの意味」を自分自身で問い直す"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: happy }
+          - { id: minato, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: kai, expression: happy }
+      - type: narration
+        text: "海洋探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

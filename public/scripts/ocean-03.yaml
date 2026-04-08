@@ -1,0 +1,370 @@
+meta:
+  id: ocean-03
+  title: "しずまない荷物"
+  series: "海洋探偵団"
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  shioru:
+    name: "シオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  minato:
+    name: "ミナト"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kai:
+    name: "カイ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "海の科学実験発表会で、ナミが「卵を海水に入れたら沈んだ」というデータを発表した。"
+      - type: narration
+        text: "しかし他の班のデータと明らかに矛盾する——海水なら卵は浮くはずだ。"
+      - type: narration
+        text: "ナミの実験は「失敗」ではなく「改ざん」の可能性が浮上する。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: nami
+        expression: worried
+        position: center
+      - type: dialog
+        character: nami
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: determined }
+          - { id: minato, expression: thinking }
+          - { id: nami, expression: thinking }
+          - { id: kai, expression: worried }
+      - type: narration
+        text: "「海洋探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "海洋探偵団"
+        subtitle: "Vol.3 しずまない荷物"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: shioru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shioru
+        text: "海水3.5%で再現したら絶対浮く。ナミのだけ沈むのはおかしい"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minato
+        text: "試料瓶の残液を測ったら塩分濃度が2.1%しかなかった。海水じゃない"
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        expression: worried
+        position: left
+      - type: dialog
+        character: nami
+        text: "Card 5後「本当は正しく実験してた。でも発表データだけ書き換えた」と認める場面"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kai
+        text: "目立ちたい気持ちは分かるよ。でも、もし改ざんが正しいなら、本当の海の研究も全部嘘になっちゃう"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「実験データを改ざんしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: normal }
+          - { id: minato, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: kai, expression: worried }
+      - type: choice
+        id: q1
+        text: "実験データを改ざんしたのは誰？"
+        options:
+          - label: "シオル"
+            value: shioru
+            correct: false
+            feedback: "シオルは再現実験で正しい結果を出した調査側だよ"
+          - label: "ミナト"
+            value: minato
+            correct: false
+            feedback: "ミナトは試料瓶の残液を測定した調査側だよ"
+          - label: "ナミ"
+            value: nami
+            correct: true
+            feedback: "ナミは目立ちたい気持ちから海水を薄めました。でも塩分濃度を変えると浮力も変わります——これは物理の法則。海水が真水より浮力が大きいのは、塩分が水の密度を高めるからです。海の塩は単なる味付けではなく、海に浮かぶ力を生んでいるのです。科学の正直さも、海の塩のように大切です"
+          - label: "カイ"
+            value: kai
+            correct: false
+            feedback: "カイはナミの状況を理解しようとした側だよ"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、ナミ"
+      - type: dialog
+        character: sensei
+        text: "動機は、#9 承認欲求 — ナミは「沈んだ」という珍しいデータで目立とうとした。「みんなと同じ結果（浮く）より、違う結果（沈んだ）の方が発表が面白い」と思い、海水に真水を足してデータを改ざんした。実際の実験は正しく行っていたが、発表用データを書き換えた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: nami
+        expression: worried
+        position: center
+      - type: dialog
+        character: nami
+        text: "Card 5後「本当は正しく実験してた。でも発表データだけ書き換えた」と認める場面"
+      - type: sprite
+        character: nami
+        expression: determined
+      - type: dialog
+        character: nami
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: nami
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・海水の塩分濃度と浮力の関係を理解する（アルキメデスの原理の基礎、塩分→密度→浮力の因果連鎖）\n・因果連鎖スキル — 「塩分濃度が変わる→密度が変わる→浮力が変わる→卵が浮く/沈む」を段階的に追う"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: happy }
+          - { id: minato, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: kai, expression: happy }
+      - type: narration
+        text: "海洋探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

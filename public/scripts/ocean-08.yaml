@@ -1,0 +1,370 @@
+meta:
+  id: ocean-08
+  title: "波の記憶"
+  series: "海洋探偵団"
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  shioru:
+    name: "シオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  minato:
+    name: "ミナト"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kai:
+    name: "カイ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "海沿いの避難所の防波堤に刻まれた「津波浸水ライン」の表示が消えていた。"
+      - type: narration
+        text: "地域の防災担当者が「記録を更新しようとしたら前の表示が見えない」と気づいた。"
+      - type: narration
+        text: "仲間が調べると、ミナトが「古くて意味がない」と言って記録写真を捨て、表示テープを剥がしていたことが分かる。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: minato
+        expression: worried
+        position: center
+      - type: dialog
+        character: minato
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: minato
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: determined }
+          - { id: minato, expression: thinking }
+          - { id: nami, expression: thinking }
+          - { id: kai, expression: worried }
+      - type: narration
+        text: "「海洋探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "海洋探偵団"
+        subtitle: "Vol.8 波の記憶"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: shioru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shioru
+        text: "テープの跡と廃棄された写真の断片が一致する。これを捨てたのは1人だけだ"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        expression: worried
+        position: right
+      - type: dialog
+        character: minato
+        text: "追加HO後「自分の家がそこにあるって知ったとき、消したくなった。でも消しても津波は変わらない"
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nami
+        text: "この浸水ラインは1960年チリ地震津波と2011年の記録から算出してる。古くない、今でも有効な科学的根拠だ"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kai
+        text: "ミナトは生き物が大好きで、海も大切にしてた。でも怖いものから目を逸らしたくなるのは分かる"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「浸水ラインを消したのは誰？（なぜ消したの？）」"
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: normal }
+          - { id: minato, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: kai, expression: worried }
+      - type: choice
+        id: q1
+        text: "浸水ラインを消したのは誰？（なぜ消したの？）"
+        options:
+          - label: "シオル"
+            value: shioru
+            correct: false
+            feedback: "シオルは現場の物証を調べた調査側だよ"
+          - label: "ミナト"
+            value: minato
+            correct: true
+            feedback: "ミナトは自分の家が浸水ライン内にあると知り、その事実から逃げたくて消してしまいました。怖い情報を見ないようにする気持ち——これは人間なら誰でも感じます。でも津波の浸水記録は、過去の津波を生き延びた人々の経験から作られた科学的なデータです。津波は通常の波と全く違います——地震で海底が動き、海水の柱全体が動く。浅瀬で波高が急増し、陸に押し寄せる。その到達範囲を知ることが、命を守る第一歩です"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミは津波のデータを分析した調査側だよ"
+          - label: "カイ"
+            value: kai
+            correct: false
+            feedback: "カイはミナトの気持ちを最初に理解しようとした側だよ"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、ミナト"
+      - type: dialog
+        character: sensei
+        text: "動機は、#4 自己防衛 — ミナトは津波の浸水ラインが「自分の家の近く」を示していることに気づき、怖くなった。「この記録は古いから意味がない」と自分に言い聞かせて写真を捨て、テープを剥がすことで怖さから逃げようとした。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: minato
+        expression: worried
+        position: center
+      - type: dialog
+        character: minato
+        text: "追加HO後「自分の家がそこにあるって知ったとき、消したくなった。でも消しても津波は変わらない"
+      - type: sprite
+        character: minato
+        expression: determined
+      - type: dialog
+        character: minato
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: minato
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・津波のメカニズム（地震→海底変動→長波→浅水変形→浸水）を理解し、浸水記録の科学的意味を学ぶ\n・認知バイアスのスキル — 「怖い情報を見ないようにする」という認知バイアスを認識し、科学的な直視と対話する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: happy }
+          - { id: minato, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: kai, expression: happy }
+      - type: narration
+        text: "海洋探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
