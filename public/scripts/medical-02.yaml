@@ -1,0 +1,373 @@
+meta:
+  id: medical-02
+  title: "インフルかぜかどっち"
+  series: "医療探偵団"
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  naoru:
+    name: "ナオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mibuki:
+    name: "ミブキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  iyashi:
+    name: "イヤシ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  genki:
+    name: "ゲンキ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5年2組で欠席者が増えてきた。"
+      - type: narration
+        text: "担任の先生は「みんなただの風邪でしょう」と言っているが、保健室のイヤシが記録した症状メモには気になる点がある。"
+      - type: narration
+        text: "「急に38.5℃まで上がった」「全身が痛い」「頭が激しく痛む」——これは本当に「ただの風邪」だろうか？"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: iyashi
+        expression: worried
+        position: center
+      - type: dialog
+        character: iyashi
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: determined }
+          - { id: mibuki, expression: thinking }
+          - { id: iyashi, expression: thinking }
+          - { id: genki, expression: worried }
+      - type: narration
+        text: "「医療探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "医療探偵団"
+        subtitle: "Vol.2 インフルかぜかどっち"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "欠席者リストと症状メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全体の感染状況を把握ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "風邪とインフルエンザの症状比較表"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、推理の基準となる医学知識カードためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "4人の登校前の体調証言"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、「大丈夫」という主観的判断の記録ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "体育の授業後の更衣室使用記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、感染タイミングの絞り込みためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "イヤシの検査結果"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、靴が落ちる瞬間。情報追加ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: naoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: naoru
+        text: "密談で「正直に教えて。昨日の朝、体はどんな感じだった？」と直接聞く場面"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mibuki
+        text: "症状比較表を作り、「風邪なら徐々に出るはず。急に38℃以上なのはおかしい」と指摘する場面"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: worried
+        position: left
+      - type: dialog
+        character: iyashi
+        text: "Card 5後、「全身が痛かった。でも\"熱があるだけ\"と思っていた」と告白する場面"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: genki
+        text: "真相後、「自分が怖い・つらいと感じたら、それは体からのサイン」と締める場面"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「インフルエンザだったのに登校した行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: normal }
+          - { id: mibuki, expression: normal }
+          - { id: iyashi, expression: normal }
+          - { id: genki, expression: worried }
+      - type: choice
+        id: q1
+        text: "インフルエンザだったのに登校した行動をしたのは誰？"
+        options:
+          - label: "ナオル"
+            value: naoru
+            correct: false
+            feedback: "ナオルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミブキ"
+            value: mibuki
+            correct: false
+            feedback: "ミブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イヤシ"
+            value: iyashi
+            correct: true
+            feedback: "イヤシの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "ゲンキ"
+            value: genki
+            correct: false
+            feedback: "ゲンキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人行動は、イヤシ（癒）が引き起こした誤認登校"
+      - type: dialog
+        character: sensei
+        text: "動機は、#11 好奇心 — イヤシは「医療探偵として、自分の症状を直接記録したかった」という好奇心から、38℃の熱があったにもかかわらず登校した。「自分はインフルじゃないはず。熱があってもすぐ下がるだろう」と楽観視していた。翌々日、イヤシがインフルエンザの検査で陽性と判明したが、その間にすでに他の子への感染が広まっていた。"
+      - type: dialog
+        character: sensei
+        text: "医学的根拠は、インフルエンザは発症前日から感染力を持ち、発症当日から2日間が最も感染力が高い。症状の特徴（急激な発症・高熱・全身症状）で風邪と区別できるが、初期は本人が「大丈夫」と思い込みやすい。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: worried
+        position: center
+      - type: dialog
+        character: iyashi
+        text: "Card 5後、「全身が痛かった。でも\"熱があるだけ\"と思っていた」と告白する場面"
+      - type: sprite
+        character: iyashi
+        expression: determined
+      - type: dialog
+        character: iyashi
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: iyashi
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 風邪（徐々に発症・低〜中程度の熱・鼻・のどの症状が主体）とインフルエンザ（急激な発症・高熱38℃以上・全身の痛み・頭痛・倦怠感が主体）の違いを症状で判断できるようにする\n・**サブ**: 情報整理スキル——複数の症状データを分類・対比して、パターンを発見する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: happy }
+          - { id: mibuki, expression: happy }
+          - { id: iyashi, expression: happy }
+          - { id: genki, expression: happy }
+      - type: narration
+        text: "医療探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

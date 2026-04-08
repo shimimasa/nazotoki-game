@@ -1,0 +1,373 @@
+meta:
+  id: medical-08
+  title: "免疫のひみつ"
+  series: "医療探偵団"
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  naoru:
+    name: "ナオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  mibuki:
+    name: "ミブキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  iyashi:
+    name: "イヤシ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  genki:
+    name: "ゲンキ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "「去年かかったのと同じ風邪にまたかかった」——ゲンキが強く主張している。"
+      - type: narration
+        text: "「そんなはずない。"
+      - type: narration
+        text: "同じ病気には2度かからないはず」とイヤシが反論する。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: genki
+        expression: worried
+        position: center
+      - type: dialog
+        character: genki
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: genki
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: determined }
+          - { id: mibuki, expression: thinking }
+          - { id: iyashi, expression: thinking }
+          - { id: genki, expression: worried }
+      - type: narration
+        text: "「医療探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "医療探偵団"
+        subtitle: "Vol.8 免疫のひみつ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "ゲンキの今年と昨年の症状記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、症状の類似性を確認。「同じ感じ」ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "免疫のしくみ説明"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、推理の医学的根拠ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "インフルエンザウイルスの型の説明"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、「同じ症状でも別の型がある」ことを示す医学知識カードためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "クラスで今年流行したウイルスの検査報告"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、今年の流行型を特定できるためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "ゲンキの昨年・今年の検査結果の組み合わせ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、前提破壊。「別の型だから免疫が効かなかった」の直接証拠ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: naoru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: naoru
+        text: "カード組み合わせで「症状が同じ＝ウイルスが同じ、ではない」ことを発見する場面"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: mibuki
+        text: "体験談と記録を分けて考えることが大切」という視点を全体に提供する場面"
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: iyashi
+        text: "ウイルス型の記録を探し、「昨年A型・今年B型」という照合結果を提示する場面"
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        expression: worried
+        position: right
+      - type: dialog
+        character: genki
+        text: "Card 5後、「確かに症状は同じだった。でも体の中では違うことが起きていたんだね」と理解する場面"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「免疫の仕組みについて誤解した情報をクラスに広めてしまったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: normal }
+          - { id: mibuki, expression: normal }
+          - { id: iyashi, expression: normal }
+          - { id: genki, expression: worried }
+      - type: choice
+        id: q1
+        text: "免疫の仕組みについて誤解した情報をクラスに広めてしまったのは誰？"
+        options:
+          - label: "ナオル"
+            value: naoru
+            correct: false
+            feedback: "ナオルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミブキ"
+            value: mibuki
+            correct: false
+            feedback: "ミブキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "イヤシ"
+            value: iyashi
+            correct: false
+            feedback: "イヤシは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ゲンキ"
+            value: genki
+            correct: true
+            feedback: "ゲンキの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "動機は、#15 正義感の暴走 — ゲンキは「自分の体験が科学的に正しい証拠だ」という正義感から、「同じ風邪に2度かかった」という主張をクラスに広めた。「ワクチンは意味ない」「一度なっても次もなる」と言いふらしたことで、クラスの数人がワクチン接種を嫌がり始めた。ゲンキの体験は事実だが、「同じウイルス」ではなく「似た別の型のウイルス」によるもので、免疫の仕組みを誤解していた。"
+      - type: dialog
+        character: sensei
+        text: "医学的根拠は、免疫記憶の仕組み——白血球がウイルスを認識→抗体産生→B細胞が「記憶細胞」として残る→同じウイルスへの再暴露で素早く対応。インフルエンザウイルスはA型・B型・さらに株（H1N1, H3N2等）に分かれており、A型に免疫があってもB型には免疫がない。「同じ風邪」に見えても別の型なら免疫が効かないことがある。"
+      - type: dialog
+        character: sensei
+        text: "視点の矛盾は、ゲンキの体験（本人は「同じ風邪」）と、昨年と今年のウイルス型の検査記録（別の型）を照合すると、「同じウイルスに2度かかった」は誤りで「似た別の型にかかった」が正しいと判明する。「同じ症状＝同じウイルス」という誤解。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: genki
+        expression: worried
+        position: center
+      - type: dialog
+        character: genki
+        text: "Card 5後、「確かに症状は同じだった。でも体の中では違うことが起きていたんだね」と理解する場面"
+      - type: sprite
+        character: genki
+        expression: determined
+      - type: dialog
+        character: genki
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: genki
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 免疫の仕組み（白血球→抗体→免疫記憶→ワクチンの原理）を理解し、「同じウイルスには2度かかりにくい」が「似た別の型には効かない場合がある」ことを説明できる\n・**サブ**: 認知バイアスの認識スキル — 「体験談が正しいとは限らない」という認識バイアスを発見し、客観的データで修正する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: naoru, expression: happy }
+          - { id: mibuki, expression: happy }
+          - { id: iyashi, expression: happy }
+          - { id: genki, expression: happy }
+      - type: narration
+        text: "医療探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: naoru
+        action: hide
+      - type: sprite
+        character: mibuki
+        action: hide
+      - type: sprite
+        character: iyashi
+        action: hide
+      - type: sprite
+        character: genki
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
