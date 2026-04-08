@@ -1,5 +1,11 @@
 # 進捗ログ
 
+## 2026-04-08 10:20
+- Merge 8 Phase 3 branches into main, add 79 game scripts, sync catalog to 584 entries, and verify production build
+
+## 2026-04-08 08:55
+- Remove 70 incomplete game YAMLs and sync catalog
+
 ## 2026-04-08 08:48
 - Add fade-out effect to 140 game scripts (14 series)
 
