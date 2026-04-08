@@ -1,0 +1,370 @@
+meta:
+  id: security-02
+  title: "もれた住所"
+  series: "防犯探偵団"
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "カギルの家のポストに、差出人不明の手紙が届いた。"
+      - type: narration
+        text: "中身は「○○小学校5年のカギルくんへ。"
+      - type: narration
+        text: "おめでとう！"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kagiru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kagiru
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.2 もれた住所"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "不審な手紙の写真: 「○○小学校5年のカギルくん、ゲーム大会当選おめでとう！ 賞品を届けるので住所を確認させてください」。差出人不明"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "個人情報チェックシート: 「名前」「学校名」「住所」がどこから漏れうるか"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "密談メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索（密談後）ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "カギルのSNSアカウントの投稿履歴: 先週「○○小サッカー部、勝った！」というテキスト付きで写真を投稿"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "カギルの投稿写真の拡大画像: 背景に電柱の住所表示板"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamori
+        text: "電柱には住所が書いてある。表札があれば名前も分かる。この2つで家が特定できる」と説明"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "密談でマモリに「サッカーの写真を投稿した」と話し、Card 5後に「背景なんて気にしてなかった…」と気づく"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mihari
+        text: "当選通知なのに大会名がない。住所確認を求めている。これは個人情報を聞き出す手口だ」と見抜く"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: thinking
+        position: right
+      - type: dialog
+        character: anzen
+        text: "怖いけど、どこから漏れたか知れば、次は防げるよ」とカギルを励ます"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「カギルの住所が漏れた原因を作ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "カギルの住所が漏れた原因を作ったのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: false
+            feedback: "マモリは個人情報の知識を提供した側"
+          - label: "カギル"
+            value: kagiru
+            correct: true
+            feedback: "カギルは悪気なくサッカーの写真を投稿した。でも背景に電柱の住所表示板と表札が写っていた。投稿文の学校名と合わせれば、名前・学校・住所が全部分かる。写真を投稿するときは\"背景に何が写っているか\"を必ず確認しよう"
+          - label: "ミハリ"
+            value: mihari
+            correct: false
+            feedback: "ミハリは手紙の不審点を分析した側"
+          - label: "アンゼン"
+            value: anzen
+            correct: false
+            feedback: "アンゼンはカギルの気持ちに寄り添った側"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、カギル（鍵）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#6 つい・うっかり — カギルは先週、サッカーの試合で活躍した写真をSNS（家族共有のアカウント）に投稿した。「かっこいい写真だから見てほしい」と思っただけで、悪気はなかった。しかし写真の背景に電柱の住所表示板と自宅の表札が写り込んでいた。さらに投稿文に「○○小サッカー部、勝った！」と学校名を書いていた。これらの情報を組み合わせれば、名前・学校名・住所が特定できる。カギルは「住所なんて書いていない」と言うが、写真と投稿文から間接的に漏れていた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kagiru
+        text: "密談でマモリに「サッカーの写真を投稿した」と話し、Card 5後に「背景なんて気にしてなかった…」と気づく"
+      - type: sprite
+        character: kagiru
+        expression: determined
+      - type: dialog
+        character: kagiru
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kagiru
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・個人情報の間接漏洩: 写真の背景や投稿文から、名前・学校名・住所が特定される危険性を理解する\n・情報整理: 複数の手がかり（写真・投稿文・手紙の内容）を整理し、情報の流出経路を組み立てるスキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

@@ -1,0 +1,370 @@
+meta:
+  id: security-08
+  title: "写真のわな"
+  series: "防犯探偵団"
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ミハリがSNSに「今日のおやつ」「公園で遊んだ」「習い事の発表会」と毎日写真を投稿していた。"
+      - type: narration
+        text: "ある日、知らない人がミハリの習い事の教室の前にいたという情報が入った。"
+      - type: narration
+        text: "さらに、ミハリの行動パターン（何曜日に何時にどこにいるか）が詳しく分かっているかのように、曜日を狙ったタイミングだった。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: mihari
+        expression: worried
+        position: center
+      - type: dialog
+        character: mihari
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.8 写真のわな"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "事件報告: ミハリの習い事の教室前に知らない人が来ていた。「金曜日の16時ごろ」と情報提供。ミハリの習い事は金曜16時"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「写真の見えないデータ」カード: 写真にはExif情報"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "ミハリの過去3週間の投稿カレンダー: 月曜「おやつ」水曜「公園」金曜「習い事」が毎週繰り返し。曜日パターンが一目瞭然"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "4人のSNS利用状況比較: マモリ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "ミハリの追加HO + 写真1枚のExif情報表示画面: 位置情報=「○○市△△町3丁目"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamori
+        text: "写真の中に見えないデータがある。ここに場所が記録されてる。だから写真を投稿すると場所が分かる」と説明"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "3週間分を並べてみて。月曜はここ、水曜はここ、金曜はここ。パターンが完璧に読める」と可視化"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: worried
+        position: left
+      - type: dialog
+        character: mihari
+        text: "Card 5後、「位置情報なんて知らなかった。写真は見た目しか気にしてなかった」と認め、バイアスに気づく"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: thinking
+        position: right
+      - type: dialog
+        character: anzen
+        text: "ミハリは\"いいね\"が嬉しかっただけ。悪くない。でもこれからは位置情報を確認しようね」と寄り添う"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「投稿から行動パターンが特定されてしまったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "投稿から行動パターンが特定されてしまったのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: false
+            feedback: "マモリはExif情報の知識を提供した側"
+          - label: "カギル"
+            value: kagiru
+            correct: false
+            feedback: "カギルは投稿パターンを時系列で整理した側"
+          - label: "ミハリ"
+            value: mihari
+            correct: true
+            feedback: "ミハリは\"いいね\"が嬉しくて毎日投稿した。でも写真に位置情報が入っていて、曜日パターンまで読まれていた。1枚の写真は問題なく見えても、何枚も並べると行動パターンが丸見えになる。投稿前に①位置情報をオフにする②毎回同じ場所の写真を投稿しない、を覚えよう"
+          - label: "アンゼン"
+            value: anzen
+            correct: false
+            feedback: "アンゼンはミハリの気持ちに寄り添った側"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、ミハリ（見張）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#9 承認欲求 — ミハリは「いいね」が増えるのが嬉しくて、毎日欠かさず写真を投稿していた。月曜＝おやつの写真（自宅）、水曜＝公園で遊んだ写真（公園）、金曜＝習い事の発表会写真（教室）。位置情報をオンのまま投稿していたため、各写真に場所の情報が埋め込まれていた。さらに曜日ごとに同じ場所の写真を投稿していたため、「月曜は家、水曜は公園、金曜は習い事の教室」という行動パターンが読み取れた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: worried
+        position: center
+      - type: dialog
+        character: mihari
+        text: "Card 5後、「位置情報なんて知らなかった。写真は見た目しか気にしてなかった」と認め、バイアスに気づく"
+      - type: sprite
+        character: mihari
+        expression: determined
+      - type: dialog
+        character: mihari
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: mihari
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・位置情報と行動パターン: 写真にはExif情報として位置データが埋め込まれること。複数の投稿から行動パターンが特定されるリスクを理解する\n・認知バイアスの認識: 「1枚の写真は問題ない」→「複数を組み合わせると行動パターンが見える」のバイアスに気づく"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
