@@ -1,0 +1,367 @@
+meta:
+  id: peace-01
+  title: "けんかの地図"
+  series: "平和探偵団"
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  nagi:
+    name: "ナギ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hibiki:
+    name: "ヒビキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  miwa:
+    name: "ミワ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kotoha:
+    name: "コトハ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "昼休みの掃除の時間、グループAとグループBが言い合いになった。"
+      - type: narration
+        text: "先生が仲裁に入ったが「先に悪口を言ったのはどっちか」でまた揉めている。"
+      - type: narration
+        text: "4人の探偵団は二グループの言い分をそれぞれ聞き、「けんかの地図」（タイムライン）を作り、本当の出発点を探す。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: determined }
+          - { id: hibiki, expression: thinking }
+          - { id: miwa, expression: thinking }
+          - { id: kotoha, expression: worried }
+      - type: narration
+        text: "「平和探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "平和探偵団"
+        subtitle: "Vol.1 けんかの地図"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: nagi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nagi
+        text: "タイムラインを完成させ、「先に言った」と「蓄積の始まり」の時間軸のズレを指摘"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "中盤で「でも蓄積があったなら話が変わる…」と立場を変える成長の場面"
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: miwa
+        text: "Card 5後、「私の言い方が相手を傷つけていた」と気づく瞬間"
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "不満ノート」の感情を読み上げ、「蓄積」の重みを全員に伝える場面"
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: normal }
+          - { id: hibiki, expression: normal }
+          - { id: miwa, expression: normal }
+          - { id: kotoha, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ナギ"
+            value: nagi
+            correct: false
+            feedback: "ナギは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ヒビキ"
+            value: hibiki
+            correct: false
+            feedback: "ヒビキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミワ"
+            value: miwa
+            correct: false
+            feedback: "ミワは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "コトハ"
+            value: kotoha
+            correct: true
+            feedback: "コトハの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "動機は、#10 誤解・勘違い — ミワはグループAの代表として掃除のやり方を提案したが、「私のやり方が正しい」という言い方がグループBを傷つけた。ミワは自分の言い方に問題があったとは思っておらず、「正しいことを言っただけ」と信じている。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "不満ノート」の感情を読み上げ、「蓄積」の重みを全員に伝える場面"
+      - type: sprite
+        character: kotoha
+        expression: determined
+      - type: dialog
+        character: kotoha
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 対立の構造（きっかけ・エスカレート・表面化）を理解し、「先に言った方が悪い」という単純化が問題を解決しないことを説明できる\n・**サブ**: 消去法を使い、「いつ・誰が・何を言ったか」のタイムラインを整理する推理スキルを体験する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: happy }
+          - { id: hibiki, expression: happy }
+          - { id: miwa, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "平和探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

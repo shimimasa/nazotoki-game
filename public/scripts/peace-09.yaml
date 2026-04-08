@@ -1,0 +1,367 @@
+meta:
+  id: peace-09
+  title: "三つの事件の共通点"
+  series: "平和探偵団"
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  nagi:
+    name: "ナギ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hibiki:
+    name: "ヒビキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  miwa:
+    name: "ミワ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kotoha:
+    name: "コトハ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "平和探偵団のアーカイブに、過去の「クラス争い解決記録」が3件保管されていた。"
+      - type: narration
+        text: "事件A（去年の体育着紛失騒動）、事件B（図書委員会の権力争い）、事件C（卒業アルバムの写真問題）——それぞれ「解決した」と記録されているが、なぜか全員がモヤモヤしたまま。"
+      - type: narration
+        text: "現在、新しい争いが起きている。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: determined }
+          - { id: hibiki, expression: thinking }
+          - { id: miwa, expression: thinking }
+          - { id: kotoha, expression: worried }
+      - type: narration
+        text: "「平和探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "平和探偵団"
+        subtitle: "Vol.9 三つの事件の共通点"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: nagi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nagi
+        text: "帰納法で3件から「交渉型が失敗する条件（力関係の不均衡・感情が高ぶっているとき）」を導く場面"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "Card 5後、「万能な方法はない。状況を読むことが大事」と成長する場面"
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: miwa
+        text: "情報の欠損そのものが手がかり」と気づき、隠された記録の存在を推測する場面"
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "解決法の多様性」を感情で語り、押しつけのない解決策の大切さを語る場面"
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: normal }
+          - { id: hibiki, expression: normal }
+          - { id: miwa, expression: normal }
+          - { id: kotoha, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ナギ"
+            value: nagi
+            correct: false
+            feedback: "ナギは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ヒビキ"
+            value: hibiki
+            correct: false
+            feedback: "ヒビキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミワ"
+            value: miwa
+            correct: false
+            feedback: "ミワは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "コトハ"
+            value: kotoha
+            correct: true
+            feedback: "コトハの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "動機は、#9 承認欲求 — ヒビキは「交渉型（自分で話し合って解決する）」の解決法が最も優れていると信じており、今回の争いでもその方法を押し進めていた。しかし過去記録を分析すると、交渉型が失敗したケースが複数あった。ヒビキはその記録を「見せるべきではない」と判断し、引き出しの奥に隠していた。「自分の方法が失敗した記録を見られたくなかった」という承認欲求が動機。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "解決法の多様性」を感情で語り、押しつけのない解決策の大切さを語る場面"
+      - type: sprite
+        character: kotoha
+        expression: determined
+      - type: dialog
+        character: kotoha
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・**メイン**: 謝罪型・交渉型・仲介型の3つの紛争解決スタイルを理解し、それぞれの適した状況と限界を説明できる\n・**サブ**: 帰納法スキル——複数の事例から共通するパターンを抽出する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: happy }
+          - { id: hibiki, expression: happy }
+          - { id: miwa, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "平和探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
