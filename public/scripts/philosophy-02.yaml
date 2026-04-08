@@ -1,0 +1,373 @@
+meta:
+  id: philosophy-02
+  title: "やさしいうそ"
+  series: "哲学探偵団"
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  tetsu:
+    name: "テツ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sokura:
+    name: "ソクラ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rojika:
+    name: "ロジカ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  moya:
+    name: "モヤ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "友だちのリナが描いた絵を「上手だね！"
+      - type: narration
+        text: "」と褒めたソクラ。"
+      - type: narration
+        text: "でも本心では上手だと思っていなかった。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: moya
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: determined }
+          - { id: sokura, expression: thinking }
+          - { id: rojika, expression: thinking }
+          - { id: moya, expression: worried }
+      - type: narration
+        text: "「哲学探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "哲学探偵団"
+        subtitle: "Vol.2 やさしいうそ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "リナの証言"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「嘘の種類」カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "テツの時系列メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "ロジカの分析メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "先生のメモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: tetsu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tetsu
+        text: "嘘がバレた経路」を特定"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sokura
+        text: "密談で「守りたかった」と正直に話す"
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rojika
+        text: "やさしい理由があっても、嘘をつかれた人は傷つく"
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: right
+      - type: dialog
+        character: moya
+        text: "どっちの気持ちも分かる。だからもやもやする"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「リナに嘘をついたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: normal }
+          - { id: sokura, expression: normal }
+          - { id: rojika, expression: normal }
+          - { id: moya, expression: worried }
+      - type: choice
+        id: q1
+        text: "リナに嘘をついたのは誰？"
+        options:
+          - label: "テツ"
+            value: tetsu
+            correct: false
+            feedback: "テツは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ソクラ"
+            value: sokura
+            correct: false
+            feedback: "ソクラのやさしさは本物。でも\"やさしい嘘\"がバレたとき、\"嘘をつかれた\"傷が加わって、もっと痛くなった。嘘をつくべきだったか——この問いに正解はない。でも考えること自体が大事"
+          - label: "ロジカ"
+            value: rojika
+            correct: false
+            feedback: "ロジカは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "モヤ"
+            value: moya
+            correct: true
+            feedback: "モヤの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "ソクラはリナの絵を見て「あまり上手じゃないな」と思った。"
+      - type: dialog
+        character: sensei
+        text: "でもリナが嬉しそうに見せてきたので、傷つけたくなくて「上手だね！"
+      - type: dialog
+        character: sensei
+        text: "」と言った。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "どっちの気持ちも分かる。だからもやもやする"
+      - type: sprite
+        character: moya
+        expression: determined
+      - type: dialog
+        character: moya
+        text: "すぐに答えを決めつけず、いろいろな考え方を比べてみるよ。"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・嘘と誠実のジレンマ: 「傷つけないための嘘」は常に正しいか\n・情報整理: 「誰が何を言ったか」を時系列で並べる力"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: happy }
+          - { id: sokura, expression: happy }
+          - { id: rojika, expression: happy }
+          - { id: moya, expression: happy }
+      - type: narration
+        text: "哲学探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

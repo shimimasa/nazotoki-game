@@ -1,0 +1,373 @@
+meta:
+  id: philosophy-07
+  title: "しずかな多数"
+  series: "哲学探偵団"
+  volume: 7
+  estimatedMinutes: 18
+
+characters:
+  tetsu:
+    name: "テツ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sokura:
+    name: "ソクラ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rojika:
+    name: "ロジカ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  moya:
+    name: "モヤ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "学級会の多数決で「校庭の木を切る」が可決された。"
+      - type: narration
+        text: "テツだけが「多い方が正しいとは限らない」と反論し、決定の実行を妨害した。"
+      - type: narration
+        text: "テツの動機は哲学的信念か、それとも自分の意見が負けたからか。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: moya
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: determined }
+          - { id: sokura, expression: thinking }
+          - { id: rojika, expression: thinking }
+          - { id: moya, expression: worried }
+      - type: narration
+        text: "「哲学探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "哲学探偵団"
+        subtitle: "Vol.7 しずかな多数"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: tetsu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tetsu
+        text: "多数決の限界は本当。でも自分が負けたのが悔しかったのも本当"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sokura
+        text: "テツの主張は正しい。でも\"なぜ今言うの？\"が引っかかる"
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rojika
+        text: "勝っていたら同じことを言った？ タイミングが不自然"
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: right
+      - type: dialog
+        character: moya
+        text: "テツはあの木が好きだった。負けたのが悔しいだけじゃない"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: normal }
+          - { id: sokura, expression: normal }
+          - { id: rojika, expression: normal }
+          - { id: moya, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "テツ"
+            value: tetsu
+            correct: false
+            feedback: "テツは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ソクラ"
+            value: sokura
+            correct: false
+            feedback: "ソクラは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ロジカ"
+            value: rojika
+            correct: false
+            feedback: "ロジカは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "モヤ"
+            value: moya
+            correct: true
+            feedback: "モヤの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "テツの反論には2つの層がある。"
+      - type: dialog
+        character: sensei
+        text: "表面的には「多数決の限界」という哲学的主張。"
+      - type: dialog
+        character: sensei
+        text: "しかし本音は「自分が木を守りたかったから負けたのが悔しい」（#4自己防衛）。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "テツはあの木が好きだった。負けたのが悔しいだけじゃない"
+      - type: sprite
+        character: moya
+        expression: determined
+      - type: dialog
+        character: moya
+        text: "すぐに答えを決めつけず、いろいろな考え方を比べてみるよ。"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・多数決と正しさ: 多い方が常に正しいとは限らないが、多数決を否定する動機にも注意が必要\n・情報欠落: テツの「本当の動機」が隠れていることに気づく"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: happy }
+          - { id: sokura, expression: happy }
+          - { id: rojika, expression: happy }
+          - { id: moya, expression: happy }
+      - type: narration
+        text: "哲学探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
