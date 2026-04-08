@@ -1,0 +1,370 @@
+meta:
+  id: weather-04
+  title: "雨の秘密"
+  series: "天気探偵団"
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  sora:
+    name: "ソラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kazeru:
+    name: "カゼル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kumori:
+    name: "クモリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  amene:
+    name: "アメネ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科室の水槽の水が、1週間で「蒸発するはずの量より多く」減っていた。"
+      - type: narration
+        text: "担当のアメネが「誰かが水を抜いた」と疑われているが、アメネは「蒸発で計算した量と合っている」と主張する。"
+      - type: narration
+        text: "しかし他の3人が計算すると「そんなに蒸発するはずがない」。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: amene
+        expression: worried
+        position: center
+      - type: dialog
+        character: amene
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: amene
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: determined }
+          - { id: kazeru, expression: thinking }
+          - { id: kumori, expression: thinking }
+          - { id: amene, expression: worried }
+      - type: narration
+        text: "「天気探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "天気探偵団"
+        subtitle: "Vol.4 雨の秘密"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "水槽の水量記録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "アメネの計算式"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、条件付き公開①ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "アメネの計算式"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、条件付き公開②ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "過去1週間の気象データ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、ソラのみためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "蒸発の仕組み図解＋飽和水蒸気量表"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員（GM配布）ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sora
+        text: "飽和水蒸気量表を提示して「湿度が高い日は蒸発しにくい」を示す場面"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kazeru
+        text: "タイムラインの「水を補給した日」の証言で推理を前進させる場面"
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kumori
+        text: "水差しの使用痕」という物的証拠でアメネの行動を裏付ける場面"
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        expression: worried
+        position: right
+      - type: dialog
+        character: amene
+        text: "一人で全部やろうとしていた」という真相が明かされる場面"
+      - type: sprite
+        character: amene
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: normal }
+          - { id: kazeru, expression: normal }
+          - { id: kumori, expression: normal }
+          - { id: amene, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ソラ"
+            value: sora
+            correct: false
+            feedback: "ソラは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "カゼル"
+            value: kazeru
+            correct: false
+            feedback: "カゼルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "クモリ"
+            value: kumori
+            correct: false
+            feedback: "クモリは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "アメネ"
+            value: amene
+            correct: true
+            feedback: "アメネの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、アメネ（雨音）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#16 責任を背負いすぎた — アメネは理科室の水槽担当として「水が減っていても自分がきちんと計算できているから大丈夫」と信じ、誰にも相談せずに1人でデータを管理していた。しかしアメネの蒸発量の計算式には誤りがある：蒸発量を「気温×風速」で計算していたが、正しくは「飽和水蒸気量と実際の水蒸気量の差（湿度）×風速×水面面積」で算出する。猛暑日に「気温が高い＝蒸発量が多い」は正しいが、「猛暑日に湿度が低かった」事実を計算に入れていなかった。結果として水槽の水は「蒸発で正常に減った」のではなく「蒸発量計算が過大評価だったため、実際にはもっと少量しか蒸発していなかった」——つまり誰かが水を補給した可能性がある。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: amene
+        expression: worried
+        position: center
+      - type: dialog
+        character: amene
+        text: "一人で全部やろうとしていた」という真相が明かされる場面"
+      - type: sprite
+        character: amene
+        expression: determined
+      - type: dialog
+        character: amene
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: amene
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・水の循環（蒸発→凝結→降水）の仕組みを理解し、蒸発量が気温だけでなく湿度・風速・水面面積に依存することを説明できる\n・時系列の出来事を順番に並べる「タイムライン」スキルを体験する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: happy }
+          - { id: kazeru, expression: happy }
+          - { id: kumori, expression: happy }
+          - { id: amene, expression: happy }
+      - type: narration
+        text: "天気探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

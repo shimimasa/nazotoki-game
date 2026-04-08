@@ -1,0 +1,370 @@
+meta:
+  id: weather-01
+  title: "消えた積乱雲"
+  series: "天気探偵団"
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  sora:
+    name: "ソラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kazeru:
+    name: "カゼル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kumori:
+    name: "クモリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  amene:
+    name: "アメネ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "夏休み明け、理科の気象観察日記を提出した日。"
+      - type: narration
+        text: "クモリの日記に「昨日の午後3時に積乱雲を観察した」と書かれていたが、ソラ・カゼル・アメネの3人の日記には「同じ時刻に積雲しか見えなかった」と記録されている。"
+      - type: narration
+        text: "「積乱雲が見えたはずの西の空」を4人で検証すると、時刻と方角の記録に矛盾が浮かぶ。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kumori
+        expression: worried
+        position: center
+      - type: dialog
+        character: kumori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: determined }
+          - { id: kazeru, expression: thinking }
+          - { id: kumori, expression: thinking }
+          - { id: amene, expression: worried }
+      - type: narration
+        text: "「天気探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "天気探偵団"
+        subtitle: "Vol.1 消えた積乱雲"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "クモリの気象観察日記"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "ソラの気象観察日記"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、ソラのみためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "カゼルの証言カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、カゼルのみためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "アメネの証言カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、アメネのみためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "雲の種類写真カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員（GM配布）ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sora
+        text: "雲の高さ・形の分類を整理し「積乱雲かどうかは形で判断できる」と説明する場面"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kazeru
+        text: "積乱雲には雷がともなう」という知識で「雷がなかったなら積乱雲じゃない」を主張する場面"
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        expression: worried
+        position: left
+      - type: dialog
+        character: kumori
+        text: "Card 5後、写真を見て「あ、これが積乱雲か。私が見たのと全然違う」と自分から気づく瞬間"
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        expression: thinking
+        position: right
+      - type: dialog
+        character: amene
+        text: "誰でも見間違える。大事なのは正確な知識を持つこと」とクモリに寄り添う場面"
+      - type: sprite
+        character: amene
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: normal }
+          - { id: kazeru, expression: normal }
+          - { id: kumori, expression: normal }
+          - { id: amene, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ソラ"
+            value: sora
+            correct: false
+            feedback: "ソラは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "カゼル"
+            value: kazeru
+            correct: false
+            feedback: "カゼルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "クモリ"
+            value: kumori
+            correct: true
+            feedback: "クモリの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "アメネ"
+            value: amene
+            correct: false
+            feedback: "アメネは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、クモリ（曇）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#10 誤解・勘違い — クモリは確かに大きな雲を見た。しかしそれは積乱雲ではなく「積雲」だった。クモリは「たくさんもこもこしていたから積乱雲」と思い込んで記録した。積乱雲は垂直に20km以上伸びる雲であり、雷や強雨をともなう。クモリが見た積雲は横に広がる白い雲で、積乱雲とは形も高さもまったく異なる。Card 5で「積乱雲の写真」と「積雲の写真」が提示されると、クモリ自身が「あ、これが積乱雲か。見た雲とは全然違う」と気づく。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kumori
+        expression: worried
+        position: center
+      - type: dialog
+        character: kumori
+        text: "Card 5後、写真を見て「あ、これが積乱雲か。私が見たのと全然違う」と自分から気づく瞬間"
+      - type: sprite
+        character: kumori
+        expression: determined
+      - type: dialog
+        character: kumori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kumori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・雲の10種類（積乱雲・積雲・層雲・巻雲など）の見分け方を知り、積乱雲が雷・強雨の前兆であることを説明できる\n・消去法を使い、条件に合わない選択肢を除外する推理スキルを体験する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: happy }
+          - { id: kazeru, expression: happy }
+          - { id: kumori, expression: happy }
+          - { id: amene, expression: happy }
+      - type: narration
+        text: "天気探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

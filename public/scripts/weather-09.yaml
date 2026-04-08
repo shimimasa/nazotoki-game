@@ -1,0 +1,370 @@
+meta:
+  id: weather-09
+  title: "データの嵐"
+  series: "天気探偵団"
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  sora:
+    name: "ソラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kazeru:
+    name: "カゼル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kumori:
+    name: "クモリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  amene:
+    name: "アメネ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "気象観測データの比較発表会で、カゼルが提出したデータグラフに「過去10年で最多の降水量が先月だった」という記述が含まれていた。"
+      - type: narration
+        text: "しかし気象庁のアメダスデータと照合すると、先月は「平年並みの降水量」だったことがわかる。"
+      - type: narration
+        text: "「カゼルのグラフが嘘をついている」と疑われたが、追加HOで「カゼルが使ったデータの種類が違う」ことが徐々に浮かびあがる。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kazeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kazeru
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: determined }
+          - { id: kazeru, expression: thinking }
+          - { id: kumori, expression: thinking }
+          - { id: amene, expression: worried }
+      - type: narration
+        text: "「天気探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "天気探偵団"
+        subtitle: "Vol.9 データの嵐"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "4人のグラフ比較"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "カゼルのグラフ原本"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、クモリのみためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "気象庁サイトの使い方メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、追加HO（全員）ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "カゼルの発表準備メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、カゼルのみためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "気象庁の「月別降水量」グラフと「累積降水量」グラフの比較図"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員（GM配布）ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sora
+        text: "月別降水量と累積降水量の違いを丁寧に説明する場面"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kazeru
+        text: "前夜の大雨で確認できなかった。急いでいた」と認める場面"
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kumori
+        text: "グラフの縦軸の単位の違いに最初に気づく場面"
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        expression: thinking
+        position: right
+      - type: dialog
+        character: amene
+        text: "焦っていたのはわかる。でも数値の種類を確認することが正確さを守る」を伝える場面"
+      - type: sprite
+        character: amene
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: normal }
+          - { id: kazeru, expression: normal }
+          - { id: kumori, expression: normal }
+          - { id: amene, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ソラ"
+            value: sora
+            correct: false
+            feedback: "ソラは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "カゼル"
+            value: kazeru
+            correct: true
+            feedback: "カゼルの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "クモリ"
+            value: kumori
+            correct: false
+            feedback: "クモリは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "アメネ"
+            value: amene
+            correct: false
+            feedback: "アメネは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、カゼル（風）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#17 時間切れの焦り — 発表会の前夜、大雨でデータの確認作業が中断された。翌朝、「今年は雨が多いな」と感じながら急いでグラフを仕上げたカゼルは、気象庁のサイトで「今年の降水量の累積グラフ（1月1日からの合計）」を見て「過去10年最多」という数値を見つけ、それを「先月の月別降水量」として記録してしまった。累積降水量は年が進むにつれて自動的に増加するため、11月のデータを使えば1月よりも数値は大きくなる。「最多」は事実だが、「先月（月別）が最多」ではなく「先月までの累積が年間で最多」というまったく別の意味だった。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kazeru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kazeru
+        text: "前夜の大雨で確認できなかった。急いでいた」と認める場面"
+      - type: sprite
+        character: kazeru
+        expression: determined
+      - type: dialog
+        character: kazeru
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kazeru
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・気象観測データの種類（月別降水量・累積降水量・平年値・アメダス）を理解し、データの「種類」が違うと比較できないことを説明できる\n・複数のデータから共通のパターンを見つけ、例外を特定する「帰納法」スキルを体験する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: happy }
+          - { id: kazeru, expression: happy }
+          - { id: kumori, expression: happy }
+          - { id: amene, expression: happy }
+      - type: narration
+        text: "天気探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
