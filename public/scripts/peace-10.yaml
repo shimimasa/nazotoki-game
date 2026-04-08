@@ -1,0 +1,367 @@
+meta:
+  id: peace-10
+  title: "平和をつくる"
+  series: "平和探偵団"
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  nagi:
+    name: "ナギ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  hibiki:
+    name: "ヒビキ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  miwa:
+    name: "ミワ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kotoha:
+    name: "コトハ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "5年3組では、1ヶ月前から「けんかゼロ作戦」が実施されていた。"
+      - type: narration
+        text: "全員が「けんかをしない」と宣言し、記録を取った結果——1ヶ月で学級日誌のけんかの件数はゼロになった。"
+      - type: narration
+        text: "それなのに、なぜか教室の雰囲気がおかしい。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: determined }
+          - { id: hibiki, expression: thinking }
+          - { id: miwa, expression: thinking }
+          - { id: kotoha, expression: worried }
+      - type: narration
+        text: "「平和探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "平和探偵団"
+        subtitle: "Vol.10 平和をつくる"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "学級日誌けんか記録の比較"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、けんかゼロ作戦前後1ヶ月のけんか件数グラフ。確かにゼロになっているためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "けんかゼロ宣言の呼びかけ文"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、「全員でけんかゼロを目指しましょう」という呼びかけ文書。下書きにナギの筆跡が残るためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "班活動議事録の分析"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、けんかゼロ作戦開始前後の「発言回数・提案件数・異論件数」の比較表。全て激減しているためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "ナギの個人ノート"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、「3週間前のけんかを止められなかった。もう同じ失敗はしたくない」という記述ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "クラスアンケートと積極的平和の概念メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、匿名アンケート「意見を言うのが怖い」「けんかになると思って黙っている」という回答群 + 山田先生のメモ「けんかがないこと（消極的平和）と、誰もが声を上げられること（積極的平和）は違う」ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: nagi
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nagi
+        text: "Card 5後、「けんかを止められなかった自分が嫌で。もうこういう思いはしたくなくて。でも……みんなが意見を言えなくなるとは思っていなかった」と打ち明ける"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        expression: thinking
+        position: right
+      - type: dialog
+        character: hibiki
+        text: "クラスに意見を言える場所がなくなってる。これってけんかのない状態とは違う問題だ」と第2層への橋渡しをする"
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        expression: thinking
+        position: left
+      - type: dialog
+        character: miwa
+        text: "帰納法で「けんかゼロになってから、発言・提案・異論が減っている。これが共通パターン」と気づき、積極的平和の欠如を指摘する"
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: right
+      - type: dialog
+        character: kotoha
+        text: "みんながけんかを怖れるようになってる。けんかがないのに怖い——これが本当の問題だ」と感情的説得力で第2層の結論を引き出す"
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: normal }
+          - { id: hibiki, expression: normal }
+          - { id: miwa, expression: normal }
+          - { id: kotoha, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ナギ"
+            value: nagi
+            correct: false
+            feedback: "ナギは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ヒビキ"
+            value: hibiki
+            correct: false
+            feedback: "ヒビキは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミワ"
+            value: miwa
+            correct: false
+            feedback: "ミワは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "コトハ"
+            value: kotoha
+            correct: true
+            feedback: "コトハの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "動機は、#20 かばう罪悪感 — ナギはクラスのけんかが続いていたとき、「自分が止められなかった」という強い罪悪感を持っていた。特に、3週間前に起きたミワとコトハの衝突——あのとき止められていれば——という悔いが深かった。ナギは「もうこういう思いはしたくない。クラスからけんかをなくそう」と考え、クラス日誌への「けんかゼロ宣言」の呼びかけを主導した。「けんかゼロ＝平和なクラス」という認知バイアスから出発した行為だった。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kotoha
+        expression: worried
+        position: center
+      - type: dialog
+        character: kotoha
+        text: "みんながけんかを怖れるようになってる。けんかがないのに怖い——これが本当の問題だ」と感情的説得力で第2層の結論を引き出す"
+      - type: sprite
+        character: kotoha
+        expression: determined
+      - type: dialog
+        character: kotoha
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kotoha
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・内容\n・「けんかゼロ作戦」を主導した人物を特定した後、「けんかがない＝平和」という認知バイアスを崩し、積極的平和（誰もが声を上げられる状態）と消極的平和（暴力がない状態）の違いを理解する\n・Vol.1-9で学んだ平和学の概念（対立構造・NVC・謝罪と赦し・偏見・公平と平等・Win-Win・構造的暴力・平和のシンボル・紛争解決）が全てつながっていることに気づく"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: nagi, expression: happy }
+          - { id: hibiki, expression: happy }
+          - { id: miwa, expression: happy }
+          - { id: kotoha, expression: happy }
+      - type: narration
+        text: "平和探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: nagi
+        action: hide
+      - type: sprite
+        character: hibiki
+        action: hide
+      - type: sprite
+        character: miwa
+        action: hide
+      - type: sprite
+        character: kotoha
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
