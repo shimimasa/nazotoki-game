@@ -1,0 +1,370 @@
+meta:
+  id: security-03
+  title: "やさしいメッセージ"
+  series: "防犯探偵団"
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "マモリが最近元気がない。"
+      - type: narration
+        text: "理由を聞いても「なんでもない」と言う。"
+      - type: narration
+        text: "ある日、マモリのタブレットに通知が来た。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: mamori
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.3 やさしいメッセージ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "マモリのタブレットのスクリーンショット: 「明日、駅前のゲームショップの前で会おうよ。レアカードあげるよ」というメッセージ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「ネットの人に会ってはいけない理由」カード: SNS誘い出しの代表的パターン"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "カード交換で得た4つの断片を整理するシート"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索（カード交換後）ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "マモリの最近の様子メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "山田先生がリュウのチャットログを全文確認した結果: プロフィール「中学1年」と会話内容「車の運転」「仕事」の矛盾を一覧化。「このパターンは大人がこどもに近づく典型的な手口です」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: worried
+        position: left
+      - type: dialog
+        character: mamori
+        text: "Card 5後、「本当は車の運転の話が変だなって思ってた。でも認めたくなかった」と打ち明ける"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "プロフィールに\"中学1年\"って書いてあるのに、車の運転の話をしてる。中学生は運転できないぞ」と矛盾を指摘"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mihari
+        text: "仕事が忙しい\"って、中学生は仕事してないよ。この人、中学生じゃない」と断定"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: thinking
+        position: right
+      - type: dialog
+        character: anzen
+        text: "寂しいときにやさしくされたら信じちゃうよ。マモリは悪くない。でも\"会おう\"だけは絶対ダメ」と寄り添う"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「ネットで知り合った人に会おうとしていたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "ネットで知り合った人に会おうとしていたのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: true
+            feedback: "マモリは寂しくて、やさしくしてくれたリュウを信じた。でもリュウのプロフィールには矛盾があった。\"やさしい\"からといって\"安全\"とは限らない。ネットで知り合った人に\"会おう\"と言われたら、必ず大人に相談しよう。それが自分を守るルールだよ"
+          - label: "カギル"
+            value: kagiru
+            correct: false
+            feedback: "カギルはリュウのプロフィール情報を提供した側"
+          - label: "ミハリ"
+            value: mihari
+            correct: false
+            feedback: "ミハリはチャットログの矛盾を発見した側"
+          - label: "アンゼン"
+            value: anzen
+            correct: false
+            feedback: "アンゼンはマモリの気持ちに寄り添った側"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、マモリ（守）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#14 寂しさ — マモリは最近、親が忙しくて家で1人の時間が多かった。ゲームアプリで話しかけてくれた「リュウ」が嬉しくて、やり取りを続けていた。リュウはいつも優しく、攻略法を教えてくれ、「困ったことがあったら相談して」と言ってくれた。マモリは「こんなに優しい人が悪い人のはずがない」と思い込んだ。しかしリュウのプロフィール（「中学1年生」）と実際の会話内容（大人しか知らないような話題が混ざっている）には矛盾があった。マモリは寂しさから、矛盾に気づかないふりをしていた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mamori
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamori
+        text: "Card 5後、「本当は車の運転の話が変だなって思ってた。でも認めたくなかった」と打ち明ける"
+      - type: sprite
+        character: mamori
+        expression: determined
+      - type: dialog
+        character: mamori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: mamori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・SNS誘い出しの手口: オンラインで親切に近づき、信頼を得てから「会おう」と誘う手口（グルーミング）の構造を理解し、「やさしい＝安全ではない」と判断できる力\n・因果連鎖: 出来事の原因と結果のつながりをたどり、どこで判断を間違えたかを特定するスキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

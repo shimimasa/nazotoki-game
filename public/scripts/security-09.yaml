@@ -1,0 +1,370 @@
+meta:
+  id: security-09
+  title: "暗い帰り道"
+  series: "防犯探偵団"
+  volume: 9
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "この1カ月で、下校時に3件のヒヤリハットが起きた。"
+      - type: narration
+        text: "①月曜日、裏道で不審な車が徐行していて怖い思いをした子がいた。"
+      - type: narration
+        text: "②翌週の水曜日、街灯のない路地で知らない大人に声をかけられた子がいた。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kagiru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kagiru
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.9 暗い帰り道"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "3件のヒヤリハット概要報告: ①月曜/裏道/不審な車 ②水曜/路地/声かけ ③金曜/廃屋前/人影。場所も曜日もバラバラ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「安全な通学路の条件」カード: ①明るい ②人通りが多い ③見通しが良い ④こども110番の家がある ⑤大通り沿い"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "3件の報告書の詳細: 各ヒヤリハットの場所の環境データ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "下級生の証言3件分: 「○○さんが近道だよって教えてくれた」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "山田先生の調査結果: 3件の通学路を実地調査。全てカギルが「近道」として案内。カギルの告白「早く帰れば安全だと思った」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamori
+        text: "3件の報告書を表に整理し、「場所の特徴×時間帯×経路」のパターン表を作成して共通点を見える化する場面"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: worried
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "Card 5後、「下級生のためだった。でも\"近い\"と\"安全\"は違うんだ」と認める。2回目投票で「明るい道を選ぶ」に自ら賛同"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mihari
+        text: "3件の通学路の環境（街灯の数・人通り・見通し距離）を比較し、「全部、安全な道の条件を満たしていない」と断定する場面"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: thinking
+        position: right
+      - type: dialog
+        character: anzen
+        text: "ヒヤリハットに遭った下級生の気持ちを代弁しつつ、「カギルの\"みんなのため\"って気持ちは本物」とフォローする場面"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「3件のヒヤリハットに共通する原因を作ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "3件のヒヤリハットに共通する原因を作ったのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: false
+            feedback: "マモリは報告書のパターンを分析した側"
+          - label: "カギル"
+            value: kagiru
+            correct: true
+            feedback: "カギルは下級生のために近道を教えた。でも3件とも街灯が少なく人通りがない裏道だった。\"早く帰る\"と\"安全に帰る\"は違う"
+          - label: "ミハリ"
+            value: mihari
+            correct: false
+            feedback: "ミハリは通学路の環境を比較した側"
+          - label: "アンゼン"
+            value: anzen
+            correct: false
+            feedback: "アンゼンはヒヤリハットに遭った子の気持ちを代弁した側"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、カギル（鍵）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#15 正義感暴走 — カギルは下級生が遠回りの大通りを歩いているのを見て、「近道を教えれば早く帰れる。安全のために早く帰るのがいい」と考えた。しかしカギルが選んだ「近道」は3本とも大通りから外れた裏道で、共通して①街灯が少ない ②人通りが少ない ③見通しが悪い という特徴があった。カギルは「早く帰る＝安全」と思い込んでいたが、「明るい・人が多い・見通しが良い道＝安全」が正しい基準。正義感が先走り、安全の基準を間違えていた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: worried
+        position: center
+      - type: dialog
+        character: kagiru
+        text: "Card 5後、「下級生のためだった。でも\"近い\"と\"安全\"は違うんだ」と認める。2回目投票で「明るい道を選ぶ」に自ら賛同"
+      - type: sprite
+        character: kagiru
+        expression: determined
+      - type: dialog
+        character: kagiru
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kagiru
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・安全な通学路の基準: 「近い・早い」ではなく「明るい・人が多い・見通しが良い」が安全の基準。近道が必ずしも安全ではない\n・帰納法: 複数のヒヤリハット報告書に共通するパターンを抽出し、根本原因を特定するスキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

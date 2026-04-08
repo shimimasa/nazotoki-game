@@ -1,0 +1,373 @@
+meta:
+  id: security-01
+  title: "知らない人のチャイム"
+  series: "防犯探偵団"
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "水曜日の放課後、アンゼンは1人で留守番をしていた。"
+      - type: narration
+        text: "16時ごろチャイムが鳴った。"
+      - type: narration
+        text: "インターホンの画面には荷物を持った大人が映っていた。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: anzen
+        expression: worried
+        position: center
+      - type: dialog
+        character: anzen
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.1 知らない人のチャイム"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "事件報告書: 水曜16時ごろ、留守番中の家にチャイムが鳴り、知らない人にドアを開けてしまった。相手は「お母さんの知り合い」を名乗ったが嘘だった"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "防犯ルールカード: 「留守番のとき知らない人が来たら①インターホンで確認②名前・会社を聞く③分からなければ\"今手が離せません\"と断る④絶対にドアを開けない」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "4人の水曜放課後の行動記録: カギル→友だちの家"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "インターホンの画面キャプチャ: 荷物を持った大人が映っている。制服なし・名札なし・社名ロゴなし。宅配業者の特徴がない"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "山田先生のメモ: アンゼンに聞いたところ「荷物を持っていたから宅配便だと思った。制服とか名札とか見なかった。開けたあと\"お母さんはいません\"って言っちゃった」と答えた"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamori
+        text: "宅配便かどうかは、制服・名札・社名で確認するんだよ」と防犯知識を披露"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "荷物を持ってたら宅配便だと思うよな…でもそれが危ないのか」と共感"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mihari
+        text: "インターホンの画面をよく見て——制服も名札もない。宅配便じゃない」と指摘"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: worried
+        position: right
+      - type: dialog
+        character: anzen
+        text: "荷物を持ってたから安全だと思った。でも見た目じゃ分からないんだね」と気づく"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「知らない人にドアを開けてしまったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "知らない人にドアを開けてしまったのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: false
+            feedback: "マモリは塾にいた。出席記録で確認済み"
+          - label: "カギル"
+            value: kagiru
+            correct: false
+            feedback: "カギルは友だちの家にいた。友だちのお母さんが証言している"
+          - label: "ミハリ"
+            value: mihari
+            correct: false
+            feedback: "ミハリは学校の委員会活動で残っていた。先生が証言している"
+          - label: "アンゼン"
+            value: anzen
+            correct: true
+            feedback: "アンゼンは荷物を持っていたから宅配便だと思ってドアを開けた。でも制服も名札も確認していなかった。さらに\"お母さんはいません\"と1人であることを教えてしまった。知らない人には絶対にドアを開けない。これが留守番の一番大事なルールだよ"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、アンゼン（安全）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#10 誤解 — アンゼンは「荷物を持っている人＝宅配便＝安全」と見た目で判断してドアを開けた。インターホンで確認したつもりだったが、制服・名札・社名ロゴといった「本当に宅配業者か」を確かめるポイントをチェックしていなかった。「届け物を頼まれた」という言葉も疑わなかった。さらに「お母さんはいません」と1人であることを伝えてしまった。アンゼンは「悪い人には見えなかった」と言うが、見た目で判断できないことが防犯の基本。"
+      - type: dialog
+        character: sensei
+        text: "消去法の推理は、4人のうち、その日に留守番をしていたのは誰か？ カギルは友だちの家にいた（証言あり）。マモリは塾に行っていた（塾の出席記録あり）。ミハリは学校の委員会活動で残っていた（先生の証言あり）。消去法でアンゼンだけが「1人で家にいた」と確定する。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: worried
+        position: center
+      - type: dialog
+        character: anzen
+        text: "荷物を持ってたから安全だと思った。でも見た目じゃ分からないんだね」と気づく"
+      - type: sprite
+        character: anzen
+        expression: determined
+      - type: dialog
+        character: anzen
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・留守番時の対応: 知らない人にはドアを開けない。インターホンで「誰ですか」「どこの会社ですか」を確認し、分からなければ「今、手が離せません」と断る判断力\n・消去法: 条件に合わない人を1人ずつ除外して、残った1人を特定する基本推理スキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

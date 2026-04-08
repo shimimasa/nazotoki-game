@@ -1,0 +1,370 @@
+meta:
+  id: security-10
+  title: "安全のネットワーク"
+  series: "防犯探偵団"
+  volume: 10
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "学校で「安全マップ」を作るプロジェクトが始まった。"
+      - type: narration
+        text: "校区内の「こども110番の家」「防犯カメラの位置」「街灯の数」「人通りの多い道」「危険箇所」を地図にまとめ、全校児童に配布する大切なプロジェクトだ。"
+      - type: narration
+        text: "防犯探偵団の4人が担当となり、それぞれのエリアを調査して安全マップを完成させた。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: mamori
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamori
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.10 安全のネットワーク"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: worried
+        position: left
+      - type: dialog
+        character: mamori
+        text: "Card 5後、「かばいたかった。でもそれだけじゃない。安全マップが本当に安全を守れるのかって思ったんだ」と告白する場面"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "自分の通学路問題を告白し、「でも危険な場所を\"安全\"にしたら、他の子が危ない」と第2層への橋渡し"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mihari
+        text: "地域の見守りネットワークの「穴」を帰納的に分析し、「マップだけじゃ足りない。見守りのしくみ自体に問題がある」と構造的課題を指摘する場面"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: thinking
+        position: right
+      - type: dialog
+        character: anzen
+        text: "しくみを作るのも人。人が欠けたらしくみも壊れる。だからみんなで支えないと」と第2層の結論に感情的説得力を与える場面"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: true
+            feedback: "マモリの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "カギル"
+            value: kagiru
+            correct: false
+            feedback: "カギルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ミハリ"
+            value: mihari
+            correct: false
+            feedback: "ミハリは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "アンゼン"
+            value: anzen
+            correct: false
+            feedback: "アンゼンは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、マモリ（守）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#20 かばう罪悪感 — マモリは調査中にカギルが「危険箇所」として報告した場所が、実はカギルの通学路であることに気づいた。その場所が「危険」としてマップに載ると、カギルの通学路が問題視され、「通学路を変更しなさい」と言われてしまう。カギルの通学路変更は遠回りになり、カギルが困る。マモリはカギルをかばうために「危険」を「安全」に書き換えた。しかし同時に、マモリは調査の過程で「安全マップだけで子どもの安全は守れるのか？」という疑問も感じていた。個人が「気をつける」だけでなく、地域の見守りネットワーク（こども110番の家・防犯カメラ・地域パトロール・見守りボランティア）という「しくみ」が必要だと。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mamori
+        expression: worried
+        position: center
+      - type: dialog
+        character: mamori
+        text: "Card 5後、「かばいたかった。でもそれだけじゃない。安全マップが本当に安全を守れるのかって思ったんだ」と告白する場面"
+      - type: sprite
+        character: mamori
+        expression: determined
+      - type: dialog
+        character: mamori
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: mamori
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・内容\n・安全マップを書き換えた犯人を特定した後、「個人の注意」だけでは安全は守れないことに気づき、地域の見守りネットワーク（こども110番の家・防犯カメラ・地域パトロール・見守りボランティア）という「しくみ」の必要性を理解する\n・Vol.1-10の防犯知識を振り返り、「留守番・SNS・個人情報・通学路・写真」が全てつながっていることに気づく"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

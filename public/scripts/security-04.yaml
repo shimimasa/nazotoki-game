@@ -1,0 +1,370 @@
+meta:
+  id: security-04
+  title: "ひとりの夕方"
+  series: "防犯探偵団"
+  volume: 4
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "金曜日の夕方、ミハリが1人で留守番をしていると電話が鳴った。"
+      - type: narration
+        text: "「お母さんの友だちのタナカです。"
+      - type: narration
+        text: "急な用事で連絡したいんだけど、お母さんは何時に帰る？"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: mihari
+        expression: worried
+        position: center
+      - type: dialog
+        character: mihari
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.4 ひとりの夕方"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "事件報告: 金曜夕方、留守番中に「お母さんの友だち」を名乗る電話。翌日、お母さんが「そんな友だちはいない」。近所で不審者目撃あり"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「留守番中の電話対応ルール」カード: ①家族の予定を教えない ②「今手が離せません」と答える ③名前・用件を聞く ④お母さんからかけ直す"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "4人の金曜夕方の行動記録 + 近所のおばさんの証言:「17時半ごろ、家の前に知らない人がいた」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "電話の着信記録: 17時02分に非通知着信。通話時間3分12秒。お母さんの携帯には着信履歴なし"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "山田先生のまとめ: 電話→17時02分「7時に帰る、お父さんは出張」と回答 → 17時半に不審者出現。「電話で留守の状況を確認し、30分後に現地を下見した可能性が高い」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamori
+        text: "お母さんの友だち\"って名乗っただけ。本当かどうか確認してない。名前と用件を聞いてかけ直すのがルール"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "電話が17時、不審者が17時半。電話のあとに来てる！ 電話の情報を使ったんだ」とタイムラインの因果を指摘"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: worried
+        position: left
+      - type: dialog
+        character: mihari
+        text: "条件付き公開後、「大人の人だから丁寧に答えなきゃって思った。でもそれが情報を渡すことになった」と振り返る"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: thinking
+        position: right
+      - type: dialog
+        character: anzen
+        text: "ミハリは悪くない。でも\"答えなくていい\"ことを知っておくのが大事」と寄り添う"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「電話で家族の情報を教えてしまったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "電話で家族の情報を教えてしまったのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: false
+            feedback: "マモリは防犯ルールの知識を提供した側"
+          - label: "カギル"
+            value: kagiru
+            correct: false
+            feedback: "カギルは不審者の目撃情報を調査した側"
+          - label: "ミハリ"
+            value: mihari
+            correct: true
+            feedback: "ミハリは\"大人の知り合い\"と名乗られて信じた。丁寧に答えようとしたのは立派だけど、電話の相手が本当にお母さんの友だちか分からない。知らない電話には\"今手が離せません。お母さんからかけ直します\"と言えば大丈夫。帰宅時間や誰がいないかは絶対に教えないこと"
+          - label: "アンゼン"
+            value: anzen
+            correct: false
+            feedback: "アンゼンはミハリの気持ちに寄り添った側"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、ミハリ（見張）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#4 自己防衛 — ミハリは「お母さんの友だち」と名乗られて、「大人の知り合いなら大丈夫」と思い込んだ。さらに「急な用事」と言われて焦り、早く対応しなければと感じて家族の帰宅時間と不在情報を伝えてしまった。ミハリは普段から「ちゃんとしなきゃ」という意識が強く、「大人の用事に丁寧に答えるのが正しい」と思っていた。結果として「何時まで子どもが1人でいるか」という情報を見知らぬ人に渡してしまった。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: worried
+        position: center
+      - type: dialog
+        character: mihari
+        text: "条件付き公開後、「大人の人だから丁寧に答えなきゃって思った。でもそれが情報を渡すことになった」と振り返る"
+      - type: sprite
+        character: mihari
+        expression: determined
+      - type: dialog
+        character: mihari
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: mihari
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・電話応対の防犯ルール: 知らない人からの電話では「親は今手が離せません」と答え、名前・用件を聞いてかけ直す。家族の帰宅時間・不在情報は絶対に教えない\n・タイムライン再構成: 電話の内容と不審者の目撃情報を時系列に並べ、情報が悪用された可能性を推理する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

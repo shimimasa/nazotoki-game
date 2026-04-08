@@ -1,0 +1,370 @@
+meta:
+  id: security-06
+  title: "落としたケータイ"
+  series: "防犯探偵団"
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  mamori:
+    name: "マモリ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kagiru:
+    name: "カギル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  mihari:
+    name: "ミハリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  anzen:
+    name: "アンゼン"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "アンゼンが家族のスマホを借りて公園で動画を撮っていた。"
+      - type: narration
+        text: "帰り道でスマホがないことに気づいたが、「公園のベンチに置き忘れたかも。"
+      - type: narration
+        text: "戻れば見つかる」と思い、恥ずかしくて誰にも言わなかった。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: anzen
+        expression: worried
+        position: center
+      - type: dialog
+        character: anzen
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: determined }
+          - { id: kagiru, expression: thinking }
+          - { id: mihari, expression: thinking }
+          - { id: anzen, expression: worried }
+      - type: narration
+        text: "「防犯探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "防犯探偵団"
+        subtitle: "Vol.6 落としたケータイ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "事件報告: お母さんの友だちに変なメッセージが届いた。家族のスマホが見つからない。最後に使ったのは昨日の夕方"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「スマホを落としたらどうする？」カード: ①すぐに大人に言う ②遠隔ロック"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "カード交換で得た4カテゴリの漏洩情報を整理するシート"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索（カード交換後）ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "スマホの設定状況: 画面ロックなし、自動ログインON、位置情報付き写真あり、連絡先リストにフルネーム登録"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "タイムライン: 土曜16時にスマホ紛失→アンゼンは誰にも言わず→日曜16時に公園に行くがスマホなし→日曜夜に悪用メッセージ発覚。「24時間の空白。すぐ言えば遠隔ロックで防げた」"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: mamori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mamori
+        text: "連絡先20人に悪用メッセージが送られた。でもすぐ遠隔ロックしていれば、こうはならなかった」と時間の重要性を説明"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kagiru
+        text: "落とした場所と見つからなかった場所は同じ。誰かが拾った。画面ロックがなければ中身は見放題」と現場状況を再現"
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        expression: thinking
+        position: left
+      - type: dialog
+        character: mihari
+        text: "メッセージの送信元を調べたら、落としたスマホの番号。連絡先リストから送ったんだ」と情報流出の経路を特定"
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: worried
+        position: right
+      - type: dialog
+        character: anzen
+        text: "Card 5後、「恥ずかしかった。でもそのせいでお母さんの友だちにまで迷惑をかけた」と後悔する"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「スマホの情報が漏れた原因を作ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: normal }
+          - { id: kagiru, expression: normal }
+          - { id: mihari, expression: normal }
+          - { id: anzen, expression: worried }
+      - type: choice
+        id: q1
+        text: "スマホの情報が漏れた原因を作ったのは誰？"
+        options:
+          - label: "マモリ"
+            value: mamori
+            correct: false
+            feedback: "マモリは対処法の知識を提供した側"
+          - label: "カギル"
+            value: kagiru
+            correct: false
+            feedback: "カギルは公園の状況を調査した側"
+          - label: "ミハリ"
+            value: mihari
+            correct: false
+            feedback: "ミハリは漏洩経路を分析した側"
+          - label: "アンゼン"
+            value: anzen
+            correct: true
+            feedback: "アンゼンは落としたのが恥ずかしくて言えなかった。でもその24時間で連絡先・写真・メッセージが全部見られた。すぐに大人に言えば遠隔ロックで防げた。\"恥ずかしい\"より\"すぐ言う\"が大事。それが自分と周りの人を守る方法だよ"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、アンゼン（安全）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#13 恥ずかしさ — アンゼンはスマホを落としたことが恥ずかしくて、「自分で見つければ大丈夫」と思い、誰にも言わなかった。その間にスマホを拾った人が画面ロックのないスマホから連絡先・写真・メッセージにアクセスし、情報が漏洩した。すぐに言っていれば、遠隔ロックやGPS追跡で被害を防げた可能性が高い。「恥ずかしい」という感情が24時間の空白を作り、被害を拡大させた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: anzen
+        expression: worried
+        position: center
+      - type: dialog
+        character: anzen
+        text: "Card 5後、「恥ずかしかった。でもそのせいでお母さんの友だちにまで迷惑をかけた」と後悔する"
+      - type: sprite
+        character: anzen
+        expression: determined
+      - type: dialog
+        character: anzen
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: anzen
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・端末紛失時の対応: スマホを落としたら①すぐに大人に言う ②遠隔ロック ③パスワード変更。「恥ずかしいから言わない」が最大のリスク\n・全探索: スマホ1台から漏れうる全ての情報カテゴリを洗い出し、被害の全体像を把握するスキル"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: mamori, expression: happy }
+          - { id: kagiru, expression: happy }
+          - { id: mihari, expression: happy }
+          - { id: anzen, expression: happy }
+      - type: narration
+        text: "防犯探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: mamori
+        action: hide
+      - type: sprite
+        character: kagiru
+        action: hide
+      - type: sprite
+        character: mihari
+        action: hide
+      - type: sprite
+        character: anzen
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
