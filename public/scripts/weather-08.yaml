@@ -1,0 +1,370 @@
+meta:
+  id: weather-08
+  title: "フェーンのたくらみ"
+  series: "天気探偵団"
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  sora:
+    name: "ソラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kazeru:
+    name: "カゼル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kumori:
+    name: "クモリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  amene:
+    name: "アメネ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "気象観測の授業で「ある地域の気温が山の向こう側より10℃以上高い」という測定結果が出た。"
+      - type: narration
+        text: "理科担当の先生は「フェーン現象の典型例だ」と言ったが、アメネが「フェーン現象なんて起きるはずがない」と言い張り、気温計の置き場所が悪いせいだと主張して観測のやり直しを要求した。"
+      - type: narration
+        text: "カードを組み合わせて「山脈の配置・風向き・湿度の変化」を確認すると、フェーン現象の条件が完全に揃っていることがわかる。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: amene
+        expression: worried
+        position: center
+      - type: dialog
+        character: amene
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: amene
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: determined }
+          - { id: kazeru, expression: thinking }
+          - { id: kumori, expression: thinking }
+          - { id: amene, expression: worried }
+      - type: narration
+        text: "「天気探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "天気探偵団"
+        subtitle: "Vol.8 フェーンのたくらみ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "気温測定結果"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "山脈・風向き・降水カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、カゼルのみためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "湿度比較カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、ソラのみためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "アメネの気象知識テスト"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、クモリのみためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "アメネの家からの手紙"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員（GM配布）ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: sora
+        expression: thinking
+        position: left
+      - type: dialog
+        character: sora
+        text: "気温・湿度データとフェーン現象の計算式を照合して「証明完了」を示す場面"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kazeru
+        text: "山脈・風向き・降水のカードを組み合わせて「フェーンの条件が揃った」と興奮する場面"
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kumori
+        text: "知識があるから否定できる。つまり知っているから否定したかったのでは」と気づく場面"
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        expression: worried
+        position: right
+      - type: dialog
+        character: amene
+        text: "知っていて否定しようとした」という真相を自分で認める場面"
+      - type: sprite
+        character: amene
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: normal }
+          - { id: kazeru, expression: normal }
+          - { id: kumori, expression: normal }
+          - { id: amene, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ソラ"
+            value: sora
+            correct: false
+            feedback: "ソラは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "カゼル"
+            value: kazeru
+            correct: false
+            feedback: "カゼルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "クモリ"
+            value: kumori
+            correct: false
+            feedback: "クモリは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "アメネ"
+            value: amene
+            correct: true
+            feedback: "アメネの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、アメネ（雨音）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#15 正義感の暴走 — アメネの家族が住む山間部は、毎年フェーン現象で農作物（特に稲）が被害を受けている。「フェーン現象のせいで家の米が枯れた」という経験から、アメネは「フェーン現象は迷惑な存在」だと感じており、「フェーン現象を正式に観測データとして認めることは、その被害を正当化してしまう」という歪んだ正義感で観測のやり直しを要求していた。アメネ自身はフェーン現象の仕組みをよく知っており、むしろ「起きていることはわかっている」から否定しようとしていた。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: amene
+        expression: worried
+        position: center
+      - type: dialog
+        character: amene
+        text: "知っていて否定しようとした」という真相を自分で認める場面"
+      - type: sprite
+        character: amene
+        expression: determined
+      - type: dialog
+        character: amene
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: amene
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・フェーン現象の仕組みを理解する（山越えで空気が乾燥し、下降とともに気温が上昇する原理）。局地的気象が農業や生活に影響を与えることを説明できる\n・感情から来る「認知バイアス」に気づき、科学的な判断と感情的な判断を区別する力を養う"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: happy }
+          - { id: kazeru, expression: happy }
+          - { id: kumori, expression: happy }
+          - { id: amene, expression: happy }
+      - type: narration
+        text: "天気探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

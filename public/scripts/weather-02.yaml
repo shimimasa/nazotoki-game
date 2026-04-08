@@ -1,0 +1,370 @@
+meta:
+  id: weather-02
+  title: "気圧のうそ"
+  series: "天気探偵団"
+  volume: 2
+  estimatedMinutes: 18
+
+characters:
+  sora:
+    name: "ソラ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  kazeru:
+    name: "カゼル"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  kumori:
+    name: "クモリ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  amene:
+    name: "アメネ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "理科の気象観測実験で、グループ全員が同じ気圧計を使って3日間の気圧を記録した。"
+      - type: narration
+        text: "発表の前日、ソラが提出した記録表の数値だけが他の3人と大きくズレていた。"
+      - type: narration
+        text: "「誰かがソラの記録を書き換えた」と思われたが、密談で意外な証言が浮かぶ。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+      - type: dialog
+        character: sora
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: determined }
+          - { id: kazeru, expression: thinking }
+          - { id: kumori, expression: thinking }
+          - { id: amene, expression: worried }
+      - type: narration
+        text: "「天気探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "天気探偵団"
+        subtitle: "Vol.2 気圧のうそ"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "4人の気圧記録比較表"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "ソラの元の記録帳の写真"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、ソラのみためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "密談カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、密談で開示ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "気圧の単位説明メモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、クモリのみためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "3日間の天気変化カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、全員（GM配布）ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: sora
+        expression: worried
+        position: left
+      - type: dialog
+        character: sora
+        text: "真相後、「単位を間違えて、恥ずかしくて直したら余計おかしくなった」と白状する場面"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kazeru
+        text: "密談での証言が推理の転機になる場面"
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        expression: thinking
+        position: left
+      - type: dialog
+        character: kumori
+        text: "気圧と天気の連動を整理し「2日目は低気圧が来ていたはず」を論理的に示す場面"
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        expression: thinking
+        position: right
+      - type: dialog
+        character: amene
+        text: "真相後、「間違いを正直に言えばよかった。みんなで一緒に直せたのに」とソラに伝える場面"
+      - type: sprite
+        character: amene
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: normal }
+          - { id: kazeru, expression: normal }
+          - { id: kumori, expression: normal }
+          - { id: amene, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "ソラ"
+            value: sora
+            correct: true
+            feedback: "ソラの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "カゼル"
+            value: kazeru
+            correct: false
+            feedback: "カゼルは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "クモリ"
+            value: kumori
+            correct: false
+            feedback: "クモリは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "アメネ"
+            value: amene
+            correct: false
+            feedback: "アメネは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、ソラ（空）"
+      - type: dialog
+        character: sensei
+        text: "動機は、#13 恥ずかしさ — ソラは最初、気圧計の数値を「hPa（ヘクトパスカル）」ではなく「Pa（パスカル）」の単位で読んでいた。1013 hPa を 101300 Pa と書いてしまった。その後、単位の間違いに気づいたが「間違えたのがバレると恥ずかしい」と思い、こっそり数値を修正した。しかし修正した数値が実際の気圧変化のデータと一致せず、「1日目と3日目が全く同じ気圧」という非現実的な数値になってしまった。低気圧が接近した2日目に気圧が下がるはずなのに、ソラの記録では変化がない。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: sora
+        expression: worried
+        position: center
+      - type: dialog
+        character: sora
+        text: "真相後、「単位を間違えて、恥ずかしくて直したら余計おかしくなった」と白状する場面"
+      - type: sprite
+        character: sora
+        expression: determined
+      - type: dialog
+        character: sora
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: sora
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・高気圧では晴れ・低気圧では曇り・雨になる関係を理解し、気圧変化で天気を予測できることを説明できる\n・複数の情報を比較して矛盾を見つける「情報整理」スキルを体験する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: sora, expression: happy }
+          - { id: kazeru, expression: happy }
+          - { id: kumori, expression: happy }
+          - { id: amene, expression: happy }
+      - type: narration
+        text: "天気探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: sora
+        action: hide
+      - type: sprite
+        character: kazeru
+        action: hide
+      - type: sprite
+        character: kumori
+        action: hide
+      - type: sprite
+        character: amene
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
