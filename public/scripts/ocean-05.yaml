@@ -1,0 +1,370 @@
+meta:
+  id: ocean-05
+  title: "深海からの使者"
+  series: "海洋探偵団"
+  volume: 5
+  estimatedMinutes: 18
+
+characters:
+  shioru:
+    name: "シオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  minato:
+    name: "ミナト"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kai:
+    name: "カイ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "夏の浜辺に、見たことのない大きな魚が打ち上げられた。"
+      - type: narration
+        text: "シオルは「珍しい！"
+      - type: narration
+        text: "標本にしよう！"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: shioru
+        expression: worried
+        position: center
+      - type: dialog
+        character: shioru
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: determined }
+          - { id: minato, expression: thinking }
+          - { id: nami, expression: thinking }
+          - { id: kai, expression: worried }
+      - type: narration
+        text: "「海洋探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "海洋探偵団"
+        subtitle: "Vol.5 深海からの使者"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: shioru
+        expression: worried
+        position: left
+      - type: dialog
+        character: shioru
+        text: "標本にして飾りたかった。でも研究機関に渡せば、もっと大切に使ってもらえるんだね"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minato
+        text: "浮き袋が膨らんで体が変形している。急に浅い場所に来たときに起きる現象だ"
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nami
+        text: "深海は水圧が大気圧の数十〜数百倍。そこで生きる生き物は特別な体をしている"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        expression: thinking
+        position: right
+      - type: dialog
+        character: kai
+        text: "前日の嵐で海底が大きくかき回された。それで深海魚が上に連れてこられたんじゃないかな"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「深海魚を無断で持ち帰ろうとしたのは誰？（そしてなぜ深海魚が浜に来たのか？）」"
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: normal }
+          - { id: minato, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: kai, expression: worried }
+      - type: choice
+        id: q1
+        text: "深海魚を無断で持ち帰ろうとしたのは誰？（そしてなぜ深海魚が浜に来たのか？）"
+        options:
+          - label: "シオル"
+            value: shioru
+            correct: true
+            feedback: "シオルの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+          - label: "ミナト"
+            value: minato
+            correct: false
+            feedback: "ミナトは魚の状態を観察した調査側だよ"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミは深海生物の資料と法規制を調べた調査側だよ"
+          - label: "カイ"
+            value: kai
+            correct: false
+            feedback: "カイは嵐データで原因を最初に推測した側だよ"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、シオル"
+      - type: dialog
+        character: sensei
+        text: "動機は、#11 好奇心 — シオルは深海魚の珍しさに興奮して、「届出が必要かもしれない」という判断を後回しにして持ち帰ろうとした。好奇心は正しいが、生物の採集には法規制がある場合がある。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: shioru
+        expression: worried
+        position: center
+      - type: dialog
+        character: shioru
+        text: "標本にして飾りたかった。でも研究機関に渡せば、もっと大切に使ってもらえるんだね"
+      - type: sprite
+        character: shioru
+        expression: determined
+      - type: dialog
+        character: shioru
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: shioru
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・深海生物の体の特徴（高圧適応、浮き袋の構造、光のない環境への適応）と、深海から表層への移動が起きるメカニズムを理解する\n・仮説検証スキル — 「打ち上げられた原因」について複数の仮説を立て、証拠で検証する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: happy }
+          - { id: minato, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: kai, expression: happy }
+      - type: narration
+        text: "海洋探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

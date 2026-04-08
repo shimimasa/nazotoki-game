@@ -1,0 +1,370 @@
+meta:
+  id: ocean-01
+  title: "潮が消えた朝"
+  series: "海洋探偵団"
+  volume: 1
+  estimatedMinutes: 18
+
+characters:
+  shioru:
+    name: "シオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  minato:
+    name: "ミナト"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kai:
+    name: "kai"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "磯の観察会で来た海岸に、「いつも必ずある大きな潮だまり」がない。"
+      - type: narration
+        text: "カイが「誰かが水を全部持って行った！"
+      - type: narration
+        text: "」と主張し、仲間を疑い始めた。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kai
+        expression: worried
+        position: center
+      - type: dialog
+        character: kai
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kai
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: determined }
+          - { id: minato, expression: thinking }
+          - { id: nami, expression: thinking }
+          - { id: kai, expression: worried }
+      - type: narration
+        text: "「海洋探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "海洋探偵団"
+        subtitle: "Vol.1 潮が消えた朝"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: shioru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shioru
+        text: "岩の高さと水位の変化から「時間が経つにつれて潮が引いている」と実証"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minato
+        text: "潮間帯の生き物の分布から干潮レベルを推定できる"
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nami
+        text: "今日の干潮は-15cmだよ。通常より20cm低い。だから潮だまりが消えた"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        expression: worried
+        position: right
+      - type: dialog
+        character: kai
+        text: "kaiは、証拠をつなげて考えている。"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「潮だまりが消えた騒ぎを起こしたのは誰？（本当の原因は何？）」"
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: normal }
+          - { id: minato, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: kai, expression: worried }
+      - type: choice
+        id: q1
+        text: "潮だまりが消えた騒ぎを起こしたのは誰？（本当の原因は何？）"
+        options:
+          - label: "シオル"
+            value: shioru
+            correct: false
+            feedback: "シオルは現場の水位変化を記録した調査側だよ"
+          - label: "ミナト"
+            value: minato
+            correct: false
+            feedback: "ミナトは磯の生き物の分布から干潮を読んだ調査側だよ"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミは潮汐表を使って原因を探した調査側だよ"
+          - label: "kai"
+            value: kai
+            correct: true
+            feedback: "kaiの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、カイ"
+      - type: dialog
+        character: sensei
+        text: "動機は、#10 誤解・勘違い — カイは「潮だまりはいつもそこにある」と思い込んでいた。新月（大潮）の日には干潮が通常より大幅に低くなることを知らず、「誰かが持って行った」と決めつけて仲間を疑った。カイが騒ぎを起こした「犯人」であり、動機は科学的知識の欠如による誤解。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kai
+        expression: worried
+        position: center
+      - type: dialog
+        character: kai
+        text: "kaiは、自分の判断を見直している。"
+      - type: sprite
+        character: kai
+        expression: determined
+      - type: dialog
+        character: kai
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・潮の満ち引きの仕組み（月・太陽の引力、大潮・小潮の違い、干潮・満潮のサイクル）を理解する\n・消去法を使い、「潮だまりが消えた理由」として考えられる原因を1つずつ排除して真因に到達する"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: happy }
+          - { id: minato, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: kai, expression: happy }
+      - type: narration
+        text: "海洋探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

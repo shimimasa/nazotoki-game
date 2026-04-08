@@ -1,0 +1,370 @@
+meta:
+  id: ocean-06
+  title: "プラスチックの道"
+  series: "海洋探偵団"
+  volume: 6
+  estimatedMinutes: 18
+
+characters:
+  shioru:
+    name: "シオル"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  minato:
+    name: "ミナト"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  nami:
+    name: "ナミ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  kai:
+    name: "カイ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "毎年恒例の海岸清掃で、仲間4人がゴミの種類別に記録したデータが消えていた。"
+      - type: narration
+        text: "「誰かが記録シートを捨てた」という疑惑が広がる。"
+      - type: narration
+        text: "調べていくと、カイが自分でデータを隠していたと分かる。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: kai
+        expression: worried
+        position: center
+      - type: dialog
+        character: kai
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: kai
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: determined }
+          - { id: minato, expression: thinking }
+          - { id: nami, expression: thinking }
+          - { id: kai, expression: worried }
+      - type: narration
+        text: "「海洋探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "海洋探偵団"
+        subtitle: "Vol.6 プラスチックの道"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: shioru
+        expression: thinking
+        position: left
+      - type: dialog
+        character: shioru
+        text: "ゴミ袋の中に工場のロゴ入りのがある。記録シートに入ってないのはおかしい"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        expression: thinking
+        position: right
+      - type: dialog
+        character: minato
+        text: "大きなゴミだけじゃない。砂にこれだけ細かいプラスチックが混じってる。これが海の生き物に入っていく"
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        expression: thinking
+        position: left
+      - type: dialog
+        character: nami
+        text: "この種類だけゼロ。本来は毎年一定数出る。意図的に外されたと考えるしかない"
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        expression: worried
+        position: right
+      - type: dialog
+        character: kai
+        text: "データを隠したのは私。でも工場の人たちに\"あなたたちのせい\"って言いたくなかった"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「清掃データを隠したのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: normal }
+          - { id: minato, expression: normal }
+          - { id: nami, expression: normal }
+          - { id: kai, expression: worried }
+      - type: choice
+        id: q1
+        text: "清掃データを隠したのは誰？"
+        options:
+          - label: "シオル"
+            value: shioru
+            correct: false
+            feedback: "シオルはゴミ袋の現物を確認した調査側だよ"
+          - label: "ミナト"
+            value: minato
+            correct: false
+            feedback: "ミナトはマイクロプラスチックを観察した調査側だよ"
+          - label: "ナミ"
+            value: nami
+            correct: false
+            feedback: "ナミはデータの欠落を分析した調査側だよ"
+          - label: "カイ"
+            value: kai
+            correct: true
+            feedback: "カイは工場の人たちが傷つくことを心配しました。その気持ちは本物です。でも海洋プラスチックの問題は、誰かを責えることが目的ではありません。どこからゴミが来るかを知ることで、どこで減らせるかが分かる。工場の人たちと一緒に考えるためのデータです。プラスチックは自然界でほとんど分解されず、細かくなってもマイクロプラスチックとして残り続けます。正確なデータこそが海を守る第一歩です"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "犯人は、カイ"
+      - type: dialog
+        character: sensei
+        text: "動機は、#16 責任を背負いすぎた — カイは地元工場の人たちが清掃活動に協力してくれていることを知っていて、データを公開すると関係が壊れると思い込んだ。「大人たちの関係を守る責任は私にはない」と気づくのが成長の核心。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: kai
+        expression: worried
+        position: center
+      - type: dialog
+        character: kai
+        text: "データを隠したのは私。でも工場の人たちに\"あなたたちのせい\"って言いたくなかった"
+      - type: sprite
+        character: kai
+        expression: determined
+      - type: dialog
+        character: kai
+        text: "次からは思いこみで決めつけず、確かめてから行動するよ。"
+      - type: sprite
+        character: kai
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・海洋プラスチックの特性（マイクロプラスチック、分解されない仕組み、生態系への影響）を理解する\n・全探索スキル — データの発生源を網羅的に洗い出し、偏りや欠落を見つける"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: shioru, expression: happy }
+          - { id: minato, expression: happy }
+          - { id: nami, expression: happy }
+          - { id: kai, expression: happy }
+      - type: narration
+        text: "海洋探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: shioru
+        action: hide
+      - type: sprite
+        character: minato
+        action: hide
+      - type: sprite
+        character: nami
+        action: hide
+      - type: sprite
+        character: kai
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
