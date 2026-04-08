@@ -1,0 +1,373 @@
+meta:
+  id: philosophy-03
+  title: "公平なわけ方"
+  series: "哲学探偵団"
+  volume: 3
+  estimatedMinutes: 18
+
+characters:
+  tetsu:
+    name: "テツ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sokura:
+    name: "ソクラ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rojika:
+    name: "ロジカ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  moya:
+    name: "モヤ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "文化祭の予算を4班に分けることになった。"
+      - type: narration
+        text: "テツが「全班同じ金額が公平だ」と一律3000円ずつ配ったが、10人の班と3人の班では1人あたりの金額が全く違う。"
+      - type: narration
+        text: "不満が出て「本当に公平なの？"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: moya
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: determined }
+          - { id: sokura, expression: thinking }
+          - { id: rojika, expression: thinking }
+          - { id: moya, expression: worried }
+      - type: narration
+        text: "「哲学探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "哲学探偵団"
+        subtitle: "Vol.3 公平なわけ方"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "予算配分表"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "「公平と平等」の説明カード"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、①導入ためのヒントはどこにありそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "班の人数表"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "不満の声メモ + 「他の分け方」の例"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、②探索ためのヒントはどこにありそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "先生のメモ"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠を手がかりにすると、③反転ためのヒントはどこにありそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: tetsu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tetsu
+        text: "同じ金額にしたのに、なぜ不満が出るの？"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sokura
+        text: "同じ金額でも1人あたりが全然違う"
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rojika
+        text: "1人あたりで計算すると、差は3倍以上"
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: right
+      - type: dialog
+        character: moya
+        text: "平等\"と\"公平\"は違うのかもしれない"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「予算の分け方で不満が出た原因を作ったのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: normal }
+          - { id: sokura, expression: normal }
+          - { id: rojika, expression: normal }
+          - { id: moya, expression: worried }
+      - type: choice
+        id: q1
+        text: "予算の分け方で不満が出た原因を作ったのは誰？"
+        options:
+          - label: "テツ"
+            value: tetsu
+            correct: false
+            feedback: "テツの善意は本物。でも\"同じ量を配る＝公平\"とは限らない。公平の定義は1つじゃない。人数で割る？ 必要額で割る？ ——この問いに唯一の正解はない。考え続けることが大事"
+          - label: "ソクラ"
+            value: sokura
+            correct: false
+            feedback: "ソクラは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ロジカ"
+            value: rojika
+            correct: false
+            feedback: "ロジカは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "モヤ"
+            value: moya
+            correct: true
+            feedback: "モヤの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "テツは「みんなのために」（#8）全班同額を提案し実行した。"
+      - type: dialog
+        character: sensei
+        text: "しかし班の人数が3人/5人/7人/10人とバラバラで、1人あたりの予算は1000円/600円/428円/300円と大きく差がつく。"
+      - type: dialog
+        character: sensei
+        text: "「同じ量＝公平」は「平等（equality）」だが「公平（equity）」ではない場合がある。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "平等\"と\"公平\"は違うのかもしれない"
+      - type: sprite
+        character: moya
+        expression: determined
+      - type: dialog
+        character: moya
+        text: "すぐに答えを決めつけず、いろいろな考え方を比べてみるよ。"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・公平と平等の違い: 同じ量を配ることと公平は違う場合がある\n・因果連鎖: 「同額配布→人数差→1人あたり格差」の因果を追う"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: happy }
+          - { id: sokura, expression: happy }
+          - { id: rojika, expression: happy }
+          - { id: moya, expression: happy }
+      - type: narration
+        text: "哲学探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500

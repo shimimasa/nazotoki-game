@@ -1,0 +1,373 @@
+meta:
+  id: philosophy-08
+  title: "こわれた約束"
+  series: "哲学探偵団"
+  volume: 8
+  estimatedMinutes: 18
+
+characters:
+  tetsu:
+    name: "テツ"
+    color: "#4169E1"
+    sprites:
+      normal: boy-a-normal.webp
+      happy: boy-a-happy.webp
+      thinking: boy-a-thinking.webp
+      worried: boy-a-worried.webp
+      surprised: boy-a-surprised.webp
+      determined: boy-a-determined.webp
+  sokura:
+    name: "ソクラ"
+    color: "#FF4444"
+    sprites:
+      normal: boy-b-normal.webp
+      happy: boy-b-happy.webp
+      thinking: boy-b-thinking.webp
+      worried: boy-b-worried.webp
+      surprised: boy-b-surprised.webp
+      determined: boy-b-determined.webp
+  rojika:
+    name: "ロジカ"
+    color: "#9370DB"
+    sprites:
+      normal: girl-b-normal.webp
+      happy: girl-b-happy.webp
+      thinking: girl-b-thinking.webp
+      worried: girl-b-worried.webp
+      surprised: girl-b-surprised.webp
+      determined: girl-b-determined.webp
+  moya:
+    name: "モヤ"
+    color: "#CD853F"
+    sprites:
+      normal: girl-c-normal.webp
+      happy: girl-c-happy.webp
+      thinking: girl-c-thinking.webp
+      worried: girl-c-worried.webp
+      surprised: girl-c-surprised.webp
+      determined: girl-c-determined.webp
+  sensei:
+    name: "山田先生"
+    color: "#2E8B57"
+    sprites:
+      normal: teacher-f-normal.webp
+      happy: teacher-f-happy.webp
+      thinking: teacher-f-thinking.webp
+      worried: teacher-f-worried.webp
+      surprised: teacher-f-surprised.webp
+      determined: teacher-f-determined.webp
+
+scenes:
+  - id: prologue
+    bg: classroom
+    bgm: daily-life
+    steps:
+      - type: narration
+        text: "ロジカは「約束は絶対に守る」子。"
+      - type: narration
+        text: "友だちAと「秘密を言わない」と約束した。"
+      - type: narration
+        text: "しかしその秘密がBを傷つける内容だった。"
+      - type: se
+        sound: crash
+      - type: effect
+        name: shake
+        duration: 400
+      - type: bgm
+        action: stop
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "大変だ！ みんな来て！"
+      - type: sprite
+        character: moya
+        action: hide
+      - type: bgm
+        track: tension-quiet
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、{{証拠|しょうこ}}を{{集|あつ}}めて{{調|しら}}べてみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: determined }
+          - { id: sokura, expression: thinking }
+          - { id: rojika, expression: thinking }
+          - { id: moya, expression: worried }
+      - type: narration
+        text: "「哲学探偵団」として{調査|ちょうさ}を{始|はじ}める。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 800
+      - type: title_card
+        title: "哲学探偵団"
+        subtitle: "Vol.8 こわれた約束"
+  - id: evidence-1
+    bg: classroom
+    bgm: exploration
+    steps:
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: title_card
+        title: "ステップ1"
+        subtitle: "調査"
+      - type: narration
+        text: "証拠カード1"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-2
+    steps:
+      - type: narration
+        text: "証拠カード2"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-3
+    steps:
+      - type: narration
+        text: "証拠カード3"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-4
+    steps:
+      - type: narration
+        text: "証拠カード4"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+  - id: evidence-5
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "ステップ2"
+        subtitle: "反転"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: narration
+        text: "証拠カード5"
+      - type: se
+        sound: discover
+      - type: narration
+        text: "この証拠から、次に何を確かめるとよさそうかな？"
+      - type: sprite
+        character: sensei
+        expression: thinking
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、ここまでの{{証拠|しょうこ}}を{{整理|せいり}}してみましょう。"
+      - type: sprite
+        character: sensei
+        action: hide
+  - id: deduction
+    bg: classroom
+    bgm: tension-quiet
+    steps:
+      - type: title_card
+        title: "ステップ3"
+        subtitle: "議論"
+      - type: narration
+        text: "ここまでの{{証拠|しょうこ}}を{{整理|せいり}}して、みんなの{{考|かんが}}えを{{聞|き}}いてみよう。"
+      - type: sprite
+        character: tetsu
+        expression: thinking
+        position: left
+      - type: dialog
+        character: tetsu
+        text: "時系列で見ると、ロジカが伝えるタイミングはあった"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        expression: thinking
+        position: right
+      - type: dialog
+        character: sokura
+        text: "約束を破るのは悪い。でも守ったせいで傷ついた人がいる"
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        expression: thinking
+        position: left
+      - type: dialog
+        character: rojika
+        text: "約束を守ったのに、なぜ自分が悪いの？」→「約束より大事なことがあった…？"
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: right
+      - type: dialog
+        character: moya
+        text: "追加HOで「Bの本音：知ってたのに教えてくれなかったのが一番傷ついた"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: vote
+    steps:
+      - type: title_card
+        title: "ステップ4"
+        subtitle: "投票"
+      - type: narration
+        text: "「事件のきっかけになった行動をしたのは誰？」"
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: normal }
+          - { id: sokura, expression: normal }
+          - { id: rojika, expression: normal }
+          - { id: moya, expression: worried }
+      - type: choice
+        id: q1
+        text: "事件のきっかけになった行動をしたのは誰？"
+        options:
+          - label: "テツ"
+            value: tetsu
+            correct: false
+            feedback: "テツは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ソクラ"
+            value: sokura
+            correct: false
+            feedback: "ソクラは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "ロジカ"
+            value: rojika
+            correct: false
+            feedback: "ロジカは大事な手がかりを持っていたけれど、決め手になった行動とは一致しない。"
+          - label: "モヤ"
+            value: moya
+            correct: true
+            feedback: "モヤの行動が証拠と一番つながっている。悪意ではなくても、学びを知らないと同じことが起こりうる。"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+  - id: truth
+    bg: classroom
+    bgm: confession
+    steps:
+      - type: effect
+        name: fade-out
+        duration: 600
+      - type: title_card
+        title: "真相"
+      - type: effect
+        name: fade-in
+        duration: 600
+      - type: sprite
+        character: sensei
+        expression: normal
+        position: center
+      - type: dialog
+        character: sensei
+        text: "友だちAがBの悪口を言っているのをロジカが聞いた。"
+      - type: dialog
+        character: sensei
+        text: "Aは「このことは秘密ね」と約束させた。"
+      - type: dialog
+        character: sensei
+        text: "ロジカは「約束は守るもの」と信じ、Bに伝えなかった。"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite
+        character: moya
+        expression: worried
+        position: center
+      - type: dialog
+        character: moya
+        text: "追加HOで「Bの本音：知ってたのに教えてくれなかったのが一番傷ついた"
+      - type: sprite
+        character: moya
+        expression: determined
+      - type: dialog
+        character: moya
+        text: "すぐに答えを決めつけず、いろいろな考え方を比べてみるよ。"
+      - type: sprite
+        character: moya
+        action: hide
+  - id: epilogue
+    bgm: hope
+    steps:
+      - type: sprite
+        character: sensei
+        expression: happy
+        position: center
+      - type: dialog
+        character: sensei
+        text: "みんな、よく{{調|しら}}べたね。今日の{{学|まな}}びを{{振|ふ}}り{{返|かえ}}ろう。"
+      - type: sprite
+        character: sensei
+        expression: thinking
+      - type: dialog
+        character: sensei
+        text: "・義務と状況倫理: 約束は大切だが、状況によって優先すべきことが変わる場合がある\n・認知バイアス: 「約束＝絶対」という固定観念を疑う"
+      - type: sprite
+        character: sensei
+        action: hide
+      - type: sprite_group
+        characters:
+          - { id: tetsu, expression: happy }
+          - { id: sokura, expression: happy }
+          - { id: rojika, expression: happy }
+          - { id: moya, expression: happy }
+      - type: narration
+        text: "哲学探偵団の{冒険|ぼうけん}はつづく——"
+      - type: sprite
+        character: tetsu
+        action: hide
+      - type: sprite
+        character: sokura
+        action: hide
+      - type: sprite
+        character: rojika
+        action: hide
+      - type: sprite
+        character: moya
+        action: hide
+      - type: effect
+        name: fade-out
+        duration: 1500
