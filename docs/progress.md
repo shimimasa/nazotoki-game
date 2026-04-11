@@ -1,5 +1,14 @@
 # 進捗ログ
 
+## 2026-04-09 23:09
+- fix(scripts): Convert textless dialog to sprite step in science-14
+
+## 2026-04-09 23:07
+- fix(scripts): Add missing choice IDs and rename label→text in 147 files
+
+## 2026-04-09 22:45
+- fix(scripts): Add missing choice option values in 61 scripts
+
 ## 2026-04-08 10:20
 - Merge 8 Phase 3 branches into main, add 79 game scripts, sync catalog to 584 entries, and verify production build
 
