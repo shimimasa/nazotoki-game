@@ -135,6 +135,30 @@ scenes:
         subtitle: "調査"
       - type: narration
         text: "証拠カード1"
+      - type: narration
+        text: "2kgの{石|いし}はそのままなのに、{持|も}ち{上|あ}げると{軽|かる}く{感|かん}じたという{証言|しょうげん}がある。"
+      - type: choice
+        id: obs-1
+        question: "まず{確|たし}かめたいのはどれ？"
+        options:
+          - text: "{石|いし}の{重|おも}さが{変|か}わったか"
+            value: stone
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{原因|げんいん}が{物|もの}か{仕組|しく}みかを{分|わ}けよう。"
+          - text: "{教室|きょうしつ}の{気温|きおん}"
+            value: temp
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{力|ちから}の{問題|もんだい}から{見|み}たいね。"
+          - text: "{壁|かべ}の{色|いろ}"
+            value: wall
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{今回|こんかい}の{手|て}がかりとは{遠|とお}そうだね。"
       - type: se
         sound: discover
       - type: narration
@@ -143,6 +167,36 @@ scenes:
     steps:
       - type: narration
         text: "証拠カード2"
+      - type: narration
+        text: "{体験|たいけん}した4人のうち、{強|つよ}く「すり{替|か}えだ」と{言|い}ったのはオモリだけだった。"
+      - type: choice
+        id: timeline-key
+        question: "この{時点|じてん}で、いちばん{思|おも}い{込|こ}みが{強|つよ}そうなのは{誰|だれ}？"
+        options:
+          - text: "チカラ"
+            value: chikara
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{実験|じっけん}で{確|たし}かめる{側|がわ}だね。"
+          - text: "ナミ"
+            value: nami
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{設計図|せっけいず}を{読|よ}んでいた{側|がわ}だったよ。"
+          - text: "ヒカル"
+            value: hikaru
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{観察|かんさつ}で{冷静|れいせい}に{見|み}ていたね。"
+          - text: "オモリ"
+            value: omori
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{驚|おどろ}きがそのまま{疑|うたが}いになったかも。"
       - type: se
         sound: discover
       - type: narration
@@ -151,6 +205,42 @@ scenes:
     steps:
       - type: narration
         text: "証拠カード3"
+      - type: narration
+        text: "{支点|してん}から{遠|とお}くを{押|お}すほど、{少|すく}ない{力|ちから}で{石|いし}が{動|うご}く。これがてこの{性質|せいしつ}だ。"
+      - type: choice
+        id: hunch
+        question: "{直感|ちょっかん}で、いちばん{怪|あや}しいのは{誰|だれ}？"
+        options:
+          - text: "チカラ"
+            value: chikara
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{仕組|しく}みを{調|しら}べていた{側|がわ}かな。"
+          - text: "ナミ"
+            value: nami
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{説明役|せつめいやく}として{動|うご}いていたね。"
+          - text: "ヒカル"
+            value: hikaru
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{痕跡|こんせき}を{見|み}ていた{人|ひと}だったよ。"
+          - text: "オモリ"
+            value: omori
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{驚|おどろ}きが{疑|うたが}いに{変|か}わったのかもね。"
+          - text: "{全員|ぜんいん}{怪|あや}しい"
+            value: all
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{最後|さいご}は{理由|りゆう}で{比|くら}べよう。"
       - type: se
         sound: discover
       - type: narration
@@ -261,18 +351,34 @@ scenes:
             value: chikara
             correct: false
             feedback: "チカラは実際に実験を繰り返して距離と力の関係を調べた側"
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{実験|じっけん}で{確|たし}かめていた{側|がわ}だね。"
           - text: "ナミ"
             value: nami
             correct: false
             feedback: "ナミは設計図を分析しててこの仕組みを解説した側"
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{疑|うたが}いより{説明|せつめい}をしていたよ。"
           - text: "ヒカル"
             value: hikaru
             correct: false
             feedback: "ヒカルは石・棒・台を観察して変化の痕跡がないことを確認した側"
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{観察|かんさつ}{結果|けっか}からは{外|はず}れそうだね。"
           - text: "オモリ"
             value: omori
             correct: true
             feedback: "オモリは石が軽く持ち上がったことに驚いて、誰かが石をすり替えたと思い込んだ。でも石はちゃんと2kgのまま。これがてこの原理——支点から力点を遠ざけると、小さな力で重いものを動かせる。棒1本と支点があれば、体の小さな人でも重い荷物を動かせるんだ"
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{思|おも}い{込|こ}みの{原因|げんいん}まで{追|お}えたね。"
       - type: sprite
         character: chikara
         action: hide

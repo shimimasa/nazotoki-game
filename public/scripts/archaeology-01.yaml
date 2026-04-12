@@ -156,8 +156,58 @@ scenes:
       - type: sprite
         character: tsuchika
         action: hide
+      - type: choice
+        id: obs-1
+        question: "{割|わ}れた{土器|どき}があったのはどのコーナー？"
+        options:
+          - text: "{縄文|じょうもん}コーナー"
+            value: jomon
+            reaction:
+              character: yamada
+              expression: happy
+              text: "{縄目文様|なわめもよう}がいちばんの{印|しるし}ね。"
+          - text: "{弥生|やよい}コーナー"
+            value: yayoi
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{弥生土器|やよいどき}はもっと{薄|うす}くてなめらかよ。"
+          - text: "{古墳|こふん}コーナー"
+            value: kofun
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{色|いろ}や{焼|や}き{方|かた}も{違|ちが}うの。"
       - type: narration
         text: "{縄文|じょうもん}コーナーにいた{可能性|かのうせい}があるのは**フミコとホリベ**の2{人|にん}。{次|つぎ}の{証拠|しょうこ}でさらに{絞|しぼ}り{込|こ}めるかもしれない。"
+      - type: choice
+        id: timeline-key
+        question: "この{時点|じてん}で、いちばん{怪|あや}しいのは{誰|だれ}？"
+        options:
+          - text: "イシノ"
+            value: ishino
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{記録|きろく}では{別|べつ}のコーナーにいたわ。"
+          - text: "ホリベ"
+            value: horibe
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{候補|こうほ}には{残|のこ}るけど、まだ{絞|しぼ}れないね。"
+          - text: "ツチカ"
+            value: tsuchika
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{観察役|かんさつやく}として{動|うご}いていたのよ。"
+          - text: "フミコ"
+            value: fumiko
+            reaction:
+              character: yamada
+              expression: happy
+              text: "{縄文|じょうもん}コーナーにいた{1人|ひとり}として{濃|こ}いわ。"
 
   # ==================== 調査：証拠カード4 ====================
   - id: evidence-3
@@ -181,8 +231,64 @@ scenes:
       - type: sprite
         character: horibe
         action: hide
+      - type: choice
+        id: obs-2
+        question: "{皮脂|ひし}{跡|あと}の{高|たか}さが{合|あ}うのは{誰|だれ}？"
+        options:
+          - text: "フミコ"
+            value: fumiko
+            reaction:
+              character: yamada
+              expression: happy
+              text: "{身長|しんちょう}と{位置|いち}がぴったりね。"
+          - text: "ホリベ"
+            value: horibe
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{位置|いち}も{行動|こうどう}も{合|あ}いにくいわ。"
+          - text: "イシノ"
+            value: ishino
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{縄文|じょうもん}コーナーにいなかったの。"
       - type: narration
         text: "ガラスケースに{残|のこ}った{痕跡|こんせき}の{高|たか}さはフミコの{身長|しんちょう}と{一致|いっち}する。ホリベは{別|べつ}のコーナーにいたことが{確認|かくにん}されている。{容疑者|ようぎしゃ}は**フミコ**に{絞|しぼ}られた。"
+      - type: choice
+        id: hunch
+        question: "{直感|ちょっかん}で、いまいちばん{怪|あや}しいのは{誰|だれ}？"
+        options:
+          - text: "イシノ"
+            value: ishino
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{移動|いどう}{記録|きろく}では{外|はず}れそうね。"
+          - text: "ホリベ"
+            value: horibe
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{調査役|ちょうさやく}だけでは{決|き}められないわ。"
+          - text: "ツチカ"
+            value: tsuchika
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{観察|かんさつ}はしていたけれど{別|べつ}の{場所|ばしょ}ね。"
+          - text: "フミコ"
+            value: fumiko
+            reaction:
+              character: yamada
+              expression: happy
+              text: "{証拠|しょうこ}がフミコに{集|あつ}まってきたわ。"
+          - text: "{全員|ぜんいん}{怪|あや}しい"
+            value: all
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{最後|さいご}の{確認|かくにん}もしてみましょう。"
 
   # ==================== 反転：証拠カード5 ====================
   - id: evidence-5
@@ -252,15 +358,31 @@ scenes:
             value: fumiko
             correct: true
             feedback: "{正解|せいかい}！ フミコは{縄文人|じょうもんじん}の{暮|く}らしを{感|かん}じたくて{展示|てんじ}ケースに{額|ひたい}を{近|ちか}づけ、バランスを{崩|くず}してガラスを{押|お}してしまった。「{触|ふ}れた」という{自覚|じかく}がなかったから「{触|さわ}っていない」と{言|い}ったのは{嘘|うそ}ではなかった——{土器|どき}の{年代|ねんだい}と{展示|てんじ}{場所|ばしょ}の{知識|ちしき}が{真相|しんそう}への{鍵|かぎ}だった。"
+            reaction:
+              character: yamada
+              expression: happy
+              text: "{証拠|しょうこ}のつながりをよく{追|お}えたわ。"
           - text: ホリベ（ケース周辺を調査した人）
             value: horibe
             feedback: "ホリベは{痕跡|こんせき}{調査|ちょうさ}をした{側|がわ}。{当時|とうじ}は{弥生|やよい}コーナーにいたことが{記録|きろく}で{確認|かくにん}されているよ。"
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{調査|ちょうさ}した{人|ひと}と{原因|げんいん}は{別|べつ}ね。"
           - text: ツチカ（土器の特徴を観察した人）
             value: tsuchika
             feedback: "ツチカは{土器|どき}の{観察|かんさつ}と{分類|ぶんるい}をした{探偵|たんてい}{役|やく}。{縄文|じょうもん}コーナーにはいなかった{記録|きろく}があるよ。"
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{知識|ちしき}を{使|つか}った{側|がわ}だったの。"
           - text: イシノ（行動記録を照合した人）
             value: ishino
             feedback: "イシノは{展示室|てんじしつ}の{配置図|はいちず}と{入館|にゅうかん}{記録|きろく}を{照合|しょうごう}した{探偵|たんてい}{役|やく}。{縄文|じょうもん}コーナーには{行|い}っていない{記録|きろく}があるよ。"
+            reaction:
+              character: yamada
+              expression: thinking
+              text: "{記録係|きろくがかり}の{仕事|しごと}だったわね。"
 
   # ==================== 真実：フミコ ====================
   - id: truth-fumiko

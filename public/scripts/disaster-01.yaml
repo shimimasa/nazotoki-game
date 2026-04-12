@@ -174,6 +174,28 @@ scenes:
         text: "アイ：10:04出発 → 10:07{到着|とうちゃく} → {所要|しょよう}時間3分 → {通常|つうじょう}通り"
       - type: narration
         text: "ナナ：10:03出発 → 10:07{到着|とうちゃく} → {所要|しょよう}時間4分 → +1分{遅|おそ}い"
+      - type: choice
+        id: obs-1
+        question: "{記録|きろく}だけ見ると、いちばん{不自然|ふしぜん}なのは？"
+        options:
+          - text: "ソウタの3分"
+            value: souta
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{通常|つうじょう}どおりなら{問題|もんだい}ないね。"
+          - text: "ナナの+1分"
+            value: nana
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{理由|りゆう}を{確|たし}かめればまだ{判断|はんだん}できる。"
+          - text: "ケイの+2分"
+            value: kei
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{差|さ}が{大|おお}きいね。ここが{鍵|かぎ}だよ。"
       - type: effect
         name: flash
         duration: 300
@@ -203,10 +225,60 @@ scenes:
       - type: narration
         speed: slow
         text: "ただし当日、{経路|けいろ}Bは工事中のため使用{禁止|きんし}！ 朝のホームルームで先生が「全員{経路|けいろ}Aを使うこと」と{指示|しじ}した。"
+      - type: choice
+        id: obs-2
+        question: "5{分|ふん}かかった{記録|きろく}にいちばん{合|あ}うのは？"
+        options:
+          - text: "{経路|けいろ}A"
+            value: route-a
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{経路|けいろ}Aなら3{分|ぷん}のはずだよ。"
+          - text: "{経路|けいろ}B（工事中）"
+            value: route-b
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{時間|じかん}がぴったり{重|かさ}なるね。"
+          - text: "どちらでもない"
+            value: neither
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{数字|すうじ}ともう{一度|いちど}{比|くら}べてみよう。"
       - type: narration
         text: "もし{誰|だれ}かが{経路|けいろ}B（工事中）を通ったら？ 工事{資材|しざい}があるため、{通常|つうじょう}2分のところが約5分かかる。"
       - type: narration
         text: "ケイの{所要|しょよう}時間は5分。{経路|けいろ}Aなら{通常|つうじょう}3分。でも{経路|けいろ}B（工事中）なら5分。——ぴったり{一致|いっち}する。"
+      - type: choice
+        id: timeline-key
+        question: "この{時点|じてん}で、{経路|けいろ}Bを{通|とお}った{可能性|かのうせい}が高いのは？"
+        options:
+          - text: "ソウタ"
+            value: souta
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "3{分|ぷん}なら{通常|つうじょう}ルートに{見|み}えるね。"
+          - text: "ナナ"
+            value: nana
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "+1{分|ぷん}だけではまだ{決|き}めにくいかな。"
+          - text: "ケイ"
+            value: kei
+            reaction:
+              character: sensei
+              expression: happy
+              text: "5{分|ぷん}がいちばんぴたりと{合|あ}うよ。"
+          - text: "アイ"
+            value: ai
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "アイの{時間|じかん}は{通常|つうじょう}どおりだね。"
 
   # ===== 証拠カード3: 防災クラブの記録 =====
   - id: evidence-3
@@ -225,6 +297,40 @@ scenes:
         sound: common/discover
       - type: narration
         text: "ケイは「スロープの方が速い」と知っていた。工事中で使用{禁止|きんし}と聞いても、「使えば速く{到着|とうちゃく}できる」という考えが頭にあったかもしれない。"
+      - type: choice
+        id: hunch
+        question: "{直感|ちょっかん}で、いちばん{怪|あや}しいのは{誰|だれ}？"
+        options:
+          - text: "ソウタ"
+            value: souta
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{記録|きろく}はまだ{自然|しぜん}に{見|み}えるね。"
+          - text: "ナナ"
+            value: nana
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{遅|おく}れの{理由|りゆう}を{聞|き}きたいね。"
+          - text: "ケイ"
+            value: kei
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{速|はや}さへの{思|おも}い{込|こ}みが{気|き}になるね。"
+          - text: "アイ"
+            value: ai
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "いまのところ{大|おお}きなズレはないかな。"
+          - text: "{全員|ぜんいん}{怪|あや}しい"
+            value: all
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{次|つぎ}の{証拠|しょうこ}で{絞|しぼ}ろう。"
 
   # ===== 証拠カード4: 目撃情報 =====
   - id: evidence-4

@@ -186,6 +186,28 @@ scenes:
         text: "{打撲|だぼく}（打ち身）→ 机や{壁|かべ}にぶつかったとき"
       - type: narration
         text: "ねんざ → ジャンプして着地したとき・{段差|だんさ}を{踏|ふ}み外したとき"
+      - type: choice
+        id: obs-1
+        question: "{廊下|ろうか}で{転|ころ}んだときに{多|おお}いのは？"
+        options:
+          - text: "すり{傷|きず}や{打撲|だぼく}"
+            value: scrape
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{保健室|ほけんしつ}の{基本|きほん}だね。"
+          - text: "ねんざ"
+            value: sprain
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "ねんざは{別|べつ}の{動|うご}きで{起|お}きやすいよ。"
+          - text: "{全部|ぜんぶ}おなじ"
+            value: same
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{種類|しゅるい}ごとに{特徴|とくちょう}があるんだ。"
       - type: se
         sound: common/discover
       - type: narration
@@ -213,6 +235,28 @@ scenes:
         text: "2つの{記録|きろく}を{比|くら}べると——"
       - type: narration
         text: "サヤカの「{打撲|だぼく}」は{廊下|ろうか}で{説明|せつめい}がつく。柱にぶつかった→{打撲|だぼく}。ルール通り。"
+      - type: choice
+        id: obs-2
+        question: "もっと{詳|くわ}しく{調|しら}べるべきなのはどっち？"
+        options:
+          - text: "サヤカの{打撲|だぼく}"
+            value: sayaka
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{説明|せつめい}とけがが{合|あ}っているね。"
+          - text: "ケンタのねんざ"
+            value: kenta
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{場所|ばしょ}とけがが{合|あ}わないのが{気|き}になる。"
+          - text: "{両方|りょうほう}おなじくらい"
+            value: both
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "まずはズレの{大|おお}きい{方|ほう}からだね。"
       - type: narration
         speed: slow
         text: "でもケンタの「ねんざ」は{廊下|ろうか}で{説明|せつめい}がつかない。ねんざはジャンプ着地や{段差|だんさ}で起きるけが。"

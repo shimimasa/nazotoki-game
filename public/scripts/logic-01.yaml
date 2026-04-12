@@ -164,6 +164,32 @@ scenes:
       - type: title_card
         text: "証拠1"
         subtitle: "### タイトル"
+      - type: narration
+        text: "まずは{書|か}き{換|か}えが{見|み}つかった{場所|ばしょ}と、{使|つか}われた{文房具|ぶんぼうぐ}を{整理|せいり}しよう。"
+      - type: narration
+        text: "{消|け}した{跡|あと}のそばには、こまかい{消|け}しゴムのカスが{残|のこ}っていた。"
+      - type: choice
+        id: obs-1
+        question: "{最初|さいしょ}に{注目|ちゅうもく}したいのはどれ？"
+        options:
+          - text: "{消|け}しゴムのカス"
+            value: eraser
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{道具|どうぐ}の{痕跡|こんせき}は{大事|だいじ}な{証拠|しょうこ}だね。"
+          - text: "{机|つくえ}の{色|いろ}"
+            value: desk
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{今|いま}は{書|か}き{換|か}えの{跡|あと}が{先|さき}かな。"
+          - text: "{窓|まど}の{外|そと}"
+            value: window
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{室内|しつない}の{手|て}がかりから{始|はじ}めよう。"
   - id: evidence-2
     bg: classroom
     bgm: exploration
@@ -179,6 +205,34 @@ scenes:
         text: "コト: 15:45〜16:00"
       - type: narration
         text: "カナ: 15:20〜15:30"
+      - type: choice
+        id: timeline-key
+        question: "{書|か}き{換|か}えがあった{時刻|じこく}に、いちばん{動|うご}きやすそうなのは{誰|だれ}？"
+        options:
+          - text: "ロン"
+            value: ron
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{時間帯|じかんたい}は{近|ちか}いけれど{決|き}め{手|て}がないね。"
+          - text: "リカ"
+            value: rika
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{少|すこ}しおそめに{現|あらわ}れているね。"
+          - text: "コト"
+            value: koto
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{時刻|じこく}だけではまだ{絞|しぼ}れないかな。"
+          - text: "カナ"
+            value: kana
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{早|はや}い{時間|じかん}の{空白|くうはく}が{気|き}になるね。"
   - id: evidence-3
     bg: classroom
     bgm: exploration
@@ -194,6 +248,40 @@ scenes:
         text: "コト: 消しゴムつき筆箱"
       - type: narration
         text: "カナ: 色えんぴつ、メモ帳"
+      - type: choice
+        id: hunch
+        question: "{直感|ちょっかん}で、いちばん{怪|あや}しいのは{誰|だれ}？"
+        options:
+          - text: "ロン"
+            value: ron
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{持|も}ち{物|もの}だけではまだ{弱|よわ}いかな。"
+          - text: "リカ"
+            value: rika
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{別|べつ}の{証拠|しょうこ}ともつなげたいね。"
+          - text: "コト"
+            value: koto
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{消|け}しゴムの{情報|じょうほう}は{気|き}になるね。"
+          - text: "カナ"
+            value: kana
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{時間|じかん}と{持|も}ち{物|もの}がつながるかな。"
+          - text: "{全員|ぜんいん}{怪|あや}しい"
+            value: all
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{次|つぎ}の{証拠|しょうこ}で{決|き}めよう。"
   - id: evidence-4
     bg: classroom
     bgm: exploration
@@ -252,18 +340,34 @@ scenes:
             value: ron
             correct: false
             feedback: "ロンは手がかりを持っているが、決め手は足りない。"
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{決|き}め{手|て}がまだ{足|た}りないね。"
           - text: "リカ"
             value: rika
             correct: false
             feedback: "リカは手がかりを持っているが、決め手は足りない。"
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{証拠|しょうこ}がもう{一歩|いっぽ}ほしいね。"
           - text: "コト"
             value: koto
             correct: false
             feedback: "コトは手がかりを持っているが、決め手は足りない。"
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{近|ちか}いけれど{断定|だんてい}はまだかな。"
           - text: "カナ"
             value: kana
             correct: true
             feedback: "カナの行動が、証拠といちばん一致している。"
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{証拠|しょうこ}のつながりをよく{見抜|みぬ}いたね。"
       - type: sprite
         character: ron
         action: hide

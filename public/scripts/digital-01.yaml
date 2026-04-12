@@ -230,6 +230,28 @@ scenes:
         text: "12:15　メッセージが{削除|さくじょ}されました"
       - type: narration
         text: "ログには「いつ{削除|さくじょ}されたか」は{記録|きろく}されるが、「{誰|だれ}が{削除|さくじょ}したか」は{記録|きろく}されない。"
+      - type: choice
+        id: obs-1
+        question: "ログから{直接|ちょくせつ}わかるのはどれ？"
+        options:
+          - text: "{削除|さくじょ}した{時刻|じこく}"
+            value: time
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{時刻|じこく}はちゃんと{残|のこ}るんだね。"
+          - text: "{削除|さくじょ}した{人|ひと}"
+            value: person
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{人|ひと}までは{記録|きろく}されていないよ。"
+          - text: "{削除|さくじょ}した{理由|りゆう}"
+            value: reason
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{理由|りゆう}は{行動|こうどう}から{考|かんが}えよう。"
       - type: narration
         text: "ただし「{誰|だれ}がいつ読んだか（{既読|きどく}）」は{記録|きろく}されている——これがヒントだ。"
 
@@ -262,12 +284,62 @@ scenes:
         text: "ミオ → {教室|きょうしつ}（使える！）→ {容疑|ようぎ}あり"
       - type: narration
         text: "ソラ → {教室|きょうしつ}（使える！）→ {容疑|ようぎ}あり"
+      - type: choice
+        id: obs-2
+        question: "12:15にまだ{候補|こうほ}に{残|のこ}るのは？"
+        options:
+          - text: "ミオとソラ"
+            value: mio-sora
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{場所|ばしょ}で{絞|しぼ}ると2{人|にん}だね。"
+          - text: "ハルトとリコ"
+            value: haruto-riko
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{持|も}ち{込|こ}み{禁止|きんし}を{思|おも}い{出|だ}して。"
+          - text: "{全員|ぜんいん}"
+            value: all
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{使|つか}える{場所|ばしょ}で{分|わ}けられるよ。"
       - type: effect
         name: flash
         duration: 300
       - type: narration
         speed: slow
         text: "12:15に{教室|きょうしつ}にいたのはミオとソラの2人。{消去法|しょうきょほう}で4人→2人に{絞|しぼ}れた！ でも、どちらが{消|け}した？"
+      - type: choice
+        id: timeline-key
+        question: "この{時点|じてん}で、いちばん{怪|あや}しいのは{誰|だれ}？"
+        options:
+          - text: "ハルト"
+            value: haruto
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{図書室|としょしつ}では{操作|そうさ}しにくいね。"
+          - text: "ミオ"
+            value: mio
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{機会|きかい}はある。{動機|どうき}も{見|み}よう。"
+          - text: "ソラ"
+            value: sora
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{機会|きかい}のある{1人|ひとり}として{残|のこ}るね。"
+          - text: "リコ"
+            value: riko
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{音楽室|おんがくしつ}では{届|とど}かないはずだよ。"
 
   # ===== 証拠カード3: 投票結果 =====
   - id: evidence-3
@@ -315,6 +387,40 @@ scenes:
         action: hide
       - type: narration
         text: "{投票|とうひょう}{結果|けっか}を見て一番ショックを受けたのは——ソラ。メッセージを{消|け}す{動機|どうき}がある。"
+      - type: choice
+        id: hunch
+        question: "{直感|ちょっかん}で、{誰|だれ}がいちばん{怪|あや}しい？"
+        options:
+          - text: "ハルト"
+            value: haruto
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{仕組|しく}みは{知|し}っているけれどね。"
+          - text: "ミオ"
+            value: mio
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{投稿者|とうこうしゃ}だけど{動機|どうき}は{弱|よわ}いかな。"
+          - text: "ソラ"
+            value: sora
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{気持|きも}ちの{動|うご}きがつながるね。"
+          - text: "リコ"
+            value: riko
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{見|み}ていたけど{場所|ばしょ}がちがうね。"
+          - text: "{全員|ぜんいん}{怪|あや}しい"
+            value: all
+            reaction:
+              character: sensei
+              expression: thinking
+              text: "{証拠|しょうこ}でしぼっていこう。"
 
   # ===== 証拠カード4: アプリの仕組み =====
   - id: evidence-4
@@ -619,12 +725,28 @@ scenes:
         options:
           - text: 悔しいけど結果を受け入れる
             value: accept
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{受|う}け{止|と}める{強|つよ}さも{大事|だいじ}だね。"
           - text: 先生やクラスに「もう一度話し合いたい」と相談する
             value: discuss
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{相談|そうだん}できるのはすてきだよ。"
           - text: 自分の提案と1位を組み合わせた新しいアイデアを出す
             value: combine
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{前向|まえむ}きな{工夫|くふう}だね。"
           - text: 正直に悔しい気持ちを友達に話す
             value: share
+            reaction:
+              character: sensei
+              expression: happy
+              text: "{気持|きも}ちを{言葉|ことば}にできるね。"
       - type: narration
         text: "どの{答|こた}えも{間違|まちが}いじゃない。大切なのは、「{消|け}す」のではなく「話す」こと。"
       - type: sprite_group

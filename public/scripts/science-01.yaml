@@ -288,6 +288,28 @@ scenes:
         text: "{重曹|じゅうそう} → {溶|と}ける（{透明|とうめい}）"
       - type: narration
         text: "{片栗粉|かたくりこ} → {溶|と}けない！ {白|しろ}く{濁|にご}る！"
+      - type: choice
+        id: obs-1
+        question: "この{結果|けっか}で、まっ先に{外|はず}せるのはどれ？"
+        options:
+          - text: "{片栗粉|かたくりこ}"
+            value: starch
+            reaction:
+              character: hakase
+              expression: happy
+              text: "{濁|にご}るかどうかで{見分|みわ}けられるぞ。"
+          - text: "{食塩|しょくえん}"
+            value: salt
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{食塩|しょくえん}も水には{溶|と}けるぞ。"
+          - text: "{砂糖|さとう}"
+            value: sugar
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{砂糖|さとう}も{透明|とうめい}になるな。"
       - type: se
         sound: common/discover
       - type: narration
@@ -340,6 +362,28 @@ scenes:
         text: "{砂糖水|さとうすい} → {中性|ちゅうせい}（リトマス紙は{変化|へんか}しない）"
       - type: narration
         text: "{重曹|じゅうそう}水 → アルカリ{性|せい}！ 赤リトマスが青に変わる！"
+      - type: choice
+        id: obs-2
+        question: "赤いリトマス紙を青に{変|か}えるのはどれ？"
+        options:
+          - text: "{食塩水|しょくえんすい}"
+            value: salt
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{食塩水|しょくえんすい}は{中性|ちゅうせい}だ。"
+          - text: "{砂糖水|さとうすい}"
+            value: sugar
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{砂糖水|さとうすい}も{変化|へんか}なしだな。"
+          - text: "{重曹|じゅうそう}水"
+            value: baking-soda
+            reaction:
+              character: hakase
+              expression: happy
+              text: "その{反応|はんのう}が{決|き}め{手|て}だ！"
       - type: effect
         name: flash
         duration: 300
@@ -367,6 +411,40 @@ scenes:
         action: hide
       - type: narration
         text: "シオリとアメちゃんの{容疑|ようぎ}も{晴|は}れた。{残|のこ}るは——アワコだけ。"
+      - type: choice
+        id: hunch
+        question: "{直感|ちょっかん}で、いちばん{怪|あや}しいのは{誰|だれ}？"
+        options:
+          - text: "シオリ"
+            value: shiori
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{実験|じっけん}{結果|けっか}とまだ{合|あ}わないな。"
+          - text: "アメちゃん"
+            value: ame
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{砂糖|さとう}の{性質|せいしつ}を{思|おも}い{出|だ}そう。"
+          - text: "アワコ"
+            value: awako
+            reaction:
+              character: hakase
+              expression: happy
+              text: "{重曹|じゅうそう}の{線|せん}が{濃|こ}くなってきた。"
+          - text: "トロミ"
+            value: toromi
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{片栗粉|かたくりこ}はもう{外|はず}せそうだ。"
+          - text: "{全員|ぜんいん}{怪|あや}しい"
+            value: all
+            reaction:
+              character: hakase
+              expression: thinking
+              text: "{証拠|しょうこ}をそろえて{絞|しぼ}ろう。"
 
   # ===== 証拠カード4: 実験③加熱 =====
   - id: evidence-4
