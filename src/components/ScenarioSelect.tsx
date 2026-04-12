@@ -130,55 +130,54 @@ export function ScenarioSelect({ onSelect }: Props) {
         )}
       </div>
 
-      {/* 教科フィルター */}
-      <div class="select-filters">
-        <button
-          class={`select-filter-btn ${activeSubject === null ? 'active' : ''}`}
-          onClick={() => setActiveSubject(null)}
-        >
-          すべて
-        </button>
-        {subjects.map((subject) => (
+      {/* 教科フィルター（横スクロール） */}
+      <div class="select-filters-scroll">
+        <div class="select-filters">
           <button
-            key={subject}
-            class={`select-filter-btn ${activeSubject === subject ? 'active' : ''}`}
-            onClick={() =>
-              setActiveSubject(activeSubject === subject ? null : subject)
-            }
+            class={`select-filter-btn ${activeSubject === null ? 'active' : ''}`}
+            onClick={() => setActiveSubject(null)}
           >
-            {subject}
+            すべて
           </button>
-        ))}
+          {subjects.map((subject) => (
+            <button
+              key={subject}
+              class={`select-filter-btn ${activeSubject === subject ? 'active' : ''}`}
+              onClick={() =>
+                setActiveSubject(activeSubject === subject ? null : subject)
+              }
+            >
+              {subject}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* シリーズ一覧 */}
-      <div class="select-series-list">
+      {/* シリーズ一覧（グリッドカード） */}
+      <div class="select-series-grid">
         {filteredGroups.map((group) => {
           const isOpen = openSeries.has(group.series)
           const clearedCount = getSeriesClearCount(group.entries)
           const isComplete = clearedCount === group.entries.length && clearedCount > 0
           return (
-            <div key={group.series} class="select-series-group">
+            <div key={group.series} class={`select-series-card ${isOpen ? 'open' : ''} ${isComplete ? 'complete' : ''}`}>
               <button
-                class={`select-series-header ${isComplete ? 'series-complete' : ''}`}
+                class="select-series-card-header"
                 onClick={() => toggleSeries(group.series)}
                 aria-expanded={isOpen}
               >
-                <span class="select-series-arrow">
-                  {isOpen ? '▼' : '▶'}
-                </span>
-                <span class="select-series-subject-tag">
-                  {group.subject}
-                </span>
-                <span class="select-series-name">{group.series}</span>
-                {clearedCount > 0 && (
-                  <span class={`select-series-clear ${isComplete ? 'complete' : ''}`}>
-                    {isComplete ? '★' : `${clearedCount}/${group.entries.length}`}
-                  </span>
-                )}
-                <span class="select-series-count">
-                  {group.entries.length}本
-                </span>
+                <div class="select-series-card-top">
+                  <span class="select-series-subject-tag">{group.subject}</span>
+                  {clearedCount > 0 && (
+                    <span class={`select-series-clear ${isComplete ? 'complete' : ''}`}>
+                      {isComplete ? '★ 全クリア' : `${clearedCount}/${group.entries.length}`}
+                    </span>
+                  )}
+                </div>
+                <div class="select-series-card-name">{group.series}</div>
+                <div class="select-series-card-meta">
+                  {group.entries.length}本 · 約{group.entries[0]?.estimatedMinutes ?? 18}分/本
+                </div>
               </button>
 
               {isOpen && (
@@ -199,13 +198,8 @@ export function ScenarioSelect({ onSelect }: Props) {
                             {record.rank}
                           </span>
                         )}
-                        <span class="select-vol-number">
-                          Vol.{entry.volume}
-                        </span>
+                        <span class="select-vol-number">Vol.{entry.volume}</span>
                         <span class="select-vol-title">{entry.title}</span>
-                        <span class="select-vol-time">
-                          約{entry.estimatedMinutes}分
-                        </span>
                       </button>
                     )
                   })}
