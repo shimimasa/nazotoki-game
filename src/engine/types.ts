@@ -38,6 +38,7 @@ export type Step =
   | SpriteGroupStep
   | BgStep
   | BgmStep
+  | AmbientStep
   | SeStep
   | EffectStep
   | ChoiceStep
@@ -82,6 +83,12 @@ export interface BgStep {
 export interface BgmStep {
   type: 'bgm'
   track?: string
+  action?: 'play' | 'stop' | 'fade-out'
+}
+
+export interface AmbientStep {
+  type: 'ambient'
+  sound?: string
   action?: 'play' | 'stop' | 'fade-out'
 }
 
@@ -135,6 +142,7 @@ export interface GameState {
   visibleSprites: SpriteState[]
   currentBg: string | null
   currentBgm: string | null
+  currentAmbient: string | null
   textDisplay: TextDisplayState
   activeChoice: ChoiceStep | null
   activeEffect: EffectStep | null

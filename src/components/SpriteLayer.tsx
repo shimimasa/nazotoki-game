@@ -121,12 +121,12 @@ export function SpriteLayer({ sprites, characters, speakingCharacter }: Props) {
         return (
           <div
             key={sprite.characterId}
+            class="sprite-card"
             style={{
               position: 'absolute',
-              bottom: '22vh', // テキストウィンドウの上端に合わせる
+              bottom: '22vh',
               left: leftPos,
               transform: 'translateX(-50%)',
-              transition: 'all 0.4s ease',
               width: cardWidth,
               maxWidth: '350px',
               display: 'flex',

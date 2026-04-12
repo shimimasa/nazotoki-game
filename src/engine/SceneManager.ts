@@ -27,6 +27,7 @@ export function createInitialState(): GameState {
     visibleSprites: [],
     currentBg: null,
     currentBgm: null,
+    currentAmbient: null,
     textDisplay: {
       text: '',
       characterName: null,
@@ -312,6 +313,9 @@ export function executeStep(
     case 'bgm':
       return advanceStep(script, applyBgm(state, step))
 
+    case 'ambient':
+      return advanceStep(script, applyAmbient(state, step))
+
     case 'se':
       return advanceStep(script, {
         ...state,
@@ -450,6 +454,19 @@ function applyBgm(
   }
   if (step.track) {
     return { ...state, currentBgm: step.track }
+  }
+  return state
+}
+
+function applyAmbient(
+  state: GameState,
+  step: { type: 'ambient'; sound?: string; action?: string }
+): GameState {
+  if (step.action === 'stop' || step.action === 'fade-out') {
+    return { ...state, currentAmbient: null }
+  }
+  if (step.sound) {
+    return { ...state, currentAmbient: step.sound }
   }
   return state
 }

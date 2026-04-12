@@ -93,6 +93,25 @@ export function stripRuby(text: string): string {
   return text.replace(RUBY_REGEX, '$1')
 }
 
+/**
+ * unitIndex 番目の表示単位の末尾文字を返す（句読点判定用）
+ */
+export function getUnitChar(segments: TextSegment[], unitIndex: number): string {
+  let pos = 0
+  for (const seg of segments) {
+    if (seg.type === 'ruby') {
+      if (pos === unitIndex) return seg.content[seg.content.length - 1]
+      pos++
+    } else {
+      for (const ch of seg.content) {
+        if (pos === unitIndex) return ch
+        pos++
+      }
+    }
+  }
+  return ''
+}
+
 function escapeHtml(text: string): string {
   return text
     .replace(/&/g, '&amp;')

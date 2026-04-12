@@ -7,7 +7,7 @@
 
 import { useEffect, useRef, useMemo } from 'preact/hooks'
 import type { TextDisplayState } from '../engine/types'
-import { parseRubyText, countVisualUnits, renderSegmentsToHtml } from '../engine/RubyParser'
+import { parseRubyText, countVisualUnits, renderSegmentsToHtml, getUnitChar } from '../engine/RubyParser'
 
 interface Props {
   display: TextDisplayState
@@ -79,17 +79,30 @@ function TypewriterRubyText({
 
     ref.current.innerHTML = ''
     let i = 0
-    const timer = setInterval(() => {
-      if (!ref.current) return
+    let cancelled = false
+    const PAUSE_LONG = '。！？'
+    const PAUSE_MID = '、'
+    const PAUSE_SHORT = '…—ー'
+
+    const advance = () => {
+      if (cancelled || !ref.current) return
       i++
       ref.current.innerHTML = renderSegmentsToHtml(segments, i, furigana)
       if (i >= totalUnits) {
-        clearInterval(timer)
         onComplete()
+        return
       }
-    }, speed)
+      const ch = getUnitChar(segments, i - 1)
+      let delay = speed
+      if (PAUSE_LONG.includes(ch)) delay = speed * 10
+      else if (PAUSE_MID.includes(ch)) delay = speed * 5
+      else if (PAUSE_SHORT.includes(ch)) delay = speed * 3
+      else if (ch === '\n') delay = speed * 7
+      setTimeout(advance, delay)
+    }
+    setTimeout(advance, speed)
 
-    return () => clearInterval(timer)
+    return () => { cancelled = true }
   }, [segments, totalUnits, isTyping, speed, furigana])
 
   return <p ref={ref} class="typewriter-text" />

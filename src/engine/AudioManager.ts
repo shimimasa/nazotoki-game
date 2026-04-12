@@ -8,7 +8,10 @@
 class AudioManagerImpl {
   private bgmElement: HTMLAudioElement | null = null
   private currentBgmTrack: string | null = null
+  private ambientElement: HTMLAudioElement | null = null
+  private currentAmbientTrack: string | null = null
   private bgmVolume = 0.4
+  private ambientVolume = 0.25
   private seVolume = 0.7
   private muted = false
 
@@ -75,6 +78,66 @@ class AudioManagerImpl {
   }
 
   /**
+   * 環境音を再生（BGMと同時にループ）
+   */
+  async playAmbient(track: string): Promise<void> {
+    if (this.currentAmbientTrack === track && this.ambientElement) return
+
+    this.stopAmbient()
+
+    const audio = new Audio(`/audio/ambient/${track}.mp3`)
+    audio.loop = true
+    audio.volume = this.muted ? 0 : this.ambientVolume
+
+    try {
+      await audio.play()
+      this.ambientElement = audio
+      this.currentAmbientTrack = track
+    } catch {
+      const retry = () => {
+        audio.play().then(() => {
+          this.ambientElement = audio
+          this.currentAmbientTrack = track
+        }).catch(() => {})
+        document.removeEventListener('click', retry)
+      }
+      document.addEventListener('click', retry, { once: true })
+    }
+  }
+
+  /**
+   * 環境音を停止
+   */
+  stopAmbient(): void {
+    if (this.ambientElement) {
+      this.ambientElement.pause()
+      this.ambientElement.currentTime = 0
+      this.ambientElement = null
+      this.currentAmbientTrack = null
+    }
+  }
+
+  /**
+   * 環境音をフェードアウト
+   */
+  async fadeOutAmbient(durationMs = 1000): Promise<void> {
+    if (!this.ambientElement) return
+
+    const audio = this.ambientElement
+    const startVolume = audio.volume
+    const steps = 20
+    const stepMs = durationMs / steps
+    const volumeStep = startVolume / steps
+
+    for (let i = 0; i < steps; i++) {
+      await new Promise((r) => setTimeout(r, stepMs))
+      audio.volume = Math.max(0, startVolume - volumeStep * (i + 1))
+    }
+
+    this.stopAmbient()
+  }
+
+  /**
    * SEを再生
    */
   playSe(sound: string): void {
@@ -92,6 +155,9 @@ class AudioManagerImpl {
     this.muted = !this.muted
     if (this.bgmElement) {
       this.bgmElement.volume = this.muted ? 0 : this.bgmVolume
+    }
+    if (this.ambientElement) {
+      this.ambientElement.volume = this.muted ? 0 : this.ambientVolume
     }
     return this.muted
   }

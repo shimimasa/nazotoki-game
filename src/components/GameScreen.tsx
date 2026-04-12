@@ -28,6 +28,7 @@ interface Props {
 
 export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Props) {
   const prevBgmRef = useRef<string | null>(null)
+  const prevAmbientRef = useRef<string | null>(null)
   const [showBacklog, setShowBacklog] = useState(false)
   const [autoMode, setAutoMode] = useState(false)
   const [furigana, setFurigana] = useState(() => {
@@ -76,6 +77,18 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
       prevBgmRef.current = state.currentBgm
     }
   }, [state.currentBgm])
+
+  // 環境音変更の監視
+  useEffect(() => {
+    if (state.currentAmbient !== prevAmbientRef.current) {
+      if (state.currentAmbient) {
+        audioManager.playAmbient(state.currentAmbient)
+      } else {
+        audioManager.fadeOutAmbient()
+      }
+      prevAmbientRef.current = state.currentAmbient
+    }
+  }, [state.currentAmbient])
 
   // SE再生
   useEffect(() => {
