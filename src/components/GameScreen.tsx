@@ -17,6 +17,7 @@ import { ChoicePanel } from './ChoicePanel'
 import { EffectLayer } from './EffectLayer'
 import { TitleCard } from './TitleCard'
 import { BacklogPanel } from './BacklogPanel'
+import { EvidenceBoard } from './EvidenceBoard'
 
 interface Props {
   script: ScriptData
@@ -30,6 +31,7 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
   const prevBgmRef = useRef<string | null>(null)
   const prevAmbientRef = useRef<string | null>(null)
   const [showBacklog, setShowBacklog] = useState(false)
+  const [showEvidence, setShowEvidence] = useState(false)
   const [autoMode, setAutoMode] = useState(false)
   const [furigana, setFurigana] = useState(() => {
     try { return localStorage.getItem('nazotoki-furigana') === 'on' } catch { return false }
@@ -141,7 +143,7 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
       try { localStorage.setItem('nazotoki-played', '1') } catch {}
       return
     }
-    if (showBacklog) return
+    if (showBacklog || showEvidence) return
     if (state.textDisplay.text && !state.activeChoice && !state.activeTitleCard) {
       audioManager.playSe('click')
     }
@@ -344,6 +346,24 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
           {audioManager.isMuted ? '🔇' : '🔊'}
         </button>
       </div>
+
+      {/* 証拠ボードトグル */}
+      {state.collectedEvidence.length > 0 && !state.activeChoice && !showBacklog && (
+        <button
+          class="evidence-toggle"
+          onClick={(e) => { e.stopPropagation(); setShowEvidence(true) }}
+        >
+          🔍 証拠
+          <span class="evidence-toggle-badge">{state.collectedEvidence.length}</span>
+        </button>
+      )}
+
+      {/* 証拠ボードパネル */}
+      <EvidenceBoard
+        evidence={state.collectedEvidence}
+        open={showEvidence}
+        onClose={() => setShowEvidence(false)}
+      />
 
       {/* バックログパネル */}
       {showBacklog && (

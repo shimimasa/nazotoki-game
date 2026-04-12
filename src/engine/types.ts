@@ -99,8 +99,13 @@ export interface SeStep {
 
 export interface EffectStep {
   type: 'effect'
-  name: 'shake' | 'flash' | 'fade-in' | 'fade-out'
+  name: 'shake' | 'flash' | 'fade-in' | 'fade-out' | 'zoom-in'
   duration?: number
+}
+
+export interface EvidenceItem {
+  sceneId: string
+  title: string
 }
 
 export interface ChoiceStep {
@@ -150,6 +155,7 @@ export interface GameState {
   currentBg: string | null
   currentBgm: string | null
   currentAmbient: string | null
+  collectedEvidence: EvidenceItem[]
   textDisplay: TextDisplayState
   activeChoice: ChoiceStep | null
   activeEffect: EffectStep | null

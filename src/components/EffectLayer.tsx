@@ -14,6 +14,7 @@ export function EffectLayer({ effect, onEffectDone }: Props) {
   const [shaking, setShaking] = useState(false)
   const [flash, setFlash] = useState(false)
   const [fadeOverlay, setFadeOverlay] = useState<'in' | 'out' | null>(null)
+  const [zooming, setZooming] = useState(false)
 
   useEffect(() => {
     if (!effect) return
@@ -52,6 +53,14 @@ export function EffectLayer({ effect, onEffectDone }: Props) {
           onEffectDone()
         }, duration)
         break
+
+      case 'zoom-in':
+        setZooming(true)
+        setTimeout(() => {
+          setZooming(false)
+          onEffectDone()
+        }, duration)
+        break
     }
   }, [effect])
 
@@ -77,6 +86,17 @@ export function EffectLayer({ effect, onEffectDone }: Props) {
           animation: 'vn-flash 0.3s ease-out forwards',
         }} />
       )}
+
+      {/* ズームイン */}
+      {zooming && <style>{`
+        .game-screen {
+          animation: vn-zoom-in ${(effect?.duration ?? 600)}ms ease-out forwards;
+        }
+        @keyframes vn-zoom-in {
+          from { transform: scale(1); }
+          to { transform: scale(1.15); }
+        }
+      `}</style>}
 
       {/* フェードオーバーレイ */}
       {fadeOverlay && (

@@ -28,6 +28,7 @@ export function createInitialState(): GameState {
     currentBg: null,
     currentBgm: null,
     currentAmbient: null,
+    collectedEvidence: [],
     textDisplay: {
       text: '',
       characterName: null,
@@ -271,8 +272,21 @@ export function advanceStep(
       }
     }
 
-    // 新シーンの初期bg/bgmを適用
+    // 新シーンの証拠自動収集
     const nextScene = script.scenes[nextSceneIndex]
+    if (isEvidenceScene(nextScene.id)) {
+      const title = extractEvidenceTitle(nextScene)
+      const alreadyCollected = state.collectedEvidence.some(e => e.sceneId === nextScene.id)
+      if (!alreadyCollected) {
+        state = {
+          ...state,
+          collectedEvidence: [...state.collectedEvidence, { sceneId: nextScene.id, title }],
+          pendingSounds: [...state.pendingSounds, 'discover'],
+        }
+      }
+    }
+
+    // 新シーンの初期bg/bgmを適用
     if (nextScene.bg) state = { ...state, currentBg: nextScene.bg }
     if (nextScene.bgm) {
       state = { ...state, currentBgm: nextScene.bgm }
@@ -480,6 +494,18 @@ function applyAmbient(
     return { ...state, currentAmbient: step.sound }
   }
   return state
+}
+
+function isEvidenceScene(id: string): boolean {
+  return id.startsWith('evidence') || id.startsWith('card-') || id === 'letter'
+}
+
+function extractEvidenceTitle(scene: { id: string; steps: Step[] }): string {
+  const titleCard = scene.steps.find(s => s.type === 'title_card') as { text: string; subtitle?: string } | undefined
+  if (titleCard) return titleCard.subtitle || titleCard.text
+  const narration = scene.steps.find(s => s.type === 'narration') as { text: string } | undefined
+  if (narration) return narration.text.replace(/\{([^|]+)\|[^}]+\}/g, '$1').slice(0, 30)
+  return scene.id
 }
 
 function updateSpriteExpression(
