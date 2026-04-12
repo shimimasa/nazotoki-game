@@ -274,14 +274,16 @@ export function advanceStep(
 
     // 新シーンの証拠自動収集
     const nextScene = script.scenes[nextSceneIndex]
-    if (isEvidenceScene(nextScene.id)) {
-      const title = extractEvidenceTitle(nextScene)
-      const evidence = state.collectedEvidence ?? []
-      const alreadyCollected = evidence.some(e => e.sceneId === nextScene.id)
+    if (nextScene.evidence || isEvidenceScene(nextScene.id)) {
+      const existing = state.collectedEvidence ?? []
+      const alreadyCollected = existing.some(e => e.sceneId === nextScene.id)
       if (!alreadyCollected) {
+        const item = nextScene.evidence
+          ? { sceneId: nextScene.id, title: nextScene.evidence.title, description: nextScene.evidence.description }
+          : { sceneId: nextScene.id, title: extractEvidenceTitle(nextScene) }
         state = {
           ...state,
-          collectedEvidence: [...evidence, { sceneId: nextScene.id, title }],
+          collectedEvidence: [...existing, item],
           pendingSounds: [...state.pendingSounds, 'discover'],
         }
       }

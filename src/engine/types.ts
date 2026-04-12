@@ -22,10 +22,16 @@ export interface CharacterDef {
   sprites: Record<string, string> // expression -> filename
 }
 
+export interface SceneEvidence {
+  title: string
+  description: string
+}
+
 export interface SceneDef {
   id: string
   bg?: string
   bgm?: string
+  evidence?: SceneEvidence
   steps: Step[]
 }
 
@@ -106,6 +112,7 @@ export interface EffectStep {
 export interface EvidenceItem {
   sceneId: string
   title: string
+  description?: string
 }
 
 export interface ChoiceStep {

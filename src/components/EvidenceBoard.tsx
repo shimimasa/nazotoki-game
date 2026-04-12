@@ -29,7 +29,12 @@ export function EvidenceBoard({ evidence, open, onClose }: Props) {
             evidence.map((item, i) => (
               <div key={item.sceneId} class="evidence-card">
                 <div class="evidence-card-number">{i + 1}</div>
-                <div class="evidence-card-title">{item.title}</div>
+                <div class="evidence-card-body">
+                  <div class="evidence-card-title">{item.title}</div>
+                  {item.description && (
+                    <div class="evidence-card-desc">{item.description}</div>
+                  )}
+                </div>
               </div>
             ))
           )}
