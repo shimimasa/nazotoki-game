@@ -111,11 +111,18 @@ export interface ChoiceStep {
   feedback_default?: string
 }
 
+export interface ChoiceReaction {
+  character: string
+  expression: string
+  text: string
+}
+
 export interface ChoiceOption {
   text: string
   value: string
   feedback?: string
-  correct?: boolean // trueで正解選択肢。不正解時はリトライ
+  correct?: boolean
+  reaction?: ChoiceReaction
 }
 
 export interface WaitStep {

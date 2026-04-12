@@ -81,20 +81,32 @@ export function processEvent(
       const selectedOption = choice.options.find((o) => o.value === event.value)
       const hasCorrectAnswer = choice.options.some((o) => o.correct)
       const isCorrect = !hasCorrectAnswer || !!selectedOption?.correct
-      const feedback =
-        selectedOption?.feedback || choice.feedback_default || null
-      // リトライ中かどうか（初回のみ totalJudged をカウント）
+      const reaction = selectedOption?.reaction
+      const feedback = reaction?.text || selectedOption?.feedback || choice.feedback_default || null
       const isRetry = !!state.retryChoice
 
+      let reactionCharName: string | null = null
+      let reactionCharColor: string | null = null
+      let reactionSprites = state.visibleSprites
+
+      if (reaction) {
+        const charDef = script.characters[reaction.character]
+        if (charDef) {
+          reactionCharName = charDef.name
+          reactionCharColor = charDef.color
+          reactionSprites = updateSpriteExpression(
+            reactionSprites, reaction.character, reaction.expression
+          )
+        }
+      }
+
       if (isCorrect) {
-        // 正解 or 正解なし選択肢 → 記録して次へ
-        // 初回正解: correctCount+1, totalJudged+1
-        // リトライ正解: correctCount+1のみ（totalJudgedは初回不正解時にカウント済み）
         const newState: GameState = {
           ...state,
           choices: { ...state.choices, [event.choiceId]: event.value },
           activeChoice: null,
           retryChoice: null,
+          visibleSprites: reactionSprites,
           correctCount: hasCorrectAnswer ? state.correctCount + 1 : state.correctCount,
           totalJudged: (hasCorrectAnswer && !isRetry) ? state.totalJudged + 1 : state.totalJudged,
           pendingSounds: hasCorrectAnswer
@@ -108,8 +120,8 @@ export function processEvent(
             feedbackIsCorrect: hasCorrectAnswer ? true : null,
             textDisplay: {
               text: feedback,
-              characterName: null,
-              characterColor: null,
+              characterName: reactionCharName,
+              characterColor: reactionCharColor,
               isTyping: true,
               visibleChars: 0,
             },
@@ -117,11 +129,11 @@ export function processEvent(
         }
         return { ...newState, feedbackIsCorrect: null }
       } else {
-        // 不正解 → フィードバック後にリトライ
         const newState: GameState = {
           ...state,
           activeChoice: null,
           retryChoice: choice,
+          visibleSprites: reactionSprites,
           totalJudged: !isRetry ? state.totalJudged + 1 : state.totalJudged,
           pendingSounds: [...state.pendingSounds, 'wrong'],
         }
@@ -132,14 +144,13 @@ export function processEvent(
             feedbackIsCorrect: false,
             textDisplay: {
               text: feedback,
-              characterName: null,
-              characterColor: null,
+              characterName: reactionCharName,
+              characterColor: reactionCharColor,
               isTyping: true,
               visibleChars: 0,
             },
           }
         }
-        // フィードバックなし → 即リトライ
         return { ...newState, activeChoice: choice, retryChoice: null }
       }
     }

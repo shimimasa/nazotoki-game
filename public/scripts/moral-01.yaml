@@ -176,14 +176,25 @@ scenes:
       - type: choice
         id: obs-direction
         question: "{破片|はへん}が{右側|みぎがわ}に{散|ち}らばっている。{力|ちから}はどこから{加|くわ}わった？"
-        feedback_default: "{破片|はへん}の{散|ち}らばりは、{力|ちから}が{加|くわ}わった{方向|ほうこう}の{反対側|はんたいがわ}に{出|で}やすい。"
         options:
           - text: "{左側|ひだりがわ}から"
             value: left
+            reaction:
+              character: nozomi
+              expression: kind
+              text: "そう！{破片|はへん}は{力|ちから}の{反対側|はんたいがわ}に{飛|と}ぶ。よく{気|き}づいたね。"
           - text: "{右側|みぎがわ}から"
             value: right
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "{破片|はへん}が{飛|と}んだ{方向|ほうこう}と、{力|ちから}の{方向|ほうこう}……もう{一度|いちど}{考|かんが}えてみて。"
           - text: "{真上|まうえ}から"
             value: top
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "{真上|まうえ}からなら{破片|はへん}は{均等|きんとう}に{散|ち}らばるはず。{片側|かたがわ}に{偏|かたよ}っているということは……？"
 
       - type: narration
         text: "そう——{左側|ひだりがわ}から{力|ちから}が{加|くわ}わったんだ。"
@@ -194,14 +205,25 @@ scenes:
       - type: choice
         id: obs-stand
         question: "{台|だい}を{調|しら}べよう。{気|き}になるところは？"
-        feedback_default: "よく{観察|かんさつ}するのが{大事|だいじ}。{全|すべ}ての{答|こた}えに{意味|いみ}がある。"
         options:
           - text: "{台|だい}の{脚|あし}の{長|なが}さ"
             value: legs
+            reaction:
+              character: nozomi
+              expression: kind
+              text: "いい{着眼点|ちゃくがんてん}！{脚|あし}を{詳|くわ}しく{調|しら}べてみよう。"
           - text: "{台|だい}の{表面|ひょうめん}のキズ"
             value: surface
+            reaction:
+              character: nozomi
+              expression: kind
+              text: "{表面|ひょうめん}も{大事|だいじ}な{手|て}がかり。でも、もっと{根本的|こんぽんてき}な{部分|ぶぶん}に{注目|ちゅうもく}してみて。"
           - text: "{台|だい}の{位置|いち}"
             value: position
+            reaction:
+              character: nozomi
+              expression: kind
+              text: "{位置|いち}も{気|き}になるね。{台|だい}の{構造|こうぞう}そのものも{見|み}てみよう。"
 
       - type: se
         sound: discover
@@ -252,16 +274,31 @@ scenes:
       - type: choice
         id: timeline-key
         question: "15:30 の{音|おと}に{一番|いちばん}{近|ちか}くにいた{可能性|かのうせい}があるのは？"
-        feedback_default: "{時間|じかん}だけでは{犯人|はんにん}は{決|き}まらない。4{人|にん}の{事情|じじょう}も{考|かんが}えよう。"
         options:
           - text: "ハヤト（15:28 に{走|はし}ってきた）"
             value: hayato
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "15:28に{全速力|ぜんそくりょく}で{走|はし}ってきた……{確|たし}かに{時間的|じかんてき}には{一番|いちばん}{近|ちか}いね。でも、なぜ{走|はし}っていたのか——それも{大事|だいじ}だよ。"
           - text: "ミルク（15:30 すぎに{図書室|としょしつ}{到着|とうちゃく}）"
             value: miruku
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "ミルクは15:30すぎに{図書室|としょしつ}に{着|つ}いた。でも、{図書室|としょしつ}に{行|い}く{途中|とちゅう}の{道|みち}は……花びんの{前|まえ}を{通|とお}るんだよね。"
           - text: "マモル（15:25 から{姿|すがた}が{見|み}えない）"
             value: mamoru
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "マモルは{見回|みまわ}り{当番|とうばん}だったのに、15:25から{廊下|ろうか}にいない……{気|き}になるね。"
           - text: "コトハ（15:22 に{飼育小屋|しいくごや}へ）"
             value: kotoha
+            reaction:
+              character: nozomi
+              expression: kind
+              text: "コトハは15:22に{飼育小屋|しいくごや}へ{向|む}かった。{音|おと}が{聞|き}こえない{距離|きょり}だけど……それだけで「{関係|かんけい}ない」と{言|い}えるかな？"
 
   # ========================================
   # Act 1: 調査 — 証拠カード③（4人の証言）
@@ -347,18 +384,37 @@ scenes:
       - type: choice
         id: hunch
         question: "{直感|ちょっかん}で、{誰|だれ}が{何|なに}か{隠|かく}していると{感|かん}じる？"
-        feedback_default: "{直感|ちょっかん}を{大切|たいせつ}に。{根拠|こんきょ}はあとから{見|み}つかることもある。"
         options:
           - text: "ハヤト"
             value: hayato
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "ハヤトは{走|はし}っていた{理由|りゆう}を{話|はな}したけど……それだけかな。"
           - text: "ミルク"
             value: miruku
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "ミルクは{少|すこ}し{怯|おび}えた{表情|ひょうじょう}をしていたね……{何|なに}を{見|み}たのかな。"
           - text: "マモル"
             value: mamoru
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "マモルは{当番|とうばん}を{離|はな}れていた。{自分|じぶん}を{責|せ}めているのかもしれない。"
           - text: "コトハ"
             value: kotoha
+            reaction:
+              character: nozomi
+              expression: worried
+              text: "コトハは{落|お}ち{着|つ}いて{見|み}えるけど……{落|お}ち{着|つ}きすぎていない？"
           - text: "{全員|ぜんいん}{何|なに}か{隠|かく}している{気|き}がする"
             value: all
+            reaction:
+              character: nozomi
+              expression: kind
+              text: "……そうかもしれない。{誰|だれ}もが{何|なに}かを{抱|かか}えているんだ。それを{聞|き}いていこう。"
 
   # ========================================
   # Act 2: 深掘り — 証拠カード④（卒業生の手紙）
