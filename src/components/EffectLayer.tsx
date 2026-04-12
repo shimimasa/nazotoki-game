@@ -40,6 +40,7 @@ export function EffectLayer({ effect, onEffectDone }: Props) {
       case 'fade-out':
         setFadeOverlay('out')
         setTimeout(() => {
+          setFadeOverlay(null)
           onEffectDone()
         }, duration)
         break
