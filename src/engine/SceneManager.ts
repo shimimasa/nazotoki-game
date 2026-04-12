@@ -276,11 +276,12 @@ export function advanceStep(
     const nextScene = script.scenes[nextSceneIndex]
     if (isEvidenceScene(nextScene.id)) {
       const title = extractEvidenceTitle(nextScene)
-      const alreadyCollected = state.collectedEvidence.some(e => e.sceneId === nextScene.id)
+      const evidence = state.collectedEvidence ?? []
+      const alreadyCollected = evidence.some(e => e.sceneId === nextScene.id)
       if (!alreadyCollected) {
         state = {
           ...state,
-          collectedEvidence: [...state.collectedEvidence, { sceneId: nextScene.id, title }],
+          collectedEvidence: [...evidence, { sceneId: nextScene.id, title }],
           pendingSounds: [...state.pendingSounds, 'discover'],
         }
       }
