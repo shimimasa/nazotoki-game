@@ -348,7 +348,7 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
       </div>
 
       {/* 証拠ボードトグル */}
-      {state.collectedEvidence.length > 0 && !state.activeChoice && !showBacklog && (
+      {(state.collectedEvidence?.length ?? 0) > 0 && !state.activeChoice && !showBacklog && (
         <button
           class="evidence-toggle"
           onClick={(e) => { e.stopPropagation(); setShowEvidence(true) }}
@@ -360,7 +360,7 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
 
       {/* 証拠ボードパネル */}
       <EvidenceBoard
-        evidence={state.collectedEvidence}
+        evidence={state.collectedEvidence ?? []}
         open={showEvidence}
         onClose={() => setShowEvidence(false)}
       />
