@@ -40,7 +40,7 @@ export function ScenarioSelect({ onSelect }: Props) {
   const [catalog, setCatalog] = useState<CatalogEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [openSeries, setOpenSeries] = useState<Set<string>>(new Set())
-  const [activeSubject, setActiveSubject] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [clearRecords, setClearRecords] = useState<Record<string, ClearRecord>>({})
 
   useEffect(() => {
@@ -55,10 +55,23 @@ export function ScenarioSelect({ onSelect }: Props) {
     setClearRecords(getAllClearRecords())
   }, [])
 
-  const subjects = useMemo(() => {
-    const subjectSet = new Set<string>()
-    catalog.forEach((e) => subjectSet.add(e.subject))
-    return Array.from(subjectSet)
+  const CATEGORY_MAP: Record<string, string[]> = {
+    '理数': ['理科', '算数', '物理', '数学', '数学深化', '実験', '地質'],
+    '社会': ['公民', '経済', '地理', '国際理解', '選挙'],
+    '言語・文学': ['英語', 'ことば', '名作文学'],
+    '道徳・哲学': ['道徳', '哲学'],
+    '生活・キャリア': ['キャリア', '食育', '家庭科', '農業'],
+    '情報・デジタル': ['デジタル', 'プログラミング', 'メディアリテラシー'],
+    '自然・環境': ['海洋', '宇宙', '天気', 'エネルギー', 'ESD', '生命', '昆虫'],
+    '安全・健康': ['防犯', '防災', '保健', '体育', '交通安全', '福祉', '医療'],
+    '文化・芸術': ['音楽', '美術', '図工', '伝統文化', '発明', 'デザイン思考', '特別活動', 'マンガ教養', 'ポップカルチャー', 'タイムトラベル', 'データ', '論理学', '感情', '人権', '平和', 'コミュニケーション', '金融'],
+  }
+
+  const categories = useMemo(() => {
+    const allSubjects = new Set(catalog.map(e => e.subject))
+    return Object.entries(CATEGORY_MAP).filter(([, subs]) =>
+      subs.some(s => allSubjects.has(s))
+    ).map(([name]) => name)
   }, [catalog])
 
   const groups = useMemo(() => {
@@ -87,9 +100,10 @@ export function ScenarioSelect({ onSelect }: Props) {
   }, [catalog])
 
   const filteredGroups = useMemo(() => {
-    if (!activeSubject) return groups
-    return groups.filter((g) => g.subject === activeSubject)
-  }, [groups, activeSubject])
+    if (!activeCategory) return groups
+    const matchingSubjects = CATEGORY_MAP[activeCategory] ?? []
+    return groups.filter((g) => matchingSubjects.includes(g.subject))
+  }, [groups, activeCategory])
 
   const toggleSeries = useCallback((series: string) => {
     setOpenSeries((prev) => {
@@ -130,27 +144,23 @@ export function ScenarioSelect({ onSelect }: Props) {
         )}
       </div>
 
-      {/* 教科フィルター（横スクロール） */}
-      <div class="select-filters-scroll">
-        <div class="select-filters">
+      {/* カテゴリフィルター */}
+      <div class="select-filters">
+        <button
+          class={`select-filter-btn ${activeCategory === null ? 'active' : ''}`}
+          onClick={() => setActiveCategory(null)}
+        >
+          すべて
+        </button>
+        {categories.map((cat) => (
           <button
-            class={`select-filter-btn ${activeSubject === null ? 'active' : ''}`}
-            onClick={() => setActiveSubject(null)}
+            key={cat}
+            class={`select-filter-btn ${activeCategory === cat ? 'active' : ''}`}
+            onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
           >
-            すべて
+            {cat}
           </button>
-          {subjects.map((subject) => (
-            <button
-              key={subject}
-              class={`select-filter-btn ${activeSubject === subject ? 'active' : ''}`}
-              onClick={() =>
-                setActiveSubject(activeSubject === subject ? null : subject)
-              }
-            >
-              {subject}
-            </button>
-          ))}
-        </div>
+        ))}
       </div>
 
       {/* シリーズ一覧（グリッドカード） */}
