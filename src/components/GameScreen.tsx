@@ -32,6 +32,8 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
   const prevAmbientRef = useRef<string | null>(null)
   const [showBacklog, setShowBacklog] = useState(false)
   const [showEvidence, setShowEvidence] = useState(false)
+  const [evidenceToast, setEvidenceToast] = useState<string | null>(null)
+  const prevEvidenceCount = useRef(0)
   const [autoMode, setAutoMode] = useState(false)
   const [furigana, setFurigana] = useState(() => {
     try { return localStorage.getItem('nazotoki-furigana') === 'on' } catch { return false }
@@ -91,6 +93,19 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
       prevAmbientRef.current = state.currentAmbient
     }
   }, [state.currentAmbient])
+
+  // 証拠入手トースト
+  useEffect(() => {
+    const evidence = state.collectedEvidence ?? []
+    if (evidence.length > prevEvidenceCount.current) {
+      const latest = evidence[evidence.length - 1]
+      setEvidenceToast(latest.title)
+      const timer = setTimeout(() => setEvidenceToast(null), 3000)
+      prevEvidenceCount.current = evidence.length
+      return () => clearTimeout(timer)
+    }
+    prevEvidenceCount.current = evidence.length
+  }, [state.collectedEvidence])
 
   // SE再生
   useEffect(() => {
@@ -347,8 +362,8 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
         </button>
       </div>
 
-      {/* 証拠ボードトグル */}
-      {(state.collectedEvidence?.length ?? 0) > 0 && !state.activeChoice && !showBacklog && (
+      {/* 証拠ボードトグル（choice中も表示して推理中に参照可能に） */}
+      {(state.collectedEvidence?.length ?? 0) > 0 && !showBacklog && (
         <button
           class="evidence-toggle"
           onClick={(e) => { e.stopPropagation(); setShowEvidence(true) }}
@@ -356,6 +371,14 @@ export function GameScreen({ script, state, onEvent, onGoBack, canGoBack }: Prop
           🔍 証拠
           <span class="evidence-toggle-badge">{state.collectedEvidence.length}</span>
         </button>
+      )}
+
+      {/* 証拠入手トースト */}
+      {evidenceToast && (
+        <div class="evidence-toast">
+          <span class="evidence-toast-icon">🔍</span>
+          <span class="evidence-toast-text">証拠入手！ {evidenceToast}</span>
+        </div>
       )}
 
       {/* 証拠ボードパネル */}
